@@ -1,0 +1,870 @@
+{
+ "case_id": "M31269608",
+ "decision_point": "2154-04-25 23:03:44",
+ "claims": [
+  "Monitor blood glucose levels closely due to elevated glucose levels.",
+  "Continue monitoring and managing electrolyte imbalances, particularly potassium and magnesium.",
+  "Assess for signs of infection given elevated white blood cell count and consider appropriate antibiotic therapy if indicated."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31269608A1::01",
+   "claim_id": "M31269608A1",
+   "claim_text": "Monitor blood glucose levels closely due to elevated glucose levels.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A1::02",
+   "claim_id": "M31269608A1",
+   "claim_text": "Monitor blood glucose levels closely due to elevated glucose levels.",
+   "kind": "fact",
+   "text": "Elevated glucose levels are present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M31269608A2::03",
+   "claim_id": "M31269608A2",
+   "claim_text": "Continue monitoring and managing electrolyte imbalances, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Continue monitoring electrolyte imbalances.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte imbalances",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A2::04",
+   "claim_id": "M31269608A2",
+   "claim_text": "Continue monitoring and managing electrolyte imbalances, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Continue managing electrolyte imbalances.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "continue",
+   "target": "electrolyte imbalances",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M31269608A2::05",
+   "claim_id": "M31269608A2",
+   "claim_text": "Continue monitoring and managing electrolyte imbalances, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A2::06",
+   "claim_id": "M31269608A2",
+   "claim_text": "Continue monitoring and managing electrolyte imbalances, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium closely.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A3::07",
+   "claim_id": "M31269608A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count and consider appropriate antibiotic therapy if indicated.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A3::08",
+   "claim_id": "M31269608A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count and consider appropriate antibiotic therapy if indicated.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M31269608A3::09",
+   "claim_id": "M31269608A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count and consider appropriate antibiotic therapy if indicated.",
+   "kind": "action",
+   "text": "Consider appropriate antibiotic therapy if indicated.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "start",
+   "target": "appropriate antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31269608A2::R01",
+   "claim_id": "M31269608A2",
+   "claim_text": "Continue monitoring and managing electrolyte imbalances, particularly potassium and magnesium.",
+   "kind": "fact",
+   "text": "Electrolyte imbalances is present.",
+   "concept": "electrolytes",
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M31269608A1::02",
+   "claim_id": "M31269608A1",
+   "claim_text": "Monitor blood glucose levels closely due to elevated glucose levels.",
+   "kind": "fact",
+   "text": "Elevated glucose levels are present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:220835",
+     "time": "2154-04-24 21:30:00",
+     "item": "Glucose",
+     "value": 143.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:220887",
+     "time": "2154-04-25 03:59:00",
+     "item": "Glucose",
+     "value": 174.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 174 mg/dL at 2154-04-25 03:59:00 (reference 70.0 to 100.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31269608A3::08",
+   "claim_id": "M31269608A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count and consider appropriate antibiotic therapy if indicated.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:220852",
+     "time": "2154-04-24 21:30:00",
+     "item": "White Blood Cells",
+     "value": 17.8,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:220877",
+     "time": "2154-04-25 03:59:00",
+     "item": "White Blood Cells",
+     "value": 17.1,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest WBC 17.1 K/uL at 2154-04-25 03:59:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31269608A2::R01",
+   "claim_id": "M31269608A2",
+   "claim_text": "Continue monitoring and managing electrolyte imbalances, particularly potassium and magnesium.",
+   "kind": "fact",
+   "text": "Electrolyte imbalances is present.",
+   "concept": "electrolytes",
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:220892",
+     "time": "2154-04-25 03:59:00",
+     "item": "Potassium",
+     "value": 3.0,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:220883",
+     "time": "2154-04-25 03:59:00",
+     "item": "Bicarbonate",
+     "value": 19.0,
+     "unit": "mEq/L",
+     "bounds": "22.0 to 32.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:220884",
+     "time": "2154-04-25 03:59:00",
+     "item": "Calcium, Total",
+     "value": 7.8,
+     "unit": "mg/dL",
+     "bounds": "8.4 to 10.3",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "'electrolytes abnormal' holds when any component is abnormal. sodium: no; potassium: yes; chloride: no; bicarbonate: yes; magnesium: no; calcium: yes; phosphate: no.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M31269608A1::01",
+   "claim_id": "M31269608A1",
+   "claim_text": "Monitor blood glucose levels closely due to elevated glucose levels.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2154-04-26 13:00:00:596640",
+     "time": "2154-04-26 13:00:00",
+     "item": "glucose",
+     "value": "152"
+    },
+    {
+     "rid": "chart:220621:2154-04-26 08:01:00:599818",
+     "time": "2154-04-26 08:01:00",
+     "item": "glucose",
+     "value": "150 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A2::03",
+   "claim_id": "M31269608A2",
+   "claim_text": "Continue monitoring and managing electrolyte imbalances, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Continue monitoring electrolyte imbalances.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte imbalances",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2154-04-26 08:01:00:599811",
+     "time": "2154-04-26 08:01:00",
+     "item": "sodium",
+     "value": "139 mEq/L"
+    },
+    {
+     "rid": "chart:220645:2154-04-26 01:10:00:600791",
+     "time": "2154-04-26 01:10:00",
+     "item": "sodium",
+     "value": "136 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2154-04-26 08:01:00:599814",
+     "time": "2154-04-26 08:01:00",
+     "item": "potassium",
+     "value": "3.5 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2154-04-26 01:10:00:600789",
+     "time": "2154-04-26 01:10:00",
+     "item": "potassium",
+     "value": "3.1 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2154-04-26 08:01:00:599815",
+     "time": "2154-04-26 08:01:00",
+     "item": "chloride",
+     "value": "104 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2154-04-26 01:10:00:600798",
+     "time": "2154-04-26 01:10:00",
+     "item": "chloride",
+     "value": "103 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2154-04-26 08:01:00:599816",
+     "time": "2154-04-26 08:01:00",
+     "item": "bicarbonate",
+     "value": "19 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2154-04-26 01:10:00:600790",
+     "time": "2154-04-26 01:10:00",
+     "item": "bicarbonate",
+     "value": "21 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2154-04-26 08:01:00:599821",
+     "time": "2154-04-26 08:01:00",
+     "item": "magnesium",
+     "value": "2.3 mg/dL"
+    },
+    {
+     "rid": "chart:220635:2154-04-26 01:10:00:600785",
+     "time": "2154-04-26 01:10:00",
+     "item": "magnesium",
+     "value": "2.2 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2154-04-26 08:01:00:599823",
+     "time": "2154-04-26 08:01:00",
+     "item": "calcium",
+     "value": "8.1 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2154-04-26 01:10:00:600793",
+     "time": "2154-04-26 01:10:00",
+     "item": "calcium",
+     "value": "7.9 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2154-04-26 08:01:00:599824",
+     "time": "2154-04-26 08:01:00",
+     "item": "phosphate",
+     "value": "2.6 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2154-04-26 01:10:00:600786",
+     "time": "2154-04-26 01:10:00",
+     "item": "phosphate",
+     "value": "2.7 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x6, potassium x6, chloride x6, bicarbonate x6, magnesium x6, calcium x8, phosphate x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A2::04",
+   "claim_id": "M31269608A2",
+   "claim_text": "Continue monitoring and managing electrolyte imbalances, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Continue managing electrolyte imbalances.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "continue",
+   "target": "electrolyte imbalances",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX65840579",
+     "time": "2154-04-26 04:00:00",
+     "item": "Ordered: Potassium Chloride 40 mEq PO",
+     "class": "potassium_replacement"
+    },
+    {
+     "rid": "RX76001535",
+     "time": "2154-04-26 04:00:00",
+     "item": "Ordered: Potassium Chloride 40 mEq PO",
+     "class": "potassium_replacement"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded potassium replacement / magnesium replacement / calcium replacement / phosphate replacement after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M31269608A2::05",
+   "claim_id": "M31269608A2",
+   "claim_text": "Continue monitoring and managing electrolyte imbalances, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227442:2154-04-26 08:01:00:599814",
+     "time": "2154-04-26 08:01:00",
+     "item": "potassium",
+     "value": "3.5 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2154-04-26 01:10:00:600789",
+     "time": "2154-04-26 01:10:00",
+     "item": "potassium",
+     "value": "3.1 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A2::06",
+   "claim_id": "M31269608A2",
+   "claim_text": "Continue monitoring and managing electrolyte imbalances, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium closely.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220635:2154-04-26 08:01:00:599821",
+     "time": "2154-04-26 08:01:00",
+     "item": "magnesium",
+     "value": "2.3 mg/dL"
+    },
+    {
+     "rid": "chart:220635:2154-04-26 01:10:00:600785",
+     "time": "2154-04-26 01:10:00",
+     "item": "magnesium",
+     "value": "2.2 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): magnesium x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A3::07",
+   "claim_id": "M31269608A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count and consider appropriate antibiotic therapy if indicated.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A3::09",
+   "claim_id": "M31269608A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count and consider appropriate antibiotic therapy if indicated.",
+   "kind": "action",
+   "text": "Consider appropriate antibiotic therapy if indicated.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "start",
+   "target": "appropriate antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.8 mg/dL at 2154-04-25 03:59:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M31269608A2::04"
+   ]
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2154-04-25 03:59:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 11,
+   "covered": true,
+   "by_atoms": [
+    "M31269608A2::04"
+   ]
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LevETIRAcetam"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Enalapril Maleate",
+    "HydrALAZINE",
+    "Hydralazine"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CT scan",
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Atenolol",
+    "Labetalol"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dexamethasone"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M31269608A2::04"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.8 mg/dL at 2154-04-25 03:59:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M31269608A2::04"
+   ]
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2154-04-25 03:59:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 11,
+   "covered": true,
+   "by_atoms": [
+    "M31269608A2::04"
+   ]
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LevETIRAcetam"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Enalapril Maleate",
+    "HydrALAZINE",
+    "Hydralazine"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CT scan",
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Atenolol",
+    "Labetalol"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dexamethasone"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M31269608A2::04"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 55,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.667,
+  "recall_okay": 0.125,
+  "recall_all": 0.273,
+  "recall_vital_at3": 0.667,
+  "recall_okay_at3": 0.125,
+  "recall_all_at3": 0.273
+ }
+}

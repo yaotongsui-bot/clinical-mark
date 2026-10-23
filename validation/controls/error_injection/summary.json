@@ -1,0 +1,176 @@
+{
+ "cases_evaluated": 202,
+ "claims_per_case": 1.0,
+ "ai_atoms": {
+  "action": 221,
+  "fact": 56,
+  "goal": 9
+ },
+ "unscored_share": 0.137,
+ "facts": {
+  "n": 56,
+  "labels": {
+   "not_supported": 25,
+   "supported": 4,
+   "unverifiable": 1,
+   "not_addressed": 26
+  },
+  "accuracy": 0.138,
+  "cases_with_not_supported": 22,
+  "by_fact_kind": {
+   "observed": {
+    "n": 14,
+    "labels": {
+     "not_supported": 13,
+     "unverifiable": 1
+    },
+    "accuracy": 0.0
+   },
+   "presupposition": {
+    "n": 42,
+    "labels": {
+     "not_supported": 12,
+     "supported": 4,
+     "not_addressed": 26
+    },
+    "accuracy": 0.25
+   },
+   "judgment": {
+    "n": 0,
+    "labels": {},
+    "accuracy": null
+   },
+   "underspecified": {
+    "n": 0,
+    "labels": {},
+    "accuracy": null
+   }
+  }
+ },
+ "treatment_actions": {
+  "n": 193,
+  "labels": {
+   "match": 7,
+   "vague_target": 3,
+   "not_done": 120,
+   "partial_match": 63
+  },
+  "precision_strict": 0.037,
+  "precision_lenient": 0.368
+ },
+ "monitoring_actions": {
+  "n": 28,
+  "labels": {
+   "unobservable": 8,
+   "performed": 20
+  },
+  "performed_rate": 1.0
+ },
+ "goals_excluded": 9,
+ "coverage": {
+  "vital": {
+   "covered": 5,
+   "total": 596,
+   "micro": 0.008,
+   "macro": 0.009
+  },
+  "okay": {
+   "covered": 2,
+   "total": 1036,
+   "micro": 0.002,
+   "macro": 0.002
+  },
+  "all": {
+   "covered": 7,
+   "total": 1632,
+   "micro": 0.004,
+   "macro": 0.006
+  },
+  "vital_at3": {
+   "covered": 5,
+   "total": 596,
+   "micro": 0.008,
+   "macro": 0.009
+  },
+  "okay_at3": {
+   "covered": 2,
+   "total": 1036,
+   "micro": 0.002,
+   "macro": 0.002
+  },
+  "all_at3": {
+   "covered": 7,
+   "total": 1632,
+   "micro": 0.004,
+   "macro": 0.006
+  },
+  "problem_linked": 392,
+  "problem_linked_missed": 387,
+  "most_missed_vital": [
+   [
+    "antimicrobials",
+    124
+   ],
+   [
+    "IV fluids",
+    86
+   ],
+   [
+    "invasive mechanical ventilation",
+    74
+   ],
+   [
+    "vasopressors",
+    68
+   ],
+   [
+    "calcium replacement",
+    50
+   ],
+   [
+    "insulin",
+    31
+   ],
+   [
+    "red cell transfusion",
+    27
+   ],
+   [
+    "rate / rhythm control",
+    21
+   ],
+   [
+    "phosphate replacement",
+    18
+   ],
+   [
+    "platelet / plasma transfusion",
+    15
+   ]
+  ]
+ },
+ "judge_panel": {
+  "items": 29,
+  "agreement": {
+   "3/3": 7,
+   "2/3": 22
+  }
+ },
+ "gold_standard": "patient records (pre-decision records for facts; post-decision clinician actions for actions)",
+ "run": {
+  "triples": "control_error_injection.json",
+  "ai_model": "qwen2.5:14b",
+  "judge_models": [
+   "gemma4:12b",
+   "llama3.1:8b-instruct-q4_K_M",
+   "qwen2.5:14b"
+  ],
+  "judge_think": [
+   "gemma4:12b"
+  ],
+  "retrieval": "hybrid",
+  "top_n": 50,
+  "llm_calls": 0,
+  "cache_hits": 292
+ }
+}

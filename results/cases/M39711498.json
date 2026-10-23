@@ -1,0 +1,610 @@
+{
+ "case_id": "M39711498",
+ "decision_point": "2131-05-23 21:50:33",
+ "claims": [
+  "Monitor electrolyte levels, particularly potassium, closely.",
+  "Continue heparin to prevent thrombosis.",
+  "Assess for signs of infection based on laboratory results."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39711498A1::01",
+   "claim_id": "M39711498A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39711498A1::02",
+   "claim_id": "M39711498A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39711498A2::03",
+   "claim_id": "M39711498A2",
+   "claim_text": "Continue heparin to prevent thrombosis.",
+   "kind": "action",
+   "text": "Continue heparin.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39711498A3::04",
+   "claim_id": "M39711498A3",
+   "claim_text": "Assess for signs of infection based on laboratory results.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39711498A2::P01",
+   "claim_id": "M39711498A2",
+   "claim_text": "Continue heparin to prevent thrombosis.",
+   "kind": "fact",
+   "text": "The patient is currently receiving heparin.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39711498A2::P01",
+   "claim_id": "M39711498A2",
+   "claim_text": "Continue heparin to prevent thrombosis.",
+   "kind": "fact",
+   "text": "The patient is currently receiving heparin.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The patient received a dose of Heparin at 20:24 on 2031-05-23, which is within the 24-hour window before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "emar:10038999-41",
+     "time": "2131-05-23 20:24:00",
+     "item": "MAR Administered: Heparin"
+    },
+    {
+     "rid": "inputevents:5537870:225975:2131-05-23 00:50:00",
+     "time": "2131-05-23 00:50:00",
+     "item": "Infusion/input Heparin Sodium (Prophylaxis) 1 dose (2131-05-23 00:50:00 to 2131-05-23 00:51:00)"
+    },
+    {
+     "rid": "emar:10038999-26",
+     "time": "2131-05-23 09:00:00",
+     "item": "MAR Administered: Heparin"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39711498A1::01",
+   "claim_id": "M39711498A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2131-05-24 06:38:00:22524",
+     "time": "2131-05-24 06:38:00",
+     "item": "sodium",
+     "value": "139 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2131-05-24 06:38:00:74602",
+     "time": "2131-05-24 06:38:00",
+     "item": "sodium",
+     "value": "139 mEq/L"
+    },
+    {
+     "rid": "chart:227464:2131-05-24 05:19:00:21659",
+     "time": "2131-05-24 05:19:00",
+     "item": "potassium",
+     "value": "4.1 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2131-05-24 06:38:00:22517",
+     "time": "2131-05-24 06:38:00",
+     "item": "potassium",
+     "value": "4.4 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2131-05-24 06:38:00:22509",
+     "time": "2131-05-24 06:38:00",
+     "item": "chloride",
+     "value": "100 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2131-05-24 06:38:00:74610",
+     "time": "2131-05-24 06:38:00",
+     "item": "chloride",
+     "value": "100 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2131-05-24 06:38:00:22514",
+     "time": "2131-05-24 06:38:00",
+     "item": "bicarbonate",
+     "value": "26 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2131-05-24 06:38:00:74612",
+     "time": "2131-05-24 06:38:00",
+     "item": "bicarbonate",
+     "value": "26 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2131-05-24 06:38:00:22518",
+     "time": "2131-05-24 06:38:00",
+     "item": "magnesium",
+     "value": "2.3 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2131-05-24 06:38:00:74609",
+     "time": "2131-05-24 06:38:00",
+     "item": "magnesium",
+     "value": "2.3 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2131-05-24 06:38:00:22529",
+     "time": "2131-05-24 06:38:00",
+     "item": "calcium",
+     "value": "8.2 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2131-05-24 06:38:00:74616",
+     "time": "2131-05-24 06:38:00",
+     "item": "calcium",
+     "value": "8.2 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2131-05-24 06:38:00:22510",
+     "time": "2131-05-24 06:38:00",
+     "item": "phosphate",
+     "value": "4.1 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2131-05-24 06:38:00:74607",
+     "time": "2131-05-24 06:38:00",
+     "item": "phosphate",
+     "value": "4.1 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x4, chloride x2, bicarbonate x2, magnesium x2, calcium x2, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39711498A1::02",
+   "claim_id": "M39711498A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227464:2131-05-24 05:19:00:21659",
+     "time": "2131-05-24 05:19:00",
+     "item": "potassium",
+     "value": "4.1 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2131-05-24 06:38:00:22517",
+     "time": "2131-05-24 06:38:00",
+     "item": "potassium",
+     "value": "4.4 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39711498A2::03",
+   "claim_id": "M39711498A2",
+   "claim_text": "Continue heparin to prevent thrombosis.",
+   "kind": "action",
+   "text": "Continue heparin.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "E10038999-55",
+     "time": "2131-05-24 08:12:00",
+     "item": "Given: Heparin",
+     "class": "anticoagulant_therapeutic"
+    },
+    {
+     "rid": "E10038999-77",
+     "time": "2131-05-24 20:00:00",
+     "item": "Given: Heparin",
+     "class": "anticoagulant_therapeutic"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded anticoagulation (therapeutic) after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39711498A3::04",
+   "claim_id": "M39711498A3",
+   "claim_text": "Assess for signs of infection based on laboratory results.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 11.5 K/uL at 2131-05-23 18:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'. Median temperature over the 6 h before the decision: 101.1 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes.",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Divalproex Sod. Sprinkles"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "QUEtiapine Fumarate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen",
+    "Acetaminophen (Liquid)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M39711498A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 11.5 K/uL at 2131-05-23 18:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'. Median temperature over the 6 h before the decision: 101.1 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes.",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Divalproex Sod. Sprinkles"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "QUEtiapine Fumarate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen",
+    "Acetaminophen (Liquid)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M39711498A2::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 70,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.125,
+  "recall_all": 0.1,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.125,
+  "recall_all_at3": 0.1
+ }
+}

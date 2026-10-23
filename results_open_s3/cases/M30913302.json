@@ -1,0 +1,980 @@
+{
+ "case_id": "M30913302",
+ "decision_point": "2187-05-19 18:39:00",
+ "claims": [
+  "Monitor blood glucose levels closely given recent elevation.",
+  "Check electrolyte panel including potassium and magnesium.",
+  "Assess and manage pain as per current symptoms.",
+  "Evaluate for potential underlying causes of altered mental status.",
+  "Continue mechanical ventilation and adjust settings as needed.",
+  "Reassess and manage fluid status, given recent changes in vital signs.",
+  "Continue insulin therapy as needed for elevated glucose levels.",
+  "Monitor patient for signs of respiratory distress or complications.",
+  "Assess need for nutritional support given inadequate nutrition.",
+  "Continue anticonvulsant therapy with levetiracetam."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30913302A1::01",
+   "claim_id": "M30913302A1",
+   "claim_text": "Monitor blood glucose levels closely given recent elevation.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30913302A1::02",
+   "claim_id": "M30913302A1",
+   "claim_text": "Monitor blood glucose levels closely given recent elevation.",
+   "kind": "fact",
+   "text": "Recent elevation in blood glucose levels is present.",
+   "concept": "glucose",
+   "notes": [
+    "concept set by the rule files: blood_gas -> glucose"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M30913302A2::03",
+   "claim_id": "M30913302A2",
+   "claim_text": "Check electrolyte panel including potassium and magnesium.",
+   "kind": "action",
+   "text": "Check electrolyte panel including potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "electrolyte panel",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M30913302A2::04",
+   "claim_id": "M30913302A2",
+   "claim_text": "Check electrolyte panel including potassium and magnesium.",
+   "kind": "action",
+   "text": "Check magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "magnesium",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M30913302A3::05",
+   "claim_id": "M30913302A3",
+   "claim_text": "Assess and manage pain as per current symptoms.",
+   "kind": "action",
+   "text": "Assess and manage pain as per current symptoms.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30913302A4::06",
+   "claim_id": "M30913302A4",
+   "claim_text": "Evaluate for potential underlying causes of altered mental status.",
+   "kind": "action",
+   "text": "Evaluate for potential underlying causes of altered mental status.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "underlying causes of altered mental status",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30913302A5::07",
+   "claim_id": "M30913302A5",
+   "claim_text": "Continue mechanical ventilation and adjust settings as needed.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation and adjust settings as needed.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30913302A5::08",
+   "claim_id": "M30913302A5",
+   "claim_text": "Continue mechanical ventilation and adjust settings as needed.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M30913302A6::09",
+   "claim_id": "M30913302A6",
+   "claim_text": "Reassess and manage fluid status, given recent changes in vital signs.",
+   "kind": "action",
+   "text": "Reassess and manage fluid status, given recent changes in vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "assess",
+   "target": "fluid status",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30913302A7::10",
+   "claim_id": "M30913302A7",
+   "claim_text": "Continue insulin therapy as needed for elevated glucose levels.",
+   "kind": "action",
+   "text": "Continue insulin therapy as needed for elevated glucose levels.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30913302A8::11",
+   "claim_id": "M30913302A8",
+   "claim_text": "Monitor patient for signs of respiratory distress or complications.",
+   "kind": "action",
+   "text": "Monitor patient for signs of respiratory distress or complications.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of respiratory distress or complications",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30913302A9::12",
+   "claim_id": "M30913302A9",
+   "claim_text": "Assess need for nutritional support given inadequate nutrition.",
+   "kind": "action",
+   "text": "Assess need for nutritional support given inadequate nutrition.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "nutritional support",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30913302A10::13",
+   "claim_id": "M30913302A10",
+   "claim_text": "Continue anticonvulsant therapy with levetiracetam.",
+   "kind": "action",
+   "text": "Continue anticonvulsant therapy with levetiracetam.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "anticonvulsant therapy with levetiracetam",
+   "conditional": false,
+   "treatment_class": "antiepileptic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30913302A7::P01",
+   "claim_id": "M30913302A7",
+   "claim_text": "Continue insulin therapy as needed for elevated glucose levels.",
+   "kind": "fact",
+   "text": "The patient is currently receiving insulin therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M30913302A10::P02",
+   "claim_id": "M30913302A10",
+   "claim_text": "Continue anticonvulsant therapy with levetiracetam.",
+   "kind": "fact",
+   "text": "The patient is currently receiving anticonvulsant therapy with levetiracetam.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30913302A1::02",
+   "claim_id": "M30913302A1",
+   "claim_text": "Monitor blood glucose levels closely given recent elevation.",
+   "kind": "fact",
+   "text": "Recent elevation in blood glucose levels is present.",
+   "concept": "glucose",
+   "notes": [
+    "concept set by the rule files: blood_gas -> glucose"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:264837",
+     "time": "2187-05-19 03:54:00",
+     "item": "Glucose",
+     "value": 104.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "1 of 2 glucose values in the 24 h before the decision were high.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M30913302A5::08",
+   "claim_id": "M30913302A5",
+   "claim_text": "Continue mechanical ventilation and adjust settings as needed.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:30913302:223849:2187-05-19 12:00:00",
+     "time": "2187-05-19 12:00:00",
+     "item": "Ventilator Mode: CMV/ASSIST/AutoFlow (49)"
+    }
+   ],
+   "reason": "The last ventilator/intubation record ('Ventilator Mode: CMV/ASSIST/AutoFlow (49)') was 6.7 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M30913302A7::P01",
+   "claim_id": "M30913302A7",
+   "claim_text": "Continue insulin therapy as needed for elevated glucose levels.",
+   "kind": "fact",
+   "text": "The patient is currently receiving insulin therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_addressed",
+   "reason": "The judges disagreed; the conservative label was used and the item needs human review.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "split",
+    "votes": {
+     "gemma4:12b": "not_addressed",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "not_supported"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "M30913302A10::P02",
+   "claim_id": "M30913302A10",
+   "claim_text": "Continue anticonvulsant therapy with levetiracetam.",
+   "kind": "fact",
+   "text": "The patient is currently receiving anticonvulsant therapy with levetiracetam.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_addressed",
+   "reason": "No administration of this treatment is recorded in the 24 h before the decision. (Panel verdict: supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "not_addressed",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    },
+    "panel_label": "supported"
+   },
+   "evidence": [
+    {
+     "rid": "rx:43551990:2187-05-19 14:00:00",
+     "time": "2187-05-19 14:00:00",
+     "item": "Order: LeVETiracetam 1000 mg IV (active at decision time)"
+    },
+    {
+     "rid": "rx:14301940:2187-05-19 14:00:00",
+     "time": "2187-05-19 14:00:00",
+     "item": "Order: LeVETiracetam 1000 mg IV (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30913302A1::01",
+   "claim_id": "M30913302A1",
+   "claim_text": "Monitor blood glucose levels closely given recent elevation.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2187-05-19 22:00:00:45498",
+     "time": "2187-05-19 22:00:00",
+     "item": "glucose",
+     "value": "118"
+    },
+    {
+     "rid": "chart:225664:2187-05-20 10:00:00:45730",
+     "time": "2187-05-20 10:00:00",
+     "item": "glucose",
+     "value": "144"
+    }
+   ],
+   "reason": "Measured in the 21.4 h observation window after the decision (24 h or until ICU discharge): glucose x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A2::03",
+   "claim_id": "M30913302A2",
+   "claim_text": "Check electrolyte panel including potassium and magnesium.",
+   "kind": "action",
+   "text": "Check electrolyte panel including potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "electrolyte panel",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2187-05-20 02:47:00:46845",
+     "time": "2187-05-20 02:47:00",
+     "item": "sodium",
+     "value": "134 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2187-05-20 02:47:00:90845",
+     "time": "2187-05-20 02:47:00",
+     "item": "sodium",
+     "value": "134 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2187-05-20 02:47:00:46847",
+     "time": "2187-05-20 02:47:00",
+     "item": "potassium",
+     "value": "2.8 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2187-05-20 02:47:00:90849",
+     "time": "2187-05-20 02:47:00",
+     "item": "potassium",
+     "value": "___ mEq/L"
+    },
+    {
+     "rid": "chart:220602:2187-05-20 02:47:00:46848",
+     "time": "2187-05-20 02:47:00",
+     "item": "chloride",
+     "value": "102 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2187-05-20 02:47:00:90841",
+     "time": "2187-05-20 02:47:00",
+     "item": "chloride",
+     "value": "102 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2187-05-20 02:47:00:46850",
+     "time": "2187-05-20 02:47:00",
+     "item": "bicarbonate",
+     "value": "25 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2187-05-20 02:47:00:90847",
+     "time": "2187-05-20 02:47:00",
+     "item": "bicarbonate",
+     "value": "25 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2187-05-20 02:47:00:46846",
+     "time": "2187-05-20 02:47:00",
+     "item": "magnesium",
+     "value": "1.7 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2187-05-20 02:47:00:90848",
+     "time": "2187-05-20 02:47:00",
+     "item": "magnesium",
+     "value": "1.7 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2187-05-20 02:47:00:46841",
+     "time": "2187-05-20 02:47:00",
+     "item": "calcium",
+     "value": "7.9 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2187-05-20 02:47:00:90844",
+     "time": "2187-05-20 02:47:00",
+     "item": "calcium",
+     "value": "7.9 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2187-05-20 02:47:00:46849",
+     "time": "2187-05-20 02:47:00",
+     "item": "phosphate",
+     "value": "1.8 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2187-05-20 02:47:00:90843",
+     "time": "2187-05-20 02:47:00",
+     "item": "phosphate",
+     "value": "1.8 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 21.4 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, magnesium x2, calcium x2, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A2::04",
+   "claim_id": "M30913302A2",
+   "claim_text": "Check electrolyte panel including potassium and magnesium.",
+   "kind": "action",
+   "text": "Check magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "magnesium",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220635:2187-05-20 02:47:00:46846",
+     "time": "2187-05-20 02:47:00",
+     "item": "magnesium",
+     "value": "1.7 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2187-05-20 02:47:00:90848",
+     "time": "2187-05-20 02:47:00",
+     "item": "magnesium",
+     "value": "1.7 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 21.4 h observation window after the decision (24 h or until ICU discharge): magnesium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A3::05",
+   "claim_id": "M30913302A3",
+   "claim_text": "Assess and manage pain as per current symptoms.",
+   "kind": "action",
+   "text": "Assess and manage pain as per current symptoms.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223791:2187-05-19 20:00:00:45448",
+     "time": "2187-05-19 20:00:00",
+     "item": "pain score",
+     "value": "Moderate"
+    },
+    {
+     "rid": "chart:223791:2187-05-20 08:00:00:45670",
+     "time": "2187-05-20 08:00:00",
+     "item": "pain score",
+     "value": "Unable to Score"
+    }
+   ],
+   "reason": "Measured in the 21.4 h observation window after the decision (24 h or until ICU discharge): pain score x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A4::06",
+   "claim_id": "M30913302A4",
+   "claim_text": "Evaluate for potential underlying causes of altered mental status.",
+   "kind": "action",
+   "text": "Evaluate for potential underlying causes of altered mental status.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "underlying causes of altered mental status",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A5::07",
+   "claim_id": "M30913302A5",
+   "claim_text": "Continue mechanical ventilation and adjust settings as needed.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation and adjust settings as needed.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (1 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "chart:223835:2187-05-19 20:00:00:45454",
+     "time": "2187-05-19 20:00:00",
+     "item": "ventilator setting",
+     "value": "40",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30913302A6::09",
+   "claim_id": "M30913302A6",
+   "claim_text": "Reassess and manage fluid status, given recent changes in vital signs.",
+   "kind": "action",
+   "text": "Reassess and manage fluid status, given recent changes in vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "assess",
+   "target": "fluid status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2187-05-19 19:00:00:45300",
+     "time": "2187-05-19 19:00:00",
+     "item": "heart rate",
+     "value": "94 bpm"
+    },
+    {
+     "rid": "chart:220045:2187-05-19 20:00:00:45328",
+     "time": "2187-05-19 20:00:00",
+     "item": "heart rate",
+     "value": "98 bpm"
+    },
+    {
+     "rid": "chart:220179:2187-05-19 19:00:00:45295",
+     "time": "2187-05-19 19:00:00",
+     "item": "systolic BP",
+     "value": "135 mmHg"
+    },
+    {
+     "rid": "chart:220179:2187-05-19 20:00:00:45382",
+     "time": "2187-05-19 20:00:00",
+     "item": "systolic BP",
+     "value": "105 mmHg"
+    },
+    {
+     "rid": "chart:220181:2187-05-19 19:00:00:45296",
+     "time": "2187-05-19 19:00:00",
+     "item": "mean arterial pressure",
+     "value": "96 mmHg"
+    },
+    {
+     "rid": "chart:220181:2187-05-19 20:00:00:45339",
+     "time": "2187-05-19 20:00:00",
+     "item": "mean arterial pressure",
+     "value": "88 mmHg"
+    },
+    {
+     "rid": "chart:220210:2187-05-19 19:00:00:45298",
+     "time": "2187-05-19 19:00:00",
+     "item": "respiratory rate",
+     "value": "23 insp/min"
+    },
+    {
+     "rid": "chart:220210:2187-05-19 20:00:00:45369",
+     "time": "2187-05-19 20:00:00",
+     "item": "respiratory rate",
+     "value": "19 insp/min"
+    },
+    {
+     "rid": "chart:220277:2187-05-19 19:00:00:45303",
+     "time": "2187-05-19 19:00:00",
+     "item": "SpO2",
+     "value": "100 %"
+    },
+    {
+     "rid": "chart:220277:2187-05-19 20:00:00:45426",
+     "time": "2187-05-19 20:00:00",
+     "item": "SpO2",
+     "value": "100 %"
+    },
+    {
+     "rid": "chart:223761:2187-05-19 20:00:00:45402",
+     "time": "2187-05-19 20:00:00",
+     "item": "temperature",
+     "value": "99.4 °F"
+    },
+    {
+     "rid": "chart:223761:2187-05-20 00:00:00:45534",
+     "time": "2187-05-20 00:00:00",
+     "item": "temperature",
+     "value": "100.1 °F"
+    }
+   ],
+   "reason": "Measured in the 21.4 h observation window after the decision (24 h or until ICU discharge): heart rate x21, systolic BP x21, mean arterial pressure x21, respiratory rate x21, SpO2 x21, temperature x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A7::10",
+   "claim_id": "M30913302A7",
+   "claim_text": "Continue insulin therapy as needed for elevated glucose levels.",
+   "kind": "action",
+   "text": "Continue insulin therapy as needed for elevated glucose levels.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 21.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30913302A8::11",
+   "claim_id": "M30913302A8",
+   "claim_text": "Monitor patient for signs of respiratory distress or complications.",
+   "kind": "action",
+   "text": "Monitor patient for signs of respiratory distress or complications.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of respiratory distress or complications",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A9::12",
+   "claim_id": "M30913302A9",
+   "claim_text": "Assess need for nutritional support given inadequate nutrition.",
+   "kind": "action",
+   "text": "Assess need for nutritional support given inadequate nutrition.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "nutritional support",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A10::13",
+   "claim_id": "M30913302A10",
+   "claim_text": "Continue anticonvulsant therapy with levetiracetam.",
+   "kind": "action",
+   "text": "Continue anticonvulsant therapy with levetiracetam.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "anticonvulsant therapy with levetiracetam",
+   "conditional": false,
+   "treatment_class": "antiepileptic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antiepileptics action recorded in the 21.4 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "D5 1/2NS",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M30913302A2::03"
+   ]
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M30913302A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "D5 1/2NS",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M30913302A2::03"
+   ]
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M30913302A2::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 38,
+ "observation_window_hours": 21.4,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 2,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The last ventilator/intubation record ('Ventilator Mode: CMV/ASSIST/AutoFlow (49)') was 6.7 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T."
+   ],
+   "not_addressed": [
+    "The patient is currently receiving insulin therapy. -- The judges disagreed; the conservative label was used and the item needs human review.",
+    "The patient is currently receiving anticonvulsant therapy with levetiracetam. -- No administration of this treatment is recorded in the 24 h before the decision. (Panel verdict: supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.5,
+  "recall_vital": null,
+  "recall_okay": 0.286,
+  "recall_all": 0.286,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.286,
+  "recall_all_at3": 0.286
+ }
+}

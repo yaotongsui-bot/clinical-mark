@@ -1,0 +1,996 @@
+{
+ "case_id": "M35544374",
+ "decision_point": "2113-08-05 18:47:42",
+ "claims": [
+  "Monitor INR (PT) and PTT closely, as the current values suggest a potential risk of inadequate anticoagulation or bleeding.",
+  "Administer a loading dose of Heparin if the INR is not within the therapeutic range, and continue with maintenance doses as ordered.",
+  "Assess for signs of bleeding, given the current INR and PTT levels, and consider adjusting anticoagulation therapy if necessary.",
+  "Monitor vital signs closely, particularly heart rate and blood pressure, due to recent fluctuations and alarms.",
+  "Continue pain management with Acetaminophen as ordered, and reassess the patient's pain level regularly.",
+  "Monitor electrolyte levels, particularly potassium, given the recent changes and the patient's current levels.",
+  "Continue monitoring glucose levels, as the patient has a moderate pain level and may be at risk for hyperglycemia.",
+  "Assess the patient's ability to ambulate, given the current limitations and the history of falling, and consider a physical therapy referral if appropriate.",
+  "Continue the use of 18 gauge IV lines and ensure they are properly maintained and dressed to prevent complications.",
+  "Monitor the patient's respiratory status, given the recent increases in respiratory rate and oxygen saturation alarms."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35544374A1::01",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor INR (PT) and PTT closely, as the current values suggest a potential risk of inadequate anticoagulation or bleeding.",
+   "kind": "action",
+   "text": "Monitor INR (PT) closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR (PT)",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A1::02",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor INR (PT) and PTT closely, as the current values suggest a potential risk of inadequate anticoagulation or bleeding.",
+   "kind": "action",
+   "text": "Monitor PTT closely.",
+   "concept": "ptt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PTT",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A1::03",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor INR (PT) and PTT closely, as the current values suggest a potential risk of inadequate anticoagulation or bleeding.",
+   "kind": "fact",
+   "text": "The current INR and PTT values suggest a potential risk of inadequate anticoagulation or bleeding.",
+   "concept": "coagulation",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "other",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M35544374A2::04",
+   "claim_id": "M35544374A2",
+   "claim_text": "Administer a loading dose of Heparin if the INR is not within the therapeutic range, and continue with maintenance doses as ordered.",
+   "kind": "action",
+   "text": "Administer a loading dose of Heparin if the INR is not within the therapeutic range.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Heparin",
+   "conditional": true,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35544374A2::05",
+   "claim_id": "M35544374A2",
+   "claim_text": "Administer a loading dose of Heparin if the INR is not within the therapeutic range, and continue with maintenance doses as ordered.",
+   "kind": "fact",
+   "text": "The INR is not within the therapeutic range.",
+   "concept": "inr",
+   "notes": [
+    "concept set by the rule files: coagulation -> inr"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "other",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M35544374A3::06",
+   "claim_id": "M35544374A3",
+   "claim_text": "Assess for signs of bleeding, given the current INR and PTT levels, and consider adjusting anticoagulation therapy if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of bleeding.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of bleeding",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A3::07",
+   "claim_id": "M35544374A3",
+   "claim_text": "Assess for signs of bleeding, given the current INR and PTT levels, and consider adjusting anticoagulation therapy if necessary.",
+   "kind": "fact",
+   "text": "The current INR and PTT levels suggest a risk of bleeding.",
+   "concept": "inr",
+   "notes": [
+    "concept set by the rule files: coagulation -> inr"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "other",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M35544374A4::08",
+   "claim_id": "M35544374A4",
+   "claim_text": "Monitor vital signs closely, particularly heart rate and blood pressure, due to recent fluctuations and alarms.",
+   "kind": "action",
+   "text": "Monitor vital signs closely.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A4::09",
+   "claim_id": "M35544374A4",
+   "claim_text": "Monitor vital signs closely, particularly heart rate and blood pressure, due to recent fluctuations and alarms.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A4::10",
+   "claim_id": "M35544374A4",
+   "claim_text": "Monitor vital signs closely, particularly heart rate and blood pressure, due to recent fluctuations and alarms.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A5::11",
+   "claim_id": "M35544374A5",
+   "claim_text": "Continue pain management with Acetaminophen as ordered, and reassess the patient's pain level regularly.",
+   "kind": "action",
+   "text": "Continue pain management with Acetaminophen as ordered.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Acetaminophen",
+   "conditional": false,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35544374A5::12",
+   "claim_id": "M35544374A5",
+   "claim_text": "Continue pain management with Acetaminophen as ordered, and reassess the patient's pain level regularly.",
+   "kind": "action",
+   "text": "Reassess the patient's pain level regularly.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain level",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A6::13",
+   "claim_id": "M35544374A6",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, given the recent changes and the patient's current levels.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A6::14",
+   "claim_id": "M35544374A6",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, given the recent changes and the patient's current levels.",
+   "kind": "action",
+   "text": "Monitor potassium levels.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A7::15",
+   "claim_id": "M35544374A7",
+   "claim_text": "Continue monitoring glucose levels, as the patient has a moderate pain level and may be at risk for hyperglycemia.",
+   "kind": "action",
+   "text": "Continue monitoring glucose levels.",
+   "concept": "glucose",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "glucose levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A8::16",
+   "claim_id": "M35544374A8",
+   "claim_text": "Assess the patient's ability to ambulate, given the current limitations and the history of falling, and consider a physical therapy referral if appropriate.",
+   "kind": "action",
+   "text": "Assess the patient's ability to ambulate.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "ability to ambulate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A8::17",
+   "claim_id": "M35544374A8",
+   "claim_text": "Assess the patient's ability to ambulate, given the current limitations and the history of falling, and consider a physical therapy referral if appropriate.",
+   "kind": "fact",
+   "text": "The patient has current limitations and a history of falling.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "other",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M35544374A9::18",
+   "claim_id": "M35544374A9",
+   "claim_text": "Continue the use of 18 gauge IV lines and ensure they are properly maintained and dressed to prevent complications.",
+   "kind": "action",
+   "text": "Continue the use of 18 gauge IV lines.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "18 gauge IV lines",
+   "conditional": false,
+   "treatment_class": "lines_devices",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35544374A9::19",
+   "claim_id": "M35544374A9",
+   "claim_text": "Continue the use of 18 gauge IV lines and ensure they are properly maintained and dressed to prevent complications.",
+   "kind": "action",
+   "text": "Ensure 18 gauge IV lines are properly maintained and dressed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "other",
+   "target": "properly maintained and dressed",
+   "conditional": false,
+   "treatment_class": "lines_devices",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35544374A10::20",
+   "claim_id": "M35544374A10",
+   "claim_text": "Monitor the patient's respiratory status, given the recent increases in respiratory rate and oxygen saturation alarms.",
+   "kind": "action",
+   "text": "Monitor the patient's respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A5::P01",
+   "claim_id": "M35544374A5",
+   "claim_text": "Continue pain management with Acetaminophen as ordered, and reassess the patient's pain level regularly.",
+   "kind": "fact",
+   "text": "The patient is currently receiving Acetaminophen.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M35544374A9::P02",
+   "claim_id": "M35544374A9",
+   "claim_text": "Continue the use of 18 gauge IV lines and ensure they are properly maintained and dressed to prevent complications.",
+   "kind": "fact",
+   "text": "The patient is currently receiving 18 gauge IV lines.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35544374A1::03",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor INR (PT) and PTT closely, as the current values suggest a potential risk of inadequate anticoagulation or bleeding.",
+   "kind": "fact",
+   "text": "The current INR and PTT values suggest a potential risk of inadequate anticoagulation or bleeding.",
+   "concept": "coagulation",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "other",
+   "time": "current",
+   "specimen": "blood",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "A hedged statement ('suspected', 'risk of', 'could indicate'), not a checkable fact."
+  },
+  {
+   "atom_id": "M35544374A2::05",
+   "claim_id": "M35544374A2",
+   "claim_text": "Administer a loading dose of Heparin if the INR is not within the therapeutic range, and continue with maintenance doses as ordered.",
+   "kind": "fact",
+   "text": "The INR is not within the therapeutic range.",
+   "concept": "inr",
+   "notes": [
+    "concept set by the rule files: coagulation -> inr"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "other",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_addressed",
+   "reason": "The judges disagreed; the conservative label was used and the item needs human review.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "split",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "not_supported",
+     "qwen2.5:14b": "not_addressed"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "M35544374A3::07",
+   "claim_id": "M35544374A3",
+   "claim_text": "Assess for signs of bleeding, given the current INR and PTT levels, and consider adjusting anticoagulation therapy if necessary.",
+   "kind": "fact",
+   "text": "The current INR and PTT levels suggest a risk of bleeding.",
+   "concept": "inr",
+   "notes": [
+    "concept set by the rule files: coagulation -> inr"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "other",
+   "time": "current",
+   "specimen": "blood",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "A hedged statement ('suspected', 'risk of', 'could indicate'), not a checkable fact."
+  },
+  {
+   "atom_id": "M35544374A8::17",
+   "claim_id": "M35544374A8",
+   "claim_text": "Assess the patient's ability to ambulate, given the current limitations and the history of falling, and consider a physical therapy referral if appropriate.",
+   "kind": "fact",
+   "text": "The patient has current limitations and a history of falling.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "other",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "While the records confirm 'Slight Limitations' in mobility (R2, R17, R38, R44), they explicitly state that the patient has no history of falling (R7, R15, R29, R43).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "not_supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:35544374:227341:2113-08-04 21:42:00",
+     "time": "2113-08-04 21:42:00",
+     "item": "History of falling (within 3 mnths): No (0)"
+    },
+    {
+     "rid": "chart:35544374:227341:2113-08-05 00:00:00",
+     "time": "2113-08-05 00:00:00",
+     "item": "History of falling (within 3 mnths): No (0)"
+    },
+    {
+     "rid": "chart:35544374:225094:2113-08-05 03:07:00",
+     "time": "2113-08-05 03:07:00",
+     "item": "History of slips / falls: 0"
+    },
+    {
+     "rid": "chart:35544374:227341:2113-08-05 08:44:00",
+     "time": "2113-08-05 08:44:00",
+     "item": "History of falling (within 3 mnths): No (0)"
+    },
+    {
+     "rid": "chart:35544374:224057:2113-08-04 19:39:00",
+     "time": "2113-08-04 19:39:00",
+     "item": "Braden Mobility: Slight Limitations (3)"
+    },
+    {
+     "rid": "chart:35544374:224057:2113-08-05 00:00:00",
+     "time": "2113-08-05 00:00:00",
+     "item": "Braden Mobility: Slight Limitations (3)"
+    },
+    {
+     "rid": "chart:35544374:224057:2113-08-05 04:00:00",
+     "time": "2113-08-05 04:00:00",
+     "item": "Braden Mobility: Slight Limitations (3)"
+    },
+    {
+     "rid": "chart:35544374:224057:2113-08-05 08:44:00",
+     "time": "2113-08-05 08:44:00",
+     "item": "Braden Mobility: Slight Limitations (3)"
+    },
+    {
+     "rid": "chart:35544374:225131:2113-08-05 03:07:00",
+     "time": "2113-08-05 03:07:00",
+     "item": "Teaching directed toward: Patient"
+    }
+   ]
+  },
+  {
+   "atom_id": "M35544374A5::P01",
+   "claim_id": "M35544374A5",
+   "claim_text": "Continue pain management with Acetaminophen as ordered, and reassess the patient's pain level regularly.",
+   "kind": "fact",
+   "text": "The patient is currently receiving Acetaminophen.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The patient received Acetaminophen at 16:31 on 2023-08-05, which is within the 24-hour window before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "emar:10031404-19",
+     "time": "2113-08-05 16:31:00",
+     "item": "MAR Administered: Acetaminophen"
+    },
+    {
+     "rid": "emar:10031404-17",
+     "time": "2113-08-05 02:59:00",
+     "item": "MAR Administered: Acetaminophen"
+    }
+   ]
+  },
+  {
+   "atom_id": "M35544374A9::P02",
+   "claim_id": "M35544374A9",
+   "claim_text": "Continue the use of 18 gauge IV lines and ensure they are properly maintained and dressed to prevent complications.",
+   "kind": "fact",
+   "text": "The patient is currently receiving 18 gauge IV lines.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Records R7 and R11 explicitly state that the 'Procedure 18 Gauge' is running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "procedureevents:9318270:224277:2113-08-04 21:44:00",
+     "time": "2113-08-04 21:44:00",
+     "item": "Running at decision time (started 2113-08-04 21:44:00): Procedure 18 Gauge"
+    },
+    {
+     "rid": "procedureevents:3827312:224277:2113-08-04 21:45:00",
+     "time": "2113-08-04 21:45:00",
+     "item": "Running at decision time (started 2113-08-04 21:45:00): Procedure 18 Gauge"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35544374A1::01",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor INR (PT) and PTT closely, as the current values suggest a potential risk of inadequate anticoagulation or bleeding.",
+   "kind": "action",
+   "text": "Monitor INR (PT) closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR (PT)",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No INR measurement in the 5.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A1::02",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor INR (PT) and PTT closely, as the current values suggest a potential risk of inadequate anticoagulation or bleeding.",
+   "kind": "action",
+   "text": "Monitor PTT closely.",
+   "concept": "ptt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PTT",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No PTT measurement in the 5.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A2::04",
+   "claim_id": "M35544374A2",
+   "claim_text": "Administer a loading dose of Heparin if the INR is not within the therapeutic range, and continue with maintenance doses as ordered.",
+   "kind": "action",
+   "text": "Administer a loading dose of Heparin if the INR is not within the therapeutic range.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Heparin",
+   "conditional": true,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (therapeutic) action recorded in the 5.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35544374A3::06",
+   "claim_id": "M35544374A3",
+   "claim_text": "Assess for signs of bleeding, given the current INR and PTT levels, and consider adjusting anticoagulation therapy if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of bleeding.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of bleeding",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A4::08",
+   "claim_id": "M35544374A4",
+   "claim_text": "Monitor vital signs closely, particularly heart rate and blood pressure, due to recent fluctuations and alarms.",
+   "kind": "action",
+   "text": "Monitor vital signs closely.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2113-08-05 19:00:00:97994",
+     "time": "2113-08-05 19:00:00",
+     "item": "heart rate",
+     "value": "106 bpm"
+    },
+    {
+     "rid": "chart:220045:2113-08-05 20:00:00:97995",
+     "time": "2113-08-05 20:00:00",
+     "item": "heart rate",
+     "value": "110 bpm"
+    },
+    {
+     "rid": "chart:220179:2113-08-05 20:01:00:98079",
+     "time": "2113-08-05 20:01:00",
+     "item": "systolic BP",
+     "value": "120 mmHg"
+    },
+    {
+     "rid": "chart:220179:2113-08-05 21:01:00:98083",
+     "time": "2113-08-05 21:01:00",
+     "item": "systolic BP",
+     "value": "136 mmHg"
+    },
+    {
+     "rid": "chart:220181:2113-08-05 20:01:00:98080",
+     "time": "2113-08-05 20:01:00",
+     "item": "mean arterial pressure",
+     "value": "76 mmHg"
+    },
+    {
+     "rid": "chart:220181:2113-08-05 21:01:00:98082",
+     "time": "2113-08-05 21:01:00",
+     "item": "mean arterial pressure",
+     "value": "75 mmHg"
+    },
+    {
+     "rid": "chart:220210:2113-08-05 19:00:00:97993",
+     "time": "2113-08-05 19:00:00",
+     "item": "respiratory rate",
+     "value": "22 insp/min"
+    },
+    {
+     "rid": "chart:220210:2113-08-05 20:00:00:98006",
+     "time": "2113-08-05 20:00:00",
+     "item": "respiratory rate",
+     "value": "23 insp/min"
+    },
+    {
+     "rid": "chart:220277:2113-08-05 23:00:00:98025",
+     "time": "2113-08-05 23:00:00",
+     "item": "SpO2",
+     "value": "94 %"
+    },
+    {
+     "rid": "chart:220277:2113-08-05 21:09:00:98160",
+     "time": "2113-08-05 21:09:00",
+     "item": "SpO2",
+     "value": "92 %"
+    },
+    {
+     "rid": "chart:223761:2113-08-05 20:00:00:98008",
+     "time": "2113-08-05 20:00:00",
+     "item": "temperature",
+     "value": "98 °F"
+    }
+   ],
+   "reason": "Measured in the 5.0 h observation window after the decision (24 h or until ICU discharge): heart rate x5, systolic BP x5, mean arterial pressure x5, respiratory rate x5, SpO2 x2, temperature x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A4::09",
+   "claim_id": "M35544374A4",
+   "claim_text": "Monitor vital signs closely, particularly heart rate and blood pressure, due to recent fluctuations and alarms.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2113-08-05 19:00:00:97994",
+     "time": "2113-08-05 19:00:00",
+     "item": "heart rate",
+     "value": "106 bpm"
+    },
+    {
+     "rid": "chart:220045:2113-08-05 20:00:00:97995",
+     "time": "2113-08-05 20:00:00",
+     "item": "heart rate",
+     "value": "110 bpm"
+    }
+   ],
+   "reason": "Measured in the 5.0 h observation window after the decision (24 h or until ICU discharge): heart rate x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A4::10",
+   "claim_id": "M35544374A4",
+   "claim_text": "Monitor vital signs closely, particularly heart rate and blood pressure, due to recent fluctuations and alarms.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220179:2113-08-05 20:01:00:98079",
+     "time": "2113-08-05 20:01:00",
+     "item": "systolic BP",
+     "value": "120 mmHg"
+    },
+    {
+     "rid": "chart:220179:2113-08-05 21:01:00:98083",
+     "time": "2113-08-05 21:01:00",
+     "item": "systolic BP",
+     "value": "136 mmHg"
+    },
+    {
+     "rid": "chart:220181:2113-08-05 20:01:00:98080",
+     "time": "2113-08-05 20:01:00",
+     "item": "mean arterial pressure",
+     "value": "76 mmHg"
+    },
+    {
+     "rid": "chart:220181:2113-08-05 21:01:00:98082",
+     "time": "2113-08-05 21:01:00",
+     "item": "mean arterial pressure",
+     "value": "75 mmHg"
+    }
+   ],
+   "reason": "Measured in the 5.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x5, mean arterial pressure x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A5::11",
+   "claim_id": "M35544374A5",
+   "claim_text": "Continue pain management with Acetaminophen as ordered, and reassess the patient's pain level regularly.",
+   "kind": "action",
+   "text": "Continue pain management with Acetaminophen as ordered.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Acetaminophen",
+   "conditional": false,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-opioid analgesia action recorded in the 5.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35544374A5::12",
+   "claim_id": "M35544374A5",
+   "claim_text": "Continue pain management with Acetaminophen as ordered, and reassess the patient's pain level regularly.",
+   "kind": "action",
+   "text": "Reassess the patient's pain level regularly.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain level",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No pain score measurement in the 5.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A6::13",
+   "claim_id": "M35544374A6",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, given the recent changes and the patient's current levels.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 5.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A6::14",
+   "claim_id": "M35544374A6",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, given the recent changes and the patient's current levels.",
+   "kind": "action",
+   "text": "Monitor potassium levels.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 5.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A7::15",
+   "claim_id": "M35544374A7",
+   "claim_text": "Continue monitoring glucose levels, as the patient has a moderate pain level and may be at risk for hyperglycemia.",
+   "kind": "action",
+   "text": "Continue monitoring glucose levels.",
+   "concept": "glucose",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "glucose levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No glucose measurement in the 5.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A8::16",
+   "claim_id": "M35544374A8",
+   "claim_text": "Assess the patient's ability to ambulate, given the current limitations and the history of falling, and consider a physical therapy referral if appropriate.",
+   "kind": "action",
+   "text": "Assess the patient's ability to ambulate.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "ability to ambulate",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A9::18",
+   "claim_id": "M35544374A9",
+   "claim_text": "Continue the use of 18 gauge IV lines and ensure they are properly maintained and dressed to prevent complications.",
+   "kind": "action",
+   "text": "Continue the use of 18 gauge IV lines.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "18 gauge IV lines",
+   "conditional": false,
+   "treatment_class": "lines_devices",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR224277",
+     "time": "2113-08-04 21:44:00",
+     "item": "18 Gauge continuing",
+     "class": "lines_devices"
+    },
+    {
+     "rid": "PR224277#2",
+     "time": "2113-08-04 21:45:00",
+     "item": "18 Gauge continuing",
+     "class": "lines_devices"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded lines and devices after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35544374A9::19",
+   "claim_id": "M35544374A9",
+   "claim_text": "Continue the use of 18 gauge IV lines and ensure they are properly maintained and dressed to prevent complications.",
+   "kind": "action",
+   "text": "Ensure 18 gauge IV lines are properly maintained and dressed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "other",
+   "target": "properly maintained and dressed",
+   "conditional": false,
+   "treatment_class": "lines_devices",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR224277",
+     "time": "2113-08-04 21:44:00",
+     "item": "18 Gauge continuing",
+     "class": "lines_devices"
+    },
+    {
+     "rid": "PR224277#2",
+     "time": "2113-08-04 21:45:00",
+     "item": "18 Gauge continuing",
+     "class": "lines_devices"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded lines and devices after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35544374A10::20",
+   "claim_id": "M35544374A10",
+   "claim_text": "Monitor the patient's respiratory status, given the recent increases in respiratory rate and oxygen saturation alarms.",
+   "kind": "action",
+   "text": "Monitor the patient's respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2113-08-05 19:00:00:97993",
+     "time": "2113-08-05 19:00:00",
+     "item": "respiratory rate",
+     "value": "22 insp/min"
+    },
+    {
+     "rid": "chart:220210:2113-08-05 20:00:00:98006",
+     "time": "2113-08-05 20:00:00",
+     "item": "respiratory rate",
+     "value": "23 insp/min"
+    },
+    {
+     "rid": "chart:220277:2113-08-05 23:00:00:98025",
+     "time": "2113-08-05 23:00:00",
+     "item": "SpO2",
+     "value": "94 %"
+    },
+    {
+     "rid": "chart:220277:2113-08-05 21:09:00:98160",
+     "time": "2113-08-05 21:09:00",
+     "item": "SpO2",
+     "value": "92 %"
+    }
+   ],
+   "reason": "Measured in the 5.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x5, SpO2 x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "doctor_actions_in_window": 4,
+ "observation_window_hours": 5.0,
+ "scoresheet": {
+  "n": 6,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 1,
+  "unverifiable": 2,
+  "supported_share": 0.333,
+  "not_supported_share": 0.167,
+  "not_addressed_share": 0.167,
+  "unverifiable_share": 0.333,
+  "reasons": {
+   "not_supported": [
+    "The patient has current limitations and a history of falling. -- While the records confirm 'Slight Limitations' in mobility (R2, R17, R38, R44), they explicitly state that the patient has no history of falling (R7, R15, R29, R43)."
+   ],
+   "not_addressed": [
+    "The INR is not within the therapeutic range. -- The judges disagreed; the conservative label was used and the item needs human review."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.667,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

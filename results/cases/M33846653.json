@@ -1,0 +1,442 @@
+{
+ "case_id": "M33846653",
+ "decision_point": "2137-06-20 19:09:00",
+ "claims": [
+  "Monitor blood glucose levels closely.",
+  "Continue insulin therapy.",
+  "Assess for signs of hypokalemia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M33846653A1::01",
+   "claim_id": "M33846653A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33846653A2::02",
+   "claim_id": "M33846653A2",
+   "claim_text": "Continue insulin therapy.",
+   "kind": "action",
+   "text": "Continue insulin therapy.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin therapy",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M33846653A3::03",
+   "claim_id": "M33846653A3",
+   "claim_text": "Assess for signs of hypokalemia.",
+   "kind": "action",
+   "text": "Assess for signs of hypokalemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypokalemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33846653A2::P01",
+   "claim_id": "M33846653A2",
+   "claim_text": "Continue insulin therapy.",
+   "kind": "fact",
+   "text": "The patient is currently receiving insulin therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M33846653A2::P01",
+   "claim_id": "M33846653A2",
+   "claim_text": "Continue insulin therapy.",
+   "kind": "fact",
+   "text": "The patient is currently receiving insulin therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The patient received a dose of Insulin-Humalog at 17:45 on 2137-06-20, which is within 24 hours of the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "not_supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:9732131:223262:2137-06-20 17:45:00",
+     "time": "2137-06-20 17:45:00",
+     "item": "Infusion/input Insulin - Humalog 4 units (2137-06-20 17:45:00 to 2137-06-20 17:46:00)"
+    },
+    {
+     "rid": "inputevents:1117026:223258:2137-06-19 20:41:00",
+     "time": "2137-06-19 20:41:00",
+     "item": "Infusion/input Insulin - Regular at 2.0003499984741211 units/hour (2137-06-19 20:41:00 to 2137-06-19 22:02:00)"
+    },
+    {
+     "rid": "inputevents:9371143:223258:2137-06-19 22:02:00",
+     "time": "2137-06-19 22:02:00",
+     "item": "Infusion/input Insulin - Regular at 4.0006999969482422 units/hour (2137-06-19 22:02:00 to 2137-06-20 00:23:00)"
+    },
+    {
+     "rid": "inputevents:8540094:223258:2137-06-20 00:23:00",
+     "time": "2137-06-20 00:23:00",
+     "item": "Infusion/input Insulin - Regular at 4.998870849609375 units/hour (2137-06-20 00:23:00 to 2137-06-20 01:08:00)"
+    },
+    {
+     "rid": "inputevents:5471986:223258:2137-06-20 01:08:00",
+     "time": "2137-06-20 01:08:00",
+     "item": "Infusion/input Insulin - Regular at 5.9999041557312012 units/hour (2137-06-20 01:08:00 to 2137-06-20 04:07:00)"
+    },
+    {
+     "rid": "inputevents:8349760:223258:2137-06-20 04:07:00",
+     "time": "2137-06-20 04:07:00",
+     "item": "Infusion/input Insulin - Regular at 4.4999279975891113 units/hour (2137-06-20 04:07:00 to 2137-06-20 05:00:00)"
+    },
+    {
+     "rid": "inputevents:1957298:223258:2137-06-20 05:00:00",
+     "time": "2137-06-20 05:00:00",
+     "item": "Infusion/input Insulin - Regular at 3.0012564659118652 units/hour (2137-06-20 05:00:00 to 2137-06-20 06:02:00)"
+    },
+    {
+     "rid": "rx:43451335:2137-06-20 06:00:00",
+     "time": "2137-06-20 06:00:00",
+     "item": "Order: Insulin 0 UNIT SC (active at decision time)"
+    },
+    {
+     "rid": "inputevents:7692608:223260:2137-06-20 06:00:00",
+     "time": "2137-06-20 06:00:00",
+     "item": "Infusion/input Insulin - Glargine 20 units (2137-06-20 06:00:00 to 2137-06-20 06:01:00)"
+    },
+    {
+     "rid": "inputevents:4234893:223258:2137-06-20 07:00:00",
+     "time": "2137-06-20 07:00:00",
+     "item": "Infusion/input Insulin - Regular at 2 units/hour (2137-06-20 07:00:00 to 2137-06-20 08:00:00)"
+    },
+    {
+     "rid": "inputevents:298688:223262:2137-06-20 10:20:00",
+     "time": "2137-06-20 10:20:00",
+     "item": "Infusion/input Insulin - Humalog 10 units (2137-06-20 10:20:00 to 2137-06-20 10:21:00)"
+    },
+    {
+     "rid": "rx:55645914:2137-06-20 11:00:00",
+     "time": "2137-06-20 11:00:00",
+     "item": "Order: Insulin 10 UNIT SC (active at decision time)"
+    },
+    {
+     "rid": "inputevents:7644101:223262:2137-06-20 12:05:00",
+     "time": "2137-06-20 12:05:00",
+     "item": "Infusion/input Insulin - Humalog 6 units (2137-06-20 12:05:00 to 2137-06-20 12:06:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M33846653A1::01",
+   "claim_id": "M33846653A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2137-06-20 22:00:00:354651",
+     "time": "2137-06-20 22:00:00",
+     "item": "glucose",
+     "value": "246"
+    },
+    {
+     "rid": "chart:225664:2137-06-21 08:00:00:354725",
+     "time": "2137-06-21 08:00:00",
+     "item": "glucose",
+     "value": "253"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33846653A2::02",
+   "claim_id": "M33846653A2",
+   "claim_text": "Continue insulin therapy.",
+   "kind": "action",
+   "text": "Continue insulin therapy.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin therapy",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX31660903",
+     "time": "2137-06-20 21:00:00",
+     "item": "Ordered: Insulin 0 UNIT SC",
+     "class": "insulin"
+    },
+    {
+     "rid": "RX21769561",
+     "time": "2137-06-20 22:00:00",
+     "item": "Ordered: Insulin 10 UNIT SC",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M33846653A3::03",
+   "claim_id": "M33846653A3",
+   "claim_text": "Assess for signs of hypokalemia.",
+   "kind": "action",
+   "text": "Assess for signs of hypokalemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypokalemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Azithromycin",
+    "CeftriaXONE"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 234 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Glargine",
+    "Insulin - Humalog",
+    "Insulin Pump (Self Administering Medication)"
+   ],
+   "doctor_rows": 15,
+   "covered": true,
+   "by_atoms": [
+    "M33846653A2::02"
+   ]
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "D5LR"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Azithromycin",
+    "CeftriaXONE"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 234 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Glargine",
+    "Insulin - Humalog",
+    "Insulin Pump (Self Administering Medication)"
+   ],
+   "doctor_rows": 15,
+   "covered": true,
+   "by_atoms": [
+    "M33846653A2::02"
+   ]
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "D5LR"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 34,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.5,
+  "recall_okay": 0.0,
+  "recall_all": 0.167,
+  "recall_vital_at3": 0.5,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.167
+ }
+}

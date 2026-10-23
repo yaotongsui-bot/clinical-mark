@@ -1,0 +1,518 @@
+{
+ "case_id": "M32119961",
+ "decision_point": "2155-12-03 20:33:00",
+ "claims": [
+  "Monitor INR and PT levels closely.",
+  "Administer supplemental oxygen to maintain SpO2 above 92%.",
+  "Continue heparin therapy to manage coagulation status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32119961A1::01",
+   "claim_id": "M32119961A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor INR closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32119961A1::02",
+   "claim_id": "M32119961A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor PT levels closely.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32119961A2::03",
+   "claim_id": "M32119961A2",
+   "claim_text": "Administer supplemental oxygen to maintain SpO2 above 92%.",
+   "kind": "action",
+   "text": "Administer supplemental oxygen.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32119961A3::04",
+   "claim_id": "M32119961A3",
+   "claim_text": "Continue heparin therapy to manage coagulation status.",
+   "kind": "action",
+   "text": "Continue heparin therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin therapy",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32119961A3::05",
+   "claim_id": "M32119961A3",
+   "claim_text": "Continue heparin therapy to manage coagulation status.",
+   "kind": "fact",
+   "text": "Heparin therapy is currently being given.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32119961A3::05",
+   "claim_id": "M32119961A3",
+   "claim_text": "Continue heparin therapy to manage coagulation status.",
+   "kind": "fact",
+   "text": "Heparin therapy is currently being given.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The record R12 explicitly states that Heparin is 'Running at decision time', and R46 confirms the administration of Heparin within the 24-hour window before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:855854:225152:2155-12-02 20:54:00",
+     "time": "2155-12-02 20:54:00",
+     "item": "Running at decision time (started 2155-12-02 20:54:00): Infusion/input Heparin Sodium at 900.36016845703125 units/hour"
+    },
+    {
+     "rid": "emar:10010471-107",
+     "time": "2155-12-03 15:50:00",
+     "item": "MAR Confirmed: Heparin"
+    },
+    {
+     "rid": "emar:10010471-87",
+     "time": "2155-12-03 00:40:00",
+     "item": "MAR Confirmed: Heparin"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32119961A1::01",
+   "claim_id": "M32119961A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor INR closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227467:2155-12-04 04:03:00:393723",
+     "time": "2155-12-04 04:03:00",
+     "item": "INR",
+     "value": "1.2"
+    },
+    {
+     "rid": "chart:227467:2155-12-04 13:30:00:394788",
+     "time": "2155-12-04 13:30:00",
+     "item": "INR",
+     "value": "1.3"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): INR x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32119961A1::02",
+   "claim_id": "M32119961A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor PT levels closely.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227465:2155-12-04 04:03:00:393735",
+     "time": "2155-12-04 04:03:00",
+     "item": "PT",
+     "value": "12.8 sec"
+    },
+    {
+     "rid": "chart:227465:2155-12-04 13:30:00:394787",
+     "time": "2155-12-04 13:30:00",
+     "item": "PT",
+     "value": "13.9 sec"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): PT x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32119961A2::03",
+   "claim_id": "M32119961A2",
+   "claim_text": "Administer supplemental oxygen to maintain SpO2 above 92%.",
+   "kind": "action",
+   "text": "Administer supplemental oxygen.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32119961A3::04",
+   "claim_id": "M32119961A3",
+   "claim_text": "Continue heparin therapy to manage coagulation status.",
+   "kind": "action",
+   "text": "Continue heparin therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin therapy",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225152",
+     "time": "2155-12-02 20:54:00",
+     "item": "Heparin Sodium infusion continuing at 900.36016845703125 units/hour",
+     "class": "anticoagulant_therapeutic"
+    },
+    {
+     "rid": "IN225152#2",
+     "time": "2155-12-04 00:40:00",
+     "item": "Heparin Sodium infusion started at 900.36016845703125 units/hour",
+     "class": "anticoagulant_therapeutic"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded anticoagulation (therapeutic) after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13 K/uL at 2155-12-03 05:41:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Vancomycin"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "renal_replacement",
+   "name": "renal replacement therapy",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Hemodialysis"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "EKG"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen",
+    "Acetaminophen IV",
+    "Acetaminophen-IV",
+    "Gabapentin",
+    "Lidocaine 5% Patch"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Methadone"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Amiodarone",
+    "Amiodarone 600/500"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M32119961A3::04"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13 K/uL at 2155-12-03 05:41:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Vancomycin"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "renal_replacement",
+   "name": "renal replacement therapy",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Hemodialysis"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "EKG"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen",
+    "Acetaminophen IV",
+    "Acetaminophen-IV",
+    "Gabapentin",
+    "Lidocaine 5% Patch"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Methadone"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Amiodarone",
+    "Amiodarone 600/500"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M32119961A3::04"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 79,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.2,
+  "recall_all": 0.111,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.2,
+  "recall_all_at3": 0.111
+ }
+}

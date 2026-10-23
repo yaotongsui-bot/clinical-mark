@@ -1,0 +1,569 @@
+{
+ "case_id": "M31269608",
+ "decision_point": "2154-04-25 23:03:44",
+ "claims": [
+  "Monitor blood glucose levels closely.",
+  "Administer IV fluids to maintain hydration.",
+  "Continue monitoring vital signs and adjust medications as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31269608A1::01",
+   "claim_id": "M31269608A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A2::02",
+   "claim_id": "M31269608A2",
+   "claim_text": "Administer IV fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer IV fluids to maintain hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31269608A3::03",
+   "claim_id": "M31269608A3",
+   "claim_text": "Continue monitoring vital signs and adjust medications as needed.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs and adjust medications as needed.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": true
+  },
+  {
+   "atom_id": "M31269608A3::04",
+   "claim_id": "M31269608A3",
+   "claim_text": "Continue monitoring vital signs and adjust medications as needed.",
+   "kind": "action",
+   "text": "Adjust medications as needed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "medications",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "M31269608A1::01",
+   "claim_id": "M31269608A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2154-04-26 13:00:00:596640",
+     "time": "2154-04-26 13:00:00",
+     "item": "glucose",
+     "value": "152"
+    },
+    {
+     "rid": "chart:220621:2154-04-26 08:01:00:599818",
+     "time": "2154-04-26 08:01:00",
+     "item": "glucose",
+     "value": "150 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A2::02",
+   "claim_id": "M31269608A2",
+   "claim_text": "Administer IV fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer IV fluids to maintain hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2154-04-25 18:30:00",
+     "item": "NaCl 0.9% infusion continuing at 50 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158#2",
+     "time": "2154-04-26 07:15:00",
+     "item": "NaCl 0.9% infusion started at 49.997417449951172 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M31269608A3::03",
+   "claim_id": "M31269608A3",
+   "claim_text": "Continue monitoring vital signs and adjust medications as needed.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs and adjust medications as needed.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": true,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2154-04-26 00:00:00:595824",
+     "time": "2154-04-26 00:00:00",
+     "item": "heart rate",
+     "value": "62 bpm"
+    },
+    {
+     "rid": "chart:220045:2154-04-26 01:00:00:595932",
+     "time": "2154-04-26 01:00:00",
+     "item": "heart rate",
+     "value": "65 bpm"
+    },
+    {
+     "rid": "chart:220179:2154-04-26 06:00:00:596132",
+     "time": "2154-04-26 06:00:00",
+     "item": "systolic BP",
+     "value": "126 mmHg"
+    },
+    {
+     "rid": "chart:220179:2154-04-26 21:00:00:596965",
+     "time": "2154-04-26 21:00:00",
+     "item": "systolic BP",
+     "value": "128 mmHg"
+    },
+    {
+     "rid": "chart:220181:2154-04-26 06:00:00:596122",
+     "time": "2154-04-26 06:00:00",
+     "item": "mean arterial pressure",
+     "value": "72 mmHg"
+    },
+    {
+     "rid": "chart:220181:2154-04-26 21:00:00:596960",
+     "time": "2154-04-26 21:00:00",
+     "item": "mean arterial pressure",
+     "value": "78 mmHg"
+    },
+    {
+     "rid": "chart:220210:2154-04-26 00:00:00:595829",
+     "time": "2154-04-26 00:00:00",
+     "item": "respiratory rate",
+     "value": "14 insp/min"
+    },
+    {
+     "rid": "chart:220210:2154-04-26 01:00:00:595933",
+     "time": "2154-04-26 01:00:00",
+     "item": "respiratory rate",
+     "value": "20 insp/min"
+    },
+    {
+     "rid": "chart:220277:2154-04-26 00:00:00:595861",
+     "time": "2154-04-26 00:00:00",
+     "item": "SpO2",
+     "value": "95 %"
+    },
+    {
+     "rid": "chart:220277:2154-04-26 01:00:00:595931",
+     "time": "2154-04-26 01:00:00",
+     "item": "SpO2",
+     "value": "94 %"
+    },
+    {
+     "rid": "chart:223761:2154-04-26 04:00:00:595998",
+     "time": "2154-04-26 04:00:00",
+     "item": "temperature",
+     "value": "98.1 °F"
+    },
+    {
+     "rid": "chart:223761:2154-04-26 05:00:00:596113",
+     "time": "2154-04-26 05:00:00",
+     "item": "temperature",
+     "value": "98.3 °F"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x25, systolic BP x25, mean arterial pressure x25, respiratory rate x25, SpO2 x24, temperature x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A3::04",
+   "claim_id": "M31269608A3",
+   "claim_text": "Continue monitoring vital signs and adjust medications as needed.",
+   "kind": "action",
+   "text": "Adjust medications as needed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "medications",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.8 mg/dL at 2154-04-25 03:59:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2154-04-25 03:59:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LevETIRAcetam"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Enalapril Maleate",
+    "HydrALAZINE",
+    "Hydralazine"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CT scan",
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Atenolol",
+    "Labetalol"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dexamethasone"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M31269608A2::02"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.8 mg/dL at 2154-04-25 03:59:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2154-04-25 03:59:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LevETIRAcetam"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Enalapril Maleate",
+    "HydrALAZINE",
+    "Hydralazine"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CT scan",
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Atenolol",
+    "Labetalol"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dexamethasone"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M31269608A2::02"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 55,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.125,
+  "recall_all": 0.091,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.125,
+  "recall_all_at3": 0.091
+ }
+}

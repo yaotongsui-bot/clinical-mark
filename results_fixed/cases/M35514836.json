@@ -1,0 +1,648 @@
+{
+ "case_id": "M35514836",
+ "decision_point": "2154-01-03 15:57:15",
+ "claims": [
+  "Monitor arterial blood gases and pH levels closely.",
+  "Continue intravenous fluid and electrolyte management.",
+  "Assess for signs of respiratory distress and adjust oxygen therapy as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35514836A1::01",
+   "claim_id": "M35514836A1",
+   "claim_text": "Monitor arterial blood gases and pH levels closely.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases closely.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35514836A1::02",
+   "claim_id": "M35514836A1",
+   "claim_text": "Monitor arterial blood gases and pH levels closely.",
+   "kind": "action",
+   "text": "Monitor pH levels closely.",
+   "concept": "ph",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pH levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35514836A2::03",
+   "claim_id": "M35514836A2",
+   "claim_text": "Continue intravenous fluid and electrolyte management.",
+   "kind": "action",
+   "text": "Continue intravenous fluid and electrolyte management.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluid and electrolyte management",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M35514836A3::04",
+   "claim_id": "M35514836A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35514836A3::05",
+   "claim_id": "M35514836A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35514836A2::P01",
+   "claim_id": "M35514836A2",
+   "claim_text": "Continue intravenous fluid and electrolyte management.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous fluid and electrolyte management.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35514836A2::P01",
+   "claim_id": "M35514836A2",
+   "claim_text": "Continue intravenous fluid and electrolyte management.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous fluid and electrolyte management.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The patient is currently receiving intravenous fluid and electrolyte management because there are active orders for IV fluids (R4) and administration records for Magnesium Sulfate (R40 and R41) within the last 24 hours.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": null,
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "rx:69937472:2154-01-02 17:00:00",
+     "time": "2154-01-02 17:00:00",
+     "item": "Order: 0.9% Sodium Chloride 250 mL IV (active at decision time)"
+    },
+    {
+     "rid": "inputevents:7626647:222011:2154-01-02 22:08:00",
+     "time": "2154-01-02 22:08:00",
+     "item": "Infusion/input Magnesium Sulfate 2.0000001043081284 grams (2154-01-02 22:08:00 to 2154-01-02 23:08:00)"
+    },
+    {
+     "rid": "inputevents:7020000:222011:2154-01-02 23:10:00",
+     "time": "2154-01-02 23:10:00",
+     "item": "Infusion/input Magnesium Sulfate 2.0000001043081284 grams (2154-01-02 23:10:00 to 2154-01-03 00:10:00)"
+    },
+    {
+     "rid": "rx:48600422:2154-01-02 17:00:00",
+     "time": "2154-01-02 17:00:00",
+     "item": "Order: Magnesium Sulfate 2 gm IV (active at decision time)"
+    },
+    {
+     "rid": "rx:48225635:2154-01-02 17:00:00",
+     "time": "2154-01-02 17:00:00",
+     "item": "Order: Potassium Phosphate 15 mmol IV (active at decision time)"
+    },
+    {
+     "rid": "rx:52110960:2154-01-02 17:00:00",
+     "time": "2154-01-02 17:00:00",
+     "item": "Order: Potassium Chloride 60 mEq IV (active at decision time)"
+    },
+    {
+     "rid": "rx:84008579:2154-01-02 17:00:00",
+     "time": "2154-01-02 17:00:00",
+     "item": "Order: Potassium Phosphate 30 mmol IV (active at decision time)"
+    },
+    {
+     "rid": "rx:28671265:2154-01-02 17:00:00",
+     "time": "2154-01-02 17:00:00",
+     "item": "Order: Magnesium Sulfate 4 gm IV (active at decision time)"
+    },
+    {
+     "rid": "rx:35300882:2154-01-02 17:00:00",
+     "time": "2154-01-02 17:00:00",
+     "item": "Order: Potassium Chloride 20-40 mEq IV (active at decision time)"
+    },
+    {
+     "rid": "rx:60145760:2154-01-02 17:00:00",
+     "time": "2154-01-02 17:00:00",
+     "item": "Order: LR 1000 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:3463569:2154-01-02 17:00:00",
+     "time": "2154-01-02 17:00:00",
+     "item": "Order: Iso-Osmotic Dextrose 200 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:29396803:2154-01-02 17:00:00",
+     "time": "2154-01-02 17:00:00",
+     "item": "Order: Dextrose 50% 12.5 gm IV (active at decision time)"
+    },
+    {
+     "rid": "rx:59217129:2154-01-02 17:00:00",
+     "time": "2154-01-02 17:00:00",
+     "item": "Order: Ondansetron 4 mg IV (active at decision time)"
+    },
+    {
+     "rid": "rx:58766806:2154-01-02 21:00:00",
+     "time": "2154-01-02 21:00:00",
+     "item": "Order: LR 1000 mL IV (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35514836A1::01",
+   "claim_id": "M35514836A1",
+   "claim_text": "Monitor arterial blood gases and pH levels closely.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases closely.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223830:2154-01-04 02:00:00:551045",
+     "time": "2154-01-04 02:00:00",
+     "item": "pH",
+     "value": "7.39 units"
+    },
+    {
+     "rid": "chart:223830:2154-01-04 00:15:00:551498",
+     "time": "2154-01-04 00:15:00",
+     "item": "pH",
+     "value": "7.35 units"
+    },
+    {
+     "rid": "chart:220235:2154-01-04 02:00:00:551051",
+     "time": "2154-01-04 02:00:00",
+     "item": "PaCO2",
+     "value": "49 mmHg"
+    },
+    {
+     "rid": "chart:220235:2154-01-04 00:15:00:551501",
+     "time": "2154-01-04 00:15:00",
+     "item": "PaCO2",
+     "value": "53 mmHg"
+    },
+    {
+     "rid": "chart:220224:2154-01-04 02:00:00:551042",
+     "time": "2154-01-04 02:00:00",
+     "item": "PaO2",
+     "value": "76 mmHg"
+    },
+    {
+     "rid": "chart:220224:2154-01-04 00:15:00:551500",
+     "time": "2154-01-04 00:15:00",
+     "item": "PaO2",
+     "value": "111 mmHg"
+    }
+   ],
+   "reason": "Measured in the 23.4 h observation window after the decision (24 h or until ICU discharge): pH x8, PaCO2 x8, PaO2 x8.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35514836A1::02",
+   "claim_id": "M35514836A1",
+   "claim_text": "Monitor arterial blood gases and pH levels closely.",
+   "kind": "action",
+   "text": "Monitor pH levels closely.",
+   "concept": "ph",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pH levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223830:2154-01-04 02:00:00:551045",
+     "time": "2154-01-04 02:00:00",
+     "item": "pH",
+     "value": "7.39 units"
+    },
+    {
+     "rid": "chart:223830:2154-01-04 00:15:00:551498",
+     "time": "2154-01-04 00:15:00",
+     "item": "pH",
+     "value": "7.35 units"
+    }
+   ],
+   "reason": "Measured in the 23.4 h observation window after the decision (24 h or until ICU discharge): pH x8.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35514836A2::03",
+   "claim_id": "M35514836A2",
+   "claim_text": "Continue intravenous fluid and electrolyte management.",
+   "kind": "action",
+   "text": "Continue intravenous fluid and electrolyte management.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluid and electrolyte management",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX72233139",
+     "time": "2154-01-04 04:00:00",
+     "item": "Ordered: Sodium Phosphate 15 mmol IV",
+     "class": "phosphate_replacement"
+    },
+    {
+     "rid": "RX78326701",
+     "time": "2154-01-04 04:00:00",
+     "item": "Ordered: Sodium Phosphate 30 mmol IV",
+     "class": "phosphate_replacement"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded potassium replacement / magnesium replacement / calcium replacement / phosphate replacement after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35514836A3::04",
+   "claim_id": "M35514836A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35514836A3::05",
+   "claim_id": "M35514836A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 102.5 bpm (4 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "doctor_targets": [
+    "Metoprolol",
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LR",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen (Liquid)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Replete with Fiber (Full)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Na Phos",
+    "Sodium Phosphate"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M35514836A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 102.5 bpm (4 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "doctor_targets": [
+    "Metoprolol",
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LR",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen (Liquid)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Replete with Fiber (Full)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Na Phos",
+    "Sodium Phosphate"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M35514836A2::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 39,
+ "observation_window_hours": 23.4,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.111,
+  "recall_all": 0.1,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.111,
+  "recall_all_at3": 0.1
+ }
+}

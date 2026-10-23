@@ -1,0 +1,345 @@
+{
+ "case_id": "M36427705",
+ "decision_point": "2184-10-09 04:09:00",
+ "claims": [
+  "Monitor blood pressure and heart rate closely due to recent high and low alarms.",
+  "Continue monitoring renal function given elevated creatinine levels.",
+  "Administer IV fluids to address potential volume depletion and maintain electrolyte balance."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M36427705A1::01",
+   "claim_id": "M36427705A1",
+   "claim_text": "Monitor blood pressure and heart rate closely due to recent high and low alarms.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely due to recent high and low alarms.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36427705A1::02",
+   "claim_id": "M36427705A1",
+   "claim_text": "Monitor blood pressure and heart rate closely due to recent high and low alarms.",
+   "kind": "action",
+   "text": "Monitor heart rate closely due to recent high and low alarms.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36427705A2::03",
+   "claim_id": "M36427705A2",
+   "claim_text": "Continue monitoring renal function given elevated creatinine levels.",
+   "kind": "action",
+   "text": "Continue monitoring renal function given elevated creatinine levels.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "renal function",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36427705A2::04",
+   "claim_id": "M36427705A2",
+   "claim_text": "Continue monitoring renal function given elevated creatinine levels.",
+   "kind": "fact",
+   "text": "Creatinine levels are elevated.",
+   "concept": "creatinine",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M36427705A3::05",
+   "claim_id": "M36427705A3",
+   "claim_text": "Administer IV fluids to address potential volume depletion and maintain electrolyte balance.",
+   "kind": "action",
+   "text": "Administer IV fluids to address potential volume depletion and maintain electrolyte balance.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M36427705A2::04",
+   "claim_id": "M36427705A2",
+   "claim_text": "Continue monitoring renal function given elevated creatinine levels.",
+   "kind": "fact",
+   "text": "Creatinine levels are elevated.",
+   "concept": "creatinine",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:222134",
+     "time": "2184-10-09 03:11:00",
+     "item": "Creatinine",
+     "value": 5.1,
+     "unit": "mg/dL",
+     "bounds": "0.5 to 1.2",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "1 of 1 creatinine values in the 24 h before the decision were high.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M36427705A1::01",
+   "claim_id": "M36427705A1",
+   "claim_text": "Monitor blood pressure and heart rate closely due to recent high and low alarms.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely due to recent high and low alarms.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220050:2184-10-09 05:00:00:491751",
+     "time": "2184-10-09 05:00:00",
+     "item": "systolic BP",
+     "value": "126 mmHg"
+    },
+    {
+     "rid": "chart:220050:2184-10-09 06:00:00:491779",
+     "time": "2184-10-09 06:00:00",
+     "item": "systolic BP",
+     "value": "128 mmHg"
+    },
+    {
+     "rid": "chart:220052:2184-10-09 05:00:00:491752",
+     "time": "2184-10-09 05:00:00",
+     "item": "mean arterial pressure",
+     "value": "79 mmHg"
+    },
+    {
+     "rid": "chart:220052:2184-10-09 06:00:00:491813",
+     "time": "2184-10-09 06:00:00",
+     "item": "mean arterial pressure",
+     "value": "84 mmHg"
+    }
+   ],
+   "reason": "Measured in the 11.8 h observation window after the decision (24 h or until ICU discharge): systolic BP x13, mean arterial pressure x13.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36427705A1::02",
+   "claim_id": "M36427705A1",
+   "claim_text": "Monitor blood pressure and heart rate closely due to recent high and low alarms.",
+   "kind": "action",
+   "text": "Monitor heart rate closely due to recent high and low alarms.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2184-10-09 05:00:00:491754",
+     "time": "2184-10-09 05:00:00",
+     "item": "heart rate",
+     "value": "74 bpm"
+    },
+    {
+     "rid": "chart:220045:2184-10-09 06:00:00:491797",
+     "time": "2184-10-09 06:00:00",
+     "item": "heart rate",
+     "value": "81 bpm"
+    }
+   ],
+   "reason": "Measured in the 11.8 h observation window after the decision (24 h or until ICU discharge): heart rate x11.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36427705A2::03",
+   "claim_id": "M36427705A2",
+   "claim_text": "Continue monitoring renal function given elevated creatinine levels.",
+   "kind": "action",
+   "text": "Continue monitoring renal function given elevated creatinine levels.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "renal function",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No renal function measurement in the 11.8 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36427705A3::05",
+   "claim_id": "M36427705A3",
+   "claim_text": "Administer IV fluids to address potential volume depletion and maintain electrolyte balance.",
+   "kind": "action",
+   "text": "Administer IV fluids to address potential volume depletion and maintain electrolyte balance.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2184-10-09 02:08:00",
+     "item": "NaCl 0.9% infusion continuing at 75.005821228027344 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158#2",
+     "time": "2184-10-09 05:51:00",
+     "item": "NaCl 0.9% infusion started at 200 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Cefazolin",
+    "CeftriaXONE"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HydrALAzine"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M36427705A3::05"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Cefazolin",
+    "CeftriaXONE"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HydrALAzine"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M36427705A3::05"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 15,
+ "observation_window_hours": 11.8,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.5,
+  "recall_all": 0.333,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.5,
+  "recall_all_at3": 0.333
+ }
+}

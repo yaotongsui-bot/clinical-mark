@@ -1,0 +1,259 @@
+{
+ "case_id": "M35636875",
+ "decision_point": "2174-05-27 09:18:00",
+ "claims": [
+  "Continue NaCl 0.9%.",
+  "Administer Heparin Sodium (Prophylaxis)."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35636875A1::01",
+   "claim_id": "M35636875A1",
+   "claim_text": "Continue NaCl 0.9%.",
+   "kind": "action",
+   "text": "Continue NaCl 0.9%.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "NaCl 0.9%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35636875A2::02",
+   "claim_id": "M35636875A2",
+   "claim_text": "Administer Heparin Sodium (Prophylaxis).",
+   "kind": "action",
+   "text": "Administer Heparin Sodium (Prophylaxis).",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Heparin Sodium",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35636875A1::P01",
+   "claim_id": "M35636875A1",
+   "claim_text": "Continue NaCl 0.9%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving NaCl 0.9%.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35636875A1::P01",
+   "claim_id": "M35636875A1",
+   "claim_text": "Continue NaCl 0.9%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving NaCl 0.9%.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R47 explicitly states that the infusion of NaCl 0.9% is 'Running at decision time' starting at 06:14:00 on 2174-05-27.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:851334:225158:2174-05-27 06:14:00",
+     "time": "2174-05-27 06:14:00",
+     "item": "Running at decision time (started 2174-05-27 06:14:00): Infusion/input NaCl 0.9% at 124.99999237060547 mL/hour"
+    },
+    {
+     "rid": "inputevents:8486370:225158:2174-05-26 10:04:00",
+     "time": "2174-05-26 10:04:00",
+     "item": "Infusion/input NaCl 0.9% at 5 mL/hour (2174-05-26 10:04:00 to 2174-05-26 18:11:00)"
+    },
+    {
+     "rid": "inputevents:1157247:225158:2174-05-26 18:11:00",
+     "time": "2174-05-26 18:11:00",
+     "item": "Infusion/input NaCl 0.9% at 210.09132385253906 mL/hour (2174-05-26 18:11:00 to 2174-05-26 22:45:00)"
+    },
+    {
+     "rid": "inputevents:3853765:225158:2174-05-26 23:00:00",
+     "time": "2174-05-26 23:00:00",
+     "item": "Infusion/input NaCl 0.9% at 131.34054565429688 mL/hour (2174-05-26 23:00:00 to 2174-05-27 06:14:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35636875A1::01",
+   "claim_id": "M35636875A1",
+   "claim_text": "Continue NaCl 0.9%.",
+   "kind": "action",
+   "text": "Continue NaCl 0.9%.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "NaCl 0.9%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2174-05-27 06:14:00",
+     "item": "NaCl 0.9% infusion continuing at 124.99999237060547 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "RX78733016",
+     "time": "2174-05-27 12:00:00",
+     "item": "Ordered: Lactated Ringers 1000 mL IV",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35636875A2::02",
+   "claim_id": "M35636875A2",
+   "claim_text": "Administer Heparin Sodium (Prophylaxis).",
+   "kind": "action",
+   "text": "Administer Heparin Sodium (Prophylaxis).",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Heparin Sodium",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225975",
+     "time": "2174-05-27 13:45:00",
+     "item": "Heparin Sodium (Prophylaxis) infusion started at",
+     "class": "dvt_prophylaxis"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded anticoagulation (prophylactic) after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M35636875A2::02"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M35636875A1::01"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M35636875A2::02"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M35636875A1::01"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 9,
+ "observation_window_hours": 5.2,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": null,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 1.0,
+  "recall_all_at3": 1.0
+ }
+}

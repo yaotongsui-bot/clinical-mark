@@ -1,0 +1,696 @@
+{
+ "case_id": "M38507547",
+ "decision_point": "2161-04-28 10:38:12",
+ "claims": [
+  "Monitor hemodynamic stability closely.",
+  "Continue mechanical ventilation with adjustments as needed.",
+  "Monitor electrolyte levels, especially potassium and sodium.",
+  "Administer IV fluids as needed to maintain adequate hydration.",
+  "Continue anticoagulation therapy based on INR and PT levels.",
+  "Monitor glucose levels and adjust insulin if necessary.",
+  "Administer pain management as needed.",
+  "Monitor respiratory status and oxygen saturation.",
+  "Assess for any signs of infection or sepsis.",
+  "Continue monitoring neurological status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M38507547A1::01",
+   "claim_id": "M38507547A1",
+   "claim_text": "Monitor hemodynamic stability closely.",
+   "kind": "action",
+   "text": "Monitor hemodynamic stability closely.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamic stability",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A2::02",
+   "claim_id": "M38507547A2",
+   "claim_text": "Continue mechanical ventilation with adjustments as needed.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with adjustments as needed.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38507547A2::03",
+   "claim_id": "M38507547A2",
+   "claim_text": "Continue mechanical ventilation with adjustments as needed.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M38507547A3::04",
+   "claim_id": "M38507547A3",
+   "claim_text": "Monitor electrolyte levels, especially potassium and sodium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels, especially potassium and sodium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A4::05",
+   "claim_id": "M38507547A4",
+   "claim_text": "Administer IV fluids as needed to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Administer IV fluids as needed to maintain adequate hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38507547A5::06",
+   "claim_id": "M38507547A5",
+   "claim_text": "Continue anticoagulation therapy based on INR and PT levels.",
+   "kind": "action",
+   "text": "Continue anticoagulation therapy based on INR and PT levels.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "anticoagulation therapy",
+   "conditional": false,
+   "treatment_class": "anticoagulation",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M38507547A6::07",
+   "claim_id": "M38507547A6",
+   "claim_text": "Monitor glucose levels and adjust insulin if necessary.",
+   "kind": "action",
+   "text": "Monitor glucose levels and adjust insulin if necessary.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "glucose levels",
+   "conditional": true
+  },
+  {
+   "atom_id": "M38507547A7::08",
+   "claim_id": "M38507547A7",
+   "claim_text": "Administer pain management as needed.",
+   "kind": "action",
+   "text": "Administer pain management as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M38507547A8::09",
+   "claim_id": "M38507547A8",
+   "claim_text": "Monitor respiratory status and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor respiratory status and oxygen saturation.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A8::10",
+   "claim_id": "M38507547A8",
+   "claim_text": "Monitor respiratory status and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor respiratory status and oxygen saturation.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A9::11",
+   "claim_id": "M38507547A9",
+   "claim_text": "Assess for any signs of infection or sepsis.",
+   "kind": "action",
+   "text": "Assess for any signs of infection or sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection or sepsis",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A10::12",
+   "claim_id": "M38507547A10",
+   "claim_text": "Continue monitoring neurological status.",
+   "kind": "action",
+   "text": "Continue monitoring neurological status.",
+   "concept": "neuro",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "neurological status",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A5::P01",
+   "claim_id": "M38507547A5",
+   "claim_text": "Continue anticoagulation therapy based on INR and PT levels.",
+   "kind": "fact",
+   "text": "The patient is currently receiving anticoagulation therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M38507547A2::03",
+   "claim_id": "M38507547A2",
+   "claim_text": "Continue mechanical ventilation with adjustments as needed.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:107087",
+     "time": "2161-04-27 15:18:00",
+     "item": "Intubated: NOT INTUBATED."
+    }
+   ],
+   "reason": "The latest record before the decision (2161-04-27 15:18:00) reads 'Intubated: NOT INTUBATED.'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M38507547A5::P01",
+   "claim_id": "M38507547A5",
+   "claim_text": "Continue anticoagulation therapy based on INR and PT levels.",
+   "kind": "fact",
+   "text": "The patient is currently receiving anticoagulation therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_addressed",
+   "reason": "The provided records do not contain any information regarding anticoagulation therapy.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "not_addressed",
+     "llama3.1:8b-instruct-q4_K_M": "not_supported",
+     "qwen2.5:14b": "not_addressed"
+    }
+   },
+   "evidence": []
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M38507547A1::01",
+   "claim_id": "M38507547A1",
+   "claim_text": "Monitor hemodynamic stability closely.",
+   "kind": "action",
+   "text": "Monitor hemodynamic stability closely.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamic stability",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2161-04-28 11:00:00:49737",
+     "time": "2161-04-28 11:00:00",
+     "item": "heart rate",
+     "value": "94 bpm"
+    },
+    {
+     "rid": "chart:220045:2161-04-28 12:00:00:49816",
+     "time": "2161-04-28 12:00:00",
+     "item": "heart rate",
+     "value": "94 bpm"
+    },
+    {
+     "rid": "chart:220048:2161-04-28 11:00:00:49736",
+     "time": "2161-04-28 11:00:00",
+     "item": "heart rhythm",
+     "value": "SR (Sinus Rhythm)"
+    },
+    {
+     "rid": "chart:220048:2161-04-28 12:00:00:49789",
+     "time": "2161-04-28 12:00:00",
+     "item": "heart rhythm",
+     "value": "SR (Sinus Rhythm)"
+    },
+    {
+     "rid": "chart:220050:2161-04-28 11:00:00:49731",
+     "time": "2161-04-28 11:00:00",
+     "item": "systolic BP",
+     "value": "109 mmHg"
+    },
+    {
+     "rid": "chart:220050:2161-04-28 12:00:00:49775",
+     "time": "2161-04-28 12:00:00",
+     "item": "systolic BP",
+     "value": "101 mmHg"
+    },
+    {
+     "rid": "chart:220052:2161-04-28 11:00:00:49734",
+     "time": "2161-04-28 11:00:00",
+     "item": "mean arterial pressure",
+     "value": "72 mmHg"
+    },
+    {
+     "rid": "chart:220052:2161-04-28 12:00:00:49805",
+     "time": "2161-04-28 12:00:00",
+     "item": "mean arterial pressure",
+     "value": "70 mmHg"
+    }
+   ],
+   "reason": "Measured in the 4.5 h observation window after the decision (24 h or until ICU discharge): heart rate x4, heart rhythm x4, systolic BP x4, mean arterial pressure x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A2::02",
+   "claim_id": "M38507547A2",
+   "claim_text": "Continue mechanical ventilation with adjustments as needed.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with adjustments as needed.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 4.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38507547A3::04",
+   "claim_id": "M38507547A3",
+   "claim_text": "Monitor electrolyte levels, especially potassium and sodium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels, especially potassium and sodium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 4.5 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A4::05",
+   "claim_id": "M38507547A4",
+   "claim_text": "Administer IV fluids as needed to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Administer IV fluids as needed to maintain adequate hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2161-04-27 12:00:00",
+     "item": "Dextrose 5% infusion continuing at 10 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision (already running before the decision and continued). The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38507547A5::06",
+   "claim_id": "M38507547A5",
+   "claim_text": "Continue anticoagulation therapy based on INR and PT levels.",
+   "kind": "action",
+   "text": "Continue anticoagulation therapy based on INR and PT levels.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "anticoagulation therapy",
+   "conditional": false,
+   "treatment_class": "anticoagulation",
+   "class_level": "group",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (prophylactic) / anticoagulation (therapeutic) action recorded in the 4.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38507547A6::07",
+   "claim_id": "M38507547A6",
+   "claim_text": "Monitor glucose levels and adjust insulin if necessary.",
+   "kind": "action",
+   "text": "Monitor glucose levels and adjust insulin if necessary.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "glucose levels",
+   "conditional": true,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2161-04-28 12:00:00:49817",
+     "time": "2161-04-28 12:00:00",
+     "item": "glucose",
+     "value": "111"
+    }
+   ],
+   "reason": "Measured in the 4.5 h observation window after the decision (24 h or until ICU discharge): glucose x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A7::08",
+   "claim_id": "M38507547A7",
+   "claim_text": "Administer pain management as needed.",
+   "kind": "action",
+   "text": "Administer pain management as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX52340519",
+     "time": "2161-04-28 11:00:00",
+     "item": "Ordered: HYDROmorphone (Dilaudid) 2-4 mg PO/NG",
+     "class": "opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia / non-opioid analgesia after the decision. The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38507547A8::09",
+   "claim_id": "M38507547A8",
+   "claim_text": "Monitor respiratory status and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor respiratory status and oxygen saturation.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2161-04-28 11:00:00:49732",
+     "time": "2161-04-28 11:00:00",
+     "item": "respiratory rate",
+     "value": "22 insp/min"
+    },
+    {
+     "rid": "chart:220210:2161-04-28 12:00:00:49814",
+     "time": "2161-04-28 12:00:00",
+     "item": "respiratory rate",
+     "value": "16 insp/min"
+    },
+    {
+     "rid": "chart:220277:2161-04-28 11:00:00:49735",
+     "time": "2161-04-28 11:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:220277:2161-04-28 12:00:00:49779",
+     "time": "2161-04-28 12:00:00",
+     "item": "SpO2",
+     "value": "97 %"
+    }
+   ],
+   "reason": "Measured in the 4.5 h observation window after the decision (24 h or until ICU discharge): respiratory rate x4, SpO2 x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A8::10",
+   "claim_id": "M38507547A8",
+   "claim_text": "Monitor respiratory status and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor respiratory status and oxygen saturation.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2161-04-28 11:00:00:49732",
+     "time": "2161-04-28 11:00:00",
+     "item": "respiratory rate",
+     "value": "22 insp/min"
+    },
+    {
+     "rid": "chart:220210:2161-04-28 12:00:00:49814",
+     "time": "2161-04-28 12:00:00",
+     "item": "respiratory rate",
+     "value": "16 insp/min"
+    },
+    {
+     "rid": "chart:220277:2161-04-28 11:00:00:49735",
+     "time": "2161-04-28 11:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:220277:2161-04-28 12:00:00:49779",
+     "time": "2161-04-28 12:00:00",
+     "item": "SpO2",
+     "value": "97 %"
+    }
+   ],
+   "reason": "Measured in the 4.5 h observation window after the decision (24 h or until ICU discharge): respiratory rate x4, SpO2 x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A9::11",
+   "claim_id": "M38507547A9",
+   "claim_text": "Assess for any signs of infection or sepsis.",
+   "kind": "action",
+   "text": "Assess for any signs of infection or sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection or sepsis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A10::12",
+   "claim_id": "M38507547A10",
+   "claim_text": "Continue monitoring neurological status.",
+   "kind": "action",
+   "text": "Continue monitoring neurological status.",
+   "concept": "neuro",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "neurological status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223900:2161-04-28 12:00:00:49748",
+     "time": "2161-04-28 12:00:00",
+     "item": "GCS / mental status",
+     "value": "Oriented"
+    },
+    {
+     "rid": "chart:228394:2161-04-28 12:00:00:49756",
+     "time": "2161-04-28 12:00:00",
+     "item": "GCS / mental status",
+     "value": "Both"
+    }
+   ],
+   "reason": "Measured in the 4.5 h observation window after the decision (24 h or until ICU discharge): GCS / mental status x6.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.1 mmol/L at 2161-04-27 10:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38507547A4::05"
+   ]
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38507547A7::08"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.1 mmol/L at 2161-04-27 10:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 8,
+ "observation_window_hours": 4.5,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The latest record before the decision (2161-04-27 15:18:00) reads 'Intubated: NOT INTUBATED.'."
+   ],
+   "not_addressed": [
+    "The patient is currently receiving anticoagulation therapy. -- The provided records do not contain any information regarding anticoagulation therapy."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.667,
+  "recall_vital": 1.0,
+  "recall_okay": 0.5,
+  "recall_all": 0.667,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

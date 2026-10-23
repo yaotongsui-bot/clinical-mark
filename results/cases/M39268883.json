@@ -1,0 +1,561 @@
+{
+ "case_id": "M39268883",
+ "decision_point": "2180-02-22 08:34:06",
+ "claims": [
+  "Monitor arterial blood gases and electrolytes closely.",
+  "Continue mechanical ventilation with close monitoring of respiratory parameters.",
+  "Administer intravenous fluids as needed to maintain hydration."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39268883A1::01",
+   "claim_id": "M39268883A1",
+   "claim_text": "Monitor arterial blood gases and electrolytes closely.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases closely.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39268883A1::02",
+   "claim_id": "M39268883A1",
+   "claim_text": "Monitor arterial blood gases and electrolytes closely.",
+   "kind": "action",
+   "text": "Monitor electrolytes closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolytes",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39268883A2::03",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A2::04",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M39268883A2::05",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters closely.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39268883A3::06",
+   "claim_id": "M39268883A3",
+   "claim_text": "Administer intravenous fluids as needed to maintain hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39268883A2::04",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:39268883:220339:2180-02-21 21:00:00",
+     "time": "2180-02-21 21:00:00",
+     "item": "PEEP set: 5 cmH2O"
+    }
+   ],
+   "reason": "The last ventilator/intubation record ('PEEP set: 5 cmH2O') was 11.6 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39268883A1::01",
+   "claim_id": "M39268883A1",
+   "claim_text": "Monitor arterial blood gases and electrolytes closely.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases closely.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 7.5 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39268883A1::02",
+   "claim_id": "M39268883A1",
+   "claim_text": "Monitor arterial blood gases and electrolytes closely.",
+   "kind": "action",
+   "text": "Monitor electrolytes closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolytes",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2180-02-22 11:54:00:34909",
+     "time": "2180-02-22 11:54:00",
+     "item": "sodium",
+     "value": "135 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2180-02-22 11:54:00:100855",
+     "time": "2180-02-22 11:54:00",
+     "item": "sodium",
+     "value": "135 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2180-02-22 11:54:00:34911",
+     "time": "2180-02-22 11:54:00",
+     "item": "potassium",
+     "value": "4.1 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2180-02-22 11:54:00:100857",
+     "time": "2180-02-22 11:54:00",
+     "item": "potassium",
+     "value": "4.1 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2180-02-22 11:54:00:34912",
+     "time": "2180-02-22 11:54:00",
+     "item": "chloride",
+     "value": "98 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2180-02-22 11:54:00:100852",
+     "time": "2180-02-22 11:54:00",
+     "item": "chloride",
+     "value": "98 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2180-02-22 11:54:00:34915",
+     "time": "2180-02-22 11:54:00",
+     "item": "bicarbonate",
+     "value": "28 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2180-02-22 11:54:00:100858",
+     "time": "2180-02-22 11:54:00",
+     "item": "bicarbonate",
+     "value": "28 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2180-02-22 11:54:00:34910",
+     "time": "2180-02-22 11:54:00",
+     "item": "magnesium",
+     "value": "2.7 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2180-02-22 11:54:00:100853",
+     "time": "2180-02-22 11:54:00",
+     "item": "magnesium",
+     "value": "2.7 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2180-02-22 11:54:00:34916",
+     "time": "2180-02-22 11:54:00",
+     "item": "calcium",
+     "value": "8.8 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2180-02-22 11:54:00:100859",
+     "time": "2180-02-22 11:54:00",
+     "item": "calcium",
+     "value": "8.8 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2180-02-22 11:54:00:34913",
+     "time": "2180-02-22 11:54:00",
+     "item": "phosphate",
+     "value": "5.1 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2180-02-22 11:54:00:100861",
+     "time": "2180-02-22 11:54:00",
+     "item": "phosphate",
+     "value": "5.1 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 7.5 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, magnesium x2, calcium x2, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39268883A2::03",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 7.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A2::05",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters closely.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2180-02-22 09:00:00:33806",
+     "time": "2180-02-22 09:00:00",
+     "item": "respiratory rate",
+     "value": "24 insp/min"
+    },
+    {
+     "rid": "chart:220210:2180-02-22 11:00:00:33858",
+     "time": "2180-02-22 11:00:00",
+     "item": "respiratory rate",
+     "value": "17 insp/min"
+    },
+    {
+     "rid": "chart:220277:2180-02-22 09:00:00:33808",
+     "time": "2180-02-22 09:00:00",
+     "item": "SpO2",
+     "value": "96 %"
+    },
+    {
+     "rid": "chart:220277:2180-02-22 10:00:00:33841",
+     "time": "2180-02-22 10:00:00",
+     "item": "SpO2",
+     "value": "93 %"
+    }
+   ],
+   "reason": "Measured in the 7.5 h observation window after the decision (24 h or until ICU discharge): respiratory rate x7, SpO2 x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39268883A3::06",
+   "claim_id": "M39268883A3",
+   "claim_text": "Administer intravenous fluids as needed to maintain hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949#2",
+     "time": "2180-02-21 10:58:00",
+     "item": "Dextrose 5% infusion continuing at 10 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN220949",
+     "time": "2180-02-22 08:28:00",
+     "item": "Dextrose 5% infusion continuing at 14.563202857971191 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision (already running before the decision and continued). The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.7 mmol/L at 2180-02-21 10:15:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A3::06"
+   ]
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Nitroglycerin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.7 mmol/L at 2180-02-21 10:15:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A3::06"
+   ]
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Nitroglycerin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 25,
+ "observation_window_hours": 7.5,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The last ventilator/intubation record ('PEEP set: 5 cmH2O') was 11.6 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.5,
+  "recall_vital": 1.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.143,
+  "recall_vital_at3": 1.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.143
+ }
+}

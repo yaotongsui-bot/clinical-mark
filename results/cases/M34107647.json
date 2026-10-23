@@ -1,0 +1,379 @@
+{
+ "case_id": "M34107647",
+ "decision_point": "2153-03-29 02:21:00",
+ "claims": [
+  "Monitor INR and PT levels closely.",
+  "Continue mechanical ventilation support.",
+  "Assess for signs of respiratory distress."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34107647A1::01",
+   "claim_id": "M34107647A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor INR closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34107647A1::02",
+   "claim_id": "M34107647A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor PT levels closely.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34107647A2::03",
+   "claim_id": "M34107647A2",
+   "claim_text": "Continue mechanical ventilation support.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation support.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34107647A3::04",
+   "claim_id": "M34107647A3",
+   "claim_text": "Assess for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34107647A2::P01",
+   "claim_id": "M34107647A2",
+   "claim_text": "Continue mechanical ventilation support.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M34107647A2::P01",
+   "claim_id": "M34107647A2",
+   "claim_text": "Continue mechanical ventilation support.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:225332",
+     "time": "2153-03-28 10:18:00",
+     "item": "Intubated: NOT INTUBATED."
+    }
+   ],
+   "reason": "The latest record before the decision (2153-03-28 10:18:00) reads 'Intubated: NOT INTUBATED.'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M34107647A1::01",
+   "claim_id": "M34107647A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor INR closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227467:2153-03-29 04:08:00:667408",
+     "time": "2153-03-29 04:08:00",
+     "item": "INR",
+     "value": "1.2"
+    },
+    {
+     "rid": "lab:51237:2153-03-29 04:08:00:24186",
+     "time": "2153-03-29 04:08:00",
+     "item": "INR",
+     "value": "1.2"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): INR x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34107647A1::02",
+   "claim_id": "M34107647A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor PT levels closely.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227465:2153-03-29 04:08:00:667401",
+     "time": "2153-03-29 04:08:00",
+     "item": "PT",
+     "value": "13.1 sec"
+    },
+    {
+     "rid": "lab:51274:2153-03-29 04:08:00:24187",
+     "time": "2153-03-29 04:08:00",
+     "item": "PT",
+     "value": "13.1 sec"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): PT x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34107647A2::03",
+   "claim_id": "M34107647A2",
+   "claim_text": "Continue mechanical ventilation support.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation support.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34107647A3::04",
+   "claim_id": "M34107647A3",
+   "claim_text": "Assess for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 116.1 K/uL at 2153-03-28 03:16:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Ciprofloxacin",
+    "Ciprofloxacin HCl",
+    "Ciprofloxacin IV",
+    "MetRONIDAZOLE (FLagyl)",
+    "Metronidazole"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.7 mmol/L at 2153-03-28 20:00:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "OLANZapine"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 116.1 K/uL at 2153-03-28 03:16:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Ciprofloxacin",
+    "Ciprofloxacin HCl",
+    "Ciprofloxacin IV",
+    "MetRONIDAZOLE (FLagyl)",
+    "Metronidazole"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.7 mmol/L at 2153-03-28 20:00:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "OLANZapine"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 60,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The latest record before the decision (2153-03-28 10:18:00) reads 'Intubated: NOT INTUBATED.'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

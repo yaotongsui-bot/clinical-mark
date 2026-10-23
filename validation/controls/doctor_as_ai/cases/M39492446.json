@@ -1,0 +1,262 @@
+{
+ "case_id": "M39492446",
+ "decision_point": "2181-10-14 02:52:00",
+ "claims": [
+  "Administer NIFEdipine CR.",
+  "Administer Metoprolol Succinate XL.",
+  "Administer Torsemide."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39492446A1::01",
+   "claim_id": "M39492446A1",
+   "claim_text": "Administer NIFEdipine CR.",
+   "kind": "action",
+   "text": "Administer NIFEdipine CR.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "NIFEdipine CR",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39492446A2::02",
+   "claim_id": "M39492446A2",
+   "claim_text": "Administer Metoprolol Succinate XL.",
+   "kind": "action",
+   "text": "Administer Metoprolol Succinate XL.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Metoprolol Succinate XL",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39492446A3::03",
+   "claim_id": "M39492446A3",
+   "claim_text": "Administer Torsemide.",
+   "kind": "action",
+   "text": "Administer Torsemide.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Torsemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class"
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "M39492446A1::01",
+   "claim_id": "M39492446A1",
+   "claim_text": "Administer NIFEdipine CR.",
+   "kind": "action",
+   "text": "Administer NIFEdipine CR.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "NIFEdipine CR",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX30555082",
+     "time": "2181-10-14 08:00:00",
+     "item": "Ordered: NIFEdipine CR 30 mg PO",
+     "class": "antihypertensive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded antihypertensives after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39492446A2::02",
+   "claim_id": "M39492446A2",
+   "claim_text": "Administer Metoprolol Succinate XL.",
+   "kind": "action",
+   "text": "Administer Metoprolol Succinate XL.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Metoprolol Succinate XL",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX37441832",
+     "time": "2181-10-14 08:00:00",
+     "item": "Ordered: Metoprolol Succinate XL 50 mg PO",
+     "class": "rate_rhythm"
+    },
+    {
+     "rid": "RX30198771",
+     "time": "2181-10-14 08:00:00",
+     "item": "Ordered: Metoprolol Succinate XL 100 mg PO",
+     "class": "rate_rhythm"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded rate / rhythm control after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39492446A3::03",
+   "claim_id": "M39492446A3",
+   "claim_text": "Administer Torsemide.",
+   "kind": "action",
+   "text": "Administer Torsemide.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Torsemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX74919612",
+     "time": "2181-10-14 08:00:00",
+     "item": "Ordered: Torsemide 100 mg PO",
+     "class": "diuretic"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded diuretics after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NIFEdipine CR"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39492446A1::01"
+   ]
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Torsemide"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39492446A3::03"
+   ]
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Succinate XL"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M39492446A2::02"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NIFEdipine CR"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39492446A1::01"
+   ]
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Torsemide"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39492446A3::03"
+   ]
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Succinate XL"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M39492446A2::02"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 11,
+ "observation_window_hours": 15.2,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": null,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 1.0,
+  "recall_all_at3": 1.0
+ }
+}

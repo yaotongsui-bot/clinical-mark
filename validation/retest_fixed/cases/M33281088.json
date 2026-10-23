@@ -1,0 +1,950 @@
+{
+ "case_id": "M33281088",
+ "decision_point": "2140-01-24 18:08:00",
+ "claims": [
+  "Monitor electrolyte levels, particularly potassium and magnesium, due to recent administration and abnormal values.",
+  "Assess for signs of liver dysfunction given elevated liver enzymes.",
+  "Continue monitoring respiratory status, given recent changes in oxygen saturation and blood gas values."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M33281088A1::01",
+   "claim_id": "M33281088A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium, due to recent administration and abnormal values.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33281088A1::02",
+   "claim_id": "M33281088A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium, due to recent administration and abnormal values.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33281088A1::03",
+   "claim_id": "M33281088A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium, due to recent administration and abnormal values.",
+   "kind": "action",
+   "text": "Monitor magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33281088A1::04",
+   "claim_id": "M33281088A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium, due to recent administration and abnormal values.",
+   "kind": "fact",
+   "text": "Recent administration of electrolytes.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: electrolytes -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M33281088A1::05",
+   "claim_id": "M33281088A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium, due to recent administration and abnormal values.",
+   "kind": "fact",
+   "text": "Abnormal electrolyte values.",
+   "concept": "electrolytes",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M33281088A2::06",
+   "claim_id": "M33281088A2",
+   "claim_text": "Assess for signs of liver dysfunction given elevated liver enzymes.",
+   "kind": "action",
+   "text": "Assess for signs of liver dysfunction.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of liver dysfunction",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33281088A2::07",
+   "claim_id": "M33281088A2",
+   "claim_text": "Assess for signs of liver dysfunction given elevated liver enzymes.",
+   "kind": "fact",
+   "text": "Elevated liver enzymes.",
+   "concept": "liver_function",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M33281088A3::08",
+   "claim_id": "M33281088A3",
+   "claim_text": "Continue monitoring respiratory status, given recent changes in oxygen saturation and blood gas values.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33281088A3::09",
+   "claim_id": "M33281088A3",
+   "claim_text": "Continue monitoring respiratory status, given recent changes in oxygen saturation and blood gas values.",
+   "kind": "fact",
+   "text": "Recent changes in oxygen saturation and blood gas values.",
+   "concept": "spo2",
+   "notes": [
+    "concept set by the rule files: vital_signs -> spo2"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M33281088A1::04",
+   "claim_id": "M33281088A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium, due to recent administration and abnormal values.",
+   "kind": "fact",
+   "text": "Recent administration of electrolytes.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: electrolytes -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Multiple administration records for electrolytes, including potassium, magnesium, and calcium, are documented within the 24 hours preceding the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "not_supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:6767381:225166:2140-01-23 21:00:00",
+     "time": "2140-01-23 21:00:00",
+     "item": "Infusion/input Potassium Chloride 20.000000596046448 mEq (2140-01-23 21:00:00 to 2140-01-23 22:00:00)"
+    },
+    {
+     "rid": "inputevents:3879306:221456:2140-01-23 21:18:00",
+     "time": "2140-01-23 21:18:00",
+     "item": "Infusion/input Calcium Gluconate 2.0000001043081284 grams (2140-01-23 21:18:00 to 2140-01-23 22:18:00)"
+    },
+    {
+     "rid": "emar:10039708-201",
+     "time": "2140-01-23 21:21:00",
+     "item": "MAR Administered: Magnesium Sulfate Replacement (Critical Care and Oncology)"
+    },
+    {
+     "rid": "emar:10039708-202",
+     "time": "2140-01-23 21:22:00",
+     "item": "MAR Administered: Potassium Chloride Replacement (Critical Care and Oncology)"
+    },
+    {
+     "rid": "emar:10039708-214",
+     "time": "2140-01-23 21:57:00",
+     "item": "MAR Administered: Magnesium Sulfate Replacement (Critical Care and Oncology)"
+    },
+    {
+     "rid": "emar:10039708-215",
+     "time": "2140-01-23 22:04:00",
+     "item": "MAR Administered: Potassium Chloride Replacement (Critical Care and Oncology)"
+    },
+    {
+     "rid": "emar:10039708-216",
+     "time": "2140-01-23 22:50:00",
+     "item": "MAR Administered: Potassium Chloride Replacement (Critical Care and Oncology)"
+    },
+    {
+     "rid": "emar:10039708-227",
+     "time": "2140-01-24 06:16:00",
+     "item": "MAR Administered: Calcium Gluconate sliding scale (Critical Care-Ionized calcium)"
+    },
+    {
+     "rid": "inputevents:538834:225166:2140-01-24 06:46:00",
+     "time": "2140-01-24 06:46:00",
+     "item": "Infusion/input Potassium Chloride 20.000000596046448 mEq (2140-01-24 06:46:00 to 2140-01-24 07:46:00)"
+    },
+    {
+     "rid": "emar:10039708-244",
+     "time": "2140-01-24 12:30:00",
+     "item": "MAR Administered: Potassium Chloride Replacement (Critical Care and Oncology)"
+    },
+    {
+     "rid": "inputevents:9864247:225166:2140-01-24 12:30:00",
+     "time": "2140-01-24 12:30:00",
+     "item": "Infusion/input Potassium Chloride 20.000000596046448 mEq (2140-01-24 12:30:00 to 2140-01-24 13:30:00)"
+    },
+    {
+     "rid": "inputevents:4566851:225166:2140-01-24 14:00:00",
+     "time": "2140-01-24 14:00:00",
+     "item": "Infusion/input Potassium Chloride 20.000000596046448 mEq (2140-01-24 14:00:00 to 2140-01-24 15:00:00)"
+    },
+    {
+     "rid": "inputevents:1292604:225166:2140-01-24 15:00:00",
+     "time": "2140-01-24 15:00:00",
+     "item": "Infusion/input Potassium Chloride 20.000000596046448 mEq (2140-01-24 15:00:00 to 2140-01-24 16:00:00)"
+    },
+    {
+     "rid": "emar:10039708-228",
+     "time": "2140-01-24 06:47:00",
+     "item": "MAR charted: Potassium Chloride Replacement (Critical Care and Oncology)"
+    },
+    {
+     "rid": "emar:10039708-249",
+     "time": "2140-01-24 15:00:00",
+     "item": "MAR Administered: Calcium Gluconate sliding scale (Critical Care-Ionized calcium)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M33281088A1::05",
+   "claim_id": "M33281088A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium, due to recent administration and abnormal values.",
+   "kind": "fact",
+   "text": "Abnormal electrolyte values.",
+   "concept": "electrolytes",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:463530",
+     "time": "2140-01-24 11:56:00",
+     "item": "Potassium",
+     "value": 3.0,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:463527",
+     "time": "2140-01-24 11:56:00",
+     "item": "Chloride",
+     "value": 111.0,
+     "unit": "mEq/L",
+     "bounds": "96.0 to 108.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:463526",
+     "time": "2140-01-24 11:56:00",
+     "item": "Bicarbonate",
+     "value": 9.0,
+     "unit": "mEq/L",
+     "bounds": "22.0 to 32.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:463536",
+     "time": "2140-01-24 12:15:00",
+     "item": "Free Calcium",
+     "value": 1.1,
+     "unit": "mmol/L",
+     "bounds": "1.12 to 1.32",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "'electrolytes abnormal' holds when any component is abnormal. sodium: no; potassium: yes; chloride: yes; bicarbonate: yes; magnesium: no; calcium: yes; phosphate: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M33281088A2::07",
+   "claim_id": "M33281088A2",
+   "claim_text": "Assess for signs of liver dysfunction given elevated liver enzymes.",
+   "kind": "fact",
+   "text": "Elevated liver enzymes.",
+   "concept": "liver_function",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:463479",
+     "time": "2140-01-24 05:51:00",
+     "item": "Asparate Aminotransferase (AST)",
+     "value": 96.0,
+     "unit": "IU/L",
+     "bounds": "0.0 to 40.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:463476",
+     "time": "2140-01-24 05:51:00",
+     "item": "Alanine Aminotransferase (ALT)",
+     "value": 66.0,
+     "unit": "IU/L",
+     "bounds": "0.0 to 40.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:463477",
+     "time": "2140-01-24 05:51:00",
+     "item": "Alkaline Phosphatase",
+     "value": 241.0,
+     "unit": "IU/L",
+     "bounds": "35.0 to 105.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "'liver function abnormal' holds when any component is abnormal. AST: yes; ALT: yes; total bilirubin: no; alkaline phosphatase: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M33281088A3::09",
+   "claim_id": "M33281088A3",
+   "claim_text": "Continue monitoring respiratory status, given recent changes in oxygen saturation and blood gas values.",
+   "kind": "fact",
+   "text": "Recent changes in oxygen saturation and blood gas values.",
+   "concept": "spo2",
+   "notes": [
+    "concept set by the rule files: vital_signs -> spo2"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "Vague statement (no specific measure or direction of change)."
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M33281088A1::01",
+   "claim_id": "M33281088A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium, due to recent administration and abnormal values.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2140-01-25 05:00:00:116421",
+     "time": "2140-01-25 05:00:00",
+     "item": "sodium",
+     "value": "139 mEq/L"
+    },
+    {
+     "rid": "chart:220645:2140-01-25 15:29:00:135944",
+     "time": "2140-01-25 15:29:00",
+     "item": "sodium",
+     "value": "142 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2140-01-25 05:00:00:116449",
+     "time": "2140-01-25 05:00:00",
+     "item": "potassium",
+     "value": "3.8 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2140-01-25 15:29:00:135949",
+     "time": "2140-01-25 15:29:00",
+     "item": "potassium",
+     "value": "3.7 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2140-01-25 05:00:00:116442",
+     "time": "2140-01-25 05:00:00",
+     "item": "chloride",
+     "value": "112 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2140-01-25 15:29:00:135937",
+     "time": "2140-01-25 15:29:00",
+     "item": "chloride",
+     "value": "111 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2140-01-25 05:00:00:116417",
+     "time": "2140-01-25 05:00:00",
+     "item": "bicarbonate",
+     "value": "15 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2140-01-25 15:29:00:135940",
+     "time": "2140-01-25 15:29:00",
+     "item": "bicarbonate",
+     "value": "16 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2140-01-25 05:00:00:116426",
+     "time": "2140-01-25 05:00:00",
+     "item": "magnesium",
+     "value": "1.8 mg/dL"
+    },
+    {
+     "rid": "chart:220635:2140-01-25 15:29:00:135939",
+     "time": "2140-01-25 15:29:00",
+     "item": "magnesium",
+     "value": "2.6 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2140-01-25 05:00:00:116443",
+     "time": "2140-01-25 05:00:00",
+     "item": "calcium",
+     "value": "7.3 mg/dL"
+    },
+    {
+     "rid": "chart:225667:2140-01-25 15:49:00:139223",
+     "time": "2140-01-25 15:49:00",
+     "item": "calcium",
+     "value": "1.05 mmol/L"
+    },
+    {
+     "rid": "chart:225677:2140-01-25 05:00:00:116419",
+     "time": "2140-01-25 05:00:00",
+     "item": "phosphate",
+     "value": "1.9 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2140-01-25 05:00:00:1518",
+     "time": "2140-01-25 05:00:00",
+     "item": "phosphate",
+     "value": "1.9 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x5, potassium x6, chloride x5, bicarbonate x4, magnesium x4, calcium x6, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33281088A1::02",
+   "claim_id": "M33281088A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium, due to recent administration and abnormal values.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227442:2140-01-25 05:00:00:116449",
+     "time": "2140-01-25 05:00:00",
+     "item": "potassium",
+     "value": "3.8 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2140-01-25 15:29:00:135949",
+     "time": "2140-01-25 15:29:00",
+     "item": "potassium",
+     "value": "3.7 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33281088A1::03",
+   "claim_id": "M33281088A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium, due to recent administration and abnormal values.",
+   "kind": "action",
+   "text": "Monitor magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220635:2140-01-25 05:00:00:116426",
+     "time": "2140-01-25 05:00:00",
+     "item": "magnesium",
+     "value": "1.8 mg/dL"
+    },
+    {
+     "rid": "chart:220635:2140-01-25 15:29:00:135939",
+     "time": "2140-01-25 15:29:00",
+     "item": "magnesium",
+     "value": "2.6 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): magnesium x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33281088A2::06",
+   "claim_id": "M33281088A2",
+   "claim_text": "Assess for signs of liver dysfunction given elevated liver enzymes.",
+   "kind": "action",
+   "text": "Assess for signs of liver dysfunction.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of liver dysfunction",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33281088A3::08",
+   "claim_id": "M33281088A3",
+   "claim_text": "Continue monitoring respiratory status, given recent changes in oxygen saturation and blood gas values.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2140-01-24 19:00:00:115449",
+     "time": "2140-01-24 19:00:00",
+     "item": "respiratory rate",
+     "value": "20 insp/min"
+    },
+    {
+     "rid": "chart:220210:2140-01-24 20:00:00:115494",
+     "time": "2140-01-24 20:00:00",
+     "item": "respiratory rate",
+     "value": "22 insp/min"
+    },
+    {
+     "rid": "chart:220277:2140-01-24 20:00:00:115514",
+     "time": "2140-01-24 20:00:00",
+     "item": "SpO2",
+     "value": "96 %"
+    },
+    {
+     "rid": "chart:220277:2140-01-24 21:00:00:115774",
+     "time": "2140-01-24 21:00:00",
+     "item": "SpO2",
+     "value": "97 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x24, SpO2 x25.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13.2 K/uL at 2140-01-24 11:52:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "MetRONIDAZOLE (FLagyl)",
+    "Metronidazole",
+    "Vancomycin"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "bicarbonate",
+   "name": "sodium bicarbonate",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest bicarbonate 9 mEq/L at 2140-01-24 11:56:00 (reference 22.0 to 32.0) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Sodium Bicarbonate 8.4%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.1 mmol/L at 2140-01-24 12:15:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate",
+    "Calcium Gluconate sliding scale (Critical Care-Ionized calcium)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 311 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 7.2 mmol/L at 2140-01-24 17:30:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 23,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2140-01-24 11:56:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Albumin 25%",
+    "Albumin 25% (12.5g / 50mL)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Phosphorus"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13.2 K/uL at 2140-01-24 11:52:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "MetRONIDAZOLE (FLagyl)",
+    "Metronidazole",
+    "Vancomycin"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "bicarbonate",
+   "name": "sodium bicarbonate",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest bicarbonate 9 mEq/L at 2140-01-24 11:56:00 (reference 22.0 to 32.0) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Sodium Bicarbonate 8.4%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.1 mmol/L at 2140-01-24 12:15:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate",
+    "Calcium Gluconate sliding scale (Critical Care-Ionized calcium)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 311 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 7.2 mmol/L at 2140-01-24 17:30:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 23,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2140-01-24 11:56:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Albumin 25%",
+    "Albumin 25% (12.5g / 50mL)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Phosphorus"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 110,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 1,
+  "supported_share": 0.75,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.25,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

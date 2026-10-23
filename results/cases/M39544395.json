@@ -1,0 +1,563 @@
+{
+ "case_id": "M39544395",
+ "decision_point": "2176-11-20 14:24:52",
+ "claims": [
+  "Monitor electrolyte levels due to abnormal potassium and magnesium levels.",
+  "Continue mechanical ventilation with BiPAP settings to maintain adequate oxygenation.",
+  "Assess for potential causes of hypotension and hypoxemia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39544395A1::01",
+   "claim_id": "M39544395A1",
+   "claim_text": "Monitor electrolyte levels due to abnormal potassium and magnesium levels.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39544395A1::02",
+   "claim_id": "M39544395A1",
+   "claim_text": "Monitor electrolyte levels due to abnormal potassium and magnesium levels.",
+   "kind": "fact",
+   "text": "Abnormal potassium levels are present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M39544395A1::03",
+   "claim_id": "M39544395A1",
+   "claim_text": "Monitor electrolyte levels due to abnormal potassium and magnesium levels.",
+   "kind": "fact",
+   "text": "Abnormal magnesium levels are present.",
+   "concept": "magnesium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M39544395A2::04",
+   "claim_id": "M39544395A2",
+   "claim_text": "Continue mechanical ventilation with BiPAP settings to maintain adequate oxygenation.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with BiPAP settings.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39544395A2::05",
+   "claim_id": "M39544395A2",
+   "claim_text": "Continue mechanical ventilation with BiPAP settings to maintain adequate oxygenation.",
+   "kind": "goal",
+   "text": "Maintain adequate oxygenation.",
+   "concept": "oxygenation",
+   "notes": []
+  },
+  {
+   "atom_id": "M39544395A3::06",
+   "claim_id": "M39544395A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "action",
+   "text": "Assess for potential causes of hypotension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hypotension",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39544395A3::07",
+   "claim_id": "M39544395A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "action",
+   "text": "Assess for potential causes of hypoxemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hypoxemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39544395A3::R01",
+   "claim_id": "M39544395A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  },
+  {
+   "atom_id": "M39544395A3::R02",
+   "claim_id": "M39544395A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "fact",
+   "text": "Hypoxemia is present.",
+   "concept": "oxygenation",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  },
+  {
+   "atom_id": "M39544395A2::P01",
+   "claim_id": "M39544395A2",
+   "claim_text": "Continue mechanical ventilation with BiPAP settings to maintain adequate oxygenation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation (BiPAP/CPAP).",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39544395A1::02",
+   "claim_id": "M39544395A1",
+   "claim_text": "Monitor electrolyte levels due to abnormal potassium and magnesium levels.",
+   "kind": "fact",
+   "text": "Abnormal potassium levels are present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:199502",
+     "time": "2176-11-19 14:57:00",
+     "item": "Potassium, Whole Blood",
+     "value": 3.5,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:199521",
+     "time": "2176-11-19 17:15:00",
+     "item": "Potassium",
+     "value": 4.2,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:199611",
+     "time": "2176-11-20 05:35:00",
+     "item": "Potassium",
+     "value": 5.0,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest potassium 5 mEq/L at 2176-11-20 05:35:00 (reference 3.3 to 5.1) is normal, not consistent with 'abnormal'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39544395A1::03",
+   "claim_id": "M39544395A1",
+   "claim_text": "Monitor electrolyte levels due to abnormal potassium and magnesium levels.",
+   "kind": "fact",
+   "text": "Abnormal magnesium levels are present.",
+   "concept": "magnesium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:199470",
+     "time": "2176-11-19 06:15:00",
+     "item": "Magnesium",
+     "value": 1.9,
+     "unit": "mg/dL",
+     "bounds": "1.6 to 2.6",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:199520",
+     "time": "2176-11-19 17:15:00",
+     "item": "Magnesium",
+     "value": 1.9,
+     "unit": "mg/dL",
+     "bounds": "1.6 to 2.6",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:199608",
+     "time": "2176-11-20 05:35:00",
+     "item": "Magnesium",
+     "value": 2.4,
+     "unit": "mg/dL",
+     "bounds": "1.6 to 2.6",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest magnesium 2.4 mg/dL at 2176-11-20 05:35:00 (reference 1.6 to 2.6) is normal, not consistent with 'abnormal'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39544395A3::R01",
+   "claim_id": "M39544395A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:39544395:220179:2176-11-20 13:01:00",
+     "time": "2176-11-20 13:01:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 128.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "chart:39544395:220181:2176-11-20 13:01:00",
+     "time": "2176-11-20 13:01:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 66.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39544395A3::R02",
+   "claim_id": "M39544395A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "fact",
+   "text": "Hypoxemia is present.",
+   "concept": "oxygenation",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:39544395:220277:2176-11-20 11:00:00",
+     "time": "2176-11-20 11:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 92.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:199620",
+     "time": "2176-11-20 05:53:00",
+     "item": "pO2",
+     "value": 73.0,
+     "unit": "mm Hg",
+     "bounds": "60 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39544395A2::P01",
+   "claim_id": "M39544395A2",
+   "claim_text": "Continue mechanical ventilation with BiPAP settings to maintain adequate oxygenation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation (BiPAP/CPAP).",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The patient is currently on non-invasive ventilation (BiPAP/CPAP) because the records show that the BiPAP EPAP is 5 cmH2O, BiPAP IPAP is 12 cmH2O, BiPAP O2 Flow is 10 L/min, BiPAP Mode is Spontaneous (S), and BiPAP Mask is Oral/Nasal.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": null,
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:39544395:227579:2176-11-19 17:47:00",
+     "time": "2176-11-19 17:47:00",
+     "item": "BiPap EPAP: 5 cmH2O"
+    },
+    {
+     "rid": "chart:39544395:227580:2176-11-19 17:47:00",
+     "time": "2176-11-19 17:47:00",
+     "item": "BiPap IPAP: 12 cmH2O"
+    },
+    {
+     "rid": "chart:39544395:227582:2176-11-19 17:47:00",
+     "time": "2176-11-19 17:47:00",
+     "item": "BiPap O2 Flow: 10 L/min"
+    },
+    {
+     "rid": "chart:39544395:227577:2176-11-19 17:47:00",
+     "time": "2176-11-19 17:47:00",
+     "item": "BiPap Mode: Spontaneous (S)"
+    },
+    {
+     "rid": "chart:39544395:227578:2176-11-19 17:47:00",
+     "time": "2176-11-19 17:47:00",
+     "item": "BiPap Mask: Oral/Nasal"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39544395A1::01",
+   "claim_id": "M39544395A1",
+   "claim_text": "Monitor electrolyte levels due to abnormal potassium and magnesium levels.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 4.9 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39544395A2::04",
+   "claim_id": "M39544395A2",
+   "claim_text": "Continue mechanical ventilation with BiPAP settings to maintain adequate oxygenation.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with BiPAP settings.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 4.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39544395A3::06",
+   "claim_id": "M39544395A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "action",
+   "text": "Assess for potential causes of hypotension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hypotension",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39544395A3::07",
+   "claim_id": "M39544395A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "action",
+   "text": "Assess for potential causes of hypoxemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hypoxemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 188 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 188 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 11,
+ "observation_window_hours": 4.9,
+ "scoresheet": {
+  "n": 5,
+  "supported": 1,
+  "not_supported": 4,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.2,
+  "not_supported_share": 0.8,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Abnormal potassium levels are present. -- Latest potassium 5 mEq/L at 2176-11-20 05:35:00 (reference 3.3 to 5.1) is normal, not consistent with 'abnormal'.",
+    "Abnormal magnesium levels are present. -- Latest magnesium 2.4 mg/dL at 2176-11-20 05:35:00 (reference 1.6 to 2.6) is normal, not consistent with 'abnormal'.",
+    "Hypotension is present. -- 'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: no.",
+    "Hypoxemia is present. -- 'oxygenation low' holds when any component is low. SpO2: no; PaO2: no."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.2,
+  "not_supported": 4,
+  "treatment_precision": 0.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

@@ -1,0 +1,521 @@
+{
+ "case_id": "M38587181",
+ "decision_point": "2157-07-02 04:52:37",
+ "claims": [
+  "Monitor blood glucose levels closely.",
+  "Consider a blood transfusion given the anemia.",
+  "Administer intravenous fluids to maintain hydration.",
+  "Evaluate the patient for possible respiratory causes of the hypoxemia.",
+  "Monitor and manage heart rate and blood pressure.",
+  "Evaluate the need for further neurological assessment.",
+  "Continue monitoring renal function."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M38587181A1::01",
+   "claim_id": "M38587181A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38587181A2::02",
+   "claim_id": "M38587181A2",
+   "claim_text": "Consider a blood transfusion given the anemia.",
+   "kind": "action",
+   "text": "Consider a blood transfusion given the anemia.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "administer",
+   "target": "blood transfusion",
+   "conditional": true,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38587181A3::03",
+   "claim_id": "M38587181A3",
+   "claim_text": "Administer intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to maintain hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38587181A4::04",
+   "claim_id": "M38587181A4",
+   "claim_text": "Evaluate the patient for possible respiratory causes of the hypoxemia.",
+   "kind": "action",
+   "text": "Evaluate the patient for possible respiratory causes of the hypoxemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory causes of hypoxemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38587181A5::05",
+   "claim_id": "M38587181A5",
+   "claim_text": "Monitor and manage heart rate and blood pressure.",
+   "kind": "action",
+   "text": "Monitor and manage heart rate and blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate and blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38587181A6::06",
+   "claim_id": "M38587181A6",
+   "claim_text": "Evaluate the need for further neurological assessment.",
+   "kind": "action",
+   "text": "Evaluate the need for further neurological assessment.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "need for further neurological assessment",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38587181A7::07",
+   "claim_id": "M38587181A7",
+   "claim_text": "Continue monitoring renal function.",
+   "kind": "action",
+   "text": "Continue monitoring renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "renal function",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38587181A2::R01",
+   "claim_id": "M38587181A2",
+   "claim_text": "Consider a blood transfusion given the anemia.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  },
+  {
+   "atom_id": "M38587181A4::R02",
+   "claim_id": "M38587181A4",
+   "claim_text": "Evaluate the patient for possible respiratory causes of the hypoxemia.",
+   "kind": "fact",
+   "text": "Hypoxemia is present.",
+   "concept": "oxygenation",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M38587181A2::R01",
+   "claim_id": "M38587181A2",
+   "claim_text": "Consider a blood transfusion given the anemia.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:428516",
+     "time": "2157-07-01 04:55:00",
+     "item": "Hemoglobin",
+     "value": 9.6,
+     "unit": "g/dL",
+     "bounds": "12.0 to 16.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:428562",
+     "time": "2157-07-01 10:52:00",
+     "item": "Hemoglobin",
+     "value": 8.1,
+     "unit": "g/dL",
+     "bounds": "12.0 to 16.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 8.1 g/dL at 2157-07-01 10:52:00 (reference 12.0 to 16.0) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M38587181A4::R02",
+   "claim_id": "M38587181A4",
+   "claim_text": "Evaluate the patient for possible respiratory causes of the hypoxemia.",
+   "kind": "fact",
+   "text": "Hypoxemia is present.",
+   "concept": "oxygenation",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:38587181:220277:2157-07-02 01:00:00",
+     "time": "2157-07-02 01:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 96.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'oxygenation low' holds when any component is low. SpO2: no.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M38587181A1::01",
+   "claim_id": "M38587181A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2157-07-02 09:00:00:89003",
+     "time": "2157-07-02 09:00:00",
+     "item": "glucose",
+     "value": "202"
+    },
+    {
+     "rid": "chart:225664:2157-07-02 12:00:00:89041",
+     "time": "2157-07-02 12:00:00",
+     "item": "glucose",
+     "value": "198"
+    }
+   ],
+   "reason": "Measured in the 9.4 h observation window after the decision (24 h or until ICU discharge): glucose x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38587181A2::02",
+   "claim_id": "M38587181A2",
+   "claim_text": "Consider a blood transfusion given the anemia.",
+   "kind": "action",
+   "text": "Consider a blood transfusion given the anemia.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "administer",
+   "target": "blood transfusion",
+   "conditional": true,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 9.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38587181A3::03",
+   "claim_id": "M38587181A3",
+   "claim_text": "Administer intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to maintain hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 9.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38587181A4::04",
+   "claim_id": "M38587181A4",
+   "claim_text": "Evaluate the patient for possible respiratory causes of the hypoxemia.",
+   "kind": "action",
+   "text": "Evaluate the patient for possible respiratory causes of the hypoxemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory causes of hypoxemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38587181A5::05",
+   "claim_id": "M38587181A5",
+   "claim_text": "Monitor and manage heart rate and blood pressure.",
+   "kind": "action",
+   "text": "Monitor and manage heart rate and blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate and blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220179:2157-07-02 05:00:00:88853",
+     "time": "2157-07-02 05:00:00",
+     "item": "systolic BP",
+     "value": "136 mmHg"
+    },
+    {
+     "rid": "chart:220179:2157-07-02 06:00:00:88870",
+     "time": "2157-07-02 06:00:00",
+     "item": "systolic BP",
+     "value": "151 mmHg"
+    },
+    {
+     "rid": "chart:220181:2157-07-02 05:00:00:88861",
+     "time": "2157-07-02 05:00:00",
+     "item": "mean arterial pressure",
+     "value": "72 mmHg"
+    },
+    {
+     "rid": "chart:220181:2157-07-02 06:00:00:88864",
+     "time": "2157-07-02 06:00:00",
+     "item": "mean arterial pressure",
+     "value": "88 mmHg"
+    }
+   ],
+   "reason": "Measured in the 9.4 h observation window after the decision (24 h or until ICU discharge): systolic BP x9, mean arterial pressure x9.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38587181A6::06",
+   "claim_id": "M38587181A6",
+   "claim_text": "Evaluate the need for further neurological assessment.",
+   "kind": "action",
+   "text": "Evaluate the need for further neurological assessment.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "need for further neurological assessment",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223901:2157-07-02 08:00:00:88908",
+     "time": "2157-07-02 08:00:00",
+     "item": "GCS / mental status",
+     "value": "Obeys Commands"
+    },
+    {
+     "rid": "chart:220739:2157-07-02 08:00:00:88929",
+     "time": "2157-07-02 08:00:00",
+     "item": "GCS / mental status",
+     "value": "Spontaneously"
+    }
+   ],
+   "reason": "Measured in the 9.4 h observation window after the decision (24 h or until ICU discharge): GCS / mental status x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38587181A7::07",
+   "claim_id": "M38587181A7",
+   "claim_text": "Continue monitoring renal function.",
+   "kind": "action",
+   "text": "Continue monitoring renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "renal function",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No renal function measurement in the 9.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest magnesium 1.5 mg/dL at 2157-07-01 04:55:00 (reference 1.6 to 2.6) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 2.2 mg/dL at 2157-07-01 04:55:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest magnesium 1.5 mg/dL at 2157-07-01 04:55:00 (reference 1.6 to 2.6) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 2.2 mg/dL at 2157-07-01 04:55:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 12,
+ "observation_window_hours": 9.4,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hypoxemia is present. -- 'oxygenation low' holds when any component is low. SpO2: no."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

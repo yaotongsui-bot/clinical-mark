@@ -1,0 +1,412 @@
+{
+ "case_id": "M39492446",
+ "decision_point": "2181-10-14 02:52:00",
+ "claims": [
+  "Monitor electrolyte levels, particularly potassium, closely.",
+  "Consider a blood transfusion due to anemia.",
+  "Administer intravenous fluids to manage fluid balance."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39492446A1::01",
+   "claim_id": "M39492446A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39492446A1::02",
+   "claim_id": "M39492446A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39492446A2::03",
+   "claim_id": "M39492446A2",
+   "claim_text": "Consider a blood transfusion due to anemia.",
+   "kind": "action",
+   "text": "Consider a blood transfusion due to anemia.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "administer",
+   "target": "blood transfusion",
+   "conditional": true,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39492446A3::04",
+   "claim_id": "M39492446A3",
+   "claim_text": "Administer intravenous fluids to manage fluid balance.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to manage fluid balance.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39492446A2::R01",
+   "claim_id": "M39492446A2",
+   "claim_text": "Consider a blood transfusion due to anemia.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39492446A2::R01",
+   "claim_id": "M39492446A2",
+   "claim_text": "Consider a blood transfusion due to anemia.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:263526",
+     "time": "2181-10-12 22:40:00",
+     "item": "Hemoglobin",
+     "value": 12.3,
+     "unit": "g/dL",
+     "bounds": "14.0 to 18.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:263568",
+     "time": "2181-10-13 04:04:00",
+     "item": "Hemoglobin",
+     "value": 11.2,
+     "unit": "g/dL",
+     "bounds": "14.0 to 18.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:263594",
+     "time": "2181-10-13 12:00:00",
+     "item": "Hemoglobin",
+     "value": 11.3,
+     "unit": "g/dL",
+     "bounds": "14.0 to 18.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 11.3 g/dL at 2181-10-13 12:00:00 (reference 14.0 to 18.0) is low, consistent with 'low'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39492446A1::01",
+   "claim_id": "M39492446A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2181-10-14 05:40:00:236075",
+     "time": "2181-10-14 05:40:00",
+     "item": "sodium",
+     "value": "142 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2181-10-14 05:40:00:79406",
+     "time": "2181-10-14 05:40:00",
+     "item": "sodium",
+     "value": "142 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2181-10-14 05:40:00:236077",
+     "time": "2181-10-14 05:40:00",
+     "item": "potassium",
+     "value": "4.7 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2181-10-14 05:40:00:79415",
+     "time": "2181-10-14 05:40:00",
+     "item": "potassium",
+     "value": "4.7 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2181-10-14 05:40:00:236080",
+     "time": "2181-10-14 05:40:00",
+     "item": "chloride",
+     "value": "100 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2181-10-14 05:40:00:79410",
+     "time": "2181-10-14 05:40:00",
+     "item": "chloride",
+     "value": "100 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2181-10-14 05:40:00:236067",
+     "time": "2181-10-14 05:40:00",
+     "item": "bicarbonate",
+     "value": "28 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2181-10-14 05:40:00:79404",
+     "time": "2181-10-14 05:40:00",
+     "item": "bicarbonate",
+     "value": "28 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2181-10-14 05:40:00:236071",
+     "time": "2181-10-14 05:40:00",
+     "item": "magnesium",
+     "value": "2.4 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2181-10-14 05:40:00:79409",
+     "time": "2181-10-14 05:40:00",
+     "item": "magnesium",
+     "value": "2.4 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2181-10-14 05:40:00:236073",
+     "time": "2181-10-14 05:40:00",
+     "item": "calcium",
+     "value": "7.4 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2181-10-14 05:40:00:79407",
+     "time": "2181-10-14 05:40:00",
+     "item": "calcium",
+     "value": "7.4 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2181-10-14 05:40:00:236063",
+     "time": "2181-10-14 05:40:00",
+     "item": "phosphate",
+     "value": "6.5 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2181-10-14 05:40:00:79411",
+     "time": "2181-10-14 05:40:00",
+     "item": "phosphate",
+     "value": "6.5 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 15.2 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, magnesium x2, calcium x2, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39492446A1::02",
+   "claim_id": "M39492446A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227442:2181-10-14 05:40:00:236077",
+     "time": "2181-10-14 05:40:00",
+     "item": "potassium",
+     "value": "4.7 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2181-10-14 05:40:00:79415",
+     "time": "2181-10-14 05:40:00",
+     "item": "potassium",
+     "value": "4.7 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 15.2 h observation window after the decision (24 h or until ICU discharge): potassium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39492446A2::03",
+   "claim_id": "M39492446A2",
+   "claim_text": "Consider a blood transfusion due to anemia.",
+   "kind": "action",
+   "text": "Consider a blood transfusion due to anemia.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "administer",
+   "target": "blood transfusion",
+   "conditional": true,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 15.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39492446A3::04",
+   "claim_id": "M39492446A3",
+   "claim_text": "Administer intravenous fluids to manage fluid balance.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to manage fluid balance.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 15.2 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NIFEdipine CR"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Torsemide"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Succinate XL"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NIFEdipine CR"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Torsemide"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Succinate XL"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 11,
+ "observation_window_hours": 15.2,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

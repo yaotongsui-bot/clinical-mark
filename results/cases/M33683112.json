@@ -1,0 +1,439 @@
+{
+ "case_id": "M33683112",
+ "decision_point": "2189-06-10 12:46:30",
+ "claims": [
+  "Monitor electrolyte levels, particularly potassium and magnesium.",
+  "Continue monitoring respiratory status and oxygen saturation.",
+  "Assess for signs of infection given elevated white blood cell count and abnormal liver function tests."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M33683112A1::01",
+   "claim_id": "M33683112A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33683112A1::02",
+   "claim_id": "M33683112A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33683112A1::03",
+   "claim_id": "M33683112A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33683112A2::04",
+   "claim_id": "M33683112A2",
+   "claim_text": "Continue monitoring respiratory status and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33683112A2::05",
+   "claim_id": "M33683112A2",
+   "claim_text": "Continue monitoring respiratory status and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33683112A3::06",
+   "claim_id": "M33683112A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count and abnormal liver function tests.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33683112A3::07",
+   "claim_id": "M33683112A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count and abnormal liver function tests.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M33683112A3::08",
+   "claim_id": "M33683112A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count and abnormal liver function tests.",
+   "kind": "fact",
+   "text": "Abnormal liver function tests are present.",
+   "concept": "liver_function",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M33683112A3::07",
+   "claim_id": "M33683112A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count and abnormal liver function tests.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:246179",
+     "time": "2189-06-09 14:22:00",
+     "item": "White Blood Cells",
+     "value": 41.1,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:246237",
+     "time": "2189-06-10 04:02:00",
+     "item": "White Blood Cells",
+     "value": 21.3,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest WBC 21.3 K/uL at 2189-06-10 04:02:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M33683112A3::08",
+   "claim_id": "M33683112A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count and abnormal liver function tests.",
+   "kind": "fact",
+   "text": "Abnormal liver function tests are present.",
+   "concept": "liver_function",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:246151",
+     "time": "2189-06-09 14:22:00",
+     "item": "Asparate Aminotransferase (AST)",
+     "value": 11.0,
+     "unit": "IU/L",
+     "bounds": "0.0 to 40.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:246147",
+     "time": "2189-06-09 14:22:00",
+     "item": "Alanine Aminotransferase (ALT)",
+     "value": 17.0,
+     "unit": "IU/L",
+     "bounds": "0.0 to 40.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:246153",
+     "time": "2189-06-09 14:22:00",
+     "item": "Bilirubin, Total",
+     "value": 0.9,
+     "unit": "mg/dL",
+     "bounds": "0.0 to 1.5",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:246149",
+     "time": "2189-06-09 14:22:00",
+     "item": "Alkaline Phosphatase",
+     "value": 56.0,
+     "unit": "IU/L",
+     "bounds": "35.0 to 105.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "'liver function abnormal' holds when any component is abnormal. AST: no; ALT: no; total bilirubin: no; alkaline phosphatase: no.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M33683112A1::01",
+   "claim_id": "M33683112A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 10.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33683112A1::02",
+   "claim_id": "M33683112A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 10.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33683112A1::03",
+   "claim_id": "M33683112A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No magnesium measurement in the 10.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33683112A2::04",
+   "claim_id": "M33683112A2",
+   "claim_text": "Continue monitoring respiratory status and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2189-06-10 13:00:00:450272",
+     "time": "2189-06-10 13:00:00",
+     "item": "respiratory rate",
+     "value": "26 insp/min"
+    },
+    {
+     "rid": "chart:220210:2189-06-10 14:00:00:450276",
+     "time": "2189-06-10 14:00:00",
+     "item": "respiratory rate",
+     "value": "21 insp/min"
+    },
+    {
+     "rid": "chart:220277:2189-06-10 13:00:00:450274",
+     "time": "2189-06-10 13:00:00",
+     "item": "SpO2",
+     "value": "90 %"
+    },
+    {
+     "rid": "chart:220277:2189-06-10 14:00:00:450275",
+     "time": "2189-06-10 14:00:00",
+     "item": "SpO2",
+     "value": "90 %"
+    }
+   ],
+   "reason": "Measured in the 10.2 h observation window after the decision (24 h or until ICU discharge): respiratory rate x10, SpO2 x10.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33683112A2::05",
+   "claim_id": "M33683112A2",
+   "claim_text": "Continue monitoring respiratory status and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220277:2189-06-10 13:00:00:450274",
+     "time": "2189-06-10 13:00:00",
+     "item": "SpO2",
+     "value": "90 %"
+    },
+    {
+     "rid": "chart:220277:2189-06-10 14:00:00:450275",
+     "time": "2189-06-10 14:00:00",
+     "item": "SpO2",
+     "value": "90 %"
+    }
+   ],
+   "reason": "Measured in the 10.2 h observation window after the decision (24 h or until ICU discharge): SpO2 x10.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33683112A3::06",
+   "claim_id": "M33683112A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count and abnormal liver function tests.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 21.3 K/uL at 2189-06-10 04:02:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Azithromycin",
+    "CefePIME",
+    "Doxycycline Hyclate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Apixaban"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 21.3 K/uL at 2189-06-10 04:02:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Azithromycin",
+    "CefePIME",
+    "Doxycycline Hyclate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Apixaban"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 14,
+ "observation_window_hours": 10.2,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Abnormal liver function tests are present. -- 'liver function abnormal' holds when any component is abnormal. AST: no; ALT: no; total bilirubin: no; alkaline phosphatase: no."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

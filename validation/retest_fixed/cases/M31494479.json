@@ -1,0 +1,258 @@
+{
+ "case_id": "M31494479",
+ "decision_point": "2141-12-18 10:24:25",
+ "claims": [
+  "Monitor hemoglobin and hematocrit levels closely.",
+  "Administer intravenous fluids to maintain adequate hydration.",
+  "Continue monitoring electrolyte levels, particularly potassium."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31494479A1::01",
+   "claim_id": "M31494479A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hemoglobin levels closely.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31494479A1::02",
+   "claim_id": "M31494479A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hematocrit levels closely.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31494479A2::03",
+   "claim_id": "M31494479A2",
+   "claim_text": "Administer intravenous fluids to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to maintain adequate hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31494479A3::04",
+   "claim_id": "M31494479A3",
+   "claim_text": "Continue monitoring electrolyte levels, particularly potassium.",
+   "kind": "action",
+   "text": "Continue monitoring electrolyte levels, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31494479A3::05",
+   "claim_id": "M31494479A3",
+   "claim_text": "Continue monitoring electrolyte levels, particularly potassium.",
+   "kind": "action",
+   "text": "Monitor potassium levels closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "M31494479A1::01",
+   "claim_id": "M31494479A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hemoglobin levels closely.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No hemoglobin measurement in the 3.9 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31494479A1::02",
+   "claim_id": "M31494479A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hematocrit levels closely.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No hematocrit measurement in the 3.9 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31494479A2::03",
+   "claim_id": "M31494479A2",
+   "claim_text": "Administer intravenous fluids to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to maintain adequate hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2141-12-17 15:26:00",
+     "item": "Dextrose 5% infusion continuing at 10 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M31494479A3::04",
+   "claim_id": "M31494479A3",
+   "claim_text": "Continue monitoring electrolyte levels, particularly potassium.",
+   "kind": "action",
+   "text": "Continue monitoring electrolyte levels, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 3.9 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31494479A3::05",
+   "claim_id": "M31494479A3",
+   "claim_text": "Continue monitoring electrolyte levels, particularly potassium.",
+   "kind": "action",
+   "text": "Monitor potassium levels closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 3.9 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.1 mmol/L at 2141-12-17 13:32:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M31494479A2::03"
+   ]
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.1 mmol/L at 2141-12-17 13:32:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M31494479A2::03"
+   ]
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 6,
+ "observation_window_hours": 3.9,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 1.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.5,
+  "recall_vital_at3": 1.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.5
+ }
+}

@@ -1,0 +1,259 @@
+{
+ "case_id": "M37507305",
+ "decision_point": "2113-09-15 10:19:17",
+ "claims": [
+  "Continue NaCl 0.9%.",
+  "Administer Morphine Sulfate."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37507305A1::01",
+   "claim_id": "M37507305A1",
+   "claim_text": "Continue NaCl 0.9%.",
+   "kind": "action",
+   "text": "Continue NaCl 0.9%.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "NaCl 0.9%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37507305A2::02",
+   "claim_id": "M37507305A2",
+   "claim_text": "Administer Morphine Sulfate.",
+   "kind": "action",
+   "text": "Administer Morphine Sulfate.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Morphine Sulfate",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37507305A1::P01",
+   "claim_id": "M37507305A1",
+   "claim_text": "Continue NaCl 0.9%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving NaCl 0.9%.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37507305A1::P01",
+   "claim_id": "M37507305A1",
+   "claim_text": "Continue NaCl 0.9%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving NaCl 0.9%.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R19 explicitly states that the patient is receiving an infusion of NaCl 0.9% at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:2779390:225158:2113-09-14 11:13:00",
+     "time": "2113-09-14 11:13:00",
+     "item": "Running at decision time (started 2113-09-14 11:13:00): Infusion/input NaCl 0.9% at 5 mL/hour"
+    },
+    {
+     "rid": "rx:83685354:2113-09-14 11:00:00",
+     "time": "2113-09-14 11:00:00",
+     "item": "Order: Sodium Chloride 0.9%  Flush 3 mL IV (active at decision time)"
+    },
+    {
+     "rid": "emar:10021312-260",
+     "time": "2113-09-14 22:40:00",
+     "item": "MAR Flushed: Sodium Chloride 0.9%  Flush"
+    },
+    {
+     "rid": "inputevents:7452466:225158:2113-09-15 00:05:00",
+     "time": "2113-09-15 00:05:00",
+     "item": "Infusion/input NaCl 0.9% 100 ml (2113-09-15 00:05:00 to 2113-09-15 00:06:00)"
+    },
+    {
+     "rid": "inputevents:108678:225158:2113-09-15 07:35:00",
+     "time": "2113-09-15 07:35:00",
+     "item": "Infusion/input NaCl 0.9% 100 ml (2113-09-15 07:35:00 to 2113-09-15 07:36:00)"
+    },
+    {
+     "rid": "emar:10021312-234",
+     "time": "2113-09-14 12:00:00",
+     "item": "MAR Not Flushed: Sodium Chloride 0.9%  Flush"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37507305A1::01",
+   "claim_id": "M37507305A1",
+   "claim_text": "Continue NaCl 0.9%.",
+   "kind": "action",
+   "text": "Continue NaCl 0.9%.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "NaCl 0.9%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2113-09-14 11:13:00",
+     "item": "NaCl 0.9% infusion continuing at 5 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37507305A2::02",
+   "claim_id": "M37507305A2",
+   "claim_text": "Administer Morphine Sulfate.",
+   "kind": "action",
+   "text": "Administer Morphine Sulfate.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Morphine Sulfate",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "E10021312-291",
+     "time": "2113-09-15 11:27:00",
+     "item": "Given: Morphine Sulfate",
+     "class": "opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37507305A1::01"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37507305A2::02"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37507305A1::01"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37507305A2::02"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 4,
+ "observation_window_hours": 2.4,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": null,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 1.0,
+  "recall_all_at3": 1.0
+ }
+}

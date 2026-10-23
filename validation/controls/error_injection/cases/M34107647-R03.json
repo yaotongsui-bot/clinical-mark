@@ -1,0 +1,278 @@
+{
+ "case_id": "M34107647-R03",
+ "decision_point": "2153-03-29 02:21:00",
+ "claims": [
+  "Monitor blood glucose levels closely given the low glucose readings."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34107647-R03A1::01",
+   "claim_id": "M34107647-R03A1",
+   "claim_text": "Monitor blood glucose levels closely given the low glucose readings.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34107647-R03A1::02",
+   "claim_id": "M34107647-R03A1",
+   "claim_text": "Monitor blood glucose levels closely given the low glucose readings.",
+   "kind": "fact",
+   "text": "Low glucose readings are present.",
+   "concept": "glucose",
+   "notes": [
+    "concept set by the rule files: blood_gas -> glucose"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M34107647-R03A1::02",
+   "claim_id": "M34107647-R03A1",
+   "claim_text": "Monitor blood glucose levels closely given the low glucose readings.",
+   "kind": "fact",
+   "text": "Low glucose readings are present.",
+   "concept": "glucose",
+   "notes": [
+    "concept set by the rule files: blood_gas -> glucose"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:225267",
+     "time": "2153-03-28 03:16:00",
+     "item": "Glucose",
+     "value": 258.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 258 mg/dL at 2153-03-28 03:16:00 (reference 70.0 to 100.0) is high, not consistent with 'low'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M34107647-R03A1::01",
+   "claim_id": "M34107647-R03A1",
+   "claim_text": "Monitor blood glucose levels closely given the low glucose readings.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2153-03-29 08:00:00:665994",
+     "time": "2153-03-29 08:00:00",
+     "item": "glucose",
+     "value": "88"
+    },
+    {
+     "rid": "chart:225664:2153-03-29 11:00:00:666007",
+     "time": "2153-03-29 11:00:00",
+     "item": "glucose",
+     "value": "122"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x7.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 116.1 K/uL at 2153-03-28 03:16:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Ciprofloxacin",
+    "Ciprofloxacin HCl",
+    "Ciprofloxacin IV",
+    "MetRONIDAZOLE (FLagyl)",
+    "Metronidazole"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.7 mmol/L at 2153-03-28 20:00:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "OLANZapine"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 116.1 K/uL at 2153-03-28 03:16:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Ciprofloxacin",
+    "Ciprofloxacin HCl",
+    "Ciprofloxacin IV",
+    "MetRONIDAZOLE (FLagyl)",
+    "Metronidazole"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.7 mmol/L at 2153-03-28 20:00:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "OLANZapine"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 60,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Low glucose readings are present. -- Latest glucose 258 mg/dL at 2153-03-28 03:16:00 (reference 70.0 to 100.0) is high, not consistent with 'low'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

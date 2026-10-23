@@ -1,0 +1,1458 @@
+{
+ "case_id": "M38507547",
+ "decision_point": "2161-04-28 10:38:12",
+ "claims": [
+  "Monitor hemodynamic stability closely due to low blood pressure alarms and high heart rate.",
+  "Continue mechanical ventilation with adjusted settings to maintain adequate oxygenation and ventilation.",
+  "Administer IV fluids if hypovolemia is suspected based on low hematocrit and blood pressure.",
+  "Consider monitoring serum electrolytes, particularly potassium, given the recent fluctuations.",
+  "Assess the patient for signs of sepsis given the elevated white blood cell count and recent intravenous antibiotic administration.",
+  "Evaluate the need for pain management, given the patient's reported pain level.",
+  "Continue monitoring for potential arrhythmias given the presence of temporary pacemaker wires.",
+  "Consider reassessment of the patient's neurological status given the fluctuating GCS scores.",
+  "Monitor for signs of respiratory distress, given the recent changes in arterial oxygenation and ventilation parameters.",
+  "Continue close monitoring of laboratory values, including electrolytes, blood gases, and vital signs."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M38507547A1::01",
+   "claim_id": "M38507547A1",
+   "claim_text": "Monitor hemodynamic stability closely due to low blood pressure alarms and high heart rate.",
+   "kind": "action",
+   "text": "Monitor hemodynamic stability closely.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamic stability",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A1::02",
+   "claim_id": "M38507547A1",
+   "claim_text": "Monitor hemodynamic stability closely due to low blood pressure alarms and high heart rate.",
+   "kind": "fact",
+   "text": "Low blood pressure alarms are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M38507547A1::03",
+   "claim_id": "M38507547A1",
+   "claim_text": "Monitor hemodynamic stability closely due to low blood pressure alarms and high heart rate.",
+   "kind": "fact",
+   "text": "High heart rate is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M38507547A2::04",
+   "claim_id": "M38507547A2",
+   "claim_text": "Continue mechanical ventilation with adjusted settings to maintain adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with adjusted settings.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38507547A2::05",
+   "claim_id": "M38507547A2",
+   "claim_text": "Continue mechanical ventilation with adjusted settings to maintain adequate oxygenation and ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M38507547A3::06",
+   "claim_id": "M38507547A3",
+   "claim_text": "Administer IV fluids if hypovolemia is suspected based on low hematocrit and blood pressure.",
+   "kind": "action",
+   "text": "Administer IV fluids if hypovolemia is suspected.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38507547A3::07",
+   "claim_id": "M38507547A3",
+   "claim_text": "Administer IV fluids if hypovolemia is suspected based on low hematocrit and blood pressure.",
+   "kind": "fact",
+   "text": "Hypovolemia is suspected.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M38507547A3::08",
+   "claim_id": "M38507547A3",
+   "claim_text": "Administer IV fluids if hypovolemia is suspected based on low hematocrit and blood pressure.",
+   "kind": "fact",
+   "text": "Low hematocrit is present.",
+   "concept": "hematocrit",
+   "notes": [
+    "concept set by the rule files: hemoglobin -> hematocrit"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M38507547A3::09",
+   "claim_id": "M38507547A3",
+   "claim_text": "Administer IV fluids if hypovolemia is suspected based on low hematocrit and blood pressure.",
+   "kind": "fact",
+   "text": "Low blood pressure is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M38507547A4::10",
+   "claim_id": "M38507547A4",
+   "claim_text": "Consider monitoring serum electrolytes, particularly potassium, given the recent fluctuations.",
+   "kind": "action",
+   "text": "Consider monitoring serum electrolytes, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum electrolytes",
+   "conditional": true
+  },
+  {
+   "atom_id": "M38507547A4::11",
+   "claim_id": "M38507547A4",
+   "claim_text": "Consider monitoring serum electrolytes, particularly potassium, given the recent fluctuations.",
+   "kind": "action",
+   "text": "Consider monitoring potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": true
+  },
+  {
+   "atom_id": "M38507547A4::12",
+   "claim_id": "M38507547A4",
+   "claim_text": "Consider monitoring serum electrolytes, particularly potassium, given the recent fluctuations.",
+   "kind": "fact",
+   "text": "Recent fluctuations in electrolytes are present.",
+   "concept": "electrolytes",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M38507547A5::13",
+   "claim_id": "M38507547A5",
+   "claim_text": "Assess the patient for signs of sepsis given the elevated white blood cell count and recent intravenous antibiotic administration.",
+   "kind": "action",
+   "text": "Assess the patient for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of sepsis",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A5::14",
+   "claim_id": "M38507547A5",
+   "claim_text": "Assess the patient for signs of sepsis given the elevated white blood cell count and recent intravenous antibiotic administration.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M38507547A5::15",
+   "claim_id": "M38507547A5",
+   "claim_text": "Assess the patient for signs of sepsis given the elevated white blood cell count and recent intravenous antibiotic administration.",
+   "kind": "fact",
+   "text": "Recent intravenous antibiotic administration is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M38507547A6::16",
+   "claim_id": "M38507547A6",
+   "claim_text": "Evaluate the need for pain management, given the patient's reported pain level.",
+   "kind": "action",
+   "text": "Evaluate the need for pain management.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain management",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A6::17",
+   "claim_id": "M38507547A6",
+   "claim_text": "Evaluate the need for pain management, given the patient's reported pain level.",
+   "kind": "fact",
+   "text": "The patient's reported pain level is high.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M38507547A7::18",
+   "claim_id": "M38507547A7",
+   "claim_text": "Continue monitoring for potential arrhythmias given the presence of temporary pacemaker wires.",
+   "kind": "action",
+   "text": "Continue monitoring for potential arrhythmias.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potential arrhythmias",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A7::19",
+   "claim_id": "M38507547A7",
+   "claim_text": "Continue monitoring for potential arrhythmias given the presence of temporary pacemaker wires.",
+   "kind": "fact",
+   "text": "Temporary pacemaker wires are present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M38507547A8::20",
+   "claim_id": "M38507547A8",
+   "claim_text": "Consider reassessment of the patient's neurological status given the fluctuating GCS scores.",
+   "kind": "action",
+   "text": "Consider reassessment of the patient's neurological status.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "neurological status",
+   "conditional": true
+  },
+  {
+   "atom_id": "M38507547A8::21",
+   "claim_id": "M38507547A8",
+   "claim_text": "Consider reassessment of the patient's neurological status given the fluctuating GCS scores.",
+   "kind": "fact",
+   "text": "Fluctuating GCS scores are present.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M38507547A9::22",
+   "claim_id": "M38507547A9",
+   "claim_text": "Monitor for signs of respiratory distress, given the recent changes in arterial oxygenation and ventilation parameters.",
+   "kind": "action",
+   "text": "Monitor for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A9::23",
+   "claim_id": "M38507547A9",
+   "claim_text": "Monitor for signs of respiratory distress, given the recent changes in arterial oxygenation and ventilation parameters.",
+   "kind": "fact",
+   "text": "Recent changes in arterial oxygenation and ventilation parameters are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M38507547A10::24",
+   "claim_id": "M38507547A10",
+   "claim_text": "Continue close monitoring of laboratory values, including electrolytes, blood gases, and vital signs.",
+   "kind": "action",
+   "text": "Continue close monitoring of laboratory values.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "laboratory values",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A10::25",
+   "claim_id": "M38507547A10",
+   "claim_text": "Continue close monitoring of laboratory values, including electrolytes, blood gases, and vital signs.",
+   "kind": "action",
+   "text": "Continue close monitoring of electrolytes.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolytes",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A10::26",
+   "claim_id": "M38507547A10",
+   "claim_text": "Continue close monitoring of laboratory values, including electrolytes, blood gases, and vital signs.",
+   "kind": "action",
+   "text": "Continue close monitoring of blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood gases",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A10::27",
+   "claim_id": "M38507547A10",
+   "claim_text": "Continue close monitoring of laboratory values, including electrolytes, blood gases, and vital signs.",
+   "kind": "action",
+   "text": "Continue close monitoring of vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M38507547A1::02",
+   "claim_id": "M38507547A1",
+   "claim_text": "Monitor hemodynamic stability closely due to low blood pressure alarms and high heart rate.",
+   "kind": "fact",
+   "text": "Low blood pressure alarms are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "The source records alarm threshold settings, not alarm events."
+  },
+  {
+   "atom_id": "M38507547A1::03",
+   "claim_id": "M38507547A1",
+   "claim_text": "Monitor hemodynamic stability closely due to low blood pressure alarms and high heart rate.",
+   "kind": "fact",
+   "text": "High heart rate is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "chart:38507547:220045:2161-04-28 07:00:00",
+     "time": "2161-04-28 07:00:00",
+     "item": "Heart Rate",
+     "value": 113.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:38507547:220045:2161-04-28 08:00:00",
+     "time": "2161-04-28 08:00:00",
+     "item": "Heart Rate",
+     "value": 111.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:38507547:220045:2161-04-28 09:00:00",
+     "time": "2161-04-28 09:00:00",
+     "item": "Heart Rate",
+     "value": 106.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:38507547:220045:2161-04-28 10:00:00",
+     "time": "2161-04-28 10:00:00",
+     "item": "Heart Rate",
+     "value": 97.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "Median heart rate over the 6 h before the decision: 108.5 bpm (6 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "computed": {
+    "median": 108.5,
+    "status": "high",
+    "n": 6
+   },
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M38507547A2::05",
+   "claim_id": "M38507547A2",
+   "claim_text": "Continue mechanical ventilation with adjusted settings to maintain adequate oxygenation and ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:107087",
+     "time": "2161-04-27 15:18:00",
+     "item": "Intubated: NOT INTUBATED."
+    }
+   ],
+   "reason": "The latest record before the decision (2161-04-27 15:18:00) reads 'Intubated: NOT INTUBATED.'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M38507547A3::07",
+   "claim_id": "M38507547A3",
+   "claim_text": "Administer IV fluids if hypovolemia is suspected based on low hematocrit and blood pressure.",
+   "kind": "fact",
+   "text": "Hypovolemia is suspected.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "A hedged statement ('suspected', 'risk of', 'could indicate'), not a checkable fact."
+  },
+  {
+   "atom_id": "M38507547A3::08",
+   "claim_id": "M38507547A3",
+   "claim_text": "Administer IV fluids if hypovolemia is suspected based on low hematocrit and blood pressure.",
+   "kind": "fact",
+   "text": "Low hematocrit is present.",
+   "concept": "hematocrit",
+   "notes": [
+    "concept set by the rule files: hemoglobin -> hematocrit"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:107045",
+     "time": "2161-04-27 12:09:00",
+     "item": "Hematocrit",
+     "value": 38.1,
+     "unit": "%",
+     "bounds": "40.0 to 52.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:107092",
+     "time": "2161-04-27 18:02:00",
+     "item": "Hematocrit",
+     "value": 31.2,
+     "unit": "%",
+     "bounds": "40.0 to 52.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:107096",
+     "time": "2161-04-28 02:15:00",
+     "item": "Hematocrit",
+     "value": 27.9,
+     "unit": "%",
+     "bounds": "40.0 to 52.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hematocrit 27.9 % at 2161-04-28 02:15:00 (reference 40.0 to 52.0) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M38507547A3::09",
+   "claim_id": "M38507547A3",
+   "claim_text": "Administer IV fluids if hypovolemia is suspected based on low hematocrit and blood pressure.",
+   "kind": "fact",
+   "text": "Low blood pressure is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:38507547:220050:2161-04-28 10:00:00",
+     "time": "2161-04-28 10:00:00",
+     "item": "Arterial Blood Pressure systolic",
+     "value": 106.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "chart:38507547:220052:2161-04-28 10:00:00",
+     "time": "2161-04-28 10:00:00",
+     "item": "Arterial Blood Pressure mean",
+     "value": 71.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M38507547A4::12",
+   "claim_id": "M38507547A4",
+   "claim_text": "Consider monitoring serum electrolytes, particularly potassium, given the recent fluctuations.",
+   "kind": "fact",
+   "text": "Recent fluctuations in electrolytes are present.",
+   "concept": "electrolytes",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "Vague statement (no specific measure or direction of change)."
+  },
+  {
+   "atom_id": "M38507547A5::14",
+   "claim_id": "M38507547A5",
+   "claim_text": "Assess the patient for signs of sepsis given the elevated white blood cell count and recent intravenous antibiotic administration.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:107028",
+     "time": "2161-04-27 10:40:00",
+     "item": "White Blood Cells",
+     "value": 16.4,
+     "unit": "K/uL",
+     "bounds": "4.0 to 11.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:107053",
+     "time": "2161-04-27 12:09:00",
+     "item": "White Blood Cells",
+     "value": 19.2,
+     "unit": "K/uL",
+     "bounds": "4.0 to 11.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:107104",
+     "time": "2161-04-28 02:15:00",
+     "item": "White Blood Cells",
+     "value": 9.8,
+     "unit": "K/uL",
+     "bounds": "4.0 to 11.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest WBC 9.8 K/uL at 2161-04-28 02:15:00 (reference 4.0 to 11.0) is normal, not consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M38507547A5::15",
+   "claim_id": "M38507547A5",
+   "claim_text": "Assess the patient for signs of sepsis given the elevated white blood cell count and recent intravenous antibiotic administration.",
+   "kind": "fact",
+   "text": "Recent intravenous antibiotic administration is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Cefazolin is an intravenous antibiotic, and administration records R34 and R48 confirm it was administered within 24 hours of the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "not_supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:2984931:225850:2161-04-27 23:30:00",
+     "time": "2161-04-27 23:30:00",
+     "item": "Infusion/input Cefazolin 2 grams (2161-04-27 23:30:00 to 2161-04-27 23:31:00)"
+    },
+    {
+     "rid": "inputevents:4320309:225850:2161-04-28 08:00:00",
+     "time": "2161-04-28 08:00:00",
+     "item": "Infusion/input Cefazolin 2 grams (2161-04-28 08:00:00 to 2161-04-28 08:01:00)"
+    },
+    {
+     "rid": "inputevents:4725862:225850:2161-04-27 15:26:00",
+     "time": "2161-04-27 15:26:00",
+     "item": "Infusion/input Cefazolin 2 grams (2161-04-27 15:26:00 to 2161-04-27 15:27:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M38507547A6::17",
+   "claim_id": "M38507547A6",
+   "claim_text": "Evaluate the need for pain management, given the patient's reported pain level.",
+   "kind": "fact",
+   "text": "The patient's reported pain level is high.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The patient's most recent pain assessment at 07:00 was recorded as 'Severe (8)'.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:38507547:223791:2161-04-28 07:00:00",
+     "time": "2161-04-28 07:00:00",
+     "item": "Pain Level: Severe (8)"
+    },
+    {
+     "rid": "chart:38507547:223791:2161-04-27 23:21:00",
+     "time": "2161-04-27 23:21:00",
+     "item": "Pain Level: Severe (8)"
+    },
+    {
+     "rid": "chart:38507547:223791:2161-04-28 01:00:00",
+     "time": "2161-04-28 01:00:00",
+     "item": "Pain Level: Moderate to Severe (6)"
+    },
+    {
+     "rid": "chart:38507547:223791:2161-04-28 01:46:00",
+     "time": "2161-04-28 01:46:00",
+     "item": "Pain Level: Moderate to Severe (6)"
+    },
+    {
+     "rid": "chart:38507547:223791:2161-04-28 02:00:00",
+     "time": "2161-04-28 02:00:00",
+     "item": "Pain Level: Moderate (5)"
+    },
+    {
+     "rid": "chart:38507547:223794:2161-04-28 07:00:00",
+     "time": "2161-04-28 07:00:00",
+     "item": "Pain Level Acceptable: No"
+    }
+   ]
+  },
+  {
+   "atom_id": "M38507547A7::19",
+   "claim_id": "M38507547A7",
+   "claim_text": "Continue monitoring for potential arrhythmias given the presence of temporary pacemaker wires.",
+   "kind": "fact",
+   "text": "Temporary pacemaker wires are present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Multiple records from 2161-04-27 at 16:00 confirm the presence of both atrial and ventricular temporary pacemaker wires.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:38507547:224839:2161-04-27 16:00:00",
+     "time": "2161-04-27 16:00:00",
+     "item": "Temporary Pacemaker Wires Atrial: 2"
+    },
+    {
+     "rid": "chart:38507547:223962:2161-04-27 16:00:00",
+     "time": "2161-04-27 16:00:00",
+     "item": "Temporary Pacemaker Wires Venticular: 2"
+    },
+    {
+     "rid": "chart:38507547:223961:2161-04-27 16:00:00",
+     "time": "2161-04-27 16:00:00",
+     "item": "Temporary Pacemaker Wire Condition: Attached-Pacer"
+    },
+    {
+     "rid": "chart:38507547:223955:2161-04-27 16:00:00",
+     "time": "2161-04-27 16:00:00",
+     "item": "Temporary Pacemaker Type: Epicardial Wires"
+    },
+    {
+     "rid": "chart:38507547:224834:2161-04-27 16:00:00",
+     "time": "2161-04-27 16:00:00",
+     "item": "Temporary Ventricular Sens: Yes"
+    },
+    {
+     "rid": "chart:38507547:224866:2161-04-27 16:00:00",
+     "time": "2161-04-27 16:00:00",
+     "item": "Temporary Atrial Capture: Yes"
+    },
+    {
+     "rid": "chart:38507547:224390:2161-04-27 16:00:00",
+     "time": "2161-04-27 16:00:00",
+     "item": "Temporary Atrial Sens: Yes"
+    }
+   ]
+  },
+  {
+   "atom_id": "M38507547A8::21",
+   "claim_id": "M38507547A8",
+   "claim_text": "Consider reassessment of the patient's neurological status given the fluctuating GCS scores.",
+   "kind": "fact",
+   "text": "Fluctuating GCS scores are present.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "Vague statement (no specific measure or direction of change)."
+  },
+  {
+   "atom_id": "M38507547A9::23",
+   "claim_id": "M38507547A9",
+   "claim_text": "Monitor for signs of respiratory distress, given the recent changes in arterial oxygenation and ventilation parameters.",
+   "kind": "fact",
+   "text": "Recent changes in arterial oxygenation and ventilation parameters are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show multiple changes in arterial O2 pressure (R3, R12, R18, R24) and ventilation parameters, including ventilator mode (R8, R14) and O2 flow (R21, R29, R35, R39, R44, R48).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:38507547:220224:2161-04-27 10:40:00",
+     "time": "2161-04-27 10:40:00",
+     "item": "Arterial O2 pressure: 110 mmHg"
+    },
+    {
+     "rid": "chart:38507547:220224:2161-04-27 12:19:00",
+     "time": "2161-04-27 12:19:00",
+     "item": "Arterial O2 pressure: 313 mmHg"
+    },
+    {
+     "rid": "chart:38507547:220224:2161-04-27 13:24:00",
+     "time": "2161-04-27 13:24:00",
+     "item": "Arterial O2 pressure: 116 mmHg"
+    },
+    {
+     "rid": "chart:38507547:220224:2161-04-27 15:18:00",
+     "time": "2161-04-27 15:18:00",
+     "item": "Arterial O2 pressure: 228 mmHg"
+    },
+    {
+     "rid": "chart:38507547:223849:2161-04-27 12:00:00",
+     "time": "2161-04-27 12:00:00",
+     "item": "Ventilator Mode: CMV/ASSIST/AutoFlow (49)"
+    },
+    {
+     "rid": "chart:38507547:223849:2161-04-27 13:00:00",
+     "time": "2161-04-27 13:00:00",
+     "item": "Ventilator Mode: CPAP/PSV (11)"
+    },
+    {
+     "rid": "chart:38507547:223834:2161-04-27 14:00:00",
+     "time": "2161-04-27 14:00:00",
+     "item": "O2 Flow: 10 L/min"
+    },
+    {
+     "rid": "chart:38507547:223834:2161-04-27 19:29:00",
+     "time": "2161-04-27 19:29:00",
+     "item": "O2 Flow: 4 L/min"
+    },
+    {
+     "rid": "chart:38507547:223834:2161-04-27 23:00:00",
+     "time": "2161-04-27 23:00:00",
+     "item": "O2 Flow: 3 L/min"
+    },
+    {
+     "rid": "chart:38507547:223834:2161-04-28 01:00:00",
+     "time": "2161-04-28 01:00:00",
+     "item": "O2 Flow: 2 L/min"
+    },
+    {
+     "rid": "chart:38507547:223834:2161-04-28 05:00:00",
+     "time": "2161-04-28 05:00:00",
+     "item": "O2 Flow: 2 L/min"
+    },
+    {
+     "rid": "chart:38507547:223834:2161-04-28 08:00:00",
+     "time": "2161-04-28 08:00:00",
+     "item": "O2 Flow: 2 L/min"
+    },
+    {
+     "rid": "chart:38507547:220277:2161-04-27 18:00:00",
+     "time": "2161-04-27 18:00:00",
+     "item": "O2 saturation pulseoxymetry: 99 %"
+    },
+    {
+     "rid": "chart:38507547:220277:2161-04-27 19:00:00",
+     "time": "2161-04-27 19:00:00",
+     "item": "O2 saturation pulseoxymetry: 99 %"
+    },
+    {
+     "rid": "chart:38507547:220277:2161-04-28 00:00:00",
+     "time": "2161-04-28 00:00:00",
+     "item": "O2 saturation pulseoxymetry: 97 %"
+    },
+    {
+     "rid": "chart:38507547:220277:2161-04-28 01:00:00",
+     "time": "2161-04-28 01:00:00",
+     "item": "O2 saturation pulseoxymetry: 99 %"
+    },
+    {
+     "rid": "chart:38507547:220277:2161-04-28 09:00:00",
+     "time": "2161-04-28 09:00:00",
+     "item": "O2 saturation pulseoxymetry: 99 %"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M38507547A1::01",
+   "claim_id": "M38507547A1",
+   "claim_text": "Monitor hemodynamic stability closely due to low blood pressure alarms and high heart rate.",
+   "kind": "action",
+   "text": "Monitor hemodynamic stability closely.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamic stability",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2161-04-28 11:00:00:49737",
+     "time": "2161-04-28 11:00:00",
+     "item": "heart rate",
+     "value": "94 bpm"
+    },
+    {
+     "rid": "chart:220045:2161-04-28 12:00:00:49816",
+     "time": "2161-04-28 12:00:00",
+     "item": "heart rate",
+     "value": "94 bpm"
+    },
+    {
+     "rid": "chart:220048:2161-04-28 11:00:00:49736",
+     "time": "2161-04-28 11:00:00",
+     "item": "heart rhythm",
+     "value": "SR (Sinus Rhythm)"
+    },
+    {
+     "rid": "chart:220048:2161-04-28 12:00:00:49789",
+     "time": "2161-04-28 12:00:00",
+     "item": "heart rhythm",
+     "value": "SR (Sinus Rhythm)"
+    },
+    {
+     "rid": "chart:220050:2161-04-28 11:00:00:49731",
+     "time": "2161-04-28 11:00:00",
+     "item": "systolic BP",
+     "value": "109 mmHg"
+    },
+    {
+     "rid": "chart:220050:2161-04-28 12:00:00:49775",
+     "time": "2161-04-28 12:00:00",
+     "item": "systolic BP",
+     "value": "101 mmHg"
+    },
+    {
+     "rid": "chart:220052:2161-04-28 11:00:00:49734",
+     "time": "2161-04-28 11:00:00",
+     "item": "mean arterial pressure",
+     "value": "72 mmHg"
+    },
+    {
+     "rid": "chart:220052:2161-04-28 12:00:00:49805",
+     "time": "2161-04-28 12:00:00",
+     "item": "mean arterial pressure",
+     "value": "70 mmHg"
+    }
+   ],
+   "reason": "Measured in the 4.5 h observation window after the decision (24 h or until ICU discharge): heart rate x4, heart rhythm x4, systolic BP x4, mean arterial pressure x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A2::04",
+   "claim_id": "M38507547A2",
+   "claim_text": "Continue mechanical ventilation with adjusted settings to maintain adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with adjusted settings.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 4.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38507547A3::06",
+   "claim_id": "M38507547A3",
+   "claim_text": "Administer IV fluids if hypovolemia is suspected based on low hematocrit and blood pressure.",
+   "kind": "action",
+   "text": "Administer IV fluids if hypovolemia is suspected.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2161-04-27 12:00:00",
+     "item": "Dextrose 5% infusion continuing at 10 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision (already running before the decision and continued). The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38507547A4::10",
+   "claim_id": "M38507547A4",
+   "claim_text": "Consider monitoring serum electrolytes, particularly potassium, given the recent fluctuations.",
+   "kind": "action",
+   "text": "Consider monitoring serum electrolytes, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum electrolytes",
+   "conditional": true,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 4.5 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A4::11",
+   "claim_id": "M38507547A4",
+   "claim_text": "Consider monitoring serum electrolytes, particularly potassium, given the recent fluctuations.",
+   "kind": "action",
+   "text": "Consider monitoring potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": true,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 4.5 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A5::13",
+   "claim_id": "M38507547A5",
+   "claim_text": "Assess the patient for signs of sepsis given the elevated white blood cell count and recent intravenous antibiotic administration.",
+   "kind": "action",
+   "text": "Assess the patient for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of sepsis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A6::16",
+   "claim_id": "M38507547A6",
+   "claim_text": "Evaluate the need for pain management, given the patient's reported pain level.",
+   "kind": "action",
+   "text": "Evaluate the need for pain management.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain management",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223791:2161-04-28 12:00:00:49753",
+     "time": "2161-04-28 12:00:00",
+     "item": "pain score",
+     "value": "Moderate"
+    }
+   ],
+   "reason": "Measured in the 4.5 h observation window after the decision (24 h or until ICU discharge): pain score x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A7::18",
+   "claim_id": "M38507547A7",
+   "claim_text": "Continue monitoring for potential arrhythmias given the presence of temporary pacemaker wires.",
+   "kind": "action",
+   "text": "Continue monitoring for potential arrhythmias.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potential arrhythmias",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220048:2161-04-28 11:00:00:49736",
+     "time": "2161-04-28 11:00:00",
+     "item": "heart rhythm",
+     "value": "SR (Sinus Rhythm)"
+    },
+    {
+     "rid": "chart:220048:2161-04-28 12:00:00:49789",
+     "time": "2161-04-28 12:00:00",
+     "item": "heart rhythm",
+     "value": "SR (Sinus Rhythm)"
+    }
+   ],
+   "reason": "Measured in the 4.5 h observation window after the decision (24 h or until ICU discharge): heart rhythm x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A8::20",
+   "claim_id": "M38507547A8",
+   "claim_text": "Consider reassessment of the patient's neurological status given the fluctuating GCS scores.",
+   "kind": "action",
+   "text": "Consider reassessment of the patient's neurological status.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "neurological status",
+   "conditional": true,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223900:2161-04-28 12:00:00:49748",
+     "time": "2161-04-28 12:00:00",
+     "item": "GCS / mental status",
+     "value": "Oriented"
+    },
+    {
+     "rid": "chart:228394:2161-04-28 12:00:00:49756",
+     "time": "2161-04-28 12:00:00",
+     "item": "GCS / mental status",
+     "value": "Both"
+    }
+   ],
+   "reason": "Measured in the 4.5 h observation window after the decision (24 h or until ICU discharge): GCS / mental status x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A9::22",
+   "claim_id": "M38507547A9",
+   "claim_text": "Monitor for signs of respiratory distress, given the recent changes in arterial oxygenation and ventilation parameters.",
+   "kind": "action",
+   "text": "Monitor for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A10::24",
+   "claim_id": "M38507547A10",
+   "claim_text": "Continue close monitoring of laboratory values, including electrolytes, blood gases, and vital signs.",
+   "kind": "action",
+   "text": "Continue close monitoring of laboratory values.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "laboratory values",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A10::25",
+   "claim_id": "M38507547A10",
+   "claim_text": "Continue close monitoring of laboratory values, including electrolytes, blood gases, and vital signs.",
+   "kind": "action",
+   "text": "Continue close monitoring of electrolytes.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolytes",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 4.5 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A10::26",
+   "claim_id": "M38507547A10",
+   "claim_text": "Continue close monitoring of laboratory values, including electrolytes, blood gases, and vital signs.",
+   "kind": "action",
+   "text": "Continue close monitoring of blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood gases",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 4.5 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A10::27",
+   "claim_id": "M38507547A10",
+   "claim_text": "Continue close monitoring of laboratory values, including electrolytes, blood gases, and vital signs.",
+   "kind": "action",
+   "text": "Continue close monitoring of vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2161-04-28 11:00:00:49737",
+     "time": "2161-04-28 11:00:00",
+     "item": "heart rate",
+     "value": "94 bpm"
+    },
+    {
+     "rid": "chart:220045:2161-04-28 12:00:00:49816",
+     "time": "2161-04-28 12:00:00",
+     "item": "heart rate",
+     "value": "94 bpm"
+    },
+    {
+     "rid": "chart:220050:2161-04-28 11:00:00:49731",
+     "time": "2161-04-28 11:00:00",
+     "item": "systolic BP",
+     "value": "109 mmHg"
+    },
+    {
+     "rid": "chart:220050:2161-04-28 12:00:00:49775",
+     "time": "2161-04-28 12:00:00",
+     "item": "systolic BP",
+     "value": "101 mmHg"
+    },
+    {
+     "rid": "chart:220052:2161-04-28 11:00:00:49734",
+     "time": "2161-04-28 11:00:00",
+     "item": "mean arterial pressure",
+     "value": "72 mmHg"
+    },
+    {
+     "rid": "chart:220052:2161-04-28 12:00:00:49805",
+     "time": "2161-04-28 12:00:00",
+     "item": "mean arterial pressure",
+     "value": "70 mmHg"
+    },
+    {
+     "rid": "chart:220210:2161-04-28 11:00:00:49732",
+     "time": "2161-04-28 11:00:00",
+     "item": "respiratory rate",
+     "value": "22 insp/min"
+    },
+    {
+     "rid": "chart:220210:2161-04-28 12:00:00:49814",
+     "time": "2161-04-28 12:00:00",
+     "item": "respiratory rate",
+     "value": "16 insp/min"
+    },
+    {
+     "rid": "chart:220277:2161-04-28 11:00:00:49735",
+     "time": "2161-04-28 11:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:220277:2161-04-28 12:00:00:49779",
+     "time": "2161-04-28 12:00:00",
+     "item": "SpO2",
+     "value": "97 %"
+    },
+    {
+     "rid": "chart:223762:2161-04-28 12:00:00:49795",
+     "time": "2161-04-28 12:00:00",
+     "item": "temperature",
+     "value": "37 °C"
+    }
+   ],
+   "reason": "Measured in the 4.5 h observation window after the decision (24 h or until ICU discharge): heart rate x4, systolic BP x4, mean arterial pressure x4, respiratory rate x4, SpO2 x4, temperature x1.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.1 mmol/L at 2161-04-27 10:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38507547A3::06"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.1 mmol/L at 2161-04-27 10:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38507547A3::06"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 8,
+ "observation_window_hours": 4.5,
+ "scoresheet": {
+  "n": 13,
+  "supported": 6,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 4,
+  "supported_share": 0.462,
+  "not_supported_share": 0.231,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.308,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The latest record before the decision (2161-04-27 15:18:00) reads 'Intubated: NOT INTUBATED.'.",
+    "Low blood pressure is present. -- 'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: no.",
+    "Elevated white blood cell count is present. -- Latest WBC 9.8 K/uL at 2161-04-28 02:15:00 (reference 4.0 to 11.0) is normal, not consistent with 'high'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 3,
+  "treatment_precision": 0.5,
+  "recall_vital": 1.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.333,
+  "recall_vital_at3": 1.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.333
+ }
+}

@@ -1,0 +1,617 @@
+{
+ "case_id": "M30849778",
+ "decision_point": "2153-02-14 01:38:00",
+ "claims": [
+  "Continue NaCl 0.45%.",
+  "Continue K Phos.",
+  "Administer Azithromycin.",
+  "Administer Insulin - Humalog.",
+  "Administer Heparin Sodium (Prophylaxis).",
+  "Administer Phytonadione."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30849778A1::01",
+   "claim_id": "M30849778A1",
+   "claim_text": "Continue NaCl 0.45%.",
+   "kind": "action",
+   "text": "Continue NaCl 0.45%.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "NaCl 0.45%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30849778A2::02",
+   "claim_id": "M30849778A2",
+   "claim_text": "Continue K Phos.",
+   "kind": "action",
+   "text": "Continue K Phos.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "K Phos",
+   "conditional": false,
+   "treatment_class": "phosphate_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30849778A3::03",
+   "claim_id": "M30849778A3",
+   "claim_text": "Administer Azithromycin.",
+   "kind": "action",
+   "text": "Administer Azithromycin.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Azithromycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30849778A4::04",
+   "claim_id": "M30849778A4",
+   "claim_text": "Administer Insulin - Humalog.",
+   "kind": "action",
+   "text": "Administer Insulin - Humalog.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Insulin - Humalog",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30849778A5::05",
+   "claim_id": "M30849778A5",
+   "claim_text": "Administer Heparin Sodium (Prophylaxis).",
+   "kind": "action",
+   "text": "Administer Heparin Sodium (Prophylaxis).",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Heparin Sodium (Prophylaxis)",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30849778A6::06",
+   "claim_id": "M30849778A6",
+   "claim_text": "Administer Phytonadione.",
+   "kind": "action",
+   "text": "Administer Phytonadione.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Phytonadione",
+   "conditional": false,
+   "treatment_class": "vitamin_k",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30849778A1::P01",
+   "claim_id": "M30849778A1",
+   "claim_text": "Continue NaCl 0.45%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving NaCl 0.45%.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M30849778A2::P02",
+   "claim_id": "M30849778A2",
+   "claim_text": "Continue K Phos.",
+   "kind": "fact",
+   "text": "The patient is currently receiving K Phos.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30849778A1::P01",
+   "claim_id": "M30849778A1",
+   "claim_text": "Continue NaCl 0.45%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving NaCl 0.45%.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R47 explicitly states that the infusion of NaCl 0.45% was running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:137010:225159:2153-02-13 21:30:00",
+     "time": "2153-02-13 21:30:00",
+     "item": "Running at decision time (started 2153-02-13 21:30:00): Infusion/input NaCl 0.45% at 40 mL/hour"
+    },
+    {
+     "rid": "inputevents:3596547:225159:2153-02-13 19:03:00",
+     "time": "2153-02-13 19:03:00",
+     "item": "Infusion/input NaCl 0.45% at 80 mL/hour (2153-02-13 19:03:00 to 2153-02-13 21:30:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M30849778A2::P02",
+   "claim_id": "M30849778A2",
+   "claim_text": "Continue K Phos.",
+   "kind": "fact",
+   "text": "The patient is currently receiving K Phos.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R45 explicitly states that the infusion of K Phos is running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:2596826:225834:2153-02-13 22:00:00",
+     "time": "2153-02-13 22:00:00",
+     "item": "Running at decision time (started 2153-02-13 22:00:00): Infusion/input K Phos"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30849778A1::01",
+   "claim_id": "M30849778A1",
+   "claim_text": "Continue NaCl 0.45%.",
+   "kind": "action",
+   "text": "Continue NaCl 0.45%.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "NaCl 0.45%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225159",
+     "time": "2153-02-13 21:30:00",
+     "item": "NaCl 0.45% infusion continuing at 40 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN220949",
+     "time": "2153-02-14 00:00:00",
+     "item": "Dextrose 5% infusion continuing at 5 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30849778A2::02",
+   "claim_id": "M30849778A2",
+   "claim_text": "Continue K Phos.",
+   "kind": "action",
+   "text": "Continue K Phos.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "K Phos",
+   "conditional": false,
+   "treatment_class": "phosphate_replacement",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225834",
+     "time": "2153-02-13 22:00:00",
+     "item": "K Phos infusion continuing at",
+     "class": "phosphate_replacement"
+    },
+    {
+     "rid": "RX14563594",
+     "time": "2153-02-15 01:00:00",
+     "item": "Ordered: Potassium Phosphate 15 mmol IV",
+     "class": "phosphate_replacement"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded phosphate replacement after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30849778A3::03",
+   "claim_id": "M30849778A3",
+   "claim_text": "Administer Azithromycin.",
+   "kind": "action",
+   "text": "Administer Azithromycin.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Azithromycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225845",
+     "time": "2153-02-14 02:00:00",
+     "item": "Azithromycin infusion started at",
+     "class": "antimicrobial"
+    },
+    {
+     "rid": "RX90902030",
+     "time": "2153-02-14 04:00:00",
+     "item": "Ordered: Azithromycin  250 mg IV",
+     "class": "antimicrobial"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded antimicrobials after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30849778A4::04",
+   "claim_id": "M30849778A4",
+   "claim_text": "Administer Insulin - Humalog.",
+   "kind": "action",
+   "text": "Administer Insulin - Humalog.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Insulin - Humalog",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN223262",
+     "time": "2153-02-14 06:37:00",
+     "item": "Insulin - Humalog infusion started at",
+     "class": "insulin"
+    },
+    {
+     "rid": "RX97816342",
+     "time": "2153-02-14 07:00:00",
+     "item": "Ordered: Insulin 0 UNIT SC",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30849778A5::05",
+   "claim_id": "M30849778A5",
+   "claim_text": "Administer Heparin Sodium (Prophylaxis).",
+   "kind": "action",
+   "text": "Administer Heparin Sodium (Prophylaxis).",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Heparin Sodium (Prophylaxis)",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225975",
+     "time": "2153-02-14 08:22:00",
+     "item": "Heparin Sodium (Prophylaxis) infusion started at",
+     "class": "dvt_prophylaxis"
+    },
+    {
+     "rid": "IN225975#2",
+     "time": "2153-02-14 22:00:00",
+     "item": "Heparin Sodium (Prophylaxis) infusion started at",
+     "class": "dvt_prophylaxis"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded anticoagulation (prophylactic) after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30849778A6::06",
+   "claim_id": "M30849778A6",
+   "claim_text": "Administer Phytonadione.",
+   "kind": "action",
+   "text": "Administer Phytonadione.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Phytonadione",
+   "conditional": false,
+   "treatment_class": "vitamin_k",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX50278287",
+     "time": "2153-02-15 01:00:00",
+     "item": "Ordered: Phytonadione 2 mg IV",
+     "class": "vitamin_k"
+    },
+    {
+     "rid": "IN227535",
+     "time": "2153-02-15 01:00:00",
+     "item": "Vitamin K (Phytonadione) infusion started at",
+     "class": "vitamin_k"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded vitamin K after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 20.6 K/uL at 2153-02-13 02:21:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Azithromycin",
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M30849778A3::03"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes. Latest lactate 2.8 mmol/L at 2153-02-13 16:33:00 (reference 0.5 to 2.0) is high, consistent with 'high'. Latest sodium 154 mEq/L at 2153-02-13 22:19:00 (reference 133.0 to 145.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "0.9% Sodium Chloride",
+    "Dextrose 5%",
+    "NaCl 0.45%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 12,
+   "covered": true,
+   "by_atoms": [
+    "M30849778A1::01"
+   ]
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.2 mg/dL at 2153-02-13 22:19:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "K Phos",
+    "Potassium Phosphate"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M30849778A2::02"
+   ]
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M30849778A5::05"
+   ]
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M30849778A4::04"
+   ]
+  },
+  {
+   "class": "vitamin_k",
+   "name": "vitamin K",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Phytonadione",
+    "Vitamin K (Phytonadione)"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M30849778A6::06"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 20.6 K/uL at 2153-02-13 02:21:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Azithromycin",
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M30849778A3::03"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes. Latest lactate 2.8 mmol/L at 2153-02-13 16:33:00 (reference 0.5 to 2.0) is high, consistent with 'high'. Latest sodium 154 mEq/L at 2153-02-13 22:19:00 (reference 133.0 to 145.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "0.9% Sodium Chloride",
+    "Dextrose 5%",
+    "NaCl 0.45%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 12,
+   "covered": true,
+   "by_atoms": [
+    "M30849778A1::01"
+   ]
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.2 mg/dL at 2153-02-13 22:19:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "K Phos",
+    "Potassium Phosphate"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M30849778A2::02"
+   ]
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vitamin_k",
+   "name": "vitamin K",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Phytonadione",
+    "Vitamin K (Phytonadione)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 41,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 1.0,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": 1.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.5
+ }
+}

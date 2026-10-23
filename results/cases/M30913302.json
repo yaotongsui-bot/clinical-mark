@@ -1,0 +1,516 @@
+{
+ "case_id": "M30913302",
+ "decision_point": "2187-05-19 18:39:00",
+ "claims": [
+  "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+  "Continue mechanical ventilation with current settings.",
+  "Assess and manage pain levels, aiming for a Richmond Agitation-Sedation Scale (RASS) of -2 to -3."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30913302A1::01",
+   "claim_id": "M30913302A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30913302A1::02",
+   "claim_id": "M30913302A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30913302A2::03",
+   "claim_id": "M30913302A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30913302A3::04",
+   "claim_id": "M30913302A3",
+   "claim_text": "Assess and manage pain levels, aiming for a Richmond Agitation-Sedation Scale (RASS) of -2 to -3.",
+   "kind": "action",
+   "text": "Assess and manage pain levels, aiming for a Richmond Agitation-Sedation Scale (RASS) of -2 to -3.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30913302A2::P01",
+   "claim_id": "M30913302A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30913302A2::P01",
+   "claim_id": "M30913302A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:30913302:223849:2187-05-19 12:00:00",
+     "time": "2187-05-19 12:00:00",
+     "item": "Ventilator Mode: CMV/ASSIST/AutoFlow (49)"
+    }
+   ],
+   "reason": "The last ventilator/intubation record ('Ventilator Mode: CMV/ASSIST/AutoFlow (49)') was 6.7 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30913302A1::01",
+   "claim_id": "M30913302A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2187-05-20 02:47:00:46845",
+     "time": "2187-05-20 02:47:00",
+     "item": "sodium",
+     "value": "134 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2187-05-20 02:47:00:90845",
+     "time": "2187-05-20 02:47:00",
+     "item": "sodium",
+     "value": "134 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2187-05-20 02:47:00:46847",
+     "time": "2187-05-20 02:47:00",
+     "item": "potassium",
+     "value": "2.8 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2187-05-20 02:47:00:90849",
+     "time": "2187-05-20 02:47:00",
+     "item": "potassium",
+     "value": "___ mEq/L"
+    },
+    {
+     "rid": "chart:220602:2187-05-20 02:47:00:46848",
+     "time": "2187-05-20 02:47:00",
+     "item": "chloride",
+     "value": "102 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2187-05-20 02:47:00:90841",
+     "time": "2187-05-20 02:47:00",
+     "item": "chloride",
+     "value": "102 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2187-05-20 02:47:00:46850",
+     "time": "2187-05-20 02:47:00",
+     "item": "bicarbonate",
+     "value": "25 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2187-05-20 02:47:00:90847",
+     "time": "2187-05-20 02:47:00",
+     "item": "bicarbonate",
+     "value": "25 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2187-05-20 02:47:00:46846",
+     "time": "2187-05-20 02:47:00",
+     "item": "magnesium",
+     "value": "1.7 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2187-05-20 02:47:00:90848",
+     "time": "2187-05-20 02:47:00",
+     "item": "magnesium",
+     "value": "1.7 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2187-05-20 02:47:00:46841",
+     "time": "2187-05-20 02:47:00",
+     "item": "calcium",
+     "value": "7.9 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2187-05-20 02:47:00:90844",
+     "time": "2187-05-20 02:47:00",
+     "item": "calcium",
+     "value": "7.9 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2187-05-20 02:47:00:46849",
+     "time": "2187-05-20 02:47:00",
+     "item": "phosphate",
+     "value": "1.8 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2187-05-20 02:47:00:90843",
+     "time": "2187-05-20 02:47:00",
+     "item": "phosphate",
+     "value": "1.8 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 21.4 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, magnesium x2, calcium x2, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A1::02",
+   "claim_id": "M30913302A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220635:2187-05-20 02:47:00:46846",
+     "time": "2187-05-20 02:47:00",
+     "item": "magnesium",
+     "value": "1.7 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2187-05-20 02:47:00:90848",
+     "time": "2187-05-20 02:47:00",
+     "item": "magnesium",
+     "value": "1.7 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 21.4 h observation window after the decision (24 h or until ICU discharge): magnesium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A2::03",
+   "claim_id": "M30913302A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (1 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "chart:223835:2187-05-19 20:00:00:45454",
+     "time": "2187-05-19 20:00:00",
+     "item": "ventilator setting",
+     "value": "40",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30913302A3::04",
+   "claim_id": "M30913302A3",
+   "claim_text": "Assess and manage pain levels, aiming for a Richmond Agitation-Sedation Scale (RASS) of -2 to -3.",
+   "kind": "action",
+   "text": "Assess and manage pain levels, aiming for a Richmond Agitation-Sedation Scale (RASS) of -2 to -3.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:228096:2187-05-19 20:00:00:45465",
+     "time": "2187-05-19 20:00:00",
+     "item": "sedation score (RASS)",
+     "value": "+3 Pulls or removes tube(s) or catheter(s); aggressive"
+    },
+    {
+     "rid": "chart:228096:2187-05-20 01:00:00:45547",
+     "time": "2187-05-20 01:00:00",
+     "item": "sedation score (RASS)",
+     "value": "-1 Awakens to voice (eye opening/contact) > 10 sec"
+    }
+   ],
+   "reason": "Measured in the 21.4 h observation window after the decision (24 h or until ICU discharge): sedation score (RASS) x5.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "D5 1/2NS",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "D5 1/2NS",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 38,
+ "observation_window_hours": 21.4,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The last ventilator/intubation record ('Ventilator Mode: CMV/ASSIST/AutoFlow (49)') was 6.7 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

@@ -1,0 +1,466 @@
+{
+ "case_id": "M32506122",
+ "decision_point": "2167-11-08 20:22:00",
+ "claims": [
+  "Monitor cardiac enzymes and troponin levels.",
+  "Continue intravenous fluids and heparin therapy.",
+  "Assess for signs of electrolyte imbalance."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32506122A1::01",
+   "claim_id": "M32506122A1",
+   "claim_text": "Monitor cardiac enzymes and troponin levels.",
+   "kind": "action",
+   "text": "Monitor cardiac enzymes.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "cardiac enzymes",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32506122A1::02",
+   "claim_id": "M32506122A1",
+   "claim_text": "Monitor cardiac enzymes and troponin levels.",
+   "kind": "action",
+   "text": "Monitor troponin levels.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "troponin levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32506122A2::03",
+   "claim_id": "M32506122A2",
+   "claim_text": "Continue intravenous fluids and heparin therapy.",
+   "kind": "action",
+   "text": "Continue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32506122A2::04",
+   "claim_id": "M32506122A2",
+   "claim_text": "Continue intravenous fluids and heparin therapy.",
+   "kind": "action",
+   "text": "Continue heparin therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin therapy",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32506122A3::05",
+   "claim_id": "M32506122A3",
+   "claim_text": "Assess for signs of electrolyte imbalance.",
+   "kind": "action",
+   "text": "Assess for signs of electrolyte imbalance.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "assess",
+   "target": "electrolyte imbalance",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32506122A2::P01",
+   "claim_id": "M32506122A2",
+   "claim_text": "Continue intravenous fluids and heparin therapy.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M32506122A2::P02",
+   "claim_id": "M32506122A2",
+   "claim_text": "Continue intravenous fluids and heparin therapy.",
+   "kind": "fact",
+   "text": "The patient is currently receiving heparin therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32506122A2::P01",
+   "claim_id": "M32506122A2",
+   "claim_text": "Continue intravenous fluids and heparin therapy.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R47 explicitly states that a Dextrose 5% infusion (an intravenous fluid) is running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:9810283:220949:2167-11-08 17:00:00",
+     "time": "2167-11-08 17:00:00",
+     "item": "Running at decision time (started 2167-11-08 17:00:00): Infusion/input Dextrose 5% at 12.502091407775879 mL/hour"
+    },
+    {
+     "rid": "rx:70795559:2167-11-07 21:00:00",
+     "time": "2167-11-07 21:00:00",
+     "item": "Order: Lactated Ringers 1000 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:64039722:2167-11-08 02:00:00",
+     "time": "2167-11-08 02:00:00",
+     "item": "Order: Heparin Sodium 25,000 UNIT IV (active at decision time)"
+    },
+    {
+     "rid": "inputevents:9810283:225152:2167-11-08 17:00:00",
+     "time": "2167-11-08 17:00:00",
+     "item": "Running at decision time (started 2167-11-08 17:00:00): Infusion/input Heparin Sodium at 1250.209228515625 units/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "M32506122A2::P02",
+   "claim_id": "M32506122A2",
+   "claim_text": "Continue intravenous fluids and heparin therapy.",
+   "kind": "fact",
+   "text": "The patient is currently receiving heparin therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R43 explicitly states that an infusion of Heparin Sodium was running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:9810283:225152:2167-11-08 17:00:00",
+     "time": "2167-11-08 17:00:00",
+     "item": "Running at decision time (started 2167-11-08 17:00:00): Infusion/input Heparin Sodium at 1250.209228515625 units/hour"
+    },
+    {
+     "rid": "inputevents:4398708:225152:2167-11-08 02:00:00",
+     "time": "2167-11-08 02:00:00",
+     "item": "Infusion/input Heparin Sodium at 950.57037353515625 units/hour (2167-11-08 02:00:00 to 2167-11-08 09:27:00)"
+    },
+    {
+     "rid": "rx:35387819:2167-11-08 18:00:00",
+     "time": "2167-11-08 18:00:00",
+     "item": "Order: Heparin Sodium 25,000 UNIT IV (active at decision time)"
+    },
+    {
+     "rid": "rx:1447139:2167-11-08 18:00:00",
+     "time": "2167-11-08 18:00:00",
+     "item": "Order: Heparin 1200 UNIT IV (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32506122A1::01",
+   "claim_id": "M32506122A1",
+   "claim_text": "Monitor cardiac enzymes and troponin levels.",
+   "kind": "action",
+   "text": "Monitor cardiac enzymes.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "cardiac enzymes",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32506122A1::02",
+   "claim_id": "M32506122A1",
+   "claim_text": "Monitor cardiac enzymes and troponin levels.",
+   "kind": "action",
+   "text": "Monitor troponin levels.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "troponin levels",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32506122A2::03",
+   "claim_id": "M32506122A2",
+   "claim_text": "Continue intravenous fluids and heparin therapy.",
+   "kind": "action",
+   "text": "Continue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2167-11-08 17:00:00",
+     "item": "Dextrose 5% infusion continuing at 12.502091407775879 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN220949#2",
+     "time": "2167-11-09 12:55:00",
+     "item": "Dextrose 5% infusion started at 12.5 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32506122A2::04",
+   "claim_id": "M32506122A2",
+   "claim_text": "Continue intravenous fluids and heparin therapy.",
+   "kind": "action",
+   "text": "Continue heparin therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin therapy",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225152",
+     "time": "2167-11-08 17:00:00",
+     "item": "Heparin Sodium infusion continuing at 1250.209228515625 units/hour",
+     "class": "anticoagulant_therapeutic"
+    },
+    {
+     "rid": "IN225152#2",
+     "time": "2167-11-09 12:55:00",
+     "item": "Heparin Sodium infusion started at 1250 units/hour",
+     "class": "anticoagulant_therapeutic"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded anticoagulation (therapeutic) after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32506122A3::05",
+   "claim_id": "M32506122A3",
+   "claim_text": "Assess for signs of electrolyte imbalance.",
+   "kind": "action",
+   "text": "Assess for signs of electrolyte imbalance.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "assess",
+   "target": "electrolyte imbalance",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Oxide",
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M32506122A2::04"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M32506122A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Oxide",
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M32506122A2::04"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M32506122A2::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 33,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": null,
+  "recall_okay": 0.5,
+  "recall_all": 0.5,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.5,
+  "recall_all_at3": 0.5
+ }
+}

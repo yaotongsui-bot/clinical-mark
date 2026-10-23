@@ -1,0 +1,590 @@
+{
+ "case_id": "M34499716",
+ "decision_point": "2142-08-01 01:41:00",
+ "claims": [
+  "Adjust the ventilator settings to maintain SpO2 above 90% and minimize respiratory rate to 10-12 breaths per minute.",
+  "Administer intravenous fluids to maintain central venous pressure between 8-12 mmHg.",
+  "Monitor lactate levels and consider starting broad-spectrum antibiotics if lactate remains elevated."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34499716A1::01",
+   "claim_id": "M34499716A1",
+   "claim_text": "Adjust the ventilator settings to maintain SpO2 above 90% and minimize respiratory rate to 10-12 breaths per minute.",
+   "kind": "action",
+   "text": "Adjust the ventilator settings to maintain SpO2 above 90%.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34499716A1::02",
+   "claim_id": "M34499716A1",
+   "claim_text": "Adjust the ventilator settings to maintain SpO2 above 90% and minimize respiratory rate to 10-12 breaths per minute.",
+   "kind": "action",
+   "text": "Minimize respiratory rate to 10-12 breaths per minute.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "respiratory rate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M34499716A2::03",
+   "claim_id": "M34499716A2",
+   "claim_text": "Administer intravenous fluids to maintain central venous pressure between 8-12 mmHg.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to maintain central venous pressure between 8-12 mmHg.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34499716A3::04",
+   "claim_id": "M34499716A3",
+   "claim_text": "Monitor lactate levels and consider starting broad-spectrum antibiotics if lactate remains elevated.",
+   "kind": "action",
+   "text": "Monitor lactate levels.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34499716A3::05",
+   "claim_id": "M34499716A3",
+   "claim_text": "Monitor lactate levels and consider starting broad-spectrum antibiotics if lactate remains elevated.",
+   "kind": "action",
+   "text": "Consider starting broad-spectrum antibiotics if lactate remains elevated.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "broad-spectrum antibiotics",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "M34499716A1::01",
+   "claim_id": "M34499716A1",
+   "claim_text": "Adjust the ventilator settings to maintain SpO2 above 90% and minimize respiratory rate to 10-12 breaths per minute.",
+   "kind": "action",
+   "text": "Adjust the ventilator settings to maintain SpO2 above 90%.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings changed after the decision (5 settings took different values).",
+   "evidence": [
+    {
+     "rid": "chart:220339:2142-08-01 03:00:00:359256",
+     "time": "2142-08-01 03:00:00",
+     "item": "ventilator setting",
+     "value": "10 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "chart:223849:2142-08-01 04:00:00:359275",
+     "time": "2142-08-01 04:00:00",
+     "item": "ventilator setting",
+     "value": "CMV/ASSIST/AutoFlow",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "chart:224685:2142-08-01 04:00:00:359277",
+     "time": "2142-08-01 04:00:00",
+     "item": "ventilator setting",
+     "value": "330 mL",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34499716A1::02",
+   "claim_id": "M34499716A1",
+   "claim_text": "Adjust the ventilator settings to maintain SpO2 above 90% and minimize respiratory rate to 10-12 breaths per minute.",
+   "kind": "action",
+   "text": "Minimize respiratory rate to 10-12 breaths per minute.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "respiratory rate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "llm_panel",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "not_done",
+     "llama3.1:8b-instruct-q4_K_M": "not_done",
+     "qwen2.5:14b": "not_done"
+    }
+   },
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34499716A2::03",
+   "claim_id": "M34499716A2",
+   "claim_text": "Administer intravenous fluids to maintain central venous pressure between 8-12 mmHg.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to maintain central venous pressure between 8-12 mmHg.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158#2",
+     "time": "2142-07-31 19:07:00",
+     "item": "NaCl 0.9% infusion continuing at 3.0041937828063965 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158",
+     "time": "2142-07-31 23:14:00",
+     "item": "NaCl 0.9% infusion continuing at 1.9995872974395752 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34499716A3::04",
+   "claim_id": "M34499716A3",
+   "claim_text": "Monitor lactate levels and consider starting broad-spectrum antibiotics if lactate remains elevated.",
+   "kind": "action",
+   "text": "Monitor lactate levels.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225668:2142-08-01 04:17:00:363243",
+     "time": "2142-08-01 04:17:00",
+     "item": "lactate",
+     "value": "0.9 mmol/L"
+    },
+    {
+     "rid": "lab:50813:2142-08-01 04:17:00:39207",
+     "time": "2142-08-01 04:17:00",
+     "item": "lactate",
+     "value": "0.9 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): lactate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34499716A3::05",
+   "claim_id": "M34499716A3",
+   "claim_text": "Monitor lactate levels and consider starting broad-spectrum antibiotics if lactate remains elevated.",
+   "kind": "action",
+   "text": "Consider starting broad-spectrum antibiotics if lactate remains elevated.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "broad-spectrum antibiotics",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225798",
+     "time": "2142-08-01 09:24:00",
+     "item": "Vancomycin infusion started at",
+     "class": "antimicrobial"
+    },
+    {
+     "rid": "IN225845",
+     "time": "2142-08-01 12:09:00",
+     "item": "Azithromycin infusion started at",
+     "class": "antimicrobial"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded antimicrobials after the decision. The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 359 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin - Glargine",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Azithromycin",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M34499716A3::05"
+   ]
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest PaCO2 47 mm Hg at 2142-07-31 18:20:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M34499716A1::01"
+   ]
+  },
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Blood Cultured",
+    "Sputum Culture",
+    "Urine Culture"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "PredniSONE"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 14,
+   "covered": true,
+   "by_atoms": [
+    "M34499716A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 359 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin - Glargine",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Azithromycin",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M34499716A3::05"
+   ]
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest PaCO2 47 mm Hg at 2142-07-31 18:20:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M34499716A1::01"
+   ]
+  },
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Blood Cultured",
+    "Sputum Culture",
+    "Urine Culture"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "PredniSONE"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 14,
+   "covered": true,
+   "by_atoms": [
+    "M34499716A2::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 68,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.667,
+  "recall_okay": 0.125,
+  "recall_all": 0.273,
+  "recall_vital_at3": 0.667,
+  "recall_okay_at3": 0.125,
+  "recall_all_at3": 0.273
+ }
+}

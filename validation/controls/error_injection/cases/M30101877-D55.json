@@ -1,0 +1,219 @@
+{
+ "case_id": "M30101877-D55",
+ "decision_point": "2143-03-23 06:42:00",
+ "claims": [
+  "Administer vancomycin to manage hyperglycemia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30101877-D55A1::01",
+   "claim_id": "M30101877-D55A1",
+   "claim_text": "Administer vancomycin to manage hyperglycemia.",
+   "kind": "action",
+   "text": "Administer vancomycin to manage hyperglycemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30101877-D55A1::R01",
+   "claim_id": "M30101877-D55A1",
+   "claim_text": "Administer vancomycin to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30101877-D55A1::R01",
+   "claim_id": "M30101877-D55A1",
+   "claim_text": "Administer vancomycin to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:382449",
+     "time": "2143-03-22 07:31:00",
+     "item": "Glucose",
+     "value": 153.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:382468",
+     "time": "2143-03-23 02:19:00",
+     "item": "Glucose",
+     "value": 216.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 216 mg/dL at 2143-03-23 02:19:00 (reference 70.0 to 100.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30101877-D55A1::01",
+   "claim_id": "M30101877-D55A1",
+   "claim_text": "Administer vancomycin to manage hyperglycemia.",
+   "kind": "action",
+   "text": "Administer vancomycin to manage hyperglycemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 216 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)",
+    "Methadone",
+    "Methadone Hydrochloride",
+    "OxycoDONE Liquid"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 216 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)",
+    "Methadone",
+    "Methadone Hydrochloride",
+    "OxycoDONE Liquid"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 19,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

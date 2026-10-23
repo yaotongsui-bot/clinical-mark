@@ -1,0 +1,1281 @@
+{
+ "case_id": "M31269608",
+ "decision_point": "2154-04-25 23:03:44",
+ "claims": [
+  "Monitor blood glucose levels closely given recent high reading and risk of hypoglycemia.",
+  "Administer oral dextrose gel if hypoglycemia is suspected.",
+  "Initiate or continue monitoring of intravenous fluids to maintain fluid balance.",
+  "Monitor for signs of sepsis given leukocytosis and altered mental status.",
+  "Continue or initiate intravenous furosemide for potential fluid overload or volume status monitoring.",
+  "Monitor cardiac enzymes and renal function as the patient is on multiple medications and presents with elevated glucose.",
+  "Continue or initiate oral potassium supplementation given low potassium levels.",
+  "Assess for any signs of infection given leukocytosis and ketonuria.",
+  "Continue or initiate enteral or parenteral nutrition as appropriate given hypoalbuminemia and low hemoglobin.",
+  "Assess for any signs of delirium given altered mental status and inattention."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31269608A1::01",
+   "claim_id": "M31269608A1",
+   "claim_text": "Monitor blood glucose levels closely given recent high reading and risk of hypoglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A1::02",
+   "claim_id": "M31269608A1",
+   "claim_text": "Monitor blood glucose levels closely given recent high reading and risk of hypoglycemia.",
+   "kind": "fact",
+   "text": "Recent high blood glucose reading is present.",
+   "concept": "glucose",
+   "notes": [
+    "concept set by the rule files: blood_gas -> glucose"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M31269608A2::04",
+   "claim_id": "M31269608A2",
+   "claim_text": "Administer oral dextrose gel if hypoglycemia is suspected.",
+   "kind": "action",
+   "text": "Administer oral dextrose gel if hypoglycemia is suspected.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "administer",
+   "target": "oral dextrose gel",
+   "conditional": true,
+   "treatment_class": "glucose_rescue",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31269608A3::05",
+   "claim_id": "M31269608A3",
+   "claim_text": "Initiate or continue monitoring of intravenous fluids to maintain fluid balance.",
+   "kind": "action",
+   "text": "Initiate or continue monitoring of intravenous fluids to maintain fluid balance.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "intravenous fluids",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A4::06",
+   "claim_id": "M31269608A4",
+   "claim_text": "Monitor for signs of sepsis given leukocytosis and altered mental status.",
+   "kind": "action",
+   "text": "Monitor for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of sepsis",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A4::07",
+   "claim_id": "M31269608A4",
+   "claim_text": "Monitor for signs of sepsis given leukocytosis and altered mental status.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M31269608A4::08",
+   "claim_id": "M31269608A4",
+   "claim_text": "Monitor for signs of sepsis given leukocytosis and altered mental status.",
+   "kind": "fact",
+   "text": "Altered mental status is present.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M31269608A5::09",
+   "claim_id": "M31269608A5",
+   "claim_text": "Continue or initiate intravenous furosemide for potential fluid overload or volume status monitoring.",
+   "kind": "action",
+   "text": "Continue or initiate intravenous furosemide for potential fluid overload or volume status monitoring.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31269608A6::10",
+   "claim_id": "M31269608A6",
+   "claim_text": "Monitor cardiac enzymes and renal function as the patient is on multiple medications and presents with elevated glucose.",
+   "kind": "action",
+   "text": "Monitor cardiac enzymes.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "cardiac enzymes",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A6::11",
+   "claim_id": "M31269608A6",
+   "claim_text": "Monitor cardiac enzymes and renal function as the patient is on multiple medications and presents with elevated glucose.",
+   "kind": "action",
+   "text": "Monitor renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "renal function",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A6::12",
+   "claim_id": "M31269608A6",
+   "claim_text": "Monitor cardiac enzymes and renal function as the patient is on multiple medications and presents with elevated glucose.",
+   "kind": "fact",
+   "text": "Patient is on multiple medications.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M31269608A6::13",
+   "claim_id": "M31269608A6",
+   "claim_text": "Monitor cardiac enzymes and renal function as the patient is on multiple medications and presents with elevated glucose.",
+   "kind": "fact",
+   "text": "Elevated glucose is present.",
+   "concept": "glucose",
+   "notes": [
+    "concept set by the rule files: blood_gas -> glucose"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M31269608A7::14",
+   "claim_id": "M31269608A7",
+   "claim_text": "Continue or initiate oral potassium supplementation given low potassium levels.",
+   "kind": "action",
+   "text": "Continue or initiate oral potassium supplementation given low potassium levels.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "oral potassium supplementation",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31269608A8::15",
+   "claim_id": "M31269608A8",
+   "claim_text": "Assess for any signs of infection given leukocytosis and ketonuria.",
+   "kind": "action",
+   "text": "Assess for any signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A8::16",
+   "claim_id": "M31269608A8",
+   "claim_text": "Assess for any signs of infection given leukocytosis and ketonuria.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M31269608A8::17",
+   "claim_id": "M31269608A8",
+   "claim_text": "Assess for any signs of infection given leukocytosis and ketonuria.",
+   "kind": "fact",
+   "text": "Ketonuria is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: urine_output -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "urine"
+  },
+  {
+   "atom_id": "M31269608A9::18",
+   "claim_id": "M31269608A9",
+   "claim_text": "Continue or initiate enteral or parenteral nutrition as appropriate given hypoalbuminemia and low hemoglobin.",
+   "kind": "action",
+   "text": "Continue or initiate enteral or parenteral nutrition as appropriate.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "enteral or parenteral nutrition",
+   "conditional": false,
+   "treatment_class": "nutrition",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31269608A9::19",
+   "claim_id": "M31269608A9",
+   "claim_text": "Continue or initiate enteral or parenteral nutrition as appropriate given hypoalbuminemia and low hemoglobin.",
+   "kind": "fact",
+   "text": "Hypoalbuminemia is present.",
+   "concept": "albumin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M31269608A9::20",
+   "claim_id": "M31269608A9",
+   "claim_text": "Continue or initiate enteral or parenteral nutrition as appropriate given hypoalbuminemia and low hemoglobin.",
+   "kind": "fact",
+   "text": "Low hemoglobin is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M31269608A10::21",
+   "claim_id": "M31269608A10",
+   "claim_text": "Assess for any signs of delirium given altered mental status and inattention.",
+   "kind": "action",
+   "text": "Assess for any signs of delirium.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of delirium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A10::22",
+   "claim_id": "M31269608A10",
+   "claim_text": "Assess for any signs of delirium given altered mental status and inattention.",
+   "kind": "fact",
+   "text": "Altered mental status is present.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M31269608A10::23",
+   "claim_id": "M31269608A10",
+   "claim_text": "Assess for any signs of delirium given altered mental status and inattention.",
+   "kind": "fact",
+   "text": "Inattention is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M31269608A1::02",
+   "claim_id": "M31269608A1",
+   "claim_text": "Monitor blood glucose levels closely given recent high reading and risk of hypoglycemia.",
+   "kind": "fact",
+   "text": "Recent high blood glucose reading is present.",
+   "concept": "glucose",
+   "notes": [
+    "concept set by the rule files: blood_gas -> glucose"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:220887",
+     "time": "2154-04-25 03:59:00",
+     "item": "Glucose",
+     "value": 174.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "1 of 1 glucose values in the 24 h before the decision were high.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31269608A4::07",
+   "claim_id": "M31269608A4",
+   "claim_text": "Monitor for signs of sepsis given leukocytosis and altered mental status.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:220852",
+     "time": "2154-04-24 21:30:00",
+     "item": "White Blood Cells",
+     "value": 17.8,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:220877",
+     "time": "2154-04-25 03:59:00",
+     "item": "White Blood Cells",
+     "value": 17.1,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest WBC 17.1 K/uL at 2154-04-25 03:59:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31269608A4::08",
+   "claim_id": "M31269608A4",
+   "claim_text": "Monitor for signs of sepsis given leukocytosis and altered mental status.",
+   "kind": "fact",
+   "text": "Altered mental status is present.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "Vague statement (no specific measure or direction of change)."
+  },
+  {
+   "atom_id": "M31269608A6::12",
+   "claim_id": "M31269608A6",
+   "claim_text": "Monitor cardiac enzymes and renal function as the patient is on multiple medications and presents with elevated glucose.",
+   "kind": "fact",
+   "text": "Patient is on multiple medications.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The patient has received multiple medications, including Dexamethasone, Magnesium Sulfate, Aspirin, Enalapril Maleate, Potassium Chloride, Furosemide, and Acetaminophen.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "emar:10018328-94",
+     "time": "2154-04-24 22:37:00",
+     "item": "MAR Administered: Dexamethasone"
+    },
+    {
+     "rid": "emar:10018328-98",
+     "time": "2154-04-25 00:40:00",
+     "item": "MAR Administered: Magnesium Sulfate"
+    },
+    {
+     "rid": "emar:10018328-104",
+     "time": "2154-04-25 08:34:00",
+     "item": "MAR Administered: Aspirin"
+    },
+    {
+     "rid": "emar:10018328-102",
+     "time": "2154-04-25 08:34:00",
+     "item": "MAR Administered: Dexamethasone"
+    },
+    {
+     "rid": "emar:10018328-107",
+     "time": "2154-04-25 08:34:00",
+     "item": "MAR Administered: Enalapril Maleate"
+    },
+    {
+     "rid": "emar:10018328-110",
+     "time": "2154-04-25 10:38:00",
+     "item": "MAR Administered: Potassium Chloride"
+    },
+    {
+     "rid": "emar:10018328-112",
+     "time": "2154-04-25 16:52:00",
+     "item": "MAR Administered: Dexamethasone"
+    },
+    {
+     "rid": "emar:10018328-114",
+     "time": "2154-04-25 17:57:00",
+     "item": "MAR Administered: Furosemide"
+    },
+    {
+     "rid": "emar:10018328-118",
+     "time": "2154-04-25 22:02:00",
+     "item": "MAR Administered: Acetaminophen"
+    },
+    {
+     "rid": "rx:79213388:2154-04-25 13:00:00",
+     "time": "2154-04-25 13:00:00",
+     "item": "Order: Glucagon 1 mg IM (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M31269608A6::13",
+   "claim_id": "M31269608A6",
+   "claim_text": "Monitor cardiac enzymes and renal function as the patient is on multiple medications and presents with elevated glucose.",
+   "kind": "fact",
+   "text": "Elevated glucose is present.",
+   "concept": "glucose",
+   "notes": [
+    "concept set by the rule files: blood_gas -> glucose"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:220835",
+     "time": "2154-04-24 21:30:00",
+     "item": "Glucose",
+     "value": 143.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:220887",
+     "time": "2154-04-25 03:59:00",
+     "item": "Glucose",
+     "value": 174.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 174 mg/dL at 2154-04-25 03:59:00 (reference 70.0 to 100.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31269608A8::16",
+   "claim_id": "M31269608A8",
+   "claim_text": "Assess for any signs of infection given leukocytosis and ketonuria.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:220852",
+     "time": "2154-04-24 21:30:00",
+     "item": "White Blood Cells",
+     "value": 17.8,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:220877",
+     "time": "2154-04-25 03:59:00",
+     "item": "White Blood Cells",
+     "value": 17.1,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest WBC 17.1 K/uL at 2154-04-25 03:59:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31269608A8::17",
+   "claim_id": "M31269608A8",
+   "claim_text": "Assess for any signs of infection given leukocytosis and ketonuria.",
+   "kind": "fact",
+   "text": "Ketonuria is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: urine_output -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "urine",
+   "label": "supported",
+   "reason": "The laboratory record R8 shows that the patient has ketonuria, with a ketone level of 10 mg/dL.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "not_addressed",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:220860",
+     "time": "2154-04-24 23:42:00",
+     "item": "Ketone: 10 mg/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "M31269608A9::19",
+   "claim_id": "M31269608A9",
+   "claim_text": "Continue or initiate enteral or parenteral nutrition as appropriate given hypoalbuminemia and low hemoglobin.",
+   "kind": "fact",
+   "text": "Hypoalbuminemia is present.",
+   "concept": "albumin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_addressed",
+   "evidence": [],
+   "reason": "No albumin recorded before the decision time.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31269608A9::20",
+   "claim_id": "M31269608A9",
+   "claim_text": "Continue or initiate enteral or parenteral nutrition as appropriate given hypoalbuminemia and low hemoglobin.",
+   "kind": "fact",
+   "text": "Low hemoglobin is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:220845",
+     "time": "2154-04-24 21:30:00",
+     "item": "Hemoglobin",
+     "value": 8.8,
+     "unit": "g/dL",
+     "bounds": "11.2 to 15.7",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:220870",
+     "time": "2154-04-25 03:59:00",
+     "item": "Hemoglobin",
+     "value": 9.0,
+     "unit": "g/dL",
+     "bounds": "11.2 to 15.7",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 9 g/dL at 2154-04-25 03:59:00 (reference 11.2 to 15.7) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31269608A10::22",
+   "claim_id": "M31269608A10",
+   "claim_text": "Assess for any signs of delirium given altered mental status and inattention.",
+   "kind": "fact",
+   "text": "Altered mental status is present.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "Vague statement (no specific measure or direction of change)."
+  },
+  {
+   "atom_id": "M31269608A10::23",
+   "claim_id": "M31269608A10",
+   "claim_text": "Assess for any signs of delirium given altered mental status and inattention.",
+   "kind": "fact",
+   "text": "Inattention is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The record R7 shows that the patient is currently experiencing inattention, as indicated by the CAM-ICU Inattention score of 1.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "not_supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:31269608:229325:2154-04-25 00:00:00",
+     "time": "2154-04-25 00:00:00",
+     "item": "CAM-ICU Inattention: Yes (1)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M31269608A1::01",
+   "claim_id": "M31269608A1",
+   "claim_text": "Monitor blood glucose levels closely given recent high reading and risk of hypoglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2154-04-26 13:00:00:596640",
+     "time": "2154-04-26 13:00:00",
+     "item": "glucose",
+     "value": "152"
+    },
+    {
+     "rid": "chart:220621:2154-04-26 08:01:00:599818",
+     "time": "2154-04-26 08:01:00",
+     "item": "glucose",
+     "value": "150 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A2::04",
+   "claim_id": "M31269608A2",
+   "claim_text": "Administer oral dextrose gel if hypoglycemia is suspected.",
+   "kind": "action",
+   "text": "Administer oral dextrose gel if hypoglycemia is suspected.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "administer",
+   "target": "oral dextrose gel",
+   "conditional": true,
+   "treatment_class": "glucose_rescue",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No hypoglycemia treatment action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M31269608A3::05",
+   "claim_id": "M31269608A3",
+   "claim_text": "Initiate or continue monitoring of intravenous fluids to maintain fluid balance.",
+   "kind": "action",
+   "text": "Initiate or continue monitoring of intravenous fluids to maintain fluid balance.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "output:226559:2154-04-26 08:00:00:8416",
+     "time": "2154-04-26 08:00:00",
+     "item": "urine output",
+     "value": "40 ml"
+    },
+    {
+     "rid": "output:226559:2154-04-26 14:00:00:8417",
+     "time": "2154-04-26 14:00:00",
+     "item": "urine output",
+     "value": "75 ml"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): urine output x17.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A4::06",
+   "claim_id": "M31269608A4",
+   "claim_text": "Monitor for signs of sepsis given leukocytosis and altered mental status.",
+   "kind": "action",
+   "text": "Monitor for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of sepsis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A5::09",
+   "claim_id": "M31269608A5",
+   "claim_text": "Continue or initiate intravenous furosemide for potential fluid overload or volume status monitoring.",
+   "kind": "action",
+   "text": "Continue or initiate intravenous furosemide for potential fluid overload or volume status monitoring.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No diuretics action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M31269608A6::10",
+   "claim_id": "M31269608A6",
+   "claim_text": "Monitor cardiac enzymes and renal function as the patient is on multiple medications and presents with elevated glucose.",
+   "kind": "action",
+   "text": "Monitor cardiac enzymes.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "cardiac enzymes",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A6::11",
+   "claim_id": "M31269608A6",
+   "claim_text": "Monitor cardiac enzymes and renal function as the patient is on multiple medications and presents with elevated glucose.",
+   "kind": "action",
+   "text": "Monitor renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "renal function",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220615:2154-04-26 08:01:00:599817",
+     "time": "2154-04-26 08:01:00",
+     "item": "creatinine",
+     "value": "0.6 mg/dL"
+    },
+    {
+     "rid": "chart:220615:2154-04-26 01:10:00:600800",
+     "time": "2154-04-26 01:10:00",
+     "item": "creatinine",
+     "value": "0.8 mg/dL"
+    },
+    {
+     "rid": "chart:225624:2154-04-26 08:01:00:599825",
+     "time": "2154-04-26 08:01:00",
+     "item": "BUN",
+     "value": "14 mg/dL"
+    },
+    {
+     "rid": "chart:225624:2154-04-26 01:10:00:600788",
+     "time": "2154-04-26 01:10:00",
+     "item": "BUN",
+     "value": "14 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): creatinine x6, BUN x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A7::14",
+   "claim_id": "M31269608A7",
+   "claim_text": "Continue or initiate oral potassium supplementation given low potassium levels.",
+   "kind": "action",
+   "text": "Continue or initiate oral potassium supplementation given low potassium levels.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "oral potassium supplementation",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX65840579",
+     "time": "2154-04-26 04:00:00",
+     "item": "Ordered: Potassium Chloride 40 mEq PO",
+     "class": "potassium_replacement"
+    },
+    {
+     "rid": "RX76001535",
+     "time": "2154-04-26 04:00:00",
+     "item": "Ordered: Potassium Chloride 40 mEq PO",
+     "class": "potassium_replacement"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded potassium replacement after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M31269608A8::15",
+   "claim_id": "M31269608A8",
+   "claim_text": "Assess for any signs of infection given leukocytosis and ketonuria.",
+   "kind": "action",
+   "text": "Assess for any signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A9::18",
+   "claim_id": "M31269608A9",
+   "claim_text": "Continue or initiate enteral or parenteral nutrition as appropriate given hypoalbuminemia and low hemoglobin.",
+   "kind": "action",
+   "text": "Continue or initiate enteral or parenteral nutrition as appropriate.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "enteral or parenteral nutrition",
+   "conditional": false,
+   "treatment_class": "nutrition",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No nutrition support action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M31269608A10::21",
+   "claim_id": "M31269608A10",
+   "claim_text": "Assess for any signs of delirium given altered mental status and inattention.",
+   "kind": "action",
+   "text": "Assess for any signs of delirium.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of delirium",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.8 mg/dL at 2154-04-25 03:59:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2154-04-25 03:59:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 11,
+   "covered": true,
+   "by_atoms": [
+    "M31269608A7::14"
+   ]
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LevETIRAcetam"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Enalapril Maleate",
+    "HydrALAZINE",
+    "Hydralazine"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CT scan",
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Atenolol",
+    "Labetalol"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dexamethasone"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.8 mg/dL at 2154-04-25 03:59:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2154-04-25 03:59:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LevETIRAcetam"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Enalapril Maleate",
+    "HydrALAZINE",
+    "Hydralazine"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CT scan",
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Atenolol",
+    "Labetalol"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dexamethasone"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 55,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 11,
+  "supported": 8,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 2,
+  "supported_share": 0.727,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.091,
+  "unverifiable_share": 0.182,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Hypoalbuminemia is present. -- No albumin recorded before the decision time."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.333,
+  "recall_vital": 0.333,
+  "recall_okay": 0.0,
+  "recall_all": 0.091,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

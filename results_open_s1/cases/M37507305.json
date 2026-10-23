@@ -1,0 +1,778 @@
+{
+ "case_id": "M37507305",
+ "decision_point": "2113-09-15 10:19:17",
+ "claims": [
+  "Monitor oxygen saturation closely.",
+  "Continue mechanical ventilation with current settings.",
+  "Evaluate for potential sepsis given high respiratory rate and fever.",
+  "Monitor heart rate and blood pressure closely.",
+  "Check electrolyte levels, including potassium and magnesium.",
+  "Evaluate pain management strategy.",
+  "Monitor respiratory rate and tidal volume.",
+  "Continue IV fluids as needed.",
+  "Assess for potential delirium given altered mental status.",
+  "Continue pain medications as ordered."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37507305A1::01",
+   "claim_id": "M37507305A1",
+   "claim_text": "Monitor oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation closely.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37507305A2::02",
+   "claim_id": "M37507305A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37507305A3::03",
+   "claim_id": "M37507305A3",
+   "claim_text": "Evaluate for potential sepsis given high respiratory rate and fever.",
+   "kind": "action",
+   "text": "Evaluate for potential sepsis given high respiratory rate and fever.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "assess",
+   "target": "potential sepsis",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37507305A4::04",
+   "claim_id": "M37507305A4",
+   "claim_text": "Monitor heart rate and blood pressure closely.",
+   "kind": "action",
+   "text": "Monitor heart rate and blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37507305A5::05",
+   "claim_id": "M37507305A5",
+   "claim_text": "Check electrolyte levels, including potassium and magnesium.",
+   "kind": "action",
+   "text": "Check electrolyte levels, including potassium and magnesium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M37507305A6::06",
+   "claim_id": "M37507305A6",
+   "claim_text": "Evaluate pain management strategy.",
+   "kind": "action",
+   "text": "Evaluate pain management strategy.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain management strategy",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37507305A7::07",
+   "claim_id": "M37507305A7",
+   "claim_text": "Monitor respiratory rate and tidal volume.",
+   "kind": "action",
+   "text": "Monitor respiratory rate and tidal volume.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37507305A8::08",
+   "claim_id": "M37507305A8",
+   "claim_text": "Continue IV fluids as needed.",
+   "kind": "action",
+   "text": "Continue IV fluids as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37507305A9::09",
+   "claim_id": "M37507305A9",
+   "claim_text": "Assess for potential delirium given altered mental status.",
+   "kind": "action",
+   "text": "Assess for potential delirium given altered mental status.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "potential delirium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37507305A10::10",
+   "claim_id": "M37507305A10",
+   "claim_text": "Continue pain medications as ordered.",
+   "kind": "action",
+   "text": "Continue pain medications as ordered.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pain medications",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M37507305A3::R01",
+   "claim_id": "M37507305A3",
+   "claim_text": "Evaluate for potential sepsis given high respiratory rate and fever.",
+   "kind": "fact",
+   "text": "Fever is present.",
+   "concept": "temperature",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  },
+  {
+   "atom_id": "M37507305A2::P01",
+   "claim_id": "M37507305A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M37507305A8::P02",
+   "claim_id": "M37507305A8",
+   "claim_text": "Continue IV fluids as needed.",
+   "kind": "fact",
+   "text": "The patient is currently receiving IV fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M37507305A10::P03",
+   "claim_id": "M37507305A10",
+   "claim_text": "Continue pain medications as ordered.",
+   "kind": "fact",
+   "text": "The patient is currently receiving pain medications.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37507305A3::R01",
+   "claim_id": "M37507305A3",
+   "claim_text": "Evaluate for potential sepsis given high respiratory rate and fever.",
+   "kind": "fact",
+   "text": "Fever is present.",
+   "concept": "temperature",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:37507305:223761:2113-09-15 08:00:00",
+     "time": "2113-09-15 08:00:00",
+     "item": "Temperature Fahrenheit",
+     "value": 98.0,
+     "unit": "°F",
+     "bounds": "96.8 to 100.4",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "Median temperature over the 6 h before the decision: 98 °F (1 readings), normal by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "computed": {
+    "median": 98.0,
+    "status": "normal",
+    "n": 1
+   },
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M37507305A2::P01",
+   "claim_id": "M37507305A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:37507305:224685:2113-09-14 18:00:00",
+     "time": "2113-09-14 18:00:00",
+     "item": "Tidal Volume (observed): 303 mL"
+    }
+   ],
+   "reason": "The last ventilator/intubation record ('Tidal Volume (observed): 303 mL') was 16.3 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M37507305A8::P02",
+   "claim_id": "M37507305A8",
+   "claim_text": "Continue IV fluids as needed.",
+   "kind": "fact",
+   "text": "The patient is currently receiving IV fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R13 indicates that an infusion of NaCl 0.9% (an IV fluid) is running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:2779390:225158:2113-09-14 11:13:00",
+     "time": "2113-09-14 11:13:00",
+     "item": "Running at decision time (started 2113-09-14 11:13:00): Infusion/input NaCl 0.9% at 5 mL/hour"
+    },
+    {
+     "rid": "rx:10814611:2113-09-14 12:00:00",
+     "time": "2113-09-14 12:00:00",
+     "item": "Order: 0.9% Sodium Chloride 1 BAG IV (active at decision time)"
+    },
+    {
+     "rid": "rx:43172803:2113-09-14 12:00:00",
+     "time": "2113-09-14 12:00:00",
+     "item": "Order: 0.9% Sodium Chloride 2 BAG IV (active at decision time)"
+    },
+    {
+     "rid": "rx:468120:2113-09-14 12:00:00",
+     "time": "2113-09-14 12:00:00",
+     "item": "Order: 0.9% Sodium Chloride 2 BAG IV (active at decision time)"
+    },
+    {
+     "rid": "rx:468120:2113-09-14 12:00:00",
+     "time": "2113-09-14 12:00:00",
+     "item": "Order: Calcium Gluconate 4 g IV (active at decision time)"
+    },
+    {
+     "rid": "rx:43172803:2113-09-14 12:00:00",
+     "time": "2113-09-14 12:00:00",
+     "item": "Order: Calcium Gluconate 4 g IV (active at decision time)"
+    },
+    {
+     "rid": "rx:10814611:2113-09-14 12:00:00",
+     "time": "2113-09-14 12:00:00",
+     "item": "Order: Calcium Gluconate 2 g IV (active at decision time)"
+    },
+    {
+     "rid": "rx:70208236:2113-09-14 12:00:00",
+     "time": "2113-09-14 12:00:00",
+     "item": "Order: Magnesium Sulfate 4 gm IV (active at decision time)"
+    },
+    {
+     "rid": "rx:24145925:2113-09-14 12:00:00",
+     "time": "2113-09-14 12:00:00",
+     "item": "Order: Magnesium Sulfate 4 gm IV (active at decision time)"
+    },
+    {
+     "rid": "rx:32212120:2113-09-14 12:00:00",
+     "time": "2113-09-14 12:00:00",
+     "item": "Order: Magnesium Sulfate 2 gm IV (active at decision time)"
+    },
+    {
+     "rid": "rx:31608408:2113-09-14 16:00:00",
+     "time": "2113-09-14 16:00:00",
+     "item": "Order: Dextrose 5% 150 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:87460323:2113-09-14 16:00:00",
+     "time": "2113-09-14 16:00:00",
+     "item": "Order: Acetaminophen IV 1000 mg IV (active at decision time)"
+    },
+    {
+     "rid": "rx:55270619:2113-09-14 16:00:00",
+     "time": "2113-09-14 16:00:00",
+     "item": "Order: Lorazepam 0.5-1 mg IV (active at decision time)"
+    },
+    {
+     "rid": "rx:31608408:2113-09-14 16:00:00",
+     "time": "2113-09-14 16:00:00",
+     "item": "Order: Levofloxacin 750 mg IV (active at decision time)"
+    },
+    {
+     "rid": "rx:10451242:2113-09-14 17:00:00",
+     "time": "2113-09-14 17:00:00",
+     "item": "Order: NS 100 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:41121274:2113-09-14 17:00:00",
+     "time": "2113-09-14 17:00:00",
+     "item": "Order: Morphine Sulfate 2-4 mg IV (active at decision time)"
+    },
+    {
+     "rid": "rx:10451242:2113-09-14 17:00:00",
+     "time": "2113-09-14 17:00:00",
+     "item": "Order: MetRONIDAZOLE (FLagyl) 500 mg IV (active at decision time)"
+    },
+    {
+     "rid": "rx:58676986:2113-09-14 18:00:00",
+     "time": "2113-09-14 18:00:00",
+     "item": "Order: LORazepam 1 mg IV (active at decision time)"
+    },
+    {
+     "rid": "rx:61679109:2113-09-14 20:00:00",
+     "time": "2113-09-14 20:00:00",
+     "item": "Order: 0.9% Sodium Chloride 250 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:61679109:2113-09-14 20:00:00",
+     "time": "2113-09-14 20:00:00",
+     "item": "Order: Vancomycin 1250 mg IV (active at decision time)"
+    },
+    {
+     "rid": "rx:34536170:2113-09-14 23:00:00",
+     "time": "2113-09-14 23:00:00",
+     "item": "Order: Sodium Chloride 3% Inhalation Soln 15 mL NEB (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M37507305A10::P03",
+   "claim_id": "M37507305A10",
+   "claim_text": "Continue pain medications as ordered.",
+   "kind": "fact",
+   "text": "The patient is currently receiving pain medications.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The patient received several doses of pain medications (Acetaminophen and Morphine Sulfate) within the 24 hours preceding the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "emar:10021312-249",
+     "time": "2113-09-14 22:19:00",
+     "item": "MAR Administered: Acetaminophen IV"
+    },
+    {
+     "rid": "emar:10021312-250",
+     "time": "2113-09-14 22:19:00",
+     "item": "MAR Administered: Morphine Sulfate"
+    },
+    {
+     "rid": "emar:10021312-258",
+     "time": "2113-09-14 22:39:00",
+     "item": "MAR Administered: Morphine Sulfate"
+    },
+    {
+     "rid": "emar:10021312-271",
+     "time": "2113-09-15 05:33:00",
+     "item": "MAR Administered: Acetaminophen IV"
+    },
+    {
+     "rid": "chart:37507305:223792:2113-09-15 04:00:00",
+     "time": "2113-09-15 04:00:00",
+     "item": "Pain Management: IV Push"
+    },
+    {
+     "rid": "chart:37507305:223792:2113-09-15 08:00:00",
+     "time": "2113-09-15 08:00:00",
+     "item": "Pain Management: IV Push"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37507305A1::01",
+   "claim_id": "M37507305A1",
+   "claim_text": "Monitor oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation closely.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220277:2113-09-15 11:00:00:605844",
+     "time": "2113-09-15 11:00:00",
+     "item": "SpO2",
+     "value": "95 %"
+    }
+   ],
+   "reason": "Measured in the 2.4 h observation window after the decision (24 h or until ICU discharge): SpO2 x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37507305A2::02",
+   "claim_id": "M37507305A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 2.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37507305A3::03",
+   "claim_id": "M37507305A3",
+   "claim_text": "Evaluate for potential sepsis given high respiratory rate and fever.",
+   "kind": "action",
+   "text": "Evaluate for potential sepsis given high respiratory rate and fever.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "assess",
+   "target": "potential sepsis",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2113-09-15 11:00:00:605845",
+     "time": "2113-09-15 11:00:00",
+     "item": "respiratory rate",
+     "value": "14 insp/min"
+    }
+   ],
+   "reason": "Measured in the 2.4 h observation window after the decision (24 h or until ICU discharge): respiratory rate x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37507305A4::04",
+   "claim_id": "M37507305A4",
+   "claim_text": "Monitor heart rate and blood pressure closely.",
+   "kind": "action",
+   "text": "Monitor heart rate and blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220179:2113-09-15 11:01:00:605910",
+     "time": "2113-09-15 11:01:00",
+     "item": "systolic BP",
+     "value": "111 mmHg"
+    },
+    {
+     "rid": "chart:220181:2113-09-15 11:01:00:605908",
+     "time": "2113-09-15 11:01:00",
+     "item": "mean arterial pressure",
+     "value": "73 mmHg"
+    }
+   ],
+   "reason": "Measured in the 2.4 h observation window after the decision (24 h or until ICU discharge): systolic BP x1, mean arterial pressure x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37507305A5::05",
+   "claim_id": "M37507305A5",
+   "claim_text": "Check electrolyte levels, including potassium and magnesium.",
+   "kind": "action",
+   "text": "Check electrolyte levels, including potassium and magnesium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 2.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37507305A6::06",
+   "claim_id": "M37507305A6",
+   "claim_text": "Evaluate pain management strategy.",
+   "kind": "action",
+   "text": "Evaluate pain management strategy.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain management strategy",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No pain score measurement in the 2.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37507305A7::07",
+   "claim_id": "M37507305A7",
+   "claim_text": "Monitor respiratory rate and tidal volume.",
+   "kind": "action",
+   "text": "Monitor respiratory rate and tidal volume.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2113-09-15 11:00:00:605845",
+     "time": "2113-09-15 11:00:00",
+     "item": "respiratory rate",
+     "value": "14 insp/min"
+    }
+   ],
+   "reason": "Measured in the 2.4 h observation window after the decision (24 h or until ICU discharge): respiratory rate x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37507305A8::08",
+   "claim_id": "M37507305A8",
+   "claim_text": "Continue IV fluids as needed.",
+   "kind": "action",
+   "text": "Continue IV fluids as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2113-09-14 11:13:00",
+     "item": "NaCl 0.9% infusion continuing at 5 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision (already running before the decision and continued). The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37507305A9::09",
+   "claim_id": "M37507305A9",
+   "claim_text": "Assess for potential delirium given altered mental status.",
+   "kind": "action",
+   "text": "Assess for potential delirium given altered mental status.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "potential delirium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No GCS / mental status measurement in the 2.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37507305A10::10",
+   "claim_id": "M37507305A10",
+   "claim_text": "Continue pain medications as ordered.",
+   "kind": "action",
+   "text": "Continue pain medications as ordered.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pain medications",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "E10021312-291",
+     "time": "2113-09-15 11:27:00",
+     "item": "Given: Morphine Sulfate",
+     "class": "opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia / non-opioid analgesia after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37507305A8::08"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37507305A10::10"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 4,
+ "observation_window_hours": 2.4,
+ "scoresheet": {
+  "n": 4,
+  "supported": 2,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Fever is present. -- Median temperature over the 6 h before the decision: 98 °F (1 readings), normal by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+    "The patient is currently on mechanical ventilation. -- The last ventilator/intubation record ('Tidal Volume (observed): 303 mL') was 16.3 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 2,
+  "treatment_precision": 0.667,
+  "recall_vital": null,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

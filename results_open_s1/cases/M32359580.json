@@ -1,0 +1,979 @@
+{
+ "case_id": "M32359580",
+ "decision_point": "2146-06-23 11:46:29",
+ "claims": [
+  "Monitor lactate levels closely.",
+  "Administer intravenous fluids to maintain hydration.",
+  "Evaluate and manage hyperkalemia if present.",
+  "Continue vasopressor support due to low blood pressure.",
+  "Administer prophylactic antibiotics if not already done.",
+  "Consider empiric broad-spectrum antibiotic coverage given the clinical picture.",
+  "Assess and manage coagulopathy.",
+  "Check blood cultures if not already performed.",
+  "Continue close monitoring of electrolytes, including magnesium and calcium.",
+  "Consider nutritional support if the patient is unable to eat."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32359580A1::01",
+   "claim_id": "M32359580A1",
+   "claim_text": "Monitor lactate levels closely.",
+   "kind": "action",
+   "text": "Monitor lactate levels closely.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32359580A2::02",
+   "claim_id": "M32359580A2",
+   "claim_text": "Administer intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to maintain hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32359580A3::03",
+   "claim_id": "M32359580A3",
+   "claim_text": "Evaluate and manage hyperkalemia if present.",
+   "kind": "action",
+   "text": "Evaluate and manage hyperkalemia if present.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "hyperkalemia",
+   "conditional": true
+  },
+  {
+   "atom_id": "M32359580A4::04",
+   "claim_id": "M32359580A4",
+   "claim_text": "Continue vasopressor support due to low blood pressure.",
+   "kind": "action",
+   "text": "Continue vasopressor support due to low blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vasopressor support",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32359580A5::05",
+   "claim_id": "M32359580A5",
+   "claim_text": "Administer prophylactic antibiotics if not already done.",
+   "kind": "action",
+   "text": "Administer prophylactic antibiotics if not already done.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "prophylactic antibiotics",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32359580A6::06",
+   "claim_id": "M32359580A6",
+   "claim_text": "Consider empiric broad-spectrum antibiotic coverage given the clinical picture.",
+   "kind": "action",
+   "text": "Consider empiric broad-spectrum antibiotic coverage given the clinical picture.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "broad-spectrum antibiotics",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32359580A7::07",
+   "claim_id": "M32359580A7",
+   "claim_text": "Assess and manage coagulopathy.",
+   "kind": "action",
+   "text": "Assess and manage coagulopathy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "coagulopathy",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32359580A8::08",
+   "claim_id": "M32359580A8",
+   "claim_text": "Check blood cultures if not already performed.",
+   "kind": "action",
+   "text": "Check blood cultures if not already performed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": true,
+   "treatment_class": "cultures",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32359580A9::09",
+   "claim_id": "M32359580A9",
+   "claim_text": "Continue close monitoring of electrolytes, including magnesium and calcium.",
+   "kind": "action",
+   "text": "Continue close monitoring of electrolytes, including magnesium and calcium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolytes",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32359580A10::10",
+   "claim_id": "M32359580A10",
+   "claim_text": "Consider nutritional support if the patient is unable to eat.",
+   "kind": "action",
+   "text": "Consider nutritional support if the patient is unable to eat.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "nutritional support",
+   "conditional": true,
+   "treatment_class": "nutrition",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32359580A7::R01",
+   "claim_id": "M32359580A7",
+   "claim_text": "Assess and manage coagulopathy.",
+   "kind": "fact",
+   "text": "Coagulopathy is present.",
+   "concept": "inr",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  },
+  {
+   "atom_id": "M32359580A4::P01",
+   "claim_id": "M32359580A4",
+   "claim_text": "Continue vasopressor support due to low blood pressure.",
+   "kind": "fact",
+   "text": "The patient is currently receiving vasopressor support.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32359580A7::R01",
+   "claim_id": "M32359580A7",
+   "claim_text": "Assess and manage coagulopathy.",
+   "kind": "fact",
+   "text": "Coagulopathy is present.",
+   "concept": "inr",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:96177",
+     "time": "2146-06-23 03:03:00",
+     "item": "INR(PT)",
+     "value": 2.6,
+     "unit": "",
+     "bounds": "0.9 to 1.1",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:96243",
+     "time": "2146-06-23 05:43:00",
+     "item": "INR(PT)",
+     "value": 2.4,
+     "unit": "",
+     "bounds": "0.9 to 1.1",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:96259",
+     "time": "2146-06-23 09:20:00",
+     "item": "INR(PT)",
+     "value": 2.7,
+     "unit": "",
+     "bounds": "0.9 to 1.1",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest INR 2.7  at 2146-06-23 09:20:00 (reference 0.9 to 1.1) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M32359580A4::P01",
+   "claim_id": "M32359580A4",
+   "claim_text": "Continue vasopressor support due to low blood pressure.",
+   "kind": "fact",
+   "text": "The patient is currently receiving vasopressor support.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The patient is receiving both Vasopressin (R34) and Norepinephrine (R46), both of which are types of vasopressor support, and both are noted as 'Running at decision time'.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:4715354:222315:2146-06-23 03:15:00",
+     "time": "2146-06-23 03:15:00",
+     "item": "Running at decision time (started 2146-06-23 03:15:00): Infusion/input Vasopressin at 2.4072215557098389 units/hour"
+    },
+    {
+     "rid": "inputevents:4709664:221906:2146-06-23 07:10:00",
+     "time": "2146-06-23 07:10:00",
+     "item": "Running at decision time (started 2146-06-23 07:10:00): Infusion/input Norepinephrine at 0.40003203321248293 mcg/kg/min"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32359580A1::01",
+   "claim_id": "M32359580A1",
+   "claim_text": "Monitor lactate levels closely.",
+   "kind": "action",
+   "text": "Monitor lactate levels closely.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225668:2146-06-24 03:09:00:422713",
+     "time": "2146-06-24 03:09:00",
+     "item": "lactate",
+     "value": "2.1 mmol/L"
+    },
+    {
+     "rid": "chart:225668:2146-06-23 21:21:00:426327",
+     "time": "2146-06-23 21:21:00",
+     "item": "lactate",
+     "value": "3 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): lactate x8.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32359580A2::02",
+   "claim_id": "M32359580A2",
+   "claim_text": "Administer intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to maintain hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158#2",
+     "time": "2146-06-22 12:15:00",
+     "item": "NaCl 0.9% infusion continuing at 10.033444404602051 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN220949",
+     "time": "2146-06-23 03:15:00",
+     "item": "Dextrose 5% infusion continuing at 6.0180540084838867 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32359580A3::03",
+   "claim_id": "M32359580A3",
+   "claim_text": "Evaluate and manage hyperkalemia if present.",
+   "kind": "action",
+   "text": "Evaluate and manage hyperkalemia if present.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "hyperkalemia",
+   "conditional": true,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32359580A4::04",
+   "claim_id": "M32359580A4",
+   "claim_text": "Continue vasopressor support due to low blood pressure.",
+   "kind": "action",
+   "text": "Continue vasopressor support due to low blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vasopressor support",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN222315",
+     "time": "2146-06-23 03:15:00",
+     "item": "Vasopressin infusion continuing at 2.4072215557098389 units/hour",
+     "class": "vasopressor"
+    },
+    {
+     "rid": "IN221906",
+     "time": "2146-06-23 07:10:00",
+     "item": "Norepinephrine infusion continuing at 0.40003203321248293 mcg/kg/min",
+     "class": "vasopressor"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded vasopressors after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32359580A5::05",
+   "claim_id": "M32359580A5",
+   "claim_text": "Administer prophylactic antibiotics if not already done.",
+   "kind": "action",
+   "text": "Administer prophylactic antibiotics if not already done.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "prophylactic antibiotics",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225798",
+     "time": "2146-06-24 01:00:00",
+     "item": "Vancomycin infusion started at",
+     "class": "antimicrobial"
+    },
+    {
+     "rid": "E10007818-438",
+     "time": "2146-06-24 01:01:00",
+     "item": "Given: Vancomycin",
+     "class": "antimicrobial"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded antimicrobials after the decision. The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32359580A6::06",
+   "claim_id": "M32359580A6",
+   "claim_text": "Consider empiric broad-spectrum antibiotic coverage given the clinical picture.",
+   "kind": "action",
+   "text": "Consider empiric broad-spectrum antibiotic coverage given the clinical picture.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "broad-spectrum antibiotics",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225798",
+     "time": "2146-06-24 01:00:00",
+     "item": "Vancomycin infusion started at",
+     "class": "antimicrobial"
+    },
+    {
+     "rid": "E10007818-438",
+     "time": "2146-06-24 01:01:00",
+     "item": "Given: Vancomycin",
+     "class": "antimicrobial"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded antimicrobials after the decision. The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32359580A7::07",
+   "claim_id": "M32359580A7",
+   "claim_text": "Assess and manage coagulopathy.",
+   "kind": "action",
+   "text": "Assess and manage coagulopathy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "coagulopathy",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32359580A8::08",
+   "claim_id": "M32359580A8",
+   "claim_text": "Check blood cultures if not already performed.",
+   "kind": "action",
+   "text": "Check blood cultures if not already performed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": true,
+   "treatment_class": "cultures",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The clinicians recorded imaging / ECG, but not the suggested cultures.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32359580A9::09",
+   "claim_id": "M32359580A9",
+   "claim_text": "Continue close monitoring of electrolytes, including magnesium and calcium.",
+   "kind": "action",
+   "text": "Continue close monitoring of electrolytes, including magnesium and calcium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolytes",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2146-06-24 10:00:00:397999",
+     "time": "2146-06-24 10:00:00",
+     "item": "sodium",
+     "value": "136 mEq/L"
+    },
+    {
+     "rid": "chart:220645:2146-06-23 21:10:00:423251",
+     "time": "2146-06-23 21:10:00",
+     "item": "sodium",
+     "value": "136 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2146-06-24 10:00:00:397996",
+     "time": "2146-06-24 10:00:00",
+     "item": "potassium",
+     "value": "3.9 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2146-06-23 21:10:00:423239",
+     "time": "2146-06-23 21:10:00",
+     "item": "potassium",
+     "value": "3.9 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2146-06-24 10:00:00:397997",
+     "time": "2146-06-24 10:00:00",
+     "item": "chloride",
+     "value": "96 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2146-06-23 21:10:00:423250",
+     "time": "2146-06-23 21:10:00",
+     "item": "chloride",
+     "value": "95 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2146-06-24 10:00:00:397990",
+     "time": "2146-06-24 10:00:00",
+     "item": "bicarbonate",
+     "value": "16 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2146-06-23 21:10:00:423237",
+     "time": "2146-06-23 21:10:00",
+     "item": "bicarbonate",
+     "value": "15 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2146-06-23 21:10:00:423242",
+     "time": "2146-06-23 21:10:00",
+     "item": "magnesium",
+     "value": "1.7 mg/dL"
+    },
+    {
+     "rid": "chart:220635:2146-06-23 14:40:00:430693",
+     "time": "2146-06-23 14:40:00",
+     "item": "magnesium",
+     "value": "1.7 mg/dL"
+    },
+    {
+     "rid": "chart:225667:2146-06-24 10:08:00:422570",
+     "time": "2146-06-24 10:08:00",
+     "item": "calcium",
+     "value": "1.16 mmol/L"
+    },
+    {
+     "rid": "chart:225667:2146-06-24 03:09:00:422715",
+     "time": "2146-06-24 03:09:00",
+     "item": "calcium",
+     "value": "1.13 mmol/L"
+    },
+    {
+     "rid": "chart:225677:2146-06-23 21:10:00:423248",
+     "time": "2146-06-23 21:10:00",
+     "item": "phosphate",
+     "value": "5.7 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2146-06-23 14:40:00:430673",
+     "time": "2146-06-23 14:40:00",
+     "item": "phosphate",
+     "value": "7.7 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x8, potassium x8, chloride x8, bicarbonate x8, magnesium x6, calcium x14, phosphate x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32359580A10::10",
+   "claim_id": "M32359580A10",
+   "claim_text": "Consider nutritional support if the patient is unable to eat.",
+   "kind": "action",
+   "text": "Consider nutritional support if the patient is unable to eat.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "nutritional support",
+   "conditional": true,
+   "treatment_class": "nutrition",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No nutrition support action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "renal_replacement",
+   "name": "renal replacement therapy",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Calcium Gluconate (CRRT)",
+    "Dialysis - CRRT",
+    "Heparin (CRRT Machine Priming)",
+    "KCl (CRRT)",
+    "Sodium CITRATE 4%"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest INR 2.7  (treatment threshold > 1.5).",
+   "doctor_targets": [
+    "Cryoprecipitate",
+    "Fresh Frozen Plasma",
+    "Platelets"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest hemoglobin 6.3 g/dL (treatment threshold < 7).",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 11.2 K/uL at 2146-06-23 09:20:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M32359580A5::05",
+    "M32359580A6::06"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 9 mmol/L at 2146-06-23 09:22:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 32,
+   "covered": true,
+   "by_atoms": [
+    "M32359580A2::02"
+   ]
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine",
+    "Phenylephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 22,
+   "covered": true,
+   "by_atoms": [
+    "M32359580A4::04"
+   ]
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 11.2 K/uL at 2146-06-23 09:20:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "renal_replacement",
+   "name": "renal replacement therapy",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Calcium Gluconate (CRRT)",
+    "Dialysis - CRRT",
+    "Heparin (CRRT Machine Priming)",
+    "KCl (CRRT)",
+    "Sodium CITRATE 4%"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest INR 2.7  (treatment threshold > 1.5).",
+   "doctor_targets": [
+    "Cryoprecipitate",
+    "Fresh Frozen Plasma",
+    "Platelets"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest hemoglobin 6.3 g/dL (treatment threshold < 7).",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine",
+    "Phenylephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 22,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 9 mmol/L at 2146-06-23 09:22:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 32,
+   "covered": true,
+   "by_atoms": [
+    "M32359580A2::02"
+   ]
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 116,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.429,
+  "recall_okay": 0.0,
+  "recall_all": 0.25,
+  "recall_vital_at3": 0.143,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.083
+ }
+}

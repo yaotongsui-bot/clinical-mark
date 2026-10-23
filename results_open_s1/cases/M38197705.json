@@ -1,0 +1,1324 @@
+{
+ "case_id": "M38197705",
+ "decision_point": "2116-12-04 01:02:00",
+ "claims": [
+  "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+  "Administer intravenous fluids as needed to maintain adequate hydration and blood pressure.",
+  "Continue close monitoring of cardiac function given the elevated troponin levels and myocardial injury markers.",
+  "Administer intravenous calcium as needed to manage hypocalcemia.",
+  "Continue mechanical ventilation with close monitoring of SpO2 and pH levels.",
+  "Administer antibiotics based on culture results if a bacterial infection is suspected.",
+  "Monitor for signs of respiratory distress and adjust ventilator settings as necessary.",
+  "Continue monitoring for signs of neurological changes and adjust sedation accordingly.",
+  "Administer potassium if levels are persistently low.",
+  "Continue close monitoring of liver function tests (AST, ALT) and adjust medications as necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M38197705A1::01",
+   "claim_id": "M38197705A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38197705A1::02",
+   "claim_id": "M38197705A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor potassium and magnesium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium, magnesium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38197705A2::03",
+   "claim_id": "M38197705A2",
+   "claim_text": "Administer intravenous fluids as needed to maintain adequate hydration and blood pressure.",
+   "kind": "action",
+   "text": "Administer intravenous fluids as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38197705A3::04",
+   "claim_id": "M38197705A3",
+   "claim_text": "Continue close monitoring of cardiac function given the elevated troponin levels and myocardial injury markers.",
+   "kind": "action",
+   "text": "Continue close monitoring of cardiac function.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38197705A3::05",
+   "claim_id": "M38197705A3",
+   "claim_text": "Continue close monitoring of cardiac function given the elevated troponin levels and myocardial injury markers.",
+   "kind": "fact",
+   "text": "Elevated troponin levels and myocardial injury markers are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M38197705A4::06",
+   "claim_id": "M38197705A4",
+   "claim_text": "Administer intravenous calcium as needed to manage hypocalcemia.",
+   "kind": "action",
+   "text": "Administer intravenous calcium as needed.",
+   "concept": "calcium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous calcium",
+   "conditional": true,
+   "treatment_class": "calcium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38197705A5::07",
+   "claim_id": "M38197705A5",
+   "claim_text": "Continue mechanical ventilation with close monitoring of SpO2 and pH levels.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38197705A5::08",
+   "claim_id": "M38197705A5",
+   "claim_text": "Continue mechanical ventilation with close monitoring of SpO2 and pH levels.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M38197705A5::09",
+   "claim_id": "M38197705A5",
+   "claim_text": "Continue mechanical ventilation with close monitoring of SpO2 and pH levels.",
+   "kind": "action",
+   "text": "Monitor SpO2 and pH levels.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "SpO2, pH",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38197705A6::10",
+   "claim_id": "M38197705A6",
+   "claim_text": "Administer antibiotics based on culture results if a bacterial infection is suspected.",
+   "kind": "action",
+   "text": "Administer antibiotics based on culture results.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "antibiotics",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38197705A7::11",
+   "claim_id": "M38197705A7",
+   "claim_text": "Monitor for signs of respiratory distress and adjust ventilator settings as necessary.",
+   "kind": "action",
+   "text": "Monitor for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38197705A7::12",
+   "claim_id": "M38197705A7",
+   "claim_text": "Monitor for signs of respiratory distress and adjust ventilator settings as necessary.",
+   "kind": "action",
+   "text": "Adjust ventilator settings as necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38197705A8::13",
+   "claim_id": "M38197705A8",
+   "claim_text": "Continue monitoring for signs of neurological changes and adjust sedation accordingly.",
+   "kind": "action",
+   "text": "Continue monitoring for signs of neurological changes.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38197705A8::14",
+   "claim_id": "M38197705A8",
+   "claim_text": "Continue monitoring for signs of neurological changes and adjust sedation accordingly.",
+   "kind": "action",
+   "text": "Adjust sedation accordingly.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38197705A9::15",
+   "claim_id": "M38197705A9",
+   "claim_text": "Administer potassium if levels are persistently low.",
+   "kind": "action",
+   "text": "Administer potassium if levels are persistently low.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M38197705A10::16",
+   "claim_id": "M38197705A10",
+   "claim_text": "Continue close monitoring of liver function tests (AST, ALT) and adjust medications as necessary.",
+   "kind": "action",
+   "text": "Continue monitoring of liver function tests (AST, ALT).",
+   "concept": "liver_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "AST, ALT",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38197705A10::17",
+   "claim_id": "M38197705A10",
+   "claim_text": "Continue close monitoring of liver function tests (AST, ALT) and adjust medications as necessary.",
+   "kind": "action",
+   "text": "Adjust medications as necessary.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "medications",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M38197705A4::R01",
+   "claim_id": "M38197705A4",
+   "claim_text": "Administer intravenous calcium as needed to manage hypocalcemia.",
+   "kind": "fact",
+   "text": "Hypocalcemia is present.",
+   "concept": "calcium",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M38197705A3::05",
+   "claim_id": "M38197705A3",
+   "claim_text": "Continue close monitoring of cardiac function given the elevated troponin levels and myocardial injury markers.",
+   "kind": "fact",
+   "text": "Elevated troponin levels and myocardial injury markers are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The records show that troponin levels are elevated, with values of 0.07 ng/mL, 0.04 ng/mL, and 0.02 ng/mL, respectively, indicating myocardial injury markers are present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": null,
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:254110",
+     "time": "2116-12-03 13:58:00",
+     "item": "Troponin T: 0.07 ng/mL"
+    },
+    {
+     "rid": "lab:254142",
+     "time": "2116-12-03 17:24:00",
+     "item": "Troponin T: 0.04 ng/mL"
+    },
+    {
+     "rid": "lab:254192",
+     "time": "2116-12-03 21:28:00",
+     "item": "Troponin T: 0.02 ng/mL"
+    },
+    {
+     "rid": "chart:38197705:227429:2116-12-03 01:16:00",
+     "time": "2116-12-03 01:16:00",
+     "item": "Troponin-T: 0.04 ng/mL"
+    },
+    {
+     "rid": "lab:253995",
+     "time": "2116-12-03 01:16:00",
+     "item": "Troponin T: 0.04 ng/mL"
+    },
+    {
+     "rid": "chart:38197705:227429:2116-12-03 13:58:00",
+     "time": "2116-12-03 13:58:00",
+     "item": "Troponin-T: 0.07 ng/mL"
+    },
+    {
+     "rid": "chart:38197705:227429:2116-12-03 21:28:00",
+     "time": "2116-12-03 21:28:00",
+     "item": "Troponin-T: 0.02 ng/mL"
+    }
+   ]
+  },
+  {
+   "atom_id": "M38197705A5::08",
+   "claim_id": "M38197705A5",
+   "claim_text": "Continue mechanical ventilation with close monitoring of SpO2 and pH levels.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:4684498:225792:2116-12-03 00:25:00",
+     "time": "2116-12-03 00:25:00",
+     "item": "Running at decision time (started 2116-12-03 00:25:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M38197705A4::R01",
+   "claim_id": "M38197705A4",
+   "claim_text": "Administer intravenous calcium as needed to manage hypocalcemia.",
+   "kind": "fact",
+   "text": "Hypocalcemia is present.",
+   "concept": "calcium",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:254181",
+     "time": "2116-12-03 21:28:00",
+     "item": "Calcium, Total",
+     "value": 6.4,
+     "unit": "mg/dL",
+     "bounds": "8.4 to 10.3",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:254205",
+     "time": "2116-12-03 21:38:00",
+     "item": "Free Calcium",
+     "value": 1.0,
+     "unit": "mmol/L",
+     "bounds": "1.12 to 1.32",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:254213",
+     "time": "2116-12-04 00:25:00",
+     "item": "Free Calcium",
+     "value": 1.01,
+     "unit": "mmol/L",
+     "bounds": "1.12 to 1.32",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest calcium 1.01 mmol/L at 2116-12-04 00:25:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M38197705A1::01",
+   "claim_id": "M38197705A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2116-12-04 22:06:00:528305",
+     "time": "2116-12-04 22:06:00",
+     "item": "sodium",
+     "value": "138 mEq/L"
+    },
+    {
+     "rid": "chart:220645:2116-12-04 05:07:00:528619",
+     "time": "2116-12-04 05:07:00",
+     "item": "sodium",
+     "value": "135 mEq/L"
+    },
+    {
+     "rid": "chart:227464:2116-12-04 02:04:00:527481",
+     "time": "2116-12-04 02:04:00",
+     "item": "potassium",
+     "value": "5.8 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2116-12-04 22:06:00:528302",
+     "time": "2116-12-04 22:06:00",
+     "item": "potassium",
+     "value": "5.2 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2116-12-04 22:06:00:528306",
+     "time": "2116-12-04 22:06:00",
+     "item": "chloride",
+     "value": "109 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2116-12-04 05:07:00:528610",
+     "time": "2116-12-04 05:07:00",
+     "item": "chloride",
+     "value": "108 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2116-12-04 22:06:00:528308",
+     "time": "2116-12-04 22:06:00",
+     "item": "bicarbonate",
+     "value": "19 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2116-12-04 05:07:00:528611",
+     "time": "2116-12-04 05:07:00",
+     "item": "bicarbonate",
+     "value": "19 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2116-12-04 22:06:00:528301",
+     "time": "2116-12-04 22:06:00",
+     "item": "magnesium",
+     "value": "2.1 mg/dL"
+    },
+    {
+     "rid": "chart:220635:2116-12-04 05:07:00:528616",
+     "time": "2116-12-04 05:07:00",
+     "item": "magnesium",
+     "value": "2.2 mg/dL"
+    },
+    {
+     "rid": "chart:225667:2116-12-04 02:04:00:527478",
+     "time": "2116-12-04 02:04:00",
+     "item": "calcium",
+     "value": "1.05 mmol/L"
+    },
+    {
+     "rid": "chart:225625:2116-12-04 22:06:00:528300",
+     "time": "2116-12-04 22:06:00",
+     "item": "calcium",
+     "value": "7 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2116-12-04 22:06:00:528298",
+     "time": "2116-12-04 22:06:00",
+     "item": "phosphate",
+     "value": "3.6 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2116-12-04 05:07:00:528618",
+     "time": "2116-12-04 05:07:00",
+     "item": "phosphate",
+     "value": "3.2 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x10, potassium x14, chloride x10, bicarbonate x10, magnesium x10, calcium x18, phosphate x10.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38197705A1::02",
+   "claim_id": "M38197705A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor potassium and magnesium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium, magnesium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227464:2116-12-04 02:04:00:527481",
+     "time": "2116-12-04 02:04:00",
+     "item": "potassium",
+     "value": "5.8 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2116-12-04 22:06:00:528302",
+     "time": "2116-12-04 22:06:00",
+     "item": "potassium",
+     "value": "5.2 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x14.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38197705A2::03",
+   "claim_id": "M38197705A2",
+   "claim_text": "Administer intravenous fluids as needed to maintain adequate hydration and blood pressure.",
+   "kind": "action",
+   "text": "Administer intravenous fluids as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2116-12-03 22:25:00",
+     "item": "Dextrose 5% infusion continuing at 24.330135345458984 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158#2",
+     "time": "2116-12-03 22:30:00",
+     "item": "NaCl 0.9% infusion continuing at 10 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision. The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38197705A3::04",
+   "claim_id": "M38197705A3",
+   "claim_text": "Continue close monitoring of cardiac function given the elevated troponin levels and myocardial injury markers.",
+   "kind": "action",
+   "text": "Continue close monitoring of cardiac function.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2116-12-04 02:00:00:518351",
+     "time": "2116-12-04 02:00:00",
+     "item": "heart rate",
+     "value": "112 bpm"
+    },
+    {
+     "rid": "chart:220045:2116-12-04 03:00:00:518426",
+     "time": "2116-12-04 03:00:00",
+     "item": "heart rate",
+     "value": "111 bpm"
+    },
+    {
+     "rid": "chart:220048:2116-12-04 02:00:00:518354",
+     "time": "2116-12-04 02:00:00",
+     "item": "heart rhythm",
+     "value": "ST (Sinus Tachycardia)"
+    },
+    {
+     "rid": "chart:220048:2116-12-04 03:00:00:518430",
+     "time": "2116-12-04 03:00:00",
+     "item": "heart rhythm",
+     "value": "ST (Sinus Tachycardia)"
+    },
+    {
+     "rid": "chart:220050:2116-12-04 02:00:00:518359",
+     "time": "2116-12-04 02:00:00",
+     "item": "systolic BP",
+     "value": "96 mmHg"
+    },
+    {
+     "rid": "chart:220050:2116-12-04 03:00:00:518415",
+     "time": "2116-12-04 03:00:00",
+     "item": "systolic BP",
+     "value": "90 mmHg"
+    },
+    {
+     "rid": "chart:220052:2116-12-04 02:00:00:518378",
+     "time": "2116-12-04 02:00:00",
+     "item": "mean arterial pressure",
+     "value": "67 mmHg"
+    },
+    {
+     "rid": "chart:220052:2116-12-04 03:00:00:518432",
+     "time": "2116-12-04 03:00:00",
+     "item": "mean arterial pressure",
+     "value": "65 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x23, heart rhythm x25, systolic BP x24, mean arterial pressure x24.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38197705A4::06",
+   "claim_id": "M38197705A4",
+   "claim_text": "Administer intravenous calcium as needed to manage hypocalcemia.",
+   "kind": "action",
+   "text": "Administer intravenous calcium as needed.",
+   "concept": "calcium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous calcium",
+   "conditional": true,
+   "treatment_class": "calcium_replacement",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN221456",
+     "time": "2116-12-04 01:19:00",
+     "item": "Calcium Gluconate infusion started at",
+     "class": "calcium_replacement"
+    },
+    {
+     "rid": "IN221456#2",
+     "time": "2116-12-04 03:46:00",
+     "item": "Calcium Gluconate infusion started at",
+     "class": "calcium_replacement"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded calcium replacement after the decision. The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38197705A5::07",
+   "claim_id": "M38197705A5",
+   "claim_text": "Continue mechanical ventilation with close monitoring of SpO2 and pH levels.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2116-12-03 00:25:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38197705A5::09",
+   "claim_id": "M38197705A5",
+   "claim_text": "Continue mechanical ventilation with close monitoring of SpO2 and pH levels.",
+   "kind": "action",
+   "text": "Monitor SpO2 and pH levels.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "SpO2, pH",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220277:2116-12-04 02:00:00:518387",
+     "time": "2116-12-04 02:00:00",
+     "item": "SpO2",
+     "value": "97 %"
+    },
+    {
+     "rid": "chart:220277:2116-12-04 03:00:00:518427",
+     "time": "2116-12-04 03:00:00",
+     "item": "SpO2",
+     "value": "96 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x24.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38197705A6::10",
+   "claim_id": "M38197705A6",
+   "claim_text": "Administer antibiotics based on culture results if a bacterial infection is suspected.",
+   "kind": "action",
+   "text": "Administer antibiotics based on culture results.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "antibiotics",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38197705A7::11",
+   "claim_id": "M38197705A7",
+   "claim_text": "Monitor for signs of respiratory distress and adjust ventilator settings as necessary.",
+   "kind": "action",
+   "text": "Monitor for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38197705A7::12",
+   "claim_id": "M38197705A7",
+   "claim_text": "Monitor for signs of respiratory distress and adjust ventilator settings as necessary.",
+   "kind": "action",
+   "text": "Adjust ventilator settings as necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings changed after the decision (4 settings took different values).",
+   "evidence": [
+    {
+     "rid": "chart:224695:2116-12-04 04:00:00:518486",
+     "time": "2116-12-04 04:00:00",
+     "item": "ventilator setting",
+     "value": "32 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "chart:220339:2116-12-04 04:00:00:518491",
+     "time": "2116-12-04 04:00:00",
+     "item": "ventilator setting",
+     "value": "12 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "chart:224697:2116-12-04 04:00:00:518564",
+     "time": "2116-12-04 04:00:00",
+     "item": "ventilator setting",
+     "value": "17 cmH2O",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38197705A8::13",
+   "claim_id": "M38197705A8",
+   "claim_text": "Continue monitoring for signs of neurological changes and adjust sedation accordingly.",
+   "kind": "action",
+   "text": "Continue monitoring for signs of neurological changes.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38197705A8::14",
+   "claim_id": "M38197705A8",
+   "claim_text": "Continue monitoring for signs of neurological changes and adjust sedation accordingly.",
+   "kind": "action",
+   "text": "Adjust sedation accordingly.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "partial_match",
+   "evidence": [
+    {
+     "rid": "IN221668",
+     "time": "2116-12-03 22:47:00",
+     "item": "Midazolam (Versed) infusion continuing at 1.9999942779541016 mg/hour",
+     "class": "sedation"
+    },
+    {
+     "rid": "IN221668#2",
+     "time": "2116-12-04 01:49:00",
+     "item": "Midazolam (Versed) infusion started at",
+     "class": "sedation"
+    }
+   ],
+   "method": "rule",
+   "reason": "sedation continued after the decision, but no dose or setting change is recorded.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38197705A9::15",
+   "claim_id": "M38197705A9",
+   "claim_text": "Administer potassium if levels are persistently low.",
+   "kind": "action",
+   "text": "Administer potassium if levels are persistently low.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38197705A10::16",
+   "claim_id": "M38197705A10",
+   "claim_text": "Continue close monitoring of liver function tests (AST, ALT) and adjust medications as necessary.",
+   "kind": "action",
+   "text": "Continue monitoring of liver function tests (AST, ALT).",
+   "concept": "liver_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "AST, ALT",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:50878:2116-12-04 01:51:00:97526",
+     "time": "2116-12-04 01:51:00",
+     "item": "AST",
+     "value": "___ IU/L"
+    },
+    {
+     "rid": "lab:50861:2116-12-04 01:51:00:97527",
+     "time": "2116-12-04 01:51:00",
+     "item": "ALT",
+     "value": "___ IU/L"
+    },
+    {
+     "rid": "lab:50885:2116-12-04 01:51:00:97550",
+     "time": "2116-12-04 01:51:00",
+     "item": "total bilirubin",
+     "value": "2.1 mg/dL"
+    },
+    {
+     "rid": "lab:50863:2116-12-04 01:51:00:97540",
+     "time": "2116-12-04 01:51:00",
+     "item": "alkaline phosphatase",
+     "value": "64 IU/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): AST x1, ALT x1, total bilirubin x1, alkaline phosphatase x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38197705A10::17",
+   "claim_id": "M38197705A10",
+   "claim_text": "Continue close monitoring of liver function tests (AST, ALT) and adjust medications as necessary.",
+   "kind": "action",
+   "text": "Adjust medications as necessary.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "medications",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest albumin 3.4 g/dL at 2116-12-03 12:13:00 (reference 3.5 to 5.2) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.01 mmol/L at 2116-12-04 00:25:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M38197705A4::06"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.1 mmol/L at 2116-12-04 00:25:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "NaCl 0.9%",
+    "PlasmaLyte"
+   ],
+   "doctor_rows": 22,
+   "covered": true,
+   "by_atoms": [
+    "M38197705A2::03"
+   ]
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38197705A5::07",
+    "M38197705A7::12"
+   ]
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "glucose_rescue",
+   "name": "hypoglycemia treatment",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 50%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M38197705A8::14"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest albumin 3.4 g/dL at 2116-12-03 12:13:00 (reference 3.5 to 5.2) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.01 mmol/L at 2116-12-04 00:25:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.1 mmol/L at 2116-12-04 00:25:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "NaCl 0.9%",
+    "PlasmaLyte"
+   ],
+   "doctor_rows": 22,
+   "covered": true,
+   "by_atoms": [
+    "M38197705A2::03"
+   ]
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "glucose_rescue",
+   "name": "hypoglycemia treatment",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 50%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 89,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.8,
+  "recall_vital": 0.6,
+  "recall_okay": 0.125,
+  "recall_all": 0.308,
+  "recall_vital_at3": 0.2,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.077
+ }
+}

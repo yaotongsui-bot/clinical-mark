@@ -1,0 +1,527 @@
+{
+ "case_id": "M36496303",
+ "decision_point": "2144-10-30 23:09:03",
+ "claims": [
+  "Monitor hemoglobin and hematocrit levels closely.",
+  "Continue heparin infusion to prevent thrombosis.",
+  "Assess for signs of infection given elevated white blood cell count."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M36496303A1::01",
+   "claim_id": "M36496303A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hemoglobin levels closely.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36496303A1::02",
+   "claim_id": "M36496303A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hematocrit levels closely.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36496303A2::03",
+   "claim_id": "M36496303A2",
+   "claim_text": "Continue heparin infusion to prevent thrombosis.",
+   "kind": "action",
+   "text": "Continue heparin infusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin infusion",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M36496303A3::04",
+   "claim_id": "M36496303A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36496303A3::05",
+   "claim_id": "M36496303A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M36496303A2::P01",
+   "claim_id": "M36496303A2",
+   "claim_text": "Continue heparin infusion to prevent thrombosis.",
+   "kind": "fact",
+   "text": "The patient is currently receiving heparin infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M36496303A3::05",
+   "claim_id": "M36496303A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:81092",
+     "time": "2144-10-29 20:21:00",
+     "item": "White Blood Cells",
+     "value": 11.6,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:81103",
+     "time": "2144-10-30 00:57:00",
+     "item": "White Blood Cells",
+     "value": 11.7,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:81113",
+     "time": "2144-10-30 05:35:00",
+     "item": "White Blood Cells",
+     "value": 10.4,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest WBC 10.4 K/uL at 2144-10-30 05:35:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M36496303A2::P01",
+   "claim_id": "M36496303A2",
+   "claim_text": "Continue heparin infusion to prevent thrombosis.",
+   "kind": "fact",
+   "text": "The patient is currently receiving heparin infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R48 explicitly states that a heparin infusion was running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:6967144:225152:2144-10-30 22:10:00",
+     "time": "2144-10-30 22:10:00",
+     "item": "Running at decision time (started 2144-10-30 22:10:00): Infusion/input Heparin Sodium at 600.1048583984375 units/hour"
+    },
+    {
+     "rid": "inputevents:8340679:225828:2144-10-29 23:15:00",
+     "time": "2144-10-29 23:15:00",
+     "item": "Infusion/input LR at 100.33444976806641 mL/hour (2144-10-29 23:15:00 to 2144-10-30 09:13:00)"
+    },
+    {
+     "rid": "inputevents:6967144:220949:2144-10-30 22:10:00",
+     "time": "2144-10-30 22:10:00",
+     "item": "Running at decision time (started 2144-10-30 22:10:00): Infusion/input Dextrose 5% at 6.0010485649108887 mL/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M36496303A1::01",
+   "claim_id": "M36496303A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hemoglobin levels closely.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220228:2144-10-31 02:15:00:456902",
+     "time": "2144-10-31 02:15:00",
+     "item": "hemoglobin",
+     "value": "9.3 g/dl"
+    },
+    {
+     "rid": "lab:51222:2144-10-31 02:15:00:37472",
+     "time": "2144-10-31 02:15:00",
+     "item": "hemoglobin",
+     "value": "9.3 g/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): hemoglobin x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36496303A1::02",
+   "claim_id": "M36496303A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hematocrit levels closely.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220545:2144-10-31 22:00:00:456305",
+     "time": "2144-10-31 22:00:00",
+     "item": "hematocrit",
+     "value": "27.7 %"
+    },
+    {
+     "rid": "chart:220545:2144-10-31 02:15:00:456911",
+     "time": "2144-10-31 02:15:00",
+     "item": "hematocrit",
+     "value": "28.5 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): hematocrit x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36496303A2::03",
+   "claim_id": "M36496303A2",
+   "claim_text": "Continue heparin infusion to prevent thrombosis.",
+   "kind": "action",
+   "text": "Continue heparin infusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin infusion",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225152",
+     "time": "2144-10-30 22:10:00",
+     "item": "Heparin Sodium infusion continuing at 600.1048583984375 units/hour",
+     "class": "anticoagulant_therapeutic"
+    },
+    {
+     "rid": "IN225152#2",
+     "time": "2144-10-31 14:10:00",
+     "item": "Heparin Sodium infusion started at 1400.5601806640625 units/hour",
+     "class": "anticoagulant_therapeutic"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded anticoagulation (therapeutic) after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M36496303A3::04",
+   "claim_id": "M36496303A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)",
+    "OxyCODONE (Immediate Release)"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "ClonazePAM"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M36496303A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)",
+    "OxyCODONE (Immediate Release)"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "ClonazePAM"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M36496303A2::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 48,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": null,
+  "recall_okay": 0.143,
+  "recall_all": 0.143,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.143,
+  "recall_all_at3": 0.143
+ }
+}

@@ -1,0 +1,213 @@
+{
+ "case_id": "M31205490-D59",
+ "decision_point": "2110-04-12 15:52:22",
+ "claims": [
+  "Continue dexamethasone."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31205490-D59A1::01",
+   "claim_id": "M31205490-D59A1",
+   "claim_text": "Continue dexamethasone.",
+   "kind": "action",
+   "text": "Continue dexamethasone.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "dexamethasone",
+   "conditional": false,
+   "treatment_class": "steroid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31205490-D59A1::P01",
+   "claim_id": "M31205490-D59A1",
+   "claim_text": "Continue dexamethasone.",
+   "kind": "fact",
+   "text": "The patient is currently receiving dexamethasone.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M31205490-D59A1::P01",
+   "claim_id": "M31205490-D59A1",
+   "claim_text": "Continue dexamethasone.",
+   "kind": "fact",
+   "text": "The patient is currently receiving dexamethasone.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_addressed",
+   "reason": "No cited record shows this treatment was withheld or stopped; absence of a record is not_addressed. (Panel verdict: not_supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "not_addressed",
+     "llama3.1:8b-instruct-q4_K_M": "not_supported",
+     "qwen2.5:14b": "not_supported"
+    },
+    "panel_label": "not_supported"
+   },
+   "evidence": [
+    {
+     "rid": "rx:53474725:2110-04-11 17:00:00",
+     "time": "2110-04-11 17:00:00",
+     "item": "Order: Bisacodyl 10 mg PO (active at decision time)"
+    },
+    {
+     "rid": "rx:53633415:2110-04-11 17:00:00",
+     "time": "2110-04-11 17:00:00",
+     "item": "Order: Bisacodyl 10 mg PR (active at decision time)"
+    },
+    {
+     "rid": "rx:36220152:2110-04-11 18:00:00",
+     "time": "2110-04-11 18:00:00",
+     "item": "Order: OxycoDONE (Immediate Release)  5-10 mg PO/NG (active at decision time)"
+    },
+    {
+     "rid": "rx:39718554:2110-04-11 19:00:00",
+     "time": "2110-04-11 19:00:00",
+     "item": "Order: Metolazone 2.5 mg PO (active at decision time)"
+    },
+    {
+     "rid": "rx:95380346:2110-04-11 20:00:00",
+     "time": "2110-04-11 20:00:00",
+     "item": "Order: Lorazepam 0.5 mg IV (active at decision time)"
+    },
+    {
+     "rid": "rx:76580512:2110-04-11 20:00:00",
+     "time": "2110-04-11 20:00:00",
+     "item": "Order: Lorazepam 0.5 mg IV (active at decision time)"
+    },
+    {
+     "rid": "rx:52434520:2110-04-11 15:00:00",
+     "time": "2110-04-11 15:00:00",
+     "item": "Order: MethylPREDNISolone Sodium Succ 100 mg IV (stopped 2110-04-11 17:00:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M31205490-D59A1::01",
+   "claim_id": "M31205490-D59A1",
+   "claim_text": "Continue dexamethasone.",
+   "kind": "action",
+   "text": "Continue dexamethasone.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "dexamethasone",
+   "conditional": false,
+   "treatment_class": "steroid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No corticosteroids action recorded in the 8.1 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Ketorolac",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Ketorolac",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 10,
+ "observation_window_hours": 8.1,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 1.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "The patient is currently receiving dexamethasone. -- No cited record shows this treatment was withheld or stopped; absence of a record is not_addressed. (Panel verdict: not_supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

@@ -1,0 +1,238 @@
+{
+ "case_id": "M30101877-R11",
+ "decision_point": "2143-03-23 06:42:00",
+ "claims": [
+  "Administer insulin to manage hypoglycemia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30101877-R11A1::01",
+   "claim_id": "M30101877-R11A1",
+   "claim_text": "Administer insulin to manage hypoglycemia.",
+   "kind": "action",
+   "text": "Administer insulin to manage hypoglycemia.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30101877-R11A1::R01",
+   "claim_id": "M30101877-R11A1",
+   "claim_text": "Administer insulin to manage hypoglycemia.",
+   "kind": "fact",
+   "text": "Hypoglycemia is present.",
+   "concept": "glucose",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30101877-R11A1::R01",
+   "claim_id": "M30101877-R11A1",
+   "claim_text": "Administer insulin to manage hypoglycemia.",
+   "kind": "fact",
+   "text": "Hypoglycemia is present.",
+   "concept": "glucose",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:382449",
+     "time": "2143-03-22 07:31:00",
+     "item": "Glucose",
+     "value": 153.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:382468",
+     "time": "2143-03-23 02:19:00",
+     "item": "Glucose",
+     "value": 216.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 216 mg/dL at 2143-03-23 02:19:00 (reference 70.0 to 100.0) is high, not consistent with 'low'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30101877-R11A1::01",
+   "claim_id": "M30101877-R11A1",
+   "claim_text": "Administer insulin to manage hypoglycemia.",
+   "kind": "action",
+   "text": "Administer insulin to manage hypoglycemia.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN223262",
+     "time": "2143-03-23 12:01:00",
+     "item": "Insulin - Humalog infusion started at",
+     "class": "insulin"
+    },
+    {
+     "rid": "IN223262#2",
+     "time": "2143-03-23 17:47:00",
+     "item": "Insulin - Humalog infusion started at",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 216 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M30101877-R11A1::01"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)",
+    "Methadone",
+    "Methadone Hydrochloride",
+    "OxycoDONE Liquid"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 216 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M30101877-R11A1::01"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)",
+    "Methadone",
+    "Methadone Hydrochloride",
+    "OxycoDONE Liquid"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 19,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hypoglycemia is present. -- Latest glucose 216 mg/dL at 2143-03-23 02:19:00 (reference 70.0 to 100.0) is high, not consistent with 'low'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.5,
+  "recall_okay": 0.0,
+  "recall_all": 0.333,
+  "recall_vital_at3": 0.5,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.333
+ }
+}

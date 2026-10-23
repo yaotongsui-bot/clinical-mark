@@ -1,0 +1,458 @@
+{
+ "case_id": "M37267577",
+ "decision_point": "2137-06-13 18:37:22",
+ "claims": [
+  "Monitor potassium levels closely due to recent fluctuations.",
+  "Continue IV fluid administration to maintain hydration.",
+  "Assess for potential causes of hyperkalemia and consider treatment if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37267577A1::01",
+   "claim_id": "M37267577A1",
+   "claim_text": "Monitor potassium levels closely due to recent fluctuations.",
+   "kind": "action",
+   "text": "Monitor potassium levels closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37267577A1::02",
+   "claim_id": "M37267577A1",
+   "claim_text": "Monitor potassium levels closely due to recent fluctuations.",
+   "kind": "fact",
+   "text": "Potassium levels have recently fluctuated.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M37267577A2::03",
+   "claim_id": "M37267577A2",
+   "claim_text": "Continue IV fluid administration to maintain hydration.",
+   "kind": "action",
+   "text": "Continue IV fluid administration.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluid administration",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37267577A3::04",
+   "claim_id": "M37267577A3",
+   "claim_text": "Assess for potential causes of hyperkalemia and consider treatment if necessary.",
+   "kind": "action",
+   "text": "Assess for potential causes of hyperkalemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hyperkalemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37267577A3::05",
+   "claim_id": "M37267577A3",
+   "claim_text": "Assess for potential causes of hyperkalemia and consider treatment if necessary.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M37267577A3::06",
+   "claim_id": "M37267577A3",
+   "claim_text": "Assess for potential causes of hyperkalemia and consider treatment if necessary.",
+   "kind": "action",
+   "text": "Consider treatment if necessary.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "treatment",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M37267577A2::P01",
+   "claim_id": "M37267577A2",
+   "claim_text": "Continue IV fluid administration to maintain hydration.",
+   "kind": "fact",
+   "text": "The patient is currently receiving IV fluid administration.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37267577A1::02",
+   "claim_id": "M37267577A1",
+   "claim_text": "Monitor potassium levels closely due to recent fluctuations.",
+   "kind": "fact",
+   "text": "Potassium levels have recently fluctuated.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "Vague statement (no specific measure or direction of change)."
+  },
+  {
+   "atom_id": "M37267577A3::05",
+   "claim_id": "M37267577A3",
+   "claim_text": "Assess for potential causes of hyperkalemia and consider treatment if necessary.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:192752",
+     "time": "2137-06-12 22:36:00",
+     "item": "Potassium",
+     "value": 5.1,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:192764",
+     "time": "2137-06-13 05:35:00",
+     "item": "Potassium",
+     "value": 5.1,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:192787",
+     "time": "2137-06-13 14:13:00",
+     "item": "Potassium, Whole Blood",
+     "value": 4.7,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest potassium 4.7 mEq/L at 2137-06-13 14:13:00 (reference 3.3 to 5.1) is normal, not consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M37267577A2::P01",
+   "claim_id": "M37267577A2",
+   "claim_text": "Continue IV fluid administration to maintain hydration.",
+   "kind": "fact",
+   "text": "The patient is currently receiving IV fluid administration.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R36 explicitly states that the Dextrose 5% infusion is running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:8495312:220949:2137-06-13 15:52:00",
+     "time": "2137-06-13 15:52:00",
+     "item": "Running at decision time (started 2137-06-13 15:52:00): Infusion/input Dextrose 5% at 10.191061019897461 mL/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37267577A1::01",
+   "claim_id": "M37267577A1",
+   "claim_text": "Monitor potassium levels closely due to recent fluctuations.",
+   "kind": "action",
+   "text": "Monitor potassium levels closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227442:2137-06-14 04:42:00:350691",
+     "time": "2137-06-14 04:42:00",
+     "item": "potassium",
+     "value": "4 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2137-06-14 04:42:00:82771",
+     "time": "2137-06-14 04:42:00",
+     "item": "potassium",
+     "value": "4.0 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37267577A2::03",
+   "claim_id": "M37267577A2",
+   "claim_text": "Continue IV fluid administration to maintain hydration.",
+   "kind": "action",
+   "text": "Continue IV fluid administration.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluid administration",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2137-06-13 15:52:00",
+     "item": "Dextrose 5% infusion continuing at 10.191061019897461 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "RX90206120",
+     "time": "2137-06-13 19:00:00",
+     "item": "Ordered: Sodium Chloride 0.9% 1000 mL IV",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37267577A3::04",
+   "claim_id": "M37267577A3",
+   "claim_text": "Assess for potential causes of hyperkalemia and consider treatment if necessary.",
+   "kind": "action",
+   "text": "Assess for potential causes of hyperkalemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hyperkalemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37267577A3::06",
+   "claim_id": "M37267577A3",
+   "claim_text": "Assess for potential causes of hyperkalemia and consider treatment if necessary.",
+   "kind": "action",
+   "text": "Consider treatment if necessary.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "treatment",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 113 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "doctor_targets": [
+    "Digoxin",
+    "Digoxin (Lanoxin)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.1 mmol/L at 2137-06-13 14:13:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M37267577A2::03"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium",
+    "Warfarin"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)",
+    "Magnesium Sulfate Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 113 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "doctor_targets": [
+    "Digoxin",
+    "Digoxin (Lanoxin)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.1 mmol/L at 2137-06-13 14:13:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M37267577A2::03"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium",
+    "Warfarin"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)",
+    "Magnesium Sulfate Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 30,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 1,
+  "supported_share": 0.333,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.333,
+  "reasons": {
+   "not_supported": [
+    "Hyperkalemia is present. -- Latest potassium 4.7 mEq/L at 2137-06-13 14:13:00 (reference 3.3 to 5.1) is normal, not consistent with 'high'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.5,
+  "recall_okay": 0.0,
+  "recall_all": 0.25,
+  "recall_vital_at3": 0.5,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.25
+ }
+}

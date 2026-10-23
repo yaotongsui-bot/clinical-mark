@@ -1,0 +1,421 @@
+{
+ "case_id": "M33348260",
+ "decision_point": "2145-09-29 20:59:43",
+ "claims": [
+  "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+  "Assess for signs of infection given the elevated white blood cell count.",
+  "Continue pain management with acetaminophen and consider adjusting the dose if pain persists."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M33348260A1::01",
+   "claim_id": "M33348260A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33348260A1::02",
+   "claim_id": "M33348260A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33348260A1::03",
+   "claim_id": "M33348260A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33348260A2::04",
+   "claim_id": "M33348260A2",
+   "claim_text": "Assess for signs of infection given the elevated white blood cell count.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33348260A2::05",
+   "claim_id": "M33348260A2",
+   "claim_text": "Assess for signs of infection given the elevated white blood cell count.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M33348260A3::06",
+   "claim_id": "M33348260A3",
+   "claim_text": "Continue pain management with acetaminophen and consider adjusting the dose if pain persists.",
+   "kind": "action",
+   "text": "Continue pain management with acetaminophen.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "acetaminophen",
+   "conditional": false,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M33348260A3::07",
+   "claim_id": "M33348260A3",
+   "claim_text": "Continue pain management with acetaminophen and consider adjusting the dose if pain persists.",
+   "kind": "action",
+   "text": "Consider adjusting the dose of acetaminophen if pain persists.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "acetaminophen",
+   "conditional": true,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M33348260A3::P01",
+   "claim_id": "M33348260A3",
+   "claim_text": "Continue pain management with acetaminophen and consider adjusting the dose if pain persists.",
+   "kind": "fact",
+   "text": "The patient is currently receiving acetaminophen.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M33348260A2::05",
+   "claim_id": "M33348260A2",
+   "claim_text": "Assess for signs of infection given the elevated white blood cell count.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:101912",
+     "time": "2145-09-29 02:39:00",
+     "item": "White Blood Cells",
+     "value": 14.2,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest WBC 14.2 K/uL at 2145-09-29 02:39:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M33348260A3::P01",
+   "claim_id": "M33348260A3",
+   "claim_text": "Continue pain management with acetaminophen and consider adjusting the dose if pain persists.",
+   "kind": "fact",
+   "text": "The patient is currently receiving acetaminophen.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The patient was administered Acetaminophen-Caff-Butalbital (which contains acetaminophen) at 15:06, which is within 24 hours of the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "emar:10008287-57",
+     "time": "2145-09-29 15:06:00",
+     "item": "MAR Administered: Acetaminophen-Caff-Butalbital"
+    },
+    {
+     "rid": "emar:10008287-31",
+     "time": "2145-09-28 20:24:00",
+     "item": "MAR Administered: Acetaminophen IV"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M33348260A1::01",
+   "claim_id": "M33348260A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 3.6 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33348260A1::02",
+   "claim_id": "M33348260A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 3.6 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33348260A1::03",
+   "claim_id": "M33348260A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No magnesium measurement in the 3.6 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33348260A2::04",
+   "claim_id": "M33348260A2",
+   "claim_text": "Assess for signs of infection given the elevated white blood cell count.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33348260A3::06",
+   "claim_id": "M33348260A3",
+   "claim_text": "Continue pain management with acetaminophen and consider adjusting the dose if pain persists.",
+   "kind": "action",
+   "text": "Continue pain management with acetaminophen.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "acetaminophen",
+   "conditional": false,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "E10008287-64",
+     "time": "2145-09-29 22:22:00",
+     "item": "Given: Acetaminophen-Caff-Butalbital",
+     "class": "non_opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded non-opioid analgesia after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M33348260A3::07",
+   "claim_id": "M33348260A3",
+   "claim_text": "Continue pain management with acetaminophen and consider adjusting the dose if pain persists.",
+   "kind": "action",
+   "text": "Consider adjusting the dose of acetaminophen if pain persists.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "acetaminophen",
+   "conditional": true,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [
+    {
+     "rid": "E10008287-64",
+     "time": "2145-09-29 22:22:00",
+     "item": "Given: Acetaminophen-Caff-Butalbital",
+     "class": "non_opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "non-opioid analgesia continued after the decision without a recorded dose or setting change; the suggestion was conditional.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CT scan"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dexamethasone"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen-Caff-Butalbital"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M33348260A3::06",
+    "M33348260A3::07"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CT scan"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dexamethasone"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen-Caff-Butalbital"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M33348260A3::06",
+    "M33348260A3::07"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 7,
+ "observation_window_hours": 3.6,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": null,
+  "recall_okay": 0.333,
+  "recall_all": 0.333,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.333,
+  "recall_all_at3": 0.333
+ }
+}

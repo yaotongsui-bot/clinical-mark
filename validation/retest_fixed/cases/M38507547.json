@@ -1,0 +1,264 @@
+{
+ "case_id": "M38507547",
+ "decision_point": "2161-04-28 10:38:12",
+ "claims": [
+  "Monitor INR and PT levels closely.",
+  "Consider adjusting fluid management to address hypovolemia.",
+  "Evaluate the need for pain management adjustments."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M38507547A1::01",
+   "claim_id": "M38507547A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor INR closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A1::02",
+   "claim_id": "M38507547A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor PT levels closely.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38507547A2::03",
+   "claim_id": "M38507547A2",
+   "claim_text": "Consider adjusting fluid management to address hypovolemia.",
+   "kind": "action",
+   "text": "Consider adjusting fluid management to address hypovolemia.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "fluid management",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38507547A3::04",
+   "claim_id": "M38507547A3",
+   "claim_text": "Evaluate the need for pain management adjustments.",
+   "kind": "action",
+   "text": "Evaluate the need for pain management adjustments.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain management",
+   "conditional": false
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "M38507547A1::01",
+   "claim_id": "M38507547A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor INR closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No INR measurement in the 4.5 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A1::02",
+   "claim_id": "M38507547A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor PT levels closely.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No PT measurement in the 4.5 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38507547A2::03",
+   "claim_id": "M38507547A2",
+   "claim_text": "Consider adjusting fluid management to address hypovolemia.",
+   "kind": "action",
+   "text": "Consider adjusting fluid management to address hypovolemia.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "fluid management",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2161-04-27 12:00:00",
+     "item": "Dextrose 5% infusion continuing at 10 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "IV fluids continued after the decision without a recorded dose or setting change; the suggestion was conditional.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38507547A3::04",
+   "claim_id": "M38507547A3",
+   "claim_text": "Evaluate the need for pain management adjustments.",
+   "kind": "action",
+   "text": "Evaluate the need for pain management adjustments.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain management",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223791:2161-04-28 12:00:00:49753",
+     "time": "2161-04-28 12:00:00",
+     "item": "pain score",
+     "value": "Moderate"
+    }
+   ],
+   "reason": "Measured in the 4.5 h observation window after the decision (24 h or until ICU discharge): pain score x1.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.1 mmol/L at 2161-04-27 10:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38507547A2::03"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.1 mmol/L at 2161-04-27 10:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38507547A2::03"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 8,
+ "observation_window_hours": 4.5,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "recall_vital": 1.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.333,
+  "recall_vital_at3": 1.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.333
+ }
+}

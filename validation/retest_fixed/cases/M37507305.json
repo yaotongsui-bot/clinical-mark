@@ -1,0 +1,263 @@
+{
+ "case_id": "M37507305",
+ "decision_point": "2113-09-15 10:19:17",
+ "claims": [
+  "Monitor patient for signs of respiratory distress.",
+  "Continue non-invasive ventilation (NIV) with settings as ordered.",
+  "Assess patient for pain and manage accordingly."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37507305A1::01",
+   "claim_id": "M37507305A1",
+   "claim_text": "Monitor patient for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Monitor patient for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37507305A2::02",
+   "claim_id": "M37507305A2",
+   "claim_text": "Continue non-invasive ventilation (NIV) with settings as ordered.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation (NIV) with settings as ordered.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation (NIV)",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37507305A3::03",
+   "claim_id": "M37507305A3",
+   "claim_text": "Assess patient for pain and manage accordingly.",
+   "kind": "action",
+   "text": "Assess patient for pain and manage accordingly.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37507305A2::P01",
+   "claim_id": "M37507305A2",
+   "claim_text": "Continue non-invasive ventilation (NIV) with settings as ordered.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation (BiPAP/CPAP).",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37507305A2::P01",
+   "claim_id": "M37507305A2",
+   "claim_text": "Continue non-invasive ventilation (NIV) with settings as ordered.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation (BiPAP/CPAP).",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The records at 09:58 and 09:59 on the day of the decision confirm that the patient is receiving non-invasive ventilatory support.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:37507305:228905:2113-09-15 09:58:00",
+     "time": "2113-09-15 09:58:00",
+     "item": "Altered Respiratory Status NCP - Interventions: Non-invasive ventilatory support"
+    },
+    {
+     "rid": "chart:37507305:228905:2113-09-15 09:59:00",
+     "time": "2113-09-15 09:59:00",
+     "item": "Altered Respiratory Status NCP - Interventions: Non-invasive ventilatory support"
+    },
+    {
+     "rid": "procedureevents:4684369:225794:2113-09-14 10:40:00",
+     "time": "2113-09-14 10:40:00",
+     "item": "Procedure Non-invasive Ventilation (2113-09-14 10:40:00 to 2113-09-14 18:03:00)"
+    },
+    {
+     "rid": "chart:37507305:228905:2113-09-15 00:12:00",
+     "time": "2113-09-15 00:12:00",
+     "item": "Altered Respiratory Status NCP - Interventions: Non-invasive ventilatory support"
+    },
+    {
+     "rid": "lab:250747",
+     "time": "2113-09-14 13:33:00",
+     "item": "Intubated: NOT INTUBATED."
+    },
+    {
+     "rid": "chart:37507305:228905:2113-09-14 13:59:00",
+     "time": "2113-09-14 13:59:00",
+     "item": "Altered Respiratory Status NCP - Interventions: Non-invasive ventilatory support"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37507305A1::01",
+   "claim_id": "M37507305A1",
+   "claim_text": "Monitor patient for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Monitor patient for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37507305A2::02",
+   "claim_id": "M37507305A2",
+   "claim_text": "Continue non-invasive ventilation (NIV) with settings as ordered.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation (NIV) with settings as ordered.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation (NIV)",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-invasive ventilation action recorded in the 2.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37507305A3::03",
+   "claim_id": "M37507305A3",
+   "claim_text": "Assess patient for pain and manage accordingly.",
+   "kind": "action",
+   "text": "Assess patient for pain and manage accordingly.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No pain score measurement in the 2.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 4,
+ "observation_window_hours": 2.4,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

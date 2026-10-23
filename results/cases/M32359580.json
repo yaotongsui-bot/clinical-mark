@@ -1,0 +1,576 @@
+{
+ "case_id": "M32359580",
+ "decision_point": "2146-06-23 11:46:29",
+ "claims": [
+  "Monitor lactate levels closely.",
+  "Administer intravenous fluids to maintain fluid balance.",
+  "Continue vasopressor support to maintain blood pressure."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32359580A1::01",
+   "claim_id": "M32359580A1",
+   "claim_text": "Monitor lactate levels closely.",
+   "kind": "action",
+   "text": "Monitor lactate levels closely.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32359580A2::02",
+   "claim_id": "M32359580A2",
+   "claim_text": "Administer intravenous fluids to maintain fluid balance.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to maintain fluid balance.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32359580A3::03",
+   "claim_id": "M32359580A3",
+   "claim_text": "Continue vasopressor support to maintain blood pressure.",
+   "kind": "action",
+   "text": "Continue vasopressor support to maintain blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vasopressor support",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32359580A3::P01",
+   "claim_id": "M32359580A3",
+   "claim_text": "Continue vasopressor support to maintain blood pressure.",
+   "kind": "fact",
+   "text": "The patient is currently receiving vasopressor support.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32359580A3::P01",
+   "claim_id": "M32359580A3",
+   "claim_text": "Continue vasopressor support to maintain blood pressure.",
+   "kind": "fact",
+   "text": "The patient is currently receiving vasopressor support.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Records R34 and R46 indicate that the patient is receiving both Vasopressin and Norepinephrine, both of which are types of vasopressor support, at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:4715354:222315:2146-06-23 03:15:00",
+     "time": "2146-06-23 03:15:00",
+     "item": "Running at decision time (started 2146-06-23 03:15:00): Infusion/input Vasopressin at 2.4072215557098389 units/hour"
+    },
+    {
+     "rid": "inputevents:4709664:221906:2146-06-23 07:10:00",
+     "time": "2146-06-23 07:10:00",
+     "item": "Running at decision time (started 2146-06-23 07:10:00): Infusion/input Norepinephrine at 0.40003203321248293 mcg/kg/min"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32359580A1::01",
+   "claim_id": "M32359580A1",
+   "claim_text": "Monitor lactate levels closely.",
+   "kind": "action",
+   "text": "Monitor lactate levels closely.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225668:2146-06-24 03:09:00:422713",
+     "time": "2146-06-24 03:09:00",
+     "item": "lactate",
+     "value": "2.1 mmol/L"
+    },
+    {
+     "rid": "chart:225668:2146-06-23 21:21:00:426327",
+     "time": "2146-06-23 21:21:00",
+     "item": "lactate",
+     "value": "3 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): lactate x8.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32359580A2::02",
+   "claim_id": "M32359580A2",
+   "claim_text": "Administer intravenous fluids to maintain fluid balance.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to maintain fluid balance.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158#2",
+     "time": "2146-06-22 12:15:00",
+     "item": "NaCl 0.9% infusion continuing at 10.033444404602051 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN220949",
+     "time": "2146-06-23 03:15:00",
+     "item": "Dextrose 5% infusion continuing at 6.0180540084838867 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32359580A3::03",
+   "claim_id": "M32359580A3",
+   "claim_text": "Continue vasopressor support to maintain blood pressure.",
+   "kind": "action",
+   "text": "Continue vasopressor support to maintain blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vasopressor support",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN222315",
+     "time": "2146-06-23 03:15:00",
+     "item": "Vasopressin infusion continuing at 2.4072215557098389 units/hour",
+     "class": "vasopressor"
+    },
+    {
+     "rid": "IN221906",
+     "time": "2146-06-23 07:10:00",
+     "item": "Norepinephrine infusion continuing at 0.40003203321248293 mcg/kg/min",
+     "class": "vasopressor"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded vasopressors after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 11.2 K/uL at 2146-06-23 09:20:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "renal_replacement",
+   "name": "renal replacement therapy",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Calcium Gluconate (CRRT)",
+    "Dialysis - CRRT",
+    "Heparin (CRRT Machine Priming)",
+    "KCl (CRRT)",
+    "Sodium CITRATE 4%"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest INR 2.7  (treatment threshold > 1.5).",
+   "doctor_targets": [
+    "Cryoprecipitate",
+    "Fresh Frozen Plasma",
+    "Platelets"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest hemoglobin 6.3 g/dL (treatment threshold < 7).",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 9 mmol/L at 2146-06-23 09:22:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 32,
+   "covered": true,
+   "by_atoms": [
+    "M32359580A2::02"
+   ]
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine",
+    "Phenylephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 22,
+   "covered": true,
+   "by_atoms": [
+    "M32359580A3::03"
+   ]
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 11.2 K/uL at 2146-06-23 09:20:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "renal_replacement",
+   "name": "renal replacement therapy",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Calcium Gluconate (CRRT)",
+    "Dialysis - CRRT",
+    "Heparin (CRRT Machine Priming)",
+    "KCl (CRRT)",
+    "Sodium CITRATE 4%"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest INR 2.7  (treatment threshold > 1.5).",
+   "doctor_targets": [
+    "Cryoprecipitate",
+    "Fresh Frozen Plasma",
+    "Platelets"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest hemoglobin 6.3 g/dL (treatment threshold < 7).",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 9 mmol/L at 2146-06-23 09:22:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 32,
+   "covered": true,
+   "by_atoms": [
+    "M32359580A2::02"
+   ]
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine",
+    "Phenylephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 22,
+   "covered": true,
+   "by_atoms": [
+    "M32359580A3::03"
+   ]
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 116,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.286,
+  "recall_okay": 0.0,
+  "recall_all": 0.167,
+  "recall_vital_at3": 0.286,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.167
+ }
+}

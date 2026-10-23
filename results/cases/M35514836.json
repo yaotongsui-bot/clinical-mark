@@ -1,0 +1,630 @@
+{
+ "case_id": "M35514836",
+ "decision_point": "2154-01-03 15:57:15",
+ "claims": [
+  "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+  "Continue mechanical ventilation support.",
+  "Assess for signs of infection and consider appropriate antibiotic therapy."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35514836A1::01",
+   "claim_id": "M35514836A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35514836A1::02",
+   "claim_id": "M35514836A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35514836A2::03",
+   "claim_id": "M35514836A2",
+   "claim_text": "Continue mechanical ventilation support.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation support.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35514836A3::04",
+   "claim_id": "M35514836A3",
+   "claim_text": "Assess for signs of infection and consider appropriate antibiotic therapy.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35514836A3::05",
+   "claim_id": "M35514836A3",
+   "claim_text": "Assess for signs of infection and consider appropriate antibiotic therapy.",
+   "kind": "action",
+   "text": "Consider appropriate antibiotic therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "start",
+   "target": "appropriate antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35514836A2::P01",
+   "claim_id": "M35514836A2",
+   "claim_text": "Continue mechanical ventilation support.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35514836A2::P01",
+   "claim_id": "M35514836A2",
+   "claim_text": "Continue mechanical ventilation support.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:45316",
+     "time": "2154-01-03 02:26:00",
+     "item": "Intubated: NOT INTUBATED."
+    }
+   ],
+   "reason": "The latest record before the decision (2154-01-03 02:26:00) reads 'Intubated: NOT INTUBATED.'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35514836A1::01",
+   "claim_id": "M35514836A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2154-01-04 01:42:00:552392",
+     "time": "2154-01-04 01:42:00",
+     "item": "sodium",
+     "value": "135 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2154-01-04 01:42:00:82325",
+     "time": "2154-01-04 01:42:00",
+     "item": "sodium",
+     "value": "135 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2154-01-04 01:42:00:552397",
+     "time": "2154-01-04 01:42:00",
+     "item": "potassium",
+     "value": "4.5 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2154-01-04 01:42:00:82322",
+     "time": "2154-01-04 01:42:00",
+     "item": "potassium",
+     "value": "4.5 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2154-01-04 01:42:00:552391",
+     "time": "2154-01-04 01:42:00",
+     "item": "chloride",
+     "value": "103 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2154-01-04 01:42:00:82323",
+     "time": "2154-01-04 01:42:00",
+     "item": "chloride",
+     "value": "103 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2154-01-04 01:42:00:552398",
+     "time": "2154-01-04 01:42:00",
+     "item": "bicarbonate",
+     "value": "27 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2154-01-04 01:42:00:82326",
+     "time": "2154-01-04 01:42:00",
+     "item": "bicarbonate",
+     "value": "27 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2154-01-04 01:42:00:552395",
+     "time": "2154-01-04 01:42:00",
+     "item": "magnesium",
+     "value": "2 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2154-01-04 01:42:00:82321",
+     "time": "2154-01-04 01:42:00",
+     "item": "magnesium",
+     "value": "2.0 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2154-01-04 01:42:00:552387",
+     "time": "2154-01-04 01:42:00",
+     "item": "calcium",
+     "value": "8 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2154-01-04 01:42:00:82328",
+     "time": "2154-01-04 01:42:00",
+     "item": "calcium",
+     "value": "8.0 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2154-01-04 01:42:00:552394",
+     "time": "2154-01-04 01:42:00",
+     "item": "phosphate",
+     "value": "1.5 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2154-01-04 01:42:00:82329",
+     "time": "2154-01-04 01:42:00",
+     "item": "phosphate",
+     "value": "1.5 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 23.4 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, magnesium x2, calcium x2, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35514836A1::02",
+   "claim_id": "M35514836A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220635:2154-01-04 01:42:00:552395",
+     "time": "2154-01-04 01:42:00",
+     "item": "magnesium",
+     "value": "2 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2154-01-04 01:42:00:82321",
+     "time": "2154-01-04 01:42:00",
+     "item": "magnesium",
+     "value": "2.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 23.4 h observation window after the decision (24 h or until ICU discharge): magnesium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35514836A2::03",
+   "claim_id": "M35514836A2",
+   "claim_text": "Continue mechanical ventilation support.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation support.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (5 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "chart:223835:2154-01-03 20:00:00:550933",
+     "time": "2154-01-03 20:00:00",
+     "item": "ventilator setting",
+     "value": "100",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "chart:223835:2154-01-03 22:16:00:551532",
+     "time": "2154-01-03 22:16:00",
+     "item": "ventilator setting",
+     "value": "40",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "chart:223835:2154-01-04 05:19:00:551641",
+     "time": "2154-01-04 05:19:00",
+     "item": "ventilator setting",
+     "value": "40",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35514836A3::04",
+   "claim_id": "M35514836A3",
+   "claim_text": "Assess for signs of infection and consider appropriate antibiotic therapy.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35514836A3::05",
+   "claim_id": "M35514836A3",
+   "claim_text": "Assess for signs of infection and consider appropriate antibiotic therapy.",
+   "kind": "action",
+   "text": "Consider appropriate antibiotic therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "start",
+   "target": "appropriate antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 23.4 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 102.5 bpm (4 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "doctor_targets": [
+    "Metoprolol",
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LR",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen (Liquid)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Replete with Fiber (Full)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Na Phos",
+    "Sodium Phosphate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 102.5 bpm (4 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "doctor_targets": [
+    "Metoprolol",
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LR",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen (Liquid)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Replete with Fiber (Full)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Na Phos",
+    "Sodium Phosphate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 39,
+ "observation_window_hours": 23.4,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The latest record before the decision (2154-01-03 02:26:00) reads 'Intubated: NOT INTUBATED.'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

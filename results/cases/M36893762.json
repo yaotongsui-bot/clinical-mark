@@ -1,0 +1,463 @@
+{
+ "case_id": "M36893762",
+ "decision_point": "2134-09-08 18:03:58",
+ "claims": [
+  "Monitor blood pressure closely due to recent high readings.",
+  "Assess for potential causes of elevated anion gap and consider electrolyte imbalances.",
+  "Continue pain management with current regimen, reassess if pain persists."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M36893762A1::01",
+   "claim_id": "M36893762A1",
+   "claim_text": "Monitor blood pressure closely due to recent high readings.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36893762A1::02",
+   "claim_id": "M36893762A1",
+   "claim_text": "Monitor blood pressure closely due to recent high readings.",
+   "kind": "fact",
+   "text": "Recent high blood pressure readings are present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M36893762A2::03",
+   "claim_id": "M36893762A2",
+   "claim_text": "Assess for potential causes of elevated anion gap and consider electrolyte imbalances.",
+   "kind": "action",
+   "text": "Assess for potential causes of elevated anion gap.",
+   "concept": "anion_gap",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of elevated anion gap",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36893762A2::04",
+   "claim_id": "M36893762A2",
+   "claim_text": "Assess for potential causes of elevated anion gap and consider electrolyte imbalances.",
+   "kind": "action",
+   "text": "Consider electrolyte imbalances.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "assess",
+   "target": "electrolyte imbalances",
+   "conditional": true
+  },
+  {
+   "atom_id": "M36893762A3::05",
+   "claim_id": "M36893762A3",
+   "claim_text": "Continue pain management with current regimen, reassess if pain persists.",
+   "kind": "action",
+   "text": "Continue pain management with current regimen.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pain management",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M36893762A3::06",
+   "claim_id": "M36893762A3",
+   "claim_text": "Continue pain management with current regimen, reassess if pain persists.",
+   "kind": "action",
+   "text": "Reassess if pain persists.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": true
+  },
+  {
+   "atom_id": "M36893762A2::R01",
+   "claim_id": "M36893762A2",
+   "claim_text": "Assess for potential causes of elevated anion gap and consider electrolyte imbalances.",
+   "kind": "fact",
+   "text": "Electrolyte imbalances is present.",
+   "concept": "electrolytes",
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  },
+  {
+   "atom_id": "M36893762A3::P01",
+   "claim_id": "M36893762A3",
+   "claim_text": "Continue pain management with current regimen, reassess if pain persists.",
+   "kind": "fact",
+   "text": "The patient is currently receiving pain management.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M36893762A1::02",
+   "claim_id": "M36893762A1",
+   "claim_text": "Monitor blood pressure closely due to recent high readings.",
+   "kind": "fact",
+   "text": "Recent high blood pressure readings are present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "chart:36893762:220179:2134-09-08 17:01:00",
+     "time": "2134-09-08 17:01:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 156.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "'blood pressure high' holds when any component is high. systolic BP: yes; mean arterial pressure: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M36893762A2::R01",
+   "claim_id": "M36893762A2",
+   "claim_text": "Assess for potential causes of elevated anion gap and consider electrolyte imbalances.",
+   "kind": "fact",
+   "text": "Electrolyte imbalances is present.",
+   "concept": "electrolytes",
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:471655",
+     "time": "2134-09-08 02:16:00",
+     "item": "Sodium",
+     "value": 148.0,
+     "unit": "mEq/L",
+     "bounds": "133.0 to 145.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:471648",
+     "time": "2134-09-08 02:16:00",
+     "item": "Chloride",
+     "value": 111.0,
+     "unit": "mEq/L",
+     "bounds": "96.0 to 108.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:471653",
+     "time": "2134-09-08 02:16:00",
+     "item": "Phosphate",
+     "value": 2.3,
+     "unit": "mg/dL",
+     "bounds": "2.7 to 4.5",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "'electrolytes abnormal' holds when any component is abnormal. sodium: yes; potassium: no; chloride: yes; bicarbonate: no; magnesium: no; calcium: no; phosphate: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M36893762A3::P01",
+   "claim_id": "M36893762A3",
+   "claim_text": "Continue pain management with current regimen, reassess if pain persists.",
+   "kind": "fact",
+   "text": "The patient is currently receiving pain management.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The records R38, R39, and R40 confirm that the patient is receiving various forms of pain management, including repositioning, emotional support, and oral medication (PO medication) within the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:36893762:223792:2134-09-08 08:00:00",
+     "time": "2134-09-08 08:00:00",
+     "item": "Pain Management: Repositioned"
+    },
+    {
+     "rid": "chart:36893762:223792:2134-09-08 08:00:00",
+     "time": "2134-09-08 08:00:00",
+     "item": "Pain Management: Emotional Support"
+    },
+    {
+     "rid": "chart:36893762:223792:2134-09-08 08:00:00",
+     "time": "2134-09-08 08:00:00",
+     "item": "Pain Management: PO Medication"
+    },
+    {
+     "rid": "rx:81438049:2134-09-07 19:00:00",
+     "time": "2134-09-07 19:00:00",
+     "item": "Order: Acetaminophen 325-650 mg PO/NG (active at decision time)"
+    },
+    {
+     "rid": "rx:54807549:2134-09-07 19:00:00",
+     "time": "2134-09-07 19:00:00",
+     "item": "Order: Morphine Sulfate 1-5 mg IV (active at decision time)"
+    },
+    {
+     "rid": "chart:36893762:223792:2134-09-08 00:00:00",
+     "time": "2134-09-08 00:00:00",
+     "item": "Pain Management: PO Medication"
+    },
+    {
+     "rid": "chart:36893762:223792:2134-09-07 18:20:00",
+     "time": "2134-09-07 18:20:00",
+     "item": "Pain Management: IV Push"
+    },
+    {
+     "rid": "chart:36893762:223792:2134-09-07 18:30:00",
+     "time": "2134-09-07 18:30:00",
+     "item": "Pain Management: IV Push"
+    },
+    {
+     "rid": "chart:36893762:223792:2134-09-07 20:04:00",
+     "time": "2134-09-07 20:04:00",
+     "item": "Pain Management: IV Push"
+    },
+    {
+     "rid": "chart:36893762:223792:2134-09-07 22:46:00",
+     "time": "2134-09-07 22:46:00",
+     "item": "Pain Management: PO Medication"
+    },
+    {
+     "rid": "chart:36893762:223794:2134-09-08 00:00:00",
+     "time": "2134-09-08 00:00:00",
+     "item": "Pain Level Acceptable: Tolerable"
+    },
+    {
+     "rid": "chart:36893762:228890:2134-09-08 02:52:00",
+     "time": "2134-09-08 02:52:00",
+     "item": "Pain NCP - Interventions: Pharmacological pain management as ordered"
+    },
+    {
+     "rid": "chart:36893762:228890:2134-09-08 02:52:00",
+     "time": "2134-09-08 02:52:00",
+     "item": "Pain NCP - Interventions: Manage environment for patient's maximum comfort"
+    },
+    {
+     "rid": "chart:36893762:228888:2134-09-08 02:52:00",
+     "time": "2134-09-08 02:52:00",
+     "item": "Pain NCP - Expected outcomes: Adequate management of pain with minimal side effects and adequate ventilation"
+    },
+    {
+     "rid": "chart:36893762:223794:2134-09-08 08:00:00",
+     "time": "2134-09-08 08:00:00",
+     "item": "Pain Level Acceptable: Tolerable"
+    },
+    {
+     "rid": "chart:36893762:228890:2134-09-08 08:24:00",
+     "time": "2134-09-08 08:24:00",
+     "item": "Pain NCP - Interventions: Anticipate pain and use preemptive pain management techniques"
+    },
+    {
+     "rid": "chart:36893762:228890:2134-09-08 08:24:00",
+     "time": "2134-09-08 08:24:00",
+     "item": "Pain NCP - Interventions: Pharmacological pain management as ordered"
+    },
+    {
+     "rid": "chart:36893762:228890:2134-09-08 08:24:00",
+     "time": "2134-09-08 08:24:00",
+     "item": "Pain NCP - Interventions: Manage environment for patient's maximum comfort"
+    },
+    {
+     "rid": "chart:36893762:228890:2134-09-08 08:24:00",
+     "time": "2134-09-08 08:24:00",
+     "item": "Pain NCP - Interventions: Utilize appropriate pain scale"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M36893762A1::01",
+   "claim_id": "M36893762A1",
+   "claim_text": "Monitor blood pressure closely due to recent high readings.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220179:2134-09-08 19:01:00:165348",
+     "time": "2134-09-08 19:01:00",
+     "item": "systolic BP",
+     "value": "151 mmHg"
+    },
+    {
+     "rid": "chart:220179:2134-09-08 20:01:00:165353",
+     "time": "2134-09-08 20:01:00",
+     "item": "systolic BP",
+     "value": "153 mmHg"
+    },
+    {
+     "rid": "chart:220181:2134-09-08 19:01:00:165350",
+     "time": "2134-09-08 19:01:00",
+     "item": "mean arterial pressure",
+     "value": "92 mmHg"
+    },
+    {
+     "rid": "chart:220181:2134-09-08 20:01:00:165352",
+     "time": "2134-09-08 20:01:00",
+     "item": "mean arterial pressure",
+     "value": "108 mmHg"
+    }
+   ],
+   "reason": "Measured in the 4.1 h observation window after the decision (24 h or until ICU discharge): systolic BP x4, mean arterial pressure x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36893762A2::03",
+   "claim_id": "M36893762A2",
+   "claim_text": "Assess for potential causes of elevated anion gap and consider electrolyte imbalances.",
+   "kind": "action",
+   "text": "Assess for potential causes of elevated anion gap.",
+   "concept": "anion_gap",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of elevated anion gap",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36893762A2::04",
+   "claim_id": "M36893762A2",
+   "claim_text": "Assess for potential causes of elevated anion gap and consider electrolyte imbalances.",
+   "kind": "action",
+   "text": "Consider electrolyte imbalances.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "assess",
+   "target": "electrolyte imbalances",
+   "conditional": true,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 4.1 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36893762A3::05",
+   "claim_id": "M36893762A3",
+   "claim_text": "Continue pain management with current regimen, reassess if pain persists.",
+   "kind": "action",
+   "text": "Continue pain management with current regimen.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pain management",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 4.1 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M36893762A3::06",
+   "claim_id": "M36893762A3",
+   "claim_text": "Continue pain management with current regimen, reassess if pain persists.",
+   "kind": "action",
+   "text": "Reassess if pain persists.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": true,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No pain score measurement in the 4.1 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "doctor_actions_in_window": 2,
+ "observation_window_hours": 4.1,
+ "scoresheet": {
+  "n": 3,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

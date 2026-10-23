@@ -1,0 +1,694 @@
+{
+ "case_id": "M39268883",
+ "decision_point": "2180-02-22 08:34:06",
+ "claims": [
+  "Continue Dextrose 5%.",
+  "Continue Nitroglycerin.",
+  "Administer Metoprolol Tartrate.",
+  "Administer HYDROmorphone (Dilaudid).",
+  "Perform Chest X-Ray.",
+  "Administer Insulin.",
+  "Administer Acetaminophen-IV."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39268883A1::01",
+   "claim_id": "M39268883A1",
+   "claim_text": "Continue Dextrose 5%.",
+   "kind": "action",
+   "text": "Continue Dextrose 5%.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Dextrose 5%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A2::02",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue Nitroglycerin.",
+   "kind": "action",
+   "text": "Continue Nitroglycerin.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Nitroglycerin",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A3::03",
+   "claim_id": "M39268883A3",
+   "claim_text": "Administer Metoprolol Tartrate.",
+   "kind": "action",
+   "text": "Administer Metoprolol Tartrate.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Metoprolol Tartrate",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A4::04",
+   "claim_id": "M39268883A4",
+   "claim_text": "Administer HYDROmorphone (Dilaudid).",
+   "kind": "action",
+   "text": "Administer HYDROmorphone (Dilaudid).",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "HYDROmorphone (Dilaudid)",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A5::05",
+   "claim_id": "M39268883A5",
+   "claim_text": "Perform Chest X-Ray.",
+   "kind": "action",
+   "text": "Perform Chest X-Ray.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "Chest X-Ray",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A6::06",
+   "claim_id": "M39268883A6",
+   "claim_text": "Administer Insulin.",
+   "kind": "action",
+   "text": "Administer Insulin.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A7::07",
+   "claim_id": "M39268883A7",
+   "claim_text": "Administer Acetaminophen-IV.",
+   "kind": "action",
+   "text": "Administer Acetaminophen-IV.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Acetaminophen-IV",
+   "conditional": false,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A1::P01",
+   "claim_id": "M39268883A1",
+   "claim_text": "Continue Dextrose 5%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving Dextrose 5%.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M39268883A2::P02",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue Nitroglycerin.",
+   "kind": "fact",
+   "text": "The patient is currently receiving Nitroglycerin.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39268883A1::P01",
+   "claim_id": "M39268883A1",
+   "claim_text": "Continue Dextrose 5%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving Dextrose 5%.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R50 explicitly states that Dextrose 5% is running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:7077055:220949:2180-02-22 08:28:00",
+     "time": "2180-02-22 08:28:00",
+     "item": "Running at decision time (started 2180-02-22 08:28:00): Infusion/input Dextrose 5% at 14.563202857971191 mL/hour"
+    },
+    {
+     "rid": "inputevents:1896490:220949:2180-02-21 10:58:00",
+     "time": "2180-02-21 10:58:00",
+     "item": "Running at decision time (started 2180-02-21 10:58:00): Infusion/input Dextrose 5% at 10 mL/hour"
+    },
+    {
+     "rid": "inputevents:8111195:220949:2180-02-22 08:00:00",
+     "time": "2180-02-22 08:00:00",
+     "item": "Infusion/input Dextrose 5% at 7.27802038192749 mL/hour (2180-02-22 08:00:00 to 2180-02-22 08:28:00)"
+    },
+    {
+     "rid": "inputevents:441387:220949:2180-02-22 08:23:00",
+     "time": "2180-02-22 08:23:00",
+     "item": "Infusion/input Dextrose 5% 200 ml (2180-02-22 08:23:00 to 2180-02-22 08:24:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M39268883A2::P02",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue Nitroglycerin.",
+   "kind": "fact",
+   "text": "The patient is currently receiving Nitroglycerin.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The records explicitly state that a Nitroglycerin infusion was running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:7077055:222056:2180-02-22 08:28:00",
+     "time": "2180-02-22 08:28:00",
+     "item": "Running at decision time (started 2180-02-22 08:28:00): Infusion/input Nitroglycerin at 1.0009075049310923 mcg/kg/min"
+    },
+    {
+     "rid": "rx:25314985:2180-02-21 15:00:00",
+     "time": "2180-02-21 15:00:00",
+     "item": "Order: Nitroglycerin 100 mg IV DRIP (active at decision time)"
+    },
+    {
+     "rid": "emar:10019385-197",
+     "time": "2180-02-22 08:10:00",
+     "item": "MAR Restarted: Nitroglycerin"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39268883A1::01",
+   "claim_id": "M39268883A1",
+   "claim_text": "Continue Dextrose 5%.",
+   "kind": "action",
+   "text": "Continue Dextrose 5%.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Dextrose 5%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949#2",
+     "time": "2180-02-21 10:58:00",
+     "item": "Dextrose 5% infusion continuing at 10 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN220949",
+     "time": "2180-02-22 08:28:00",
+     "item": "Dextrose 5% infusion continuing at 14.563202857971191 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A2::02",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue Nitroglycerin.",
+   "kind": "action",
+   "text": "Continue Nitroglycerin.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Nitroglycerin",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN222056",
+     "time": "2180-02-22 08:28:00",
+     "item": "Nitroglycerin infusion continuing at 1.0009075049310923 mcg/kg/min",
+     "class": "antihypertensive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded antihypertensives after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A3::03",
+   "claim_id": "M39268883A3",
+   "claim_text": "Administer Metoprolol Tartrate.",
+   "kind": "action",
+   "text": "Administer Metoprolol Tartrate.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Metoprolol Tartrate",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX23842112",
+     "time": "2180-02-22 09:00:00",
+     "item": "Ordered: Metoprolol Tartrate 12.5 mg PO/NG",
+     "class": "rate_rhythm"
+    },
+    {
+     "rid": "RX94418085",
+     "time": "2180-02-22 14:00:00",
+     "item": "Ordered: Metoprolol Tartrate 25 mg PO/NG",
+     "class": "rate_rhythm"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded rate / rhythm control after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A4::04",
+   "claim_id": "M39268883A4",
+   "claim_text": "Administer HYDROmorphone (Dilaudid).",
+   "kind": "action",
+   "text": "Administer HYDROmorphone (Dilaudid).",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "HYDROmorphone (Dilaudid)",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX66813957",
+     "time": "2180-02-22 09:00:00",
+     "item": "Ordered: HYDROmorphone (Dilaudid) 2-4 mg PO/NG",
+     "class": "opioid_analgesia"
+    },
+    {
+     "rid": "E10019385-201",
+     "time": "2180-02-22 11:10:00",
+     "item": "Given: HYDROmorphone (Dilaudid)",
+     "class": "opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A5::05",
+   "claim_id": "M39268883A5",
+   "claim_text": "Perform Chest X-Ray.",
+   "kind": "action",
+   "text": "Perform Chest X-Ray.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "Chest X-Ray",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225459",
+     "time": "2180-02-22 10:30:00",
+     "item": "Chest X-Ray performed",
+     "class": "imaging"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded imaging / ECG after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A6::06",
+   "claim_id": "M39268883A6",
+   "claim_text": "Administer Insulin.",
+   "kind": "action",
+   "text": "Administer Insulin.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX26851078",
+     "time": "2180-02-22 11:00:00",
+     "item": "Ordered: Insulin 0 UNIT SC",
+     "class": "insulin"
+    },
+    {
+     "rid": "E10019385-203",
+     "time": "2180-02-22 11:55:00",
+     "item": "Given: Insulin",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A7::07",
+   "claim_id": "M39268883A7",
+   "claim_text": "Administer Acetaminophen-IV.",
+   "kind": "action",
+   "text": "Administer Acetaminophen-IV.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Acetaminophen-IV",
+   "conditional": false,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN228315",
+     "time": "2180-02-22 11:10:00",
+     "item": "Acetaminophen-IV infusion started at",
+     "class": "non_opioid_analgesia"
+    },
+    {
+     "rid": "E10019385-199",
+     "time": "2180-02-22 11:15:00",
+     "item": "Given: Acetaminophen IV",
+     "class": "non_opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded non-opioid analgesia after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.7 mmol/L at 2180-02-21 10:15:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A1::01"
+   ]
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Nitroglycerin"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A2::02"
+   ]
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A5::05"
+   ]
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A6::06"
+   ]
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A7::07"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 8,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A4::04"
+   ]
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A3::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.7 mmol/L at 2180-02-21 10:15:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A1::01"
+   ]
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Nitroglycerin"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A2::02"
+   ]
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A3::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 25,
+ "observation_window_hours": 7.5,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 1.0,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": 1.0,
+  "recall_okay_at3": 0.333,
+  "recall_all_at3": 0.429
+ }
+}

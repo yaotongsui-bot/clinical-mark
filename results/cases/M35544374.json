@@ -1,0 +1,290 @@
+{
+ "case_id": "M35544374",
+ "decision_point": "2113-08-05 18:47:42",
+ "claims": [
+  "Monitor respiratory rate and oxygen saturation closely.",
+  "Continue intravenous magnesium sulfate for potential arrhythmia prophylaxis.",
+  "Assess for signs of infection given elevated white blood cell count."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35544374A1::01",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor respiratory rate and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor respiratory rate closely.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A1::02",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor respiratory rate and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation closely.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A2::03",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue intravenous magnesium sulfate for potential arrhythmia prophylaxis.",
+   "kind": "action",
+   "text": "Continue intravenous magnesium sulfate.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous magnesium sulfate",
+   "conditional": false,
+   "treatment_class": "magnesium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35544374A3::04",
+   "claim_id": "M35544374A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A3::05",
+   "claim_id": "M35544374A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M35544374A2::P01",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue intravenous magnesium sulfate for potential arrhythmia prophylaxis.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous magnesium sulfate.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35544374A3::05",
+   "claim_id": "M35544374A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:364245",
+     "time": "2113-08-05 05:00:00",
+     "item": "White Blood Cells",
+     "value": 9.5,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest WBC 9.5 K/uL at 2113-08-05 05:00:00 (reference 4.0 to 10.0) is normal, not consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M35544374A2::P01",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue intravenous magnesium sulfate for potential arrhythmia prophylaxis.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous magnesium sulfate.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_addressed",
+   "reason": "No cited record shows this treatment was withheld or stopped; absence of a record is not_addressed. (Panel verdict: not_supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "not_addressed",
+     "llama3.1:8b-instruct-q4_K_M": "not_supported",
+     "qwen2.5:14b": "not_supported"
+    },
+    "panel_label": "not_supported"
+   },
+   "evidence": [
+    {
+     "rid": "lab:364230",
+     "time": "2113-08-05 05:00:00",
+     "item": "Magnesium: 2.1 mg/dL"
+    },
+    {
+     "rid": "chart:35544374:220635:2113-08-05 05:00:00",
+     "time": "2113-08-05 05:00:00",
+     "item": "Magnesium: 2.1 mg/dL"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35544374A1::01",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor respiratory rate and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor respiratory rate closely.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2113-08-05 19:00:00:97993",
+     "time": "2113-08-05 19:00:00",
+     "item": "respiratory rate",
+     "value": "22 insp/min"
+    },
+    {
+     "rid": "chart:220210:2113-08-05 20:00:00:98006",
+     "time": "2113-08-05 20:00:00",
+     "item": "respiratory rate",
+     "value": "23 insp/min"
+    }
+   ],
+   "reason": "Measured in the 5.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A1::02",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor respiratory rate and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation closely.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220277:2113-08-05 23:00:00:98025",
+     "time": "2113-08-05 23:00:00",
+     "item": "SpO2",
+     "value": "94 %"
+    },
+    {
+     "rid": "chart:220277:2113-08-05 21:09:00:98160",
+     "time": "2113-08-05 21:09:00",
+     "item": "SpO2",
+     "value": "92 %"
+    }
+   ],
+   "reason": "Measured in the 5.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A2::03",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue intravenous magnesium sulfate for potential arrhythmia prophylaxis.",
+   "kind": "action",
+   "text": "Continue intravenous magnesium sulfate.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous magnesium sulfate",
+   "conditional": false,
+   "treatment_class": "magnesium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No magnesium replacement action recorded in the 5.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35544374A3::04",
+   "claim_id": "M35544374A3",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "doctor_actions_in_window": 4,
+ "observation_window_hours": 5.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Elevated white blood cell count is present. -- Latest WBC 9.5 K/uL at 2113-08-05 05:00:00 (reference 4.0 to 10.0) is normal, not consistent with 'high'."
+   ],
+   "not_addressed": [
+    "The patient is currently receiving intravenous magnesium sulfate. -- No cited record shows this treatment was withheld or stopped; absence of a record is not_addressed. (Panel verdict: not_supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

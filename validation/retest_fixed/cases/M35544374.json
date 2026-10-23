@@ -1,0 +1,360 @@
+{
+ "case_id": "M35544374",
+ "decision_point": "2113-08-05 18:47:42",
+ "claims": [
+  "Monitor INR and PT levels closely.",
+  "Continue IV fluids and electrolyte replacement.",
+  "Assess for potential causes of elevated liver enzymes."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35544374A1::01",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor INR closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A1::02",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor PT levels closely.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A2::03",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue IV fluids and electrolyte replacement.",
+   "kind": "action",
+   "text": "Continue IV fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35544374A2::04",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue IV fluids and electrolyte replacement.",
+   "kind": "action",
+   "text": "Continue electrolyte replacement.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "continue",
+   "target": "electrolyte replacement",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M35544374A3::05",
+   "claim_id": "M35544374A3",
+   "claim_text": "Assess for potential causes of elevated liver enzymes.",
+   "kind": "action",
+   "text": "Assess for potential causes of elevated liver enzymes.",
+   "concept": "liver_function",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of elevated liver enzymes",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A2::P01",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue IV fluids and electrolyte replacement.",
+   "kind": "fact",
+   "text": "The patient is currently receiving IV fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M35544374A2::P02",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue IV fluids and electrolyte replacement.",
+   "kind": "fact",
+   "text": "The patient is currently receiving electrolyte replacement.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35544374A2::P01",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue IV fluids and electrolyte replacement.",
+   "kind": "fact",
+   "text": "The patient is currently receiving IV fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "R50 is an administration record of Sodium Chloride 0.9% (an IV fluid) within 24 hours of the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "emar:10031404-21",
+     "time": "2113-08-05 16:30:00",
+     "item": "MAR Flushed: Sodium Chloride 0.9%  Flush"
+    },
+    {
+     "rid": "rx:9495387:2113-08-04 22:00:00",
+     "time": "2113-08-04 22:00:00",
+     "item": "Order: Sodium Chloride 0.9%  Flush 3 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:59708853:2113-08-04 23:00:00",
+     "time": "2113-08-04 23:00:00",
+     "item": "Order: 0.9% Sodium Chloride 1 BAG IV (active at decision time)"
+    },
+    {
+     "rid": "rx:79973595:2113-08-04 23:00:00",
+     "time": "2113-08-04 23:00:00",
+     "item": "Order: 0.9% Sodium Chloride 1 BAG IV (active at decision time)"
+    },
+    {
+     "rid": "rx:16990609:2113-08-04 23:00:00",
+     "time": "2113-08-04 23:00:00",
+     "item": "Order: 0.9% Sodium Chloride 2 BAG IV (active at decision time)"
+    },
+    {
+     "rid": "rx:38402732:2113-08-04 23:00:00",
+     "time": "2113-08-04 23:00:00",
+     "item": "Order: Heparin Flush (10 units/ml) 2-4 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:16990609:2113-08-04 23:00:00",
+     "time": "2113-08-04 23:00:00",
+     "item": "Order: Calcium Gluconate 4 g IV (active at decision time)"
+    },
+    {
+     "rid": "rx:59708853:2113-08-04 23:00:00",
+     "time": "2113-08-04 23:00:00",
+     "item": "Order: Calcium Gluconate 2 g IV (active at decision time)"
+    },
+    {
+     "rid": "rx:79973595:2113-08-04 23:00:00",
+     "time": "2113-08-04 23:00:00",
+     "item": "Order: Calcium Gluconate 2 g IV (active at decision time)"
+    },
+    {
+     "rid": "rx:58376198:2113-08-04 23:00:00",
+     "time": "2113-08-04 23:00:00",
+     "item": "Order: Magnesium Sulfate 4 gm IV (active at decision time)"
+    },
+    {
+     "rid": "rx:58452998:2113-08-04 23:00:00",
+     "time": "2113-08-04 23:00:00",
+     "item": "Order: Magnesium Sulfate 2 gm IV (active at decision time)"
+    },
+    {
+     "rid": "rx:39548476:2113-08-04 23:00:00",
+     "time": "2113-08-04 23:00:00",
+     "item": "Order: Magnesium Sulfate 2 gm IV (active at decision time)"
+    },
+    {
+     "rid": "rx:58452998:2113-08-04 23:00:00",
+     "time": "2113-08-04 23:00:00",
+     "item": "Order: Bag 1 BAG IV (active at decision time)"
+    },
+    {
+     "rid": "rx:39548476:2113-08-04 23:00:00",
+     "time": "2113-08-04 23:00:00",
+     "item": "Order: Bag 1 BAG IV (active at decision time)"
+    },
+    {
+     "rid": "rx:58376198:2113-08-04 23:00:00",
+     "time": "2113-08-04 23:00:00",
+     "item": "Order: Bag 2 BAG IV (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M35544374A2::P02",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue IV fluids and electrolyte replacement.",
+   "kind": "fact",
+   "text": "The patient is currently receiving electrolyte replacement.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_addressed",
+   "reason": "The judges disagreed; the conservative label was used and the item needs human review.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "split",
+    "votes": {
+     "gemma4:12b": null,
+     "llama3.1:8b-instruct-q4_K_M": "not_supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": []
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35544374A1::01",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor INR closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No INR measurement in the 5.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A1::02",
+   "claim_id": "M35544374A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor PT levels closely.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No PT measurement in the 5.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A2::03",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue IV fluids and electrolyte replacement.",
+   "kind": "action",
+   "text": "Continue IV fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 5.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35544374A2::04",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue IV fluids and electrolyte replacement.",
+   "kind": "action",
+   "text": "Continue electrolyte replacement.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "continue",
+   "target": "electrolyte replacement",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No potassium replacement / magnesium replacement / calcium replacement / phosphate replacement action recorded in the 5.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35544374A3::05",
+   "claim_id": "M35544374A3",
+   "claim_text": "Assess for potential causes of elevated liver enzymes.",
+   "kind": "action",
+   "text": "Assess for potential causes of elevated liver enzymes.",
+   "concept": "liver_function",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of elevated liver enzymes",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "doctor_actions_in_window": 4,
+ "observation_window_hours": 5.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "The patient is currently receiving electrolyte replacement. -- The judges disagreed; the conservative label was used and the item needs human review."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,412 @@
+{
+ "case_id": "M39544395",
+ "decision_point": "2176-11-20 14:24:52",
+ "claims": [
+  "Monitor electrolyte levels, particularly potassium and sodium.",
+  "Administer intravenous potassium chloride to correct hypokalemia.",
+  "Continue monitoring respiratory status and oxygen saturation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39544395A1::01",
+   "claim_id": "M39544395A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and sodium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39544395A1::02",
+   "claim_id": "M39544395A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and sodium.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39544395A1::03",
+   "claim_id": "M39544395A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and sodium.",
+   "kind": "action",
+   "text": "Monitor sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "sodium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39544395A2::04",
+   "claim_id": "M39544395A2",
+   "claim_text": "Administer intravenous potassium chloride to correct hypokalemia.",
+   "kind": "action",
+   "text": "Administer intravenous potassium chloride.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39544395A3::05",
+   "claim_id": "M39544395A3",
+   "claim_text": "Continue monitoring respiratory status and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39544395A3::06",
+   "claim_id": "M39544395A3",
+   "claim_text": "Continue monitoring respiratory status and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39544395A2::R01",
+   "claim_id": "M39544395A2",
+   "claim_text": "Administer intravenous potassium chloride to correct hypokalemia.",
+   "kind": "fact",
+   "text": "Hypokalemia is present.",
+   "concept": "potassium",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39544395A2::R01",
+   "claim_id": "M39544395A2",
+   "claim_text": "Administer intravenous potassium chloride to correct hypokalemia.",
+   "kind": "fact",
+   "text": "Hypokalemia is present.",
+   "concept": "potassium",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:199502",
+     "time": "2176-11-19 14:57:00",
+     "item": "Potassium, Whole Blood",
+     "value": 3.5,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:199521",
+     "time": "2176-11-19 17:15:00",
+     "item": "Potassium",
+     "value": 4.2,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:199611",
+     "time": "2176-11-20 05:35:00",
+     "item": "Potassium",
+     "value": 5.0,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest potassium 5 mEq/L at 2176-11-20 05:35:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39544395A1::01",
+   "claim_id": "M39544395A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and sodium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 4.9 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39544395A1::02",
+   "claim_id": "M39544395A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and sodium.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 4.9 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39544395A1::03",
+   "claim_id": "M39544395A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and sodium.",
+   "kind": "action",
+   "text": "Monitor sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "sodium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No sodium measurement in the 4.9 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39544395A2::04",
+   "claim_id": "M39544395A2",
+   "claim_text": "Administer intravenous potassium chloride to correct hypokalemia.",
+   "kind": "action",
+   "text": "Administer intravenous potassium chloride.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No potassium replacement action recorded in the 4.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39544395A3::05",
+   "claim_id": "M39544395A3",
+   "claim_text": "Continue monitoring respiratory status and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2176-11-20 15:00:00:179868",
+     "time": "2176-11-20 15:00:00",
+     "item": "respiratory rate",
+     "value": "19 insp/min"
+    },
+    {
+     "rid": "chart:220210:2176-11-20 16:00:00:179871",
+     "time": "2176-11-20 16:00:00",
+     "item": "respiratory rate",
+     "value": "18 insp/min"
+    },
+    {
+     "rid": "chart:220277:2176-11-20 16:00:00:179874",
+     "time": "2176-11-20 16:00:00",
+     "item": "SpO2",
+     "value": "95 %"
+    },
+    {
+     "rid": "chart:220277:2176-11-20 17:00:00:179879",
+     "time": "2176-11-20 17:00:00",
+     "item": "SpO2",
+     "value": "96 %"
+    }
+   ],
+   "reason": "Measured in the 4.9 h observation window after the decision (24 h or until ICU discharge): respiratory rate x4, SpO2 x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39544395A3::06",
+   "claim_id": "M39544395A3",
+   "claim_text": "Continue monitoring respiratory status and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220277:2176-11-20 16:00:00:179874",
+     "time": "2176-11-20 16:00:00",
+     "item": "SpO2",
+     "value": "95 %"
+    },
+    {
+     "rid": "chart:220277:2176-11-20 17:00:00:179879",
+     "time": "2176-11-20 17:00:00",
+     "item": "SpO2",
+     "value": "96 %"
+    }
+   ],
+   "reason": "Measured in the 4.9 h observation window after the decision (24 h or until ICU discharge): SpO2 x3.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 188 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 188 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 11,
+ "observation_window_hours": 4.9,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hypokalemia is present. -- Latest potassium 5 mEq/L at 2176-11-20 05:35:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

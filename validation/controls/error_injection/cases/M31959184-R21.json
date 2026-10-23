@@ -1,0 +1,411 @@
+{
+ "case_id": "M31959184-R21",
+ "decision_point": "2110-12-01 17:11:36",
+ "claims": [
+  "Monitor for signs of hypovolemia given the elevated hematocrit and hemoglobin levels."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31959184-R21A1::01",
+   "claim_id": "M31959184-R21A1",
+   "claim_text": "Monitor for signs of hypovolemia given the elevated hematocrit and hemoglobin levels.",
+   "kind": "action",
+   "text": "Monitor for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of hypovolemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31959184-R21A1::02",
+   "claim_id": "M31959184-R21A1",
+   "claim_text": "Monitor for signs of hypovolemia given the elevated hematocrit and hemoglobin levels.",
+   "kind": "fact",
+   "text": "Hematocrit levels are elevated.",
+   "concept": "hematocrit",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M31959184-R21A1::03",
+   "claim_id": "M31959184-R21A1",
+   "claim_text": "Monitor for signs of hypovolemia given the elevated hematocrit and hemoglobin levels.",
+   "kind": "fact",
+   "text": "Hemoglobin levels are elevated.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M31959184-R21A1::02",
+   "claim_id": "M31959184-R21A1",
+   "claim_text": "Monitor for signs of hypovolemia given the elevated hematocrit and hemoglobin levels.",
+   "kind": "fact",
+   "text": "Hematocrit levels are elevated.",
+   "concept": "hematocrit",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:102485",
+     "time": "2110-11-30 15:20:00",
+     "item": "Hematocrit, Calculated",
+     "value": 33.0,
+     "unit": "%",
+     "bounds": "36 to 48",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:102501",
+     "time": "2110-11-30 16:15:00",
+     "item": "Hematocrit",
+     "value": 35.4,
+     "unit": "%",
+     "bounds": "36.0 to 48.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:102570",
+     "time": "2110-11-30 23:49:00",
+     "item": "Hematocrit",
+     "value": 29.5,
+     "unit": "%",
+     "bounds": "36.0 to 48.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hematocrit 29.5 % at 2110-11-30 23:49:00 (reference 36.0 to 48.0) is low, not consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31959184-R21A1::03",
+   "claim_id": "M31959184-R21A1",
+   "claim_text": "Monitor for signs of hypovolemia given the elevated hematocrit and hemoglobin levels.",
+   "kind": "fact",
+   "text": "Hemoglobin levels are elevated.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:102486",
+     "time": "2110-11-30 15:20:00",
+     "item": "Hemoglobin",
+     "value": 11.1,
+     "unit": "g/dL",
+     "bounds": "12.0 to 16.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:102502",
+     "time": "2110-11-30 16:15:00",
+     "item": "Hemoglobin",
+     "value": 12.3,
+     "unit": "g/dL",
+     "bounds": "12.0 to 16.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:102571",
+     "time": "2110-11-30 23:49:00",
+     "item": "Hemoglobin",
+     "value": 10.4,
+     "unit": "g/dL",
+     "bounds": "12.0 to 16.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 10.4 g/dL at 2110-11-30 23:49:00 (reference 12.0 to 16.0) is low, not consistent with 'high'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M31959184-R21A1::01",
+   "claim_id": "M31959184-R21A1",
+   "claim_text": "Monitor for signs of hypovolemia given the elevated hematocrit and hemoglobin levels.",
+   "kind": "action",
+   "text": "Monitor for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of hypovolemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 226 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.3 mmol/L at 2110-11-30 16:43:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "LR"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Enoxaparin (Lovenox)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)",
+    "OxycoDONE (Immediate Release)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 226 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.3 mmol/L at 2110-11-30 16:43:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "LR"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Enoxaparin (Lovenox)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)",
+    "OxycoDONE (Immediate Release)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 40,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hematocrit levels are elevated. -- Latest hematocrit 29.5 % at 2110-11-30 23:49:00 (reference 36.0 to 48.0) is low, not consistent with 'high'.",
+    "Hemoglobin levels are elevated. -- Latest hemoglobin 10.4 g/dL at 2110-11-30 23:49:00 (reference 12.0 to 16.0) is low, not consistent with 'high'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": null,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

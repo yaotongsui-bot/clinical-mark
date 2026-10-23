@@ -1,0 +1,381 @@
+{
+ "case_id": "M36091287",
+ "decision_point": "2119-10-27 08:33:32",
+ "claims": [
+  "Monitor INR and PT levels closely.",
+  "Administer intravenous fluids to maintain fluid balance.",
+  "Assess and manage respiratory parameters."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M36091287A1::01",
+   "claim_id": "M36091287A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor INR closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36091287A1::02",
+   "claim_id": "M36091287A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor PT levels closely.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36091287A2::03",
+   "claim_id": "M36091287A2",
+   "claim_text": "Administer intravenous fluids to maintain fluid balance.",
+   "kind": "action",
+   "text": "Administer intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M36091287A3::04",
+   "claim_id": "M36091287A3",
+   "claim_text": "Assess and manage respiratory parameters.",
+   "kind": "action",
+   "text": "Assess respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36091287A3::05",
+   "claim_id": "M36091287A3",
+   "claim_text": "Assess and manage respiratory parameters.",
+   "kind": "action",
+   "text": "Manage respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "M36091287A1::01",
+   "claim_id": "M36091287A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor INR closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No INR measurement in the 9.3 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36091287A1::02",
+   "claim_id": "M36091287A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor PT levels closely.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No PT measurement in the 9.3 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36091287A2::03",
+   "claim_id": "M36091287A2",
+   "claim_text": "Administer intravenous fluids to maintain fluid balance.",
+   "kind": "action",
+   "text": "Administer intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2119-10-27 04:19:00",
+     "item": "NaCl 0.9% infusion continuing at 100 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN220949",
+     "time": "2119-10-27 14:02:00",
+     "item": "Dextrose 5% infusion started at",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M36091287A3::04",
+   "claim_id": "M36091287A3",
+   "claim_text": "Assess and manage respiratory parameters.",
+   "kind": "action",
+   "text": "Assess respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2119-10-27 09:00:00:391127",
+     "time": "2119-10-27 09:00:00",
+     "item": "respiratory rate",
+     "value": "17 insp/min"
+    },
+    {
+     "rid": "chart:220210:2119-10-27 10:00:00:391134",
+     "time": "2119-10-27 10:00:00",
+     "item": "respiratory rate",
+     "value": "14 insp/min"
+    },
+    {
+     "rid": "chart:220277:2119-10-27 09:00:00:391124",
+     "time": "2119-10-27 09:00:00",
+     "item": "SpO2",
+     "value": "95 %"
+    },
+    {
+     "rid": "chart:220277:2119-10-27 10:00:00:391131",
+     "time": "2119-10-27 10:00:00",
+     "item": "SpO2",
+     "value": "93 %"
+    }
+   ],
+   "reason": "Measured in the 9.3 h observation window after the decision (24 h or until ICU discharge): respiratory rate x6, SpO2 x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36091287A3::05",
+   "claim_id": "M36091287A3",
+   "claim_text": "Assess and manage respiratory parameters.",
+   "kind": "action",
+   "text": "Manage respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 15.1 K/uL at 2119-10-27 02:32:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Ampicillin-Sulbactam",
+    "Ampicillin/Sulbactam (Unasyn)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.6 mmol/L at 2119-10-26 07:22:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M36091287A2::03"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl Citrate",
+    "HYDROmorphone",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 15.1 K/uL at 2119-10-27 02:32:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Ampicillin-Sulbactam",
+    "Ampicillin/Sulbactam (Unasyn)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.6 mmol/L at 2119-10-26 07:22:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M36091287A2::03"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl Citrate",
+    "HYDROmorphone",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 21,
+ "observation_window_hours": 9.3,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.5,
+  "recall_okay": 0.0,
+  "recall_all": 0.2,
+  "recall_vital_at3": 0.5,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.2
+ }
+}

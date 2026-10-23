@@ -1,0 +1,216 @@
+{
+ "case_id": "M31205490",
+ "decision_point": "2110-04-12 15:52:22",
+ "claims": [
+  "Monitor electrolyte levels due to recent changes.",
+  "Continue monitoring respiratory status given recent alarms.",
+  "Administer IV fluids to maintain hydration."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31205490A1::01",
+   "claim_id": "M31205490A1",
+   "claim_text": "Monitor electrolyte levels due to recent changes.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels due to recent changes.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31205490A2::02",
+   "claim_id": "M31205490A2",
+   "claim_text": "Continue monitoring respiratory status given recent alarms.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status given recent alarms.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31205490A3::03",
+   "claim_id": "M31205490A3",
+   "claim_text": "Administer IV fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer IV fluids to maintain hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "M31205490A1::01",
+   "claim_id": "M31205490A1",
+   "claim_text": "Monitor electrolyte levels due to recent changes.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels due to recent changes.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 8.1 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31205490A2::02",
+   "claim_id": "M31205490A2",
+   "claim_text": "Continue monitoring respiratory status given recent alarms.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status given recent alarms.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2110-04-12 16:00:00:319975",
+     "time": "2110-04-12 16:00:00",
+     "item": "respiratory rate",
+     "value": "13 insp/min"
+    },
+    {
+     "rid": "chart:220210:2110-04-12 17:00:00:319986",
+     "time": "2110-04-12 17:00:00",
+     "item": "respiratory rate",
+     "value": "14 insp/min"
+    },
+    {
+     "rid": "chart:220277:2110-04-12 16:00:00:319978",
+     "time": "2110-04-12 16:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:220277:2110-04-12 17:00:00:319990",
+     "time": "2110-04-12 17:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    }
+   ],
+   "reason": "Measured in the 8.1 h observation window after the decision (24 h or until ICU discharge): respiratory rate x7, SpO2 x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31205490A3::03",
+   "claim_id": "M31205490A3",
+   "claim_text": "Administer IV fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer IV fluids to maintain hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 8.1 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Ketorolac",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Ketorolac",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 10,
+ "observation_window_hours": 8.1,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

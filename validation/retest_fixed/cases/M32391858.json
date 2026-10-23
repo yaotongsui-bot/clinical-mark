@@ -1,0 +1,787 @@
+{
+ "case_id": "M32391858",
+ "decision_point": "2201-10-31 12:25:00",
+ "claims": [
+  "Monitor intracranial pressure closely given the recent high readings.",
+  "Continue mechanical ventilation with current settings.",
+  "Assess and manage electrolyte imbalances, particularly potassium."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32391858A1::01",
+   "claim_id": "M32391858A1",
+   "claim_text": "Monitor intracranial pressure closely given the recent high readings.",
+   "kind": "action",
+   "text": "Monitor intracranial pressure closely.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "intracranial pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32391858A1::02",
+   "claim_id": "M32391858A1",
+   "claim_text": "Monitor intracranial pressure closely given the recent high readings.",
+   "kind": "fact",
+   "text": "Recent high intracranial pressure readings are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: inr -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M32391858A2::03",
+   "claim_id": "M32391858A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32391858A2::04",
+   "claim_id": "M32391858A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M32391858A3::05",
+   "claim_id": "M32391858A3",
+   "claim_text": "Assess and manage electrolyte imbalances, particularly potassium.",
+   "kind": "action",
+   "text": "Assess and manage electrolyte imbalances, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "assess",
+   "target": "electrolyte imbalances",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32391858A3::06",
+   "claim_id": "M32391858A3",
+   "claim_text": "Assess and manage electrolyte imbalances, particularly potassium.",
+   "kind": "action",
+   "text": "Manage potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "potassium",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M32391858A3::R01",
+   "claim_id": "M32391858A3",
+   "claim_text": "Assess and manage electrolyte imbalances, particularly potassium.",
+   "kind": "fact",
+   "text": "Electrolyte imbalances is present.",
+   "concept": "electrolytes",
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32391858A1::02",
+   "claim_id": "M32391858A1",
+   "claim_text": "Monitor intracranial pressure closely given the recent high readings.",
+   "kind": "fact",
+   "text": "Recent high intracranial pressure readings are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: inr -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "other",
+   "label": "not_addressed",
+   "reason": "The judges disagreed; the conservative label was used and the item needs human review.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "split",
+    "votes": {
+     "gemma4:12b": null,
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "not_supported"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "M32391858A2::04",
+   "claim_id": "M32391858A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:8575089:225792:2201-10-30 12:30:00",
+     "time": "2201-10-30 12:30:00",
+     "item": "Running at decision time (started 2201-10-30 12:30:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M32391858A3::R01",
+   "claim_id": "M32391858A3",
+   "claim_text": "Assess and manage electrolyte imbalances, particularly potassium.",
+   "kind": "fact",
+   "text": "Electrolyte imbalances is present.",
+   "concept": "electrolytes",
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:318150",
+     "time": "2201-10-31 05:36:00",
+     "item": "Free Calcium",
+     "value": 1.11,
+     "unit": "mmol/L",
+     "bounds": "1.12 to 1.32",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "'electrolytes abnormal' holds when any component is abnormal. sodium: no; potassium: no; chloride: no; bicarbonate: no; magnesium: no; calcium: yes; phosphate: no.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32391858A1::01",
+   "claim_id": "M32391858A1",
+   "claim_text": "Monitor intracranial pressure closely given the recent high readings.",
+   "kind": "action",
+   "text": "Monitor intracranial pressure closely.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "intracranial pressure",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32391858A2::03",
+   "claim_id": "M32391858A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2201-10-30 12:30:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32391858A3::05",
+   "claim_id": "M32391858A3",
+   "claim_text": "Assess and manage electrolyte imbalances, particularly potassium.",
+   "kind": "action",
+   "text": "Assess and manage electrolyte imbalances, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "assess",
+   "target": "electrolyte imbalances",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2201-11-01 02:37:00:479614",
+     "time": "2201-11-01 02:37:00",
+     "item": "sodium",
+     "value": "143 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2201-11-01 02:37:00:73598",
+     "time": "2201-11-01 02:37:00",
+     "item": "sodium",
+     "value": "143 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2201-11-01 02:37:00:479625",
+     "time": "2201-11-01 02:37:00",
+     "item": "potassium",
+     "value": "3 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2201-11-01 02:37:00:73602",
+     "time": "2201-11-01 02:37:00",
+     "item": "potassium",
+     "value": "3.0 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2201-11-01 02:37:00:479618",
+     "time": "2201-11-01 02:37:00",
+     "item": "chloride",
+     "value": "110 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2201-11-01 02:37:00:73604",
+     "time": "2201-11-01 02:37:00",
+     "item": "chloride",
+     "value": "110 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2201-11-01 02:37:00:479610",
+     "time": "2201-11-01 02:37:00",
+     "item": "bicarbonate",
+     "value": "26 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2201-11-01 02:37:00:73599",
+     "time": "2201-11-01 02:37:00",
+     "item": "bicarbonate",
+     "value": "26 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2201-11-01 02:37:00:479616",
+     "time": "2201-11-01 02:37:00",
+     "item": "magnesium",
+     "value": "2 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2201-11-01 02:37:00:73603",
+     "time": "2201-11-01 02:37:00",
+     "item": "magnesium",
+     "value": "2.0 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2201-11-01 02:37:00:479624",
+     "time": "2201-11-01 02:37:00",
+     "item": "calcium",
+     "value": "8.1 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2201-11-01 02:37:00:73606",
+     "time": "2201-11-01 02:37:00",
+     "item": "calcium",
+     "value": "8.1 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2201-11-01 02:37:00:479626",
+     "time": "2201-11-01 02:37:00",
+     "item": "phosphate",
+     "value": "1.8 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2201-11-01 02:37:00:73605",
+     "time": "2201-11-01 02:37:00",
+     "item": "phosphate",
+     "value": "1.8 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, magnesium x2, calcium x2, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32391858A3::06",
+   "claim_id": "M32391858A3",
+   "claim_text": "Assess and manage electrolyte imbalances, particularly potassium.",
+   "kind": "action",
+   "text": "Manage potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "potassium",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "match",
+   "reason": "The clinician ordered Potassium Chloride, which directly addresses the AI's recommendation to manage potassium.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "match",
+     "llama3.1:8b-instruct-q4_K_M": "match",
+     "qwen2.5:14b": "match"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "RX6682350",
+     "time": "2201-10-31 15:00:00",
+     "item": "Ordered: Potassium Chloride Replacement (Critical Care and Oncology)  40 mEq PO",
+     "class": "potassium_replacement"
+    }
+   ],
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 14.8 K/uL at 2201-10-31 02:06:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefazoLIN"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.11 mmol/L at 2201-10-31 05:36:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M32391858A2::03"
+   ]
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LeVETiracetam",
+    "Levetiracetam (Keppra)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HydrALAzine",
+    "NiCARdipine IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CT scan",
+    "X-ray"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Jevity 1.2 (Full)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Labetalol"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)",
+    "Propofol"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 14.8 K/uL at 2201-10-31 02:06:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefazoLIN"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.11 mmol/L at 2201-10-31 05:36:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M32391858A2::03"
+   ]
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LeVETiracetam",
+    "Levetiracetam (Keppra)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HydrALAzine",
+    "NiCARdipine IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CT scan",
+    "X-ray"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Jevity 1.2 (Full)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Labetalol"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)",
+    "Propofol"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 58,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.333,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Recent high intracranial pressure readings are present. -- The judges disagreed; the conservative label was used and the item needs human review."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.333,
+  "recall_okay": 0.0,
+  "recall_all": 0.071,
+  "recall_vital_at3": 0.333,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.071
+ }
+}

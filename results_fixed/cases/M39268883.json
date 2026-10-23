@@ -1,0 +1,684 @@
+{
+ "case_id": "M39268883",
+ "decision_point": "2180-02-22 08:34:06",
+ "claims": [
+  "Monitor electrolyte levels, particularly potassium, due to recent administration of potassium chloride.",
+  "Continue insulin therapy to manage blood glucose levels.",
+  "Assess for signs of respiratory distress and adjust ventilator settings if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39268883A1::01",
+   "claim_id": "M39268883A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, due to recent administration of potassium chloride.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39268883A1::02",
+   "claim_id": "M39268883A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, due to recent administration of potassium chloride.",
+   "kind": "fact",
+   "text": "Potassium chloride was recently administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: potassium -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M39268883A2::03",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue insulin therapy to manage blood glucose levels.",
+   "kind": "action",
+   "text": "Continue insulin therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin therapy",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A3::04",
+   "claim_id": "M39268883A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39268883A3::05",
+   "claim_id": "M39268883A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Adjust ventilator settings if necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A2::P01",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue insulin therapy to manage blood glucose levels.",
+   "kind": "fact",
+   "text": "The patient is currently receiving insulin therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39268883A1::02",
+   "claim_id": "M39268883A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, due to recent administration of potassium chloride.",
+   "kind": "fact",
+   "text": "Potassium chloride was recently administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: potassium -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "not_addressed",
+   "reason": "No cited record shows this treatment was withheld or stopped; absence of a record is not_addressed. (Panel verdict: not_supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "not_addressed",
+     "llama3.1:8b-instruct-q4_K_M": "not_supported",
+     "qwen2.5:14b": "not_supported"
+    },
+    "panel_label": "not_supported"
+   },
+   "evidence": [
+    {
+     "rid": "lab:235393",
+     "time": "2180-02-22 03:05:00",
+     "item": "Potassium: 5 mEq/L"
+    },
+    {
+     "rid": "rx:72813495:2180-02-21 11:00:00",
+     "time": "2180-02-21 11:00:00",
+     "item": "Order: Potassium Chloride 20 mEq IV (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M39268883A2::P01",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue insulin therapy to manage blood glucose levels.",
+   "kind": "fact",
+   "text": "The patient is currently receiving insulin therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Multiple administration records for both Insulin Regular and Insulin Glargine were recorded within the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:5477806:223258:2180-02-22 05:14:00",
+     "time": "2180-02-22 05:14:00",
+     "item": "Infusion/input Insulin - Regular at 2.998598575592041 units/hour (2180-02-22 05:14:00 to 2180-02-22 07:01:00)"
+    },
+    {
+     "rid": "inputevents:593345:223260:2180-02-22 05:15:00",
+     "time": "2180-02-22 05:15:00",
+     "item": "Infusion/input Insulin - Glargine 30 units (2180-02-22 05:15:00 to 2180-02-22 05:16:00)"
+    },
+    {
+     "rid": "emar:10019385-171",
+     "time": "2180-02-22 05:16:00",
+     "item": "MAR Administered: Insulin Glargine  (CVICU Protocol)"
+    },
+    {
+     "rid": "emar:10019385-174",
+     "time": "2180-02-22 06:04:00",
+     "item": "MAR Administered: Insulin"
+    },
+    {
+     "rid": "inputevents:1421613:223258:2180-02-22 06:06:00",
+     "time": "2180-02-22 06:06:00",
+     "item": "Infusion/input Insulin - Regular 6 units (2180-02-22 06:06:00 to 2180-02-22 06:07:00)"
+    },
+    {
+     "rid": "inputevents:1280477:223258:2180-02-21 14:46:00",
+     "time": "2180-02-21 14:46:00",
+     "item": "Infusion/input Insulin - Regular at 2 units/hour (2180-02-21 14:46:00 to 2180-02-21 17:33:00)"
+    },
+    {
+     "rid": "emar:10019385-145",
+     "time": "2180-02-21 14:49:00",
+     "item": "MAR Started: Insulin"
+    },
+    {
+     "rid": "emar:10019385-148",
+     "time": "2180-02-21 17:48:00",
+     "item": "MAR Administered: Insulin"
+    },
+    {
+     "rid": "emar:10019385-155",
+     "time": "2180-02-21 20:26:00",
+     "item": "MAR Confirmed: Insulin"
+    },
+    {
+     "rid": "inputevents:9993969:223258:2180-02-22 00:57:00",
+     "time": "2180-02-22 00:57:00",
+     "item": "Infusion/input Insulin - Regular at 2.99942684173584 units/hour (2180-02-22 00:57:00 to 2180-02-22 04:15:00)"
+    },
+    {
+     "rid": "inputevents:528324:223258:2180-02-22 04:15:00",
+     "time": "2180-02-22 04:15:00",
+     "item": "Infusion/input Insulin - Regular at 4.9990448951721191 units/hour (2180-02-22 04:15:00 to 2180-02-22 05:14:00)"
+    },
+    {
+     "rid": "rx:79236728:2180-02-21 09:00:00",
+     "time": "2180-02-21 09:00:00",
+     "item": "Order: Insulin Human Regular 100 UNIT IV DRIP (active at decision time)"
+    },
+    {
+     "rid": "inputevents:2105010:223258:2180-02-21 17:01:00",
+     "time": "2180-02-21 17:01:00",
+     "item": "Infusion/input Insulin - Regular 1 units (2180-02-21 17:01:00 to 2180-02-21 17:02:00)"
+    },
+    {
+     "rid": "inputevents:2267149:223258:2180-02-21 17:33:00",
+     "time": "2180-02-21 17:33:00",
+     "item": "Infusion/input Insulin - Regular at 2.9994704723358154 units/hour (2180-02-21 17:33:00 to 2180-02-21 20:21:00)"
+    },
+    {
+     "rid": "rx:52861272:2180-02-21 18:00:00",
+     "time": "2180-02-21 18:00:00",
+     "item": "Order: Insulin 10 UNIT IV (active at decision time)"
+    },
+    {
+     "rid": "inputevents:8278188:223258:2180-02-21 20:21:00",
+     "time": "2180-02-21 20:21:00",
+     "item": "Infusion/input Insulin - Regular at 2.0000345706939697 units/hour (2180-02-21 20:21:00 to 2180-02-21 22:24:00)"
+    },
+    {
+     "rid": "chart:39268883:226537:2180-02-21 22:17:00",
+     "time": "2180-02-21 22:17:00",
+     "item": "Glucose (whole blood): 132 mg/dL"
+    },
+    {
+     "rid": "inputevents:7937443:223258:2180-02-21 22:24:00",
+     "time": "2180-02-21 22:24:00",
+     "item": "Infusion/input Insulin - Regular at 2.999441385269165 units/hour (2180-02-21 22:24:00 to 2180-02-22 00:06:00)"
+    },
+    {
+     "rid": "inputevents:9993390:223258:2180-02-22 00:06:00",
+     "time": "2180-02-22 00:06:00",
+     "item": "Infusion/input Insulin - Regular at 2.0000612735748291 units/hour (2180-02-22 00:06:00 to 2180-02-22 00:57:00)"
+    },
+    {
+     "rid": "emar:10019385-163",
+     "time": "2180-02-22 00:33:00",
+     "item": "MAR Confirmed: Insulin"
+    },
+    {
+     "rid": "inputevents:2837491:223258:2180-02-22 04:15:00",
+     "time": "2180-02-22 04:15:00",
+     "item": "Infusion/input Insulin - Regular 2 units (2180-02-22 04:15:00 to 2180-02-22 04:16:00)"
+    },
+    {
+     "rid": "emar:10019385-172",
+     "time": "2180-02-22 05:16:00",
+     "item": "MAR Confirmed: Insulin"
+    },
+    {
+     "rid": "rx:45808316:2180-02-22 06:00:00",
+     "time": "2180-02-22 06:00:00",
+     "item": "Order: Insulin 0-10 UNIT SC (active at decision time)"
+    },
+    {
+     "rid": "rx:44944163:2180-02-22 08:00:00",
+     "time": "2180-02-22 08:00:00",
+     "item": "Order: Insulin 10 UNIT SC (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39268883A1::01",
+   "claim_id": "M39268883A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, due to recent administration of potassium chloride.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2180-02-22 11:54:00:34909",
+     "time": "2180-02-22 11:54:00",
+     "item": "sodium",
+     "value": "135 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2180-02-22 11:54:00:100855",
+     "time": "2180-02-22 11:54:00",
+     "item": "sodium",
+     "value": "135 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2180-02-22 11:54:00:34911",
+     "time": "2180-02-22 11:54:00",
+     "item": "potassium",
+     "value": "4.1 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2180-02-22 11:54:00:100857",
+     "time": "2180-02-22 11:54:00",
+     "item": "potassium",
+     "value": "4.1 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2180-02-22 11:54:00:34912",
+     "time": "2180-02-22 11:54:00",
+     "item": "chloride",
+     "value": "98 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2180-02-22 11:54:00:100852",
+     "time": "2180-02-22 11:54:00",
+     "item": "chloride",
+     "value": "98 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2180-02-22 11:54:00:34915",
+     "time": "2180-02-22 11:54:00",
+     "item": "bicarbonate",
+     "value": "28 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2180-02-22 11:54:00:100858",
+     "time": "2180-02-22 11:54:00",
+     "item": "bicarbonate",
+     "value": "28 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2180-02-22 11:54:00:34910",
+     "time": "2180-02-22 11:54:00",
+     "item": "magnesium",
+     "value": "2.7 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2180-02-22 11:54:00:100853",
+     "time": "2180-02-22 11:54:00",
+     "item": "magnesium",
+     "value": "2.7 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2180-02-22 11:54:00:34916",
+     "time": "2180-02-22 11:54:00",
+     "item": "calcium",
+     "value": "8.8 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2180-02-22 11:54:00:100859",
+     "time": "2180-02-22 11:54:00",
+     "item": "calcium",
+     "value": "8.8 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2180-02-22 11:54:00:34913",
+     "time": "2180-02-22 11:54:00",
+     "item": "phosphate",
+     "value": "5.1 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2180-02-22 11:54:00:100861",
+     "time": "2180-02-22 11:54:00",
+     "item": "phosphate",
+     "value": "5.1 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 7.5 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, magnesium x2, calcium x2, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39268883A2::03",
+   "claim_id": "M39268883A2",
+   "claim_text": "Continue insulin therapy to manage blood glucose levels.",
+   "kind": "action",
+   "text": "Continue insulin therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin therapy",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX26851078",
+     "time": "2180-02-22 11:00:00",
+     "item": "Ordered: Insulin 0 UNIT SC",
+     "class": "insulin"
+    },
+    {
+     "rid": "E10019385-203",
+     "time": "2180-02-22 11:55:00",
+     "item": "Given: Insulin",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A3::04",
+   "claim_id": "M39268883A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39268883A3::05",
+   "claim_id": "M39268883A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Adjust ventilator settings if necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 7.5 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.7 mmol/L at 2180-02-21 10:15:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Nitroglycerin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.7 mmol/L at 2180-02-21 10:15:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Nitroglycerin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A2::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 25,
+ "observation_window_hours": 7.5,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Potassium chloride was recently administered. -- No cited record shows this treatment was withheld or stopped; absence of a record is not_addressed. (Panel verdict: not_supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.167,
+  "recall_all": 0.143,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.167,
+  "recall_all_at3": 0.143
+ }
+}

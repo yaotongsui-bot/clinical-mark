@@ -1,0 +1,873 @@
+{
+ "case_id": "M37127068",
+ "decision_point": "2187-07-30 09:41:11",
+ "claims": [
+  "Monitor blood glucose levels closely and adjust insulin therapy if necessary.",
+  "Administer IV dextrose 50% if hypoglycemia is suspected.",
+  "Re-evaluate and adjust ventilator settings if oxygen saturation remains suboptimal.",
+  "Consider empiric antibiotic therapy for potential infection given elevated lactate and leukocytosis.",
+  "Monitor electrolyte levels (potassium, chloride) and consider supplementation if low.",
+  "Assess for potential causes of anemia (e.g., occult bleeding, chronic disease) and consider appropriate investigations.",
+  "Continue close monitoring of INR and PT to ensure anticoagulation is appropriately managed.",
+  "Assess for potential respiratory complications and ensure adequate respiratory support.",
+  "Consider nutritional support if patient is unable to intake sufficient food orally."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37127068A1::01",
+   "claim_id": "M37127068A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy if necessary.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37127068A1::02",
+   "claim_id": "M37127068A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy if necessary.",
+   "kind": "action",
+   "text": "Adjust insulin therapy if necessary.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37127068A2::03",
+   "claim_id": "M37127068A2",
+   "claim_text": "Administer IV dextrose 50% if hypoglycemia is suspected.",
+   "kind": "action",
+   "text": "Administer IV dextrose 50% if hypoglycemia is suspected.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV dextrose 50%",
+   "conditional": true,
+   "treatment_class": "glucose_rescue",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37127068A3::04",
+   "claim_id": "M37127068A3",
+   "claim_text": "Re-evaluate and adjust ventilator settings if oxygen saturation remains suboptimal.",
+   "kind": "action",
+   "text": "Re-evaluate and adjust ventilator settings if oxygen saturation remains suboptimal.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37127068A4::05",
+   "claim_id": "M37127068A4",
+   "claim_text": "Consider empiric antibiotic therapy for potential infection given elevated lactate and leukocytosis.",
+   "kind": "action",
+   "text": "Consider empiric antibiotic therapy for potential infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "start",
+   "target": "antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37127068A4::06",
+   "claim_id": "M37127068A4",
+   "claim_text": "Consider empiric antibiotic therapy for potential infection given elevated lactate and leukocytosis.",
+   "kind": "fact",
+   "text": "Potential infection is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: inr -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M37127068A5::07",
+   "claim_id": "M37127068A5",
+   "claim_text": "Monitor electrolyte levels (potassium, chloride) and consider supplementation if low.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels (potassium, chloride).",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37127068A5::08",
+   "claim_id": "M37127068A5",
+   "claim_text": "Monitor electrolyte levels (potassium, chloride) and consider supplementation if low.",
+   "kind": "action",
+   "text": "Consider supplementation if low.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "administer",
+   "target": "supplementation",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M37127068A6::09",
+   "claim_id": "M37127068A6",
+   "claim_text": "Assess for potential causes of anemia (e.g., occult bleeding, chronic disease) and consider appropriate investigations.",
+   "kind": "action",
+   "text": "Assess for potential causes of anemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of anemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37127068A6::10",
+   "claim_id": "M37127068A6",
+   "claim_text": "Assess for potential causes of anemia (e.g., occult bleeding, chronic disease) and consider appropriate investigations.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M37127068A7::11",
+   "claim_id": "M37127068A7",
+   "claim_text": "Continue close monitoring of INR and PT to ensure anticoagulation is appropriately managed.",
+   "kind": "action",
+   "text": "Continue close monitoring of INR and PT.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37127068A7::12",
+   "claim_id": "M37127068A7",
+   "claim_text": "Continue close monitoring of INR and PT to ensure anticoagulation is appropriately managed.",
+   "kind": "fact",
+   "text": "Anticoagulation is being managed.",
+   "concept": "coagulation",
+   "notes": [
+    "concept set by the rule files: other -> coagulation"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M37127068A8::13",
+   "claim_id": "M37127068A8",
+   "claim_text": "Assess for potential respiratory complications and ensure adequate respiratory support.",
+   "kind": "action",
+   "text": "Assess for potential respiratory complications.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory complications",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37127068A8::14",
+   "claim_id": "M37127068A8",
+   "claim_text": "Assess for potential respiratory complications and ensure adequate respiratory support.",
+   "kind": "action",
+   "text": "Ensure adequate respiratory support.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "other",
+   "target": "",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M37127068A9::15",
+   "claim_id": "M37127068A9",
+   "claim_text": "Consider nutritional support if patient is unable to intake sufficient food orally.",
+   "kind": "action",
+   "text": "Consider nutritional support if patient is unable to intake sufficient food orally.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "start",
+   "target": "nutritional support",
+   "conditional": true,
+   "treatment_class": "nutrition",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37127068A4::R01",
+   "claim_id": "M37127068A4",
+   "claim_text": "Consider empiric antibiotic therapy for potential infection given elevated lactate and leukocytosis.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37127068A4::06",
+   "claim_id": "M37127068A4",
+   "claim_text": "Consider empiric antibiotic therapy for potential infection given elevated lactate and leukocytosis.",
+   "kind": "fact",
+   "text": "Potential infection is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: inr -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "A hedged statement ('suspected', 'risk of', 'could indicate'), not a checkable fact."
+  },
+  {
+   "atom_id": "M37127068A6::10",
+   "claim_id": "M37127068A6",
+   "claim_text": "Assess for potential causes of anemia (e.g., occult bleeding, chronic disease) and consider appropriate investigations.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:454385",
+     "time": "2187-07-29 10:45:00",
+     "item": "Hemoglobin",
+     "value": 8.3,
+     "unit": "g/dL",
+     "bounds": "13.7 to 17.5",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:454403",
+     "time": "2187-07-29 11:10:00",
+     "item": "Hemoglobin",
+     "value": 9.9,
+     "unit": "g/dL",
+     "bounds": "13.7 to 17.5",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:454489",
+     "time": "2187-07-30 02:04:00",
+     "item": "Hemoglobin",
+     "value": 9.1,
+     "unit": "g/dL",
+     "bounds": "13.7 to 17.5",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 9.1 g/dL at 2187-07-30 02:04:00 (reference 13.7 to 17.5) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M37127068A7::12",
+   "claim_id": "M37127068A7",
+   "claim_text": "Continue close monitoring of INR and PT to ensure anticoagulation is appropriately managed.",
+   "kind": "fact",
+   "text": "Anticoagulation is being managed.",
+   "concept": "coagulation",
+   "notes": [
+    "concept set by the rule files: other -> coagulation"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_addressed",
+   "reason": "The records do not address the management of anticoagulation. There are no medication orders or administration records related to anticoagulation, and the monitoring records do not provide information about anticoagulation management.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": null,
+     "llama3.1:8b-instruct-q4_K_M": "not_addressed",
+     "qwen2.5:14b": "not_addressed"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "M37127068A4::R01",
+   "claim_id": "M37127068A4",
+   "claim_text": "Consider empiric antibiotic therapy for potential infection given elevated lactate and leukocytosis.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:454395",
+     "time": "2187-07-29 10:45:00",
+     "item": "White Blood Cells",
+     "value": 15.0,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:454410",
+     "time": "2187-07-29 11:10:00",
+     "item": "White Blood Cells",
+     "value": 17.7,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:454496",
+     "time": "2187-07-30 02:04:00",
+     "item": "White Blood Cells",
+     "value": 15.8,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest WBC 15.8 K/uL at 2187-07-30 02:04:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37127068A1::01",
+   "claim_id": "M37127068A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy if necessary.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2187-07-30 12:00:00:396163",
+     "time": "2187-07-30 12:00:00",
+     "item": "glucose",
+     "value": "125"
+    },
+    {
+     "rid": "chart:220621:2187-07-30 10:45:00:396787",
+     "time": "2187-07-30 10:45:00",
+     "item": "glucose",
+     "value": "127 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 4.0 h observation window after the decision (24 h or until ICU discharge): glucose x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37127068A1::02",
+   "claim_id": "M37127068A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy if necessary.",
+   "kind": "action",
+   "text": "Adjust insulin therapy if necessary.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [
+    {
+     "rid": "E10038992-232",
+     "time": "2187-07-30 12:59:00",
+     "item": "Given: Insulin",
+     "class": "insulin"
+    },
+    {
+     "rid": "IN223262",
+     "time": "2187-07-30 13:17:00",
+     "item": "Insulin - Humalog infusion started at",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "insulin continued after the decision without a recorded dose or setting change; the suggestion was conditional.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37127068A2::03",
+   "claim_id": "M37127068A2",
+   "claim_text": "Administer IV dextrose 50% if hypoglycemia is suspected.",
+   "kind": "action",
+   "text": "Administer IV dextrose 50% if hypoglycemia is suspected.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV dextrose 50%",
+   "conditional": true,
+   "treatment_class": "glucose_rescue",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No hypoglycemia treatment action recorded in the 4.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37127068A3::04",
+   "claim_id": "M37127068A3",
+   "claim_text": "Re-evaluate and adjust ventilator settings if oxygen saturation remains suboptimal.",
+   "kind": "action",
+   "text": "Re-evaluate and adjust ventilator settings if oxygen saturation remains suboptimal.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 4.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37127068A4::05",
+   "claim_id": "M37127068A4",
+   "claim_text": "Consider empiric antibiotic therapy for potential infection given elevated lactate and leukocytosis.",
+   "kind": "action",
+   "text": "Consider empiric antibiotic therapy for potential infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "start",
+   "target": "antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225850",
+     "time": "2187-07-30 11:58:00",
+     "item": "Cefazolin infusion started at",
+     "class": "antimicrobial"
+    },
+    {
+     "rid": "E10038992-231",
+     "time": "2187-07-30 11:59:00",
+     "item": "Given: CeFAZolin",
+     "class": "antimicrobial"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded antimicrobials after the decision. The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37127068A5::07",
+   "claim_id": "M37127068A5",
+   "claim_text": "Monitor electrolyte levels (potassium, chloride) and consider supplementation if low.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels (potassium, chloride).",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2187-07-30 10:45:00:396790",
+     "time": "2187-07-30 10:45:00",
+     "item": "sodium",
+     "value": "139 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2187-07-30 10:45:00:88445",
+     "time": "2187-07-30 10:45:00",
+     "item": "sodium",
+     "value": "139 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2187-07-30 10:45:00:396775",
+     "time": "2187-07-30 10:45:00",
+     "item": "potassium",
+     "value": "4.2 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2187-07-30 10:45:00:88439",
+     "time": "2187-07-30 10:45:00",
+     "item": "potassium",
+     "value": "4.2 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2187-07-30 10:45:00:396779",
+     "time": "2187-07-30 10:45:00",
+     "item": "chloride",
+     "value": "102 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2187-07-30 10:45:00:88447",
+     "time": "2187-07-30 10:45:00",
+     "item": "chloride",
+     "value": "102 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2187-07-30 10:45:00:396780",
+     "time": "2187-07-30 10:45:00",
+     "item": "bicarbonate",
+     "value": "26 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2187-07-30 10:45:00:88443",
+     "time": "2187-07-30 10:45:00",
+     "item": "bicarbonate",
+     "value": "26 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2187-07-30 10:45:00:396781",
+     "time": "2187-07-30 10:45:00",
+     "item": "magnesium",
+     "value": "3.3 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2187-07-30 10:45:00:88442",
+     "time": "2187-07-30 10:45:00",
+     "item": "magnesium",
+     "value": "3.3 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 4.0 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, magnesium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37127068A5::08",
+   "claim_id": "M37127068A5",
+   "claim_text": "Monitor electrolyte levels (potassium, chloride) and consider supplementation if low.",
+   "kind": "action",
+   "text": "Consider supplementation if low.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "administer",
+   "target": "supplementation",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37127068A6::09",
+   "claim_id": "M37127068A6",
+   "claim_text": "Assess for potential causes of anemia (e.g., occult bleeding, chronic disease) and consider appropriate investigations.",
+   "kind": "action",
+   "text": "Assess for potential causes of anemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of anemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37127068A7::11",
+   "claim_id": "M37127068A7",
+   "claim_text": "Continue close monitoring of INR and PT to ensure anticoagulation is appropriately managed.",
+   "kind": "action",
+   "text": "Continue close monitoring of INR and PT.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No INR measurement in the 4.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37127068A8::13",
+   "claim_id": "M37127068A8",
+   "claim_text": "Assess for potential respiratory complications and ensure adequate respiratory support.",
+   "kind": "action",
+   "text": "Assess for potential respiratory complications.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory complications",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37127068A8::14",
+   "claim_id": "M37127068A8",
+   "claim_text": "Assess for potential respiratory complications and ensure adequate respiratory support.",
+   "kind": "action",
+   "text": "Ensure adequate respiratory support.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "other",
+   "target": "",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37127068A9::15",
+   "claim_id": "M37127068A9",
+   "claim_text": "Consider nutritional support if patient is unable to intake sufficient food orally.",
+   "kind": "action",
+   "text": "Consider nutritional support if patient is unable to intake sufficient food orally.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "start",
+   "target": "nutritional support",
+   "conditional": true,
+   "treatment_class": "nutrition",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No nutrition support action recorded in the 4.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 15.8 K/uL at 2187-07-30 02:04:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CeFAZolin",
+    "Cefazolin"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M37127068A4::05"
+   ]
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M37127068A1::02"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 15.8 K/uL at 2187-07-30 02:04:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CeFAZolin",
+    "Cefazolin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M37127068A1::02"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 15,
+ "observation_window_hours": 4.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 1,
+  "supported_share": 0.5,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.25,
+  "unverifiable_share": 0.25,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Anticoagulation is being managed. -- The records do not address the management of anticoagulation. There are no medication orders or administration records related to anticoagulation, and the monitoring records do not provide information about anticoagulation management."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 1.0,
+  "recall_okay": 0.25,
+  "recall_all": 0.4,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.25,
+  "recall_all_at3": 0.2
+ }
+}

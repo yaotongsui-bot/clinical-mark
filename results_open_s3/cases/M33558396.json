@@ -1,0 +1,1163 @@
+{
+ "case_id": "M33558396",
+ "decision_point": "2125-02-28 10:03:08",
+ "claims": [
+  "Monitor lactate levels closely, as they are elevated.",
+  "Assess for the need to adjust fluid management given low sodium and chloride levels.",
+  "Consider initiating or adjusting potassium supplementation given low potassium levels.",
+  "Monitor oxygen saturation and consider adjusting ventilator settings if necessary to maintain adequate oxygenation.",
+  "Continue to monitor INR and PT, as anticoagulation status may need adjustment.",
+  "Evaluate the need for further blood transfusions given the low hemoglobin and hematocrit levels.",
+  "Assess for any signs of infection given the elevated white blood cell count.",
+  "Monitor for signs of renal impairment given the creatinine levels.",
+  "Continue to manage pain with the current regimen, reassess as needed.",
+  "Ensure adequate nutrition and hydration, considering the patient's clinical status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M33558396A1::01",
+   "claim_id": "M33558396A1",
+   "claim_text": "Monitor lactate levels closely, as they are elevated.",
+   "kind": "action",
+   "text": "Monitor lactate levels closely.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33558396A1::02",
+   "claim_id": "M33558396A1",
+   "claim_text": "Monitor lactate levels closely, as they are elevated.",
+   "kind": "fact",
+   "text": "Lactate levels are elevated.",
+   "concept": "lactate",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M33558396A2::03",
+   "claim_id": "M33558396A2",
+   "claim_text": "Assess for the need to adjust fluid management given low sodium and chloride levels.",
+   "kind": "action",
+   "text": "Assess for the need to adjust fluid management.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "fluid management",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33558396A2::04",
+   "claim_id": "M33558396A2",
+   "claim_text": "Assess for the need to adjust fluid management given low sodium and chloride levels.",
+   "kind": "fact",
+   "text": "Low sodium and chloride levels are present.",
+   "concept": "sodium",
+   "notes": [
+    "concept set by the rule files: electrolytes -> sodium"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M33558396A3::05",
+   "claim_id": "M33558396A3",
+   "claim_text": "Consider initiating or adjusting potassium supplementation given low potassium levels.",
+   "kind": "action",
+   "text": "Consider initiating or adjusting potassium supplementation.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium supplementation",
+   "conditional": true,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M33558396A3::06",
+   "claim_id": "M33558396A3",
+   "claim_text": "Consider initiating or adjusting potassium supplementation given low potassium levels.",
+   "kind": "fact",
+   "text": "Potassium levels are low.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M33558396A4::07",
+   "claim_id": "M33558396A4",
+   "claim_text": "Monitor oxygen saturation and consider adjusting ventilator settings if necessary to maintain adequate oxygenation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33558396A4::08",
+   "claim_id": "M33558396A4",
+   "claim_text": "Monitor oxygen saturation and consider adjusting ventilator settings if necessary to maintain adequate oxygenation.",
+   "kind": "action",
+   "text": "Consider adjusting ventilator settings if necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M33558396A5::09",
+   "claim_id": "M33558396A5",
+   "claim_text": "Continue to monitor INR and PT, as anticoagulation status may need adjustment.",
+   "kind": "action",
+   "text": "Continue to monitor INR and PT.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR and PT",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33558396A6::10",
+   "claim_id": "M33558396A6",
+   "claim_text": "Evaluate the need for further blood transfusions given the low hemoglobin and hematocrit levels.",
+   "kind": "action",
+   "text": "Evaluate the need for further blood transfusions.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "blood transfusions",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33558396A6::11",
+   "claim_id": "M33558396A6",
+   "claim_text": "Evaluate the need for further blood transfusions given the low hemoglobin and hematocrit levels.",
+   "kind": "fact",
+   "text": "Low hemoglobin and hematocrit levels are present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M33558396A7::12",
+   "claim_id": "M33558396A7",
+   "claim_text": "Assess for any signs of infection given the elevated white blood cell count.",
+   "kind": "action",
+   "text": "Assess for any signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33558396A7::13",
+   "claim_id": "M33558396A7",
+   "claim_text": "Assess for any signs of infection given the elevated white blood cell count.",
+   "kind": "fact",
+   "text": "White blood cell count is elevated.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M33558396A8::14",
+   "claim_id": "M33558396A8",
+   "claim_text": "Monitor for signs of renal impairment given the creatinine levels.",
+   "kind": "action",
+   "text": "Monitor for signs of renal impairment.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of renal impairment",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33558396A9::16",
+   "claim_id": "M33558396A9",
+   "claim_text": "Continue to manage pain with the current regimen, reassess as needed.",
+   "kind": "action",
+   "text": "Continue to manage pain with the current regimen.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pain management",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M33558396A9::17",
+   "claim_id": "M33558396A9",
+   "claim_text": "Continue to manage pain with the current regimen, reassess as needed.",
+   "kind": "action",
+   "text": "Reassess as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain management",
+   "conditional": true
+  },
+  {
+   "atom_id": "M33558396A10::18",
+   "claim_id": "M33558396A10",
+   "claim_text": "Ensure adequate nutrition and hydration, considering the patient's clinical status.",
+   "kind": "goal",
+   "text": "Ensure adequate nutrition and hydration.",
+   "concept": "other",
+   "notes": []
+  },
+  {
+   "atom_id": "M33558396A9::P01",
+   "claim_id": "M33558396A9",
+   "claim_text": "Continue to manage pain with the current regimen, reassess as needed.",
+   "kind": "fact",
+   "text": "The patient is currently receiving pain management.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M33558396A1::02",
+   "claim_id": "M33558396A1",
+   "claim_text": "Monitor lactate levels closely, as they are elevated.",
+   "kind": "fact",
+   "text": "Lactate levels are elevated.",
+   "concept": "lactate",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:187282",
+     "time": "2125-02-27 15:14:00",
+     "item": "Lactate",
+     "value": 3.3,
+     "unit": "mmol/L",
+     "bounds": "0.5 to 2.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:187293",
+     "time": "2125-02-27 18:03:00",
+     "item": "Lactate",
+     "value": 4.3,
+     "unit": "mmol/L",
+     "bounds": "0.5 to 2.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:187321",
+     "time": "2125-02-27 23:54:00",
+     "item": "Lactate",
+     "value": 2.4,
+     "unit": "mmol/L",
+     "bounds": "0.5 to 2.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest lactate 2.4 mmol/L at 2125-02-27 23:54:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M33558396A2::04",
+   "claim_id": "M33558396A2",
+   "claim_text": "Assess for the need to adjust fluid management given low sodium and chloride levels.",
+   "kind": "fact",
+   "text": "Low sodium and chloride levels are present.",
+   "concept": "sodium",
+   "notes": [
+    "concept set by the rule files: electrolytes -> sodium"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:187246",
+     "time": "2125-02-27 13:45:00",
+     "item": "Sodium, Whole Blood",
+     "value": 138.0,
+     "unit": "mEq/L",
+     "bounds": "133.0 to 145.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:187316",
+     "time": "2125-02-27 21:32:00",
+     "item": "Sodium",
+     "value": 136.0,
+     "unit": "mEq/L",
+     "bounds": "133.0 to 145.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:187337",
+     "time": "2125-02-28 02:46:00",
+     "item": "Sodium",
+     "value": 136.0,
+     "unit": "mEq/L",
+     "bounds": "133.0 to 145.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest sodium 136 mEq/L at 2125-02-28 02:46:00 (reference 133.0 to 145.0) is normal, not consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M33558396A3::06",
+   "claim_id": "M33558396A3",
+   "claim_text": "Consider initiating or adjusting potassium supplementation given low potassium levels.",
+   "kind": "fact",
+   "text": "Potassium levels are low.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:187326",
+     "time": "2125-02-27 23:54:00",
+     "item": "Potassium, Whole Blood",
+     "value": 3.9,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:187336",
+     "time": "2125-02-28 02:46:00",
+     "item": "Potassium",
+     "value": 4.3,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:187352",
+     "time": "2125-02-28 09:21:00",
+     "item": "Potassium, Whole Blood",
+     "value": 4.5,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest potassium 4.5 mEq/L at 2125-02-28 09:21:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M33558396A6::11",
+   "claim_id": "M33558396A6",
+   "claim_text": "Evaluate the need for further blood transfusions given the low hemoglobin and hematocrit levels.",
+   "kind": "fact",
+   "text": "Low hemoglobin and hematocrit levels are present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:187251",
+     "time": "2125-02-27 14:00:00",
+     "item": "Hemoglobin",
+     "value": 8.6,
+     "unit": "g/dL",
+     "bounds": "12.0 to 16.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:187265",
+     "time": "2125-02-27 15:00:00",
+     "item": "Hemoglobin",
+     "value": 11.4,
+     "unit": "g/dL",
+     "bounds": "12.0 to 16.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:187340",
+     "time": "2125-02-28 02:46:00",
+     "item": "Hemoglobin",
+     "value": 10.4,
+     "unit": "g/dL",
+     "bounds": "12.0 to 16.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 10.4 g/dL at 2125-02-28 02:46:00 (reference 12.0 to 16.0) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M33558396A7::13",
+   "claim_id": "M33558396A7",
+   "claim_text": "Assess for any signs of infection given the elevated white blood cell count.",
+   "kind": "fact",
+   "text": "White blood cell count is elevated.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:187258",
+     "time": "2125-02-27 14:00:00",
+     "item": "White Blood Cells",
+     "value": 17.2,
+     "unit": "K/uL",
+     "bounds": "4.0 to 11.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:187272",
+     "time": "2125-02-27 15:00:00",
+     "item": "White Blood Cells",
+     "value": 22.7,
+     "unit": "K/uL",
+     "bounds": "4.0 to 11.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:187347",
+     "time": "2125-02-28 02:46:00",
+     "item": "White Blood Cells",
+     "value": 20.7,
+     "unit": "K/uL",
+     "bounds": "4.0 to 11.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest WBC 20.7 K/uL at 2125-02-28 02:46:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M33558396A9::P01",
+   "claim_id": "M33558396A9",
+   "claim_text": "Continue to manage pain with the current regimen, reassess as needed.",
+   "kind": "fact",
+   "text": "The patient is currently receiving pain management.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Multiple records (R43-R45, R47-R49) within the 24 hours before the decision time indicate the administration of various pain management methods, including PCA, IM injections, and patches.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:33558396:223792:2125-02-28 08:20:00",
+     "time": "2125-02-28 08:20:00",
+     "item": "Pain Management: IM Injection"
+    },
+    {
+     "rid": "chart:33558396:223792:2125-02-28 08:20:00",
+     "time": "2125-02-28 08:20:00",
+     "item": "Pain Management: PCA"
+    },
+    {
+     "rid": "chart:33558396:223792:2125-02-28 08:20:00",
+     "time": "2125-02-28 08:20:00",
+     "item": "Pain Management: Patch"
+    },
+    {
+     "rid": "chart:33558396:223792:2125-02-28 09:00:00",
+     "time": "2125-02-28 09:00:00",
+     "item": "Pain Management: Patch"
+    },
+    {
+     "rid": "chart:33558396:223792:2125-02-28 09:00:00",
+     "time": "2125-02-28 09:00:00",
+     "item": "Pain Management: PCA"
+    },
+    {
+     "rid": "chart:33558396:223792:2125-02-28 09:00:00",
+     "time": "2125-02-28 09:00:00",
+     "item": "Pain Management: IM Injection"
+    },
+    {
+     "rid": "rx:98142280:2125-02-27 18:00:00",
+     "time": "2125-02-27 18:00:00",
+     "item": "Order: Oxycodone-Acetaminophen (5mg-325mg) 1-2 TAB PO/NG (active at decision time)"
+    },
+    {
+     "rid": "rx:9798369:2125-02-27 18:00:00",
+     "time": "2125-02-27 18:00:00",
+     "item": "Order: Oxycodone-Acetaminophen (5mg-325mg) 1-2 TAB PO/NG (active at decision time)"
+    },
+    {
+     "rid": "chart:33558396:223792:2125-02-28 00:00:00",
+     "time": "2125-02-28 00:00:00",
+     "item": "Pain Management: SC Injection"
+    },
+    {
+     "rid": "chart:33558396:223792:2125-02-28 01:00:00",
+     "time": "2125-02-28 01:00:00",
+     "item": "Pain Management: IM Injection"
+    },
+    {
+     "rid": "chart:33558396:223792:2125-02-28 01:00:00",
+     "time": "2125-02-28 01:00:00",
+     "item": "Pain Management: PCA"
+    },
+    {
+     "rid": "chart:33558396:223795:2125-02-28 01:00:00",
+     "time": "2125-02-28 01:00:00",
+     "item": "Pain Assessment Method: Patient Verbalized"
+    },
+    {
+     "rid": "chart:33558396:223795:2125-02-28 02:00:00",
+     "time": "2125-02-28 02:00:00",
+     "item": "Pain Assessment Method: Patient Verbalized"
+    },
+    {
+     "rid": "chart:33558396:223795:2125-02-28 03:00:00",
+     "time": "2125-02-28 03:00:00",
+     "item": "Pain Assessment Method: Patient Verbalized"
+    },
+    {
+     "rid": "chart:33558396:228890:2125-02-28 05:00:00",
+     "time": "2125-02-28 05:00:00",
+     "item": "Pain NCP - Interventions: Manage environment for patient's maximum comfort"
+    },
+    {
+     "rid": "chart:33558396:228890:2125-02-28 05:00:00",
+     "time": "2125-02-28 05:00:00",
+     "item": "Pain NCP - Interventions: Pharmacological pain management as ordered"
+    },
+    {
+     "rid": "chart:33558396:228890:2125-02-28 05:00:00",
+     "time": "2125-02-28 05:00:00",
+     "item": "Pain NCP - Interventions: Assess for anxiety, depression, or delirium which may contribute to pain and interfere with pain management"
+    },
+    {
+     "rid": "chart:33558396:223795:2125-02-28 06:00:00",
+     "time": "2125-02-28 06:00:00",
+     "item": "Pain Assessment Method: Patient Verbalized"
+    },
+    {
+     "rid": "chart:33558396:223795:2125-02-28 08:20:00",
+     "time": "2125-02-28 08:20:00",
+     "item": "Pain Assessment Method: Patient Verbalized"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M33558396A1::01",
+   "claim_id": "M33558396A1",
+   "claim_text": "Monitor lactate levels closely, as they are elevated.",
+   "kind": "action",
+   "text": "Monitor lactate levels closely.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33558396A2::03",
+   "claim_id": "M33558396A2",
+   "claim_text": "Assess for the need to adjust fluid management given low sodium and chloride levels.",
+   "kind": "action",
+   "text": "Assess for the need to adjust fluid management.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "fluid management",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33558396A3::05",
+   "claim_id": "M33558396A3",
+   "claim_text": "Consider initiating or adjusting potassium supplementation given low potassium levels.",
+   "kind": "action",
+   "text": "Consider initiating or adjusting potassium supplementation.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium supplementation",
+   "conditional": true,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The clinicians recorded magnesium replacement, but not the suggested potassium replacement.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M33558396A4::07",
+   "claim_id": "M33558396A4",
+   "claim_text": "Monitor oxygen saturation and consider adjusting ventilator settings if necessary to maintain adequate oxygenation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220277:2125-03-01 01:00:00:350915",
+     "time": "2125-03-01 01:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:220277:2125-03-01 02:00:00:350924",
+     "time": "2125-03-01 02:00:00",
+     "item": "SpO2",
+     "value": "99 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x28.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33558396A4::08",
+   "claim_id": "M33558396A4",
+   "claim_text": "Monitor oxygen saturation and consider adjusting ventilator settings if necessary to maintain adequate oxygenation.",
+   "kind": "action",
+   "text": "Consider adjusting ventilator settings if necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M33558396A5::09",
+   "claim_id": "M33558396A5",
+   "claim_text": "Continue to monitor INR and PT, as anticoagulation status may need adjustment.",
+   "kind": "action",
+   "text": "Continue to monitor INR and PT.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR and PT",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No INR measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33558396A6::10",
+   "claim_id": "M33558396A6",
+   "claim_text": "Evaluate the need for further blood transfusions given the low hemoglobin and hematocrit levels.",
+   "kind": "action",
+   "text": "Evaluate the need for further blood transfusions.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "blood transfusions",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33558396A7::12",
+   "claim_id": "M33558396A7",
+   "claim_text": "Assess for any signs of infection given the elevated white blood cell count.",
+   "kind": "action",
+   "text": "Assess for any signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33558396A8::14",
+   "claim_id": "M33558396A8",
+   "claim_text": "Monitor for signs of renal impairment given the creatinine levels.",
+   "kind": "action",
+   "text": "Monitor for signs of renal impairment.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of renal impairment",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33558396A9::16",
+   "claim_id": "M33558396A9",
+   "claim_text": "Continue to manage pain with the current regimen, reassess as needed.",
+   "kind": "action",
+   "text": "Continue to manage pain with the current regimen.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pain management",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX13207737",
+     "time": "2125-02-28 11:00:00",
+     "item": "Ordered: HYDROmorphone 2500 mcg ED",
+     "class": "opioid_analgesia"
+    },
+    {
+     "rid": "IN221744",
+     "time": "2125-02-28 11:30:00",
+     "item": "Fentanyl infusion started at",
+     "class": "opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia / non-opioid analgesia after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M33558396A9::17",
+   "claim_id": "M33558396A9",
+   "claim_text": "Continue to manage pain with the current regimen, reassess as needed.",
+   "kind": "action",
+   "text": "Reassess as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain management",
+   "conditional": true,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223791:2125-03-01 00:00:00:350882",
+     "time": "2125-03-01 00:00:00",
+     "item": "pain score",
+     "value": "Mild to Moderate."
+    },
+    {
+     "rid": "chart:224409:2125-03-01 00:00:00:350892",
+     "time": "2125-03-01 00:00:00",
+     "item": "pain score",
+     "value": "Mild to Moderate."
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x11.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 20.7 K/uL at 2125-02-28 02:46:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes. Latest lactate 2.4 mmol/L at 2125-02-27 23:54:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV",
+    "Ketorolac",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 7,
+   "covered": true,
+   "by_atoms": [
+    "M33558396A9::16"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M33558396A9::16"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 20.7 K/uL at 2125-02-28 02:46:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes. Latest lactate 2.4 mmol/L at 2125-02-27 23:54:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV",
+    "Ketorolac",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 48,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 6,
+  "supported": 4,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Low sodium and chloride levels are present. -- Latest sodium 136 mEq/L at 2125-02-28 02:46:00 (reference 133.0 to 145.0) is normal, not consistent with 'low'.",
+    "Potassium levels are low. -- Latest potassium 4.5 mEq/L at 2125-02-28 09:21:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 2,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.25,
+  "recall_all": 0.2,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

@@ -1,0 +1,593 @@
+{
+ "case_id": "M34531557",
+ "decision_point": "2117-03-15 16:34:58",
+ "claims": [
+  "Monitor serum potassium levels closely.",
+  "Continue intravenous fluids to maintain hydration.",
+  "Assess for signs of respiratory distress."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34531557A1::01",
+   "claim_id": "M34531557A1",
+   "claim_text": "Monitor serum potassium levels closely.",
+   "kind": "action",
+   "text": "Monitor serum potassium levels closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum potassium levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34531557A2::02",
+   "claim_id": "M34531557A2",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluids to maintain hydration.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34531557A3::03",
+   "claim_id": "M34531557A3",
+   "claim_text": "Assess for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34531557A2::P01",
+   "claim_id": "M34531557A2",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M34531557A2::P01",
+   "claim_id": "M34531557A2",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The record R47 confirms that an infusion of Dextrose 5% (an intravenous fluid) was running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:7955862:220949:2117-03-15 12:30:00",
+     "time": "2117-03-15 12:30:00",
+     "item": "Running at decision time (started 2117-03-15 12:30:00): Infusion/input Dextrose 5% at 9.50570297241211 mL/hour"
+    },
+    {
+     "rid": "inputevents:9748248:225158:2117-03-14 21:57:00",
+     "time": "2117-03-14 21:57:00",
+     "item": "Infusion/input NaCl 0.9% at 81.521736145019531 mL/hour (2117-03-14 21:57:00 to 2117-03-15 10:13:00)"
+    },
+    {
+     "rid": "chart:34531557:220645:2117-03-14 21:19:00",
+     "time": "2117-03-14 21:19:00",
+     "item": "Sodium (serum): 139 mEq/L"
+    },
+    {
+     "rid": "inputevents:5110423:220949:2117-03-15 00:06:00",
+     "time": "2117-03-15 00:06:00",
+     "item": "Infusion/input Dextrose 5% at 15.205639839172363 mL/hour (2117-03-15 00:06:00 to 2117-03-15 00:30:00)"
+    },
+    {
+     "rid": "inputevents:441821:220949:2117-03-15 00:30:00",
+     "time": "2117-03-15 00:30:00",
+     "item": "Infusion/input Dextrose 5% at 9.5035247802734375 mL/hour (2117-03-15 00:30:00 to 2117-03-15 01:59:00)"
+    },
+    {
+     "rid": "rx:77093280:2117-03-15 04:00:00",
+     "time": "2117-03-15 04:00:00",
+     "item": "Order: 0.9% Sodium Chloride 250 mL IV DRIP (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M34531557A1::01",
+   "claim_id": "M34531557A1",
+   "claim_text": "Monitor serum potassium levels closely.",
+   "kind": "action",
+   "text": "Monitor serum potassium levels closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum potassium levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227442:2117-03-16 01:25:00:587883",
+     "time": "2117-03-16 01:25:00",
+     "item": "potassium",
+     "value": "4 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2117-03-16 01:25:00:50442",
+     "time": "2117-03-16 01:25:00",
+     "item": "potassium",
+     "value": "4.0 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34531557A2::02",
+   "claim_id": "M34531557A2",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluids to maintain hydration.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2117-03-15 12:30:00",
+     "item": "Dextrose 5% infusion continuing at 9.50570297241211 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158",
+     "time": "2117-03-15 20:00:00",
+     "item": "NaCl 0.9% infusion started at 400 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34531557A3::03",
+   "claim_id": "M34531557A3",
+   "claim_text": "Assess for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 16 K/uL at 2117-03-15 01:45:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefTRIAXone",
+    "Ceftriaxone"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.9 mg/dL at 2117-03-15 01:45:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate",
+    "Calcium Gluconate sliding scale (Critical Care-Ionized calcium)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Phenylephrine"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LevETIRAcetam",
+    "Levetiracetam (Keppra)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CT scan",
+    "Portable Chest X-Ray"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Osmolite 1.5 (Full)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "OxyCODONE--Acetaminophen (5mg-325mg)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 18,
+   "covered": true,
+   "by_atoms": [
+    "M34531557A2::02"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 16 K/uL at 2117-03-15 01:45:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefTRIAXone",
+    "Ceftriaxone"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.9 mg/dL at 2117-03-15 01:45:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate",
+    "Calcium Gluconate sliding scale (Critical Care-Ionized calcium)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Phenylephrine"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "LevETIRAcetam",
+    "Levetiracetam (Keppra)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CT scan",
+    "Portable Chest X-Ray"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Osmolite 1.5 (Full)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "OxyCODONE--Acetaminophen (5mg-325mg)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 18,
+   "covered": true,
+   "by_atoms": [
+    "M34531557A2::02"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 84,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.111,
+  "recall_all": 0.077,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.111,
+  "recall_all_at3": 0.077
+ }
+}

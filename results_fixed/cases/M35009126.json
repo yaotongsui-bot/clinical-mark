@@ -1,0 +1,557 @@
+{
+ "case_id": "M35009126",
+ "decision_point": "2186-11-13 19:55:00",
+ "claims": [
+  "Monitor arterial blood gases (ABGs) more frequently due to recent changes in lactate and pH levels.",
+  "Continue mechanical ventilation with current settings, ensuring adequate oxygenation and ventilation.",
+  "Assess and manage pain, as the patient is currently experiencing pain without response to current analgesics."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35009126A1::01",
+   "claim_id": "M35009126A1",
+   "claim_text": "Monitor arterial blood gases (ABGs) more frequently due to recent changes in lactate and pH levels.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases (ABGs) more frequently.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ABGs",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35009126A1::02",
+   "claim_id": "M35009126A1",
+   "claim_text": "Monitor arterial blood gases (ABGs) more frequently due to recent changes in lactate and pH levels.",
+   "kind": "fact",
+   "text": "Recent changes in lactate and pH levels have occurred.",
+   "concept": "lactate",
+   "notes": [
+    "concept set by the rule files: other -> lactate"
+   ],
+   "fact_kind": "judgment",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M35009126A2::03",
+   "claim_id": "M35009126A2",
+   "claim_text": "Continue mechanical ventilation with current settings, ensuring adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35009126A2::04",
+   "claim_id": "M35009126A2",
+   "claim_text": "Continue mechanical ventilation with current settings, ensuring adequate oxygenation and ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M35009126A2::05",
+   "claim_id": "M35009126A2",
+   "claim_text": "Continue mechanical ventilation with current settings, ensuring adequate oxygenation and ventilation.",
+   "kind": "goal",
+   "text": "Ensure adequate oxygenation and ventilation.",
+   "concept": "oxygenation",
+   "notes": []
+  },
+  {
+   "atom_id": "M35009126A3::06",
+   "claim_id": "M35009126A3",
+   "claim_text": "Assess and manage pain, as the patient is currently experiencing pain without response to current analgesics.",
+   "kind": "action",
+   "text": "Assess and manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35009126A3::07",
+   "claim_id": "M35009126A3",
+   "claim_text": "Assess and manage pain, as the patient is currently experiencing pain without response to current analgesics.",
+   "kind": "fact",
+   "text": "The patient is currently experiencing pain without response to current analgesics.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35009126A1::02",
+   "claim_id": "M35009126A1",
+   "claim_text": "Monitor arterial blood gases (ABGs) more frequently due to recent changes in lactate and pH levels.",
+   "kind": "fact",
+   "text": "Recent changes in lactate and pH levels have occurred.",
+   "concept": "lactate",
+   "notes": [
+    "concept set by the rule files: other -> lactate"
+   ],
+   "fact_kind": "judgment",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "Vague statement (no specific measure or direction of change)."
+  },
+  {
+   "atom_id": "M35009126A2::04",
+   "claim_id": "M35009126A2",
+   "claim_text": "Continue mechanical ventilation with current settings, ensuring adequate oxygenation and ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:931302:225792:2186-11-12 20:29:00",
+     "time": "2186-11-12 20:29:00",
+     "item": "Running at decision time (started 2186-11-12 20:29:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M35009126A3::07",
+   "claim_id": "M35009126A3",
+   "claim_text": "Assess and manage pain, as the patient is currently experiencing pain without response to current analgesics.",
+   "kind": "fact",
+   "text": "The patient is currently experiencing pain without response to current analgesics.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "A clinical judgment (diagnosis, cause or necessity) with no directly comparable record."
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35009126A1::01",
+   "claim_id": "M35009126A1",
+   "claim_text": "Monitor arterial blood gases (ABGs) more frequently due to recent changes in lactate and pH levels.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases (ABGs) more frequently.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ABGs",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35009126A2::03",
+   "claim_id": "M35009126A2",
+   "claim_text": "Continue mechanical ventilation with current settings, ensuring adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2186-11-12 20:29:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35009126A3::06",
+   "claim_id": "M35009126A3",
+   "claim_text": "Assess and manage pain, as the patient is currently experiencing pain without response to current analgesics.",
+   "kind": "action",
+   "text": "Assess and manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223791:2186-11-13 20:00:00:274545",
+     "time": "2186-11-13 20:00:00",
+     "item": "pain score",
+     "value": "Unable to Score"
+    },
+    {
+     "rid": "chart:224409:2186-11-13 20:00:00:274620",
+     "time": "2186-11-13 20:00:00",
+     "item": "pain score",
+     "value": "Unable to Score"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x11.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 16 K/uL at 2186-11-13 14:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefTAZidime",
+    "CefTRIAXone",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "MetroNIDAZOLE",
+    "Vancomycin"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 16 K/uL at 2186-11-13 14:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Blood Cultured",
+    "Sputum Culture"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M35009126A2::03"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Valproic Acid"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 29,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 16 K/uL at 2186-11-13 14:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefTAZidime",
+    "CefTRIAXone",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "MetroNIDAZOLE",
+    "Vancomycin"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 16 K/uL at 2186-11-13 14:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Blood Cultured",
+    "Sputum Culture"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M35009126A2::03"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Valproic Acid"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 29,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 102,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 2,
+  "supported_share": 0.333,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.667,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.25,
+  "recall_okay": 0.0,
+  "recall_all": 0.1,
+  "recall_vital_at3": 0.25,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.1
+ }
+}

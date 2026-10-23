@@ -1,0 +1,327 @@
+{
+ "case_id": "M30585761",
+ "decision_point": "2125-06-18 04:12:54",
+ "claims": [
+  "Monitor electrolyte levels, particularly potassium, closely.",
+  "Continue insulin therapy to manage blood glucose levels."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30585761A1::01",
+   "claim_id": "M30585761A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30585761A1::02",
+   "claim_id": "M30585761A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30585761A2::03",
+   "claim_id": "M30585761A2",
+   "claim_text": "Continue insulin therapy to manage blood glucose levels.",
+   "kind": "action",
+   "text": "Continue insulin therapy.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin therapy",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30585761A2::P01",
+   "claim_id": "M30585761A2",
+   "claim_text": "Continue insulin therapy to manage blood glucose levels.",
+   "kind": "fact",
+   "text": "The patient is currently receiving insulin therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30585761A2::P01",
+   "claim_id": "M30585761A2",
+   "claim_text": "Continue insulin therapy to manage blood glucose levels.",
+   "kind": "fact",
+   "text": "The patient is currently receiving insulin therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The patient received an administration of Insulin - Regular on 2125-06-17 at 22:09, which is within 24 hours of the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "not_supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:8298957:223258:2125-06-17 22:09:00",
+     "time": "2125-06-17 22:09:00",
+     "item": "Infusion/input Insulin - Regular 4 units (2125-06-17 22:09:00 to 2125-06-17 22:10:00)"
+    },
+    {
+     "rid": "inputevents:3065356:223258:2125-06-17 11:05:00",
+     "time": "2125-06-17 11:05:00",
+     "item": "Infusion/input Insulin - Regular 5 units (2125-06-17 11:05:00 to 2125-06-17 11:06:00)"
+    },
+    {
+     "rid": "inputevents:6442936:223258:2125-06-17 14:09:00",
+     "time": "2125-06-17 14:09:00",
+     "item": "Infusion/input Insulin - Regular 2 units (2125-06-17 14:09:00 to 2125-06-17 14:10:00)"
+    },
+    {
+     "rid": "inputevents:5127151:223258:2125-06-17 17:49:00",
+     "time": "2125-06-17 17:49:00",
+     "item": "Infusion/input Insulin - Regular 5 units (2125-06-17 17:49:00 to 2125-06-17 17:50:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30585761A1::01",
+   "claim_id": "M30585761A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 10.7 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30585761A1::02",
+   "claim_id": "M30585761A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 10.7 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30585761A2::03",
+   "claim_id": "M30585761A2",
+   "claim_text": "Continue insulin therapy to manage blood glucose levels.",
+   "kind": "action",
+   "text": "Continue insulin therapy.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin therapy",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN223258",
+     "time": "2125-06-18 08:00:00",
+     "item": "Insulin - Regular infusion started at",
+     "class": "insulin"
+    },
+    {
+     "rid": "IN223258#2",
+     "time": "2125-06-18 12:50:00",
+     "item": "Insulin - Regular infusion started at",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Amlodipine",
+    "HydrALAzine",
+    "Hydralazine",
+    "Nicardipine"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Succinate XL"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M30585761A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Amlodipine",
+    "HydrALAzine",
+    "Hydralazine",
+    "Nicardipine"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Succinate XL"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M30585761A2::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 26,
+ "observation_window_hours": 10.7,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": null,
+  "recall_okay": 0.25,
+  "recall_all": 0.25,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.25,
+  "recall_all_at3": 0.25
+ }
+}

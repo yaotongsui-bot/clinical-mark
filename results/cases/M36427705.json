@@ -1,0 +1,503 @@
+{
+ "case_id": "M36427705",
+ "decision_point": "2184-10-09 04:09:00",
+ "claims": [
+  "Monitor blood pressure closely due to recent high and low alarms.",
+  "Continue monitoring for signs of infection given leukocytosis and epithelial cells in urine.",
+  "Administer IV fluids to address hypovolemia and maintain electrolyte balance."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M36427705A1::01",
+   "claim_id": "M36427705A1",
+   "claim_text": "Monitor blood pressure closely due to recent high and low alarms.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36427705A1::02",
+   "claim_id": "M36427705A1",
+   "claim_text": "Monitor blood pressure closely due to recent high and low alarms.",
+   "kind": "fact",
+   "text": "Recent high and low blood pressure alarms have occurred.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M36427705A2::03",
+   "claim_id": "M36427705A2",
+   "claim_text": "Continue monitoring for signs of infection given leukocytosis and epithelial cells in urine.",
+   "kind": "action",
+   "text": "Continue monitoring for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36427705A2::04",
+   "claim_id": "M36427705A2",
+   "claim_text": "Continue monitoring for signs of infection given leukocytosis and epithelial cells in urine.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M36427705A2::05",
+   "claim_id": "M36427705A2",
+   "claim_text": "Continue monitoring for signs of infection given leukocytosis and epithelial cells in urine.",
+   "kind": "fact",
+   "text": "Epithelial cells are present in urine.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: urine_output -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "urine"
+  },
+  {
+   "atom_id": "M36427705A3::06",
+   "claim_id": "M36427705A3",
+   "claim_text": "Administer IV fluids to address hypovolemia and maintain electrolyte balance.",
+   "kind": "action",
+   "text": "Administer IV fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M36427705A3::07",
+   "claim_id": "M36427705A3",
+   "claim_text": "Administer IV fluids to address hypovolemia and maintain electrolyte balance.",
+   "kind": "fact",
+   "text": "Hypovolemia is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M36427705A3::08",
+   "claim_id": "M36427705A3",
+   "claim_text": "Administer IV fluids to address hypovolemia and maintain electrolyte balance.",
+   "kind": "fact",
+   "text": "Electrolyte imbalance is present.",
+   "concept": "electrolytes",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M36427705A1::02",
+   "claim_id": "M36427705A1",
+   "claim_text": "Monitor blood pressure closely due to recent high and low alarms.",
+   "kind": "fact",
+   "text": "Recent high and low blood pressure alarms have occurred.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "The source records alarm threshold settings, not alarm events."
+  },
+  {
+   "atom_id": "M36427705A2::04",
+   "claim_id": "M36427705A2",
+   "claim_text": "Continue monitoring for signs of infection given leukocytosis and epithelial cells in urine.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:222153",
+     "time": "2184-10-09 03:11:00",
+     "item": "White Blood Cells",
+     "value": 8.8,
+     "unit": "K/uL",
+     "bounds": "4.0 to 11.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest WBC 8.8 K/uL at 2184-10-09 03:11:00 (reference 4.0 to 11.0) is normal, not consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M36427705A2::05",
+   "claim_id": "M36427705A2",
+   "claim_text": "Continue monitoring for signs of infection given leukocytosis and epithelial cells in urine.",
+   "kind": "fact",
+   "text": "Epithelial cells are present in urine.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: urine_output -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "urine",
+   "label": "not_supported",
+   "reason": "The laboratory report shows 0 epithelial cells per high power field (hpf) in the urine, which contradicts the claim that they are present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "not_supported",
+     "llama3.1:8b-instruct-q4_K_M": "not_addressed",
+     "qwen2.5:14b": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:222114",
+     "time": "2184-10-08 20:37:00",
+     "item": "Epithelial Cells: 0 #/hpf"
+    }
+   ]
+  },
+  {
+   "atom_id": "M36427705A3::07",
+   "claim_id": "M36427705A3",
+   "claim_text": "Administer IV fluids to address hypovolemia and maintain electrolyte balance.",
+   "kind": "fact",
+   "text": "Hypovolemia is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "The provided records do not contain any information regarding blood volume, blood pressure, or other clinical indicators of hypovolemia.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "not_addressed",
+     "llama3.1:8b-instruct-q4_K_M": "not_addressed",
+     "qwen2.5:14b": "not_addressed"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "M36427705A3::08",
+   "claim_id": "M36427705A3",
+   "claim_text": "Administer IV fluids to address hypovolemia and maintain electrolyte balance.",
+   "kind": "fact",
+   "text": "Electrolyte imbalance is present.",
+   "concept": "electrolytes",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:222133",
+     "time": "2184-10-09 03:11:00",
+     "item": "Chloride",
+     "value": 111.0,
+     "unit": "mEq/L",
+     "bounds": "96.0 to 108.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:222131",
+     "time": "2184-10-09 03:11:00",
+     "item": "Bicarbonate",
+     "value": 17.0,
+     "unit": "mEq/L",
+     "bounds": "22.0 to 32.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:222132",
+     "time": "2184-10-09 03:11:00",
+     "item": "Calcium, Total",
+     "value": 8.3,
+     "unit": "mg/dL",
+     "bounds": "8.4 to 10.3",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:222138",
+     "time": "2184-10-09 03:11:00",
+     "item": "Phosphate",
+     "value": 5.6,
+     "unit": "mg/dL",
+     "bounds": "2.7 to 4.5",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "'electrolytes abnormal' holds when any component is abnormal. sodium: no; potassium: no; chloride: yes; bicarbonate: yes; magnesium: no; calcium: yes; phosphate: yes.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M36427705A1::01",
+   "claim_id": "M36427705A1",
+   "claim_text": "Monitor blood pressure closely due to recent high and low alarms.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220050:2184-10-09 05:00:00:491751",
+     "time": "2184-10-09 05:00:00",
+     "item": "systolic BP",
+     "value": "126 mmHg"
+    },
+    {
+     "rid": "chart:220050:2184-10-09 06:00:00:491779",
+     "time": "2184-10-09 06:00:00",
+     "item": "systolic BP",
+     "value": "128 mmHg"
+    },
+    {
+     "rid": "chart:220052:2184-10-09 05:00:00:491752",
+     "time": "2184-10-09 05:00:00",
+     "item": "mean arterial pressure",
+     "value": "79 mmHg"
+    },
+    {
+     "rid": "chart:220052:2184-10-09 06:00:00:491813",
+     "time": "2184-10-09 06:00:00",
+     "item": "mean arterial pressure",
+     "value": "84 mmHg"
+    }
+   ],
+   "reason": "Measured in the 11.8 h observation window after the decision (24 h or until ICU discharge): systolic BP x13, mean arterial pressure x13.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36427705A2::03",
+   "claim_id": "M36427705A2",
+   "claim_text": "Continue monitoring for signs of infection given leukocytosis and epithelial cells in urine.",
+   "kind": "action",
+   "text": "Continue monitoring for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36427705A3::06",
+   "claim_id": "M36427705A3",
+   "claim_text": "Administer IV fluids to address hypovolemia and maintain electrolyte balance.",
+   "kind": "action",
+   "text": "Administer IV fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2184-10-09 02:08:00",
+     "item": "NaCl 0.9% infusion continuing at 75.005821228027344 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158#2",
+     "time": "2184-10-09 05:51:00",
+     "item": "NaCl 0.9% infusion started at 200 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Cefazolin",
+    "CeftriaXONE"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HydrALAzine"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M36427705A3::06"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Cefazolin",
+    "CeftriaXONE"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HydrALAzine"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M36427705A3::06"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 15,
+ "observation_window_hours": 11.8,
+ "scoresheet": {
+  "n": 5,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 1,
+  "unverifiable": 1,
+  "supported_share": 0.2,
+  "not_supported_share": 0.4,
+  "not_addressed_share": 0.2,
+  "unverifiable_share": 0.2,
+  "reasons": {
+   "not_supported": [
+    "Leukocytosis is present. -- Latest WBC 8.8 K/uL at 2184-10-09 03:11:00 (reference 4.0 to 11.0) is normal, not consistent with 'high'.",
+    "Epithelial cells are present in urine. -- The laboratory report shows 0 epithelial cells per high power field (hpf) in the urine, which contradicts the claim that they are present."
+   ],
+   "not_addressed": [
+    "Hypovolemia is present. -- The provided records do not contain any information regarding blood volume, blood pressure, or other clinical indicators of hypovolemia."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.5,
+  "recall_all": 0.333,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.5,
+  "recall_all_at3": 0.333
+ }
+}

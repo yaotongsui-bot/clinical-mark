@@ -1,0 +1,761 @@
+{
+ "case_id": "M37057036",
+ "decision_point": "2178-07-04 22:45:00",
+ "claims": [
+  "Monitor blood glucose levels closely.",
+  "Adjust ventilator settings to prevent respiratory alarms.",
+  "Monitor heart rate and consider rate control therapy if needed.",
+  "Monitor electrolyte levels, particularly potassium and magnesium.",
+  "Evaluate the need for nutritional support.",
+  "Monitor coagulation parameters (PT, PTT, INR).",
+  "Continue insulin management to maintain normoglycemia.",
+  "Monitor respiratory function and adjust oxygen therapy as needed.",
+  "Assess for signs of sepsis given the elevated heart rate and respiratory rate."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37057036A1::01",
+   "claim_id": "M37057036A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37057036A2::02",
+   "claim_id": "M37057036A2",
+   "claim_text": "Adjust ventilator settings to prevent respiratory alarms.",
+   "kind": "action",
+   "text": "Adjust ventilator settings to prevent respiratory alarms.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37057036A3::03",
+   "claim_id": "M37057036A3",
+   "claim_text": "Monitor heart rate and consider rate control therapy if needed.",
+   "kind": "action",
+   "text": "Monitor heart rate and consider rate control therapy if needed.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": true
+  },
+  {
+   "atom_id": "M37057036A4::04",
+   "claim_id": "M37057036A4",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37057036A5::05",
+   "claim_id": "M37057036A5",
+   "claim_text": "Evaluate the need for nutritional support.",
+   "kind": "action",
+   "text": "Evaluate the need for nutritional support.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "nutritional support",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37057036A6::06",
+   "claim_id": "M37057036A6",
+   "claim_text": "Monitor coagulation parameters (PT, PTT, INR).",
+   "kind": "action",
+   "text": "Monitor coagulation parameters (PT, PTT, INR).",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37057036A7::07",
+   "claim_id": "M37057036A7",
+   "claim_text": "Continue insulin management to maintain normoglycemia.",
+   "kind": "action",
+   "text": "Continue insulin management to maintain normoglycemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin management",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37057036A8::08",
+   "claim_id": "M37057036A8",
+   "claim_text": "Monitor respiratory function and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Monitor respiratory function and adjust oxygen therapy as needed.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": true
+  },
+  {
+   "atom_id": "M37057036A9::09",
+   "claim_id": "M37057036A9",
+   "claim_text": "Assess for signs of sepsis given the elevated heart rate and respiratory rate.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis given the elevated heart rate and respiratory rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "assess",
+   "target": "sepsis",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37057036A7::P01",
+   "claim_id": "M37057036A7",
+   "claim_text": "Continue insulin management to maintain normoglycemia.",
+   "kind": "fact",
+   "text": "The patient is currently receiving insulin management.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37057036A7::P01",
+   "claim_id": "M37057036A7",
+   "claim_text": "Continue insulin management to maintain normoglycemia.",
+   "kind": "fact",
+   "text": "The patient is currently receiving insulin management.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The patient received a dose of Humalog insulin at 10:25, which is within the 24-hour window prior to the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:8062752:223262:2178-07-04 10:25:00",
+     "time": "2178-07-04 10:25:00",
+     "item": "Infusion/input Insulin - Humalog 2 units (2178-07-04 10:25:00 to 2178-07-04 10:26:00)"
+    },
+    {
+     "rid": "inputevents:5537088:220949:2178-07-04 04:22:00",
+     "time": "2178-07-04 04:22:00",
+     "item": "Running at decision time (started 2178-07-04 04:22:00): Infusion/input Dextrose 5% at 7.2046108245849609 mL/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37057036A1::01",
+   "claim_id": "M37057036A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2178-07-05 04:00:00:27944",
+     "time": "2178-07-05 04:00:00",
+     "item": "glucose",
+     "value": "181"
+    },
+    {
+     "rid": "chart:225664:2178-07-05 10:00:00:28163",
+     "time": "2178-07-05 10:00:00",
+     "item": "glucose",
+     "value": "250"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37057036A2::02",
+   "claim_id": "M37057036A2",
+   "claim_text": "Adjust ventilator settings to prevent respiratory alarms.",
+   "kind": "action",
+   "text": "Adjust ventilator settings to prevent respiratory alarms.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings changed after the decision (3 settings took different values).",
+   "evidence": [
+    {
+     "rid": "chart:224695:2178-07-04 23:00:00:27775",
+     "time": "2178-07-04 23:00:00",
+     "item": "ventilator setting",
+     "value": "22 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "chart:224685:2178-07-04 23:00:00:27803",
+     "time": "2178-07-04 23:00:00",
+     "item": "ventilator setting",
+     "value": "375 mL",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "chart:224697:2178-07-04 23:00:00:27814",
+     "time": "2178-07-04 23:00:00",
+     "item": "ventilator setting",
+     "value": "7.9 cmH2O",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37057036A3::03",
+   "claim_id": "M37057036A3",
+   "claim_text": "Monitor heart rate and consider rate control therapy if needed.",
+   "kind": "action",
+   "text": "Monitor heart rate and consider rate control therapy if needed.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": true,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2178-07-04 23:00:00:27785",
+     "time": "2178-07-04 23:00:00",
+     "item": "heart rate",
+     "value": "93 bpm"
+    },
+    {
+     "rid": "chart:220045:2178-07-05 00:00:00:27841",
+     "time": "2178-07-05 00:00:00",
+     "item": "heart rate",
+     "value": "88 bpm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x26.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37057036A4::04",
+   "claim_id": "M37057036A4",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2178-07-05 02:18:00:30757",
+     "time": "2178-07-05 02:18:00",
+     "item": "sodium",
+     "value": "142 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2178-07-05 02:18:00:40711",
+     "time": "2178-07-05 02:18:00",
+     "item": "sodium",
+     "value": "142 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2178-07-05 02:18:00:30761",
+     "time": "2178-07-05 02:18:00",
+     "item": "potassium",
+     "value": "3.5 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2178-07-05 02:18:00:40709",
+     "time": "2178-07-05 02:18:00",
+     "item": "potassium",
+     "value": "3.5 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2178-07-05 02:18:00:30748",
+     "time": "2178-07-05 02:18:00",
+     "item": "chloride",
+     "value": "105 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2178-07-05 02:18:00:40710",
+     "time": "2178-07-05 02:18:00",
+     "item": "chloride",
+     "value": "105 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2178-07-05 02:18:00:30771",
+     "time": "2178-07-05 02:18:00",
+     "item": "bicarbonate",
+     "value": "28 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2178-07-05 02:18:00:40705",
+     "time": "2178-07-05 02:18:00",
+     "item": "bicarbonate",
+     "value": "28 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2178-07-05 02:18:00:30752",
+     "time": "2178-07-05 02:18:00",
+     "item": "magnesium",
+     "value": "2.1 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2178-07-05 02:18:00:40720",
+     "time": "2178-07-05 02:18:00",
+     "item": "magnesium",
+     "value": "2.1 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2178-07-05 02:18:00:30755",
+     "time": "2178-07-05 02:18:00",
+     "item": "calcium",
+     "value": "9.1 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2178-07-05 02:18:00:40708",
+     "time": "2178-07-05 02:18:00",
+     "item": "calcium",
+     "value": "9.1 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2178-07-05 02:18:00:30758",
+     "time": "2178-07-05 02:18:00",
+     "item": "phosphate",
+     "value": "3.8 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2178-07-05 02:18:00:40706",
+     "time": "2178-07-05 02:18:00",
+     "item": "phosphate",
+     "value": "3.8 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, magnesium x2, calcium x2, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37057036A5::05",
+   "claim_id": "M37057036A5",
+   "claim_text": "Evaluate the need for nutritional support.",
+   "kind": "action",
+   "text": "Evaluate the need for nutritional support.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "nutritional support",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37057036A6::06",
+   "claim_id": "M37057036A6",
+   "claim_text": "Monitor coagulation parameters (PT, PTT, INR).",
+   "kind": "action",
+   "text": "Monitor coagulation parameters (PT, PTT, INR).",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227467:2178-07-05 02:18:00:30759",
+     "time": "2178-07-05 02:18:00",
+     "item": "INR",
+     "value": "1.1"
+    },
+    {
+     "rid": "lab:51237:2178-07-05 02:18:00:40702",
+     "time": "2178-07-05 02:18:00",
+     "item": "INR",
+     "value": "1.1"
+    },
+    {
+     "rid": "chart:227465:2178-07-05 02:18:00:30769",
+     "time": "2178-07-05 02:18:00",
+     "item": "PT",
+     "value": "12.1 sec"
+    },
+    {
+     "rid": "lab:51274:2178-07-05 02:18:00:40703",
+     "time": "2178-07-05 02:18:00",
+     "item": "PT",
+     "value": "12.1 sec"
+    },
+    {
+     "rid": "chart:227466:2178-07-05 08:12:00:30655",
+     "time": "2178-07-05 08:12:00",
+     "item": "PTT",
+     "value": "59.3 sec"
+    },
+    {
+     "rid": "chart:227466:2178-07-05 02:18:00:30770",
+     "time": "2178-07-05 02:18:00",
+     "item": "PTT",
+     "value": "61.1 sec"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): INR x2, PT x2, PTT x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37057036A7::07",
+   "claim_id": "M37057036A7",
+   "claim_text": "Continue insulin management to maintain normoglycemia.",
+   "kind": "action",
+   "text": "Continue insulin management to maintain normoglycemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin management",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN223262",
+     "time": "2178-07-05 04:00:00",
+     "item": "Insulin - Humalog infusion started at",
+     "class": "insulin"
+    },
+    {
+     "rid": "IN223260",
+     "time": "2178-07-05 08:54:00",
+     "item": "Insulin - Glargine infusion started at",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37057036A8::08",
+   "claim_id": "M37057036A8",
+   "claim_text": "Monitor respiratory function and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Monitor respiratory function and adjust oxygen therapy as needed.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": true,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:224690:2178-07-04 23:00:00:27777",
+     "time": "2178-07-04 23:00:00",
+     "item": "respiratory rate",
+     "value": "18 insp/min"
+    },
+    {
+     "rid": "chart:220210:2178-07-04 23:00:00:27809",
+     "time": "2178-07-04 23:00:00",
+     "item": "respiratory rate",
+     "value": "25 insp/min"
+    },
+    {
+     "rid": "chart:220277:2178-07-04 23:00:00:27802",
+     "time": "2178-07-04 23:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:220277:2178-07-05 00:00:00:27825",
+     "time": "2178-07-05 00:00:00",
+     "item": "SpO2",
+     "value": "97 %"
+    },
+    {
+     "rid": "chart:223835:2178-07-04 23:00:00:27769",
+     "time": "2178-07-04 23:00:00",
+     "item": "ventilator settings",
+     "value": "40"
+    },
+    {
+     "rid": "chart:224695:2178-07-04 23:00:00:27775",
+     "time": "2178-07-04 23:00:00",
+     "item": "ventilator settings",
+     "value": "22 cmH2O"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x32, SpO2 x26, ventilator settings x48.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37057036A9::09",
+   "claim_id": "M37057036A9",
+   "claim_text": "Assess for signs of sepsis given the elevated heart rate and respiratory rate.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis given the elevated heart rate and respiratory rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "assess",
+   "target": "sepsis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 10.2 K/uL at 2178-07-04 09:34:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes. Latest PaCO2 47 mm Hg at 2178-07-04 01:03:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A2::02"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Glucerna 1.2 (Full)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Glargine",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 5,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A7::07"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 10.2 K/uL at 2178-07-04 09:34:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes. Latest PaCO2 47 mm Hg at 2178-07-04 01:03:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A2::02"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Glargine",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Glucerna 1.2 (Full)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 34,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.5,
+  "recall_okay": 0.25,
+  "recall_all": 0.333,
+  "recall_vital_at3": 0.5,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.167
+ }
+}

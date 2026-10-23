@@ -1,0 +1,939 @@
+{
+ "case_id": "M32128372",
+ "decision_point": "2137-02-26 23:37:19",
+ "claims": [
+  "Monitor arterial blood gases and electrolytes closely.",
+  "Continue intravenous fluids and electrolyte replacement.",
+  "Assess and manage respiratory parameters."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32128372A1::01",
+   "claim_id": "M32128372A1",
+   "claim_text": "Monitor arterial blood gases and electrolytes closely.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases closely.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32128372A1::02",
+   "claim_id": "M32128372A1",
+   "claim_text": "Monitor arterial blood gases and electrolytes closely.",
+   "kind": "action",
+   "text": "Monitor electrolytes closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolytes",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32128372A2::03",
+   "claim_id": "M32128372A2",
+   "claim_text": "Continue intravenous fluids and electrolyte replacement.",
+   "kind": "action",
+   "text": "Continue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32128372A2::04",
+   "claim_id": "M32128372A2",
+   "claim_text": "Continue intravenous fluids and electrolyte replacement.",
+   "kind": "action",
+   "text": "Continue electrolyte replacement.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "continue",
+   "target": "electrolyte replacement",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M32128372A3::05",
+   "claim_id": "M32128372A3",
+   "claim_text": "Assess and manage respiratory parameters.",
+   "kind": "action",
+   "text": "Assess respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32128372A3::06",
+   "claim_id": "M32128372A3",
+   "claim_text": "Assess and manage respiratory parameters.",
+   "kind": "action",
+   "text": "Manage respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "other",
+   "target": "",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M32128372A2::P01",
+   "claim_id": "M32128372A2",
+   "claim_text": "Continue intravenous fluids and electrolyte replacement.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M32128372A2::P02",
+   "claim_id": "M32128372A2",
+   "claim_text": "Continue intravenous fluids and electrolyte replacement.",
+   "kind": "fact",
+   "text": "The patient is currently receiving electrolyte replacement.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32128372A2::P01",
+   "claim_id": "M32128372A2",
+   "claim_text": "Continue intravenous fluids and electrolyte replacement.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R45 indicates that Dextrose 5% is running at the decision time, which constitutes an intravenous fluid.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:1644957:220949:2137-02-26 17:31:00",
+     "time": "2137-02-26 17:31:00",
+     "item": "Running at decision time (started 2137-02-26 17:31:00): Infusion/input Dextrose 5% at 6.0060062408447266 mL/hour"
+    },
+    {
+     "rid": "inputevents:6396958:220949:2137-02-26 00:05:00",
+     "time": "2137-02-26 00:05:00",
+     "item": "Infusion/input Dextrose 5% at 3 mL/hour (2137-02-26 00:05:00 to 2137-02-26 01:42:00)"
+    },
+    {
+     "rid": "inputevents:6306371:220949:2137-02-26 00:06:00",
+     "time": "2137-02-26 00:06:00",
+     "item": "Infusion/input Dextrose 5% at 11.627906799316406 mL/hour (2137-02-26 00:06:00 to 2137-02-26 01:45:00)"
+    },
+    {
+     "rid": "inputevents:7293723:220949:2137-02-26 01:42:00",
+     "time": "2137-02-26 01:42:00",
+     "item": "Infusion/input Dextrose 5% at 6.0031609535217285 mL/hour (2137-02-26 01:42:00 to 2137-02-26 17:31:00)"
+    },
+    {
+     "rid": "inputevents:1468608:220949:2137-02-26 01:45:00",
+     "time": "2137-02-26 01:45:00",
+     "item": "Infusion/input Dextrose 5% at 5.8139538764953613 mL/hour (2137-02-26 01:45:00 to 2137-02-26 02:09:00)"
+    },
+    {
+     "rid": "rx:56240777:2137-02-25 00:00:00",
+     "time": "2137-02-25 00:00:00",
+     "item": "Order: 0.9% Sodium Chloride 250 mL IV DRIP (active at decision time)"
+    },
+    {
+     "rid": "rx:33582453:2137-02-25 23:00:00",
+     "time": "2137-02-25 23:00:00",
+     "item": "Order: 5% Dextrose 100 mL IV DRIP (active at decision time)"
+    },
+    {
+     "rid": "rx:94460587:2137-02-26 04:00:00",
+     "time": "2137-02-26 04:00:00",
+     "item": "Order: Lactated Ringers 1000 mL IV (active at decision time)"
+    },
+    {
+     "rid": "chart:32128372:227960:2137-02-26 08:00:00",
+     "time": "2137-02-26 08:00:00",
+     "item": "Patient/Family Informed: Yes"
+    }
+   ]
+  },
+  {
+   "atom_id": "M32128372A2::P02",
+   "claim_id": "M32128372A2",
+   "claim_text": "Continue intravenous fluids and electrolyte replacement.",
+   "kind": "fact",
+   "text": "The patient is currently receiving electrolyte replacement.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R50 confirms that the patient is receiving Calcium Gluconate, which is an electrolyte, and it is explicitly noted as 'Running at decision time'.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:4666867:221456:2137-02-26 23:12:00",
+     "time": "2137-02-26 23:12:00",
+     "item": "Running at decision time (started 2137-02-26 23:12:00): Infusion/input Calcium Gluconate"
+    },
+    {
+     "rid": "rx:6552448:2137-02-24 20:00:00",
+     "time": "2137-02-24 20:00:00",
+     "item": "Order: Heparin Flush (10 units/ml) 5 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:17613462:2137-02-24 21:00:00",
+     "time": "2137-02-24 21:00:00",
+     "item": "Order: Heparin Flush (100 units/ml) 5 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:19572256:2137-02-25 08:00:00",
+     "time": "2137-02-25 08:00:00",
+     "item": "Order: Heparin Flush (10 units/ml) 5 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:14774767:2137-02-26 05:00:00",
+     "time": "2137-02-26 05:00:00",
+     "item": "Order: Calcium Gluconate 2 g IV (active at decision time)"
+    },
+    {
+     "rid": "rx:58836741:2137-02-26 05:00:00",
+     "time": "2137-02-26 05:00:00",
+     "item": "Order: Magnesium Sulfate 2 gm IV (active at decision time)"
+    },
+    {
+     "rid": "inputevents:1939090:227523:2137-02-26 05:10:00",
+     "time": "2137-02-26 05:10:00",
+     "item": "Infusion/input Magnesium Sulfate (Bolus) at 50 mL/hour (2137-02-26 05:10:00 to 2137-02-26 06:10:00)"
+    },
+    {
+     "rid": "inputevents:9563772:227523:2137-02-26 06:10:00",
+     "time": "2137-02-26 06:10:00",
+     "item": "Infusion/input Magnesium Sulfate (Bolus) at 50 mL/hour (2137-02-26 06:10:00 to 2137-02-26 07:10:00)"
+    },
+    {
+     "rid": "inputevents:1149215:221456:2137-02-26 06:34:00",
+     "time": "2137-02-26 06:34:00",
+     "item": "Infusion/input Calcium Gluconate 2.0000001043081284 grams (2137-02-26 06:34:00 to 2137-02-26 07:34:00)"
+    },
+    {
+     "rid": "inputevents:6470279:221456:2137-02-26 16:02:00",
+     "time": "2137-02-26 16:02:00",
+     "item": "Infusion/input Calcium Gluconate 2.0000001043081284 grams (2137-02-26 16:02:00 to 2137-02-26 17:02:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32128372A1::01",
+   "claim_id": "M32128372A1",
+   "claim_text": "Monitor arterial blood gases and electrolytes closely.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases closely.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223830:2137-02-27 03:33:00:339530",
+     "time": "2137-02-27 03:33:00",
+     "item": "pH",
+     "value": "7.36 units"
+    },
+    {
+     "rid": "lab:50820:2137-02-27 14:18:00:40472",
+     "time": "2137-02-27 14:18:00",
+     "item": "pH",
+     "value": "7.41 units"
+    },
+    {
+     "rid": "chart:220235:2137-02-27 03:33:00:339526",
+     "time": "2137-02-27 03:33:00",
+     "item": "PaCO2",
+     "value": "36 mmHg"
+    },
+    {
+     "rid": "lab:50818:2137-02-27 14:18:00:40474",
+     "time": "2137-02-27 14:18:00",
+     "item": "PaCO2",
+     "value": "31 mm Hg"
+    },
+    {
+     "rid": "chart:220224:2137-02-27 03:33:00:339525",
+     "time": "2137-02-27 03:33:00",
+     "item": "PaO2",
+     "value": "122 mmHg"
+    },
+    {
+     "rid": "lab:50821:2137-02-27 14:18:00:40471",
+     "time": "2137-02-27 14:18:00",
+     "item": "PaO2",
+     "value": "101 mm Hg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pH x3, PaCO2 x3, PaO2 x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32128372A1::02",
+   "claim_id": "M32128372A1",
+   "claim_text": "Monitor arterial blood gases and electrolytes closely.",
+   "kind": "action",
+   "text": "Monitor electrolytes closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolytes",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2137-02-27 14:01:00:334865",
+     "time": "2137-02-27 14:01:00",
+     "item": "sodium",
+     "value": "141 mEq/L"
+    },
+    {
+     "rid": "chart:220645:2137-02-27 03:20:00:337831",
+     "time": "2137-02-27 03:20:00",
+     "item": "sodium",
+     "value": "140 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2137-02-27 14:01:00:334858",
+     "time": "2137-02-27 14:01:00",
+     "item": "potassium",
+     "value": "3.9 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2137-02-27 03:20:00:337826",
+     "time": "2137-02-27 03:20:00",
+     "item": "potassium",
+     "value": "4 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2137-02-27 14:01:00:334861",
+     "time": "2137-02-27 14:01:00",
+     "item": "chloride",
+     "value": "105 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2137-02-27 03:20:00:337821",
+     "time": "2137-02-27 03:20:00",
+     "item": "chloride",
+     "value": "106 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2137-02-27 14:01:00:334867",
+     "time": "2137-02-27 14:01:00",
+     "item": "bicarbonate",
+     "value": "21 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2137-02-27 03:20:00:337828",
+     "time": "2137-02-27 03:20:00",
+     "item": "bicarbonate",
+     "value": "20 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2137-02-27 14:01:00:334860",
+     "time": "2137-02-27 14:01:00",
+     "item": "magnesium",
+     "value": "2.2 mg/dL"
+    },
+    {
+     "rid": "chart:220635:2137-02-27 03:20:00:337834",
+     "time": "2137-02-27 03:20:00",
+     "item": "magnesium",
+     "value": "2.3 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2137-02-27 14:01:00:334856",
+     "time": "2137-02-27 14:01:00",
+     "item": "calcium",
+     "value": "8.8 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2137-02-27 03:20:00:337840",
+     "time": "2137-02-27 03:20:00",
+     "item": "calcium",
+     "value": "8.7 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2137-02-27 14:01:00:334859",
+     "time": "2137-02-27 14:01:00",
+     "item": "phosphate",
+     "value": "3.3 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2137-02-27 03:20:00:337833",
+     "time": "2137-02-27 03:20:00",
+     "item": "phosphate",
+     "value": "4 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x4, potassium x4, chloride x4, bicarbonate x4, magnesium x4, calcium x4, phosphate x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32128372A2::03",
+   "claim_id": "M32128372A2",
+   "claim_text": "Continue intravenous fluids and electrolyte replacement.",
+   "kind": "action",
+   "text": "Continue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158#3",
+     "time": "2137-02-26 04:10:00",
+     "item": "NaCl 0.9% infusion continuing at 10.013351440429688 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN220949",
+     "time": "2137-02-26 17:31:00",
+     "item": "Dextrose 5% infusion continuing at 6.0060062408447266 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32128372A2::04",
+   "claim_id": "M32128372A2",
+   "claim_text": "Continue intravenous fluids and electrolyte replacement.",
+   "kind": "action",
+   "text": "Continue electrolyte replacement.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "continue",
+   "target": "electrolyte replacement",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN221456",
+     "time": "2137-02-26 23:12:00",
+     "item": "Calcium Gluconate infusion continuing at",
+     "class": "calcium_replacement"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded potassium replacement / magnesium replacement / calcium replacement / phosphate replacement after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32128372A3::05",
+   "claim_id": "M32128372A3",
+   "claim_text": "Assess and manage respiratory parameters.",
+   "kind": "action",
+   "text": "Assess respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2137-02-27 00:00:00:329024",
+     "time": "2137-02-27 00:00:00",
+     "item": "respiratory rate",
+     "value": "12 insp/min"
+    },
+    {
+     "rid": "chart:224690:2137-02-27 00:00:00:329119",
+     "time": "2137-02-27 00:00:00",
+     "item": "respiratory rate",
+     "value": "16 insp/min"
+    },
+    {
+     "rid": "chart:220277:2137-02-27 00:00:00:329080",
+     "time": "2137-02-27 00:00:00",
+     "item": "SpO2",
+     "value": "100 %"
+    },
+    {
+     "rid": "chart:220277:2137-02-27 01:00:00:329183",
+     "time": "2137-02-27 01:00:00",
+     "item": "SpO2",
+     "value": "99 %"
+    },
+    {
+     "rid": "chart:224695:2137-02-27 00:00:00:329038",
+     "time": "2137-02-27 00:00:00",
+     "item": "ventilator settings",
+     "value": "11 cmH2O"
+    },
+    {
+     "rid": "chart:223849:2137-02-27 00:00:00:329079",
+     "time": "2137-02-27 00:00:00",
+     "item": "ventilator settings",
+     "value": "CPAP/PSV"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x40, SpO2 x24, ventilator settings x39.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32128372A3::06",
+   "claim_id": "M32128372A3",
+   "claim_text": "Assess and manage respiratory parameters.",
+   "kind": "action",
+   "text": "Manage respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "other",
+   "target": "",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest albumin 2.9 g/dL at 2137-02-26 13:03:00 (reference 3.5 to 5.2) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Albumin 5%",
+    "Albumin 5% (25g / 500mL)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 127.5 bpm (6 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "doctor_targets": [
+    "Amiodarone",
+    "Amiodarone 600/500",
+    "Esmolol"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest INR 2  (treatment threshold > 1.5).",
+   "doctor_targets": [
+    "Fresh Frozen Plasma",
+    "Platelets"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine",
+    "PHENYLEPHrine",
+    "Phenylephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vitamin_k",
+   "name": "vitamin K",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest INR 2  (treatment threshold > 1.5).",
+   "doctor_targets": [
+    "Phytonadione"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.07 mmol/L at 2137-02-26 22:38:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M32128372A2::04"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 5.9 mmol/L at 2137-02-26 22:38:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 31,
+   "covered": true,
+   "by_atoms": [
+    "M32128372A2::03"
+   ]
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Haloperidol",
+    "Haloperidol (Haldol)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest albumin 2.9 g/dL at 2137-02-26 13:03:00 (reference 3.5 to 5.2) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Albumin 5%",
+    "Albumin 5% (25g / 500mL)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 127.5 bpm (6 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "doctor_targets": [
+    "Amiodarone",
+    "Amiodarone 600/500",
+    "Esmolol"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest INR 2  (treatment threshold > 1.5).",
+   "doctor_targets": [
+    "Fresh Frozen Plasma",
+    "Platelets"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine",
+    "PHENYLEPHrine",
+    "Phenylephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vitamin_k",
+   "name": "vitamin K",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest INR 2  (treatment threshold > 1.5).",
+   "doctor_targets": [
+    "Phytonadione"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.07 mmol/L at 2137-02-26 22:38:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M32128372A2::04"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 5.9 mmol/L at 2137-02-26 22:38:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 31,
+   "covered": true,
+   "by_atoms": [
+    "M32128372A2::03"
+   ]
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Haloperidol",
+    "Haloperidol (Haldol)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 92,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.25,
+  "recall_okay": 0.0,
+  "recall_all": 0.167,
+  "recall_vital_at3": 0.25,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.167
+ }
+}

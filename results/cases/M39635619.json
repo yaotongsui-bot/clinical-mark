@@ -1,0 +1,559 @@
+{
+ "case_id": "M39635619",
+ "decision_point": "2174-12-05 11:28:24",
+ "claims": [
+  "Monitor INR and PT levels closely.",
+  "Administer intravenous fluids to maintain hydration.",
+  "Continue monitoring respiratory parameters and adjust ventilator settings as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39635619A1::01",
+   "claim_id": "M39635619A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor INR closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39635619A1::02",
+   "claim_id": "M39635619A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor PT levels closely.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39635619A2::03",
+   "claim_id": "M39635619A2",
+   "claim_text": "Administer intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to maintain hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39635619A3::04",
+   "claim_id": "M39635619A3",
+   "claim_text": "Continue monitoring respiratory parameters and adjust ventilator settings as needed.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39635619A3::05",
+   "claim_id": "M39635619A3",
+   "claim_text": "Continue monitoring respiratory parameters and adjust ventilator settings as needed.",
+   "kind": "action",
+   "text": "Adjust ventilator settings as needed.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "M39635619A1::01",
+   "claim_id": "M39635619A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor INR closely.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227467:2174-12-06 04:00:00:439848",
+     "time": "2174-12-06 04:00:00",
+     "item": "INR",
+     "value": "1.2"
+    },
+    {
+     "rid": "chart:227467:2174-12-05 14:15:00:442016",
+     "time": "2174-12-05 14:15:00",
+     "item": "INR",
+     "value": "1.3"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): INR x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39635619A1::02",
+   "claim_id": "M39635619A1",
+   "claim_text": "Monitor INR and PT levels closely.",
+   "kind": "action",
+   "text": "Monitor PT levels closely.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227465:2174-12-06 04:00:00:439850",
+     "time": "2174-12-06 04:00:00",
+     "item": "PT",
+     "value": "13.3 sec"
+    },
+    {
+     "rid": "chart:227465:2174-12-05 14:15:00:442011",
+     "time": "2174-12-05 14:15:00",
+     "item": "PT",
+     "value": "13.6 sec"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): PT x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39635619A2::03",
+   "claim_id": "M39635619A2",
+   "claim_text": "Administer intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids to maintain hydration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2174-12-04 12:39:00",
+     "item": "NaCl 0.9% infusion continuing at 5 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158#2",
+     "time": "2174-12-04 19:17:00",
+     "item": "NaCl 0.9% infusion continuing at 4.999333381652832 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39635619A3::04",
+   "claim_id": "M39635619A3",
+   "claim_text": "Continue monitoring respiratory parameters and adjust ventilator settings as needed.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2174-12-05 12:00:00:439010",
+     "time": "2174-12-05 12:00:00",
+     "item": "respiratory rate",
+     "value": "13 insp/min"
+    },
+    {
+     "rid": "chart:224690:2174-12-05 12:00:00:439031",
+     "time": "2174-12-05 12:00:00",
+     "item": "respiratory rate",
+     "value": "12 insp/min"
+    },
+    {
+     "rid": "chart:220277:2174-12-05 12:00:00:439028",
+     "time": "2174-12-05 12:00:00",
+     "item": "SpO2",
+     "value": "96 %"
+    },
+    {
+     "rid": "chart:220277:2174-12-05 13:00:00:439058",
+     "time": "2174-12-05 13:00:00",
+     "item": "SpO2",
+     "value": "95 %"
+    },
+    {
+     "rid": "chart:220339:2174-12-05 12:00:00:438979",
+     "time": "2174-12-05 12:00:00",
+     "item": "ventilator settings",
+     "value": "5 cmH2O"
+    },
+    {
+     "rid": "chart:223849:2174-12-05 12:00:00:438993",
+     "time": "2174-12-05 12:00:00",
+     "item": "ventilator settings",
+     "value": "CPAP/PSV"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x47, SpO2 x41, ventilator settings x36.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39635619A3::05",
+   "claim_id": "M39635619A3",
+   "claim_text": "Continue monitoring respiratory parameters and adjust ventilator settings as needed.",
+   "kind": "action",
+   "text": "Adjust ventilator settings as needed.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings changed after the decision (4 settings took different values).",
+   "evidence": [
+    {
+     "rid": "chart:224697:2174-12-05 12:00:00:439008",
+     "time": "2174-12-05 12:00:00",
+     "item": "ventilator setting",
+     "value": "7 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "chart:224695:2174-12-05 12:00:00:439023",
+     "time": "2174-12-05 12:00:00",
+     "item": "ventilator setting",
+     "value": "16 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "chart:223835:2174-12-05 12:00:00:439025",
+     "time": "2174-12-05 12:00:00",
+     "item": "ventilator setting",
+     "value": "50",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median temperature over the 6 h before the decision: 100.5 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "doctor_targets": [
+    "Piperacillin-Tazobactam",
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NORepinephrine",
+    "Norepinephrine"
+   ],
+   "doctor_rows": 15,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39635619A3::05"
+   ]
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray",
+    "EKG",
+    "Magnetic Resonance Imaging"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 23,
+   "covered": true,
+   "by_atoms": [
+    "M39635619A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median temperature over the 6 h before the decision: 100.5 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "doctor_targets": [
+    "Piperacillin-Tazobactam",
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NORepinephrine",
+    "Norepinephrine"
+   ],
+   "doctor_rows": 15,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39635619A3::05"
+   ]
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray",
+    "EKG",
+    "Magnetic Resonance Imaging"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 23,
+   "covered": true,
+   "by_atoms": [
+    "M39635619A2::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 78,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.333,
+  "recall_okay": 0.167,
+  "recall_all": 0.222,
+  "recall_vital_at3": 0.333,
+  "recall_okay_at3": 0.167,
+  "recall_all_at3": 0.222
+ }
+}

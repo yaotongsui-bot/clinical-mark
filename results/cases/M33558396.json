@@ -1,0 +1,628 @@
+{
+ "case_id": "M33558396",
+ "decision_point": "2125-02-28 10:03:08",
+ "claims": [
+  "Monitor hemodynamic parameters closely due to low blood pressure and tachycardia.",
+  "Administer intravenous fluids to maintain adequate hydration and blood volume.",
+  "Continue monitoring lactate levels as they indicate potential metabolic acidosis."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M33558396A1::01",
+   "claim_id": "M33558396A1",
+   "claim_text": "Monitor hemodynamic parameters closely due to low blood pressure and tachycardia.",
+   "kind": "action",
+   "text": "Monitor hemodynamic parameters closely.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamic parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33558396A1::02",
+   "claim_id": "M33558396A1",
+   "claim_text": "Monitor hemodynamic parameters closely due to low blood pressure and tachycardia.",
+   "kind": "fact",
+   "text": "Low blood pressure is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M33558396A1::03",
+   "claim_id": "M33558396A1",
+   "claim_text": "Monitor hemodynamic parameters closely due to low blood pressure and tachycardia.",
+   "kind": "fact",
+   "text": "Tachycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M33558396A2::04",
+   "claim_id": "M33558396A2",
+   "claim_text": "Administer intravenous fluids to maintain adequate hydration and blood volume.",
+   "kind": "action",
+   "text": "Administer intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M33558396A2::05",
+   "claim_id": "M33558396A2",
+   "claim_text": "Administer intravenous fluids to maintain adequate hydration and blood volume.",
+   "kind": "goal",
+   "text": "Maintain adequate hydration and blood volume.",
+   "concept": "fluid_balance",
+   "notes": []
+  },
+  {
+   "atom_id": "M33558396A3::06",
+   "claim_id": "M33558396A3",
+   "claim_text": "Continue monitoring lactate levels as they indicate potential metabolic acidosis.",
+   "kind": "action",
+   "text": "Continue monitoring lactate levels.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33558396A3::07",
+   "claim_id": "M33558396A3",
+   "claim_text": "Continue monitoring lactate levels as they indicate potential metabolic acidosis.",
+   "kind": "fact",
+   "text": "Lactate levels indicate potential metabolic acidosis.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M33558396A1::02",
+   "claim_id": "M33558396A1",
+   "claim_text": "Monitor hemodynamic parameters closely due to low blood pressure and tachycardia.",
+   "kind": "fact",
+   "text": "Low blood pressure is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "chart:33558396:220052:2125-02-28 07:00:00",
+     "time": "2125-02-28 07:00:00",
+     "item": "Arterial Blood Pressure mean",
+     "value": 59.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M33558396A1::03",
+   "claim_id": "M33558396A1",
+   "claim_text": "Monitor hemodynamic parameters closely due to low blood pressure and tachycardia.",
+   "kind": "fact",
+   "text": "Tachycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:33558396:220045:2125-02-28 05:00:00",
+     "time": "2125-02-28 05:00:00",
+     "item": "Heart Rate",
+     "value": 87.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "chart:33558396:220045:2125-02-28 06:00:00",
+     "time": "2125-02-28 06:00:00",
+     "item": "Heart Rate",
+     "value": 90.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "chart:33558396:220045:2125-02-28 07:00:00",
+     "time": "2125-02-28 07:00:00",
+     "item": "Heart Rate",
+     "value": 95.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "Median heart rate over the 6 h before the decision: 90 bpm (3 readings), normal by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "computed": {
+    "median": 90.0,
+    "status": "normal",
+    "n": 3
+   },
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M33558396A3::07",
+   "claim_id": "M33558396A3",
+   "claim_text": "Continue monitoring lactate levels as they indicate potential metabolic acidosis.",
+   "kind": "fact",
+   "text": "Lactate levels indicate potential metabolic acidosis.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "A hedged statement ('suspected', 'risk of', 'could indicate'), not a checkable fact."
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M33558396A1::01",
+   "claim_id": "M33558396A1",
+   "claim_text": "Monitor hemodynamic parameters closely due to low blood pressure and tachycardia.",
+   "kind": "action",
+   "text": "Monitor hemodynamic parameters closely.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamic parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2125-03-01 00:00:00:350872",
+     "time": "2125-03-01 00:00:00",
+     "item": "heart rate",
+     "value": "95 bpm"
+    },
+    {
+     "rid": "chart:220045:2125-03-01 01:00:00:350913",
+     "time": "2125-03-01 01:00:00",
+     "item": "heart rate",
+     "value": "78 bpm"
+    },
+    {
+     "rid": "chart:220048:2125-03-01 00:00:00:350881",
+     "time": "2125-03-01 00:00:00",
+     "item": "heart rhythm",
+     "value": "SR (Sinus Rhythm)"
+    },
+    {
+     "rid": "chart:220048:2125-03-01 01:00:00:350912",
+     "time": "2125-03-01 01:00:00",
+     "item": "heart rhythm",
+     "value": "SR (Sinus Rhythm)"
+    },
+    {
+     "rid": "chart:220050:2125-03-01 00:00:00:350899",
+     "time": "2125-03-01 00:00:00",
+     "item": "systolic BP",
+     "value": "152 mmHg"
+    },
+    {
+     "rid": "chart:220050:2125-03-01 01:00:00:350909",
+     "time": "2125-03-01 01:00:00",
+     "item": "systolic BP",
+     "value": "126 mmHg"
+    },
+    {
+     "rid": "chart:220052:2125-03-01 00:00:00:350907",
+     "time": "2125-03-01 00:00:00",
+     "item": "mean arterial pressure",
+     "value": "95 mmHg"
+    },
+    {
+     "rid": "chart:220052:2125-03-01 01:00:00:350914",
+     "time": "2125-03-01 01:00:00",
+     "item": "mean arterial pressure",
+     "value": "83 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x27, heart rhythm x27, systolic BP x27, mean arterial pressure x27.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33558396A2::04",
+   "claim_id": "M33558396A2",
+   "claim_text": "Administer intravenous fluids to maintain adequate hydration and blood volume.",
+   "kind": "action",
+   "text": "Administer intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2125-02-27 15:30:00",
+     "item": "Dextrose 5% infusion continuing at 9.998652458190918 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158",
+     "time": "2125-02-28 09:06:00",
+     "item": "NaCl 0.9% infusion continuing at 124.99786376953125 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M33558396A3::06",
+   "claim_id": "M33558396A3",
+   "claim_text": "Continue monitoring lactate levels as they indicate potential metabolic acidosis.",
+   "kind": "action",
+   "text": "Continue monitoring lactate levels.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 20.7 K/uL at 2125-02-28 02:46:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes. Latest lactate 2.4 mmol/L at 2125-02-27 23:54:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M33558396A2::04"
+   ]
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV",
+    "Ketorolac",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 20.7 K/uL at 2125-02-28 02:46:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes. Latest lactate 2.4 mmol/L at 2125-02-27 23:54:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M33558396A2::04"
+   ]
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV",
+    "Ketorolac",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 48,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 1,
+  "supported_share": 0.333,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.333,
+  "reasons": {
+   "not_supported": [
+    "Tachycardia is present. -- Median heart rate over the 6 h before the decision: 90 bpm (3 readings), normal by the rule 'tachycardia HR > 100; bradycardia HR < 60'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.5,
+  "recall_okay": 0.0,
+  "recall_all": 0.1,
+  "recall_vital_at3": 0.5,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.1
+ }
+}

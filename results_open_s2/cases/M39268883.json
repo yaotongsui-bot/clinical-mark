@@ -1,0 +1,1229 @@
+{
+ "case_id": "M39268883",
+ "decision_point": "2180-02-22 08:34:06",
+ "claims": [
+  "Monitor lactate levels.",
+  "Evaluate for potential sepsis given the elevated lactate and white blood cell count.",
+  "Continue intravenous fluids to maintain adequate hydration and volume status.",
+  "Administer IV insulin if the patient's blood glucose remains elevated.",
+  "Monitor electrolyte levels (potassium, magnesium, chloride) and adjust IV fluids and medications accordingly.",
+  "Assess for signs of respiratory distress and adjust ventilator settings if necessary.",
+  "Continue appropriate pain management with analgesics as needed.",
+  "Monitor heart rate and rhythm, and consider the pacemaker settings if there are any changes.",
+  "Continue to monitor coagulation status (INR, PT, PTT) to ensure appropriate anticoagulation management.",
+  "Assess for any signs of neurological changes and adjust sedation level as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39268883A1::01",
+   "claim_id": "M39268883A1",
+   "claim_text": "Monitor lactate levels.",
+   "kind": "action",
+   "text": "Monitor lactate levels.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39268883A2::02",
+   "claim_id": "M39268883A2",
+   "claim_text": "Evaluate for potential sepsis given the elevated lactate and white blood cell count.",
+   "kind": "action",
+   "text": "Evaluate for potential sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "potential sepsis",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39268883A2::03",
+   "claim_id": "M39268883A2",
+   "claim_text": "Evaluate for potential sepsis given the elevated lactate and white blood cell count.",
+   "kind": "fact",
+   "text": "Elevated lactate is present.",
+   "concept": "lactate",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M39268883A2::04",
+   "claim_id": "M39268883A2",
+   "claim_text": "Evaluate for potential sepsis given the elevated lactate and white blood cell count.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M39268883A3::05",
+   "claim_id": "M39268883A3",
+   "claim_text": "Continue intravenous fluids to maintain adequate hydration and volume status.",
+   "kind": "action",
+   "text": "Continue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A4::06",
+   "claim_id": "M39268883A4",
+   "claim_text": "Administer IV insulin if the patient's blood glucose remains elevated.",
+   "kind": "action",
+   "text": "Administer IV insulin if the patient's blood glucose remains elevated.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A5::07",
+   "claim_id": "M39268883A5",
+   "claim_text": "Monitor electrolyte levels (potassium, magnesium, chloride) and adjust IV fluids and medications accordingly.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels (potassium, magnesium, chloride).",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39268883A5::08",
+   "claim_id": "M39268883A5",
+   "claim_text": "Monitor electrolyte levels (potassium, magnesium, chloride) and adjust IV fluids and medications accordingly.",
+   "kind": "action",
+   "text": "Adjust IV fluids and medications accordingly.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "IV fluids and medications",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A6::09",
+   "claim_id": "M39268883A6",
+   "claim_text": "Assess for signs of respiratory distress and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39268883A6::10",
+   "claim_id": "M39268883A6",
+   "claim_text": "Assess for signs of respiratory distress and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Adjust ventilator settings if necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A7::11",
+   "claim_id": "M39268883A7",
+   "claim_text": "Continue appropriate pain management with analgesics as needed.",
+   "kind": "action",
+   "text": "Continue appropriate pain management with analgesics as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "appropriate pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M39268883A8::12",
+   "claim_id": "M39268883A8",
+   "claim_text": "Monitor heart rate and rhythm, and consider the pacemaker settings if there are any changes.",
+   "kind": "action",
+   "text": "Monitor heart rate and rhythm.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate and rhythm",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39268883A8::13",
+   "claim_id": "M39268883A8",
+   "claim_text": "Monitor heart rate and rhythm, and consider the pacemaker settings if there are any changes.",
+   "kind": "action",
+   "text": "Consider the pacemaker settings if there are any changes.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "pacemaker settings",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M39268883A9::14",
+   "claim_id": "M39268883A9",
+   "claim_text": "Continue to monitor coagulation status (INR, PT, PTT) to ensure appropriate anticoagulation management.",
+   "kind": "action",
+   "text": "Continue to monitor coagulation status (INR, PT, PTT).",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "coagulation status",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39268883A10::15",
+   "claim_id": "M39268883A10",
+   "claim_text": "Assess for any signs of neurological changes and adjust sedation level as needed.",
+   "kind": "action",
+   "text": "Assess for any signs of neurological changes.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of neurological changes",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39268883A10::16",
+   "claim_id": "M39268883A10",
+   "claim_text": "Assess for any signs of neurological changes and adjust sedation level as needed.",
+   "kind": "action",
+   "text": "Adjust sedation level as needed.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation level",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883A3::P01",
+   "claim_id": "M39268883A3",
+   "claim_text": "Continue intravenous fluids to maintain adequate hydration and volume status.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M39268883A7::P02",
+   "claim_id": "M39268883A7",
+   "claim_text": "Continue appropriate pain management with analgesics as needed.",
+   "kind": "fact",
+   "text": "The patient is currently receiving appropriate pain management.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39268883A2::03",
+   "claim_id": "M39268883A2",
+   "claim_text": "Evaluate for potential sepsis given the elevated lactate and white blood cell count.",
+   "kind": "fact",
+   "text": "Elevated lactate is present.",
+   "concept": "lactate",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:235225",
+     "time": "2180-02-21 08:02:00",
+     "item": "Lactate",
+     "value": 1.5,
+     "unit": "mmol/L",
+     "bounds": "0.5 to 2.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:235286",
+     "time": "2180-02-21 10:15:00",
+     "item": "Lactate",
+     "value": 2.7,
+     "unit": "mmol/L",
+     "bounds": "0.5 to 2.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest lactate 2.7 mmol/L at 2180-02-21 10:15:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39268883A2::04",
+   "claim_id": "M39268883A2",
+   "claim_text": "Evaluate for potential sepsis given the elevated lactate and white blood cell count.",
+   "kind": "fact",
+   "text": "Elevated white blood cell count is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:235268",
+     "time": "2180-02-21 10:15:00",
+     "item": "White Blood Cells",
+     "value": 13.7,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:235313",
+     "time": "2180-02-21 11:14:00",
+     "item": "White Blood Cells",
+     "value": 15.3,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:235405",
+     "time": "2180-02-22 03:05:00",
+     "item": "White Blood Cells",
+     "value": 15.7,
+     "unit": "K/uL",
+     "bounds": "4.0 to 10.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest WBC 15.7 K/uL at 2180-02-22 03:05:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39268883A3::P01",
+   "claim_id": "M39268883A3",
+   "claim_text": "Continue intravenous fluids to maintain adequate hydration and volume status.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Records R9 and R50 indicate that Dextrose 5% infusions are currently running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:1896490:220949:2180-02-21 10:58:00",
+     "time": "2180-02-21 10:58:00",
+     "item": "Running at decision time (started 2180-02-21 10:58:00): Infusion/input Dextrose 5% at 10 mL/hour"
+    },
+    {
+     "rid": "inputevents:7077055:220949:2180-02-22 08:28:00",
+     "time": "2180-02-22 08:28:00",
+     "item": "Running at decision time (started 2180-02-22 08:28:00): Infusion/input Dextrose 5% at 14.563202857971191 mL/hour"
+    },
+    {
+     "rid": "inputevents:8111195:220949:2180-02-22 08:00:00",
+     "time": "2180-02-22 08:00:00",
+     "item": "Infusion/input Dextrose 5% at 7.27802038192749 mL/hour (2180-02-22 08:00:00 to 2180-02-22 08:28:00)"
+    },
+    {
+     "rid": "rx:68144630:2180-02-21 11:00:00",
+     "time": "2180-02-21 11:00:00",
+     "item": "Order: 5% Dextrose 250 mL IV DRIP (active at decision time)"
+    },
+    {
+     "rid": "rx:61789464:2180-02-21 11:00:00",
+     "time": "2180-02-21 11:00:00",
+     "item": "Order: Dextrose 5% 1000 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:72309506:2180-02-21 11:00:00",
+     "time": "2180-02-21 11:00:00",
+     "item": "Order: Dextrose 50% 12.5 gm IV (active at decision time)"
+    },
+    {
+     "rid": "inputevents:9469540:220949:2180-02-21 15:07:00",
+     "time": "2180-02-21 15:07:00",
+     "item": "Infusion/input Dextrose 5% at 7.2695155143737793 mL/hour (2180-02-21 15:07:00 to 2180-02-21 15:22:00)"
+    },
+    {
+     "rid": "inputevents:8173398:220949:2180-02-21 15:28:00",
+     "time": "2180-02-21 15:28:00",
+     "item": "Infusion/input Dextrose 5% at 7.27802038192749 mL/hour (2180-02-21 15:28:00 to 2180-02-21 15:35:00)"
+    },
+    {
+     "rid": "inputevents:9706090:220949:2180-02-21 15:35:00",
+     "time": "2180-02-21 15:35:00",
+     "item": "Infusion/input Dextrose 5% at 14.548942565917969 mL/hour (2180-02-21 15:35:00 to 2180-02-21 15:44:00)"
+    },
+    {
+     "rid": "inputevents:9098877:220949:2180-02-21 15:44:00",
+     "time": "2180-02-21 15:44:00",
+     "item": "Infusion/input Dextrose 5% at 24.248239517211914 mL/hour (2180-02-21 15:44:00 to 2180-02-21 15:50:00)"
+    },
+    {
+     "rid": "inputevents:9767134:220949:2180-02-21 15:50:00",
+     "time": "2180-02-21 15:50:00",
+     "item": "Infusion/input Dextrose 5% at 12.124120712280273 mL/hour (2180-02-21 15:50:00 to 2180-02-21 15:57:00)"
+    },
+    {
+     "rid": "inputevents:2484713:220949:2180-02-21 16:31:00",
+     "time": "2180-02-21 16:31:00",
+     "item": "Infusion/input Dextrose 5% at 7.2695155143737793 mL/hour (2180-02-21 16:31:00 to 2180-02-21 17:16:00)"
+    },
+    {
+     "rid": "inputevents:3737769:220949:2180-02-21 17:29:00",
+     "time": "2180-02-21 17:29:00",
+     "item": "Infusion/input Dextrose 5% at 7.27500057220459 mL/hour (2180-02-21 17:29:00 to 2180-02-21 17:34:00)"
+    },
+    {
+     "rid": "inputevents:3510651:220949:2180-02-21 17:34:00",
+     "time": "2180-02-21 17:34:00",
+     "item": "Infusion/input Dextrose 5% at 12.124109268188477 mL/hour (2180-02-21 17:34:00 to 2180-02-21 19:02:00)"
+    },
+    {
+     "rid": "inputevents:6494601:220952:2180-02-21 17:43:00",
+     "time": "2180-02-21 17:43:00",
+     "item": "Infusion/input Dextrose 50% 25 ml (2180-02-21 17:43:00 to 2180-02-21 17:44:00)"
+    },
+    {
+     "rid": "emar:10019385-147",
+     "time": "2180-02-21 17:48:00",
+     "item": "MAR Administered: Dextrose 50%"
+    },
+    {
+     "rid": "rx:40614649:2180-02-21 18:00:00",
+     "time": "2180-02-21 18:00:00",
+     "item": "Order: Dextrose 50% 12.5 gm IV (active at decision time)"
+    },
+    {
+     "rid": "inputevents:245380:220949:2180-02-21 19:02:00",
+     "time": "2180-02-21 19:02:00",
+     "item": "Infusion/input Dextrose 5% at 7.2731385231018066 mL/hour (2180-02-21 19:02:00 to 2180-02-21 21:39:00)"
+    },
+    {
+     "rid": "rx:82470825:2180-02-21 20:00:00",
+     "time": "2180-02-21 20:00:00",
+     "item": "Order: 0.9% Sodium Chloride 500 mL IV (active at decision time)"
+    },
+    {
+     "rid": "inputevents:138120:220949:2180-02-21 20:08:00",
+     "time": "2180-02-21 20:08:00",
+     "item": "Infusion/input Dextrose 5% 200 ml (2180-02-21 20:08:00 to 2180-02-21 20:09:00)"
+    },
+    {
+     "rid": "inputevents:7377025:220949:2180-02-21 22:41:00",
+     "time": "2180-02-21 22:41:00",
+     "item": "Infusion/input Dextrose 5% at 7.2731385231018066 mL/hour (2180-02-21 22:41:00 to 2180-02-22 01:05:00)"
+    },
+    {
+     "rid": "inputevents:997117:220949:2180-02-22 01:11:00",
+     "time": "2180-02-22 01:11:00",
+     "item": "Infusion/input Dextrose 5% at 7.277320384979248 mL/hour (2180-02-22 01:11:00 to 2180-02-22 02:45:00)"
+    },
+    {
+     "rid": "chart:39268883:225103:2180-02-22 06:38:00",
+     "time": "2180-02-22 06:38:00",
+     "item": "Intravenous  / IV access prior to admission: 0"
+    },
+    {
+     "rid": "chart:39268883:225175:2180-02-22 06:38:00",
+     "time": "2180-02-22 06:38:00",
+     "item": "See chart for initial patient assessment: 1"
+    },
+    {
+     "rid": "emar:10019385-177",
+     "time": "2180-02-22 07:22:00",
+     "item": "MAR Administered: Docusate Sodium"
+    },
+    {
+     "rid": "inputevents:441387:220949:2180-02-22 08:23:00",
+     "time": "2180-02-22 08:23:00",
+     "item": "Infusion/input Dextrose 5% 200 ml (2180-02-22 08:23:00 to 2180-02-22 08:24:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M39268883A7::P02",
+   "claim_id": "M39268883A7",
+   "claim_text": "Continue appropriate pain management with analgesics as needed.",
+   "kind": "fact",
+   "text": "The patient is currently receiving appropriate pain management.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The patient received multiple doses of analgesics (Fentanyl, Hydrocodone, Oxycodone, and Ketorolac) within the 24 hours prior to the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "emar:10019385-173",
+     "time": "2180-02-22 05:50:00",
+     "item": "MAR Administered: Fentanyl Citrate"
+    },
+    {
+     "rid": "emar:10019385-184",
+     "time": "2180-02-22 07:24:00",
+     "item": "MAR Administered: HYDROmorphone (Dilaudid)"
+    },
+    {
+     "rid": "emar:10019385-186",
+     "time": "2180-02-22 07:25:00",
+     "item": "MAR Administered: OxyCODONE (Immediate Release)"
+    },
+    {
+     "rid": "emar:10019385-194",
+     "time": "2180-02-22 07:42:00",
+     "item": "MAR Administered: Fentanyl Citrate"
+    },
+    {
+     "rid": "emar:10019385-196",
+     "time": "2180-02-22 08:10:00",
+     "item": "MAR Administered: Ketorolac"
+    },
+    {
+     "rid": "emar:10019385-137",
+     "time": "2180-02-21 12:34:00",
+     "item": "MAR Administered: Fentanyl Citrate"
+    },
+    {
+     "rid": "emar:10019385-142",
+     "time": "2180-02-21 14:17:00",
+     "item": "MAR Administered: Fentanyl Citrate"
+    },
+    {
+     "rid": "emar:10019385-169",
+     "time": "2180-02-22 03:20:00",
+     "item": "MAR Administered: Fentanyl Citrate"
+    },
+    {
+     "rid": "rx:26183604:2180-02-22 01:00:00",
+     "time": "2180-02-22 01:00:00",
+     "item": "Order: HYDROmorphone (Dilaudid) 0.5 mg SC (active at decision time)"
+    },
+    {
+     "rid": "emar:10019385-168",
+     "time": "2180-02-22 03:16:00",
+     "item": "MAR Administered: HYDROmorphone (Dilaudid)"
+    },
+    {
+     "rid": "chart:39268883:223794:2180-02-22 04:00:00",
+     "time": "2180-02-22 04:00:00",
+     "item": "Pain Level Acceptable: Yes"
+    },
+    {
+     "rid": "rx:12220805:2180-02-22 08:00:00",
+     "time": "2180-02-22 08:00:00",
+     "item": "Order: Ketorolac 30 mg IV (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39268883A1::01",
+   "claim_id": "M39268883A1",
+   "claim_text": "Monitor lactate levels.",
+   "kind": "action",
+   "text": "Monitor lactate levels.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 7.5 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39268883A2::02",
+   "claim_id": "M39268883A2",
+   "claim_text": "Evaluate for potential sepsis given the elevated lactate and white blood cell count.",
+   "kind": "action",
+   "text": "Evaluate for potential sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "potential sepsis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39268883A3::05",
+   "claim_id": "M39268883A3",
+   "claim_text": "Continue intravenous fluids to maintain adequate hydration and volume status.",
+   "kind": "action",
+   "text": "Continue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949#2",
+     "time": "2180-02-21 10:58:00",
+     "item": "Dextrose 5% infusion continuing at 10 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN220949",
+     "time": "2180-02-22 08:28:00",
+     "item": "Dextrose 5% infusion continuing at 14.563202857971191 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A4::06",
+   "claim_id": "M39268883A4",
+   "claim_text": "Administer IV insulin if the patient's blood glucose remains elevated.",
+   "kind": "action",
+   "text": "Administer IV insulin if the patient's blood glucose remains elevated.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX26851078",
+     "time": "2180-02-22 11:00:00",
+     "item": "Ordered: Insulin 0 UNIT SC",
+     "class": "insulin"
+    },
+    {
+     "rid": "E10019385-203",
+     "time": "2180-02-22 11:55:00",
+     "item": "Given: Insulin",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision. The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A5::07",
+   "claim_id": "M39268883A5",
+   "claim_text": "Monitor electrolyte levels (potassium, magnesium, chloride) and adjust IV fluids and medications accordingly.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels (potassium, magnesium, chloride).",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2180-02-22 11:54:00:34909",
+     "time": "2180-02-22 11:54:00",
+     "item": "sodium",
+     "value": "135 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2180-02-22 11:54:00:100855",
+     "time": "2180-02-22 11:54:00",
+     "item": "sodium",
+     "value": "135 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2180-02-22 11:54:00:34911",
+     "time": "2180-02-22 11:54:00",
+     "item": "potassium",
+     "value": "4.1 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2180-02-22 11:54:00:100857",
+     "time": "2180-02-22 11:54:00",
+     "item": "potassium",
+     "value": "4.1 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2180-02-22 11:54:00:34912",
+     "time": "2180-02-22 11:54:00",
+     "item": "chloride",
+     "value": "98 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2180-02-22 11:54:00:100852",
+     "time": "2180-02-22 11:54:00",
+     "item": "chloride",
+     "value": "98 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2180-02-22 11:54:00:34915",
+     "time": "2180-02-22 11:54:00",
+     "item": "bicarbonate",
+     "value": "28 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2180-02-22 11:54:00:100858",
+     "time": "2180-02-22 11:54:00",
+     "item": "bicarbonate",
+     "value": "28 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2180-02-22 11:54:00:34910",
+     "time": "2180-02-22 11:54:00",
+     "item": "magnesium",
+     "value": "2.7 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2180-02-22 11:54:00:100853",
+     "time": "2180-02-22 11:54:00",
+     "item": "magnesium",
+     "value": "2.7 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2180-02-22 11:54:00:34916",
+     "time": "2180-02-22 11:54:00",
+     "item": "calcium",
+     "value": "8.8 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2180-02-22 11:54:00:100859",
+     "time": "2180-02-22 11:54:00",
+     "item": "calcium",
+     "value": "8.8 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2180-02-22 11:54:00:34913",
+     "time": "2180-02-22 11:54:00",
+     "item": "phosphate",
+     "value": "5.1 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2180-02-22 11:54:00:100861",
+     "time": "2180-02-22 11:54:00",
+     "item": "phosphate",
+     "value": "5.1 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 7.5 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, magnesium x2, calcium x2, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39268883A5::08",
+   "claim_id": "M39268883A5",
+   "claim_text": "Monitor electrolyte levels (potassium, magnesium, chloride) and adjust IV fluids and medications accordingly.",
+   "kind": "action",
+   "text": "Adjust IV fluids and medications accordingly.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "IV fluids and medications",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "evidence": [
+    {
+     "rid": "IN220949#2",
+     "time": "2180-02-21 10:58:00",
+     "item": "Dextrose 5% infusion continuing at 10 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN220949",
+     "time": "2180-02-22 08:28:00",
+     "item": "Dextrose 5% infusion continuing at 14.563202857971191 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "reason": "The IV fluids infusion rate changed after the decision (dextrose 5%).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A6::09",
+   "claim_id": "M39268883A6",
+   "claim_text": "Assess for signs of respiratory distress and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39268883A6::10",
+   "claim_id": "M39268883A6",
+   "claim_text": "Assess for signs of respiratory distress and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Adjust ventilator settings if necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 7.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A7::11",
+   "claim_id": "M39268883A7",
+   "claim_text": "Continue appropriate pain management with analgesics as needed.",
+   "kind": "action",
+   "text": "Continue appropriate pain management with analgesics as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "appropriate pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX66813957",
+     "time": "2180-02-22 09:00:00",
+     "item": "Ordered: HYDROmorphone (Dilaudid) 2-4 mg PO/NG",
+     "class": "opioid_analgesia"
+    },
+    {
+     "rid": "E10019385-201",
+     "time": "2180-02-22 11:10:00",
+     "item": "Given: HYDROmorphone (Dilaudid)",
+     "class": "opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia / non-opioid analgesia after the decision. The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A8::12",
+   "claim_id": "M39268883A8",
+   "claim_text": "Monitor heart rate and rhythm, and consider the pacemaker settings if there are any changes.",
+   "kind": "action",
+   "text": "Monitor heart rate and rhythm.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate and rhythm",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2180-02-22 09:00:00:33801",
+     "time": "2180-02-22 09:00:00",
+     "item": "heart rate",
+     "value": "81 bpm"
+    },
+    {
+     "rid": "chart:220045:2180-02-22 10:00:00:33844",
+     "time": "2180-02-22 10:00:00",
+     "item": "heart rate",
+     "value": "81 bpm"
+    }
+   ],
+   "reason": "Measured in the 7.5 h observation window after the decision (24 h or until ICU discharge): heart rate x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39268883A8::13",
+   "claim_id": "M39268883A8",
+   "claim_text": "Monitor heart rate and rhythm, and consider the pacemaker settings if there are any changes.",
+   "kind": "action",
+   "text": "Consider the pacemaker settings if there are any changes.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "pacemaker settings",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39268883A9::14",
+   "claim_id": "M39268883A9",
+   "claim_text": "Continue to monitor coagulation status (INR, PT, PTT) to ensure appropriate anticoagulation management.",
+   "kind": "action",
+   "text": "Continue to monitor coagulation status (INR, PT, PTT).",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "coagulation status",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No coagulation measurement in the 7.5 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39268883A10::15",
+   "claim_id": "M39268883A10",
+   "claim_text": "Assess for any signs of neurological changes and adjust sedation level as needed.",
+   "kind": "action",
+   "text": "Assess for any signs of neurological changes.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of neurological changes",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39268883A10::16",
+   "claim_id": "M39268883A10",
+   "claim_text": "Assess for any signs of neurological changes and adjust sedation level as needed.",
+   "kind": "action",
+   "text": "Adjust sedation level as needed.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation level",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 7.5 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.7 mmol/L at 2180-02-21 10:15:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A3::05",
+    "M39268883A5::08"
+   ]
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Nitroglycerin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A4::06"
+   ]
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A7::11"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 8,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A7::11"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.7 mmol/L at 2180-02-21 10:15:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M39268883A3::05"
+   ]
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Nitroglycerin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 25,
+ "observation_window_hours": 7.5,
+ "scoresheet": {
+  "n": 4,
+  "supported": 4,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 1.0,
+  "recall_okay": 0.5,
+  "recall_all": 0.571,
+  "recall_vital_at3": 1.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.143
+ }
+}

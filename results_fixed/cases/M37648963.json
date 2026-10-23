@@ -1,0 +1,206 @@
+{
+ "case_id": "M37648963",
+ "decision_point": "2146-12-16 09:54:58",
+ "claims": [
+  "Monitor electrolyte levels closely, particularly potassium and sodium.",
+  "Continue monitoring respiratory parameters and adjust ventilator settings if necessary.",
+  "Assess and manage pain, considering the patient's moderate pain level."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37648963A1::01",
+   "claim_id": "M37648963A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and sodium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37648963A1::02",
+   "claim_id": "M37648963A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and sodium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely, particularly sodium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37648963A2::03",
+   "claim_id": "M37648963A2",
+   "claim_text": "Continue monitoring respiratory parameters and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37648963A2::04",
+   "claim_id": "M37648963A2",
+   "claim_text": "Continue monitoring respiratory parameters and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Adjust ventilator settings if necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37648963A3::05",
+   "claim_id": "M37648963A3",
+   "claim_text": "Assess and manage pain, considering the patient's moderate pain level.",
+   "kind": "action",
+   "text": "Assess and manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "M37648963A1::01",
+   "claim_id": "M37648963A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and sodium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely, particularly potassium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 1.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37648963A1::02",
+   "claim_id": "M37648963A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and sodium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely, particularly sodium.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 1.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37648963A2::03",
+   "claim_id": "M37648963A2",
+   "claim_text": "Continue monitoring respiratory parameters and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2146-12-16 10:00:00:173128",
+     "time": "2146-12-16 10:00:00",
+     "item": "respiratory rate",
+     "value": "10 insp/min"
+    },
+    {
+     "rid": "chart:220277:2146-12-16 10:00:00:173129",
+     "time": "2146-12-16 10:00:00",
+     "item": "SpO2",
+     "value": "100 %"
+    }
+   ],
+   "reason": "Measured in the 1.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x1, SpO2 x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37648963A2::04",
+   "claim_id": "M37648963A2",
+   "claim_text": "Continue monitoring respiratory parameters and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Adjust ventilator settings if necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 1.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37648963A3::05",
+   "claim_id": "M37648963A3",
+   "claim_text": "Assess and manage pain, considering the patient's moderate pain level.",
+   "kind": "action",
+   "text": "Assess and manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No pain score measurement in the 1.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "doctor_actions_in_window": 6,
+ "observation_window_hours": 1.0,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

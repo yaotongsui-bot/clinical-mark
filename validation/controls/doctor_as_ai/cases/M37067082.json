@@ -1,0 +1,193 @@
+{
+ "case_id": "M37067082",
+ "decision_point": "2157-11-21 19:18:02",
+ "claims": [
+  "Administer Morphine Sulfate.",
+  "Administer Acetaminophen IV."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37067082A1::01",
+   "claim_id": "M37067082A1",
+   "claim_text": "Administer Morphine Sulfate.",
+   "kind": "action",
+   "text": "Administer Morphine Sulfate.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Morphine Sulfate",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37067082A2::02",
+   "claim_id": "M37067082A2",
+   "claim_text": "Administer Acetaminophen IV.",
+   "kind": "action",
+   "text": "Administer Acetaminophen IV.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Acetaminophen IV",
+   "conditional": false,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class"
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "M37067082A1::01",
+   "claim_id": "M37067082A1",
+   "claim_text": "Administer Morphine Sulfate.",
+   "kind": "action",
+   "text": "Administer Morphine Sulfate.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Morphine Sulfate",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225154",
+     "time": "2157-11-21 19:39:00",
+     "item": "Morphine Sulfate infusion started at",
+     "class": "opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37067082A2::02",
+   "claim_id": "M37067082A2",
+   "claim_text": "Administer Acetaminophen IV.",
+   "kind": "action",
+   "text": "Administer Acetaminophen IV.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Acetaminophen IV",
+   "conditional": false,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX83449455",
+     "time": "2157-11-21 20:00:00",
+     "item": "Ordered: Acetaminophen IV 1000 mg IV",
+     "class": "non_opioid_analgesia"
+    },
+    {
+     "rid": "IN228315",
+     "time": "2157-11-21 21:28:00",
+     "item": "Acetaminophen-IV infusion started at",
+     "class": "non_opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded non-opioid analgesia after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M37067082A2::02"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37067082A1::01"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M37067082A2::02"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37067082A1::01"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 6,
+ "observation_window_hours": 2.8,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": null,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 1.0,
+  "recall_all_at3": 1.0
+ }
+}

@@ -1,0 +1,185 @@
+{
+ "cases_evaluated": 85,
+ "claims_per_case": 2.99,
+ "ai_atoms": {
+  "action": 406,
+  "fact": 108,
+  "goal": 8
+ },
+ "unscored_share": 0.148,
+ "facts": {
+  "n": 108,
+  "labels": {
+   "not_supported": 37,
+   "supported": 57,
+   "not_addressed": 6,
+   "unverifiable": 8
+  },
+  "accuracy": 0.606,
+  "cases_with_not_supported": 28,
+  "by_fact_kind": {
+   "observed": {
+    "n": 11,
+    "labels": {
+     "not_supported": 3,
+     "supported": 7,
+     "unverifiable": 1
+    },
+    "accuracy": 0.7
+   },
+   "presupposition": {
+    "n": 94,
+    "labels": {
+     "not_supported": 33,
+     "supported": 50,
+     "not_addressed": 6,
+     "unverifiable": 5
+    },
+    "accuracy": 0.602
+   },
+   "judgment": {
+    "n": 3,
+    "labels": {
+     "unverifiable": 2,
+     "not_supported": 1
+    },
+    "accuracy": 0.0
+   },
+   "underspecified": {
+    "n": 0,
+    "labels": {},
+    "accuracy": null
+   }
+  }
+ },
+ "treatment_actions": {
+  "n": 125,
+  "labels": {
+   "not_done": 23,
+   "condition_not_met": 14,
+   "match": 77,
+   "vague_target": 6,
+   "partial_match": 2,
+   "unobservable": 3
+  },
+  "precision_strict": 0.755,
+  "precision_lenient": 0.775
+ },
+ "monitoring_actions": {
+  "n": 281,
+  "labels": {
+   "not_performed": 45,
+   "unobservable": 39,
+   "performed": 197
+  },
+  "performed_rate": 0.814
+ },
+ "goals_excluded": 8,
+ "coverage": {
+  "vital": {
+   "covered": 43,
+   "total": 214,
+   "micro": 0.201,
+   "macro": 0.204
+  },
+  "okay": {
+   "covered": 32,
+   "total": 396,
+   "micro": 0.081,
+   "macro": 0.086
+  },
+  "all": {
+   "covered": 75,
+   "total": 610,
+   "micro": 0.123,
+   "macro": 0.13
+  },
+  "vital_at3": {
+   "covered": 43,
+   "total": 214,
+   "micro": 0.201,
+   "macro": 0.204
+  },
+  "okay_at3": {
+   "covered": 32,
+   "total": 396,
+   "micro": 0.081,
+   "macro": 0.086
+  },
+  "all_at3": {
+   "covered": 75,
+   "total": 610,
+   "micro": 0.123,
+   "macro": 0.13
+  },
+  "problem_linked": 144,
+  "problem_linked_missed": 114,
+  "most_missed_vital": [
+   [
+    "antimicrobials",
+    45
+   ],
+   [
+    "vasopressors",
+    23
+   ],
+   [
+    "calcium replacement",
+    15
+   ],
+   [
+    "IV fluids",
+    12
+   ],
+   [
+    "invasive mechanical ventilation",
+    11
+   ],
+   [
+    "insulin",
+    10
+   ],
+   [
+    "red cell transfusion",
+    9
+   ],
+   [
+    "rate / rhythm control",
+    8
+   ],
+   [
+    "phosphate replacement",
+    7
+   ],
+   [
+    "platelet / plasma transfusion",
+    4
+   ]
+  ]
+ },
+ "judge_panel": {
+  "items": 33,
+  "agreement": {
+   "3/3": 21,
+   "2/3": 11,
+   "split": 1
+  }
+ },
+ "gold_standard": "patient records (pre-decision records for facts; post-decision clinician actions for actions)",
+ "run": {
+  "triples": "mimic_frozen_triples.json",
+  "ai_model": "qwen2.5:14b",
+  "judge_models": [
+   "gemma4:12b",
+   "llama3.1:8b-instruct-q4_K_M",
+   "qwen2.5:14b"
+  ],
+  "judge_think": [
+   "gemma4:12b"
+  ],
+  "retrieval": "hybrid",
+  "top_n": 50,
+  "llm_calls": 3,
+  "cache_hits": 183
+ }
+}

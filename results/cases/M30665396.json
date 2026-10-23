@@ -1,0 +1,565 @@
+{
+ "case_id": "M30665396",
+ "decision_point": "2167-05-06 12:54:06",
+ "claims": [
+  "Monitor electrolyte levels closely, especially potassium.",
+  "Continue IV fluids to maintain adequate hydration.",
+  "Assess for signs of respiratory distress and adjust ventilator settings if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30665396A1::01",
+   "claim_id": "M30665396A1",
+   "claim_text": "Monitor electrolyte levels closely, especially potassium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30665396A1::02",
+   "claim_id": "M30665396A1",
+   "claim_text": "Monitor electrolyte levels closely, especially potassium.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30665396A2::03",
+   "claim_id": "M30665396A2",
+   "claim_text": "Continue IV fluids to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Continue IV fluids.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30665396A3::04",
+   "claim_id": "M30665396A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30665396A3::05",
+   "claim_id": "M30665396A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Adjust ventilator settings if necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30665396A2::P01",
+   "claim_id": "M30665396A2",
+   "claim_text": "Continue IV fluids to maintain adequate hydration.",
+   "kind": "fact",
+   "text": "The patient is currently receiving IV fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30665396A2::P01",
+   "claim_id": "M30665396A2",
+   "claim_text": "Continue IV fluids to maintain adequate hydration.",
+   "kind": "fact",
+   "text": "The patient is currently receiving IV fluids.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The patient has several active orders for IV fluids (R5, R6, R14) and multiple administration records for Dextrose 5% within the 24-hour period before the decision time (R42, R45, R49).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "rx:87852149:2167-05-05 14:00:00",
+     "time": "2167-05-05 14:00:00",
+     "item": "Order: 5% Dextrose 250 mL IV DRIP (active at decision time)"
+    },
+    {
+     "rid": "rx:10609484:2167-05-05 14:00:00",
+     "time": "2167-05-05 14:00:00",
+     "item": "Order: Dextrose 5% 1000 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:4530558:2167-05-05 14:00:00",
+     "time": "2167-05-05 14:00:00",
+     "item": "Order: Sterile Water 50 mL IV (active at decision time)"
+    },
+    {
+     "rid": "inputevents:7247174:220949:2167-05-06 04:07:00",
+     "time": "2167-05-06 04:07:00",
+     "item": "Infusion/input Dextrose 5% at 20.171974182128906 mL/hour (2167-05-06 04:07:00 to 2167-05-06 07:13:00)"
+    },
+    {
+     "rid": "inputevents:3093886:220949:2167-05-06 07:13:00",
+     "time": "2167-05-06 07:13:00",
+     "item": "Infusion/input Dextrose 5% at 13.458109855651855 mL/hour (2167-05-06 07:13:00 to 2167-05-06 07:47:00)"
+    },
+    {
+     "rid": "inputevents:3231452:220949:2167-05-06 10:41:00",
+     "time": "2167-05-06 10:41:00",
+     "item": "Infusion/input Dextrose 5% 50 ml (2167-05-06 10:41:00 to 2167-05-06 10:42:00)"
+    },
+    {
+     "rid": "inputevents:3866665:220949:2167-05-05 19:23:00",
+     "time": "2167-05-05 19:23:00",
+     "item": "Infusion/input Dextrose 5% at 21.428571701049805 mL/hour (2167-05-05 19:23:00 to 2167-05-05 19:44:00)"
+    },
+    {
+     "rid": "inputevents:4700948:220949:2167-05-05 20:18:00",
+     "time": "2167-05-05 20:18:00",
+     "item": "Infusion/input Dextrose 5% at 4.01284122467041 mL/hour (2167-05-05 20:18:00 to 2167-05-06 08:02:00)"
+    },
+    {
+     "rid": "inputevents:6158479:220949:2167-05-05 20:39:00",
+     "time": "2167-05-05 20:39:00",
+     "item": "Infusion/input Dextrose 5% at 40.1657600402832 mL/hour (2167-05-05 20:39:00 to 2167-05-05 23:01:00)"
+    },
+    {
+     "rid": "inputevents:7402770:220949:2167-05-06 02:00:00",
+     "time": "2167-05-06 02:00:00",
+     "item": "Infusion/input Dextrose 5% 50 ml (2167-05-06 02:00:00 to 2167-05-06 02:01:00)"
+    },
+    {
+     "rid": "inputevents:2235695:220949:2167-05-06 02:41:00",
+     "time": "2167-05-06 02:41:00",
+     "item": "Infusion/input Dextrose 5% at 26.838031768798828 mL/hour (2167-05-06 02:41:00 to 2167-05-06 04:07:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30665396A1::01",
+   "claim_id": "M30665396A1",
+   "claim_text": "Monitor electrolyte levels closely, especially potassium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2167-05-06 13:09:00:482410",
+     "time": "2167-05-06 13:09:00",
+     "item": "sodium",
+     "value": "139 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2167-05-06 13:09:00:25309",
+     "time": "2167-05-06 13:09:00",
+     "item": "sodium",
+     "value": "139 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2167-05-06 13:09:00:482400",
+     "time": "2167-05-06 13:09:00",
+     "item": "potassium",
+     "value": "4.4 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2167-05-06 13:09:00:25315",
+     "time": "2167-05-06 13:09:00",
+     "item": "potassium",
+     "value": "4.4 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2167-05-06 13:09:00:482407",
+     "time": "2167-05-06 13:09:00",
+     "item": "chloride",
+     "value": "105 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2167-05-06 13:09:00:25308",
+     "time": "2167-05-06 13:09:00",
+     "item": "chloride",
+     "value": "105 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2167-05-06 13:09:00:482403",
+     "time": "2167-05-06 13:09:00",
+     "item": "bicarbonate",
+     "value": "25 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2167-05-06 13:09:00:25316",
+     "time": "2167-05-06 13:09:00",
+     "item": "bicarbonate",
+     "value": "25 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2167-05-06 13:09:00:482409",
+     "time": "2167-05-06 13:09:00",
+     "item": "magnesium",
+     "value": "2 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2167-05-06 13:09:00:25312",
+     "time": "2167-05-06 13:09:00",
+     "item": "magnesium",
+     "value": "2.0 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2167-05-06 13:09:00:482406",
+     "time": "2167-05-06 13:09:00",
+     "item": "calcium",
+     "value": "9.1 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2167-05-06 13:09:00:25314",
+     "time": "2167-05-06 13:09:00",
+     "item": "calcium",
+     "value": "9.1 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2167-05-06 13:09:00:482405",
+     "time": "2167-05-06 13:09:00",
+     "item": "phosphate",
+     "value": "3.9 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2167-05-06 13:09:00:25310",
+     "time": "2167-05-06 13:09:00",
+     "item": "phosphate",
+     "value": "3.9 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 5.8 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, magnesium x2, calcium x2, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30665396A1::02",
+   "claim_id": "M30665396A1",
+   "claim_text": "Monitor electrolyte levels closely, especially potassium.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227442:2167-05-06 13:09:00:482400",
+     "time": "2167-05-06 13:09:00",
+     "item": "potassium",
+     "value": "4.4 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2167-05-06 13:09:00:25315",
+     "time": "2167-05-06 13:09:00",
+     "item": "potassium",
+     "value": "4.4 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 5.8 h observation window after the decision (24 h or until ICU discharge): potassium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30665396A2::03",
+   "claim_id": "M30665396A2",
+   "claim_text": "Continue IV fluids to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Continue IV fluids.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2167-05-06 17:39:00",
+     "item": "Dextrose 5% infusion started at",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30665396A3::04",
+   "claim_id": "M30665396A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30665396A3::05",
+   "claim_id": "M30665396A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust ventilator settings if necessary.",
+   "kind": "action",
+   "text": "Adjust ventilator settings if necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 5.8 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.4 mmol/L at 2167-05-06 05:23:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M30665396A2::03"
+   ]
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen-IV",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.4 mmol/L at 2167-05-06 05:23:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M30665396A2::03"
+   ]
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen-IV",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 12,
+ "observation_window_hours": 5.8,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.5,
+  "recall_okay": 0.0,
+  "recall_all": 0.167,
+  "recall_vital_at3": 0.5,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.167
+ }
+}

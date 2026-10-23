@@ -1,0 +1,1385 @@
+{
+ "case_id": "M34578020",
+ "decision_point": "2187-02-11 20:34:00",
+ "claims": [
+  "Monitor oxygen saturation closely given hypoxemia.",
+  "Continue mechanical ventilation with settings adjusted for patient needs.",
+  "Administer fluid resuscitation as needed based on clinical assessment.",
+  "Monitor and treat electrolyte imbalances, particularly hypokalemia.",
+  "Assess and manage pain with ongoing use of analgesics.",
+  "Continue appropriate antibiotic therapy for secondary diagnoses.",
+  "Evaluate for and treat potential causes of hypoxemia, such as pneumonia or ARDS.",
+  "Monitor and adjust sedation levels as per Richmond-RASS.",
+  "Monitor for signs of sepsis and manage accordingly.",
+  "Monitor for signs of respiratory failure and adjust ventilator settings as necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34578020A1::01",
+   "claim_id": "M34578020A1",
+   "claim_text": "Monitor oxygen saturation closely given hypoxemia.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation closely.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34578020A1::02",
+   "claim_id": "M34578020A1",
+   "claim_text": "Monitor oxygen saturation closely given hypoxemia.",
+   "kind": "fact",
+   "text": "Hypoxemia is present.",
+   "concept": "oxygenation",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M34578020A2::03",
+   "claim_id": "M34578020A2",
+   "claim_text": "Continue mechanical ventilation with settings adjusted for patient needs.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34578020A2::04",
+   "claim_id": "M34578020A2",
+   "claim_text": "Continue mechanical ventilation with settings adjusted for patient needs.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M34578020A3::05",
+   "claim_id": "M34578020A3",
+   "claim_text": "Administer fluid resuscitation as needed based on clinical assessment.",
+   "kind": "action",
+   "text": "Administer fluid resuscitation as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34578020A4::06",
+   "claim_id": "M34578020A4",
+   "claim_text": "Monitor and treat electrolyte imbalances, particularly hypokalemia.",
+   "kind": "action",
+   "text": "Monitor electrolyte imbalances.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte imbalances",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34578020A4::07",
+   "claim_id": "M34578020A4",
+   "claim_text": "Monitor and treat electrolyte imbalances, particularly hypokalemia.",
+   "kind": "action",
+   "text": "Treat hypokalemia.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "treatment for hypokalemia",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34578020A4::08",
+   "claim_id": "M34578020A4",
+   "claim_text": "Monitor and treat electrolyte imbalances, particularly hypokalemia.",
+   "kind": "fact",
+   "text": "Hypokalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M34578020A5::09",
+   "claim_id": "M34578020A5",
+   "claim_text": "Assess and manage pain with ongoing use of analgesics.",
+   "kind": "action",
+   "text": "Assess and manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34578020A5::10",
+   "claim_id": "M34578020A5",
+   "claim_text": "Assess and manage pain with ongoing use of analgesics.",
+   "kind": "action",
+   "text": "Use ongoing analgesics.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "analgesics",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M34578020A6::11",
+   "claim_id": "M34578020A6",
+   "claim_text": "Continue appropriate antibiotic therapy for secondary diagnoses.",
+   "kind": "action",
+   "text": "Continue appropriate antibiotic therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "appropriate antibiotic therapy",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34578020A7::12",
+   "claim_id": "M34578020A7",
+   "claim_text": "Evaluate for and treat potential causes of hypoxemia, such as pneumonia or ARDS.",
+   "kind": "action",
+   "text": "Evaluate for potential causes of hypoxemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "potential causes of hypoxemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34578020A7::13",
+   "claim_id": "M34578020A7",
+   "claim_text": "Evaluate for and treat potential causes of hypoxemia, such as pneumonia or ARDS.",
+   "kind": "action",
+   "text": "Treat pneumonia or ARDS if present.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "treatment for pneumonia or ARDS",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M34578020A8::14",
+   "claim_id": "M34578020A8",
+   "claim_text": "Monitor and adjust sedation levels as per Richmond-RASS.",
+   "kind": "action",
+   "text": "Monitor and adjust sedation levels.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "sedation levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34578020A8::15",
+   "claim_id": "M34578020A8",
+   "claim_text": "Monitor and adjust sedation levels as per Richmond-RASS.",
+   "kind": "action",
+   "text": "Use Richmond-RASS scale.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "Richmond-RASS scale",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M34578020A9::16",
+   "claim_id": "M34578020A9",
+   "claim_text": "Monitor for signs of sepsis and manage accordingly.",
+   "kind": "action",
+   "text": "Monitor for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of sepsis",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34578020A9::17",
+   "claim_id": "M34578020A9",
+   "claim_text": "Monitor for signs of sepsis and manage accordingly.",
+   "kind": "action",
+   "text": "Manage sepsis accordingly.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "sepsis management",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M34578020A10::18",
+   "claim_id": "M34578020A10",
+   "claim_text": "Monitor for signs of respiratory failure and adjust ventilator settings as necessary.",
+   "kind": "action",
+   "text": "Monitor for signs of respiratory failure.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of respiratory failure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34578020A10::19",
+   "claim_id": "M34578020A10",
+   "claim_text": "Monitor for signs of respiratory failure and adjust ventilator settings as necessary.",
+   "kind": "action",
+   "text": "Adjust ventilator settings as necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34578020A4::R01",
+   "claim_id": "M34578020A4",
+   "claim_text": "Monitor and treat electrolyte imbalances, particularly hypokalemia.",
+   "kind": "fact",
+   "text": "Electrolyte imbalances is present.",
+   "concept": "electrolytes",
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  },
+  {
+   "atom_id": "M34578020A7::R02",
+   "claim_id": "M34578020A7",
+   "claim_text": "Evaluate for and treat potential causes of hypoxemia, such as pneumonia or ARDS.",
+   "kind": "fact",
+   "text": "Hypoxemia is present.",
+   "concept": "oxygenation",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  },
+  {
+   "atom_id": "M34578020A5::P01",
+   "claim_id": "M34578020A5",
+   "claim_text": "Assess and manage pain with ongoing use of analgesics.",
+   "kind": "fact",
+   "text": "The patient is currently receiving analgesics.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M34578020A6::P02",
+   "claim_id": "M34578020A6",
+   "claim_text": "Continue appropriate antibiotic therapy for secondary diagnoses.",
+   "kind": "fact",
+   "text": "The patient is currently receiving appropriate antibiotic therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M34578020A1::02",
+   "claim_id": "M34578020A1",
+   "claim_text": "Monitor oxygen saturation closely given hypoxemia.",
+   "kind": "fact",
+   "text": "Hypoxemia is present.",
+   "concept": "oxygenation",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:34578020:220277:2187-02-11 20:00:00",
+     "time": "2187-02-11 20:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 99.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:237918",
+     "time": "2187-02-11 06:41:00",
+     "item": "pO2",
+     "value": 239.0,
+     "unit": "mm Hg",
+     "bounds": "60 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M34578020A2::04",
+   "claim_id": "M34578020A2",
+   "claim_text": "Continue mechanical ventilation with settings adjusted for patient needs.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:7342471:225792:2187-02-10 23:00:00",
+     "time": "2187-02-10 23:00:00",
+     "item": "Running at decision time (started 2187-02-10 23:00:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M34578020A4::08",
+   "claim_id": "M34578020A4",
+   "claim_text": "Monitor and treat electrolyte imbalances, particularly hypokalemia.",
+   "kind": "fact",
+   "text": "Hypokalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:237845",
+     "time": "2187-02-10 23:16:00",
+     "item": "Potassium",
+     "value": 4.4,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:237888",
+     "time": "2187-02-11 03:55:00",
+     "item": "Potassium",
+     "value": 4.4,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest potassium 4.4 mEq/L at 2187-02-11 03:55:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M34578020A4::R01",
+   "claim_id": "M34578020A4",
+   "claim_text": "Monitor and treat electrolyte imbalances, particularly hypokalemia.",
+   "kind": "fact",
+   "text": "Electrolyte imbalances is present.",
+   "concept": "electrolytes",
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:237879",
+     "time": "2187-02-11 03:55:00",
+     "item": "Bicarbonate",
+     "value": 20.0,
+     "unit": "mEq/L",
+     "bounds": "22.0 to 32.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:237913",
+     "time": "2187-02-11 06:41:00",
+     "item": "Free Calcium",
+     "value": 1.09,
+     "unit": "mmol/L",
+     "bounds": "1.12 to 1.32",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:237887",
+     "time": "2187-02-11 03:55:00",
+     "item": "Phosphate",
+     "value": 4.6,
+     "unit": "mg/dL",
+     "bounds": "2.7 to 4.5",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "'electrolytes abnormal' holds when any component is abnormal. sodium: no; potassium: no; chloride: no; bicarbonate: yes; magnesium: no; calcium: yes; phosphate: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M34578020A7::R02",
+   "claim_id": "M34578020A7",
+   "claim_text": "Evaluate for and treat potential causes of hypoxemia, such as pneumonia or ARDS.",
+   "kind": "fact",
+   "text": "Hypoxemia is present.",
+   "concept": "oxygenation",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:34578020:220277:2187-02-11 20:00:00",
+     "time": "2187-02-11 20:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 99.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:237918",
+     "time": "2187-02-11 06:41:00",
+     "item": "pO2",
+     "value": 239.0,
+     "unit": "mm Hg",
+     "bounds": "60 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M34578020A5::P01",
+   "claim_id": "M34578020A5",
+   "claim_text": "Assess and manage pain with ongoing use of analgesics.",
+   "kind": "fact",
+   "text": "The patient is currently receiving analgesics.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R48 confirms that a Fentanyl infusion (an analgesic) is running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:2351834:225942:2187-02-11 19:00:00",
+     "time": "2187-02-11 19:00:00",
+     "item": "Running at decision time (started 2187-02-11 19:00:00): Infusion/input Fentanyl (Concentrate) at 70.1400375366211 mcg/hour"
+    },
+    {
+     "rid": "rx:11804097:2187-02-10 22:00:00",
+     "time": "2187-02-10 22:00:00",
+     "item": "Order: Fentanyl Citrate 2.5 mg IV DRIP (active at decision time)"
+    },
+    {
+     "rid": "inputevents:2380613:225942:2187-02-11 11:18:00",
+     "time": "2187-02-11 11:18:00",
+     "item": "Infusion/input Fentanyl (Concentrate) at 30.009363174438477 mcg/hour (2187-02-11 11:18:00 to 2187-02-11 11:32:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M34578020A6::P02",
+   "claim_id": "M34578020A6",
+   "claim_text": "Continue appropriate antibiotic therapy for secondary diagnoses.",
+   "kind": "fact",
+   "text": "The patient is currently receiving appropriate antibiotic therapy.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_addressed",
+   "reason": "The records contain an order for Erythromycin, but an order alone does not confirm that the patient is currently receiving the medication.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "not_addressed",
+     "llama3.1:8b-instruct-q4_K_M": "not_supported",
+     "qwen2.5:14b": "not_addressed"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "rx:2521240:2187-02-11 16:00:00",
+     "time": "2187-02-11 16:00:00",
+     "item": "Order: Erythromycin 250 mg IV (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M34578020A1::01",
+   "claim_id": "M34578020A1",
+   "claim_text": "Monitor oxygen saturation closely given hypoxemia.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation closely.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220277:2187-02-11 21:00:00:263814",
+     "time": "2187-02-11 21:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:220277:2187-02-11 22:00:00:263830",
+     "time": "2187-02-11 22:00:00",
+     "item": "SpO2",
+     "value": "99 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x21.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34578020A2::03",
+   "claim_id": "M34578020A2",
+   "claim_text": "Continue mechanical ventilation with settings adjusted for patient needs.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2187-02-10 23:00:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34578020A3::05",
+   "claim_id": "M34578020A3",
+   "claim_text": "Administer fluid resuscitation as needed based on clinical assessment.",
+   "kind": "action",
+   "text": "Administer fluid resuscitation as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158#2",
+     "time": "2187-02-11 17:43:00",
+     "item": "NaCl 0.9% infusion continuing at 5 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158",
+     "time": "2187-02-11 19:25:00",
+     "item": "NaCl 0.9% infusion continuing at 10.256410598754883 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision. The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34578020A4::06",
+   "claim_id": "M34578020A4",
+   "claim_text": "Monitor and treat electrolyte imbalances, particularly hypokalemia.",
+   "kind": "action",
+   "text": "Monitor electrolyte imbalances.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte imbalances",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2187-02-12 03:32:00:269942",
+     "time": "2187-02-12 03:32:00",
+     "item": "sodium",
+     "value": "142 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2187-02-12 03:32:00:66190",
+     "time": "2187-02-12 03:32:00",
+     "item": "sodium",
+     "value": "142 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2187-02-12 03:32:00:269956",
+     "time": "2187-02-12 03:32:00",
+     "item": "potassium",
+     "value": "4 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2187-02-12 03:32:00:66198",
+     "time": "2187-02-12 03:32:00",
+     "item": "potassium",
+     "value": "4.0 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2187-02-12 03:32:00:269940",
+     "time": "2187-02-12 03:32:00",
+     "item": "chloride",
+     "value": "108 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2187-02-12 03:32:00:66197",
+     "time": "2187-02-12 03:32:00",
+     "item": "chloride",
+     "value": "108 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2187-02-12 03:32:00:269946",
+     "time": "2187-02-12 03:32:00",
+     "item": "bicarbonate",
+     "value": "25 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2187-02-12 03:32:00:66184",
+     "time": "2187-02-12 03:32:00",
+     "item": "bicarbonate",
+     "value": "25 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2187-02-12 03:32:00:269944",
+     "time": "2187-02-12 03:32:00",
+     "item": "magnesium",
+     "value": "2.2 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2187-02-12 03:32:00:66192",
+     "time": "2187-02-12 03:32:00",
+     "item": "magnesium",
+     "value": "2.2 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2187-02-12 03:32:00:269938",
+     "time": "2187-02-12 03:32:00",
+     "item": "calcium",
+     "value": "7.8 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2187-02-12 03:32:00:66188",
+     "time": "2187-02-12 03:32:00",
+     "item": "calcium",
+     "value": "7.8 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2187-02-12 03:32:00:269937",
+     "time": "2187-02-12 03:32:00",
+     "item": "phosphate",
+     "value": "2.3 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2187-02-12 03:32:00:66189",
+     "time": "2187-02-12 03:32:00",
+     "item": "phosphate",
+     "value": "2.3 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, magnesium x2, calcium x2, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34578020A4::07",
+   "claim_id": "M34578020A4",
+   "claim_text": "Monitor and treat electrolyte imbalances, particularly hypokalemia.",
+   "kind": "action",
+   "text": "Treat hypokalemia.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "treatment for hypokalemia",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The clinicians recorded calcium replacement, but not the suggested potassium replacement.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34578020A5::09",
+   "claim_id": "M34578020A5",
+   "claim_text": "Assess and manage pain with ongoing use of analgesics.",
+   "kind": "action",
+   "text": "Assess and manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223791:2187-02-12 00:00:00:263880",
+     "time": "2187-02-12 00:00:00",
+     "item": "pain score",
+     "value": "Unable to Score"
+    },
+    {
+     "rid": "chart:223791:2187-02-12 04:00:00:264052",
+     "time": "2187-02-12 04:00:00",
+     "item": "pain score",
+     "value": "Unable to Score"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34578020A5::10",
+   "claim_id": "M34578020A5",
+   "claim_text": "Assess and manage pain with ongoing use of analgesics.",
+   "kind": "action",
+   "text": "Use ongoing analgesics.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "analgesics",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225942",
+     "time": "2187-02-11 19:00:00",
+     "item": "Fentanyl (Concentrate) infusion continuing at 70.1400375366211 mcg/hour",
+     "class": "opioid_analgesia"
+    },
+    {
+     "rid": "IN225942#2",
+     "time": "2187-02-12 10:33:00",
+     "item": "Fentanyl (Concentrate) infusion started at 108.00000762939453 mcg/hour",
+     "class": "opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia / non-opioid analgesia after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34578020A6::11",
+   "claim_id": "M34578020A6",
+   "claim_text": "Continue appropriate antibiotic therapy for secondary diagnoses.",
+   "kind": "action",
+   "text": "Continue appropriate antibiotic therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "appropriate antibiotic therapy",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX65919835",
+     "time": "2187-02-12 11:00:00",
+     "item": "Ordered: CefePIME 2 g IV",
+     "class": "antimicrobial"
+    },
+    {
+     "rid": "RX80899648",
+     "time": "2187-02-12 11:00:00",
+     "item": "Ordered: Vancomycin 1000 mg IV",
+     "class": "antimicrobial"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded antimicrobials after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34578020A7::12",
+   "claim_id": "M34578020A7",
+   "claim_text": "Evaluate for and treat potential causes of hypoxemia, such as pneumonia or ARDS.",
+   "kind": "action",
+   "text": "Evaluate for potential causes of hypoxemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "potential causes of hypoxemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34578020A7::13",
+   "claim_id": "M34578020A7",
+   "claim_text": "Evaluate for and treat potential causes of hypoxemia, such as pneumonia or ARDS.",
+   "kind": "action",
+   "text": "Treat pneumonia or ARDS if present.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "treatment for pneumonia or ARDS",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34578020A8::14",
+   "claim_id": "M34578020A8",
+   "claim_text": "Monitor and adjust sedation levels as per Richmond-RASS.",
+   "kind": "action",
+   "text": "Monitor and adjust sedation levels.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "sedation levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:228096:2187-02-11 22:00:00:263823",
+     "time": "2187-02-11 22:00:00",
+     "item": "sedation score (RASS)",
+     "value": "-2 Light sedation, briefly awakens to voice (eye opening/contact) < 10 sec"
+    },
+    {
+     "rid": "chart:228096:2187-02-12 00:00:00:263914",
+     "time": "2187-02-12 00:00:00",
+     "item": "sedation score (RASS)",
+     "value": "-2 Light sedation, briefly awakens to voice (eye opening/contact) < 10 sec"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sedation score (RASS) x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34578020A8::15",
+   "claim_id": "M34578020A8",
+   "claim_text": "Monitor and adjust sedation levels as per Richmond-RASS.",
+   "kind": "action",
+   "text": "Use Richmond-RASS scale.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "Richmond-RASS scale",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34578020A9::16",
+   "claim_id": "M34578020A9",
+   "claim_text": "Monitor for signs of sepsis and manage accordingly.",
+   "kind": "action",
+   "text": "Monitor for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of sepsis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34578020A9::17",
+   "claim_id": "M34578020A9",
+   "claim_text": "Monitor for signs of sepsis and manage accordingly.",
+   "kind": "action",
+   "text": "Manage sepsis accordingly.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "sepsis management",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34578020A10::18",
+   "claim_id": "M34578020A10",
+   "claim_text": "Monitor for signs of respiratory failure and adjust ventilator settings as necessary.",
+   "kind": "action",
+   "text": "Monitor for signs of respiratory failure.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "signs of respiratory failure",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34578020A10::19",
+   "claim_id": "M34578020A10",
+   "claim_text": "Monitor for signs of respiratory failure and adjust ventilator settings as necessary.",
+   "kind": "action",
+   "text": "Adjust ventilator settings as necessary.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator settings",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings changed after the decision (5 settings took different values).",
+   "evidence": [
+    {
+     "rid": "chart:223849:2187-02-12 00:00:00:263889",
+     "time": "2187-02-12 00:00:00",
+     "item": "ventilator setting",
+     "value": "CPAP/PSV",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "chart:224695:2187-02-12 00:00:00:263891",
+     "time": "2187-02-12 00:00:00",
+     "item": "ventilator setting",
+     "value": "11 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "chart:224697:2187-02-12 00:00:00:263908",
+     "time": "2187-02-12 00:00:00",
+     "item": "ventilator setting",
+     "value": "6 cmH2O",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.09 mmol/L at 2187-02-11 06:41:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fresh Frozen Plasma",
+    "Platelets"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "PHENYLEPHrine"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13.1 K/uL at 2187-02-11 20:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "MetRONIDAZOLE (FLagyl)",
+    "Piperacillin-Tazobactam",
+    "Vancomycin"
+   ],
+   "doctor_rows": 8,
+   "covered": true,
+   "by_atoms": [
+    "M34578020A6::11"
+   ]
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M34578020A2::03",
+    "M34578020A10::19"
+   ]
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "Lactated Ringers",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 13,
+   "covered": true,
+   "by_atoms": [
+    "M34578020A3::05"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 7,
+   "covered": true,
+   "by_atoms": [
+    "M34578020A5::10"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13.1 K/uL at 2187-02-11 20:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "MetRONIDAZOLE (FLagyl)",
+    "Piperacillin-Tazobactam",
+    "Vancomycin"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.09 mmol/L at 2187-02-11 06:41:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fresh Frozen Plasma",
+    "Platelets"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "PHENYLEPHrine"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M34578020A2::03"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "Lactated Ringers",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 13,
+   "covered": true,
+   "by_atoms": [
+    "M34578020A3::05"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 84,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 7,
+  "supported": 3,
+  "not_supported": 3,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.429,
+  "not_supported_share": 0.429,
+  "not_addressed_share": 0.143,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hypoxemia is present. -- 'oxygenation low' holds when any component is low. SpO2: no; PaO2: no.",
+    "Hypokalemia is present. -- Latest potassium 4.4 mEq/L at 2187-02-11 03:55:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'.",
+    "Hypoxemia is present. -- 'oxygenation low' holds when any component is low. SpO2: no; PaO2: no."
+   ],
+   "not_addressed": [
+    "The patient is currently receiving appropriate antibiotic therapy. -- The records contain an order for Erythromycin, but an order alone does not confirm that the patient is currently receiving the medication."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 3,
+  "treatment_precision": 0.833,
+  "recall_vital": 0.333,
+  "recall_okay": 0.667,
+  "recall_all": 0.444,
+  "recall_vital_at3": 0.167,
+  "recall_okay_at3": 0.333,
+  "recall_all_at3": 0.222
+ }
+}

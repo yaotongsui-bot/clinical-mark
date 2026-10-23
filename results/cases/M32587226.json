@@ -1,0 +1,708 @@
+{
+ "case_id": "M32587226",
+ "decision_point": "2125-09-26 13:23:24",
+ "claims": [
+  "Monitor electrolyte levels closely, particularly chloride and potassium.",
+  "Continue monitoring vital signs, especially blood pressure and heart rate.",
+  "Assess for potential causes of hypotension and hypoxemia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32587226A1::01",
+   "claim_id": "M32587226A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly chloride and potassium.",
+   "kind": "action",
+   "text": "Monitor chloride levels closely.",
+   "concept": "chloride",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "chloride",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32587226A1::02",
+   "claim_id": "M32587226A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly chloride and potassium.",
+   "kind": "action",
+   "text": "Monitor potassium levels closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32587226A2::03",
+   "claim_id": "M32587226A2",
+   "claim_text": "Continue monitoring vital signs, especially blood pressure and heart rate.",
+   "kind": "action",
+   "text": "Continue monitoring blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32587226A2::04",
+   "claim_id": "M32587226A2",
+   "claim_text": "Continue monitoring vital signs, especially blood pressure and heart rate.",
+   "kind": "action",
+   "text": "Continue monitoring heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32587226A3::05",
+   "claim_id": "M32587226A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "action",
+   "text": "Assess for potential causes of hypotension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hypotension",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32587226A3::06",
+   "claim_id": "M32587226A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "action",
+   "text": "Assess for potential causes of hypoxemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hypoxemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32587226A3::R01",
+   "claim_id": "M32587226A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  },
+  {
+   "atom_id": "M32587226A3::R02",
+   "claim_id": "M32587226A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "fact",
+   "text": "Hypoxemia is present.",
+   "concept": "oxygenation",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32587226A3::R01",
+   "claim_id": "M32587226A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:32587226:220179:2125-09-26 11:00:00",
+     "time": "2125-09-26 11:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 95.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "chart:32587226:220181:2125-09-26 11:00:00",
+     "time": "2125-09-26 11:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 62.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M32587226A3::R02",
+   "claim_id": "M32587226A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "fact",
+   "text": "Hypoxemia is present.",
+   "concept": "oxygenation",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:32587226:220277:2125-09-26 12:00:00",
+     "time": "2125-09-26 12:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 91.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:295408",
+     "time": "2125-09-25 12:12:00",
+     "item": "pO2",
+     "value": 301.0,
+     "unit": "mm Hg",
+     "bounds": "60 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: no.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32587226A1::01",
+   "claim_id": "M32587226A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly chloride and potassium.",
+   "kind": "action",
+   "text": "Monitor chloride levels closely.",
+   "concept": "chloride",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "chloride",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220602:2125-09-27 12:10:00:556515",
+     "time": "2125-09-27 12:10:00",
+     "item": "chloride",
+     "value": "104 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2125-09-27 05:44:00:557974",
+     "time": "2125-09-27 05:44:00",
+     "item": "chloride",
+     "value": "104 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): chloride x9.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32587226A1::02",
+   "claim_id": "M32587226A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly chloride and potassium.",
+   "kind": "action",
+   "text": "Monitor potassium levels closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227442:2125-09-27 12:10:00:556517",
+     "time": "2125-09-27 12:10:00",
+     "item": "potassium",
+     "value": "4.4 mEq/L"
+    },
+    {
+     "rid": "chart:227464:2125-09-27 03:11:00:556555",
+     "time": "2125-09-27 03:11:00",
+     "item": "potassium",
+     "value": "3.7 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x10.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32587226A2::03",
+   "claim_id": "M32587226A2",
+   "claim_text": "Continue monitoring vital signs, especially blood pressure and heart rate.",
+   "kind": "action",
+   "text": "Continue monitoring blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220179:2125-09-26 14:00:00:553543",
+     "time": "2125-09-26 14:00:00",
+     "item": "systolic BP",
+     "value": "102 mmHg"
+    },
+    {
+     "rid": "chart:220179:2125-09-26 15:00:00:553546",
+     "time": "2125-09-26 15:00:00",
+     "item": "systolic BP",
+     "value": "93 mmHg"
+    },
+    {
+     "rid": "chart:220181:2125-09-26 14:00:00:553539",
+     "time": "2125-09-26 14:00:00",
+     "item": "mean arterial pressure",
+     "value": "84 mmHg"
+    },
+    {
+     "rid": "chart:220181:2125-09-26 15:00:00:553550",
+     "time": "2125-09-26 15:00:00",
+     "item": "mean arterial pressure",
+     "value": "64 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x60, mean arterial pressure x60.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32587226A2::04",
+   "claim_id": "M32587226A2",
+   "claim_text": "Continue monitoring vital signs, especially blood pressure and heart rate.",
+   "kind": "action",
+   "text": "Continue monitoring heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2125-09-26 14:00:00:553544",
+     "time": "2125-09-26 14:00:00",
+     "item": "heart rate",
+     "value": "90 bpm"
+    },
+    {
+     "rid": "chart:220045:2125-09-26 15:00:00:553547",
+     "time": "2125-09-26 15:00:00",
+     "item": "heart rate",
+     "value": "97 bpm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x52.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32587226A3::05",
+   "claim_id": "M32587226A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "action",
+   "text": "Assess for potential causes of hypotension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hypotension",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32587226A3::06",
+   "claim_id": "M32587226A3",
+   "claim_text": "Assess for potential causes of hypotension and hypoxemia.",
+   "kind": "action",
+   "text": "Assess for potential causes of hypoxemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hypoxemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CefazoLIN",
+    "Cefazolin"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "extubation",
+   "name": "extubation / weaning",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Extubation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.2 mmol/L at 2125-09-25 12:12:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers"
+   ],
+   "doctor_rows": 26,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Phenylephrine"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Intubation",
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Albumin 25%",
+    "Albumin 25% (12.5g / 50mL)",
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "EKG",
+    "Transthoracic Echo",
+    "Ultrasound",
+    "X-ray"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "CefazoLIN",
+    "Cefazolin"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "extubation",
+   "name": "extubation / weaning",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Extubation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.2 mmol/L at 2125-09-25 12:12:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers"
+   ],
+   "doctor_rows": 26,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Phenylephrine"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Intubation",
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Albumin 25%",
+    "Albumin 25% (12.5g / 50mL)",
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "EKG",
+    "Transthoracic Echo",
+    "Ultrasound",
+    "X-ray"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 97,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hypotension is present. -- 'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: no.",
+    "Hypoxemia is present. -- 'oxygenation low' holds when any component is low. SpO2: no; PaO2: no."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": null,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

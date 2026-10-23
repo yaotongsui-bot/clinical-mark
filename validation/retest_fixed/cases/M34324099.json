@@ -1,0 +1,408 @@
+{
+ "case_id": "M34324099",
+ "decision_point": "2182-01-08 23:26:32",
+ "claims": [
+  "Monitor electrolyte levels, particularly potassium, due to low levels.",
+  "Continue intravenous fluid support with 0.9% Sodium Chloride.",
+  "Assess for potential causes of low hemoglobin and hematocrit levels."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34324099A1::01",
+   "claim_id": "M34324099A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, due to low levels.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34324099A1::02",
+   "claim_id": "M34324099A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, due to low levels.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34324099A1::03",
+   "claim_id": "M34324099A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, due to low levels.",
+   "kind": "fact",
+   "text": "Potassium levels are low.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M34324099A2::04",
+   "claim_id": "M34324099A2",
+   "claim_text": "Continue intravenous fluid support with 0.9% Sodium Chloride.",
+   "kind": "action",
+   "text": "Continue intravenous fluid support.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluid support",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34324099A3::05",
+   "claim_id": "M34324099A3",
+   "claim_text": "Assess for potential causes of low hemoglobin and hematocrit levels.",
+   "kind": "action",
+   "text": "Assess for potential causes of low hemoglobin and hematocrit levels.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "assess",
+   "target": "potential causes of low hemoglobin and hematocrit levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34324099A3::06",
+   "claim_id": "M34324099A3",
+   "claim_text": "Assess for potential causes of low hemoglobin and hematocrit levels.",
+   "kind": "fact",
+   "text": "Hemoglobin levels are low.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M34324099A3::07",
+   "claim_id": "M34324099A3",
+   "claim_text": "Assess for potential causes of low hemoglobin and hematocrit levels.",
+   "kind": "fact",
+   "text": "Hematocrit levels are low.",
+   "concept": "hematocrit",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M34324099A2::P01",
+   "claim_id": "M34324099A2",
+   "claim_text": "Continue intravenous fluid support with 0.9% Sodium Chloride.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous fluid support.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M34324099A1::03",
+   "claim_id": "M34324099A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, due to low levels.",
+   "kind": "fact",
+   "text": "Potassium levels are low.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:240096",
+     "time": "2182-01-08 03:57:00",
+     "item": "Potassium",
+     "value": 3.9,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest potassium 3.9 mEq/L at 2182-01-08 03:57:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M34324099A3::06",
+   "claim_id": "M34324099A3",
+   "claim_text": "Assess for potential causes of low hemoglobin and hematocrit levels.",
+   "kind": "fact",
+   "text": "Hemoglobin levels are low.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:240070",
+     "time": "2182-01-08 03:57:00",
+     "item": "Hemoglobin",
+     "value": 9.6,
+     "unit": "g/dL",
+     "bounds": "14.0 to 18.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:240103",
+     "time": "2182-01-08 14:49:00",
+     "item": "Hemoglobin",
+     "value": 10.2,
+     "unit": "g/dL",
+     "bounds": "14.0 to 18.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 10.2 g/dL at 2182-01-08 14:49:00 (reference 14.0 to 18.0) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M34324099A3::07",
+   "claim_id": "M34324099A3",
+   "claim_text": "Assess for potential causes of low hemoglobin and hematocrit levels.",
+   "kind": "fact",
+   "text": "Hematocrit levels are low.",
+   "concept": "hematocrit",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:240069",
+     "time": "2182-01-08 03:57:00",
+     "item": "Hematocrit",
+     "value": 27.6,
+     "unit": "%",
+     "bounds": "40.0 to 52.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:240102",
+     "time": "2182-01-08 14:49:00",
+     "item": "Hematocrit",
+     "value": 28.5,
+     "unit": "%",
+     "bounds": "40.0 to 52.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hematocrit 28.5 % at 2182-01-08 14:49:00 (reference 40.0 to 52.0) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M34324099A2::P01",
+   "claim_id": "M34324099A2",
+   "claim_text": "Continue intravenous fluid support with 0.9% Sodium Chloride.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous fluid support.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R24 indicates that the order for 0.9% Sodium Chloride IV is active at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "rx:54805937:2182-01-08 08:00:00",
+     "time": "2182-01-08 08:00:00",
+     "item": "Order: 0.9% Sodium Chloride 100 mL IV (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M34324099A1::01",
+   "claim_id": "M34324099A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, due to low levels.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:50983:2182-01-09 05:55:00:101563",
+     "time": "2182-01-09 05:55:00",
+     "item": "sodium",
+     "value": "142 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2182-01-09 05:55:00:101551",
+     "time": "2182-01-09 05:55:00",
+     "item": "potassium",
+     "value": "3.8 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2182-01-09 05:55:00:101562",
+     "time": "2182-01-09 05:55:00",
+     "item": "chloride",
+     "value": "111 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2182-01-09 05:55:00:101552",
+     "time": "2182-01-09 05:55:00",
+     "item": "bicarbonate",
+     "value": "25 mEq/L"
+    },
+    {
+     "rid": "lab:50960:2182-01-09 05:55:00:101560",
+     "time": "2182-01-09 05:55:00",
+     "item": "magnesium",
+     "value": "2.0 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2182-01-09 05:55:00:101559",
+     "time": "2182-01-09 05:55:00",
+     "item": "calcium",
+     "value": "8.8 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2182-01-09 05:55:00:101564",
+     "time": "2182-01-09 05:55:00",
+     "item": "phosphate",
+     "value": "3.5 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 7.7 h observation window after the decision (24 h or until ICU discharge): sodium x1, potassium x1, chloride x1, bicarbonate x1, magnesium x1, calcium x1, phosphate x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34324099A1::02",
+   "claim_id": "M34324099A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, due to low levels.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:50971:2182-01-09 05:55:00:101551",
+     "time": "2182-01-09 05:55:00",
+     "item": "potassium",
+     "value": "3.8 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 7.7 h observation window after the decision (24 h or until ICU discharge): potassium x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34324099A2::04",
+   "claim_id": "M34324099A2",
+   "claim_text": "Continue intravenous fluid support with 0.9% Sodium Chloride.",
+   "kind": "action",
+   "text": "Continue intravenous fluid support.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluid support",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 7.7 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34324099A3::05",
+   "claim_id": "M34324099A3",
+   "claim_text": "Assess for potential causes of low hemoglobin and hematocrit levels.",
+   "kind": "action",
+   "text": "Assess for potential causes of low hemoglobin and hematocrit levels.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "assess",
+   "target": "potential causes of low hemoglobin and hematocrit levels",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "doctor_actions_in_window": 3,
+ "observation_window_hours": 7.7,
+ "scoresheet": {
+  "n": 4,
+  "supported": 3,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.75,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Potassium levels are low. -- Latest potassium 3.9 mEq/L at 2182-01-08 03:57:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.75,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}
