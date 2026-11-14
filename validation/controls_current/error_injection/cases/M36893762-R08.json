@@ -1,0 +1,153 @@
+{
+ "case_id": "M36893762-R08",
+ "decision_point": "2134-09-08 18:03:58",
+ "claims": [
+  "Monitor blood pressure closely due to recent low readings."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M36893762-R08A1::01",
+   "claim_id": "M36893762-R08A1",
+   "claim_text": "Monitor blood pressure closely due to recent low readings.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36893762-R08A1::02",
+   "claim_id": "M36893762-R08A1",
+   "claim_text": "Monitor blood pressure closely due to recent low readings.",
+   "kind": "fact",
+   "text": "Blood pressure readings have been low recently.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M36893762-R08A1::02",
+   "claim_id": "M36893762-R08A1",
+   "claim_text": "Monitor blood pressure closely due to recent low readings.",
+   "kind": "fact",
+   "text": "Blood pressure readings have been low recently.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "other",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:36893762:220179:2134-09-08 17:01:00",
+     "time": "2134-09-08 17:01:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 156.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:36893762:220181:2134-09-08 17:01:00",
+     "time": "2134-09-08 17:01:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 99.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: no.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M36893762-R08A1::01",
+   "claim_id": "M36893762-R08A1",
+   "claim_text": "Monitor blood pressure closely due to recent low readings.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220179:2134-09-08 19:01:00:165348",
+     "time": "2134-09-08 19:01:00",
+     "item": "systolic BP",
+     "value": "151 mmHg"
+    },
+    {
+     "rid": "chart:220179:2134-09-08 20:01:00:165353",
+     "time": "2134-09-08 20:01:00",
+     "item": "systolic BP",
+     "value": "153 mmHg"
+    },
+    {
+     "rid": "chart:220181:2134-09-08 19:01:00:165350",
+     "time": "2134-09-08 19:01:00",
+     "item": "mean arterial pressure",
+     "value": "92 mmHg"
+    },
+    {
+     "rid": "chart:220181:2134-09-08 20:01:00:165352",
+     "time": "2134-09-08 20:01:00",
+     "item": "mean arterial pressure",
+     "value": "108 mmHg"
+    }
+   ],
+   "reason": "Measured in the 4.1 h observation window after the decision (24 h or until ICU discharge): systolic BP x4, mean arterial pressure x4.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 2,
+ "observation_window_hours": 4.1,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Blood pressure readings have been low recently. -- 'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: no."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

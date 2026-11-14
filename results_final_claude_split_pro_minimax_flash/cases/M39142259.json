@@ -1,0 +1,555 @@
+{
+ "case_id": "M39142259",
+ "decision_point": "2115-12-29 19:36:43",
+ "claims": [
+  "Continue pantoprazole 40 mg IV for stress ulcer prophylaxis.",
+  "Continue heparin sodium infusion at 450 units/hour with monitoring of coagulation parameters.",
+  "Monitor blood glucose and administer insulin per sliding scale as ordered."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39142259A1::01",
+   "claim_id": "M39142259A1",
+   "claim_text": "Continue pantoprazole 40 mg IV for stress ulcer prophylaxis.",
+   "kind": "action",
+   "text": "Continue pantoprazole 40 mg IV.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pantoprazole",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39142259A1::02",
+   "claim_id": "M39142259A1",
+   "claim_text": "Continue pantoprazole 40 mg IV for stress ulcer prophylaxis.",
+   "kind": "fact",
+   "text": "Pantoprazole 40 mg IV is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M39142259A2::03",
+   "claim_id": "M39142259A2",
+   "claim_text": "Continue heparin sodium infusion at 450 units/hour with monitoring of coagulation parameters.",
+   "kind": "action",
+   "text": "Continue heparin infusion at 450 units/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39142259A2::04",
+   "claim_id": "M39142259A2",
+   "claim_text": "Continue heparin sodium infusion at 450 units/hour with monitoring of coagulation parameters.",
+   "kind": "action",
+   "text": "Monitor coagulation parameters.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "coagulation parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39142259A2::05",
+   "claim_id": "M39142259A2",
+   "claim_text": "Continue heparin sodium infusion at 450 units/hour with monitoring of coagulation parameters.",
+   "kind": "fact",
+   "text": "Heparin is currently infusing at 450 units/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M39142259A3::06",
+   "claim_id": "M39142259A3",
+   "claim_text": "Monitor blood glucose and administer insulin per sliding scale as ordered.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39142259A3::07",
+   "claim_id": "M39142259A3",
+   "claim_text": "Monitor blood glucose and administer insulin per sliding scale as ordered.",
+   "kind": "action",
+   "text": "Give insulin per sliding scale as ordered.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "sliding scale insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39142259A1::02",
+   "claim_id": "M39142259A1",
+   "claim_text": "Continue pantoprazole 40 mg IV for stress ulcer prophylaxis.",
+   "kind": "fact",
+   "text": "Pantoprazole 40 mg IV is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_addressed",
+   "reason": "The records contain an active order for Pantoprazole 40 mg IV (R10), but no administration record (e.g., MAR Administered or Infusion/input) for pantoprazole is present. An active order alone does not show the drug is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "deepseek-v4.1-flash:cloud": "not_addressed"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "rx:46906933:2115-12-28 21:00:00",
+     "time": "2115-12-28 21:00:00",
+     "item": "Order: Pantoprazole 40 mg IV (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M39142259A2::05",
+   "claim_id": "M39142259A2",
+   "claim_text": "Continue heparin sodium infusion at 450 units/hour with monitoring of coagulation parameters.",
+   "kind": "fact",
+   "text": "Heparin is currently infusing at 450 units/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R37 shows a 'Running at decision time' record for Heparin Sodium at 450.0576171875 units/hour, which matches the stated 450 units/hour.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "deepseek-v4.1-flash:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:3968963:225152:2115-12-29 07:35:00",
+     "time": "2115-12-29 07:35:00",
+     "item": "Running at decision time (started 2115-12-29 07:35:00): Infusion/input Heparin Sodium at 450.0576171875 units/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39142259A1::01",
+   "claim_id": "M39142259A1",
+   "claim_text": "Continue pantoprazole 40 mg IV for stress ulcer prophylaxis.",
+   "kind": "action",
+   "text": "Continue pantoprazole 40 mg IV.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pantoprazole",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225910",
+     "time": "2115-12-29 19:45:00",
+     "item": "Pantoprazole (Protonix) infusion started at",
+     "class": "gi_prophylaxis"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded stress ulcer prophylaxis after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39142259A2::03",
+   "claim_id": "M39142259A2",
+   "claim_text": "Continue heparin sodium infusion at 450 units/hour with monitoring of coagulation parameters.",
+   "kind": "action",
+   "text": "Continue heparin infusion at 450 units/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225152",
+     "time": "2115-12-29 07:35:00",
+     "item": "Heparin Sodium infusion continuing at 450.0576171875 units/hour",
+     "class": "anticoagulant_therapeutic"
+    },
+    {
+     "rid": "IN225152#2",
+     "time": "2115-12-30 04:03:00",
+     "item": "Heparin Sodium infusion started at 500.26617431640625 units/hour",
+     "class": "anticoagulant_therapeutic"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded anticoagulation (therapeutic) after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39142259A2::04",
+   "claim_id": "M39142259A2",
+   "claim_text": "Continue heparin sodium infusion at 450 units/hour with monitoring of coagulation parameters.",
+   "kind": "action",
+   "text": "Monitor coagulation parameters.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "coagulation parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227467:2115-12-30 02:00:00:321186",
+     "time": "2115-12-30 02:00:00",
+     "item": "INR",
+     "value": "1.6"
+    },
+    {
+     "rid": "chart:227467:2115-12-30 09:00:00:321316",
+     "time": "2115-12-30 09:00:00",
+     "item": "INR",
+     "value": "1.4"
+    },
+    {
+     "rid": "chart:227465:2115-12-30 02:00:00:321163",
+     "time": "2115-12-30 02:00:00",
+     "item": "PT",
+     "value": "18 sec"
+    },
+    {
+     "rid": "chart:227465:2115-12-30 09:00:00:321305",
+     "time": "2115-12-30 09:00:00",
+     "item": "PT",
+     "value": "16.4"
+    },
+    {
+     "rid": "chart:227466:2115-12-30 02:00:00:321175",
+     "time": "2115-12-30 02:00:00",
+     "item": "PTT",
+     "value": "44.1 sec"
+    },
+    {
+     "rid": "chart:227466:2115-12-30 09:00:00:321297",
+     "time": "2115-12-30 09:00:00",
+     "item": "PTT",
+     "value": "37.3"
+    }
+   ],
+   "reason": "Measured in the 20.9 h observation window after the decision (24 h or until ICU discharge): INR x5, PT x5, PTT x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39142259A3::06",
+   "claim_id": "M39142259A3",
+   "claim_text": "Monitor blood glucose and administer insulin per sliding scale as ordered.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2115-12-29 22:00:00:321109",
+     "time": "2115-12-29 22:00:00",
+     "item": "glucose",
+     "value": "146"
+    },
+    {
+     "rid": "chart:220621:2115-12-30 02:00:00:321153",
+     "time": "2115-12-30 02:00:00",
+     "item": "glucose",
+     "value": "132 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 20.9 h observation window after the decision (24 h or until ICU discharge): glucose x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39142259A3::07",
+   "claim_id": "M39142259A3",
+   "claim_text": "Monitor blood glucose and administer insulin per sliding scale as ordered.",
+   "kind": "action",
+   "text": "Give insulin per sliding scale as ordered.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "sliding scale insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 20.9 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "K Phos",
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "0.9% Sodium Chloride",
+    "D5 1/2NS",
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride (Powder)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 9,
+   "covered": true,
+   "by_atoms": [
+    "M39142259A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "K Phos",
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "0.9% Sodium Chloride",
+    "D5 1/2NS",
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride (Powder)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 9,
+   "covered": true,
+   "by_atoms": [
+    "M39142259A2::03"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "phosphate",
+   "direction": "low",
+   "reason": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "name": "phosphate",
+   "treated_by": [
+    "phosphate replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 34,
+ "observation_window_hours": 20.9,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Pantoprazole 40 mg IV is currently being given. -- The records contain an active order for Pantoprazole 40 mg IV (R10), but no administration record (e.g., MAR Administered or Infusion/input) for pantoprazole is present. An active order alone does not show the drug is currently being given."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 1,
+  "treatments_omitted": 4,
+  "recall_vital": 0.0,
+  "recall_okay": 0.25,
+  "recall_all": 0.2,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.25,
+  "recall_all_at3": 0.2
+ }
+}

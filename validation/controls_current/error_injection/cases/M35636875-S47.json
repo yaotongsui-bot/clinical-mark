@@ -1,0 +1,202 @@
+{
+ "case_id": "M35636875-S47",
+ "decision_point": "2174-05-27 09:18:00",
+ "claims": [
+  "Discontinue heparin therapy as ordered."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35636875-S47A1::01",
+   "claim_id": "M35636875-S47A1",
+   "claim_text": "Discontinue heparin therapy as ordered.",
+   "kind": "action",
+   "text": "Discontinue heparin therapy.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "stop",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35636875-S47A1::02",
+   "claim_id": "M35636875-S47A1",
+   "claim_text": "Discontinue heparin therapy as ordered.",
+   "kind": "fact",
+   "text": "Heparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35636875-S47A1::02",
+   "claim_id": "M35636875-S47A1",
+   "claim_text": "Discontinue heparin therapy as ordered.",
+   "kind": "fact",
+   "text": "Heparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R48 shows an administration of Heparin Sodium at 06:05 on 2174-05-27, which is within 24 hours before the decision time of 09:18, supporting that heparin is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:2161520:225975:2174-05-27 06:05:00",
+     "time": "2174-05-27 06:05:00",
+     "item": "Infusion/input Heparin Sodium (Prophylaxis) 1 dose (2174-05-27 06:05:00 to 2174-05-27 06:06:00)"
+    },
+    {
+     "rid": "rx:28473919:2174-05-26 14:00:00",
+     "time": "2174-05-26 14:00:00",
+     "item": "Order: Heparin 5000 UNIT SC (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35636875-S47A1::01",
+   "claim_id": "M35636875-S47A1",
+   "claim_text": "Discontinue heparin therapy as ordered.",
+   "kind": "action",
+   "text": "Discontinue heparin therapy.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "stop",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [
+    {
+     "rid": "IN225975",
+     "time": "2174-05-27 13:45:00",
+     "item": "Heparin Sodium (Prophylaxis) infusion started at",
+     "class": "dvt_prophylaxis"
+    }
+   ],
+   "method": "rule",
+   "direction_mismatch": true,
+   "reason": "Opposite direction: the AI suggested stopping, but anticoagulation (therapeutic) is still recorded after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 9,
+ "observation_window_hours": 5.2,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 2,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

@@ -1,0 +1,995 @@
+{
+ "case_id": "M32587226",
+ "decision_point": "2125-09-26 13:23:24",
+ "claims": [
+  "Continue phenylephrine infusion for blood pressure support, as the patient remains on a phenylephrine drip with recent mean arterial pressures in the low 60s.",
+  "Continue epidural hydromorphone and bupivacaine infusion for pain management.",
+  "Monitor oxygen saturation and titrate supplemental oxygen to maintain SpO2 above the documented desaturation limit of 85%, given recent SpO2 of 91% on 2 L/min."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32587226A1::01",
+   "claim_id": "M32587226A1",
+   "claim_text": "Continue phenylephrine infusion for blood pressure support, as the patient remains on a phenylephrine drip with recent mean arterial pressures in the low 60s.",
+   "kind": "action",
+   "text": "Continue phenylephrine infusion for blood pressure support.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "phenylephrine infusion",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32587226A1::02",
+   "claim_id": "M32587226A1",
+   "claim_text": "Continue phenylephrine infusion for blood pressure support, as the patient remains on a phenylephrine drip with recent mean arterial pressures in the low 60s.",
+   "kind": "fact",
+   "text": "The patient remains on a phenylephrine drip.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M32587226A1::03",
+   "claim_id": "M32587226A1",
+   "claim_text": "Continue phenylephrine infusion for blood pressure support, as the patient remains on a phenylephrine drip with recent mean arterial pressures in the low 60s.",
+   "kind": "fact",
+   "text": "Recent mean arterial pressures are in the low 60s.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M32587226A2::04",
+   "claim_id": "M32587226A2",
+   "claim_text": "Continue epidural hydromorphone and bupivacaine infusion for pain management.",
+   "kind": "action",
+   "text": "Continue epidural hydromorphone and bupivacaine infusion for pain management.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "epidural hydromorphone and bupivacaine infusion",
+   "conditional": false,
+   "treatment_class": "lines_devices",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32587226A3::05",
+   "claim_id": "M32587226A3",
+   "claim_text": "Monitor oxygen saturation and titrate supplemental oxygen to maintain SpO2 above the documented desaturation limit of 85%, given recent SpO2 of 91% on 2 L/min.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation and titrate supplemental oxygen to maintain SpO2 above the documented desaturation limit of 85%.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32587226A3::06",
+   "claim_id": "M32587226A3",
+   "claim_text": "Monitor oxygen saturation and titrate supplemental oxygen to maintain SpO2 above the documented desaturation limit of 85%, given recent SpO2 of 91% on 2 L/min.",
+   "kind": "fact",
+   "text": "Recent SpO2 is 91% on 2 L/min.",
+   "concept": "spo2",
+   "notes": [
+    "concept set by the rule files: oxygenation -> spo2"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "normal",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M32587226A3::R01",
+   "claim_id": "M32587226A3",
+   "claim_text": "Monitor oxygen saturation and titrate supplemental oxygen to maintain SpO2 above the documented desaturation limit of 85%, given recent SpO2 of 91% on 2 L/min.",
+   "kind": "fact",
+   "text": "Desaturation is present.",
+   "concept": "oxygenation",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  },
+  {
+   "atom_id": "M32587226A2::P01",
+   "claim_id": "M32587226A2",
+   "claim_text": "Continue epidural hydromorphone and bupivacaine infusion for pain management.",
+   "kind": "fact",
+   "text": "The patient is currently receiving epidural hydromorphone and bupivacaine infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32587226A1::02",
+   "claim_id": "M32587226A1",
+   "claim_text": "Continue phenylephrine infusion for blood pressure support, as the patient remains on a phenylephrine drip with recent mean arterial pressures in the low 60s.",
+   "kind": "fact",
+   "text": "The patient remains on a phenylephrine drip.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "Record R48 explicitly states that the phenylephrine infusion is running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:1438280:221749:2125-09-26 12:01:00",
+     "time": "2125-09-26 12:01:00",
+     "item": "Running at decision time (started 2125-09-26 12:01:00): Infusion/input Phenylephrine at 0.49971335101872683 mcg/kg/min"
+    },
+    {
+     "rid": "rx:71450543:2125-09-25 14:00:00",
+     "time": "2125-09-25 14:00:00",
+     "item": "Order: PHENYLEPHrine 60 mg IV DRIP (active at decision time)"
+    },
+    {
+     "rid": "inputevents:9240272:221749:2125-09-25 14:51:00",
+     "time": "2125-09-25 14:51:00",
+     "item": "Infusion/input Phenylephrine at 0.99965860135853291 mcg/kg/min (2125-09-25 14:51:00 to 2125-09-25 15:21:00)"
+    },
+    {
+     "rid": "inputevents:4647194:221749:2125-09-25 15:21:00",
+     "time": "2125-09-25 15:21:00",
+     "item": "Infusion/input Phenylephrine at 1.8008738989010453 mcg/kg/min (2125-09-25 15:21:00 to 2125-09-25 15:50:00)"
+    },
+    {
+     "rid": "inputevents:2854567:221749:2125-09-25 16:31:00",
+     "time": "2125-09-25 16:31:00",
+     "item": "Infusion/input Phenylephrine at 0.50011294661089778 mcg/kg/min (2125-09-25 16:31:00 to 2125-09-25 17:42:00)"
+    },
+    {
+     "rid": "inputevents:6425578:221749:2125-09-25 17:42:00",
+     "time": "2125-09-25 17:42:00",
+     "item": "Infusion/input Phenylephrine at 0.30006776796653867 mcg/kg/min (2125-09-25 17:42:00 to 2125-09-25 20:59:00)"
+    },
+    {
+     "rid": "chart:32587226:228933:2125-09-25 18:30:00",
+     "time": "2125-09-25 18:30:00",
+     "item": "Post-op Care NCP - Expected outcomes: Patient will remain free from infection"
+    },
+    {
+     "rid": "inputevents:19442:221749:2125-09-25 20:59:00",
+     "time": "2125-09-25 20:59:00",
+     "item": "Infusion/input Phenylephrine at 0.39993692189455032 mcg/kg/min (2125-09-25 20:59:00 to 2125-09-25 23:05:00)"
+    },
+    {
+     "rid": "inputevents:2827639:221749:2125-09-25 23:05:00",
+     "time": "2125-09-25 23:05:00",
+     "item": "Infusion/input Phenylephrine at 0.75020012445747852 mcg/kg/min (2125-09-25 23:05:00 to 2125-09-26 03:35:00)"
+    },
+    {
+     "rid": "chart:32587226:224368:2125-09-26 00:00:00",
+     "time": "2125-09-26 00:00:00",
+     "item": "Epidural Medication: Hyd 10 mcg/ml Bup 0.1%"
+    },
+    {
+     "rid": "inputevents:1827201:221749:2125-09-26 03:35:00",
+     "time": "2125-09-26 03:35:00",
+     "item": "Infusion/input Phenylephrine at 1.1625743936747313 mcg/kg/min (2125-09-26 03:35:00 to 2125-09-26 07:26:00)"
+    },
+    {
+     "rid": "inputevents:1901152:221749:2125-09-26 09:18:00",
+     "time": "2125-09-26 09:18:00",
+     "item": "Infusion/input Phenylephrine at 0.7495603640563786 mcg/kg/min (2125-09-26 09:18:00 to 2125-09-26 09:52:00)"
+    },
+    {
+     "rid": "chart:32587226:223800:2125-09-26 10:01:00",
+     "time": "2125-09-26 10:01:00",
+     "item": "Epidural Appearance: WNL"
+    }
+   ]
+  },
+  {
+   "atom_id": "M32587226A1::03",
+   "claim_id": "M32587226A1",
+   "claim_text": "Continue phenylephrine infusion for blood pressure support, as the patient remains on a phenylephrine drip with recent mean arterial pressures in the low 60s.",
+   "kind": "fact",
+   "text": "Recent mean arterial pressures are in the low 60s.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "Several recent measurements (R46-R49) show mean arterial pressures of 64, 61, 60, and 60 mmHg, which are in the low 60s.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:32587226:220052:2125-09-26 04:00:00",
+     "time": "2125-09-26 04:00:00",
+     "item": "Arterial Blood Pressure mean: 64 mmHg"
+    },
+    {
+     "rid": "chart:32587226:220052:2125-09-26 05:00:00",
+     "time": "2125-09-26 05:00:00",
+     "item": "Arterial Blood Pressure mean: 61 mmHg"
+    },
+    {
+     "rid": "chart:32587226:220052:2125-09-26 06:00:00",
+     "time": "2125-09-26 06:00:00",
+     "item": "Arterial Blood Pressure mean: 60 mmHg"
+    },
+    {
+     "rid": "chart:32587226:220052:2125-09-26 07:00:00",
+     "time": "2125-09-26 07:00:00",
+     "item": "Arterial Blood Pressure mean: 60 mmHg"
+    },
+    {
+     "rid": "chart:32587226:220052:2125-09-26 00:01:00",
+     "time": "2125-09-26 00:01:00",
+     "item": "Arterial Blood Pressure mean: 66 mmHg"
+    },
+    {
+     "rid": "chart:32587226:220052:2125-09-26 01:01:00",
+     "time": "2125-09-26 01:01:00",
+     "item": "Arterial Blood Pressure mean: 63 mmHg"
+    },
+    {
+     "rid": "chart:32587226:220052:2125-09-26 02:00:00",
+     "time": "2125-09-26 02:00:00",
+     "item": "Arterial Blood Pressure mean: 57 mmHg"
+    },
+    {
+     "rid": "chart:32587226:220052:2125-09-26 03:00:00",
+     "time": "2125-09-26 03:00:00",
+     "item": "Arterial Blood Pressure mean: 57 mmHg"
+    },
+    {
+     "rid": "chart:32587226:220052:2125-09-26 08:00:00",
+     "time": "2125-09-26 08:00:00",
+     "item": "Arterial Blood Pressure mean: 59 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "M32587226A3::06",
+   "claim_id": "M32587226A3",
+   "claim_text": "Monitor oxygen saturation and titrate supplemental oxygen to maintain SpO2 above the documented desaturation limit of 85%, given recent SpO2 of 91% on 2 L/min.",
+   "kind": "fact",
+   "text": "Recent SpO2 is 91% on 2 L/min.",
+   "concept": "spo2",
+   "notes": [
+    "concept set by the rule files: oxygenation -> spo2"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "normal",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "chart:32587226:220277:2125-09-26 10:00:00",
+     "time": "2125-09-26 10:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 94.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "chart:32587226:220277:2125-09-26 11:00:00",
+     "time": "2125-09-26 11:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 95.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "chart:32587226:220277:2125-09-26 12:00:00",
+     "time": "2125-09-26 12:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 91.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "39 of 39 SpO2 values in the 24 h before the decision were normal.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M32587226A3::R01",
+   "claim_id": "M32587226A3",
+   "claim_text": "Monitor oxygen saturation and titrate supplemental oxygen to maintain SpO2 above the documented desaturation limit of 85%, given recent SpO2 of 91% on 2 L/min.",
+   "kind": "fact",
+   "text": "Desaturation is present.",
+   "concept": "oxygenation",
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:32587226:220277:2125-09-26 12:00:00",
+     "time": "2125-09-26 12:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 91.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:295408",
+     "time": "2125-09-25 12:12:00",
+     "item": "pO2",
+     "value": 301.0,
+     "unit": "mm Hg",
+     "bounds": "60 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M32587226A2::P01",
+   "claim_id": "M32587226A2",
+   "claim_text": "Continue epidural hydromorphone and bupivacaine infusion for pain management.",
+   "kind": "fact",
+   "text": "The patient is currently receiving epidural hydromorphone and bupivacaine infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R50 confirms the epidural medication is hydromorphone and bupivacaine, and R48 confirms an active infusion rate of 5 ml/hr.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:32587226:224366:2125-09-26 12:02:00",
+     "time": "2125-09-26 12:02:00",
+     "item": "Epidural Infusion Rate (mL/hr): 5 ml/hr"
+    },
+    {
+     "rid": "chart:32587226:224368:2125-09-26 12:02:00",
+     "time": "2125-09-26 12:02:00",
+     "item": "Epidural Medication: Hyd 10 mcg/ml Bup 0.1%"
+    },
+    {
+     "rid": "rx:6717157:2125-09-25 14:00:00",
+     "time": "2125-09-25 14:00:00",
+     "item": "Order: Bupivacaine 0.1% 250 mL ED (active at decision time)"
+    },
+    {
+     "rid": "rx:6717157:2125-09-25 14:00:00",
+     "time": "2125-09-25 14:00:00",
+     "item": "Order: HYDROmorphone 2500 mcg ED (active at decision time)"
+    },
+    {
+     "rid": "chart:32587226:224368:2125-09-25 13:20:00",
+     "time": "2125-09-25 13:20:00",
+     "item": "Epidural Medication: Hyd 10 mcg/ml Bup 0.1%"
+    },
+    {
+     "rid": "chart:32587226:224366:2125-09-25 15:00:00",
+     "time": "2125-09-25 15:00:00",
+     "item": "Epidural Infusion Rate (mL/hr): 6 ml/hr"
+    },
+    {
+     "rid": "chart:32587226:224368:2125-09-25 15:00:00",
+     "time": "2125-09-25 15:00:00",
+     "item": "Epidural Medication: Hyd 10 mcg/ml Bup 0.1%"
+    },
+    {
+     "rid": "chart:32587226:224368:2125-09-25 17:00:00",
+     "time": "2125-09-25 17:00:00",
+     "item": "Epidural Medication: Hyd 10 mcg/ml Bup 0.1%"
+    },
+    {
+     "rid": "chart:32587226:224368:2125-09-25 20:29:00",
+     "time": "2125-09-25 20:29:00",
+     "item": "Epidural Medication: Hyd 10 mcg/ml Bup 0.1%"
+    },
+    {
+     "rid": "chart:32587226:227119:2125-09-26 00:00:00",
+     "time": "2125-09-26 00:00:00",
+     "item": "Epidural Location: Thoracic"
+    },
+    {
+     "rid": "chart:32587226:224368:2125-09-26 00:00:00",
+     "time": "2125-09-26 00:00:00",
+     "item": "Epidural Medication: Hyd 10 mcg/ml Bup 0.1%"
+    },
+    {
+     "rid": "chart:32587226:224366:2125-09-26 04:00:00",
+     "time": "2125-09-26 04:00:00",
+     "item": "Epidural Infusion Rate (mL/hr): 7 ml/hr"
+    },
+    {
+     "rid": "chart:32587226:227119:2125-09-26 04:00:00",
+     "time": "2125-09-26 04:00:00",
+     "item": "Epidural Location: Thoracic"
+    },
+    {
+     "rid": "chart:32587226:224368:2125-09-26 04:00:00",
+     "time": "2125-09-26 04:00:00",
+     "item": "Epidural Medication: Hyd 10 mcg/ml Bup 0.1%"
+    },
+    {
+     "rid": "chart:32587226:227119:2125-09-26 10:01:00",
+     "time": "2125-09-26 10:01:00",
+     "item": "Epidural Location: Thoracic"
+    },
+    {
+     "rid": "chart:32587226:224368:2125-09-26 10:01:00",
+     "time": "2125-09-26 10:01:00",
+     "item": "Epidural Medication: Hyd 10 mcg/ml Bup 0.1%"
+    },
+    {
+     "rid": "chart:32587226:224368:2125-09-26 11:04:00",
+     "time": "2125-09-26 11:04:00",
+     "item": "Epidural Medication: Hyd 10 mcg/ml Bup 0.1%"
+    },
+    {
+     "rid": "chart:32587226:227119:2125-09-26 12:02:00",
+     "time": "2125-09-26 12:02:00",
+     "item": "Epidural Location: Thoracic"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32587226A1::01",
+   "claim_id": "M32587226A1",
+   "claim_text": "Continue phenylephrine infusion for blood pressure support, as the patient remains on a phenylephrine drip with recent mean arterial pressures in the low 60s.",
+   "kind": "action",
+   "text": "Continue phenylephrine infusion for blood pressure support.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "phenylephrine infusion",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN221749",
+     "time": "2125-09-26 12:01:00",
+     "item": "Phenylephrine infusion continuing at 0.49971335101872683 mcg/kg/min",
+     "class": "vasopressor"
+    },
+    {
+     "rid": "IN221749#2",
+     "time": "2125-09-26 13:35:00",
+     "item": "Phenylephrine infusion started at 0.29988677124492824 mcg/kg/min",
+     "class": "vasopressor"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded vasopressors after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32587226A2::04",
+   "claim_id": "M32587226A2",
+   "claim_text": "Continue epidural hydromorphone and bupivacaine infusion for pain management.",
+   "kind": "action",
+   "text": "Continue epidural hydromorphone and bupivacaine infusion for pain management.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "epidural hydromorphone and bupivacaine infusion",
+   "conditional": false,
+   "treatment_class": "lines_devices",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR224277",
+     "time": "2125-09-25 13:24:00",
+     "item": "18 Gauge continuing",
+     "class": "lines_devices"
+    },
+    {
+     "rid": "PR224275",
+     "time": "2125-09-27 00:00:00",
+     "item": "20 Gauge performed",
+     "class": "lines_devices"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded lines and devices after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32587226A3::05",
+   "claim_id": "M32587226A3",
+   "claim_text": "Monitor oxygen saturation and titrate supplemental oxygen to maintain SpO2 above the documented desaturation limit of 85%, given recent SpO2 of 91% on 2 L/min.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation and titrate supplemental oxygen to maintain SpO2 above the documented desaturation limit of 85%.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220277:2125-09-26 14:00:00:553541",
+     "time": "2125-09-26 14:00:00",
+     "item": "SpO2",
+     "value": "95 %"
+    },
+    {
+     "rid": "chart:220277:2125-09-26 15:00:00:553549",
+     "time": "2125-09-26 15:00:00",
+     "item": "SpO2",
+     "value": "91 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x45.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CefazoLIN",
+    "Cefazolin"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "extubation",
+   "name": "extubation / weaning",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Extubation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.2 mmol/L at 2125-09-25 12:12:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.2 mmol/L at 2125-09-25 12:12:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers"
+   ],
+   "doctor_rows": 26,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Intubation",
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Phenylephrine"
+   ],
+   "doctor_rows": 21,
+   "covered": true,
+   "by_atoms": [
+    "M32587226A1::01"
+   ]
+  },
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Albumin 25%",
+    "Albumin 25% (12.5g / 50mL)",
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "EKG",
+    "Transthoracic Echo",
+    "Ultrasound",
+    "X-ray"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CefazoLIN",
+    "Cefazolin"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "extubation",
+   "name": "extubation / weaning",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Extubation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.2 mmol/L at 2125-09-25 12:12:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.2 mmol/L at 2125-09-25 12:12:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers"
+   ],
+   "doctor_rows": 26,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Intubation",
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Phenylephrine"
+   ],
+   "doctor_rows": 21,
+   "covered": true,
+   "by_atoms": [
+    "M32587226A1::01"
+   ]
+  },
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Albumin 25%",
+    "Albumin 25% (12.5g / 50mL)",
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "EKG",
+    "Transthoracic Echo",
+    "Ultrasound",
+    "X-ray"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 2.2 mmol/L at 2125-09-25 12:12:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 97,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 5,
+  "supported": 4,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.8,
+  "not_supported_share": 0.2,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Desaturation is present. -- 'oxygenation low' holds when any component is low. SpO2: no; PaO2: no."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.8,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "facts_omitted": 1,
+  "treatments_omitted": 10,
+  "recall_vital": 0.167,
+  "recall_okay": 0.0,
+  "recall_all": 0.091,
+  "recall_vital_at3": 0.167,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.091
+ }
+}

@@ -1,0 +1,533 @@
+{
+ "case_id": "M33348260",
+ "decision_point": "2145-09-29 20:59:43",
+ "claims": [
+  "Continue supplemental oxygen at 3 L/min via nasal cannula with SpO2 desaturation limit set at 88%.",
+  "Continue arterial line monitoring with zero/calibration and occlusive dressing checks.",
+  "Continue fall precautions given documented history of falls and bed rest status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M33348260A1::01",
+   "claim_id": "M33348260A1",
+   "claim_text": "Continue supplemental oxygen at 3 L/min via nasal cannula with SpO2 desaturation limit set at 88%.",
+   "kind": "action",
+   "text": "Continue supplemental oxygen at 3 L/min via nasal cannula.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M33348260A1::02",
+   "claim_id": "M33348260A1",
+   "claim_text": "Continue supplemental oxygen at 3 L/min via nasal cannula with SpO2 desaturation limit set at 88%.",
+   "kind": "action",
+   "text": "Set SpO2 desaturation limit at 88%.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "SpO2 desaturation limit",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M33348260A1::03",
+   "claim_id": "M33348260A1",
+   "claim_text": "Continue supplemental oxygen at 3 L/min via nasal cannula with SpO2 desaturation limit set at 88%.",
+   "kind": "fact",
+   "text": "The patient is currently on supplemental oxygen.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M33348260A2::04",
+   "claim_id": "M33348260A2",
+   "claim_text": "Continue arterial line monitoring with zero/calibration and occlusive dressing checks.",
+   "kind": "action",
+   "text": "Continue arterial line monitoring with zero/calibration checks.",
+   "concept": "other",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "arterial line monitoring",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33348260A2::05",
+   "claim_id": "M33348260A2",
+   "claim_text": "Continue arterial line monitoring with zero/calibration and occlusive dressing checks.",
+   "kind": "action",
+   "text": "Continue occlusive dressing checks for arterial line.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial line occlusive dressing",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33348260A2::06",
+   "claim_id": "M33348260A2",
+   "claim_text": "Continue arterial line monitoring with zero/calibration and occlusive dressing checks.",
+   "kind": "fact",
+   "text": "The patient has an arterial line.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M33348260A3::07",
+   "claim_id": "M33348260A3",
+   "claim_text": "Continue fall precautions given documented history of falls and bed rest status.",
+   "kind": "action",
+   "text": "Continue fall precautions.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "fall precautions",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M33348260A3::08",
+   "claim_id": "M33348260A3",
+   "claim_text": "Continue fall precautions given documented history of falls and bed rest status.",
+   "kind": "fact",
+   "text": "The patient has a documented history of falls.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M33348260A3::09",
+   "claim_id": "M33348260A3",
+   "claim_text": "Continue fall precautions given documented history of falls and bed rest status.",
+   "kind": "fact",
+   "text": "The patient is on bed rest.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M33348260A1::03",
+   "claim_id": "M33348260A1",
+   "claim_text": "Continue supplemental oxygen at 3 L/min via nasal cannula with SpO2 desaturation limit set at 88%.",
+   "kind": "fact",
+   "text": "The patient is currently on supplemental oxygen.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The most recent O2 Delivery Device rows (09:00, 12:00, 16:00, 20:00 on 2145-09-29) all show 'None', indicating the patient is not on supplemental oxygen at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "mimo-v2.6-pro:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:33348260:226732:2145-09-29 20:00:00",
+     "time": "2145-09-29 20:00:00",
+     "item": "O2 Delivery Device(s): None"
+    },
+    {
+     "rid": "chart:33348260:226732:2145-09-29 09:00:00",
+     "time": "2145-09-29 09:00:00",
+     "item": "O2 Delivery Device(s): None"
+    },
+    {
+     "rid": "chart:33348260:226732:2145-09-29 12:00:00",
+     "time": "2145-09-29 12:00:00",
+     "item": "O2 Delivery Device(s): None"
+    },
+    {
+     "rid": "chart:33348260:226732:2145-09-29 16:00:00",
+     "time": "2145-09-29 16:00:00",
+     "item": "O2 Delivery Device(s): None"
+    }
+   ]
+  },
+  {
+   "atom_id": "M33348260A2::06",
+   "claim_id": "M33348260A2",
+   "claim_text": "Continue arterial line monitoring with zero/calibration and occlusive dressing checks.",
+   "kind": "fact",
+   "text": "The patient has an arterial line.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "An arterial line procedure is documented and arterial line assessments (site, waveform, zero/calibrate, occlusive dressing) continue through 12:00 on 2145-09-29, with arterial blood pressure readings ongoing, indicating the line is in place at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "mimo-v2.6-pro:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "procedureevents:5387284:225752:2145-09-28 21:22:00",
+     "time": "2145-09-28 21:22:00",
+     "item": "Procedure Arterial Line (2145-09-28 21:22:00 to 2145-09-29 13:26:00)"
+    },
+    {
+     "rid": "chart:33348260:226107:2145-09-29 12:00:00",
+     "time": "2145-09-29 12:00:00",
+     "item": "Arterial Line placed in outside facility: 0"
+    },
+    {
+     "rid": "chart:33348260:224289:2145-09-29 12:00:00",
+     "time": "2145-09-29 12:00:00",
+     "item": "Arterial line Site Appear: WNL"
+    },
+    {
+     "rid": "chart:33348260:224291:2145-09-29 12:00:00",
+     "time": "2145-09-29 12:00:00",
+     "item": "Arterial line Waveform Appear: Sharp"
+    },
+    {
+     "rid": "chart:33348260:225210:2145-09-29 12:00:00",
+     "time": "2145-09-29 12:00:00",
+     "item": "Arterial Line Zero/Calibrate: 1"
+    },
+    {
+     "rid": "chart:33348260:227292:2145-09-29 12:00:00",
+     "time": "2145-09-29 12:00:00",
+     "item": "Arterial Line Dressing Occlusive: 1"
+    },
+    {
+     "rid": "chart:33348260:220052:2145-09-29 13:00:00",
+     "time": "2145-09-29 13:00:00",
+     "item": "Arterial Blood Pressure mean: 104 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "M33348260A3::08",
+   "claim_id": "M33348260A3",
+   "claim_text": "Continue fall precautions given documented history of falls and bed rest status.",
+   "kind": "fact",
+   "text": "The patient has a documented history of falls.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Multiple assessments document a history of falling within 3 months (Yes) and a history of slips/falls (1), most recently at 20:00 on 2145-09-29, just before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "mimo-v2.6-pro:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:33348260:227341:2145-09-28 21:00:00",
+     "time": "2145-09-28 21:00:00",
+     "item": "History of falling (within 3 mnths): Yes (25)"
+    },
+    {
+     "rid": "chart:33348260:225094:2145-09-28 21:24:00",
+     "time": "2145-09-28 21:24:00",
+     "item": "History of slips / falls: 1"
+    },
+    {
+     "rid": "chart:33348260:227341:2145-09-29 08:00:00",
+     "time": "2145-09-29 08:00:00",
+     "item": "History of falling (within 3 mnths): Yes (25)"
+    },
+    {
+     "rid": "chart:33348260:227341:2145-09-29 20:00:00",
+     "time": "2145-09-29 20:00:00",
+     "item": "History of falling (within 3 mnths): Yes (25)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M33348260A3::09",
+   "claim_id": "M33348260A3",
+   "claim_text": "Continue fall precautions given documented history of falls and bed rest status.",
+   "kind": "fact",
+   "text": "The patient is on bed rest.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The most recent ambulatory aid entry at 20:00 on 2145-09-29, just before the decision time, documents 'Ambulatory aid: Bed rest (0)', consistent with earlier entries (R3, R30), confirming the patient is on bed rest.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "mimo-v2.6-pro:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:33348260:227343:2145-09-29 20:00:00",
+     "time": "2145-09-29 20:00:00",
+     "item": "Ambulatory aid: Bed rest (0)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M33348260A1::01",
+   "claim_id": "M33348260A1",
+   "claim_text": "Continue supplemental oxygen at 3 L/min via nasal cannula with SpO2 desaturation limit set at 88%.",
+   "kind": "action",
+   "text": "Continue supplemental oxygen at 3 L/min via nasal cannula.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M33348260A1::02",
+   "claim_id": "M33348260A1",
+   "claim_text": "Continue supplemental oxygen at 3 L/min via nasal cannula with SpO2 desaturation limit set at 88%.",
+   "kind": "action",
+   "text": "Set SpO2 desaturation limit at 88%.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "SpO2 desaturation limit",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M33348260A2::04",
+   "claim_id": "M33348260A2",
+   "claim_text": "Continue arterial line monitoring with zero/calibration and occlusive dressing checks.",
+   "kind": "action",
+   "text": "Continue arterial line monitoring with zero/calibration checks.",
+   "concept": "other",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "arterial line monitoring",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33348260A2::05",
+   "claim_id": "M33348260A2",
+   "claim_text": "Continue arterial line monitoring with zero/calibration and occlusive dressing checks.",
+   "kind": "action",
+   "text": "Continue occlusive dressing checks for arterial line.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial line occlusive dressing",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33348260A3::07",
+   "claim_id": "M33348260A3",
+   "claim_text": "Continue fall precautions given documented history of falls and bed rest status.",
+   "kind": "action",
+   "text": "Continue fall precautions.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "fall precautions",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CT scan"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-Caff-Butalbital"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dexamethasone"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CT scan"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-Caff-Butalbital"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dexamethasone"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 7,
+ "observation_window_hours": 3.6,
+ "scoresheet": {
+  "n": 4,
+  "supported": 3,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.75,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on supplemental oxygen. -- The most recent O2 Delivery Device rows (09:00, 12:00, 16:00, 20:00 on 2145-09-29) all show 'None', indicating the patient is not on supplemental oxygen at the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.75,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 3,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

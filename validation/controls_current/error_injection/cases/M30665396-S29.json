@@ -1,0 +1,371 @@
+{
+ "case_id": "M30665396-S29",
+ "decision_point": "2167-05-06 12:54:06",
+ "claims": [
+  "Discontinue aggressive fluid resuscitation with intravenous fluids."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30665396-S29A1::01",
+   "claim_id": "M30665396-S29A1",
+   "claim_text": "Discontinue aggressive fluid resuscitation with intravenous fluids.",
+   "kind": "action",
+   "text": "Discontinue aggressive fluid resuscitation with intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "stop",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30665396-S29A1::02",
+   "claim_id": "M30665396-S29A1",
+   "claim_text": "Discontinue aggressive fluid resuscitation with intravenous fluids.",
+   "kind": "fact",
+   "text": "Aggressive fluid resuscitation with intravenous fluids is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30665396-S29A1::02",
+   "claim_id": "M30665396-S29A1",
+   "claim_text": "Discontinue aggressive fluid resuscitation with intravenous fluids.",
+   "kind": "fact",
+   "text": "Aggressive fluid resuscitation with intravenous fluids is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Multiple administration records show intravenous fluids (NaCl 0.9% and Dextrose 5%) were infused in the 24 hours before the decision time, including a 500 ml bolus at 07:48, supporting that IV fluid resuscitation is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:7591840:225158:2167-05-05 22:35:00",
+     "time": "2167-05-05 22:35:00",
+     "item": "Infusion/input NaCl 0.9% at 100 mL/hour (2167-05-05 22:35:00 to 2167-05-05 23:35:00)"
+    },
+    {
+     "rid": "inputevents:7570832:225158:2167-05-05 23:38:00",
+     "time": "2167-05-05 23:38:00",
+     "item": "Infusion/input NaCl 0.9% at 100 mL/hour (2167-05-05 23:38:00 to 2167-05-06 00:38:00)"
+    },
+    {
+     "rid": "inputevents:593482:225158:2167-05-06 03:07:00",
+     "time": "2167-05-06 03:07:00",
+     "item": "Infusion/input NaCl 0.9% at 100 mL/hour (2167-05-06 03:07:00 to 2167-05-06 04:07:00)"
+    },
+    {
+     "rid": "inputevents:4470055:225158:2167-05-06 04:10:00",
+     "time": "2167-05-06 04:10:00",
+     "item": "Infusion/input NaCl 0.9% at 100 mL/hour (2167-05-06 04:10:00 to 2167-05-06 05:10:00)"
+    },
+    {
+     "rid": "inputevents:9680660:225158:2167-05-06 07:48:00",
+     "time": "2167-05-06 07:48:00",
+     "item": "Infusion/input NaCl 0.9% 500 ml (2167-05-06 07:48:00 to 2167-05-06 07:49:00)"
+    },
+    {
+     "rid": "inputevents:3231452:220949:2167-05-06 10:41:00",
+     "time": "2167-05-06 10:41:00",
+     "item": "Infusion/input Dextrose 5% 50 ml (2167-05-06 10:41:00 to 2167-05-06 10:42:00)"
+    },
+    {
+     "rid": "rx:24874470:2167-05-05 20:00:00",
+     "time": "2167-05-05 20:00:00",
+     "item": "Order: 0.9% Sodium Chloride 500 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:70534164:2167-05-05 14:00:00",
+     "time": "2167-05-05 14:00:00",
+     "item": "Order: Lactated Ringers 1000 mL IV (stopped 2167-05-05 16:00:00)"
+    },
+    {
+     "rid": "inputevents:1302784:226364:2167-05-05 19:35:00",
+     "time": "2167-05-05 19:35:00",
+     "item": "Infusion/input OR Crystalloid Intake 5000 ml (2167-05-05 19:35:00 to 2167-05-05 19:36:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30665396-S29A1::01",
+   "claim_id": "M30665396-S29A1",
+   "claim_text": "Discontinue aggressive fluid resuscitation with intravenous fluids.",
+   "kind": "action",
+   "text": "Discontinue aggressive fluid resuscitation with intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "stop",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2167-05-06 17:39:00",
+     "item": "Dextrose 5% infusion started at",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "direction_mismatch": true,
+   "reason": "Opposite direction: the AI suggested stopping, but IV fluids is still recorded after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.4 mmol/L at 2167-05-06 05:23:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.4 mmol/L at 2167-05-06 05:23:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-IV",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.4 mmol/L at 2167-05-06 05:23:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.4 mmol/L at 2167-05-06 05:23:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-IV",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 2.4 mmol/L at 2167-05-06 05:23:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 12,
+ "observation_window_hours": 5.8,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 1,
+  "treatments_omitted": 6,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

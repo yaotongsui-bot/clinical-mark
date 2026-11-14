@@ -1,7 +1,7 @@
 # Evaluation of AI clinical suggestions against patient records
 
 - Input: `mimic_triples_fixed.json`; 85 cases, 2.99 AI suggestions per case on average.
-- Models: atomizer `qwen2.5:14b`; judge panel `gemma4:12b`, `llama3.1:8b-instruct-q4_K_M`, `qwen2.5:14b` (majority vote; reasoning mode: gemma4:12b); 3 new model calls, 170 cache hits.
+- Models: atomizer `qwen2.5:14b`; judge panel `gemma4:12b`, `llama3.1:8b-instruct-q4_K_M`, `qwen2.5:14b` (majority vote; reasoning mode: gemma4:12b); 0 new model calls, 88 cache hits.
 - Fact evidence: the whole admission before the decision time (VeriFact's reference EHR); retrieval hybrid, top 50 records per statement.
 - Gold standard: pre-decision records for facts; clinician actions recorded after the decision (24 h or until ICU discharge) for actions.
 - A missing record does not prove something did not happen. Thresholds, treatment classes and importance tiers come from the editable files in `rules/`.
@@ -15,6 +15,7 @@
 | supported / not_supported / not_addressed / unverifiable | 57 / 18 / 5 / 7 |
 | Fact accuracy = supported / (supported + not_supported) | 76.0% |
 | Cases with at least one not_supported fact | 17 / 85 |
+| Omitted findings: abnormalities the clinicians treated that no AI fact mentions | 146 / 150 |
 
 | Fact kind | n | Accuracy | Labels |
 |---|---|---|---|
@@ -37,6 +38,8 @@ Target (same class, or the drug the AI named) and direction (continue / stop / a
 Monitoring/assessment atoms: 280 (reported separately, not part of agreement): {'not_performed': 51, 'unobservable': 40, 'performed': 189}; performed rate among observable items 78.7%. 5 'goal' atoms with no concrete action are not scored.
 
 ## 3. What did the AI miss?
+
+Omitted treatments: 532 of the 610 treatment classes the clinicians used (172 of 214 vital). Recall below is the share not omitted.
 
 Vital = a class the rule file marks vital, or one whose indication was present at the decision time (for example low potassium followed by potassium chloride). Other non-routine classes are okay.
 

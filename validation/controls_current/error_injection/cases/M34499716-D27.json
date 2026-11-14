@@ -1,0 +1,562 @@
+{
+ "case_id": "M34499716-D27",
+ "decision_point": "2142-08-01 01:41:00",
+ "claims": [
+  "Continue packed red blood cells with close monitoring of respiratory parameters."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34499716-D27A1::01",
+   "claim_id": "M34499716-D27A1",
+   "claim_text": "Continue packed red blood cells with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Continue packed red blood cells.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "packed red blood cells",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34499716-D27A1::02",
+   "claim_id": "M34499716-D27A1",
+   "claim_text": "Continue packed red blood cells with close monitoring of respiratory parameters.",
+   "kind": "fact",
+   "text": "Packed red blood cells are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M34499716-D27A1::03",
+   "claim_id": "M34499716-D27A1",
+   "claim_text": "Continue packed red blood cells with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters closely.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M34499716-D27A1::02",
+   "claim_id": "M34499716-D27A1",
+   "claim_text": "Continue packed red blood cells with close monitoring of respiratory parameters.",
+   "kind": "fact",
+   "text": "Packed red blood cells are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_addressed",
+   "reason": "The records contain laboratory measurements of red blood cell counts and vital signs, but no administration, order, or infusion records for packed red blood cells. Therefore, the records do not address whether packed red blood cells are currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M34499716-D27A1::01",
+   "claim_id": "M34499716-D27A1",
+   "claim_text": "Continue packed red blood cells with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Continue packed red blood cells.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "packed red blood cells",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34499716-D27A1::03",
+   "claim_id": "M34499716-D27A1",
+   "claim_text": "Continue packed red blood cells with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters closely.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2142-08-01 02:00:00:359208",
+     "time": "2142-08-01 02:00:00",
+     "item": "respiratory rate",
+     "value": "23 insp/min"
+    },
+    {
+     "rid": "chart:220210:2142-08-01 03:00:00:359255",
+     "time": "2142-08-01 03:00:00",
+     "item": "respiratory rate",
+     "value": "22 insp/min"
+    },
+    {
+     "rid": "chart:220277:2142-08-01 02:00:00:359227",
+     "time": "2142-08-01 02:00:00",
+     "item": "SpO2",
+     "value": "97 %"
+    },
+    {
+     "rid": "chart:220277:2142-08-01 03:00:00:359260",
+     "time": "2142-08-01 03:00:00",
+     "item": "SpO2",
+     "value": "95 %"
+    },
+    {
+     "rid": "chart:220339:2142-08-01 03:00:00:359256",
+     "time": "2142-08-01 03:00:00",
+     "item": "ventilator settings",
+     "value": "10 cmH2O"
+    },
+    {
+     "rid": "chart:223849:2142-08-01 04:00:00:359275",
+     "time": "2142-08-01 04:00:00",
+     "item": "ventilator settings",
+     "value": "CMV/ASSIST/AutoFlow"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x29, SpO2 x26, ventilator settings x56.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Azithromycin",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 359 mg/dL (treatment threshold > 180).",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "high",
+     "reason": "Latest glucose 359 mg/dL (treatment threshold > 180)."
+    }
+   ],
+   "doctor_targets": [
+    "Insulin - Glargine",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest PaCO2 47 mm Hg at 2142-07-31 18:20:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "pco2",
+     "direction": "high",
+     "reason": "Latest PaCO2 47 mm Hg at 2142-07-31 18:20:00 (reference 35.0 to 45.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Blood Cultured",
+    "Sputum Culture",
+    "Urine Culture"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "PredniSONE"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Azithromycin",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 359 mg/dL (treatment threshold > 180).",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "high",
+     "reason": "Latest glucose 359 mg/dL (treatment threshold > 180)."
+    }
+   ],
+   "doctor_targets": [
+    "Insulin - Glargine",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest PaCO2 47 mm Hg at 2142-07-31 18:20:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "pco2",
+     "direction": "high",
+     "reason": "Latest PaCO2 47 mm Hg at 2142-07-31 18:20:00 (reference 35.0 to 45.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Blood Cultured",
+    "Sputum Culture",
+    "Urine Culture"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "PredniSONE"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "glucose",
+   "direction": "high",
+   "reason": "Latest glucose 359 mg/dL (treatment threshold > 180).",
+   "name": "glucose",
+   "treated_by": [
+    "insulin"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "pco2",
+   "direction": "high",
+   "reason": "Latest PaCO2 47 mm Hg at 2142-07-31 18:20:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "name": "PaCO2",
+   "treated_by": [
+    "invasive mechanical ventilation"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 68,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 1.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Packed red blood cells are currently being given. -- The records contain laboratory measurements of red blood cell counts and vital signs, but no administration, order, or infusion records for packed red blood cells. Therefore, the records do not address whether packed red blood cells are currently being given."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 2,
+  "treatments_omitted": 11,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

@@ -1,0 +1,538 @@
+{
+ "case_id": "M37057036",
+ "decision_point": "2178-07-04 22:45:00",
+ "claims": [
+  "Continue Invasive Ventilation.",
+  "Administer Dextrose 5%.",
+  "Administer Heparin Sodium.",
+  "Administer Glucerna 1.2 (Full).",
+  "Administer Vancomycin.",
+  "Administer Insulin - Humalog."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37057036A1::01",
+   "claim_id": "M37057036A1",
+   "claim_text": "Continue Invasive Ventilation.",
+   "kind": "action",
+   "text": "Continue invasive ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37057036A1::02",
+   "claim_id": "M37057036A1",
+   "claim_text": "Continue Invasive Ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M37057036A2::03",
+   "claim_id": "M37057036A2",
+   "claim_text": "Administer Dextrose 5%.",
+   "kind": "action",
+   "text": "Administer Dextrose 5%.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Dextrose 5%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37057036A3::04",
+   "claim_id": "M37057036A3",
+   "claim_text": "Administer Heparin Sodium.",
+   "kind": "action",
+   "text": "Administer Heparin Sodium.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "heparin sodium",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37057036A4::05",
+   "claim_id": "M37057036A4",
+   "claim_text": "Administer Glucerna 1.2 (Full).",
+   "kind": "action",
+   "text": "Administer Glucerna 1.2 (Full).",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Glucerna 1.2",
+   "conditional": false,
+   "treatment_class": "nutrition",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37057036A5::06",
+   "claim_id": "M37057036A5",
+   "claim_text": "Administer Vancomycin.",
+   "kind": "action",
+   "text": "Administer vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37057036A6::07",
+   "claim_id": "M37057036A6",
+   "claim_text": "Administer Insulin - Humalog.",
+   "kind": "action",
+   "text": "Administer insulin Humalog.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin Humalog",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37057036A1::02",
+   "claim_id": "M37057036A1",
+   "claim_text": "Continue Invasive Ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:3974621:225792:2178-07-03 23:00:00",
+     "time": "2178-07-03 23:00:00",
+     "item": "Running at decision time (started 2178-07-03 23:00:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37057036A1::01",
+   "claim_id": "M37057036A1",
+   "claim_text": "Continue Invasive Ventilation.",
+   "kind": "action",
+   "text": "Continue invasive ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2178-07-03 23:00:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37057036A2::03",
+   "claim_id": "M37057036A2",
+   "claim_text": "Administer Dextrose 5%.",
+   "kind": "action",
+   "text": "Administer Dextrose 5%.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Dextrose 5%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2178-07-04 04:22:00",
+     "item": "Dextrose 5% infusion continuing at 7.2046108245849609 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN220949#2",
+     "time": "2178-07-05 00:00:00",
+     "item": "Dextrose 5% infusion started at",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37057036A3::04",
+   "claim_id": "M37057036A3",
+   "claim_text": "Administer Heparin Sodium.",
+   "kind": "action",
+   "text": "Administer Heparin Sodium.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "heparin sodium",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225152",
+     "time": "2178-07-04 04:22:00",
+     "item": "Heparin Sodium infusion continuing at 720.4610595703125 units/hour",
+     "class": "anticoagulant_therapeutic"
+    },
+    {
+     "rid": "IN225152#2",
+     "time": "2178-07-05 15:04:00",
+     "item": "Heparin Sodium infusion started at 700.28009033203125 units/hour",
+     "class": "anticoagulant_therapeutic"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded anticoagulation (therapeutic) after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37057036A4::05",
+   "claim_id": "M37057036A4",
+   "claim_text": "Administer Glucerna 1.2 (Full).",
+   "kind": "action",
+   "text": "Administer Glucerna 1.2 (Full).",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Glucerna 1.2",
+   "conditional": false,
+   "treatment_class": "nutrition",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN229013",
+     "time": "2178-07-04 18:45:00",
+     "item": "Glucerna 1.2 (Full) infusion continuing at 14.998746871948242 mL/hour",
+     "class": "nutrition"
+    },
+    {
+     "rid": "IN229013#2",
+     "time": "2178-07-05 00:01:00",
+     "item": "Glucerna 1.2 (Full) infusion started at 30.005664825439453 mL/hour",
+     "class": "nutrition"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded nutrition support after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37057036A5::06",
+   "claim_id": "M37057036A5",
+   "claim_text": "Administer Vancomycin.",
+   "kind": "action",
+   "text": "Administer vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225798",
+     "time": "2178-07-05 00:00:00",
+     "item": "Vancomycin infusion started at",
+     "class": "antimicrobial"
+    },
+    {
+     "rid": "IN225798#2",
+     "time": "2178-07-05 08:54:00",
+     "item": "Vancomycin infusion started at",
+     "class": "antimicrobial"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded antimicrobials after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37057036A6::07",
+   "claim_id": "M37057036A6",
+   "claim_text": "Administer Insulin - Humalog.",
+   "kind": "action",
+   "text": "Administer insulin Humalog.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin Humalog",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN223262",
+     "time": "2178-07-05 04:00:00",
+     "item": "Insulin - Humalog infusion started at",
+     "class": "insulin"
+    },
+    {
+     "rid": "IN223260",
+     "time": "2178-07-05 08:54:00",
+     "item": "Insulin - Glargine infusion started at",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 10.2 K/uL at 2178-07-04 09:34:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A5::06"
+   ]
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes. Latest PaCO2 47 mm Hg at 2178-07-04 01:03:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A1::01"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A3::04"
+   ]
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Glargine",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 5,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A6::07"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 7,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A2::03"
+   ]
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Glucerna 1.2 (Full)"
+   ],
+   "doctor_rows": 5,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A4::05"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 10.2 K/uL at 2178-07-04 09:34:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes. Latest PaCO2 47 mm Hg at 2178-07-04 01:03:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A1::01"
+   ]
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Glargine",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Glucerna 1.2 (Full)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A3::04"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 7,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A2::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 34,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 1.0,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": 0.5,
+  "recall_okay_at3": 0.5,
+  "recall_all_at3": 0.5
+ }
+}

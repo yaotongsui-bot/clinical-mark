@@ -1,0 +1,489 @@
+{
+ "case_id": "M30585761",
+ "decision_point": "2125-06-18 04:12:54",
+ "claims": [
+  "Continue nicardipine infusion at the current rate for blood pressure control.",
+  "Monitor blood glucose given elevated fingerstick readings and active insulin orders.",
+  "Continue sodium chloride 0.9% infusion at the current rate for maintenance intravenous access."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30585761A1::01",
+   "claim_id": "M30585761A1",
+   "claim_text": "Continue nicardipine infusion at the current rate for blood pressure control.",
+   "kind": "action",
+   "text": "Continue the nicardipine infusion at the current rate.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nicardipine infusion",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30585761A1::02",
+   "claim_id": "M30585761A1",
+   "claim_text": "Continue nicardipine infusion at the current rate for blood pressure control.",
+   "kind": "fact",
+   "text": "Nicardipine is currently being given by infusion.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M30585761A2::03",
+   "claim_id": "M30585761A2",
+   "claim_text": "Monitor blood glucose given elevated fingerstick readings and active insulin orders.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30585761A2::04",
+   "claim_id": "M30585761A2",
+   "claim_text": "Monitor blood glucose given elevated fingerstick readings and active insulin orders.",
+   "kind": "fact",
+   "text": "Fingerstick blood glucose readings are elevated.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M30585761A2::05",
+   "claim_id": "M30585761A2",
+   "claim_text": "Monitor blood glucose given elevated fingerstick readings and active insulin orders.",
+   "kind": "fact",
+   "text": "Active insulin orders are present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M30585761A3::06",
+   "claim_id": "M30585761A3",
+   "claim_text": "Continue sodium chloride 0.9% infusion at the current rate for maintenance intravenous access.",
+   "kind": "action",
+   "text": "Continue the sodium chloride 0.9% infusion at the current rate.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "sodium chloride 0.9% infusion",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30585761A3::07",
+   "claim_id": "M30585761A3",
+   "claim_text": "Continue sodium chloride 0.9% infusion at the current rate for maintenance intravenous access.",
+   "kind": "fact",
+   "text": "Sodium chloride 0.9% infusion is currently being given.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30585761A1::02",
+   "claim_id": "M30585761A1",
+   "claim_text": "Continue nicardipine infusion at the current rate for blood pressure control.",
+   "kind": "fact",
+   "text": "Nicardipine is currently being given by infusion.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R48 states that a Nicardipine infusion is running at the decision time, so the statement that nicardipine is currently being given by infusion is explicitly supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "minimax-m3.1-flash:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:8366035:222042:2125-06-17 22:06:00",
+     "time": "2125-06-17 22:06:00",
+     "item": "Running at decision time (started 2125-06-17 22:06:00): Infusion/input Nicardipine at 0.9987695375457406 mcg/kg/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "M30585761A2::04",
+   "claim_id": "M30585761A2",
+   "claim_text": "Monitor blood glucose given elevated fingerstick readings and active insulin orders.",
+   "kind": "fact",
+   "text": "Fingerstick blood glucose readings are elevated.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:265226",
+     "time": "2125-06-18 02:30:00",
+     "item": "Glucose",
+     "value": 78.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest glucose 78 mg/dL at 2125-06-18 02:30:00 (reference 70.0 to 100.0) is normal, not consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M30585761A2::05",
+   "claim_id": "M30585761A2",
+   "claim_text": "Monitor blood glucose given elevated fingerstick readings and active insulin orders.",
+   "kind": "fact",
+   "text": "Active insulin orders are present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Multiple insulin orders (Insulin 0 UNIT SC and Insulin 5 UNIT SC) are explicitly recorded as active at decision time, so active insulin orders are present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "minimax-m3.1-flash:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "rx:89202666:2125-06-17 11:00:00",
+     "time": "2125-06-17 11:00:00",
+     "item": "Order: Insulin 0 UNIT SC (active at decision time)"
+    },
+    {
+     "rid": "rx:81355896:2125-06-17 17:00:00",
+     "time": "2125-06-17 17:00:00",
+     "item": "Order: Insulin 5 UNIT SC (active at decision time)"
+    },
+    {
+     "rid": "rx:57294029:2125-06-17 08:00:00",
+     "time": "2125-06-17 08:00:00",
+     "item": "Order: Insulin 5 UNIT SC (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M30585761A3::07",
+   "claim_id": "M30585761A3",
+   "claim_text": "Continue sodium chloride 0.9% infusion at the current rate for maintenance intravenous access.",
+   "kind": "fact",
+   "text": "Sodium chloride 0.9% infusion is currently being given.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Record R44 explicitly states NaCl 0.9% infusion is running at the decision time (started 2125-06-17 22:06), so the statement that it is currently being given is true.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "minimax-m3.1-flash:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:8366035:225158:2125-06-17 22:06:00",
+     "time": "2125-06-17 22:06:00",
+     "item": "Running at decision time (started 2125-06-17 22:06:00): Infusion/input NaCl 0.9% at 9.8039216995239258 mL/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30585761A1::01",
+   "claim_id": "M30585761A1",
+   "claim_text": "Continue nicardipine infusion at the current rate for blood pressure control.",
+   "kind": "action",
+   "text": "Continue the nicardipine infusion at the current rate.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nicardipine infusion",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN222042",
+     "time": "2125-06-17 22:06:00",
+     "item": "Nicardipine infusion continuing at 0.9987695375457406 mcg/kg/min",
+     "class": "antihypertensive"
+    },
+    {
+     "rid": "IN222042#2",
+     "time": "2125-06-18 04:34:00",
+     "item": "Nicardipine infusion started at 0.74889918323606253 mcg/kg/min",
+     "class": "antihypertensive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded antihypertensives after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30585761A2::03",
+   "claim_id": "M30585761A2",
+   "claim_text": "Monitor blood glucose given elevated fingerstick readings and active insulin orders.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2125-06-18 08:00:00:434331",
+     "time": "2125-06-18 08:00:00",
+     "item": "glucose",
+     "value": "162"
+    },
+    {
+     "rid": "chart:225664:2125-06-18 12:00:00:434393",
+     "time": "2125-06-18 12:00:00",
+     "item": "glucose",
+     "value": "239"
+    }
+   ],
+   "reason": "Measured in the 10.7 h observation window after the decision (24 h or until ICU discharge): glucose x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30585761A3::06",
+   "claim_id": "M30585761A3",
+   "claim_text": "Continue sodium chloride 0.9% infusion at the current rate for maintenance intravenous access.",
+   "kind": "action",
+   "text": "Continue the sodium chloride 0.9% infusion at the current rate.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "sodium chloride 0.9% infusion",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2125-06-17 22:06:00",
+     "item": "NaCl 0.9% infusion continuing at 9.8039216995239258 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158#2",
+     "time": "2125-06-18 04:34:00",
+     "item": "NaCl 0.9% infusion started at 7.3511943817138672 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Metoprolol Succinate XL"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Amlodipine",
+    "HydrALAzine",
+    "Hydralazine",
+    "Nicardipine"
+   ],
+   "doctor_rows": 10,
+   "covered": true,
+   "by_atoms": [
+    "M30585761A1::01"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M30585761A3::06"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Metoprolol Succinate XL"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Amlodipine",
+    "HydrALAzine",
+    "Hydralazine",
+    "Nicardipine"
+   ],
+   "doctor_rows": 10,
+   "covered": true,
+   "by_atoms": [
+    "M30585761A1::01"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M30585761A3::06"
+   ]
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 26,
+ "observation_window_hours": 10.7,
+ "scoresheet": {
+  "n": 4,
+  "supported": 3,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.75,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Fingerstick blood glucose readings are elevated. -- Latest glucose 78 mg/dL at 2125-06-18 02:30:00 (reference 70.0 to 100.0) is normal, not consistent with 'high'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.75,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 2,
+  "recall_vital": null,
+  "recall_okay": 0.5,
+  "recall_all": 0.5,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.5,
+  "recall_all_at3": 0.5
+ }
+}

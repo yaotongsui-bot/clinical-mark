@@ -1,0 +1,514 @@
+{
+ "case_id": "M30458995",
+ "decision_point": "2137-10-13 22:44:57",
+ "claims": [
+  "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above the desaturation limit of 88%.",
+  "Monitor arterial blood gas results and lactate levels to assess oxygenation and perfusion status.",
+  "Monitor liver enzymes (AST, ALT, alkaline phosphatase) given marked transaminase elevation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30458995A1::01",
+   "claim_id": "M30458995A1",
+   "claim_text": "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above the desaturation limit of 88%.",
+   "kind": "action",
+   "text": "Continue supplemental oxygen via nasal cannula at 2 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen via nasal cannula",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M30458995A1::02",
+   "claim_id": "M30458995A1",
+   "claim_text": "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above the desaturation limit of 88%.",
+   "kind": "goal",
+   "text": "Maintain SpO2 above 88%.",
+   "concept": "spo2",
+   "notes": []
+  },
+  {
+   "atom_id": "M30458995A1::03",
+   "claim_id": "M30458995A1",
+   "claim_text": "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above the desaturation limit of 88%.",
+   "kind": "fact",
+   "text": "The patient is currently on supplemental oxygen via nasal cannula.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M30458995A2::04",
+   "claim_id": "M30458995A2",
+   "claim_text": "Monitor arterial blood gas results and lactate levels to assess oxygenation and perfusion status.",
+   "kind": "action",
+   "text": "Monitor arterial blood gas results.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gas",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30458995A2::05",
+   "claim_id": "M30458995A2",
+   "claim_text": "Monitor arterial blood gas results and lactate levels to assess oxygenation and perfusion status.",
+   "kind": "action",
+   "text": "Monitor lactate levels.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30458995A3::06",
+   "claim_id": "M30458995A3",
+   "claim_text": "Monitor liver enzymes (AST, ALT, alkaline phosphatase) given marked transaminase elevation.",
+   "kind": "action",
+   "text": "Monitor AST.",
+   "concept": "ast",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "AST",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30458995A3::07",
+   "claim_id": "M30458995A3",
+   "claim_text": "Monitor liver enzymes (AST, ALT, alkaline phosphatase) given marked transaminase elevation.",
+   "kind": "action",
+   "text": "Monitor ALT.",
+   "concept": "alt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ALT",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30458995A3::08",
+   "claim_id": "M30458995A3",
+   "claim_text": "Monitor liver enzymes (AST, ALT, alkaline phosphatase) given marked transaminase elevation.",
+   "kind": "action",
+   "text": "Monitor alkaline phosphatase.",
+   "concept": "phosphate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "alkaline phosphatase",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30458995A3::09",
+   "claim_id": "M30458995A3",
+   "claim_text": "Monitor liver enzymes (AST, ALT, alkaline phosphatase) given marked transaminase elevation.",
+   "kind": "fact",
+   "text": "Marked transaminase elevation is present.",
+   "concept": "liver_function",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30458995A1::03",
+   "claim_id": "M30458995A1",
+   "claim_text": "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above the desaturation limit of 88%.",
+   "kind": "fact",
+   "text": "The patient is currently on supplemental oxygen via nasal cannula.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The most recent record before the decision time (R50) explicitly documents 'O2 Delivery Device(s): Nasal cannula' at 22:00, confirming the patient is on supplemental oxygen via nasal cannula.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "deepseek-v4.1-flash:cloud": "supported",
+     "mimo-v2.6-pro:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:30458995:226732:2137-10-13 22:00:00",
+     "time": "2137-10-13 22:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula"
+    },
+    {
+     "rid": "chart:30458995:227287:2137-10-13 22:00:00",
+     "time": "2137-10-13 22:00:00",
+     "item": "O2 Flow (additional cannula): 2 L/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "M30458995A3::09",
+   "claim_id": "M30458995A3",
+   "claim_text": "Monitor liver enzymes (AST, ALT, alkaline phosphatase) given marked transaminase elevation.",
+   "kind": "fact",
+   "text": "Marked transaminase elevation is present.",
+   "concept": "liver_function",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:369087",
+     "time": "2137-10-13 14:30:00",
+     "item": "Asparate Aminotransferase (AST)",
+     "value": 784.0,
+     "unit": "IU/L",
+     "bounds": "0.0 to 40.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:369084",
+     "time": "2137-10-13 14:30:00",
+     "item": "Alanine Aminotransferase (ALT)",
+     "value": 305.0,
+     "unit": "IU/L",
+     "bounds": "0.0 to 40.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:369085",
+     "time": "2137-10-13 14:30:00",
+     "item": "Alkaline Phosphatase",
+     "value": 305.0,
+     "unit": "IU/L",
+     "bounds": "35.0 to 105.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "'liver function high' holds when any component is high. AST: yes; ALT: yes; total bilirubin: no; alkaline phosphatase: yes.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30458995A1::01",
+   "claim_id": "M30458995A1",
+   "claim_text": "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above the desaturation limit of 88%.",
+   "kind": "action",
+   "text": "Continue supplemental oxygen via nasal cannula at 2 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen via nasal cannula",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30458995A2::04",
+   "claim_id": "M30458995A2",
+   "claim_text": "Monitor arterial blood gas results and lactate levels to assess oxygenation and perfusion status.",
+   "kind": "action",
+   "text": "Monitor arterial blood gas results.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223830:2137-10-14 11:15:00:324094",
+     "time": "2137-10-14 11:15:00",
+     "item": "pH",
+     "value": "7.41 units"
+    },
+    {
+     "rid": "lab:50820:2137-10-14 11:15:00:37210",
+     "time": "2137-10-14 11:15:00",
+     "item": "pH",
+     "value": "7.41 units"
+    },
+    {
+     "rid": "chart:220235:2137-10-14 11:15:00:324093",
+     "time": "2137-10-14 11:15:00",
+     "item": "PaCO2",
+     "value": "41 mmHg"
+    },
+    {
+     "rid": "lab:50818:2137-10-14 11:15:00:37211",
+     "time": "2137-10-14 11:15:00",
+     "item": "PaCO2",
+     "value": "41 mm Hg"
+    },
+    {
+     "rid": "chart:220224:2137-10-14 11:15:00:324091",
+     "time": "2137-10-14 11:15:00",
+     "item": "PaO2",
+     "value": "79 mmHg"
+    },
+    {
+     "rid": "lab:50821:2137-10-14 11:15:00:37212",
+     "time": "2137-10-14 11:15:00",
+     "item": "PaO2",
+     "value": "79 mm Hg"
+    }
+   ],
+   "reason": "Measured in the 18.4 h observation window after the decision (24 h or until ICU discharge): pH x2, PaCO2 x2, PaO2 x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30458995A2::05",
+   "claim_id": "M30458995A2",
+   "claim_text": "Monitor arterial blood gas results and lactate levels to assess oxygenation and perfusion status.",
+   "kind": "action",
+   "text": "Monitor lactate levels.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225668:2137-10-14 11:15:00:324095",
+     "time": "2137-10-14 11:15:00",
+     "item": "lactate",
+     "value": "1.6 mmol/L"
+    },
+    {
+     "rid": "lab:50813:2137-10-14 11:15:00:37208",
+     "time": "2137-10-14 11:15:00",
+     "item": "lactate",
+     "value": "1.6 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 18.4 h observation window after the decision (24 h or until ICU discharge): lactate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30458995A3::06",
+   "claim_id": "M30458995A3",
+   "claim_text": "Monitor liver enzymes (AST, ALT, alkaline phosphatase) given marked transaminase elevation.",
+   "kind": "action",
+   "text": "Monitor AST.",
+   "concept": "ast",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "AST",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:50878:2137-10-14 02:11:00:30239",
+     "time": "2137-10-14 02:11:00",
+     "item": "AST",
+     "value": "543 IU/L"
+    }
+   ],
+   "reason": "Measured in the 18.4 h observation window after the decision (24 h or until ICU discharge): AST x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30458995A3::07",
+   "claim_id": "M30458995A3",
+   "claim_text": "Monitor liver enzymes (AST, ALT, alkaline phosphatase) given marked transaminase elevation.",
+   "kind": "action",
+   "text": "Monitor ALT.",
+   "concept": "alt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ALT",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:50861:2137-10-14 02:11:00:30238",
+     "time": "2137-10-14 02:11:00",
+     "item": "ALT",
+     "value": "288 IU/L"
+    }
+   ],
+   "reason": "Measured in the 18.4 h observation window after the decision (24 h or until ICU discharge): ALT x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30458995A3::08",
+   "claim_id": "M30458995A3",
+   "claim_text": "Monitor liver enzymes (AST, ALT, alkaline phosphatase) given marked transaminase elevation.",
+   "kind": "action",
+   "text": "Monitor alkaline phosphatase.",
+   "concept": "phosphate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "alkaline phosphatase",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225677:2137-10-14 02:11:00:324021",
+     "time": "2137-10-14 02:11:00",
+     "item": "phosphate",
+     "value": "3.1 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2137-10-14 02:11:00:30251",
+     "time": "2137-10-14 02:11:00",
+     "item": "phosphate",
+     "value": "3.1 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 18.4 h observation window after the decision (24 h or until ICU discharge): phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 18,
+ "observation_window_hours": 18.4,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 3,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

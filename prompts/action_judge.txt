@@ -6,10 +6,12 @@ Return JSON only: {"label":"match|partial_match|not_done","match":"R1 or null","
 - match: a recorded action does what the AI recommended for the same target. A class name in the
   AI action matches any member of that class: "IV fluids" matches NaCl 0.9%, LR or Dextrose 5%;
   "antibiotics" matches vancomycin or cefepime; "pain management" matches fentanyl or acetaminophen.
-- partial_match: the same target, but a different action or agent. Examples: the AI says stop and
-  the record shows it continuing; the AI names vancomycin and the record shows only cefepime; the
-  AI says therapeutic heparin and the record shows only prophylactic heparin.
-- not_done: no supplied record corresponds to the AI action.
+- partial_match: the same aim and direction, but a different agent. Examples: the AI names
+  vancomycin and the record shows only cefepime; the AI says therapeutic heparin and the record
+  shows only prophylactic heparin.
+- not_done: no supplied record corresponds to the AI action, or the record shows the opposite
+  direction. Examples: the AI says stop and the record shows it continuing; the AI says increase
+  and the record shows a decrease; the AI says to change a dose and no change is recorded.
 
 How to read the records:
 - MIMIC splits one infusion into many rows. A new "started" row of the same drug after the

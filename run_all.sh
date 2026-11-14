@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Rebuild every result in this folder. Model answers are kept in each <out-dir>/model_cache.jsonl, so with
 # the shipped caches this replays in minutes; with empty caches it needs Ollama and several hours.
+# These are the local-model runs, so their models are named here; run.py's own default is now the cloud model.
+# The fact judge and atomizer prompts changed on 2026-11-06, so answers cached before that date are requested again.
 # Usage: bash run_all.sh
 set -u
 cd "$(dirname "$0")"
@@ -12,7 +14,8 @@ export PYTHONIOENCODING=utf-8
 run() {
   echo "### $(date +%H:%M:%S) evaluate $2"
   rm -rf "$2/atoms" "$2/cases"
-  "$PY" run.py --triples "$1" --mimic-root "$MIMIC" --out-dir "$2" \
+  "$PY" run.py --triples "$1" --mimic-root "$MIMIC" --out-dir "$2" --ai-model qwen2.5:14b \
+    --judge-models gemma4:12b,llama3.1:8b-instruct-q4_K_M,qwen2.5:14b --judge-think gemma4:12b \
     | grep -E --line-buffered "atomize (20|40|60|85)/|judge panel|Traceback|Error"
   echo "### $2 exit=${PIPESTATUS[0]}"
 }

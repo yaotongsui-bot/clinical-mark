@@ -1,0 +1,214 @@
+{
+ "case_id": "M35679826",
+ "decision_point": "2114-06-21 09:32:58",
+ "claims": [
+  "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP, as documented at the decision point.",
+  "Monitor arterial blood gases and ventilator parameters to assess oxygenation and ventilation status.",
+  "Perform tracheal suctioning via the subglottal suctioning route as documented."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35679826A1::01",
+   "claim_id": "M35679826A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP, as documented at the decision point.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35679826A1::02",
+   "claim_id": "M35679826A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP, as documented at the decision point.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M35679826A2::03",
+   "claim_id": "M35679826A2",
+   "claim_text": "Monitor arterial blood gases and ventilator parameters to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35679826A2::04",
+   "claim_id": "M35679826A2",
+   "claim_text": "Monitor arterial blood gases and ventilator parameters to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor ventilator parameters.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilator parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35679826A3::05",
+   "claim_id": "M35679826A3",
+   "claim_text": "Perform tracheal suctioning via the subglottal suctioning route as documented.",
+   "kind": "action",
+   "text": "Perform tracheal suctioning via the subglottal suctioning route.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "tracheal suctioning",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35679826A1::02",
+   "claim_id": "M35679826A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP, as documented at the decision point.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:153314",
+     "time": "2114-06-20 12:57:00",
+     "item": "Intubated: INTUBATED."
+    }
+   ],
+   "reason": "The last ventilator/intubation record ('Intubated: INTUBATED.') was 20.6 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35679826A1::01",
+   "claim_id": "M35679826A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP, as documented at the decision point.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 4.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35679826A2::03",
+   "claim_id": "M35679826A2",
+   "claim_text": "Monitor arterial blood gases and ventilator parameters to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 4.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35679826A2::04",
+   "claim_id": "M35679826A2",
+   "claim_text": "Monitor arterial blood gases and ventilator parameters to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor ventilator parameters.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilator parameters",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No ventilator settings measurement in the 4.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35679826A3::05",
+   "claim_id": "M35679826A3",
+   "claim_text": "Perform tracheal suctioning via the subglottal suctioning route as documented.",
+   "kind": "action",
+   "text": "Perform tracheal suctioning via the subglottal suctioning route.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "tracheal suctioning",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 6,
+ "observation_window_hours": 4.2,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The last ventilator/intubation record ('Intubated: INTUBATED.') was 20.6 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

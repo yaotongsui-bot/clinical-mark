@@ -1,0 +1,641 @@
+{
+ "case_id": "M38907302",
+ "decision_point": "2166-08-23 00:36:00",
+ "claims": [
+  "Continue mechanical ventilation in CPAP/PSV mode with PEEP 5 cmH2O and FiO2 30%.",
+  "Continue norepinephrine infusion at approximately 0.05 mcg/kg/min for hemodynamic support.",
+  "Monitor arterial blood pressure and oxygen saturation via existing arterial line and pulse oximetry."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M38907302A1::01",
+   "claim_id": "M38907302A1",
+   "claim_text": "Continue mechanical ventilation in CPAP/PSV mode with PEEP 5 cmH2O and FiO2 30%.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation in CPAP/PSV mode with PEEP 5 cmH2O and FiO2 30%.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38907302A2::02",
+   "claim_id": "M38907302A2",
+   "claim_text": "Continue norepinephrine infusion at approximately 0.05 mcg/kg/min for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion at approximately 0.05 mcg/kg/min for hemodynamic support.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine infusion",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38907302A3::03",
+   "claim_id": "M38907302A3",
+   "claim_text": "Monitor arterial blood pressure and oxygen saturation via existing arterial line and pulse oximetry.",
+   "kind": "action",
+   "text": "Monitor arterial blood pressure and oxygen saturation via existing arterial line and pulse oximetry.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38907302A3::04",
+   "claim_id": "M38907302A3",
+   "claim_text": "Monitor arterial blood pressure and oxygen saturation via existing arterial line and pulse oximetry.",
+   "kind": "action",
+   "text": "Monitor arterial blood pressure and oxygen saturation via existing arterial line and pulse oximetry.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38907302A1::P01",
+   "claim_id": "M38907302A1",
+   "claim_text": "Continue mechanical ventilation in CPAP/PSV mode with PEEP 5 cmH2O and FiO2 30%.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation (BiPAP/CPAP).",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M38907302A2::P02",
+   "claim_id": "M38907302A2",
+   "claim_text": "Continue norepinephrine infusion at approximately 0.05 mcg/kg/min for hemodynamic support.",
+   "kind": "fact",
+   "text": "The patient is currently receiving norepinephrine infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M38907302A1::P01",
+   "claim_id": "M38907302A1",
+   "claim_text": "Continue mechanical ventilation in CPAP/PSV mode with PEEP 5 cmH2O and FiO2 30%.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation (BiPAP/CPAP).",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_addressed",
+   "reason": "No cited record shows this treatment was withheld or stopped; absence of a record is not_addressed. (Panel verdict: not_supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "not_supported",
+     "llama3.1:8b-instruct-q4_K_M": "not_addressed",
+     "qwen2.5:14b": "not_supported"
+    },
+    "panel_label": "not_supported"
+   },
+   "evidence": [
+    {
+     "rid": "procedureevents:9418222:225792:2166-08-22 00:44:00",
+     "time": "2166-08-22 00:44:00",
+     "item": "Running at decision time (started 2166-08-22 00:44:00): Procedure Invasive Ventilation"
+    }
+   ]
+  },
+  {
+   "atom_id": "M38907302A2::P02",
+   "claim_id": "M38907302A2",
+   "claim_text": "Continue norepinephrine infusion at approximately 0.05 mcg/kg/min for hemodynamic support.",
+   "kind": "fact",
+   "text": "The patient is currently receiving norepinephrine infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R49 explicitly states that the norepinephrine infusion is running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:3482032:221906:2166-08-22 22:51:00",
+     "time": "2166-08-22 22:51:00",
+     "item": "Running at decision time (started 2166-08-22 22:51:00): Infusion/input Norepinephrine at 0.050014383305097 mcg/kg/min"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M38907302A1::01",
+   "claim_id": "M38907302A1",
+   "claim_text": "Continue mechanical ventilation in CPAP/PSV mode with PEEP 5 cmH2O and FiO2 30%.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation in CPAP/PSV mode with PEEP 5 cmH2O and FiO2 30%.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2166-08-22 00:44:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38907302A2::02",
+   "claim_id": "M38907302A2",
+   "claim_text": "Continue norepinephrine infusion at approximately 0.05 mcg/kg/min for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion at approximately 0.05 mcg/kg/min for hemodynamic support.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine infusion",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN221906",
+     "time": "2166-08-22 22:51:00",
+     "item": "Norepinephrine infusion continuing at 0.050014383305097 mcg/kg/min",
+     "class": "vasopressor"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded vasopressors after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38907302A3::03",
+   "claim_id": "M38907302A3",
+   "claim_text": "Monitor arterial blood pressure and oxygen saturation via existing arterial line and pulse oximetry.",
+   "kind": "action",
+   "text": "Monitor arterial blood pressure and oxygen saturation via existing arterial line and pulse oximetry.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220050:2166-08-23 01:00:00:447474",
+     "time": "2166-08-23 01:00:00",
+     "item": "systolic BP",
+     "value": "124 mmHg"
+    },
+    {
+     "rid": "chart:220050:2166-08-23 02:00:00:447488",
+     "time": "2166-08-23 02:00:00",
+     "item": "systolic BP",
+     "value": "126 mmHg"
+    },
+    {
+     "rid": "chart:220052:2166-08-23 01:00:00:447477",
+     "time": "2166-08-23 01:00:00",
+     "item": "mean arterial pressure",
+     "value": "85 mmHg"
+    },
+    {
+     "rid": "chart:220052:2166-08-23 02:00:00:447484",
+     "time": "2166-08-23 02:00:00",
+     "item": "mean arterial pressure",
+     "value": "88 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x24, mean arterial pressure x25.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38907302A3::04",
+   "claim_id": "M38907302A3",
+   "claim_text": "Monitor arterial blood pressure and oxygen saturation via existing arterial line and pulse oximetry.",
+   "kind": "action",
+   "text": "Monitor arterial blood pressure and oxygen saturation via existing arterial line and pulse oximetry.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220050:2166-08-23 01:00:00:447474",
+     "time": "2166-08-23 01:00:00",
+     "item": "systolic BP",
+     "value": "124 mmHg"
+    },
+    {
+     "rid": "chart:220050:2166-08-23 02:00:00:447488",
+     "time": "2166-08-23 02:00:00",
+     "item": "systolic BP",
+     "value": "126 mmHg"
+    },
+    {
+     "rid": "chart:220052:2166-08-23 01:00:00:447477",
+     "time": "2166-08-23 01:00:00",
+     "item": "mean arterial pressure",
+     "value": "85 mmHg"
+    },
+    {
+     "rid": "chart:220052:2166-08-23 02:00:00:447484",
+     "time": "2166-08-23 02:00:00",
+     "item": "mean arterial pressure",
+     "value": "88 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x24, mean arterial pressure x25.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acyclovir",
+    "Ampicillin",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "extubation",
+   "name": "extubation / weaning",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Extubation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38907302A2::02"
+   ]
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38907302A1::01"
+   ]
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dilantin",
+    "Phenytoin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "0.9% Sodium Chloride",
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 18,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Phosphate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 15,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acyclovir",
+    "Ampicillin",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "extubation",
+   "name": "extubation / weaning",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Extubation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38907302A2::02"
+   ]
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38907302A1::01"
+   ]
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dilantin",
+    "Phenytoin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "0.9% Sodium Chloride",
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 18,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Phosphate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 15,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 73,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "The patient is currently on non-invasive ventilation (BiPAP/CPAP). -- No cited record shows this treatment was withheld or stopped; absence of a record is not_addressed. (Panel verdict: not_supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 8,
+  "recall_vital": 0.5,
+  "recall_okay": 0.0,
+  "recall_all": 0.2,
+  "recall_vital_at3": 0.5,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.2
+ }
+}

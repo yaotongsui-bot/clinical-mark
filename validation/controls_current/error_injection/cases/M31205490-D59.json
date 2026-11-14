@@ -1,0 +1,183 @@
+{
+ "case_id": "M31205490-D59",
+ "decision_point": "2110-04-12 15:52:22",
+ "claims": [
+  "Continue dexamethasone."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31205490-D59A1::01",
+   "claim_id": "M31205490-D59A1",
+   "claim_text": "Continue dexamethasone.",
+   "kind": "action",
+   "text": "Continue dexamethasone.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "dexamethasone",
+   "conditional": false,
+   "treatment_class": "steroid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31205490-D59A1::02",
+   "claim_id": "M31205490-D59A1",
+   "claim_text": "Continue dexamethasone.",
+   "kind": "fact",
+   "text": "Dexamethasone is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M31205490-D59A1::02",
+   "claim_id": "M31205490-D59A1",
+   "claim_text": "Continue dexamethasone.",
+   "kind": "fact",
+   "text": "Dexamethasone is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "The records contain no order or administration record for dexamethasone. The only corticosteroid mentioned is methylprednisolone, which was stopped on 2110-04-11.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M31205490-D59A1::01",
+   "claim_id": "M31205490-D59A1",
+   "claim_text": "Continue dexamethasone.",
+   "kind": "action",
+   "text": "Continue dexamethasone.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "dexamethasone",
+   "conditional": false,
+   "treatment_class": "steroid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No corticosteroids action recorded in the 8.1 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Ketorolac",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Ketorolac",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 10,
+ "observation_window_hours": 8.1,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 1.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Dexamethasone is currently being given. -- The records contain no order or administration record for dexamethasone. The only corticosteroid mentioned is methylprednisolone, which was stopped on 2110-04-11."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 2,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

@@ -1,0 +1,331 @@
+{
+ "case_id": "M32506122-D16",
+ "decision_point": "2167-11-08 20:22:00",
+ "claims": [
+  "Continue dexamethasone and heparin therapy."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32506122-D16A1::01",
+   "claim_id": "M32506122-D16A1",
+   "claim_text": "Continue dexamethasone and heparin therapy.",
+   "kind": "action",
+   "text": "Continue dexamethasone.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "dexamethasone",
+   "conditional": false,
+   "treatment_class": "steroid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32506122-D16A1::02",
+   "claim_id": "M32506122-D16A1",
+   "claim_text": "Continue dexamethasone and heparin therapy.",
+   "kind": "fact",
+   "text": "Dexamethasone is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M32506122-D16A1::03",
+   "claim_id": "M32506122-D16A1",
+   "claim_text": "Continue dexamethasone and heparin therapy.",
+   "kind": "action",
+   "text": "Continue heparin therapy.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32506122-D16A1::04",
+   "claim_id": "M32506122-D16A1",
+   "claim_text": "Continue dexamethasone and heparin therapy.",
+   "kind": "fact",
+   "text": "Heparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32506122-D16A1::02",
+   "claim_id": "M32506122-D16A1",
+   "claim_text": "Continue dexamethasone and heparin therapy.",
+   "kind": "fact",
+   "text": "Dexamethasone is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_addressed",
+   "reason": "No record mentions dexamethasone at all—no order or administration—so the supplied records do not address whether it is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "not_addressed",
+     "glm-5.3-flash:cloud": "not_addressed",
+     "qwen2.5:14b": "not_addressed"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "M32506122-D16A1::04",
+   "claim_id": "M32506122-D16A1",
+   "claim_text": "Continue dexamethasone and heparin therapy.",
+   "kind": "fact",
+   "text": "Heparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "A heparin infusion is documented as running at the decision time (started 2167-11-08 17:00:00), so heparin is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "supported",
+     "glm-5.3-flash:cloud": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:9810283:225152:2167-11-08 17:00:00",
+     "time": "2167-11-08 17:00:00",
+     "item": "Running at decision time (started 2167-11-08 17:00:00): Infusion/input Heparin Sodium at 1250.209228515625 units/hour"
+    },
+    {
+     "rid": "rx:35387819:2167-11-08 18:00:00",
+     "time": "2167-11-08 18:00:00",
+     "item": "Order: Heparin Sodium 25,000 UNIT IV (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32506122-D16A1::01",
+   "claim_id": "M32506122-D16A1",
+   "claim_text": "Continue dexamethasone and heparin therapy.",
+   "kind": "action",
+   "text": "Continue dexamethasone.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "dexamethasone",
+   "conditional": false,
+   "treatment_class": "steroid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No corticosteroids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32506122-D16A1::03",
+   "claim_id": "M32506122-D16A1",
+   "claim_text": "Continue dexamethasone and heparin therapy.",
+   "kind": "action",
+   "text": "Continue heparin therapy.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225152",
+     "time": "2167-11-08 17:00:00",
+     "item": "Heparin Sodium infusion continuing at 1250.209228515625 units/hour",
+     "class": "anticoagulant_therapeutic"
+    },
+    {
+     "rid": "IN225152#2",
+     "time": "2167-11-09 12:55:00",
+     "item": "Heparin Sodium infusion started at 1250 units/hour",
+     "class": "anticoagulant_therapeutic"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded anticoagulation (therapeutic) after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Oxide",
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M32506122-D16A1::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Oxide",
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M32506122-D16A1::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 33,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Dexamethasone is currently being given. -- No record mentions dexamethasone at all—no order or administration—so the supplied records do not address whether it is currently being given."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.5,
+  "recall_vital": null,
+  "recall_okay": 0.25,
+  "recall_all": 0.25,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.25,
+  "recall_all_at3": 0.25
+ }
+}

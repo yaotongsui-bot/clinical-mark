@@ -15,11 +15,18 @@ python run.py --triples input/mimic_triples_open_s1.json --out-dir results_open_
 bash run_all.sh                                       # rebuild every result and validation output
 ```
 
-- Needs a local Ollama with `qwen2.5:14b` (atomizer), `bge-m3` (retrieval embeddings) and the judge
-  panel `gemma4:12b`, `llama3.1:8b-instruct-q4_K_M`, `qwen2.5:14b`. With the shipped caches,
-  `run_all.sh` replays everything without calling a model.
+- `run.py` defaults to cloud models through `OLLAMA_API_KEY`: `deepseek-v4-pro:0813` splits, and
+  `deepseek-v4-pro:0813`, `minimax-m3.1-flash`, `glm-5.3` vote as judges. It also needs a local Ollama
+  with `bge-m3` (retrieval embeddings).
+- `run_all.sh` rebuilds the older local-model results with `qwen2.5:14b` (atomizer) and the judge panel
+  `gemma4:12b`, `llama3.1:8b-instruct-q4_K_M`, `qwen2.5:14b`. The fact judge and atomizer prompts changed on 2026-11-06, so it
+  requests answers cached before that date again.
 - Options: `--case M37067082`, `--limit`, `--retrieval hybrid|dense|bm25`, `--top-n 50`,
-  `--judge-models ...`, `--judge-think gemma4:12b` (judges that answer in reasoning mode; empty for none).
+  `--ai-model ...`, `--judge-models ...`, `--judge-think gemma4:12b` (judges that answer in reasoning mode; empty for none),
+  `--facts-all-judge` (ablation: every fact goes to the judges; no code checks, rule labels or administration guard),
+  `--labels verifact` (VeriFact's three labels and definitions: no `unverifiable`, statements that would get it go to
+  the judges with `prompts/fact_judge_vf.txt`, and a treatment the records mention but do not show given is
+  `not_supported`; the default `clinical_mark` keeps this project's four labels).
 - A full run without cache takes about an hour, mostly the reasoning judge. Model answers are kept in
   `<out-dir>/model_cache.jsonl` (one line per request: the request, the answer and the judge's
   reasoning); embeddings in `embeddings/`. Rerunning the same command resumes and gives the same result.
@@ -43,7 +50,8 @@ Each result folder holds `report.md` (metrics and per-case score sheets), `summa
 | `results/`, `results_fixed/` | Evaluation of the original and the repaired input; `results_fixed/comparison.md` compares them |
 | `results_open_s1..s3/`, `results_open_summary.md` | Evaluation of the open samples and their pooled metrics with bootstrap CIs |
 | `validation/` | Test-retest run and report, retrieval / judge sensitivity analysis |
-| `annotation_set/` | Blinded charts and label sheet for three clinicians (20 cases, 127 items) |
+| `annotation_set/` | Blinded charts and label sheet for three clinicians, built from the frozen deepseek answers and the cloud evaluator (`manifest.json` lists the cases) |
+| `annotation_set_results_fixed/` | The earlier sheet (qwen2.5:7b answers, local evaluator, old labels); superseded |
 | `fix_input.py`, `generate_answers.py` | Repair the input prompts; generate the AI answers under evaluation |
 | `compare_runs.py`, `summarize_samples.py` | Compare two runs; pool samples with bootstrap CIs |
 | `make_annotation_set.py`, `score_annotations.py`, `sensitivity.py`, `stability_compare.py` | Validation tools |
@@ -72,16 +80,19 @@ answers. The evaluator itself always reads the records from MIMIC.
 ## Validating the evaluator
 
 ```bash
-python make_annotation_set.py results_fixed --triples input/mimic_triples_fixed.json --cases 20 --out annotation_set
+python make_annotation_set.py --run base,results_deepseek_cloud,input/mimic_triples_deepseek.json,14     --run s1,results_open_deepseek_s1_cloud,input/mimic_triples_open_deepseek_s1.json,6 --out annotation_set
 # three clinicians label annotation_set/annotations.csv independently, blinded to the machine verdicts
-python score_annotations.py results_fixed annotation_set/annotations.csv --out annotation_set/validation_report.md
+python score_annotations.py annotation_set/annotations.csv --run base,results_deepseek_cloud     --run s1,results_open_deepseek_s1_cloud --out annotation_set/validation_report.md
 python sensitivity.py results_fixed --triples input/mimic_triples_fixed.json --annotations annotation_set/annotations.csv --out validation/sensitivity_fixed
 python stability_compare.py results_fixed validation/retest_fixed validation/stability_results_fixed.md
 ```
 
 - `make_annotation_set.py`: per case, an HTML chart (admission records before the decision, clinician
   actions and measurements after it) and a label sheet with three annotator columns and an
-  adjudication column. Machine verdicts are not shown.
+  adjudication column. Machine verdicts are not shown. Labels follow the four-tier display: facts
+  supported / not_supported / unverifiable; treatments and monitoring agrees / disagrees / undetermined;
+  one "finding" row per abnormality the clinicians treated, mentioned / omitted (checks fact omissions).
+  Each case is sampled into one answer set only; half of each set's cases have a not_supported fact.
 - `score_annotations.py`: ground truth = adjudicated label or the annotators' majority. Reports
   inter-annotator agreement and evaluator vs ground truth: percent agreement, Gwet's AC1, Matthews
   correlation coefficient, per-label sensitivity / specificity / PPV / NPV, 95% bootstrap CIs over cases.
@@ -133,7 +144,14 @@ reasoning mode.
   statement keeps `supported` only if the records show X delivered in the 24 h before the decision
   (administration, device charting such as BiPAP or PCA settings, or running at T); a named drug must
   appear by name, a named class must match, a general group ("pain management") is met by any member.
-- Treatments: `match`, `partial_match` (same goal, different agent or direction), `not_done`,
+- A fact that only reports a value ("Potassium is 3.4 mEq/L", "Sodium 128-133") is checked against the
+  recorded values before the decision (lab and bedside, 24 h first), not against a direction the
+  atomizer inferred; a value far outside every recorded value (likely another unit) is `unverifiable`.
+  "Low-normal" counts as normal; "borderline" without a value is `unverifiable`. A diagnosis word that
+  names a monitor setting ("desaturation limit", "alarms for desaturation") is not a finding.
+- Treatments: `match`, `partial_match` (same aim and direction, another agent of the class or group),
+  `not_done` (nothing corresponding, or the opposite direction: stop vs continued, increase vs
+  decreased, a dose change never made, continued ventilation vs extubation),
   `condition_not_met`, `vague_target`, `unobservable`. Agreement (strict) = match / (match +
   partial_match + not_done). A suggestion that names a specific class within a group ("red blood
   cell transfusion") must match that class; "increase" / "decrease" must match the direction of the
@@ -155,6 +173,77 @@ reasoning mode.
   and keeps its own cache); it shows repeatability under fixed settings, not correctness.
 - The evaluator's own accuracy against clinicians is not yet measured.
 - Structured MIMIC-IV tables only; free-text notes would need a record atomization step.
+
+## VeriFact baseline on the 85 cases (Route B)
+
+VeriFact's fact checking, as in its code, run on the same 85 cases and the same fact atoms as this
+evaluator (Claude's split standard, `reference/split_standard.csv`, 486 facts), so only the fact
+checking differs. Plan and rationale: `VERIFACT_BASELINE.md`.
+
+```bash
+python run_baseline85.py --time-cut none   --out-dir results_baseline85/vf_hybrid_nocut   # VeriFact's whole-record setting
+python run_baseline85.py --time-cut before --out-dir results_baseline85/vf_hybrid_cut     # same, records before T only
+python score_baseline85.py REFERENCE results_baseline85/vf_hybrid_nocut results_baseline85/vf_hybrid_cut results_final_claude_split
+```
+
+| Path | Content |
+|---|---|
+| `cm/baseline.py` | VeriFact retrieval over record rows (dense; hybrid = top N dense + top N sparse, distribution-based fusion, identical texts once; rerank = hybrid + bge-reranker-v2-m3), full-text embeddings, VeriFact's absolute-time context |
+| `run_baseline85.py` | One local judge (default `llama3.1:8b-instruct-q4_K_M`) with VeriFact's prompt and settings; no code checks, three labels; `--time-cut before / none`, `--retrieval-method dense / hybrid / rerank`, `--top-n` |
+| `score_baseline85.py` | VeriFact's metrics (from `score_bhc.py`) against a reference (CSV `atom_id,label` or a run folder), per-label confusion, paired differences between runs; `unverifiable` counts as not addressed |
+
+- Reference: the existing Claude reference is not independent of this evaluator: 199 of its fact
+  labels come from this evaluator's code, and the rest were judged on this evaluator's retrieved
+  records, so it favours this evaluator (`results_final_claude_split` scores 97.9% against it). A
+  fair comparison needs a new reference judged on the full records before T, blind to both systems.
+- `rerank` needs `pip install sentence-transformers torch` and downloads the reranker model (not
+  installed yet). Admission start and end in the context are the earliest record and T (or the
+  latest record without the time cut), since the demo data has no admissions table.
+
+## VeriFact-BHC track (MIMIC-III)
+
+Scores fact judging against the clinician ground truth of MIMIC-III-Ext-VeriFact-BHC v1.1.0
+(PhysioNet, credentialed), laid out like VeriFact's own code (github.com/philipchung/verifact, MIT,
+commit f115d36). The plan is in `VERIFACT_BASELINE.md`. The MIMIC-IV pipeline above is unchanged.
+
+```bash
+pip install pandas pyarrow numpy        # irrCAC and scikit-learn only for the formula cross-check in tests
+# release at data/physionet.org/files/mimic-iii-ext-verifact-bhc/1.1.0 (the path wget -r creates),
+# or pass --release-dir / set VERIFACTBHC_DATASET_DIR
+# 1. Replay check: VeriFact's judge, local Llama 3.1 8B, on the released Llama-8B contexts
+python run_bhc.py --source-model Llama-8B --judge-models llama3.1:8b-instruct-q4_K_M --out-dir results_bhc/vf_llama8b_replay --sample 600
+# 2. This project's judge (rules + three-model vote) on the released Llama-70B contexts
+python run_bhc.py --judge-style ours --out-dir results_bhc/ours_panel_released --sample 600
+# 3. VeriFact's judge on this project's retrieval
+python run_bhc.py --context ours --out-dir results_bhc/vf_judge_ours_retrieval --sample 600
+python score_bhc.py results_bhc/vf_llama8b_replay results_bhc/ours_panel_released results_bhc/vf_judge_ours_retrieval
+```
+
+| Path | Mirrors in VeriFact | Content |
+|---|---|---|
+| `cm/verifact_bhc.py` | `scripts/analysis_verifact/release_data.py`, `scripts/evaluate/replay_physionet_v1_1_0.py` | Release reader: `propositions/`, `human_gt`, `verifact/verdicts.parquet`, rater configurations, reference payloads; label strings; refuses hosted models and a non-local Ollama endpoint |
+| `cm/notes.py` | `packages/llm_judge/.../reference_context.py` | `reference_ehr/ehr_noteevents.csv.gz` and `admissions.csv.gz` (MIMIC-III columns, any case); sentence facts; current-admission filter on CHARTDATE; the "absolute time" context string character for character |
+| `prompts/verifact_system.txt`, `prompts/verifact_fewshot.txt` | `packages/llm_judge/.../prompts.py` | VeriFact's judge system prompt and few-shot prompt, verbatim (checked against the source) |
+| `prompts/bhc_judge.txt` | - | This project's judge rules adapted to notes (plans vs events, negation, copy-forward, history vs this admission, de-identified placeholders) |
+| `run_bhc.py` | `packages/llm_judge/.../judge.py` | `--judge-style verifact` (default): input JSON with indent 4, output `verdict` / `reason`, title-cased check, temperature 0.1, top_p 1.0, up to 5 samples. `--judge-style ours`: `bhc_judge.txt` and majority vote. `--context released` (default Llama-70B, rerank, N = 50, absolute time, whole EHR) or `--context ours`. With the released context it writes `verdict_matches_release`, like VeriFact's replay |
+| `score_bhc.py` | `packages/irr_metrics`, `scripts/analysis_verifact/2_compute_verifact_metrics.py` | Percent agreement, Gwet's AC1 (irrCAC, categories found in the data), MCC (scikit-learn), per-label TPR / TNR / PPV / NPV, binarized Supported vs Not Supported or Addressed; 1000 bootstrap resamples of propositions drawn as pandas `sample(random_state=i)`; strata llm_claim / llm_sentence / human_claim / human_sentence; VeriFact's released verdicts on the same propositions and the paired difference |
+| `tests/test_bhc.py` | - | Synthetic mini release; prompt layout, context format, retries, metrics against irrCAC and scikit-learn; no model calls |
+
+Differences from VeriFact that remain:
+
+- Models: local Ollama models (Llama 3.1 8B q4 by default). VeriFact's Llama-70B is AWQ INT4 on vLLM;
+  the release also holds Llama-8B, Gemma-3-12B, Qwen-3 and R1 verdicts for replay comparisons.
+- Decoding: Ollama with a JSON schema instead of vLLM with Outlines; a fixed seed per sample.
+- `--context ours`: no reranker (bge-reranker-v2-m3 is not in Ollama), BM25 in place of bge-m3 sparse
+  weights, and regex sentence facts instead of semantic chunking + NLTK sentences or atomic claims.
+  `--context released` has none of these differences.
+- Reasoning models (VeriFact's second structured-output pass) are not reproduced.
+
+- Data use: the release and everything derived from it (`data/physionet.org/`, `results_bhc/`,
+  `embeddings_bhc/`) are in `.gitignore`. Only local Ollama models may judge it.
+- The full release has 13,290 propositions; start with `--sample`.
+- Not yet checked on the real release: the exact `human_gt` strings (unknown strings stop the run),
+  the stored values of `fact_type`, `top_n` and `reference_only_admission`, and the note columns.
 
 ## License
 

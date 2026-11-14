@@ -1,0 +1,137 @@
+{
+ "cases_evaluated": 80,
+ "claims_per_case": 7.62,
+ "ai_atoms": {
+  "action": 610,
+  "fact": 56
+ },
+ "unscored_share": 0.0,
+ "facts": {
+  "n": 56,
+  "labels": {
+   "supported": 52,
+   "not_supported": 4
+  },
+  "accuracy": 0.929,
+  "cases_with_not_supported": 2,
+  "by_fact_kind": {
+   "observed": {
+    "n": 0,
+    "labels": {},
+    "accuracy": null
+   },
+   "presupposition": {
+    "n": 56,
+    "labels": {
+     "supported": 52,
+     "not_supported": 4
+    },
+    "accuracy": 0.929
+   },
+   "judgment": {
+    "n": 0,
+    "labels": {},
+    "accuracy": null
+   },
+   "underspecified": {
+    "n": 0,
+    "labels": {},
+    "accuracy": null
+   }
+  }
+ },
+ "treatment_actions": {
+  "n": 610,
+  "labels": {
+   "match": 610
+  },
+  "precision_strict": 1.0,
+  "precision_lenient": 1.0
+ },
+ "monitoring_actions": {
+  "n": 0,
+  "labels": {},
+  "performed_rate": null
+ },
+ "goals_excluded": 0,
+ "coverage": {
+  "vital": {
+   "covered": 213,
+   "total": 214,
+   "micro": 0.995,
+   "macro": 0.999
+  },
+  "okay": {
+   "covered": 394,
+   "total": 396,
+   "micro": 0.995,
+   "macro": 0.997
+  },
+  "all": {
+   "covered": 607,
+   "total": 610,
+   "micro": 0.995,
+   "macro": 0.997
+  },
+  "vital_at3": {
+   "covered": 90,
+   "total": 214,
+   "micro": 0.421,
+   "macro": 0.471
+  },
+  "okay_at3": {
+   "covered": 141,
+   "total": 396,
+   "micro": 0.356,
+   "macro": 0.469
+  },
+  "all_at3": {
+   "covered": 231,
+   "total": 610,
+   "micro": 0.379,
+   "macro": 0.51
+  },
+  "problem_linked": 144,
+  "problem_linked_missed": 0,
+  "most_missed_vital": [
+   [
+    "renal replacement therapy",
+    1
+   ]
+  ]
+ },
+ "omissions": {
+  "facts": {
+   "findings": 150,
+   "omitted": 148
+  },
+  "treatments": {
+   "doctor_items": 610,
+   "omitted": 3,
+   "vital": 214,
+   "vital_omitted": 1
+  }
+ },
+ "judge_panel": {
+  "items": 27,
+  "agreement": {
+   "3/3": 26,
+   "2/3": 1
+  }
+ },
+ "gold_standard": "patient records (pre-decision records for facts; post-decision clinician actions for actions)",
+ "run": {
+  "triples": "control_doctor_as_ai.json",
+  "ai_model": "deepseek-v4-pro:0813:cloud",
+  "judge_models": [
+   "deepseek-v4-pro:0813:cloud",
+   "minimax-m3.1-flash:cloud",
+   "glm-5.3:cloud"
+  ],
+  "judge_think": [],
+  "retrieval": "hybrid",
+  "top_n": 50,
+  "llm_calls": 164,
+  "cache_hits": 0
+ }
+}

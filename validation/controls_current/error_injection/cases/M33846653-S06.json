@@ -1,0 +1,413 @@
+{
+ "case_id": "M33846653-S06",
+ "decision_point": "2137-06-20 19:09:00",
+ "claims": [
+  "Discontinue insulin therapy to manage hyperglycemia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M33846653-S06A1::01",
+   "claim_id": "M33846653-S06A1",
+   "claim_text": "Discontinue insulin therapy to manage hyperglycemia.",
+   "kind": "action",
+   "text": "Discontinue insulin therapy.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "stop",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M33846653-S06A1::02",
+   "claim_id": "M33846653-S06A1",
+   "claim_text": "Discontinue insulin therapy to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Insulin therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M33846653-S06A1::03",
+   "claim_id": "M33846653-S06A1",
+   "claim_text": "Discontinue insulin therapy to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M33846653-S06A1::02",
+   "claim_id": "M33846653-S06A1",
+   "claim_text": "Discontinue insulin therapy to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Insulin therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R48 shows an administration of Insulin - Humalog 4 units at 17:45 on 2137-06-20, which is within 24 hours before the decision time of 19:09, indicating insulin therapy was recently given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:9732131:223262:2137-06-20 17:45:00",
+     "time": "2137-06-20 17:45:00",
+     "item": "Infusion/input Insulin - Humalog 4 units (2137-06-20 17:45:00 to 2137-06-20 17:46:00)"
+    },
+    {
+     "rid": "inputevents:298688:223262:2137-06-20 10:20:00",
+     "time": "2137-06-20 10:20:00",
+     "item": "Infusion/input Insulin - Humalog 10 units (2137-06-20 10:20:00 to 2137-06-20 10:21:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M33846653-S06A1::03",
+   "claim_id": "M33846653-S06A1",
+   "claim_text": "Discontinue insulin therapy to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:274108",
+     "time": "2137-06-20 00:47:00",
+     "item": "Glucose",
+     "value": 207.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:274123",
+     "time": "2137-06-20 04:07:00",
+     "item": "Glucose",
+     "value": 126.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:274143",
+     "time": "2137-06-20 12:53:00",
+     "item": "Glucose",
+     "value": 234.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 234 mg/dL at 2137-06-20 12:53:00 (reference 70.0 to 100.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M33846653-S06A1::01",
+   "claim_id": "M33846653-S06A1",
+   "claim_text": "Discontinue insulin therapy to manage hyperglycemia.",
+   "kind": "action",
+   "text": "Discontinue insulin therapy.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "stop",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [
+    {
+     "rid": "RX31660903",
+     "time": "2137-06-20 21:00:00",
+     "item": "Ordered: Insulin 0 UNIT SC",
+     "class": "insulin"
+    },
+    {
+     "rid": "RX21769561",
+     "time": "2137-06-20 22:00:00",
+     "item": "Ordered: Insulin 10 UNIT SC",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "direction_mismatch": true,
+   "reason": "Opposite direction: the AI suggested stopping, but insulin is still recorded after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Azithromycin",
+    "CeftriaXONE"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 234 mg/dL (treatment threshold > 180).",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "high",
+     "reason": "Latest glucose 234 mg/dL (treatment threshold > 180)."
+    }
+   ],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Glargine",
+    "Insulin - Humalog",
+    "Insulin Pump (Self Administering Medication)"
+   ],
+   "doctor_rows": 15,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "D5LR"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Azithromycin",
+    "CeftriaXONE"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 234 mg/dL (treatment threshold > 180).",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "high",
+     "reason": "Latest glucose 234 mg/dL (treatment threshold > 180)."
+    }
+   ],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Glargine",
+    "Insulin - Humalog",
+    "Insulin Pump (Self Administering Medication)"
+   ],
+   "doctor_rows": 15,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "D5LR"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "glucose",
+   "direction": "high",
+   "reason": "Latest glucose 234 mg/dL (treatment threshold > 180).",
+   "name": "glucose",
+   "treated_by": [
+    "insulin"
+   ],
+   "mentioned": true,
+   "by_atoms": [
+    "M33846653-S06A1::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 34,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 6,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

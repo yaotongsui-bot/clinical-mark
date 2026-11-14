@@ -1,0 +1,333 @@
+{
+ "case_id": "M35636875",
+ "decision_point": "2174-05-27 09:18:00",
+ "claims": [
+  "Continue sodium chloride 0.9% infusion at the current rate.",
+  "Monitor serum electrolytes, renal function, and coagulation parameters.",
+  "Perform urinalysis with urine chemistry as indicated by collected urine specimen."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35636875A1::01",
+   "claim_id": "M35636875A1",
+   "claim_text": "Continue sodium chloride 0.9% infusion at the current rate.",
+   "kind": "action",
+   "text": "Continue sodium chloride 0.9% infusion at the current rate.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "sodium chloride 0.9% infusion",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35636875A2::02",
+   "claim_id": "M35636875A2",
+   "claim_text": "Monitor serum electrolytes, renal function, and coagulation parameters.",
+   "kind": "action",
+   "text": "Monitor serum electrolytes.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35636875A2::03",
+   "claim_id": "M35636875A2",
+   "claim_text": "Monitor serum electrolytes, renal function, and coagulation parameters.",
+   "kind": "action",
+   "text": "Monitor renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35636875A2::04",
+   "claim_id": "M35636875A2",
+   "claim_text": "Monitor serum electrolytes, renal function, and coagulation parameters.",
+   "kind": "action",
+   "text": "Monitor coagulation parameters.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35636875A3::05",
+   "claim_id": "M35636875A3",
+   "claim_text": "Perform urinalysis with urine chemistry as indicated by collected urine specimen.",
+   "kind": "action",
+   "text": "Perform urinalysis with urine chemistry as indicated by collected urine specimen.",
+   "concept": "urine_output",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "urinalysis with urine chemistry",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M35636875A1::P01",
+   "claim_id": "M35636875A1",
+   "claim_text": "Continue sodium chloride 0.9% infusion at the current rate.",
+   "kind": "fact",
+   "text": "The patient is currently receiving sodium chloride 0.9% infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35636875A1::P01",
+   "claim_id": "M35636875A1",
+   "claim_text": "Continue sodium chloride 0.9% infusion at the current rate.",
+   "kind": "fact",
+   "text": "The patient is currently receiving sodium chloride 0.9% infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R48 explicitly states that the infusion of NaCl 0.9% (sodium chloride 0.9%) is 'Running at decision time'.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:851334:225158:2174-05-27 06:14:00",
+     "time": "2174-05-27 06:14:00",
+     "item": "Running at decision time (started 2174-05-27 06:14:00): Infusion/input NaCl 0.9% at 124.99999237060547 mL/hour"
+    },
+    {
+     "rid": "inputevents:8486370:225158:2174-05-26 10:04:00",
+     "time": "2174-05-26 10:04:00",
+     "item": "Infusion/input NaCl 0.9% at 5 mL/hour (2174-05-26 10:04:00 to 2174-05-26 18:11:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35636875A1::01",
+   "claim_id": "M35636875A1",
+   "claim_text": "Continue sodium chloride 0.9% infusion at the current rate.",
+   "kind": "action",
+   "text": "Continue sodium chloride 0.9% infusion at the current rate.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "sodium chloride 0.9% infusion",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2174-05-27 06:14:00",
+     "item": "NaCl 0.9% infusion continuing at 124.99999237060547 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "RX78733016",
+     "time": "2174-05-27 12:00:00",
+     "item": "Ordered: Lactated Ringers 1000 mL IV",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35636875A2::02",
+   "claim_id": "M35636875A2",
+   "claim_text": "Monitor serum electrolytes, renal function, and coagulation parameters.",
+   "kind": "action",
+   "text": "Monitor serum electrolytes.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 5.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35636875A2::03",
+   "claim_id": "M35636875A2",
+   "claim_text": "Monitor serum electrolytes, renal function, and coagulation parameters.",
+   "kind": "action",
+   "text": "Monitor renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No renal function measurement in the 5.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35636875A2::04",
+   "claim_id": "M35636875A2",
+   "claim_text": "Monitor serum electrolytes, renal function, and coagulation parameters.",
+   "kind": "action",
+   "text": "Monitor coagulation parameters.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No coagulation measurement in the 5.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35636875A3::05",
+   "claim_id": "M35636875A3",
+   "claim_text": "Perform urinalysis with urine chemistry as indicated by collected urine specimen.",
+   "kind": "action",
+   "text": "Perform urinalysis with urine chemistry as indicated by collected urine specimen.",
+   "concept": "urine_output",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "urinalysis with urine chemistry",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M35636875A1::01"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M35636875A1::01"
+   ]
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 9,
+ "observation_window_hours": 5.2,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 1,
+  "recall_vital": null,
+  "recall_okay": 0.5,
+  "recall_all": 0.5,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.5,
+  "recall_all_at3": 0.5
+ }
+}

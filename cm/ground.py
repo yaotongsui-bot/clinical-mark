@@ -36,6 +36,77 @@ _HEDGE = re.compile(r"\b(potential|possible|possibly|may|might|could|can indicat
                     r"suspect\w*|suspicion|risk (of|for)|at risk)\b", re.I)
 # A past-history statement is not checked against current values ("history of hypertension").
 _HISTORY = re.compile(r"\bhistory of\b", re.I)
+# A statement that only reports a value ("Potassium is 3.4 mEq/L") is checked against the recorded
+# values, not against a direction the atomizer inferred from it.
+_DIRECTION_WORD = re.compile(
+    r"\b(high|low|elevated|raised|increased|decreased|reduced|depressed|abnormal|normal|deranged|above|below|"
+    r"rising|falling|worsen\w*|improv\w*|hyper\w+|hypo\w+|tachy\w*|brady\w*|febrile|afebrile|"
+    r"leukocyt\w*|acidosis|alkalosis|acidemi\w*|alkalemi\w*)\b", re.I)
+_BOUNDARY = re.compile(r"\b(low|high)[- ]normal\b", re.I)
+_BORDERLINE = re.compile(r"\bborderline\b", re.I)
+_NAME_WITH_DIGITS = re.compile(r"\b[a-z]+\d+[a-z]*\b|\d{1,2}:\d{2}(:\d{2})?|\b\d{4}-\d{2}-\d{2}\b", re.I)
+# What the patient was on when a value was taken is context, not the value ("SpO2 91% on 2 L/min").
+_VALUE_CONTEXT = re.compile(r"\b(?:while\s+)?(?:on|with|via)\s+(?:an?\s+)?(?:fi\s?o2\b|peep\b|\d+(?:\.\d+)?(?:\s*-\s*\d+(?:\.\d+)?)?\s*"
+                            r"(?:%\s*)?(?:l\b|l/min|lpm|liters?|litres?|fi\s?o2|oxygen|o2)).*$", re.I)
+_NUMBER = re.compile(r"(?<![\w.])(-?\d+(?:\.\d+)?)(?:\s*(?:-|–|to)\s*(-?\d+(?:\.\d+)?))?(?!\w|\.\d)")
+
+
+def _stated_values(text: str) -> list[tuple[float, float, float]]:
+    """(low, high, tolerance) for each value or range the statement gives; tolerance is half a unit
+    of the stated precision (3.4 matches 3.35 to 3.45)."""
+    out = []
+    text = _VALUE_CONTEXT.sub(" ", text.replace("−", "-"))
+    for m in _NUMBER.finditer(_NAME_WITH_DIGITS.sub(" ", text)):
+        a, b = m.group(1), m.group(2) or m.group(1)
+        decimals = max(len(a.partition(".")[2]), len(b.partition(".")[2]))
+        lo, hi = sorted((float(a), float(b)))
+        out.append((lo, hi, 0.5 * 10 ** -decimals + 1e-9))
+    return out
+
+
+def _stated_value_check(rows: list[dict], concept: str, text: str, decision: dt.datetime) -> dict | None:
+    """Supported when every stated value (or range) matches a value recorded before the decision,
+    preferring the 24 h before it; None when the statement gives no usable value."""
+    stated = _stated_values(text)
+    if not stated:
+        return None
+    # A stated value may come from a bedside reading (fingerstick glucose) that series() leaves out
+    # when laboratory rows exist, so both are searched.
+    bedside = records.series([r for r in rows if r["concept"] == concept and r.get("table") != "lab"], concept)
+    values = sorted({v["rid"]: v for v in records.series(rows, concept) + bedside}.values(),
+                    key=lambda v: v["observed_at"])
+    name = rules.concept_name(concept)
+    if not values:
+        return {"label": NOT_ADDRESSED, "evidence": [], "reason": f"No {name} recorded before the decision time."}
+    window = [v for v in values if records.ts(v["observed_at"]) >= decision - RECENT_WINDOW] or values[-1:]
+    recorded = [v["value"] for v in values]
+    lo_all, hi_all = min(recorded), max(recorded)
+
+    def hits(pool, lo, hi, tol):
+        return [v for v in pool if lo - tol <= v["value"] <= hi + tol]
+
+    matched, missing = [], []
+    for lo, hi, tol in stated:
+        found = hits(window, lo, hi, tol) or hits(values, lo, hi, tol)
+        (matched if found else missing).append((lo, hi, found))
+    unit = values[-1]["unit"]
+    shown = lambda lo, hi: f"{lo:g}" if lo == hi else f"{lo:g}-{hi:g}"
+    if missing:
+        far = all(hi < lo_all / 3 or lo > hi_all * 3 for lo, hi, _ in missing)
+        if far:  # e.g. calcium stated in mmol/L against mg/dL records
+            return {"label": UNVERIFIABLE, "evidence": [_cite(v) for v in window[-3:]],
+                    "reason": f"The stated {name} ({', '.join(shown(lo, hi) for lo, hi, _ in missing)}) is far outside every "
+                              f"recorded value ({lo_all:g} to {hi_all:g} {unit}); probably another unit or specimen."}
+        w = [v["value"] for v in window]
+        return {"label": NOT_SUPPORTED, "evidence": [_cite(v) for v in window[-3:]],
+                "reason": f"No recorded {name} matches the stated {', '.join(shown(lo, hi) for lo, hi, _ in missing)}; "
+                          f"values in the 24 h before the decision ranged {min(w):g} to {max(w):g} {unit} "
+                          f"(latest {window[-1]['value']:g})."}
+    cited = [v for _, _, found in matched for v in found[-1:]]
+    seen = ", ".join("%g at %s" % (v["value"], v["observed_at"]) for v in cited[-3:])
+    return {"label": SUPPORTED, "evidence": [_cite(v) for v in cited[-3:]],
+            "reason": f"The stated {name} ({', '.join(shown(lo, hi) for lo, hi, _ in matched)}) matches recorded values "
+                      f"before the decision ({seen})."}
 
 
 def _meets(status: str, direction: str) -> bool:
@@ -144,7 +215,9 @@ _NONINVASIVE = re.compile(r"non-?invasive|bipap|cpap", re.I)
 def _ventilation_status(rows: list[dict], decision: dt.datetime) -> dict:
     """Is the patient on invasive ventilation at T? Decided from the latest ventilation indicator."""
     spec = rules.MEASURES["ventilation_status"]
-    indicators = []
+    indicators, last_tube = [], ""
+    device_values = {v.casefold() for v in spec["negative_devices"]}
+    tubes = {v.casefold() for v in spec["tube_devices"]}
     for r in rows:
         if r["ongoing_at_decision"] and re.search(r"invasive ventilation", r["text"], re.I) \
                 and not _NONINVASIVE.search(r["text"]):
@@ -158,10 +231,18 @@ def _ventilation_status(rows: list[dict], decision: dt.datetime) -> dict:
             verdict = spec["lab_values"][r["itemid"]].get(raw)
             if verdict is not None:
                 indicators.append((r["observed_at"], verdict, r))
+        elif r["table"] == "chart" and r["itemid"] == spec["device_item"]:
+            device = raw.casefold()
+            if device in tubes:
+                last_tube = max(last_tube, r["observed_at"])
+            elif device in device_values:
+                indicators.append((r["observed_at"], False, r))
+    # A tube device charted after a mask or cannula row means the patient went back on the tube.
+    indicators = [x for x in indicators if x[1] or x[2].get("itemid") != spec["device_item"] or x[0] >= last_tube]
     if not indicators:
         return {"label": NOT_ADDRESSED, "evidence": [],
                 "reason": "No ventilator or intubation record before the decision time."}
-    when, positive, row = max(indicators, key=lambda x: x[0])
+    when, positive, row = max(indicators, key=lambda x: (x[0], not x[1]))
     gap = (decision - records.ts(when)).total_seconds() / 3600
     cite = [{"rid": row["rid"], "time": when, "item": row["text"]}]
     if not positive:
@@ -179,9 +260,21 @@ def _ventilation_status(rows: list[dict], decision: dt.datetime) -> dict:
 _EXPANSIONS = [
     (r"ventilat|intubat", "Intubated Ventilator Ventilator Mode PEEP set Invasive Ventilation"),
     (r"alarm", "Alarm Alarms On"),
-    (r"oxygen|o2", "O2 Flow O2 saturation Inspired O2 Fraction"),
+    (r"oxygen|o2", "O2 Flow O2 Delivery Device O2 saturation Inspired O2 Fraction"),
     (r"epithelial|urine|cast|bacteria", "Urine Epithelial Cells Bacteria"),
 ]
+
+
+_VENT_SETTING = re.compile(r"\b(peep|tidal volume|fi\s?o2|inspired o2|set (respiratory )?rate|respiratory rate \(set\)|"
+                          r"ventilator (mode|setting)\w*|pressure support|psv|minute ventilation)\b", re.I)
+
+
+def _latest_devices(rows: list[dict], decision_rows: int = 2) -> list[dict]:
+    """The last O2 device rows: search ranks these low for a PEEP or tidal volume statement, yet they show
+    whether the setting still applies."""
+    item = rules.MEASURES["ventilation_status"]["device_item"]
+    found = [r for r in rows if r["table"] == "chart" and r["itemid"] == item]
+    return sorted(found, key=lambda r: r["observed_at"])[-decision_rows:]
 
 
 def _judge_request(atom: dict, rows: list[dict], triple: dict, system: str, retriever: Retriever) -> dict:
@@ -197,6 +290,9 @@ def _judge_request(atom: dict, rows: list[dict], triple: dict, system: str, retr
                 sparse_query += " " + " ".join(re.sub(r"[^a-z ]", " ", p) for p in spec["patterns"])
     pool = [r for r in rows if r["semantics"] != "alarm_setting" or re.search(r"alarm", atom["text"], re.I)]
     picked = retriever.search(atom["text"], sparse_query, pool)
+    if picked and _VENT_SETTING.search(atom["text"]):
+        have = {r["rid"] for r in picked}
+        picked = sorted(picked + [r for r in _latest_devices(rows) if r["rid"] not in have], key=lambda r: r["observed_at"])
     if not picked:
         return {"label": NOT_ADDRESSED, "evidence": [], "method": "rule",
                 "reason": "No pre-decision record related to the statement was retrieved."}
@@ -214,14 +310,16 @@ def _judge_request(atom: dict, rows: list[dict], triple: dict, system: str, retr
                       cite_key="evidence", needs_cite={SUPPORTED, NOT_SUPPORTED}, allowed=set(alias),
                       fallback=NOT_ADDRESSED)
     return {"pending": request, "alias": alias, "statement": atom["text"],
-            "delivered": _delivered(atom["text"], rows, records.ts(triple["decision_point"]))}
+            "delivered": _delivered(atom["text"], rows, records.ts(triple["decision_point"])),
+            "running": _running(atom["text"], rows), "mentioned": _mentioned(atom["text"], rows)}
 
 
 _ADMINISTRATION_CLAIM = re.compile(r"\b(receiv\w*|given|administ\w*|infus\w*|currently on)\b", re.I)
 _NOT_GIVEN = re.compile(r"not given|held|stopped|discontinu", re.I)
+_RATE_INTERVAL = re.compile(r" at [\d.]+ \S+/(hour|min)\b.*\(.* to .*\)$")  # a rate infusion with its end time
 # Charted items show delivery only for devices; others that name a treatment are assessments
 # ("Braden Nutrition", "Richmond-RAS Scale"), and laboratory rows are tests ("Methadone, Urine").
-_DEVICE_CHARTING = re.compile(r"(pca\b|bipap|cpap|ventilator|o2 delivery device|peep|tidal volume|inspired o2)", re.I)
+_DEVICE_CHARTING = re.compile(r"(pca\b|bipap|cpap|ventilator|o2 delivery device|o2 flow|peep|tidal volume|inspired o2)", re.I)
 
 
 def _treatment(statement: str) -> tuple[str, str, str | None] | None:
@@ -237,9 +335,13 @@ def _about(row: dict, treatment: tuple[str, str, str | None] | None) -> bool:
         return True
     target, level, drug = treatment
     name = row["label"] if row["table"] is None and row["label"] else row["text"]  # drug or item name
+    if rules.group_of(target) == "oxygen":  # device charting, which the treatment classes do not cover
+        return bool(re.match(r"o2 (delivery device|flow)", name, re.I)) and not re.search(r":\s*none\b", name, re.I)
     if drug:
         return bool(re.search(drug, name, re.I))
     found = rules.classify_target(name)
+    if target in rules.also_classes(name):
+        return True
     return found is not None and (found == target if level == "class"
                                   else rules.group_of(found) == rules.group_of(target))
 
@@ -255,7 +357,51 @@ def _delivered(statement: str, rows: list[dict], decision: dt.datetime) -> bool 
                and _about(r, treatment) for r in rows)
 
 
-def _administration_guard(statement: str, label: str, cited: list[dict], delivered: bool | None) -> str | None:
+def _running(statement: str, rows: list[dict]) -> bool | None:
+    """Is the treatment of a 'receiving / given' statement running at the decision time? None when no
+    known treatment is named."""
+    treatment = _treatment(statement)
+    if treatment is None:
+        return None
+    return any(r["ongoing_at_decision"] and r["semantics"] == "administration" and _about(r, treatment) for r in rows)
+
+
+def _mentioned(statement: str, rows: list[dict]) -> bool | None:
+    """Do the records mention the treatment of a 'receiving / given' statement at all (an order, a
+    dose, an eMAR event, a procedure or device charting)? Laboratory rows and assessments do not
+    count. None when no known treatment is named."""
+    treatment = _treatment(statement)
+    if treatment is None:
+        return None
+    return any((r["semantics"] in {"administration", "order", "mar_other"} or r["source_type"] == "procedure"
+                or (r["table"] == "chart" and _DEVICE_CHARTING.match(r["label"] or "")))
+               and _about(r, treatment) for r in rows)
+
+
+def _ended_infusion(row: dict, treatment, running: bool | None) -> bool:
+    """A rate infusion of this treatment that ended before the decision time, with none of it running
+    at that time, shows the infusion was stopped."""
+    return running is False and row["semantics"] == "administration" and not row["ongoing_at_decision"] \
+        and bool(_RATE_INTERVAL.search(row["text"])) and _about(row, treatment)
+
+
+def _shows_off(row: dict, treatment: tuple[str, str, str | None] | None) -> bool:
+    """Does this record show that oxygen or non-invasive ventilation was off? For these treatments the record is
+    device charting or an ended procedure, not a held or stopped drug."""
+    if treatment is None or rules.group_of(treatment[0]) not in {"oxygen", "ventilation"}:
+        return False
+    spec = rules.MEASURES["ventilation_status"]
+    if row["table"] == "chart" and row["itemid"] == spec["device_item"]:
+        device = (row.get("value_text") or "").strip().casefold()
+        if rules.group_of(treatment[0]) == "oxygen":
+            return device == "none"
+        return device in {v.casefold() for v in spec["negative_devices"]} and not _NONINVASIVE.search(device)
+    return rules.group_of(treatment[0]) == "ventilation" and not row["ongoing_at_decision"] and \
+        row["text"].startswith("Procedure") and bool(re.search(r"ventilation", row["text"], re.I))
+
+
+def _administration_guard(statement: str, label: str, cited: list[dict], delivered: bool | None,
+                          running: bool | None = None) -> str | None:
     """The judges often cite orders or another drug's record for 'receiving / given X', and sometimes
     support what was never given, so support is checked against the records; with no known treatment
     named, support must cite more than orders. not_supported must cite a record of X showing it was
@@ -267,9 +413,28 @@ def _administration_guard(statement: str, label: str, cited: list[dict], deliver
     if label == SUPPORTED and delivered is None and cited and all(r["semantics"] == "order" for r in cited):
         return "Only orders were cited; an order does not show that the treatment was given."
     treatment = _treatment(statement)  # a stopped flush says nothing about potassium chloride
-    if label == NOT_SUPPORTED and not any((_NOT_GIVEN.search(r["text"]) or r["semantics"] == "mar_other")
-                                          and _about(r, treatment) for r in cited):
+    if label == NOT_SUPPORTED and not any(_shows_off(r, treatment) or _ended_infusion(r, treatment, running) or
+                                          ((_NOT_GIVEN.search(r["text"]) or r["semantics"] == "mar_other") and _about(r, treatment))
+                                          for r in cited):
         return "No cited record shows this treatment was withheld or stopped; absence of a record is not_addressed."
+    return None
+
+
+def _verifact_guard(statement: str, label: str, cited: list[dict], delivered: bool | None,
+                    mentioned: bool | None) -> tuple[str, str] | None:
+    """The guard under VeriFact's labels: a treatment the records mention but do not show given in
+    the 24 h before the decision is not_supported (addressed, not supported); not_addressed only
+    when the records never mention it. Returns (new label, reason) or None."""
+    if not _ADMINISTRATION_CLAIM.search(statement):
+        return None
+    if label == SUPPORTED and delivered is False:
+        if mentioned:
+            return NOT_SUPPORTED, "The records mention this treatment but show no administration in the 24 h before the decision."
+        return NOT_ADDRESSED, "No record of this treatment."
+    if label == SUPPORTED and delivered is None and cited and all(r["semantics"] == "order" for r in cited):
+        return NOT_SUPPORTED, "Only orders were cited; an order does not show that the treatment was given."
+    if label == NOT_ADDRESSED and delivered is False and mentioned:
+        return NOT_SUPPORTED, "The records mention this treatment but show no administration in the 24 h before the decision."
     return None
 
 
@@ -277,12 +442,19 @@ def finalize(pending: dict, verdict: dict) -> dict:
     alias = pending["alias"]
     cited = [alias[c] for c in verdict["cites"]]
     label, reason = verdict["label"], verdict["reason"]
-    downgrade = _administration_guard(pending.get("statement", ""), label, cited, pending.get("delivered"))
-    if downgrade:
-        label, reason = NOT_ADDRESSED, f"{downgrade} (Panel verdict: {verdict['label']}.)"
+    statement = pending.get("statement", "")
+    if pending.get("no_guard"):
+        change = None
+    elif pending.get("verifact_labels"):
+        change = _verifact_guard(statement, label, cited, pending.get("delivered"), pending.get("mentioned"))
+    else:
+        downgrade = _administration_guard(statement, label, cited, pending.get("delivered"), pending.get("running"))
+        change = (NOT_ADDRESSED, downgrade) if downgrade else None
+    if change:
+        label, reason = change[0], f"{change[1]} (Panel verdict: {verdict['label']}.)"
     return {"label": label, "reason": reason, "method": "llm_panel",
             "panel": {"agreement": verdict["agreement"], "votes": verdict["votes"],
-                      **({"panel_label": verdict["label"]} if downgrade else {})},
+                      **({"panel_label": verdict["label"]} if change else {})},
             "evidence": [{"rid": r["rid"], "time": r["observed_at"], "item": r["text"]} for r in cited]}
 
 
@@ -317,8 +489,29 @@ def indication_present(rows: list[dict], concept: str, direction: str, decision:
     return result["label"] == SUPPORTED, result["reason"]
 
 
-def verify(atom: dict, rows: list[dict], triple: dict, system: str, retriever: Retriever) -> dict:
-    """A final result, or {'pending': Request, 'alias': ...} for the judge panel."""
+def verify(atom: dict, rows: list[dict], triple: dict, system: str, retriever: Retriever,
+           all_to_judge: bool = False, labels: str = "clinical_mark") -> dict:
+    """A final result, or {'pending': Request, 'alias': ...} for the judge panel.
+
+    all_to_judge (ablation): every fact goes to the judge panel with retrieved records; no code
+    checks, no rule labels and no administration guard after the verdict.
+    labels="verifact": VeriFact's three labels only. Statements this project would mark unverifiable
+    go to the judge instead, and the guard applies VeriFact's definitions (a treatment the records
+    mention but do not show given is not_supported).
+    """
+    if all_to_judge:
+        result = _judge_request(atom, rows, triple, system, retriever)
+        return {**result, "no_guard": True} if "pending" in result else result
+    result = _verify_rules(atom, rows, triple, system, retriever)
+    if labels == "verifact":
+        if result.get("label") == UNVERIFIABLE:
+            result = _judge_request(atom, rows, triple, system, retriever)
+        if "pending" in result:
+            result = {**result, "verifact_labels": True}
+    return result
+
+
+def _verify_rules(atom: dict, rows: list[dict], triple: dict, system: str, retriever: Retriever) -> dict:
     decision = records.ts(triple["decision_point"])
     concept, direction, time = atom["concept"], atom["direction"], atom.get("time", "current")
     measurable_dir = direction in {"high", "low", "abnormal", "normal"}
@@ -336,6 +529,15 @@ def verify(atom: dict, rows: list[dict], triple: dict, system: str, retriever: R
     if _HEDGE.search(atom["text"]):
         return _unverifiable("A hedged statement ('suspected', 'risk of', 'could indicate'), not a checkable fact.")
     if not _NEGATION.search(atom["text"]) and not _HISTORY.search(atom["text"]):
+        leaf = concept in rules.CONCEPTS and rules.CONCEPTS[concept]["kind"] in {"lab", "vital"}
+        if leaf and concept != "temperature" and not _DIRECTION_WORD.search(_BOUNDARY.sub(" ", atom["text"])):
+            by_value = _stated_value_check(rows, concept, atom["text"], decision)
+            if by_value:
+                return {**by_value, "method": "deterministic"}
+            if _BORDERLINE.search(atom["text"]):
+                return _unverifiable("'Borderline' without a value names no direction to check.")
+        if leaf and _BOUNDARY.search(atom["text"]):  # "low-normal" is still within the normal range
+            direction, measurable_dir = "normal", True
         if concept in rules.SYNDROMES and direction in {"present", "absent"}:
             return {**_syndrome(rows, concept, direction, decision), "method": "deterministic"}
         if concept in rules.CONCEPTS and rules.CONCEPTS[concept]["kind"] in {"lab", "vital"} and measurable_dir:

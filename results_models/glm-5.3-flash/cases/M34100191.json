@@ -1,0 +1,1312 @@
+{
+ "case_id": "M34100191",
+ "decision_point": "2196-02-25 17:07:00",
+ "claims": [
+  "Continue renal replacement therapy with the existing CRRT circuit and dialysate/replacement fluids.",
+  "Continue mechanical ventilation with the current CPAP/PSV settings and monitor oxygenation and ventilation.",
+  "Continue norepinephrine infusion and monitor hemodynamic status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34100191A1::01",
+   "claim_id": "M34100191A1",
+   "claim_text": "Continue renal replacement therapy with the existing CRRT circuit and dialysate/replacement fluids.",
+   "kind": "action",
+   "text": "Continue renal replacement therapy with the existing CRRT circuit and dialysate/replacement fluids.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "continue",
+   "target": "CRRT",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34100191A1::02",
+   "claim_id": "M34100191A1",
+   "claim_text": "Continue renal replacement therapy with the existing CRRT circuit and dialysate/replacement fluids.",
+   "kind": "fact",
+   "text": "The patient is currently on renal replacement therapy (CRRT).",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M34100191A2::03",
+   "claim_id": "M34100191A2",
+   "claim_text": "Continue mechanical ventilation with the current CPAP/PSV settings and monitor oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with the current CPAP/PSV settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34100191A2::04",
+   "claim_id": "M34100191A2",
+   "claim_text": "Continue mechanical ventilation with the current CPAP/PSV settings and monitor oxygenation and ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M34100191A2::05",
+   "claim_id": "M34100191A2",
+   "claim_text": "Continue mechanical ventilation with the current CPAP/PSV settings and monitor oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Monitor oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygenation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34100191A2::06",
+   "claim_id": "M34100191A2",
+   "claim_text": "Continue mechanical ventilation with the current CPAP/PSV settings and monitor oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Monitor ventilation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34100191A3::07",
+   "claim_id": "M34100191A3",
+   "claim_text": "Continue norepinephrine infusion and monitor hemodynamic status.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34100191A3::08",
+   "claim_id": "M34100191A3",
+   "claim_text": "Continue norepinephrine infusion and monitor hemodynamic status.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being infused.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M34100191A3::09",
+   "claim_id": "M34100191A3",
+   "claim_text": "Continue norepinephrine infusion and monitor hemodynamic status.",
+   "kind": "action",
+   "text": "Monitor hemodynamic status.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamic status",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M34100191A1::02",
+   "claim_id": "M34100191A1",
+   "claim_text": "Continue renal replacement therapy with the existing CRRT circuit and dialysate/replacement fluids.",
+   "kind": "fact",
+   "text": "The patient is currently on renal replacement therapy (CRRT).",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_addressed",
+   "reason": "The records show active CRRT-related orders (heparin for CRRT priming, ACD-A CRRT, Prismasate dialysate/replacement) and a dialysis catheter procedure running at decision time, but no administration record showing CRRT itself is running. Active orders alone cannot confirm the treatment is being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "glm-5.3-flash:cloud": "not_addressed"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "rx:98495162:2196-02-24 18:00:00",
+     "time": "2196-02-24 18:00:00",
+     "item": "Order: Heparin (CRRT Machine Priming) 5000 UNIT DIALYS (active at decision time)"
+    },
+    {
+     "rid": "rx:94292649:2196-02-24 18:00:00",
+     "time": "2196-02-24 18:00:00",
+     "item": "Order: Citrate Dextrose 3% (ACD-A) CRRT 1000 mL DIALYS (active at decision time)"
+    },
+    {
+     "rid": "rx:57410461:2196-02-24 18:00:00",
+     "time": "2196-02-24 18:00:00",
+     "item": "Order: Prismasate (B32 K2) 5000 mL REPLACE (active at decision time)"
+    },
+    {
+     "rid": "rx:15243514:2196-02-24 18:00:00",
+     "time": "2196-02-24 18:00:00",
+     "item": "Order: Prismasate (B32 K2) 5000 mL DIALYS (active at decision time)"
+    },
+    {
+     "rid": "procedureevents:5325488:224270:2196-02-25 16:26:00",
+     "time": "2196-02-25 16:26:00",
+     "item": "Running at decision time (started 2196-02-25 16:26:00): Procedure Dialysis Catheter"
+    }
+   ]
+  },
+  {
+   "atom_id": "M34100191A2::04",
+   "claim_id": "M34100191A2",
+   "claim_text": "Continue mechanical ventilation with the current CPAP/PSV settings and monitor oxygenation and ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:7015463:225792:2196-02-24 16:52:00",
+     "time": "2196-02-24 16:52:00",
+     "item": "Running at decision time (started 2196-02-24 16:52:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M34100191A3::08",
+   "claim_id": "M34100191A3",
+   "claim_text": "Continue norepinephrine infusion and monitor hemodynamic status.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being infused.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R50 explicitly states that a norepinephrine infusion was running at the decision time (started 2196-02-25 16:48:00 at 0.20 mcg/kg/min), directly supporting that norepinephrine is currently being infused.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "glm-5.3-flash:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:581034:221906:2196-02-25 16:48:00",
+     "time": "2196-02-25 16:48:00",
+     "item": "Running at decision time (started 2196-02-25 16:48:00): Infusion/input Norepinephrine at 0.2008184528676793 mcg/kg/min"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M34100191A1::01",
+   "claim_id": "M34100191A1",
+   "claim_text": "Continue renal replacement therapy with the existing CRRT circuit and dialysate/replacement fluids.",
+   "kind": "action",
+   "text": "Continue renal replacement therapy with the existing CRRT circuit and dialysate/replacement fluids.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "continue",
+   "target": "CRRT",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN227525",
+     "time": "2196-02-26 01:00:00",
+     "item": "Calcium Gluconate (CRRT) infusion started at 1.1999999284744263 grams/hour",
+     "class": "renal_replacement"
+    },
+    {
+     "rid": "IN227526",
+     "time": "2196-02-26 01:00:00",
+     "item": "Citrate infusion started at",
+     "class": "renal_replacement"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded renal replacement therapy after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34100191A2::03",
+   "claim_id": "M34100191A2",
+   "claim_text": "Continue mechanical ventilation with the current CPAP/PSV settings and monitor oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with the current CPAP/PSV settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2196-02-24 16:52:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34100191A2::05",
+   "claim_id": "M34100191A2",
+   "claim_text": "Continue mechanical ventilation with the current CPAP/PSV settings and monitor oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Monitor oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygenation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220277:2196-02-25 18:00:00:559473",
+     "time": "2196-02-25 18:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:220277:2196-02-25 21:00:00:559661",
+     "time": "2196-02-25 21:00:00",
+     "item": "SpO2",
+     "value": "96 %"
+    },
+    {
+     "rid": "chart:220224:2196-02-26 14:17:00:564581",
+     "time": "2196-02-26 14:17:00",
+     "item": "PaO2",
+     "value": "112 mmHg"
+    },
+    {
+     "rid": "chart:220224:2196-02-26 16:30:00:565423",
+     "time": "2196-02-26 16:30:00",
+     "item": "PaO2",
+     "value": "95 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x28, PaO2 x14.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34100191A2::06",
+   "claim_id": "M34100191A2",
+   "claim_text": "Continue mechanical ventilation with the current CPAP/PSV settings and monitor oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Monitor ventilation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilation",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34100191A3::07",
+   "claim_id": "M34100191A3",
+   "claim_text": "Continue norepinephrine infusion and monitor hemodynamic status.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN221906",
+     "time": "2196-02-25 16:48:00",
+     "item": "Norepinephrine infusion continuing at 0.2008184528676793 mcg/kg/min",
+     "class": "vasopressor"
+    },
+    {
+     "rid": "IN221906#2",
+     "time": "2196-02-25 17:56:00",
+     "item": "Norepinephrine infusion started at 0.18062122398987412 mcg/kg/min",
+     "class": "vasopressor"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded vasopressors after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34100191A3::09",
+   "claim_id": "M34100191A3",
+   "claim_text": "Continue norepinephrine infusion and monitor hemodynamic status.",
+   "kind": "action",
+   "text": "Monitor hemodynamic status.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamic status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2196-02-25 18:00:00:559472",
+     "time": "2196-02-25 18:00:00",
+     "item": "heart rate",
+     "value": "111 bpm"
+    },
+    {
+     "rid": "chart:220045:2196-02-25 19:00:00:559483",
+     "time": "2196-02-25 19:00:00",
+     "item": "heart rate",
+     "value": "117 bpm"
+    },
+    {
+     "rid": "chart:220048:2196-02-25 18:00:00:559474",
+     "time": "2196-02-25 18:00:00",
+     "item": "heart rhythm",
+     "value": "AF (Atrial Fibrillation)"
+    },
+    {
+     "rid": "chart:220048:2196-02-25 19:00:00:559491",
+     "time": "2196-02-25 19:00:00",
+     "item": "heart rhythm",
+     "value": "AF (Atrial Fibrillation)"
+    },
+    {
+     "rid": "chart:220050:2196-02-25 18:00:00:559481",
+     "time": "2196-02-25 18:00:00",
+     "item": "systolic BP",
+     "value": "121 mmHg"
+    },
+    {
+     "rid": "chart:220050:2196-02-25 19:00:00:559495",
+     "time": "2196-02-25 19:00:00",
+     "item": "systolic BP",
+     "value": "122 mmHg"
+    },
+    {
+     "rid": "chart:220052:2196-02-25 18:00:00:559476",
+     "time": "2196-02-25 18:00:00",
+     "item": "mean arterial pressure",
+     "value": "90 mmHg"
+    },
+    {
+     "rid": "chart:220052:2196-02-25 19:00:00:559484",
+     "time": "2196-02-25 19:00:00",
+     "item": "mean arterial pressure",
+     "value": "93 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x24, heart rhythm x24, systolic BP x10, mean arterial pressure x10.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 21.6 K/uL at 2196-02-25 14:54:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 21.6 K/uL at 2196-02-25 14:54:00 (reference 4.0 to 11.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "Ciprofloxacin",
+    "Ciprofloxacin IV",
+    "Doxycycline",
+    "Metronidazole"
+   ],
+   "doctor_rows": 17,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "bicarbonate",
+   "name": "sodium bicarbonate",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest pH 7.24 units at 2196-02-25 15:10:00 (reference 7.35 to 7.45) is low, consistent with 'low'. Latest bicarbonate 14 mEq/L at 2196-02-25 14:54:00 (reference 22.0 to 32.0) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "ph",
+     "direction": "low",
+     "reason": "Latest pH 7.24 units at 2196-02-25 15:10:00 (reference 7.35 to 7.45) is low, consistent with 'low'."
+    },
+    {
+     "concept": "bicarbonate",
+     "direction": "low",
+     "reason": "Latest bicarbonate 14 mEq/L at 2196-02-25 14:54:00 (reference 22.0 to 32.0) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Sodium Bicarbonate",
+    "Sodium Bicarbonate 8.4%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.6 mg/dL at 2196-02-25 14:54:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 7.6 mg/dL at 2196-02-25 14:54:00 (reference 8.4 to 10.3) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 21.6 K/uL at 2196-02-25 14:54:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 21.6 K/uL at 2196-02-25 14:54:00 (reference 4.0 to 11.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Blood Cultured",
+    "Sputum Culture"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 195 mg/dL (treatment threshold > 180).",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "high",
+     "reason": "Latest glucose 195 mg/dL (treatment threshold > 180)."
+    }
+   ],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 4.8 mmol/L at 2196-02-25 15:10:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 4.8 mmol/L at 2196-02-25 15:10:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 71,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2196-02-25 14:54:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "potassium",
+     "direction": "low",
+     "reason": "Latest potassium 3 mEq/L at 2196-02-25 14:54:00 (reference 3.3 to 5.1) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "indications": [
+    {
+     "concept": "heart_rate",
+     "direction": "high",
+     "reason": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'."
+    }
+   ],
+   "doctor_targets": [
+    "Amiodarone",
+    "Amiodarone 600/500"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest platelets 29 K/uL (treatment threshold < 50).",
+   "indications": [
+    {
+     "concept": "platelets",
+     "direction": "low",
+     "reason": "Latest platelets 29 K/uL (treatment threshold < 50)."
+    }
+   ],
+   "doctor_targets": [
+    "Platelets"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "renal_replacement",
+   "name": "renal replacement therapy",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "ACD-A Citrate (1000ml)",
+    "Calcium Gluconate (CRRT)",
+    "Citrate",
+    "Dialysis - CRRT",
+    "KCl (CRRT)",
+    "Prismasate (B22 K4)"
+   ],
+   "doctor_rows": 25,
+   "covered": true,
+   "by_atoms": [
+    "M34100191A1::01"
+   ]
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine",
+    "Phenylephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 33,
+   "covered": true,
+   "by_atoms": [
+    "M34100191A3::07"
+   ]
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M34100191A2::03"
+   ]
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray",
+    "ERCP (Travel to)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Na Phos",
+    "Sodium Phosphate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydrocortisone Na Succ."
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 21.6 K/uL at 2196-02-25 14:54:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 21.6 K/uL at 2196-02-25 14:54:00 (reference 4.0 to 11.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "Ciprofloxacin",
+    "Ciprofloxacin IV",
+    "Doxycycline",
+    "Metronidazole"
+   ],
+   "doctor_rows": 17,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "bicarbonate",
+   "name": "sodium bicarbonate",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest pH 7.24 units at 2196-02-25 15:10:00 (reference 7.35 to 7.45) is low, consistent with 'low'. Latest bicarbonate 14 mEq/L at 2196-02-25 14:54:00 (reference 22.0 to 32.0) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "ph",
+     "direction": "low",
+     "reason": "Latest pH 7.24 units at 2196-02-25 15:10:00 (reference 7.35 to 7.45) is low, consistent with 'low'."
+    },
+    {
+     "concept": "bicarbonate",
+     "direction": "low",
+     "reason": "Latest bicarbonate 14 mEq/L at 2196-02-25 14:54:00 (reference 22.0 to 32.0) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Sodium Bicarbonate",
+    "Sodium Bicarbonate 8.4%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.6 mg/dL at 2196-02-25 14:54:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 7.6 mg/dL at 2196-02-25 14:54:00 (reference 8.4 to 10.3) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 21.6 K/uL at 2196-02-25 14:54:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 21.6 K/uL at 2196-02-25 14:54:00 (reference 4.0 to 11.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Blood Cultured",
+    "Sputum Culture"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 195 mg/dL (treatment threshold > 180).",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "high",
+     "reason": "Latest glucose 195 mg/dL (treatment threshold > 180)."
+    }
+   ],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 4.8 mmol/L at 2196-02-25 15:10:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 4.8 mmol/L at 2196-02-25 15:10:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 71,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2196-02-25 14:54:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "potassium",
+     "direction": "low",
+     "reason": "Latest potassium 3 mEq/L at 2196-02-25 14:54:00 (reference 3.3 to 5.1) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "indications": [
+    {
+     "concept": "heart_rate",
+     "direction": "high",
+     "reason": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'."
+    }
+   ],
+   "doctor_targets": [
+    "Amiodarone",
+    "Amiodarone 600/500"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest platelets 29 K/uL (treatment threshold < 50).",
+   "indications": [
+    {
+     "concept": "platelets",
+     "direction": "low",
+     "reason": "Latest platelets 29 K/uL (treatment threshold < 50)."
+    }
+   ],
+   "doctor_targets": [
+    "Platelets"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "renal_replacement",
+   "name": "renal replacement therapy",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "ACD-A Citrate (1000ml)",
+    "Calcium Gluconate (CRRT)",
+    "Citrate",
+    "Dialysis - CRRT",
+    "KCl (CRRT)",
+    "Prismasate (B22 K4)"
+   ],
+   "doctor_rows": 25,
+   "covered": true,
+   "by_atoms": [
+    "M34100191A1::01"
+   ]
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine",
+    "Phenylephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 33,
+   "covered": true,
+   "by_atoms": [
+    "M34100191A3::07"
+   ]
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M34100191A2::03"
+   ]
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray",
+    "ERCP (Travel to)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Na Phos",
+    "Sodium Phosphate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydrocortisone Na Succ."
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "bicarbonate",
+   "direction": "low",
+   "reason": "Latest bicarbonate 14 mEq/L at 2196-02-25 14:54:00 (reference 22.0 to 32.0) is low, consistent with 'low'.",
+   "name": "bicarbonate",
+   "treated_by": [
+    "sodium bicarbonate"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "calcium",
+   "direction": "low",
+   "reason": "Latest calcium 7.6 mg/dL at 2196-02-25 14:54:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "name": "calcium",
+   "treated_by": [
+    "calcium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "glucose",
+   "direction": "high",
+   "reason": "Latest glucose 195 mg/dL (treatment threshold > 180).",
+   "name": "glucose",
+   "treated_by": [
+    "insulin"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "heart_rate",
+   "direction": "high",
+   "reason": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "name": "heart rate",
+   "treated_by": [
+    "rate / rhythm control"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 4.8 mmol/L at 2196-02-25 15:10:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "ph",
+   "direction": "low",
+   "reason": "Latest pH 7.24 units at 2196-02-25 15:10:00 (reference 7.35 to 7.45) is low, consistent with 'low'.",
+   "name": "pH",
+   "treated_by": [
+    "sodium bicarbonate"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "platelets",
+   "direction": "low",
+   "reason": "Latest platelets 29 K/uL (treatment threshold < 50).",
+   "name": "platelets",
+   "treated_by": [
+    "platelet / plasma transfusion"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "potassium",
+   "direction": "low",
+   "reason": "Latest potassium 3 mEq/L at 2196-02-25 14:54:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "name": "potassium",
+   "treated_by": [
+    "potassium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 21.6 K/uL at 2196-02-25 14:54:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials",
+    "cultures"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 258,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.333,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "The patient is currently on renal replacement therapy (CRRT). -- The records show active CRRT-related orders (heparin for CRRT priming, ACD-A CRRT, Prismasate dialysate/replacement) and a dialysis catheter procedure running at decision time, but no administration record showing CRRT itself is running. Active orders alone cannot confirm the treatment is being given."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 9,
+  "treatments_omitted": 16,
+  "recall_vital": 0.25,
+  "recall_okay": 0.0,
+  "recall_all": 0.158,
+  "recall_vital_at3": 0.25,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.158
+ }
+}

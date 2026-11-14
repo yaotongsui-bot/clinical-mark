@@ -1,0 +1,782 @@
+{
+ "case_id": "M35026312",
+ "decision_point": "2150-03-12 15:34:56",
+ "claims": [
+  "Continue mechanical ventilation with current settings (MMV/PSV/AutoFlow, PEEP 5 cmH2O, FiO2 30%, PSV 12 cmH2O) and monitor ventilator parameters.",
+  "Continue insulin infusion at approximately 7 units/hour with glucose monitoring given hyperglycemia.",
+  "Monitor arterial blood gas and lactate to assess oxygenation, ventilation, and metabolic status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35026312A1::01",
+   "claim_id": "M35026312A1",
+   "claim_text": "Continue mechanical ventilation with current settings (MMV/PSV/AutoFlow, PEEP 5 cmH2O, FiO2 30%, PSV 12 cmH2O) and monitor ventilator parameters.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings (MMV/PSV/AutoFlow, PEEP 5 cmH2O, FiO2 30%, PSV 12 cmH2O).",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35026312A1::02",
+   "claim_id": "M35026312A1",
+   "claim_text": "Continue mechanical ventilation with current settings (MMV/PSV/AutoFlow, PEEP 5 cmH2O, FiO2 30%, PSV 12 cmH2O) and monitor ventilator parameters.",
+   "kind": "action",
+   "text": "Monitor ventilator parameters.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilator parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35026312A2::03",
+   "claim_id": "M35026312A2",
+   "claim_text": "Continue insulin infusion at approximately 7 units/hour with glucose monitoring given hyperglycemia.",
+   "kind": "action",
+   "text": "Continue insulin infusion at approximately 7 units/hour.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35026312A2::04",
+   "claim_id": "M35026312A2",
+   "claim_text": "Continue insulin infusion at approximately 7 units/hour with glucose monitoring given hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor glucose given hyperglycemia.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35026312A3::05",
+   "claim_id": "M35026312A3",
+   "claim_text": "Monitor arterial blood gas and lactate to assess oxygenation, ventilation, and metabolic status.",
+   "kind": "action",
+   "text": "Monitor arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gas",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35026312A3::06",
+   "claim_id": "M35026312A3",
+   "claim_text": "Monitor arterial blood gas and lactate to assess oxygenation, ventilation, and metabolic status.",
+   "kind": "action",
+   "text": "Monitor lactate to assess metabolic status.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35026312A2::R01",
+   "claim_id": "M35026312A2",
+   "claim_text": "Continue insulin infusion at approximately 7 units/hour with glucose monitoring given hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  },
+  {
+   "atom_id": "M35026312A1::P01",
+   "claim_id": "M35026312A1",
+   "claim_text": "Continue mechanical ventilation with current settings (MMV/PSV/AutoFlow, PEEP 5 cmH2O, FiO2 30%, PSV 12 cmH2O) and monitor ventilator parameters.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35026312A2::R01",
+   "claim_id": "M35026312A2",
+   "claim_text": "Continue insulin infusion at approximately 7 units/hour with glucose monitoring given hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:244258",
+     "time": "2150-03-11 16:50:00",
+     "item": "Glucose",
+     "value": 331.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:244315",
+     "time": "2150-03-12 03:03:00",
+     "item": "Glucose",
+     "value": 383.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 383 mg/dL at 2150-03-12 03:03:00 (reference 70.0 to 100.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M35026312A1::P01",
+   "claim_id": "M35026312A1",
+   "claim_text": "Continue mechanical ventilation with current settings (MMV/PSV/AutoFlow, PEEP 5 cmH2O, FiO2 30%, PSV 12 cmH2O) and monitor ventilator parameters.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:5641034:225792:2150-03-11 15:45:00",
+     "time": "2150-03-11 15:45:00",
+     "item": "Running at decision time (started 2150-03-11 15:45:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35026312A1::01",
+   "claim_id": "M35026312A1",
+   "claim_text": "Continue mechanical ventilation with current settings (MMV/PSV/AutoFlow, PEEP 5 cmH2O, FiO2 30%, PSV 12 cmH2O) and monitor ventilator parameters.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings (MMV/PSV/AutoFlow, PEEP 5 cmH2O, FiO2 30%, PSV 12 cmH2O).",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2150-03-11 15:45:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35026312A1::02",
+   "claim_id": "M35026312A1",
+   "claim_text": "Continue mechanical ventilation with current settings (MMV/PSV/AutoFlow, PEEP 5 cmH2O, FiO2 30%, PSV 12 cmH2O) and monitor ventilator parameters.",
+   "kind": "action",
+   "text": "Monitor ventilator parameters.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilator parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:224688:2150-03-12 16:00:00:367094",
+     "time": "2150-03-12 16:00:00",
+     "item": "ventilator settings",
+     "value": "16 insp/min"
+    },
+    {
+     "rid": "chart:224684:2150-03-12 16:00:00:367101",
+     "time": "2150-03-12 16:00:00",
+     "item": "ventilator settings",
+     "value": "450 mL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): ventilator settings x10.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35026312A2::03",
+   "claim_id": "M35026312A2",
+   "claim_text": "Continue insulin infusion at approximately 7 units/hour with glucose monitoring given hyperglycemia.",
+   "kind": "action",
+   "text": "Continue insulin infusion at approximately 7 units/hour.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN223258",
+     "time": "2150-03-12 14:11:00",
+     "item": "Insulin - Regular infusion continuing at 6.9955925941467285 units/hour",
+     "class": "insulin"
+    },
+    {
+     "rid": "IN223258#2",
+     "time": "2150-03-12 15:58:00",
+     "item": "Insulin - Regular infusion started at 4.9956045150756836 units/hour",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35026312A2::04",
+   "claim_id": "M35026312A2",
+   "claim_text": "Continue insulin infusion at approximately 7 units/hour with glucose monitoring given hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor glucose given hyperglycemia.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2150-03-12 16:00:00:367122",
+     "time": "2150-03-12 16:00:00",
+     "item": "glucose",
+     "value": "144"
+    },
+    {
+     "rid": "chart:225664:2150-03-12 17:00:00:367149",
+     "time": "2150-03-12 17:00:00",
+     "item": "glucose",
+     "value": "85"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x25.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35026312A3::05",
+   "claim_id": "M35026312A3",
+   "claim_text": "Monitor arterial blood gas and lactate to assess oxygenation, ventilation, and metabolic status.",
+   "kind": "action",
+   "text": "Monitor arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35026312A3::06",
+   "claim_id": "M35026312A3",
+   "claim_text": "Monitor arterial blood gas and lactate to assess oxygenation, ventilation, and metabolic status.",
+   "kind": "action",
+   "text": "Monitor lactate to assess metabolic status.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CeftriaXONE",
+    "Ceftriaxone",
+    "Vancomycin"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "extubation",
+   "name": "extubation / weaning",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Extubation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.3 mmol/L at 2150-03-12 14:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.3 mmol/L at 2150-03-12 14:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 24,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 383 mg/dL (treatment threshold > 180).",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "high",
+     "reason": "Latest glucose 383 mg/dL (treatment threshold > 180)."
+    }
+   ],
+   "doctor_targets": [
+    "Insulin - Regular",
+    "Insulin Human Regular"
+   ],
+   "doctor_rows": 14,
+   "covered": true,
+   "by_atoms": [
+    "M35026312A2::03"
+   ]
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M35026312A1::01"
+   ]
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Haloperidol",
+    "Haloperidol (Haldol)"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Jevity 1.2 (Full)",
+    "TPN without Lipids"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)",
+    "Fentanyl Citrate"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dexmedetomidine (Precedex)"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CeftriaXONE",
+    "Ceftriaxone",
+    "Vancomycin"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "extubation",
+   "name": "extubation / weaning",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Extubation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.3 mmol/L at 2150-03-12 14:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.3 mmol/L at 2150-03-12 14:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 24,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 383 mg/dL (treatment threshold > 180).",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "high",
+     "reason": "Latest glucose 383 mg/dL (treatment threshold > 180)."
+    }
+   ],
+   "doctor_targets": [
+    "Insulin - Regular",
+    "Insulin Human Regular"
+   ],
+   "doctor_rows": 14,
+   "covered": true,
+   "by_atoms": [
+    "M35026312A2::03"
+   ]
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M35026312A1::01"
+   ]
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Haloperidol",
+    "Haloperidol (Haldol)"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Jevity 1.2 (Full)",
+    "TPN without Lipids"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)",
+    "Fentanyl Citrate"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dexmedetomidine (Precedex)"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 2.3 mmol/L at 2150-03-12 14:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "glucose",
+   "direction": "high",
+   "reason": "Latest glucose 383 mg/dL (treatment threshold > 180).",
+   "name": "glucose",
+   "treated_by": [
+    "insulin"
+   ],
+   "mentioned": true,
+   "by_atoms": [
+    "M35026312A2::R01"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 94,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 1,
+  "treatments_omitted": 10,
+  "recall_vital": 0.4,
+  "recall_okay": 0.0,
+  "recall_all": 0.167,
+  "recall_vital_at3": 0.4,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.167
+ }
+}

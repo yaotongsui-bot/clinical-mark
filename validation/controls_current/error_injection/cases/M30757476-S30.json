@@ -1,0 +1,545 @@
+{
+ "case_id": "M30757476-S30",
+ "decision_point": "2131-02-28 16:40:00",
+ "claims": [
+  "Discontinue mechanical ventilation settings to maintain adequate oxygenation and ventilation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30757476-S30A1::01",
+   "claim_id": "M30757476-S30A1",
+   "claim_text": "Discontinue mechanical ventilation settings to maintain adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Discontinue mechanical ventilation settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "stop",
+   "target": "mechanical ventilation settings",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30757476-S30A1::02",
+   "claim_id": "M30757476-S30A1",
+   "claim_text": "Discontinue mechanical ventilation settings to maintain adequate oxygenation and ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M30757476-S30A1::03",
+   "claim_id": "M30757476-S30A1",
+   "claim_text": "Discontinue mechanical ventilation settings to maintain adequate oxygenation and ventilation.",
+   "kind": "goal",
+   "text": "Maintain adequate oxygenation.",
+   "concept": "oxygenation",
+   "notes": []
+  },
+  {
+   "atom_id": "M30757476-S30A1::04",
+   "claim_id": "M30757476-S30A1",
+   "claim_text": "Discontinue mechanical ventilation settings to maintain adequate oxygenation and ventilation.",
+   "kind": "goal",
+   "text": "Maintain adequate ventilation.",
+   "concept": "ventilator",
+   "notes": []
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30757476-S30A1::02",
+   "claim_id": "M30757476-S30A1",
+   "claim_text": "Discontinue mechanical ventilation settings to maintain adequate oxygenation and ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:845534:225792:2131-02-27 17:00:00",
+     "time": "2131-02-27 17:00:00",
+     "item": "Running at decision time (started 2131-02-27 17:00:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30757476-S30A1::01",
+   "claim_id": "M30757476-S30A1",
+   "claim_text": "Discontinue mechanical ventilation settings to maintain adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Discontinue mechanical ventilation settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "stop",
+   "target": "mechanical ventilation settings",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2131-02-27 17:00:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "direction_mismatch": true,
+   "reason": "Opposite direction: the AI suggested stopping, but invasive mechanical ventilation is still recorded after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Azithromycin",
+    "Piperacillin",
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "glucose_rescue",
+   "name": "hypoglycemia treatment",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 34 mg/dL at 2131-02-28 04:16:00 (reference 70.0 to 100.0) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "low",
+     "reason": "Latest glucose 34 mg/dL at 2131-02-28 04:16:00 (reference 70.0 to 100.0) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 50%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.2 mg/dL at 2131-02-28 04:16:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 1.2 mg/dL at 2131-02-28 04:16:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Na Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest PaCO2 47 mm Hg at 2131-02-28 12:17:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "pco2",
+     "direction": "high",
+     "reason": "Latest PaCO2 47 mm Hg at 2131-02-28 12:17:00 (reference 35.0 to 45.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate (OB-GYN)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Jevity 1.5 (Full)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)",
+    "Fentanyl Citrate"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)",
+    "Propofol"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Azithromycin",
+    "Piperacillin",
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "glucose_rescue",
+   "name": "hypoglycemia treatment",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 34 mg/dL at 2131-02-28 04:16:00 (reference 70.0 to 100.0) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "low",
+     "reason": "Latest glucose 34 mg/dL at 2131-02-28 04:16:00 (reference 70.0 to 100.0) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 50%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.2 mg/dL at 2131-02-28 04:16:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 1.2 mg/dL at 2131-02-28 04:16:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Na Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest PaCO2 47 mm Hg at 2131-02-28 12:17:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "pco2",
+     "direction": "high",
+     "reason": "Latest PaCO2 47 mm Hg at 2131-02-28 12:17:00 (reference 35.0 to 45.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate (OB-GYN)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Jevity 1.5 (Full)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)",
+    "Fentanyl Citrate"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)",
+    "Propofol"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "glucose",
+   "direction": "low",
+   "reason": "Latest glucose 34 mg/dL at 2131-02-28 04:16:00 (reference 70.0 to 100.0) is low, consistent with 'low'.",
+   "name": "glucose",
+   "treated_by": [
+    "hypoglycemia treatment"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "pco2",
+   "direction": "high",
+   "reason": "Latest PaCO2 47 mm Hg at 2131-02-28 12:17:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "name": "PaCO2",
+   "treated_by": [
+    "invasive mechanical ventilation"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "phosphate",
+   "direction": "low",
+   "reason": "Latest phosphate 1.2 mg/dL at 2131-02-28 04:16:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "name": "phosphate",
+   "treated_by": [
+    "phosphate replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 58,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 3,
+  "treatments_omitted": 11,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

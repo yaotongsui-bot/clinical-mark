@@ -1,0 +1,352 @@
+{
+ "case_id": "M31494479",
+ "decision_point": "2141-12-18 10:24:25",
+ "claims": [
+  "Continue mechanical ventilation with the current controlled mode and PEEP of 5 cmH2O.",
+  "Monitor arterial blood gases and lactate to assess oxygenation and perfusion.",
+  "Continue the phenylephrine infusion for hemodynamic support."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31494479A1::01",
+   "claim_id": "M31494479A1",
+   "claim_text": "Continue mechanical ventilation with the current controlled mode and PEEP of 5 cmH2O.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with the current controlled mode and PEEP of 5 cmH2O.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31494479A1::02",
+   "claim_id": "M31494479A1",
+   "claim_text": "Continue mechanical ventilation with the current controlled mode and PEEP of 5 cmH2O.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M31494479A2::03",
+   "claim_id": "M31494479A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation and perfusion.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31494479A2::04",
+   "claim_id": "M31494479A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation and perfusion.",
+   "kind": "action",
+   "text": "Monitor lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31494479A3::05",
+   "claim_id": "M31494479A3",
+   "claim_text": "Continue the phenylephrine infusion for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue the phenylephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "phenylephrine infusion",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31494479A3::06",
+   "claim_id": "M31494479A3",
+   "claim_text": "Continue the phenylephrine infusion for hemodynamic support.",
+   "kind": "fact",
+   "text": "Phenylephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M31494479A1::02",
+   "claim_id": "M31494479A1",
+   "claim_text": "Continue mechanical ventilation with the current controlled mode and PEEP of 5 cmH2O.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:31494479:226732:2141-12-18 08:00:00",
+     "time": "2141-12-18 08:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula"
+    }
+   ],
+   "reason": "The latest record before the decision (2141-12-18 08:00:00) reads 'O2 Delivery Device(s): Nasal cannula'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31494479A3::06",
+   "claim_id": "M31494479A3",
+   "claim_text": "Continue the phenylephrine infusion for hemodynamic support.",
+   "kind": "fact",
+   "text": "Phenylephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_addressed",
+   "reason": "No cited record shows this treatment was withheld or stopped; absence of a record is not_addressed. (Panel verdict: not_supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "deepseek-v4.1-flash:cloud": "not_addressed",
+     "mimo-v2.6-pro:cloud": "not_supported"
+    },
+    "panel_label": "not_supported"
+   },
+   "evidence": [
+    {
+     "rid": "rx:35769800:2141-12-17 15:00:00",
+     "time": "2141-12-17 15:00:00",
+     "item": "Order: PHENYLEPHrine 60 mg IV DRIP (active at decision time)"
+    },
+    {
+     "rid": "inputevents:8194253:221749:2141-12-17 17:46:00",
+     "time": "2141-12-17 17:46:00",
+     "item": "Infusion/input Phenylephrine at 0.25010004173964262 mcg/kg/min (2141-12-17 17:46:00 to 2141-12-17 17:57:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M31494479A1::01",
+   "claim_id": "M31494479A1",
+   "claim_text": "Continue mechanical ventilation with the current controlled mode and PEEP of 5 cmH2O.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with the current controlled mode and PEEP of 5 cmH2O.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 3.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M31494479A2::03",
+   "claim_id": "M31494479A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation and perfusion.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 3.9 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31494479A2::04",
+   "claim_id": "M31494479A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation and perfusion.",
+   "kind": "action",
+   "text": "Monitor lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 3.9 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31494479A3::05",
+   "claim_id": "M31494479A3",
+   "claim_text": "Continue the phenylephrine infusion for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue the phenylephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "phenylephrine infusion",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 3.9 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.1 mmol/L at 2141-12-17 13:32:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 3.1 mmol/L at 2141-12-17 13:32:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.1 mmol/L at 2141-12-17 13:32:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 3.1 mmol/L at 2141-12-17 13:32:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 3.1 mmol/L at 2141-12-17 13:32:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 6,
+ "observation_window_hours": 3.9,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The latest record before the decision (2141-12-18 08:00:00) reads 'O2 Delivery Device(s): Nasal cannula'."
+   ],
+   "not_addressed": [
+    "Phenylephrine infusion is currently being given. -- No cited record shows this treatment was withheld or stopped; absence of a record is not_addressed. (Panel verdict: not_supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 1,
+  "treatments_omitted": 2,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

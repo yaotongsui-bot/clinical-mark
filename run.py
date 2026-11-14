@@ -1,7 +1,7 @@
 """Evaluate AI ICU recommendations against the patient's own records (records = gold standard).
 
 Stages
-  1. AI atomization   (qwen2.5:14b)  AI answer -> fact / action / goal atoms. Sees no records.
+  1. AI atomization   (deepseek-v4-pro:0813)  AI answer -> fact / action / goal atoms. Sees no records.
   2. Fact check       code for measurable facts (labs, vitals, ventilation status); the judge panel
                       for the rest, against pre-decision records.
   3. Action check     monitoring by code; treatments by code (rule-file class, named drug,
@@ -22,6 +22,7 @@ import argparse
 import datetime as dt
 import json
 import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from cm import atomize, concord, ground, records, report, rules
@@ -47,13 +48,23 @@ def main() -> None:
     parser.add_argument("--out-dir", type=Path, default=ROOT / "results")
     parser.add_argument("--case", action="append", help="evaluate only these case ids")
     parser.add_argument("--limit", type=int)
-    parser.add_argument("--ai-model", default="qwen2.5:14b")
-    parser.add_argument("--judge-models", default="gemma4:12b,llama3.1:8b-instruct-q4_K_M,qwen2.5:14b",
+    parser.add_argument("--ai-model", default="deepseek-v4-pro:0813:cloud")
+    parser.add_argument("--judge-models", default="deepseek-v4-pro:0813:cloud,minimax-m3.1-flash:cloud,glm-5.3:cloud",
                         help="comma-separated judge panel; the majority label wins")
-    parser.add_argument("--judge-think", default="gemma4:12b",
+    parser.add_argument("--judge-think", default="",
                         help="comma-separated judges that answer in reasoning mode ('' for none)")
+    parser.add_argument("--cloud-workers", type=int, default=10,
+                        help="requests sent at once to a :cloud judge (Ollama Max allows 10, Pay as you go / Pro 3; "
+                             "the panel drops to 3 if the cloud refuses)")
     parser.add_argument("--retrieval", choices=["hybrid", "dense", "bm25"], default="hybrid")
     parser.add_argument("--top-n", type=int, default=50, help="reference facts retrieved per proposition")
+    parser.add_argument("--facts-all-judge", action="store_true",
+                        help="ablation: every fact goes to the judge panel (no code checks, rule labels or guard)")
+    parser.add_argument("--labels", choices=["clinical_mark", "verifact"], default="clinical_mark",
+                        help="fact labels: this project's four (with unverifiable) or VeriFact's three, with "
+                             "prompts/fact_judge_vf.txt and VeriFact's definitions in the guard")
+    parser.add_argument("--embeddings-dir", type=Path, default=ROOT / "embeddings",
+                        help="bge-m3 vector cache; runs started at the same time each need their own copy")
     args = parser.parse_args()
 
     out = args.out_dir.resolve()
@@ -71,17 +82,22 @@ def main() -> None:
 
     # Stage 1: one model for every case, then free the GPU for the judges.
     atomizer_prompt = prompt("ai_atomizer")
-    atoms_by_case = {}
-    for i, t in enumerate(triples, 1):
+    atoms_by_case, todo = {}, []
+    for t in triples:
         path = out / "atoms" / f"{t['triple_id']}.json"
         if path.exists():
             atoms_by_case[t["triple_id"]] = json.loads(path.read_text(encoding="utf-8"))
-            continue
-        atoms = atomize.atomize(t, llm, args.ai_model, atomizer_prompt)
-        write_json(path, atoms)
-        atoms_by_case[t["triple_id"]] = atoms
-        kinds = {k: sum(a["kind"] == k for a in atoms) for k in ("fact", "action", "goal")}
-        print(f"[atomize {i}/{len(triples)}] {t['triple_id']} {kinds} ({time.time() - started:.0f}s)", flush=True)
+        else:
+            todo.append(t)
+    # A cloud atomizer splits several cases at once (each request and its cached answer are unchanged).
+    workers = max(1, args.cloud_workers) if args.ai_model.endswith(":cloud") else 1
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        split = pool.map(lambda t: (t, atomize.atomize(t, llm, args.ai_model, atomizer_prompt)), todo)
+        for i, (t, atoms) in enumerate(split, len(atoms_by_case) + 1):
+            write_json(out / "atoms" / f"{t['triple_id']}.json", atoms)
+            atoms_by_case[t["triple_id"]] = atoms
+            kinds = {k: sum(a["kind"] == k for a in atoms) for k in ("fact", "action", "goal")}
+            print(f"[atomize {i}/{len(triples)}] {t['triple_id']} {kinds} ({time.time() - started:.0f}s)", flush=True)
     llm.unload(args.ai_model)
     for t in triples:
         claims = [{"claim_id": c["claim_id"], "text": c["text"]} for c in t["ai_generated"]["claims"]]
@@ -91,11 +107,12 @@ def main() -> None:
     print("loading MIMIC: admission records before the decision, observations after it ...", flush=True)
     observations = records.load_post_observations(args.mimic_root.resolve(), triples)
     admission = records.load_admission_rows(args.mimic_root.resolve(), triples)
-    embedder = Embedder(ROOT / "embeddings") if args.retrieval != "bm25" else None
+    embedder = Embedder(args.embeddings_dir.resolve()) if args.retrieval != "bm25" else None
     retriever = Retriever(embedder, args.retrieval, args.top_n)
-    fact_prompt, action_prompt = prompt("fact_judge"), prompt("action_judge")
+    fact_prompt = prompt("fact_judge_vf" if args.labels == "verifact" else "fact_judge")
+    action_prompt = prompt("action_judge")
     think = {m.strip() for m in args.judge_think.split(",") if m.strip()}
-    panel = Panel(llm, judges, think)
+    panel = Panel(llm, judges, think, cloud_workers=args.cloud_workers)
     work = []
     for t in triples:
         case_id = t["triple_id"]
@@ -109,7 +126,8 @@ def main() -> None:
         facts, actions = [], []
         for atom in atoms_by_case[case_id]:
             if atom["kind"] == "fact":
-                facts.append((atom, ground.verify(atom, pre, t, fact_prompt, retriever)))
+                facts.append((atom, ground.verify(atom, pre, t, fact_prompt, retriever, args.facts_all_judge,
+                                                  args.labels)))
             elif atom["kind"] == "action":
                 lab_order = atom["action_class"] == "order_test" and bool(rules.leaf_members(atom["concept"]))
                 if atom["action_class"] in {"monitor", "assess"} or lab_order:
@@ -142,12 +160,14 @@ def main() -> None:
         atoms = atoms_by_case[case_id]
         cov = concord.coverage(w["gold"], atoms, results)
         cov3 = concord.coverage(w["gold"], atoms, results, max_claims=3)
+        omitted_facts = concord.fact_omissions(w["gold"], facts)
         case = {"case_id": case_id, "decision_point": t["decision_point"],
                 "claims": [c["text"] for c in t["ai_generated"]["claims"]],
                 "atoms": atoms, "facts": facts, "actions": actions, "coverage": cov, "coverage_at3": cov3,
+                "fact_omissions": omitted_facts,
                 "doctor_actions_in_window": len(w["doctor"]), "observation_window_hours": round(w["window_hours"], 1),
                 "scoresheet": report.scoresheet(facts),
-                "metrics": report.case_metrics(facts, actions, cov, cov3)}
+                "metrics": report.case_metrics(facts, actions, cov, cov3, omitted_facts)}
         write_json(out / "cases" / f"{case_id}.json", case)
         cases.append(case)
         m = case["metrics"]
@@ -158,6 +178,7 @@ def main() -> None:
     if embedder:
         embedder.save()
     meta = {"triples": args.triples.name, "ai_model": args.ai_model, "judge_models": judges,
+            "facts_all_judge": args.facts_all_judge, "labels": args.labels,
             "judge_think": sorted(think), "retrieval": args.retrieval, "top_n": args.top_n,
             "llm_calls": llm.calls, "cache_hits": llm.cache_hits}
     write_json(out / "summary.json", {**summary, "run": meta})

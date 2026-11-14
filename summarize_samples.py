@@ -48,6 +48,9 @@ METRICS = [
         sum(any(f["label"] == "not_supported" for f in c["facts"]) for c in cs), len(cs))),
     ("Treatment agreement (strict)", True, lambda cs: _ratio(
         _treatment(cs, {"match"}), _treatment(cs, {"match", "partial_match", "not_done"}))),
+    # The reported verdicts are four tiers per item: a partial match (same aim, other drug or direction) agrees.
+    ("Treatment agreement (partial counts as agreeing)", True, lambda cs: _ratio(
+        _treatment(cs, {"match", "partial_match"}), _treatment(cs, {"match", "partial_match", "not_done"}))),
     ("Vital recall", True, lambda cs: _recall(cs, "coverage", "vital")),
     ("Vital recall, first 3 suggestions", True, lambda cs: _recall(cs, "coverage_at3", "vital")),
     ("All recall", True, lambda cs: _recall(cs, "coverage", None)),

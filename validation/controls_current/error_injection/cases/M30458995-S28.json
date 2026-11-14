@@ -1,0 +1,234 @@
+{
+ "case_id": "M30458995-S28",
+ "decision_point": "2137-10-13 22:44:57",
+ "claims": [
+  "Discontinue intravenous fluid support."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30458995-S28A1::01",
+   "claim_id": "M30458995-S28A1",
+   "claim_text": "Discontinue intravenous fluid support.",
+   "kind": "action",
+   "text": "Discontinue intravenous fluid support.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "stop",
+   "target": "intravenous fluid support",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30458995-S28A1::02",
+   "claim_id": "M30458995-S28A1",
+   "claim_text": "Discontinue intravenous fluid support.",
+   "kind": "fact",
+   "text": "Intravenous fluid support is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30458995-S28A1::02",
+   "claim_id": "M30458995-S28A1",
+   "claim_text": "Discontinue intravenous fluid support.",
+   "kind": "fact",
+   "text": "Intravenous fluid support is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R28 is a 'Running at decision time' record for an IV NaCl 0.9% infusion, which explicitly shows intravenous fluid support was being given at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:7917424:225158:2137-10-13 14:00:00",
+     "time": "2137-10-13 14:00:00",
+     "item": "Running at decision time (started 2137-10-13 14:00:00): Infusion/input NaCl 0.9% at 60.034011840820312 mL/hour"
+    },
+    {
+     "rid": "inputevents:4517142:225158:2137-10-13 16:13:00",
+     "time": "2137-10-13 16:13:00",
+     "item": "Infusion/input NaCl 0.9% 500 ml (2137-10-13 16:13:00 to 2137-10-13 16:14:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30458995-S28A1::01",
+   "claim_id": "M30458995-S28A1",
+   "claim_text": "Discontinue intravenous fluid support.",
+   "kind": "action",
+   "text": "Discontinue intravenous fluid support.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "stop",
+   "target": "intravenous fluid support",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2137-10-13 14:00:00",
+     "item": "NaCl 0.9% infusion continuing at 60.034011840820312 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158#2",
+     "time": "2137-10-14 04:42:00",
+     "item": "NaCl 0.9% infusion started at 60.034011840820312 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "direction_mismatch": true,
+   "reason": "Opposite direction: the AI suggested stopping, but IV fluids is still recorded after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 18,
+ "observation_window_hours": 18.4,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 3,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

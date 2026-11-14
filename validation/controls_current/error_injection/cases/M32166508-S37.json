@@ -1,0 +1,515 @@
+{
+ "case_id": "M32166508-S37",
+ "decision_point": "2148-09-11 13:19:00",
+ "claims": [
+  "Discontinue intravenous fluid support."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32166508-S37A1::01",
+   "claim_id": "M32166508-S37A1",
+   "claim_text": "Discontinue intravenous fluid support.",
+   "kind": "action",
+   "text": "Discontinue intravenous fluid support.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "stop",
+   "target": "intravenous fluid support",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32166508-S37A1::02",
+   "claim_id": "M32166508-S37A1",
+   "claim_text": "Discontinue intravenous fluid support.",
+   "kind": "fact",
+   "text": "Intravenous fluid support is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32166508-S37A1::02",
+   "claim_id": "M32166508-S37A1",
+   "claim_text": "Discontinue intravenous fluid support.",
+   "kind": "fact",
+   "text": "Intravenous fluid support is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R33 shows an infusion of Potassium Chloride running at the decision time, which is intravenous fluid support.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:3248888:225166:2148-09-11 02:12:00",
+     "time": "2148-09-11 02:12:00",
+     "item": "Running at decision time (started 2148-09-11 02:12:00): Infusion/input Potassium Chloride"
+    },
+    {
+     "rid": "chart:32166508:227955:2148-09-11 12:00:00",
+     "time": "2148-09-11 12:00:00",
+     "item": "Food and Fluid: IV Fluid"
+    },
+    {
+     "rid": "inputevents:3665864:220949:2148-09-11 06:32:00",
+     "time": "2148-09-11 06:32:00",
+     "item": "Infusion/input Dextrose 5% 50 ml (2148-09-11 06:32:00 to 2148-09-11 06:33:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32166508-S37A1::01",
+   "claim_id": "M32166508-S37A1",
+   "claim_text": "Discontinue intravenous fluid support.",
+   "kind": "action",
+   "text": "Discontinue intravenous fluid support.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "stop",
+   "target": "intravenous fluid support",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [
+    {
+     "rid": "IN225158#3",
+     "time": "2148-09-11 02:12:00",
+     "item": "NaCl 0.9% infusion continuing at 85.348503112792969 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158#2",
+     "time": "2148-09-11 10:30:00",
+     "item": "NaCl 0.9% infusion continuing at 18.525768280029297 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "direction_mismatch": true,
+   "reason": "Opposite direction: the AI suggested stopping, but IV fluids is still recorded after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.1 mmol/L at 2148-09-11 02:36:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 1.1 mmol/L at 2148-09-11 02:36:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "extubation",
+   "name": "extubation / weaning",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Extubation"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.5 mmol/L at 2148-09-10 18:29:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.5 mmol/L at 2148-09-10 18:29:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 122.5 bpm (8 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "indications": [
+    {
+     "concept": "heart_rate",
+     "direction": "high",
+     "reason": "Median heart rate over the 6 h before the decision: 122.5 bpm (8 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'."
+    }
+   ],
+   "doctor_targets": [
+    "Metoprolol",
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydralazine",
+    "NiCARdipine IV",
+    "Nicardipine"
+   ],
+   "doctor_rows": 13,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CT scan"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chl 20 mEq / 1000 mL NS",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dexmedetomidine (Precedex)",
+    "Diazepam",
+    "Lorazepam"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.1 mmol/L at 2148-09-11 02:36:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 1.1 mmol/L at 2148-09-11 02:36:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "extubation",
+   "name": "extubation / weaning",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Extubation"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.5 mmol/L at 2148-09-10 18:29:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.5 mmol/L at 2148-09-10 18:29:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 122.5 bpm (8 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "indications": [
+    {
+     "concept": "heart_rate",
+     "direction": "high",
+     "reason": "Median heart rate over the 6 h before the decision: 122.5 bpm (8 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'."
+    }
+   ],
+   "doctor_targets": [
+    "Metoprolol",
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydralazine",
+    "NiCARdipine IV",
+    "Nicardipine"
+   ],
+   "doctor_rows": 13,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CT scan"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chl 20 mEq / 1000 mL NS",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dexmedetomidine (Precedex)",
+    "Diazepam",
+    "Lorazepam"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "calcium",
+   "direction": "low",
+   "reason": "Latest calcium 1.1 mmol/L at 2148-09-11 02:36:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "name": "calcium",
+   "treated_by": [
+    "calcium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "heart_rate",
+   "direction": "high",
+   "reason": "Median heart rate over the 6 h before the decision: 122.5 bpm (8 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "name": "heart rate",
+   "treated_by": [
+    "rate / rhythm control"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 2.5 mmol/L at 2148-09-10 18:29:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 75,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 3,
+  "treatments_omitted": 10,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

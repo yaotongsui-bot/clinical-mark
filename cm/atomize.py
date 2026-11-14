@@ -44,7 +44,7 @@ _CONDITIONAL = re.compile(r"\b(if|as needed|consider|when indicated|if necessary
 # "due to") means it is taken as present.
 _NOT_A_PREMISE = re.compile(
     r"\b(if|when|unless|as needed|prn|prevent\w*|avoid\w*|risk (of|for)|signs? of|symptoms? of|any|"
-    r"(monitor\w*|watch|screen\w*|evaluat\w*|assess\w*|check\w*|look\w*) for|rule out|possible|potential|"
+    r"(monitor\w*|watch|screen\w*|evaluat\w*|assess\w*|check\w*|look\w*|alarms?) for|rule out|possible|potential|"
     r"suspected|such as|including|eg|no|not|without|denies|history of|prior|previous\w*|resolved)\b", re.I)
 _PREMISE = re.compile(
     r"\b(causes? of|etiology of|address\w*|treat\w*|correct\w*|manage\w*|given|due to|because of|"
@@ -55,12 +55,15 @@ _CONDITION_AFTER = re.compile(
     r"^[\s,(]*((if|when)\s+(present|any|applicable|confirmed|suspected|indicated|noted|found|"
     r"(it|they)\s+(is present|are present|occurs?|develops?|persists?|recurs?))|"
     r"((has|have|had|is|was)\s+)?(been\s+)?(resolved|resolving|improved|improving|corrected|normalized))\b", re.I)
+# A term naming a monitor setting, not the patient's state: "desaturation limit of 88%",
+# "hypotension alarm".
+_SETTING_AFTER = re.compile(r"^\s+(limits?|alarms?|thresholds?|settings?|parameters?)\b", re.I)
 # A premise worded as history, absence or resolution states what the claim says, not presence.
 _FRAMED = re.compile(r"\b(history of|no|not|without|resolved)\b", re.I)
 
 
 def _asserted(preceding: str, following: str = "") -> bool:
-    if _CONDITION_AFTER.search(following):
+    if _CONDITION_AFTER.search(following) or _SETTING_AFTER.search(following):
         return False
     parts = re.split(r"[.;,]", preceding.replace("e.g.", "eg").replace("i.e.", "ie"))
     clause = parts.pop()
@@ -85,8 +88,11 @@ _TREATMENT_WORDS = re.compile(r"\b(administ\w*|given|giving|receiv\w*|infus\w*|t
 def fact_concept(text: str, direction: str) -> tuple[str, str]:
     """Concept of a fact from the rule files only; the model's concept field is not trusted.
 
-    Facts about treatments or alarms become 'other' so the judge model reads the records.
+    Facts about treatments, alarms or monitor settings become 'other' so the judge model reads the records.
     """
+    if any(_SETTING_AFTER.search(text[_term_span(text, m)[1]:]) for p, _, _ in rules.DIAGNOSIS_TERMS
+           for m in p.finditer(text)):
+        return "other", direction
     override = rules.diagnosis_override(text)
     if override:
         return override
@@ -168,8 +174,23 @@ def drop_unasserted_premises(atoms: list[dict], claims: list[dict]) -> list[dict
     return kept
 
 
+def refresh_concepts(atoms: list[dict]) -> list[dict]:
+    """Re-apply the rule-file concept mapping to saved atoms, so a rule change reaches atoms split
+    in an earlier run without splitting the answer again (the mapping is idempotent)."""
+    out = []
+    for atom in atoms:
+        if atom["kind"] == "fact":
+            concept, direction = fact_concept(atom["text"], atom.get("direction", "none"))
+            if (concept, direction) != (atom["concept"], atom.get("direction")):
+                atom = {**atom, "concept": concept, "direction": direction,
+                        "notes": atom.get("notes", []) + [f"concept updated by the rule files: {atom['concept']} -> {concept}"]}
+        out.append(atom)
+    return out
+
+
 def safety_nets(atoms: list[dict], claims: list[dict]) -> list[dict]:
     """Idempotent rule-based corrections applied after the model's atomization."""
+    atoms = refresh_concepts(atoms)
     return continue_presuppositions(presupposition_safety_net(drop_unasserted_premises(atoms, claims), claims))
 
 
@@ -247,8 +268,12 @@ def atomize(triple: dict, llm, model: str, system: str, claims: list[dict] | Non
     else:
         user = "AI answer claims:\n" + json.dumps(claims, ensure_ascii=False, indent=1)
     for attempt in range(3):
-        response = llm.json(model, system, user, SCHEMA, num_predict=4096,
-                            stage="ai_atomization", case_id=triple["triple_id"])
+        try:
+            response = llm.json(model, system, user, SCHEMA, num_predict=4096,
+                                stage="ai_atomization", case_id=triple["triple_id"])
+        except ValueError:
+            # Unparseable output (a long answer runs past the token budget) repeats on a seeded retry.
+            break
         try:
             raw = validate(response, claims, allow_missing=attempt == 2)
         except ValueError as exc:

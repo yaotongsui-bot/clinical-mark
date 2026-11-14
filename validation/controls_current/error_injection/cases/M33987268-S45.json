@@ -1,0 +1,292 @@
+{
+ "case_id": "M33987268-S45",
+ "decision_point": "2156-04-13 16:24:18",
+ "claims": [
+  "Discontinue pain management."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M33987268-S45A1::01",
+   "claim_id": "M33987268-S45A1",
+   "claim_text": "Discontinue pain management.",
+   "kind": "action",
+   "text": "Discontinue pain management.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "stop",
+   "target": "pain management",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "M33987268-S45A1::01",
+   "claim_id": "M33987268-S45A1",
+   "claim_text": "Discontinue pain management.",
+   "kind": "action",
+   "text": "Discontinue pain management.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "stop",
+   "target": "pain management",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "not_done",
+   "evidence": [
+    {
+     "rid": "RX45527246",
+     "time": "2156-04-13 19:00:00",
+     "item": "Ordered: Acetaminophen IV 1000 mg IV",
+     "class": "non_opioid_analgesia"
+    },
+    {
+     "rid": "IN228315",
+     "time": "2156-04-13 19:00:00",
+     "item": "Acetaminophen-IV infusion started at",
+     "class": "non_opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "direction_mismatch": true,
+   "reason": "Opposite direction: the AI suggested stopping, but opioid analgesia / non-opioid analgesia is still recorded after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 27.9 K/uL at 2156-04-13 01:41:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 27.9 K/uL at 2156-04-13 01:41:00 (reference 4.0 to 11.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Azithromycin",
+    "CeftriaXONE",
+    "Ceftriaxone",
+    "Metronidazole",
+    "Vancomycin",
+    "Vancomycin Oral Liquid"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes. Latest lactate 2.4 mmol/L at 2156-04-13 14:02:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes."
+    },
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.4 mmol/L at 2156-04-13 14:02:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 26,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 27.9 K/uL at 2156-04-13 01:41:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 27.9 K/uL at 2156-04-13 01:41:00 (reference 4.0 to 11.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Azithromycin",
+    "CeftriaXONE",
+    "Ceftriaxone",
+    "Metronidazole",
+    "Vancomycin",
+    "Vancomycin Oral Liquid"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes. Latest lactate 2.4 mmol/L at 2156-04-13 14:02:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes."
+    },
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.4 mmol/L at 2156-04-13 14:02:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 26,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "blood_pressure",
+   "direction": "low",
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "name": "blood pressure",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 2.4 mmol/L at 2156-04-13 14:02:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 27.9 K/uL at 2156-04-13 01:41:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 49,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 3,
+  "treatments_omitted": 4,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

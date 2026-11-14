@@ -1,0 +1,343 @@
+{
+ "case_id": "M37057036",
+ "decision_point": "2178-07-04 22:45:00",
+ "claims": [
+  "Monitor blood glucose levels closely.",
+  "Assess for signs of respiratory distress.",
+  "Continue monitoring coagulation parameters."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37057036A1::01",
+   "claim_id": "M37057036A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37057036A2::02",
+   "claim_id": "M37057036A2",
+   "claim_text": "Assess for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37057036A3::03",
+   "claim_id": "M37057036A3",
+   "claim_text": "Continue monitoring coagulation parameters.",
+   "kind": "action",
+   "text": "Continue monitoring coagulation parameters.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "coagulation parameters",
+   "conditional": false
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "M37057036A1::01",
+   "claim_id": "M37057036A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2178-07-05 04:00:00:27944",
+     "time": "2178-07-05 04:00:00",
+     "item": "glucose",
+     "value": "181"
+    },
+    {
+     "rid": "chart:225664:2178-07-05 10:00:00:28163",
+     "time": "2178-07-05 10:00:00",
+     "item": "glucose",
+     "value": "250"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37057036A2::02",
+   "claim_id": "M37057036A2",
+   "claim_text": "Assess for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37057036A3::03",
+   "claim_id": "M37057036A3",
+   "claim_text": "Continue monitoring coagulation parameters.",
+   "kind": "action",
+   "text": "Continue monitoring coagulation parameters.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "coagulation parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227467:2178-07-05 02:18:00:30759",
+     "time": "2178-07-05 02:18:00",
+     "item": "INR",
+     "value": "1.1"
+    },
+    {
+     "rid": "lab:51237:2178-07-05 02:18:00:40702",
+     "time": "2178-07-05 02:18:00",
+     "item": "INR",
+     "value": "1.1"
+    },
+    {
+     "rid": "chart:227465:2178-07-05 02:18:00:30769",
+     "time": "2178-07-05 02:18:00",
+     "item": "PT",
+     "value": "12.1 sec"
+    },
+    {
+     "rid": "lab:51274:2178-07-05 02:18:00:40703",
+     "time": "2178-07-05 02:18:00",
+     "item": "PT",
+     "value": "12.1 sec"
+    },
+    {
+     "rid": "chart:227466:2178-07-05 08:12:00:30655",
+     "time": "2178-07-05 08:12:00",
+     "item": "PTT",
+     "value": "59.3 sec"
+    },
+    {
+     "rid": "chart:227466:2178-07-05 02:18:00:30770",
+     "time": "2178-07-05 02:18:00",
+     "item": "PTT",
+     "value": "61.1 sec"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): INR x2, PT x2, PTT x4.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 10.2 K/uL at 2178-07-04 09:34:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes. Latest PaCO2 47 mm Hg at 2178-07-04 01:03:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Glargine",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Glucerna 1.2 (Full)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 10.2 K/uL at 2178-07-04 09:34:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes. Latest PaCO2 47 mm Hg at 2178-07-04 01:03:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Glargine",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Glucerna 1.2 (Full)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 34,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

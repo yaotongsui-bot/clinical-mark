@@ -1,0 +1,379 @@
+{
+ "case_id": "M33383124-S42",
+ "decision_point": "2140-03-26 14:37:26",
+ "claims": [
+  "Discontinue intravenous insulin for glycemic control."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M33383124-S42A1::01",
+   "claim_id": "M33383124-S42A1",
+   "claim_text": "Discontinue intravenous insulin for glycemic control.",
+   "kind": "action",
+   "text": "Discontinue intravenous insulin for glycemic control.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "stop",
+   "target": "intravenous insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M33383124-S42A1::02",
+   "claim_id": "M33383124-S42A1",
+   "claim_text": "Discontinue intravenous insulin for glycemic control.",
+   "kind": "fact",
+   "text": "Intravenous insulin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M33383124-S42A1::02",
+   "claim_id": "M33383124-S42A1",
+   "claim_text": "Discontinue intravenous insulin for glycemic control.",
+   "kind": "fact",
+   "text": "Intravenous insulin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "No cited record shows this treatment was withheld or stopped; absence of a record is not_addressed. (Panel verdict: not_supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    },
+    "panel_label": "not_supported"
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:1756130:223258:2140-03-26 06:05:00",
+     "time": "2140-03-26 06:05:00",
+     "item": "Infusion/input Insulin - Regular at 2.9994783401489258 units/hour (2140-03-26 06:05:00 to 2140-03-26 08:56:00)"
+    },
+    {
+     "rid": "chart:33383124:225664:2140-03-26 12:00:00",
+     "time": "2140-03-26 12:00:00",
+     "item": "Glucose finger stick (range 70-100): 121"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M33383124-S42A1::01",
+   "claim_id": "M33383124-S42A1",
+   "claim_text": "Discontinue intravenous insulin for glycemic control.",
+   "kind": "action",
+   "text": "Discontinue intravenous insulin for glycemic control.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "stop",
+   "target": "intravenous insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [
+    {
+     "rid": "IN223258",
+     "time": "2140-03-26 19:21:00",
+     "item": "Insulin - Regular infusion started at",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "direction_mismatch": true,
+   "reason": "Opposite direction: the AI suggested stopping, but insulin is still recorded after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Cefazolin",
+    "Vancomycin"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HydrALAzine",
+    "Hydralazine",
+    "Lisinopril"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Cefazolin",
+    "Vancomycin"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HydrALAzine",
+    "Hydralazine",
+    "Lisinopril"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 27,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 1.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Intravenous insulin is currently being given. -- No cited record shows this treatment was withheld or stopped; absence of a record is not_addressed. (Panel verdict: not_supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 8,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

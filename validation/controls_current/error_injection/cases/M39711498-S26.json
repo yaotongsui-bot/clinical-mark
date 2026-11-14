@@ -1,0 +1,553 @@
+{
+ "case_id": "M39711498-S26",
+ "decision_point": "2131-05-23 21:50:33",
+ "claims": [
+  "Discontinue mechanical ventilation with close monitoring of respiratory parameters."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39711498-S26A1::01",
+   "claim_id": "M39711498-S26A1",
+   "claim_text": "Discontinue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Discontinue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "stop",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39711498-S26A1::02",
+   "claim_id": "M39711498-S26A1",
+   "claim_text": "Discontinue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M39711498-S26A1::03",
+   "claim_id": "M39711498-S26A1",
+   "claim_text": "Discontinue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Closely monitor respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39711498-S26A1::02",
+   "claim_id": "M39711498-S26A1",
+   "claim_text": "Discontinue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:6952507:225792:2131-05-22 22:39:00",
+     "time": "2131-05-22 22:39:00",
+     "item": "Running at decision time (started 2131-05-22 22:39:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39711498-S26A1::01",
+   "claim_id": "M39711498-S26A1",
+   "claim_text": "Discontinue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Discontinue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "stop",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2131-05-22 22:39:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "direction_mismatch": true,
+   "reason": "Opposite direction: the AI suggested stopping, but invasive mechanical ventilation is still recorded after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39711498-S26A1::03",
+   "claim_id": "M39711498-S26A1",
+   "claim_text": "Discontinue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Closely monitor respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:224690:2131-05-24 00:00:00:13624",
+     "time": "2131-05-24 00:00:00",
+     "item": "respiratory rate",
+     "value": "13 insp/min"
+    },
+    {
+     "rid": "chart:220210:2131-05-24 00:00:00:13668",
+     "time": "2131-05-24 00:00:00",
+     "item": "respiratory rate",
+     "value": "13 insp/min"
+    },
+    {
+     "rid": "chart:220277:2131-05-24 00:00:00:13654",
+     "time": "2131-05-24 00:00:00",
+     "item": "SpO2",
+     "value": "99 %"
+    },
+    {
+     "rid": "chart:220277:2131-05-24 01:00:00:13684",
+     "time": "2131-05-24 01:00:00",
+     "item": "SpO2",
+     "value": "99 %"
+    },
+    {
+     "rid": "chart:224697:2131-05-24 00:00:00:13620",
+     "time": "2131-05-24 00:00:00",
+     "item": "ventilator settings",
+     "value": "12 cmH2O"
+    },
+    {
+     "rid": "chart:224695:2131-05-24 00:00:00:13631",
+     "time": "2131-05-24 00:00:00",
+     "item": "ventilator settings",
+     "value": "22 cmH2O"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x31, SpO2 x23, ventilator settings x49.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 11.5 K/uL at 2131-05-23 18:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'. Median temperature over the 6 h before the decision: 101.1 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 11.5 K/uL at 2131-05-23 18:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    },
+    {
+     "concept": "temperature",
+     "direction": "high",
+     "reason": "Median temperature over the 6 h before the decision: 101.1 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'."
+    }
+   ],
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes.",
+   "indications": [
+    {
+     "concept": "oxygenation",
+     "direction": "low",
+     "reason": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes."
+    }
+   ],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Divalproex Sod. Sprinkles"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "QUEtiapine Fumarate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen",
+    "Acetaminophen (Liquid)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 11.5 K/uL at 2131-05-23 18:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'. Median temperature over the 6 h before the decision: 101.1 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 11.5 K/uL at 2131-05-23 18:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    },
+    {
+     "concept": "temperature",
+     "direction": "high",
+     "reason": "Median temperature over the 6 h before the decision: 101.1 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'."
+    }
+   ],
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "Vancomycin"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes.",
+   "indications": [
+    {
+     "concept": "oxygenation",
+     "direction": "low",
+     "reason": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes."
+    }
+   ],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Divalproex Sod. Sprinkles"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "QUEtiapine Fumarate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen",
+    "Acetaminophen (Liquid)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "oxygenation",
+   "direction": "low",
+   "reason": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes.",
+   "name": "oxygenation",
+   "treated_by": [
+    "invasive mechanical ventilation"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "temperature",
+   "direction": "high",
+   "reason": "Median temperature over the 6 h before the decision: 101.1 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "name": "temperature",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 11.5 K/uL at 2131-05-23 18:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 70,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 3,
+  "treatments_omitted": 10,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

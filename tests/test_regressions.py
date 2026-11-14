@@ -42,6 +42,70 @@ def _record(text: str, semantics: str, label: str = "", table: str | None = None
     return records._row("r", "x", text, when, semantics=semantics, table=table, label=label)
 
 
+class CheapJudgeFixes(unittest.TestCase):
+    """Defects found by comparing the cloud models with the reference run (2026-11-06)."""
+
+    def test_replete_as_a_verb_is_not_nutrition(self):
+        self.assertEqual(rules.classify_target("Replete magnesium"), "magnesium_replacement")
+        self.assertEqual(rules.classify_target("Replete potassium"), "potassium_replacement")
+        self.assertEqual(rules.classify_target("Replete with Fiber (Full)"), "nutrition")
+
+    def test_potassium_phosphate_also_delivers_potassium(self):
+        row = _record("Infusion/input: K Phos", "administration", "K Phos")
+        self.assertTrue(ground._delivered("The patient is receiving potassium replacement.", [row], T))
+
+    def test_oxygen_device_charting_shows_delivery(self):
+        row = _record("O2 Delivery Device(s): Nasal cannula", "observation", "O2 Delivery Device(s)", "chart")
+        none = _record("O2 Delivery Device(s): None", "observation", "O2 Delivery Device(s)", "chart")
+        statement = "The patient is currently receiving supplemental oxygen."
+        self.assertTrue(ground._delivered(statement, [row], T))
+        self.assertFalse(ground._delivered(statement, [none], T))
+
+    def test_device_charting_can_show_treatment_was_off(self):
+        none = {**_record("O2 Delivery Device(s): None", "observation", "O2 Delivery Device(s)", "chart"),
+                "itemid": "226732", "value_text": "None"}
+        cannula = {**_record("O2 Delivery Device(s): Nasal cannula", "observation", "O2 Delivery Device(s)", "chart"),
+                   "itemid": "226732", "value_text": "Nasal cannula"}
+        ended = _record("Procedure Non-invasive Ventilation (2150-01-01 10:00:00 to 2150-01-01 18:00:00)", "administration")
+        oxygen, niv = "The patient is currently on supplemental oxygen.", "The patient is currently on noninvasive ventilation."
+        self.assertIsNone(ground._administration_guard(oxygen, ground.NOT_SUPPORTED, [none], True))
+        self.assertIsNotNone(ground._administration_guard(oxygen, ground.NOT_SUPPORTED, [cannula], True))
+        self.assertIsNone(ground._administration_guard(niv, ground.NOT_SUPPORTED, [cannula], False))
+        self.assertIsNone(ground._administration_guard(niv, ground.NOT_SUPPORTED, [ended], False))
+        insulin = "Insulin infusion is currently being given."
+        self.assertIsNotNone(ground._administration_guard(insulin, ground.NOT_SUPPORTED, [none], True))
+
+    def test_oxygen_context_is_not_the_stated_value(self):
+        self.assertEqual([v[:2] for v in ground._stated_values("Recent SpO2 is 91% on 2 L/min.")], [(91.0, 91.0)])
+        self.assertEqual([v[:2] for v in ground._stated_values("The most recent pO2 is 194 mm Hg on FiO2 40%.")], [(194.0, 194.0)])
+        self.assertEqual([v[:2] for v in ground._stated_values("Potassium is 3.4 mEq/L.")], [(3.4, 3.4)])
+
+    def _vent(self, *device_hours):
+        peep = {**_record("PEEP set: 5 cmH2O", "observation", "PEEP set", "chart", 6), "itemid": "220339", "value_text": "5"}
+        rows = [peep]
+        for device, hours in device_hours:
+            rows.append({**_record(f"O2 Delivery Device(s): {device}", "observation", "O2 Delivery Device(s)", "chart", hours),
+                         "itemid": "226732", "value_text": device})
+        return ground._ventilation_status(rows, T)["label"]
+
+    def test_later_oxygen_device_ends_ventilation(self):
+        self.assertEqual(self._vent(("Nasal cannula", 3)), ground.NOT_SUPPORTED)
+        self.assertEqual(self._vent(("Nasal cannula", 5), ("Endotracheal tube", 3)), ground.SUPPORTED)
+
+    def test_vent_setting_request_includes_the_latest_device(self):
+        peep = {**_record("PEEP set: 5 cmH2O", "observation", "PEEP set", "chart", 6), "itemid": "220339", "value_text": "5", "rid": "a"}
+        device = {**_record("O2 Delivery Device(s): Nasal cannula", "observation", "O2 Delivery Device(s)", "chart", 3),
+                  "itemid": "226732", "value_text": "Nasal cannula", "rid": "b"}
+
+        class Top1:
+            def search(self, query, sparse, pool):
+                return [peep]
+        atom = {"atom_id": "X::1", "text": "PEEP is 5 cmH2O.", "claim_text": "PEEP is 5 cmH2O."}
+        triple = {"decision_point": "2150-01-02 12:00:00", "triple_id": "X"}
+        request = ground._judge_request(atom, [peep, device], triple, "", Top1())
+        self.assertEqual({r["rid"] for r in request["alias"].values()}, {"a", "b"})
+
+
 class Premises(unittest.TestCase):
     def test_negated_past_or_resolved_terms_are_not_premises(self):
         for text in ["No hypokalemia.", "History of hypokalemia.", "Hypokalemia has resolved.",
@@ -94,12 +158,13 @@ class Direction(unittest.TestCase):
                 _doctor("vasopressor", "Norepinephrine", "Norepinephrine infusion at 0.1 mcg/kg/min", 15)]
         up = [_doctor("vasopressor", "Norepinephrine", "Norepinephrine infusion at 0.1 mcg/kg/min", 13),
               _doctor("vasopressor", "Norepinephrine", "Norepinephrine infusion at 0.2 mcg/kg/min", 15)]
-        self.assertEqual(_treat("Increase norepinephrine.", "norepinephrine", "adjust", down), "partial_match")
+        # The opposite direction disagrees (it is not a partial match).
+        self.assertEqual(_treat("Increase norepinephrine.", "norepinephrine", "adjust", down), "not_done")
         self.assertEqual(_treat("Increase norepinephrine.", "norepinephrine", "adjust", up), "match")
 
     def test_stopping_a_continued_drug_disagrees_and_does_not_cover_it(self):
         given = [_doctor("antimicrobial", "Vancomycin", "Given: Vancomycin")]
-        self.assertEqual(_treat("Discontinue vancomycin.", "vancomycin", "stop", given), "partial_match")
+        self.assertEqual(_treat("Discontinue vancomycin.", "vancomycin", "stop", given), "not_done")
         atom = {"atom_id": "a1", "claim_id": "X1", "kind": "action", "action_class": "stop",
                 "treatment_class": "antimicrobial", "class_level": "class"}
         gold = [{"class": "antimicrobial", "importance": "vital"}]
@@ -110,6 +175,95 @@ class Direction(unittest.TestCase):
                                               "target": "vancomycin", "conditional": False}],
                                             [{"claim_id": "X1", "text": "Discontinue vancomycin."}])[0]["action_class"],
                          "stop")
+
+
+class SettingsAndValues(unittest.TestCase):
+    """Fixes of 2026-11-04: monitor settings are not findings; a stated value is checked as a value."""
+
+    def test_a_desaturation_limit_is_not_low_oxygen(self):
+        for text in ["Continue supplemental oxygen to maintain SpO2 above the desaturation limit of 88%.",
+                     "Set alarms for desaturation.", "Set SpO2 desaturation limit at 88%."]:
+            self.assertEqual(_premises(text), [], text)
+        self.assertEqual(atomize.fact_concept("The desaturation limit is set at 88%.", "low")[0], "other")
+        self.assertEqual(atomize.fact_concept("The patient has recurrent desaturations to 91%.", "low"), ("oxygenation", "low"))
+        self.assertEqual(atomize.fact_concept("MAP is 59-67 mmHg.", "low")[0], "map")
+
+    @staticmethod
+    def _k(value, hours_before=2):
+        when = (T - dt.timedelta(hours=hours_before)).strftime("%Y-%m-%d %H:%M:%S")
+        return {"rid": f"k{value}", "concept": "potassium", "value": value, "table": "lab", "lower": 3.3, "upper": 5.1,
+                "observed_at": when, "unit": "mEq/L", "label": "Potassium"}
+
+    def _verify(self, text, rows, direction="low"):
+        atom = {"atom_id": "X1::01", "claim_id": "X1", "kind": "fact", "fact_kind": "observed", "text": text,
+                "concept": "potassium", "direction": direction, "time": "current", "specimen": "blood"}
+        return ground.verify(atom, rows, {"decision_point": T.strftime("%Y-%m-%d %H:%M:%S")}, "", None)["label"]
+
+    def test_a_stated_value_equal_to_the_record_is_supported(self):
+        rows = [self._k(3.9, 10), self._k(3.4)]
+        self.assertEqual(self._verify("Potassium is 3.4 mEq/L.", rows), "supported")
+        self.assertEqual(self._verify("Potassium is 3.4-3.9 mEq/L.", rows), "supported")
+        self.assertEqual(self._verify("Potassium is 3.0 mEq/L.", rows), "not_supported")
+        self.assertEqual(self._verify("Potassium is 1.2 mmol/L.", [self._k(4.0)]), "unverifiable")  # likely another unit
+        # A direction word keeps the direction check: 3.4 is inside the reference range.
+        self.assertEqual(self._verify("Potassium is low at 3.4 mEq/L.", rows), "not_supported")
+        self.assertEqual(self._verify("Potassium is low-normal.", rows), "supported")
+        # A bedside reading counts even when laboratory values exist (fingerstick glucose).
+        bedside = {**self._k(5.6), "rid": "bedside", "table": "chart", "lower": None, "upper": None}
+        self.assertEqual(self._verify("Fingerstick potassium is 5.6.", rows + [bedside]), "supported")
+
+
+class CloudReplies(unittest.TestCase):
+    """A reply cut off by the output budget gets more room; an empty reply is never sent back (HTTP 400)."""
+
+    def _run(self, replies):
+        import copy
+        import tempfile
+        from cm.llm import LLM
+        with tempfile.TemporaryDirectory() as tmp:
+            llm = LLM(Path(tmp) / "cache.jsonl")
+            sent = []
+
+            def post(path, payload, timeout=900, cloud=False):
+                sent.append(copy.deepcopy(payload))
+                return replies[len(sent) - 1]
+
+            llm._post = post
+            schema = {"type": "object", "required": ["ok"], "properties": {"ok": {"type": "boolean"}}}
+            return llm.json("m:cloud", "s", "u", schema, num_predict=500), sent
+
+    def test_a_truncated_reply_is_retried_with_a_larger_budget(self):
+        out, sent = self._run([{"message": {"content": ""}, "done_reason": "length"},
+                               {"message": {"content": '{"ok": true}'}, "done_reason": "stop"}])
+        self.assertEqual(out, {"ok": True})
+        self.assertEqual([p["options"]["num_predict"] for p in sent], [500, 2000])
+        self.assertEqual(len(sent[1]["messages"]), 2)
+
+    def test_an_empty_reply_is_not_sent_back(self):
+        out, sent = self._run([{"message": {"content": ""}, "done_reason": "stop"},
+                               {"message": {"content": '{"ok": true}'}, "done_reason": "stop"}])
+        self.assertEqual(out, {"ok": True})
+        self.assertEqual([m["role"] for m in sent[1]["messages"]], ["system", "user", "user"])
+
+
+class Omissions(unittest.TestCase):
+    def test_a_finding_counts_as_mentioned_by_the_same_or_a_narrow_concept(self):
+        self.assertTrue(rules.same_finding("potassium", "potassium"))
+        self.assertTrue(rules.same_finding("spo2", "oxygenation"))
+        self.assertTrue(rules.same_finding("metabolic_acidosis", "bicarbonate"))
+        self.assertFalse(rules.same_finding("electrolytes", "potassium"))
+        self.assertFalse(rules.same_finding("other", "wbc"))
+
+    def test_a_treated_finding_no_fact_mentions_is_omitted(self):
+        gold = [{"name": "antimicrobials", "indications": [{"concept": "wbc", "direction": "high", "reason": "WBC 17.8"}]},
+                {"name": "cultures", "indications": [{"concept": "wbc", "direction": "high", "reason": "WBC 17.8"}]},
+                {"name": "potassium replacement", "indications": [{"concept": "potassium", "direction": "low", "reason": "K 3.0"}]}]
+        facts = [{"atom_id": "X1::02", "concept": "potassium"}]
+        out = {r["concept"]: r for r in concord.fact_omissions(gold, facts)}
+        self.assertEqual(len(out), 2)
+        self.assertFalse(out["wbc"]["mentioned"])
+        self.assertEqual(out["wbc"]["treated_by"], ["antimicrobials", "cultures"])
+        self.assertEqual(out["potassium"]["by_atoms"], ["X1::02"])
 
 
 class Administration(unittest.TestCase):

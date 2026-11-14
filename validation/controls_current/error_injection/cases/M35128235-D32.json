@@ -1,0 +1,360 @@
+{
+ "case_id": "M35128235-D32",
+ "decision_point": "2129-04-07 00:25:00",
+ "claims": [
+  "Continue furosemide."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35128235-D32A1::01",
+   "claim_id": "M35128235-D32A1",
+   "claim_text": "Continue furosemide.",
+   "kind": "action",
+   "text": "Continue furosemide.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35128235-D32A1::02",
+   "claim_id": "M35128235-D32A1",
+   "claim_text": "Continue furosemide.",
+   "kind": "fact",
+   "text": "Furosemide is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35128235-D32A1::02",
+   "claim_id": "M35128235-D32A1",
+   "claim_text": "Continue furosemide.",
+   "kind": "fact",
+   "text": "Furosemide is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "The records contain no mention of furosemide, either as an order or an administration, so the statement about current furosemide administration is not addressed.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35128235-D32A1::01",
+   "claim_id": "M35128235-D32A1",
+   "claim_text": "Continue furosemide.",
+   "kind": "action",
+   "text": "Continue furosemide.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No diuretics action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "CeftriaXONE",
+    "Ceftriaxone",
+    "Levofloxacin",
+    "MetRONIDAZOLE (FLagyl)"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 0.8 mmol/L at 2129-04-06 23:32:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 0.8 mmol/L at 2129-04-06 23:32:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.3 mg/dL at 2129-04-06 17:15:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 1.3 mg/dL at 2129-04-06 17:15:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "K Phos",
+    "Potassium Phosphate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen",
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Meperidine",
+    "Meperidine (Demerol)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "CeftriaXONE",
+    "Ceftriaxone",
+    "Levofloxacin",
+    "MetRONIDAZOLE (FLagyl)"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 0.8 mmol/L at 2129-04-06 23:32:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 0.8 mmol/L at 2129-04-06 23:32:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.3 mg/dL at 2129-04-06 17:15:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 1.3 mg/dL at 2129-04-06 17:15:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "K Phos",
+    "Potassium Phosphate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen",
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Meperidine",
+    "Meperidine (Demerol)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "calcium",
+   "direction": "low",
+   "reason": "Latest calcium 0.8 mmol/L at 2129-04-06 23:32:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "name": "calcium",
+   "treated_by": [
+    "calcium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "phosphate",
+   "direction": "low",
+   "reason": "Latest phosphate 1.3 mg/dL at 2129-04-06 17:15:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "name": "phosphate",
+   "treated_by": [
+    "phosphate replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 46,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 1.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Furosemide is currently being given. -- The records contain no mention of furosemide, either as an order or an administration, so the statement about current furosemide administration is not addressed."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 2,
+  "treatments_omitted": 6,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

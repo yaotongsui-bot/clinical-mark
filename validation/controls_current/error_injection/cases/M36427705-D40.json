@@ -1,0 +1,284 @@
+{
+ "case_id": "M36427705-D40",
+ "decision_point": "2184-10-09 04:09:00",
+ "claims": [
+  "Administer packed red blood cells to address potential volume depletion and maintain electrolyte balance."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M36427705-D40A1::01",
+   "claim_id": "M36427705-D40A1",
+   "claim_text": "Administer packed red blood cells to address potential volume depletion and maintain electrolyte balance.",
+   "kind": "action",
+   "text": "Administer packed red blood cells.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "packed red blood cells",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M36427705-D40A1::02",
+   "claim_id": "M36427705-D40A1",
+   "claim_text": "Administer packed red blood cells to address potential volume depletion and maintain electrolyte balance.",
+   "kind": "fact",
+   "text": "Volume depletion is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M36427705-D40A1::03",
+   "claim_id": "M36427705-D40A1",
+   "claim_text": "Administer packed red blood cells to address potential volume depletion and maintain electrolyte balance.",
+   "kind": "fact",
+   "text": "Electrolyte imbalance is present.",
+   "concept": "electrolytes",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M36427705-D40A1::02",
+   "claim_id": "M36427705-D40A1",
+   "claim_text": "Administer packed red blood cells to address potential volume depletion and maintain electrolyte balance.",
+   "kind": "fact",
+   "text": "Volume depletion is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "The supplied records contain only monitoring measurements for pressure ulcers, pain, bowel sounds, and lung sounds. None of these records address volume depletion or fluid status.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "M36427705-D40A1::03",
+   "claim_id": "M36427705-D40A1",
+   "claim_text": "Administer packed red blood cells to address potential volume depletion and maintain electrolyte balance.",
+   "kind": "fact",
+   "text": "Electrolyte imbalance is present.",
+   "concept": "electrolytes",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:222133",
+     "time": "2184-10-09 03:11:00",
+     "item": "Chloride",
+     "value": 111.0,
+     "unit": "mEq/L",
+     "bounds": "96.0 to 108.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:222131",
+     "time": "2184-10-09 03:11:00",
+     "item": "Bicarbonate",
+     "value": 17.0,
+     "unit": "mEq/L",
+     "bounds": "22.0 to 32.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:222132",
+     "time": "2184-10-09 03:11:00",
+     "item": "Calcium, Total",
+     "value": 8.3,
+     "unit": "mg/dL",
+     "bounds": "8.4 to 10.3",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:222138",
+     "time": "2184-10-09 03:11:00",
+     "item": "Phosphate",
+     "value": 5.6,
+     "unit": "mg/dL",
+     "bounds": "2.7 to 4.5",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "'electrolytes abnormal' holds when any component is abnormal. sodium: no; potassium: no; chloride: yes; bicarbonate: yes; magnesium: no; calcium: yes; phosphate: yes.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M36427705-D40A1::01",
+   "claim_id": "M36427705-D40A1",
+   "claim_text": "Administer packed red blood cells to address potential volume depletion and maintain electrolyte balance.",
+   "kind": "action",
+   "text": "Administer packed red blood cells.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "packed red blood cells",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 11.8 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Cefazolin",
+    "CeftriaXONE"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HydrALAzine"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Cefazolin",
+    "CeftriaXONE"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HydrALAzine"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 15,
+ "observation_window_hours": 11.8,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Volume depletion is present. -- The supplied records contain only monitoring measurements for pressure ulcers, pain, bowel sounds, and lung sounds. None of these records address volume depletion or fluid status."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 3,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

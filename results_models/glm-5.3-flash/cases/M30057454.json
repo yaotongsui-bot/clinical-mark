@@ -1,0 +1,837 @@
+{
+ "case_id": "M30057454",
+ "decision_point": "2171-11-15 10:06:41",
+ "claims": [
+  "Continue norepinephrine infusion at 0.05 mcg/kg/min for hemodynamic support.",
+  "Continue potassium chloride infusion to address hypokalemia.",
+  "Monitor arterial blood pressure and heart rate given hypotension and tachycardia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30057454A1::01",
+   "claim_id": "M30057454A1",
+   "claim_text": "Continue norepinephrine infusion at 0.05 mcg/kg/min for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion at 0.05 mcg/kg/min.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30057454A1::02",
+   "claim_id": "M30057454A1",
+   "claim_text": "Continue norepinephrine infusion at 0.05 mcg/kg/min for hemodynamic support.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M30057454A2::03",
+   "claim_id": "M30057454A2",
+   "claim_text": "Continue potassium chloride infusion to address hypokalemia.",
+   "kind": "action",
+   "text": "Continue potassium chloride infusion.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "potassium chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30057454A2::04",
+   "claim_id": "M30057454A2",
+   "claim_text": "Continue potassium chloride infusion to address hypokalemia.",
+   "kind": "fact",
+   "text": "Hypokalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M30057454A3::05",
+   "claim_id": "M30057454A3",
+   "claim_text": "Monitor arterial blood pressure and heart rate given hypotension and tachycardia.",
+   "kind": "action",
+   "text": "Monitor arterial blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30057454A3::06",
+   "claim_id": "M30057454A3",
+   "claim_text": "Monitor arterial blood pressure and heart rate given hypotension and tachycardia.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30057454A3::07",
+   "claim_id": "M30057454A3",
+   "claim_text": "Monitor arterial blood pressure and heart rate given hypotension and tachycardia.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M30057454A3::08",
+   "claim_id": "M30057454A3",
+   "claim_text": "Monitor arterial blood pressure and heart rate given hypotension and tachycardia.",
+   "kind": "fact",
+   "text": "Tachycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30057454A1::02",
+   "claim_id": "M30057454A1",
+   "claim_text": "Continue norepinephrine infusion at 0.05 mcg/kg/min for hemodynamic support.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "An infusion record shows norepinephrine running at decision time (started 2171-11-15 09:39 at 0.05 mcg/kg/min), and there is an active norepinephrine IV drip order at 10:00, confirming it is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "glm-5.3-flash:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:5200068:221906:2171-11-15 09:39:00",
+     "time": "2171-11-15 09:39:00",
+     "item": "Running at decision time (started 2171-11-15 09:39:00): Infusion/input Norepinephrine at 0.050004004151560366 mcg/kg/min"
+    },
+    {
+     "rid": "rx:33150120:2171-11-15 10:00:00",
+     "time": "2171-11-15 10:00:00",
+     "item": "Order: NORepinephrine 8 mg IV DRIP (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M30057454A2::04",
+   "claim_id": "M30057454A2",
+   "claim_text": "Continue potassium chloride infusion to address hypokalemia.",
+   "kind": "fact",
+   "text": "Hypokalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:271549",
+     "time": "2171-11-14 18:10:00",
+     "item": "Potassium",
+     "value": 4.0,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:271556",
+     "time": "2171-11-15 02:53:00",
+     "item": "Potassium",
+     "value": 3.8,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:271584",
+     "time": "2171-11-15 09:01:00",
+     "item": "Potassium, Whole Blood",
+     "value": 2.3,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest potassium 2.3 mEq/L at 2171-11-15 09:01:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M30057454A3::07",
+   "claim_id": "M30057454A3",
+   "claim_text": "Monitor arterial blood pressure and heart rate given hypotension and tachycardia.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "chart:30057454:220050:2171-11-15 09:00:00",
+     "time": "2171-11-15 09:00:00",
+     "item": "Arterial Blood Pressure systolic",
+     "value": 83.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "low"
+    },
+    {
+     "rid": "chart:30057454:220181:2171-11-15 09:00:00",
+     "time": "2171-11-15 09:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 66.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M30057454A3::08",
+   "claim_id": "M30057454A3",
+   "claim_text": "Monitor arterial blood pressure and heart rate given hypotension and tachycardia.",
+   "kind": "fact",
+   "text": "Tachycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "chart:30057454:220045:2171-11-15 06:00:00",
+     "time": "2171-11-15 06:00:00",
+     "item": "Heart Rate",
+     "value": 112.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:30057454:220045:2171-11-15 07:00:00",
+     "time": "2171-11-15 07:00:00",
+     "item": "Heart Rate",
+     "value": 110.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:30057454:220045:2171-11-15 08:00:00",
+     "time": "2171-11-15 08:00:00",
+     "item": "Heart Rate",
+     "value": 110.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:30057454:220045:2171-11-15 09:00:00",
+     "time": "2171-11-15 09:00:00",
+     "item": "Heart Rate",
+     "value": 108.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "Median heart rate over the 6 h before the decision: 110 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "computed": {
+    "median": 110.0,
+    "status": "high",
+    "n": 5
+   },
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30057454A1::01",
+   "claim_id": "M30057454A1",
+   "claim_text": "Continue norepinephrine infusion at 0.05 mcg/kg/min for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion at 0.05 mcg/kg/min.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN221906",
+     "time": "2171-11-15 09:39:00",
+     "item": "Norepinephrine infusion continuing at 0.050004004151560366 mcg/kg/min",
+     "class": "vasopressor"
+    },
+    {
+     "rid": "IN221906#2",
+     "time": "2171-11-15 11:49:00",
+     "item": "Norepinephrine infusion started at 0.029998926038388163 mcg/kg/min",
+     "class": "vasopressor"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded vasopressors after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30057454A2::03",
+   "claim_id": "M30057454A2",
+   "claim_text": "Continue potassium chloride infusion to address hypokalemia.",
+   "kind": "action",
+   "text": "Continue potassium chloride infusion.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "potassium chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225166",
+     "time": "2171-11-15 09:20:00",
+     "item": "Potassium Chloride infusion continuing at",
+     "class": "potassium_replacement"
+    },
+    {
+     "rid": "IN227522",
+     "time": "2171-11-15 09:20:00",
+     "item": "KCL (Bolus) infusion continuing at 50 mL/hour",
+     "class": "potassium_replacement"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded potassium replacement after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30057454A3::05",
+   "claim_id": "M30057454A3",
+   "claim_text": "Monitor arterial blood pressure and heart rate given hypotension and tachycardia.",
+   "kind": "action",
+   "text": "Monitor arterial blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220050:2171-11-16 00:00:00:609266",
+     "time": "2171-11-16 00:00:00",
+     "item": "systolic BP",
+     "value": "98 mmHg"
+    },
+    {
+     "rid": "chart:220050:2171-11-16 01:00:00:609303",
+     "time": "2171-11-16 01:00:00",
+     "item": "systolic BP",
+     "value": "98 mmHg"
+    },
+    {
+     "rid": "chart:220052:2171-11-16 00:00:00:609268",
+     "time": "2171-11-16 00:00:00",
+     "item": "mean arterial pressure",
+     "value": "72 mmHg"
+    },
+    {
+     "rid": "chart:220052:2171-11-16 01:00:00:609295",
+     "time": "2171-11-16 01:00:00",
+     "item": "mean arterial pressure",
+     "value": "72 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x28, mean arterial pressure x28.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30057454A3::06",
+   "claim_id": "M30057454A3",
+   "claim_text": "Monitor arterial blood pressure and heart rate given hypotension and tachycardia.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2171-11-16 00:00:00:609269",
+     "time": "2171-11-16 00:00:00",
+     "item": "heart rate",
+     "value": "113 bpm"
+    },
+    {
+     "rid": "chart:220045:2171-11-16 01:00:00:609289",
+     "time": "2171-11-16 01:00:00",
+     "item": "heart rate",
+     "value": "112 bpm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x25.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 17.8 K/uL at 2171-11-15 02:53:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 17.8 K/uL at 2171-11-15 02:53:00 (reference 4.0 to 11.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 0.83 mmol/L at 2171-11-15 09:01:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 0.83 mmol/L at 2171-11-15 09:01:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 2.3 mEq/L at 2171-11-15 09:01:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "potassium",
+     "direction": "low",
+     "reason": "Latest potassium 2.3 mEq/L at 2171-11-15 09:01:00 (reference 3.3 to 5.1) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 5,
+   "covered": true,
+   "by_atoms": [
+    "M30057454A2::03"
+   ]
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes."
+    }
+   ],
+   "doctor_targets": [
+    "DOBUTamine",
+    "DOPamine",
+    "Dobutamine",
+    "Dopamine",
+    "Norepinephrine"
+   ],
+   "doctor_rows": 8,
+   "covered": true,
+   "by_atoms": [
+    "M30057454A1::01"
+   ]
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)",
+    "Furosemide (Lasix) 250/50"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 17.8 K/uL at 2171-11-15 02:53:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 17.8 K/uL at 2171-11-15 02:53:00 (reference 4.0 to 11.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 0.83 mmol/L at 2171-11-15 09:01:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 0.83 mmol/L at 2171-11-15 09:01:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 2.3 mEq/L at 2171-11-15 09:01:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "potassium",
+     "direction": "low",
+     "reason": "Latest potassium 2.3 mEq/L at 2171-11-15 09:01:00 (reference 3.3 to 5.1) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 5,
+   "covered": true,
+   "by_atoms": [
+    "M30057454A2::03"
+   ]
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes."
+    }
+   ],
+   "doctor_targets": [
+    "DOBUTamine",
+    "DOPamine",
+    "Dobutamine",
+    "Dopamine",
+    "Norepinephrine"
+   ],
+   "doctor_rows": 8,
+   "covered": true,
+   "by_atoms": [
+    "M30057454A1::01"
+   ]
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)",
+    "Furosemide (Lasix) 250/50"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "calcium",
+   "direction": "low",
+   "reason": "Latest calcium 0.83 mmol/L at 2171-11-15 09:01:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "name": "calcium",
+   "treated_by": [
+    "calcium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 17.8 K/uL at 2171-11-15 02:53:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "blood_pressure",
+   "direction": "low",
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes.",
+   "name": "blood pressure",
+   "treated_by": [
+    "IV fluids",
+    "vasopressors"
+   ],
+   "mentioned": true,
+   "by_atoms": [
+    "M30057454A3::07"
+   ]
+  },
+  {
+   "concept": "potassium",
+   "direction": "low",
+   "reason": "Latest potassium 2.3 mEq/L at 2171-11-15 09:01:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "name": "potassium",
+   "treated_by": [
+    "potassium replacement"
+   ],
+   "mentioned": true,
+   "by_atoms": [
+    "M30057454A2::04"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 47,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 4,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 2,
+  "treatments_omitted": 6,
+  "recall_vital": 0.4,
+  "recall_okay": 0.0,
+  "recall_all": 0.25,
+  "recall_vital_at3": 0.4,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.25
+ }
+}

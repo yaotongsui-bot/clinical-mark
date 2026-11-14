@@ -1,0 +1,576 @@
+{
+ "case_id": "M37127068",
+ "decision_point": "2187-07-30 09:41:11",
+ "claims": [
+  "Continue mechanical ventilation with the current settings (APV/CMV, set tidal volume 500 mL, set respiratory rate 12/min, PEEP 5 cmH2O, FiO2 50%).",
+  "Continue the insulin human regular IV drip with glucose monitoring.",
+  "Monitor arterial blood gases and lactate to assess oxygenation and perfusion."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37127068A1::01",
+   "claim_id": "M37127068A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (APV/CMV, set tidal volume 500 mL, set respiratory rate 12/min, PEEP 5 cmH2O, FiO2 50%).",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37127068A1::02",
+   "claim_id": "M37127068A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (APV/CMV, set tidal volume 500 mL, set respiratory rate 12/min, PEEP 5 cmH2O, FiO2 50%).",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M37127068A2::03",
+   "claim_id": "M37127068A2",
+   "claim_text": "Continue the insulin human regular IV drip with glucose monitoring.",
+   "kind": "action",
+   "text": "Continue the insulin human regular IV drip.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin human regular IV drip",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37127068A2::04",
+   "claim_id": "M37127068A2",
+   "claim_text": "Continue the insulin human regular IV drip with glucose monitoring.",
+   "kind": "fact",
+   "text": "The patient is currently receiving an insulin human regular IV drip.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M37127068A2::05",
+   "claim_id": "M37127068A2",
+   "claim_text": "Continue the insulin human regular IV drip with glucose monitoring.",
+   "kind": "action",
+   "text": "Monitor glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37127068A3::06",
+   "claim_id": "M37127068A3",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation and perfusion.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37127068A3::07",
+   "claim_id": "M37127068A3",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation and perfusion.",
+   "kind": "action",
+   "text": "Monitor lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37127068A3::08",
+   "claim_id": "M37127068A3",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation and perfusion.",
+   "kind": "action",
+   "text": "Assess oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygenation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37127068A3::09",
+   "claim_id": "M37127068A3",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation and perfusion.",
+   "kind": "action",
+   "text": "Assess perfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "perfusion",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37127068A1::02",
+   "claim_id": "M37127068A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (APV/CMV, set tidal volume 500 mL, set respiratory rate 12/min, PEEP 5 cmH2O, FiO2 50%).",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:37127068:220339:2187-07-29 17:00:00",
+     "time": "2187-07-29 17:00:00",
+     "item": "PEEP set: 5 cmH2O"
+    }
+   ],
+   "reason": "The last ventilator/intubation record ('PEEP set: 5 cmH2O') was 16.7 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M37127068A2::04",
+   "claim_id": "M37127068A2",
+   "claim_text": "Continue the insulin human regular IV drip with glucose monitoring.",
+   "kind": "fact",
+   "text": "The patient is currently receiving an insulin human regular IV drip.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The insulin IV drip was stopped unscheduled on 2187-07-29 at 20:11 (R39), and the most recent insulin administrations before the decision time are a brief Humalog bolus at 09:17-09:18 on 2187-07-30 (R48, R49), not an ongoing regular insulin IV drip. The active order R1 alone does not show administration.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "mimo-v2.6-pro:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "emar:10038992-208",
+     "time": "2187-07-29 20:11:00",
+     "item": "MAR Stopped - Unscheduled: Insulin"
+    },
+    {
+     "rid": "emar:10038992-218",
+     "time": "2187-07-30 06:00:00",
+     "item": "MAR Not Given: Insulin"
+    },
+    {
+     "rid": "inputevents:6201149:223262:2187-07-30 09:17:00",
+     "time": "2187-07-30 09:17:00",
+     "item": "Infusion/input Insulin - Humalog 2 units (2187-07-30 09:17:00 to 2187-07-30 09:18:00)"
+    },
+    {
+     "rid": "emar:10038992-228",
+     "time": "2187-07-30 09:18:00",
+     "item": "MAR Administered: Insulin"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37127068A1::01",
+   "claim_id": "M37127068A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (APV/CMV, set tidal volume 500 mL, set respiratory rate 12/min, PEEP 5 cmH2O, FiO2 50%).",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 4.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37127068A2::03",
+   "claim_id": "M37127068A2",
+   "claim_text": "Continue the insulin human regular IV drip with glucose monitoring.",
+   "kind": "action",
+   "text": "Continue the insulin human regular IV drip.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin human regular IV drip",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "E10038992-232",
+     "time": "2187-07-30 12:59:00",
+     "item": "Given: Insulin",
+     "class": "insulin"
+    },
+    {
+     "rid": "IN223262",
+     "time": "2187-07-30 13:17:00",
+     "item": "Insulin - Humalog infusion started at",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37127068A2::05",
+   "claim_id": "M37127068A2",
+   "claim_text": "Continue the insulin human regular IV drip with glucose monitoring.",
+   "kind": "action",
+   "text": "Monitor glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2187-07-30 12:00:00:396163",
+     "time": "2187-07-30 12:00:00",
+     "item": "glucose",
+     "value": "125"
+    },
+    {
+     "rid": "chart:220621:2187-07-30 10:45:00:396787",
+     "time": "2187-07-30 10:45:00",
+     "item": "glucose",
+     "value": "127 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 4.0 h observation window after the decision (24 h or until ICU discharge): glucose x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37127068A3::06",
+   "claim_id": "M37127068A3",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation and perfusion.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 4.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37127068A3::07",
+   "claim_id": "M37127068A3",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation and perfusion.",
+   "kind": "action",
+   "text": "Monitor lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 4.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37127068A3::08",
+   "claim_id": "M37127068A3",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation and perfusion.",
+   "kind": "action",
+   "text": "Assess oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygenation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220277:2187-07-30 10:00:00:396145",
+     "time": "2187-07-30 10:00:00",
+     "item": "SpO2",
+     "value": "96 %"
+    },
+    {
+     "rid": "chart:220277:2187-07-30 11:00:00:396149",
+     "time": "2187-07-30 11:00:00",
+     "item": "SpO2",
+     "value": "96 %"
+    }
+   ],
+   "reason": "Measured in the 4.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37127068A3::09",
+   "claim_id": "M37127068A3",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation and perfusion.",
+   "kind": "action",
+   "text": "Assess perfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "perfusion",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 15.8 K/uL at 2187-07-30 02:04:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 15.8 K/uL at 2187-07-30 02:04:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CeFAZolin",
+    "Cefazolin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M37127068A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 15.8 K/uL at 2187-07-30 02:04:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 15.8 K/uL at 2187-07-30 02:04:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CeFAZolin",
+    "Cefazolin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M37127068A2::03"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 15.8 K/uL at 2187-07-30 02:04:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 15,
+ "observation_window_hours": 4.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The last ventilator/intubation record ('PEEP set: 5 cmH2O') was 16.7 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+    "The patient is currently receiving an insulin human regular IV drip. -- The insulin IV drip was stopped unscheduled on 2187-07-29 at 20:11 (R39), and the most recent insulin administrations before the decision time are a brief Humalog bolus at 09:17-09:18 on 2187-07-30 (R48, R49), not an ongoing regular insulin IV drip. The active order R1 alone does not show administration."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.5,
+  "facts_omitted": 1,
+  "treatments_omitted": 4,
+  "recall_vital": 0.0,
+  "recall_okay": 0.25,
+  "recall_all": 0.2,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.25,
+  "recall_all_at3": 0.2
+ }
+}

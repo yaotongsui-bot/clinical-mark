@@ -1,0 +1,401 @@
+{
+ "case_id": "M37049133",
+ "decision_point": "2196-04-15 13:40:00",
+ "claims": [
+  "Continue D5NS infusion at 5 mL/hour.",
+  "Monitor hemoglobin and hematocrit for anemia.",
+  "Assess and monitor for alcohol withdrawal using CIWA-Ar."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37049133A1::01",
+   "claim_id": "M37049133A1",
+   "claim_text": "Continue D5NS infusion at 5 mL/hour.",
+   "kind": "action",
+   "text": "Continue D5NS infusion at 5 mL/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "D5NS",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37049133A1::02",
+   "claim_id": "M37049133A1",
+   "claim_text": "Continue D5NS infusion at 5 mL/hour.",
+   "kind": "fact",
+   "text": "D5NS is currently infusing at 5 mL/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M37049133A2::03",
+   "claim_id": "M37049133A2",
+   "claim_text": "Monitor hemoglobin and hematocrit for anemia.",
+   "kind": "action",
+   "text": "Monitor hemoglobin.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37049133A2::04",
+   "claim_id": "M37049133A2",
+   "claim_text": "Monitor hemoglobin and hematocrit for anemia.",
+   "kind": "action",
+   "text": "Monitor hematocrit.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37049133A2::05",
+   "claim_id": "M37049133A2",
+   "claim_text": "Monitor hemoglobin and hematocrit for anemia.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M37049133A3::06",
+   "claim_id": "M37049133A3",
+   "claim_text": "Assess and monitor for alcohol withdrawal using CIWA-Ar.",
+   "kind": "action",
+   "text": "Assess and monitor for alcohol withdrawal using CIWA-Ar.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "alcohol withdrawal",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37049133A1::02",
+   "claim_id": "M37049133A1",
+   "claim_text": "Continue D5NS infusion at 5 mL/hour.",
+   "kind": "fact",
+   "text": "D5NS is currently infusing at 5 mL/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The record R2 shows that D5NS is currently infusing at 5 mL/hour, which matches the AI statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:739068:225825:2196-04-14 14:03:00",
+     "time": "2196-04-14 14:03:00",
+     "item": "Running at decision time (started 2196-04-14 14:03:00): Infusion/input D5NS at 5 mL/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "M37049133A2::05",
+   "claim_id": "M37049133A2",
+   "claim_text": "Monitor hemoglobin and hematocrit for anemia.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "The records do not contain any information about anemia, which is the presence of red blood cells in the urine. The records only contain measurements of temperature, pain, and other vital signs, but do not mention anemia or hemoglobin levels.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_addressed"
+    }
+   },
+   "evidence": []
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37049133A1::01",
+   "claim_id": "M37049133A1",
+   "claim_text": "Continue D5NS infusion at 5 mL/hour.",
+   "kind": "action",
+   "text": "Continue D5NS infusion at 5 mL/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "D5NS",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225825",
+     "time": "2196-04-14 14:03:00",
+     "item": "D5NS infusion continuing at 5 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37049133A2::03",
+   "claim_id": "M37049133A2",
+   "claim_text": "Monitor hemoglobin and hematocrit for anemia.",
+   "kind": "action",
+   "text": "Monitor hemoglobin.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No hemoglobin measurement in the 3.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37049133A2::04",
+   "claim_id": "M37049133A2",
+   "claim_text": "Monitor hemoglobin and hematocrit for anemia.",
+   "kind": "action",
+   "text": "Monitor hematocrit.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No hematocrit measurement in the 3.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37049133A3::06",
+   "claim_id": "M37049133A3",
+   "claim_text": "Assess and monitor for alcohol withdrawal using CIWA-Ar.",
+   "kind": "action",
+   "text": "Assess and monitor for alcohol withdrawal using CIWA-Ar.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "alcohol withdrawal",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "D5NS"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37049133A1::01"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "D5NS"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37049133A1::01"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "phosphate",
+   "direction": "low",
+   "reason": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "name": "phosphate",
+   "treated_by": [
+    "phosphate replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 5,
+ "observation_window_hours": 3.2,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Anemia is present. -- The records do not contain any information about anemia, which is the presence of red blood cells in the urine. The records only contain measurements of temperature, pain, and other vital signs, but do not mention anemia or hemoglobin levels."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 1,
+  "treatments_omitted": 3,
+  "recall_vital": 0.0,
+  "recall_okay": 0.333,
+  "recall_all": 0.25,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.333,
+  "recall_all_at3": 0.25
+ }
+}

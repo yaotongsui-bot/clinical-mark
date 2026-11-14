@@ -1,0 +1,221 @@
+{
+ "case_id": "M37049133-R09",
+ "decision_point": "2196-04-15 13:40:00",
+ "claims": [
+  "Assess for signs of infection given elevated white blood cell count."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37049133-R09A1::01",
+   "claim_id": "M37049133-R09A1",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37049133-R09A1::02",
+   "claim_id": "M37049133-R09A1",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count.",
+   "kind": "fact",
+   "text": "White blood cell count is elevated.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37049133-R09A1::02",
+   "claim_id": "M37049133-R09A1",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count.",
+   "kind": "fact",
+   "text": "White blood cell count is elevated.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:38816",
+     "time": "2196-04-15 03:36:00",
+     "item": "White Blood Cells",
+     "value": 2.4,
+     "unit": "K/uL",
+     "bounds": "4.0 to 11.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest WBC 2.4 K/uL at 2196-04-15 03:36:00 (reference 4.0 to 11.0) is low, not consistent with 'high'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37049133-R09A1::01",
+   "claim_id": "M37049133-R09A1",
+   "claim_text": "Assess for signs of infection given elevated white blood cell count.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "D5NS"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "D5NS"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 5,
+ "observation_window_hours": 3.2,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "White blood cell count is elevated. -- Latest WBC 2.4 K/uL at 2196-04-15 03:36:00 (reference 4.0 to 11.0) is low, not consistent with 'high'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

@@ -1,0 +1,399 @@
+{
+ "case_id": "M35446858",
+ "decision_point": "2141-08-01 00:01:00",
+ "claims": [
+  "Continue continuous ST segment monitoring for cardiac ischemia surveillance.",
+  "Maintain the current IV access with occlusive dressing for ongoing intravenous therapy.",
+  "Perform a repeat basic metabolic panel to reassess electrolytes and renal function."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35446858A1::01",
+   "claim_id": "M35446858A1",
+   "claim_text": "Continue continuous ST segment monitoring for cardiac ischemia surveillance.",
+   "kind": "action",
+   "text": "Continue continuous ST segment monitoring.",
+   "concept": "other",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "continuous ST segment monitoring",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35446858A1::02",
+   "claim_id": "M35446858A1",
+   "claim_text": "Continue continuous ST segment monitoring for cardiac ischemia surveillance.",
+   "kind": "fact",
+   "text": "The patient is currently on continuous ST segment monitoring.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M35446858A2::03",
+   "claim_id": "M35446858A2",
+   "claim_text": "Maintain the current IV access with occlusive dressing for ongoing intravenous therapy.",
+   "kind": "action",
+   "text": "Maintain the current IV access with occlusive dressing.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV access",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M35446858A2::04",
+   "claim_id": "M35446858A2",
+   "claim_text": "Maintain the current IV access with occlusive dressing for ongoing intravenous therapy.",
+   "kind": "fact",
+   "text": "The patient currently has IV access.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M35446858A2::05",
+   "claim_id": "M35446858A2",
+   "claim_text": "Maintain the current IV access with occlusive dressing for ongoing intravenous therapy.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous therapy.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M35446858A3::06",
+   "claim_id": "M35446858A3",
+   "claim_text": "Perform a repeat basic metabolic panel to reassess electrolytes and renal function.",
+   "kind": "action",
+   "text": "Perform a repeat basic metabolic panel.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "basic metabolic panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M35446858A3::07",
+   "claim_id": "M35446858A3",
+   "claim_text": "Perform a repeat basic metabolic panel to reassess electrolytes and renal function.",
+   "kind": "fact",
+   "text": "A basic metabolic panel was previously performed.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35446858A1::02",
+   "claim_id": "M35446858A1",
+   "claim_text": "Continue continuous ST segment monitoring for cardiac ischemia surveillance.",
+   "kind": "fact",
+   "text": "The patient is currently on continuous ST segment monitoring.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Most recent record at 20:27 on 2141-07-31 shows ST Segment Monitoring On: 1, indicating continuous ST monitoring was active ~3.5 hours before decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "muse-spark-open:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:35446858:228305:2141-07-31 20:27:00",
+     "time": "2141-07-31 20:27:00",
+     "item": "ST Segment Monitoring On: 1"
+    }
+   ]
+  },
+  {
+   "atom_id": "M35446858A2::04",
+   "claim_id": "M35446858A2",
+   "claim_text": "Maintain the current IV access with occlusive dressing for ongoing intravenous therapy.",
+   "kind": "fact",
+   "text": "The patient currently has IV access.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Most recent monitoring at 21:34 on 2141-07-31 documents IV/Saline lock: Yes, about 2.5 hours before decision time, explicitly showing IV access is present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "muse-spark-open:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:35446858:227344:2141-07-31 21:34:00",
+     "time": "2141-07-31 21:34:00",
+     "item": "IV/Saline lock: Yes (20)"
+    },
+    {
+     "rid": "chart:35446858:227344:2141-07-31 08:00:00",
+     "time": "2141-07-31 08:00:00",
+     "item": "IV/Saline lock: Yes (20)"
+    },
+    {
+     "rid": "chart:35446858:227344:2141-07-31 01:00:00",
+     "time": "2141-07-31 01:00:00",
+     "item": "IV/Saline lock: Yes (20)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M35446858A2::05",
+   "claim_id": "M35446858A2",
+   "claim_text": "Maintain the current IV access with occlusive dressing for ongoing intravenous therapy.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous therapy.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Infusion/input Piggyback at 200 mL/hour administered 20:51-21:21 on 2141-07-31 is within 24 hours of decision time and documents intravenous infusion, supporting ongoing IV therapy.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "muse-spark-open:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:8910182:226089:2141-07-31 20:51:00",
+     "time": "2141-07-31 20:51:00",
+     "item": "Infusion/input Piggyback at 200 mL/hour (2141-07-31 20:51:00 to 2141-07-31 21:21:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M35446858A3::07",
+   "claim_id": "M35446858A3",
+   "claim_text": "Perform a repeat basic metabolic panel to reassess electrolytes and renal function.",
+   "kind": "fact",
+   "text": "A basic metabolic panel was previously performed.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "not_addressed",
+   "reason": "No records show a basic metabolic panel or its components (sodium, potassium, chloride, bicarbonate, BUN, creatinine, glucose) being performed; the supplied records contain only monitoring and procedure entries.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "muse-spark-open:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35446858A1::01",
+   "claim_id": "M35446858A1",
+   "claim_text": "Continue continuous ST segment monitoring for cardiac ischemia surveillance.",
+   "kind": "action",
+   "text": "Continue continuous ST segment monitoring.",
+   "concept": "other",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "continuous ST segment monitoring",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35446858A2::03",
+   "claim_id": "M35446858A2",
+   "claim_text": "Maintain the current IV access with occlusive dressing for ongoing intravenous therapy.",
+   "kind": "action",
+   "text": "Maintain the current IV access with occlusive dressing.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV access",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "llm_panel",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "muse-spark-open:cloud": "not_done"
+    }
+   },
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35446858A3::06",
+   "claim_id": "M35446858A3",
+   "claim_text": "Perform a repeat basic metabolic panel to reassess electrolytes and renal function.",
+   "kind": "action",
+   "text": "Perform a repeat basic metabolic panel.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "basic metabolic panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Haloperidol",
+    "Haloperidol (Haldol)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "PHENObarbital Alcohol Withdrawal Dose Taper (Days 2-7)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Haloperidol",
+    "Haloperidol (Haldol)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "PHENObarbital Alcohol Withdrawal Dose Taper (Days 2-7)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 11,
+ "observation_window_hours": 22.6,
+ "scoresheet": {
+  "n": 4,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.75,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.25,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "A basic metabolic panel was previously performed. -- No records show a basic metabolic panel or its components (sodium, potassium, chloride, bicarbonate, BUN, creatinine, glucose) being performed; the supplied records contain only monitoring and procedure entries."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 2,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

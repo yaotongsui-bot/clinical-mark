@@ -1,0 +1,604 @@
+{
+ "case_id": "M37057036",
+ "decision_point": "2178-07-04 22:45:00",
+ "claims": [
+  "Continue mechanical ventilation with current settings (APV-CMV, PEEP 5 cmH2O, FiO2 40%, set RR 14/min, tidal volume 360 mL).",
+  "Continue enteral nutrition with Glucerna 1.2 at approximately 15 mL/hour.",
+  "Monitor blood glucose given fingerstick values of 138-168 mg/dL and ongoing enteral nutrition."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37057036A1::01",
+   "claim_id": "M37057036A1",
+   "claim_text": "Continue mechanical ventilation with current settings (APV-CMV, PEEP 5 cmH2O, FiO2 40%, set RR 14/min, tidal volume 360 mL).",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37057036A1::02",
+   "claim_id": "M37057036A1",
+   "claim_text": "Continue mechanical ventilation with current settings (APV-CMV, PEEP 5 cmH2O, FiO2 40%, set RR 14/min, tidal volume 360 mL).",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M37057036A2::03",
+   "claim_id": "M37057036A2",
+   "claim_text": "Continue enteral nutrition with Glucerna 1.2 at approximately 15 mL/hour.",
+   "kind": "action",
+   "text": "Continue enteral nutrition with Glucerna 1.2 at approximately 15 mL/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "enteral nutrition",
+   "conditional": false,
+   "treatment_class": "nutrition",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37057036A2::04",
+   "claim_id": "M37057036A2",
+   "claim_text": "Continue enteral nutrition with Glucerna 1.2 at approximately 15 mL/hour.",
+   "kind": "fact",
+   "text": "Enteral nutrition is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M37057036A3::05",
+   "claim_id": "M37057036A3",
+   "claim_text": "Monitor blood glucose given fingerstick values of 138-168 mg/dL and ongoing enteral nutrition.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37057036A3::06",
+   "claim_id": "M37057036A3",
+   "claim_text": "Monitor blood glucose given fingerstick values of 138-168 mg/dL and ongoing enteral nutrition.",
+   "kind": "fact",
+   "text": "Fingerstick glucose values are 138-168 mg/dL.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M37057036A3::07",
+   "claim_id": "M37057036A3",
+   "claim_text": "Monitor blood glucose given fingerstick values of 138-168 mg/dL and ongoing enteral nutrition.",
+   "kind": "fact",
+   "text": "Enteral nutrition is ongoing.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37057036A1::02",
+   "claim_id": "M37057036A1",
+   "claim_text": "Continue mechanical ventilation with current settings (APV-CMV, PEEP 5 cmH2O, FiO2 40%, set RR 14/min, tidal volume 360 mL).",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:3974621:225792:2178-07-03 23:00:00",
+     "time": "2178-07-03 23:00:00",
+     "item": "Running at decision time (started 2178-07-03 23:00:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M37057036A2::04",
+   "claim_id": "M37057036A2",
+   "claim_text": "Continue enteral nutrition with Glucerna 1.2 at approximately 15 mL/hour.",
+   "kind": "fact",
+   "text": "Enteral nutrition is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R44 shows a Glucerna 1.2 infusion running at decision time, which is enteral nutrition being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:6635812:229013:2178-07-04 18:45:00",
+     "time": "2178-07-04 18:45:00",
+     "item": "Running at decision time (started 2178-07-04 18:45:00): Infusion/input Glucerna 1.2 (Full) at 14.998746871948242 mL/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "M37057036A3::06",
+   "claim_id": "M37057036A3",
+   "claim_text": "Monitor blood glucose given fingerstick values of 138-168 mg/dL and ongoing enteral nutrition.",
+   "kind": "fact",
+   "text": "Fingerstick glucose values are 138-168 mg/dL.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "chart:37057036:225664:2178-07-04 16:00:00",
+     "time": "2178-07-04 16:00:00",
+     "item": "Glucose finger stick (range 70-100)",
+     "value": 138.0,
+     "unit": "",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "The stated glucose (138-168) matches recorded values before the decision (138 at 2178-07-04 16:00:00).",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M37057036A3::07",
+   "claim_id": "M37057036A3",
+   "claim_text": "Monitor blood glucose given fingerstick values of 138-168 mg/dL and ongoing enteral nutrition.",
+   "kind": "fact",
+   "text": "Enteral nutrition is ongoing.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R43 shows a Glucerna enteral infusion running at decision time, and R45 documents the GI tube status as 'Feeding' at 20:00, confirming ongoing enteral nutrition.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:6635812:229013:2178-07-04 18:45:00",
+     "time": "2178-07-04 18:45:00",
+     "item": "Running at decision time (started 2178-07-04 18:45:00): Infusion/input Glucerna 1.2 (Full) at 14.998746871948242 mL/hour"
+    },
+    {
+     "rid": "chart:37057036:224786:2178-07-04 20:00:00",
+     "time": "2178-07-04 20:00:00",
+     "item": "GI #1 Tube Status: Feeding"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37057036A1::01",
+   "claim_id": "M37057036A1",
+   "claim_text": "Continue mechanical ventilation with current settings (APV-CMV, PEEP 5 cmH2O, FiO2 40%, set RR 14/min, tidal volume 360 mL).",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2178-07-03 23:00:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37057036A2::03",
+   "claim_id": "M37057036A2",
+   "claim_text": "Continue enteral nutrition with Glucerna 1.2 at approximately 15 mL/hour.",
+   "kind": "action",
+   "text": "Continue enteral nutrition with Glucerna 1.2 at approximately 15 mL/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "enteral nutrition",
+   "conditional": false,
+   "treatment_class": "nutrition",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN229013",
+     "time": "2178-07-04 18:45:00",
+     "item": "Glucerna 1.2 (Full) infusion continuing at 14.998746871948242 mL/hour",
+     "class": "nutrition"
+    },
+    {
+     "rid": "IN229013#2",
+     "time": "2178-07-05 00:01:00",
+     "item": "Glucerna 1.2 (Full) infusion started at 30.005664825439453 mL/hour",
+     "class": "nutrition"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded nutrition support after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37057036A3::05",
+   "claim_id": "M37057036A3",
+   "claim_text": "Monitor blood glucose given fingerstick values of 138-168 mg/dL and ongoing enteral nutrition.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2178-07-05 04:00:00:27944",
+     "time": "2178-07-05 04:00:00",
+     "item": "glucose",
+     "value": "181"
+    },
+    {
+     "rid": "chart:225664:2178-07-05 10:00:00:28163",
+     "time": "2178-07-05 10:00:00",
+     "item": "glucose",
+     "value": "250"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x6.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 10.2 K/uL at 2178-07-04 09:34:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 10.2 K/uL at 2178-07-04 09:34:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes. Latest PaCO2 47 mm Hg at 2178-07-04 01:03:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "oxygenation",
+     "direction": "low",
+     "reason": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes."
+    },
+    {
+     "concept": "pco2",
+     "direction": "high",
+     "reason": "Latest PaCO2 47 mm Hg at 2178-07-04 01:03:00 (reference 35.0 to 45.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A1::01"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Glargine",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Glucerna 1.2 (Full)"
+   ],
+   "doctor_rows": 5,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 10.2 K/uL at 2178-07-04 09:34:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 10.2 K/uL at 2178-07-04 09:34:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes. Latest PaCO2 47 mm Hg at 2178-07-04 01:03:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "oxygenation",
+     "direction": "low",
+     "reason": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes."
+    },
+    {
+     "concept": "pco2",
+     "direction": "high",
+     "reason": "Latest PaCO2 47 mm Hg at 2178-07-04 01:03:00 (reference 35.0 to 45.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A1::01"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Glargine",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Glucerna 1.2 (Full)"
+   ],
+   "doctor_rows": 5,
+   "covered": true,
+   "by_atoms": [
+    "M37057036A2::03"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "oxygenation",
+   "direction": "low",
+   "reason": "'oxygenation low' holds when any component is low. SpO2: no; PaO2: yes.",
+   "name": "oxygenation",
+   "treated_by": [
+    "invasive mechanical ventilation"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "pco2",
+   "direction": "high",
+   "reason": "Latest PaCO2 47 mm Hg at 2178-07-04 01:03:00 (reference 35.0 to 45.0) is high, consistent with 'high'.",
+   "name": "PaCO2",
+   "treated_by": [
+    "invasive mechanical ventilation"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 10.2 K/uL at 2178-07-04 09:34:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 34,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 4,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 3,
+  "treatments_omitted": 4,
+  "recall_vital": 0.5,
+  "recall_okay": 0.25,
+  "recall_all": 0.333,
+  "recall_vital_at3": 0.5,
+  "recall_okay_at3": 0.25,
+  "recall_all_at3": 0.333
+ }
+}

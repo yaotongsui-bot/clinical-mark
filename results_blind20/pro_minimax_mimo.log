@@ -1,0 +1,218 @@
+[atomize 1/20] M39711498 {'fact': 7, 'action': 22, 'goal': 1} (0s)
+[atomize 2/20] M30849778 {'fact': 29, 'action': 25, 'goal': 0} (0s)
+[atomize 3/20] M31338022 {'fact': 8, 'action': 23, 'goal': 0} (0s)
+[atomize 4/20] M32155744 {'fact': 17, 'action': 26, 'goal': 1} (0s)
+[atomize 5/20] M33558396 {'fact': 22, 'action': 34, 'goal': 1} (0s)
+[atomize 6/20] M30057454 {'fact': 19, 'action': 17, 'goal': 2} (0s)
+[atomize 7/20] M34629895 {'fact': 2, 'action': 28, 'goal': 0} (0s)
+[atomize 8/20] M35679826 {'fact': 10, 'action': 21, 'goal': 3} (0s)
+[atomize 9/20] M34107647 {'fact': 18, 'action': 15, 'goal': 0} (0s)
+[atomize 10/20] M30101877 {'fact': 8, 'action': 28, 'goal': 0} (0s)
+[atomize 11/20] M30585761 {'fact': 6, 'action': 11, 'goal': 1} (0s)
+[atomize 12/20] M31959184 {'fact': 15, 'action': 18, 'goal': 1} (0s)
+[atomize 13/20] M33281088 {'fact': 26, 'action': 32, 'goal': 0} (0s)
+[atomize 14/20] M34100191 {'fact': 30, 'action': 14, 'goal': 0} (0s)
+[atomize 15/20] M39544395 {'fact': 25, 'action': 35, 'goal': 0} (0s)
+[atomize 16/20] M32374504 {'fact': 6, 'action': 14, 'goal': 0} (0s)
+[atomize 17/20] M34531557 {'fact': 19, 'action': 21, 'goal': 0} (0s)
+[atomize 18/20] M38430513 {'fact': 23, 'action': 16, 'goal': 4} (0s)
+[atomize 19/20] M35026312 {'fact': 12, 'action': 33, 'goal': 0} (0s)
+[atomize 20/20] M39492446 {'fact': 13, 'action': 25, 'goal': 0} (0s)
+loading MIMIC: admission records before the decision, observations after it ...
+judge panel: 133 items x 3 models ['deepseek-v4-pro:0813:cloud', 'minimax-m3.1-flash:cloud', 'mimo-v2.6-pro:cloud']
+[evaluate] M39711498 facts=8 not_supported=2 treat_precision=1.0 vital_recall=0.5
+[evaluate] M30849778 facts=29 not_supported=1 treat_precision=0.75 vital_recall=0.667
+[evaluate] M31338022 facts=9 not_supported=3 treat_precision=0.25 vital_recall=0.0
+[evaluate] M32155744 facts=18 not_supported=1 treat_precision=0.667 vital_recall=0.5
+[evaluate] M33558396 facts=24 not_supported=2 treat_precision=0.625 vital_recall=0.0
+[evaluate] M30057454 facts=19 not_supported=1 treat_precision=0.8 vital_recall=0.6
+[evaluate] M34629895 facts=3 not_supported=0 treat_precision=1.0 vital_recall=0.0
+[evaluate] M35679826 facts=10 not_supported=3 treat_precision=0.0 vital_recall=None
+[evaluate] M34107647 facts=19 not_supported=3 treat_precision=0.125 vital_recall=0.5
+[evaluate] M30101877 facts=8 not_supported=2 treat_precision=0.429 vital_recall=1.0
+[evaluate] M30585761 facts=7 not_supported=2 treat_precision=1.0 vital_recall=None
+[evaluate] M31959184 facts=16 not_supported=2 treat_precision=0.5 vital_recall=0.333
+[evaluate] M33281088 facts=26 not_supported=6 treat_precision=1.0 vital_recall=1.0
+[evaluate] M34100191 facts=31 not_supported=2 treat_precision=1.0 vital_recall=0.5
+[evaluate] M39544395 facts=25 not_supported=3 treat_precision=0.4 vital_recall=1.0
+[evaluate] M32374504 facts=6 not_supported=0 treat_precision=1.0 vital_recall=None
+[evaluate] M34531557 facts=19 not_supported=2 treat_precision=0.625 vital_recall=1.0
+[evaluate] M38430513 facts=27 not_supported=2 treat_precision=0.727 vital_recall=1.0
+[evaluate] M35026312 facts=12 not_supported=0 treat_precision=0.875 vital_recall=0.6
+[evaluate] M39492446 facts=13 not_supported=0 treat_precision=0.5 vital_recall=None
+{
+ "cases_evaluated": 20,
+ "claims_per_case": 10.0,
+ "ai_atoms": {
+  "action": 458,
+  "fact": 329,
+  "goal": 14
+ },
+ "unscored_share": 0.22,
+ "facts": {
+  "n": 329,
+  "labels": {
+   "supported": 267,
+   "not_supported": 37,
+   "not_addressed": 17,
+   "unverifiable": 8
+  },
+  "accuracy": 0.878,
+  "cases_with_not_supported": 16,
+  "by_fact_kind": {
+   "observed": {
+    "n": 246,
+    "labels": {
+     "supported": 211,
+     "not_addressed": 7,
+     "not_supported": 25,
+     "unverifiable": 3
+    },
+    "accuracy": 0.894
+   },
+   "presupposition": {
+    "n": 78,
+    "labels": {
+     "supported": 56,
+     "not_supported": 12,
+     "not_addressed": 10
+    },
+    "accuracy": 0.824
+   },
+   "judgment": {
+    "n": 5,
+    "labels": {
+     "unverifiable": 5
+    },
+    "accuracy": null
+   },
+   "underspecified": {
+    "n": 0,
+    "labels": {},
+    "accuracy": null
+   }
+  }
+ },
+ "treatment_actions": {
+  "n": 200,
+  "labels": {
+   "match": 75,
+   "condition_not_met": 17,
+   "vague_target": 65,
+   "not_done": 36,
+   "unobservable": 5,
+   "partial_match": 2
+  },
+  "precision_strict": 0.664,
+  "precision_lenient": 0.681
+ },
+ "monitoring_actions": {
+  "n": 258,
+  "labels": {
+   "unobservable": 61,
+   "performed": 160,
+   "not_performed": 37
+  },
+  "performed_rate": 0.812
+ },
+ "goals_excluded": 14,
+ "coverage": {
+  "vital": {
+   "covered": 40,
+   "total": 61,
+   "micro": 0.656,
+   "macro": 0.575
+  },
+  "okay": {
+   "covered": 27,
+   "total": 91,
+   "micro": 0.297,
+   "macro": 0.347
+  },
+  "all": {
+   "covered": 67,
+   "total": 152,
+   "micro": 0.441,
+   "macro": 0.441
+  },
+  "vital_at3": {
+   "covered": 23,
+   "total": 61,
+   "micro": 0.377,
+   "macro": 0.383
+  },
+  "okay_at3": {
+   "covered": 7,
+   "total": 91,
+   "micro": 0.077,
+   "macro": 0.07
+  },
+  "all_at3": {
+   "covered": 30,
+   "total": 152,
+   "micro": 0.197,
+   "macro": 0.22
+  },
+  "problem_linked": 46,
+  "problem_linked_missed": 19,
+  "most_missed_vital": [
+   [
+    "IV fluids",
+    7
+   ],
+   [
+    "antimicrobials",
+    6
+   ],
+   [
+    "calcium replacement",
+    2
+   ],
+   [
+    "antihypertensives",
+    1
+   ],
+   [
+    "red cell transfusion",
+    1
+   ],
+   [
+    "sodium bicarbonate",
+    1
+   ],
+   [
+    "cultures",
+    1
+   ],
+   [
+    "rate / rhythm control",
+    1
+   ],
+   [
+    "extubation / weaning",
+    1
+   ]
+  ]
+ },
+ "omissions": {
+  "facts": {
+   "findings": 49,
+   "omitted": 15
+  },
+  "treatments": {
+   "doctor_items": 152,
+   "omitted": 85,
+   "vital": 61,
+   "vital_omitted": 21
+  }
+ },
+ "judge_panel": {
+  "items": 133,
+  "agreement": {
+   "3/3": 117,
+   "2/3": 13,
+   "split": 3
+  }
+ },
+ "gold_standard": "patient records (pre-decision records for facts; post-decision clinician actions for actions)"
+}

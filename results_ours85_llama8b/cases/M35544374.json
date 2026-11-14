@@ -1,0 +1,658 @@
+{
+ "case_id": "M35544374",
+ "decision_point": "2113-08-05 18:47:42",
+ "claims": [
+  "Continue monitoring vital signs and oxygen saturation given tachycardia, tachypnea, and supplemental oxygen use.",
+  "Continue supplemental oxygen at 2 L/min to maintain oxygen saturation above the desaturation limit.",
+  "Perform a pain assessment and manage moderate pain as clinically indicated."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35544374A1::01",
+   "claim_id": "M35544374A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation given tachycardia, tachypnea, and supplemental oxygen use.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A1::02",
+   "claim_id": "M35544374A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation given tachycardia, tachypnea, and supplemental oxygen use.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A1::03",
+   "claim_id": "M35544374A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation given tachycardia, tachypnea, and supplemental oxygen use.",
+   "kind": "fact",
+   "text": "Tachycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M35544374A1::04",
+   "claim_id": "M35544374A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation given tachycardia, tachypnea, and supplemental oxygen use.",
+   "kind": "fact",
+   "text": "Tachypnea is present.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M35544374A1::05",
+   "claim_id": "M35544374A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation given tachycardia, tachypnea, and supplemental oxygen use.",
+   "kind": "fact",
+   "text": "The patient is using supplemental oxygen.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M35544374A2::06",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue supplemental oxygen at 2 L/min to maintain oxygen saturation above the desaturation limit.",
+   "kind": "action",
+   "text": "Continue supplemental oxygen at 2 L/min.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35544374A2::07",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue supplemental oxygen at 2 L/min to maintain oxygen saturation above the desaturation limit.",
+   "kind": "fact",
+   "text": "The patient is currently receiving supplemental oxygen at 2 L/min.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M35544374A2::08",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue supplemental oxygen at 2 L/min to maintain oxygen saturation above the desaturation limit.",
+   "kind": "goal",
+   "text": "Maintain oxygen saturation above the desaturation limit.",
+   "concept": "spo2",
+   "notes": []
+  },
+  {
+   "atom_id": "M35544374A3::09",
+   "claim_id": "M35544374A3",
+   "claim_text": "Perform a pain assessment and manage moderate pain as clinically indicated.",
+   "kind": "action",
+   "text": "Perform a pain assessment.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35544374A3::10",
+   "claim_id": "M35544374A3",
+   "claim_text": "Perform a pain assessment and manage moderate pain as clinically indicated.",
+   "kind": "action",
+   "text": "Manage pain as clinically indicated.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M35544374A3::11",
+   "claim_id": "M35544374A3",
+   "claim_text": "Perform a pain assessment and manage moderate pain as clinically indicated.",
+   "kind": "fact",
+   "text": "Moderate pain is present.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35544374A1::03",
+   "claim_id": "M35544374A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation given tachycardia, tachypnea, and supplemental oxygen use.",
+   "kind": "fact",
+   "text": "Tachycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "chart:35544374:220045:2113-08-05 15:00:00",
+     "time": "2113-08-05 15:00:00",
+     "item": "Heart Rate",
+     "value": 116.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:35544374:220045:2113-08-05 16:00:00",
+     "time": "2113-08-05 16:00:00",
+     "item": "Heart Rate",
+     "value": 126.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:35544374:220045:2113-08-05 17:00:00",
+     "time": "2113-08-05 17:00:00",
+     "item": "Heart Rate",
+     "value": 134.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:35544374:220045:2113-08-05 18:00:00",
+     "time": "2113-08-05 18:00:00",
+     "item": "Heart Rate",
+     "value": 113.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "Median heart rate over the 6 h before the decision: 119.5 bpm (6 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "computed": {
+    "median": 119.5,
+    "status": "high",
+    "n": 6
+   },
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M35544374A1::04",
+   "claim_id": "M35544374A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation given tachycardia, tachypnea, and supplemental oxygen use.",
+   "kind": "fact",
+   "text": "Tachypnea is present.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "chart:35544374:220210:2113-08-05 15:00:00",
+     "time": "2113-08-05 15:00:00",
+     "item": "Respiratory Rate",
+     "value": 28.0,
+     "unit": "insp/min",
+     "bounds": "12 to 20",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:35544374:220210:2113-08-05 16:00:00",
+     "time": "2113-08-05 16:00:00",
+     "item": "Respiratory Rate",
+     "value": 30.0,
+     "unit": "insp/min",
+     "bounds": "12 to 20",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:35544374:220210:2113-08-05 17:00:00",
+     "time": "2113-08-05 17:00:00",
+     "item": "Respiratory Rate",
+     "value": 25.0,
+     "unit": "insp/min",
+     "bounds": "12 to 20",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:35544374:220210:2113-08-05 18:00:00",
+     "time": "2113-08-05 18:00:00",
+     "item": "Respiratory Rate",
+     "value": 23.0,
+     "unit": "insp/min",
+     "bounds": "12 to 20",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "Median respiratory rate over the 6 h before the decision: 24 insp/min (6 readings), high by the rule 'tachypnea RR > 20; bradypnea RR < 12'.",
+   "computed": {
+    "median": 24.0,
+    "status": "high",
+    "n": 6
+   },
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M35544374A1::05",
+   "claim_id": "M35544374A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation given tachycardia, tachypnea, and supplemental oxygen use.",
+   "kind": "fact",
+   "text": "The patient is using supplemental oxygen.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The patient has been using supplemental oxygen as indicated by the O2 Delivery Device(s) being set to nasal cannula and the O2 saturation pulseoxymetry readings being below 100% for most of the time. This is supported by multiple records in the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:35544374:226732:2113-08-05 00:00:00",
+     "time": "2113-08-05 00:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula"
+    },
+    {
+     "rid": "chart:35544374:220277:2113-08-05 00:00:00",
+     "time": "2113-08-05 00:00:00",
+     "item": "O2 saturation pulseoxymetry: 96 %"
+    },
+    {
+     "rid": "chart:35544374:223834:2113-08-05 00:00:00",
+     "time": "2113-08-05 00:00:00",
+     "item": "O2 Flow: 2 L/min"
+    },
+    {
+     "rid": "chart:35544374:226732:2113-08-05 04:00:00",
+     "time": "2113-08-05 04:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula"
+    },
+    {
+     "rid": "chart:35544374:220277:2113-08-05 04:00:00",
+     "time": "2113-08-05 04:00:00",
+     "item": "O2 saturation pulseoxymetry: 96 %"
+    },
+    {
+     "rid": "chart:35544374:223834:2113-08-05 04:00:00",
+     "time": "2113-08-05 04:00:00",
+     "item": "O2 Flow: 2 L/min"
+    },
+    {
+     "rid": "chart:35544374:229322:2113-08-05 04:00:00",
+     "time": "2113-08-05 04:00:00",
+     "item": "Breathing pattern/effort: Regular"
+    },
+    {
+     "rid": "chart:35544374:224088:2113-08-05 04:00:00",
+     "time": "2113-08-05 04:00:00",
+     "item": "Pressure Reducing Device: None"
+    },
+    {
+     "rid": "chart:35544374:220277:2113-08-05 05:00:00",
+     "time": "2113-08-05 05:00:00",
+     "item": "O2 saturation pulseoxymetry: 96 %"
+    },
+    {
+     "rid": "chart:35544374:226732:2113-08-05 06:00:00",
+     "time": "2113-08-05 06:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula"
+    },
+    {
+     "rid": "chart:35544374:220277:2113-08-05 06:00:00",
+     "time": "2113-08-05 06:00:00",
+     "item": "O2 saturation pulseoxymetry: 95 %"
+    },
+    {
+     "rid": "chart:35544374:223834:2113-08-05 06:00:00",
+     "time": "2113-08-05 06:00:00",
+     "item": "O2 Flow: 2 L/min"
+    },
+    {
+     "rid": "chart:35544374:226732:2113-08-05 12:48:00",
+     "time": "2113-08-05 12:48:00",
+     "item": "O2 Delivery Device(s): Nasal cannula"
+    },
+    {
+     "rid": "chart:35544374:223834:2113-08-05 12:48:00",
+     "time": "2113-08-05 12:48:00",
+     "item": "O2 Flow: 2 L/min"
+    },
+    {
+     "rid": "chart:35544374:229322:2113-08-05 12:49:00",
+     "time": "2113-08-05 12:49:00",
+     "item": "Breathing pattern/effort: Regular"
+    }
+   ]
+  },
+  {
+   "atom_id": "M35544374A2::07",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue supplemental oxygen at 2 L/min to maintain oxygen saturation above the desaturation limit.",
+   "kind": "fact",
+   "text": "The patient is currently receiving supplemental oxygen at 2 L/min.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "The records show that the O2 delivery device was switched to 'None' at 08:43, indicating that supplemental oxygen was not being delivered at that time. This is not supported by any administration record of supplemental oxygen in the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:35544374:226732:2113-08-05 08:43:00",
+     "time": "2113-08-05 08:43:00",
+     "item": "O2 Delivery Device(s): None"
+    }
+   ]
+  },
+  {
+   "atom_id": "M35544374A3::11",
+   "claim_id": "M35544374A3",
+   "claim_text": "Perform a pain assessment and manage moderate pain as clinically indicated.",
+   "kind": "fact",
+   "text": "Moderate pain is present.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that the patient has been experiencing moderate pain, as indicated by the pain level measurements (R5, R19, R31).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:35544374:223791:2113-08-04 21:34:00",
+     "time": "2113-08-04 21:34:00",
+     "item": "Pain Level: Moderate (5)"
+    },
+    {
+     "rid": "chart:35544374:223791:2113-08-05 00:00:00",
+     "time": "2113-08-05 00:00:00",
+     "item": "Pain Level: Moderate (5)"
+    },
+    {
+     "rid": "chart:35544374:223791:2113-08-05 03:00:00",
+     "time": "2113-08-05 03:00:00",
+     "item": "Pain Level: Moderate (5)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35544374A1::01",
+   "claim_id": "M35544374A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation given tachycardia, tachypnea, and supplemental oxygen use.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2113-08-05 19:00:00:97994",
+     "time": "2113-08-05 19:00:00",
+     "item": "heart rate",
+     "value": "106 bpm"
+    },
+    {
+     "rid": "chart:220045:2113-08-05 20:00:00:97995",
+     "time": "2113-08-05 20:00:00",
+     "item": "heart rate",
+     "value": "110 bpm"
+    },
+    {
+     "rid": "chart:220179:2113-08-05 20:01:00:98079",
+     "time": "2113-08-05 20:01:00",
+     "item": "systolic BP",
+     "value": "120 mmHg"
+    },
+    {
+     "rid": "chart:220179:2113-08-05 21:01:00:98083",
+     "time": "2113-08-05 21:01:00",
+     "item": "systolic BP",
+     "value": "136 mmHg"
+    },
+    {
+     "rid": "chart:220181:2113-08-05 20:01:00:98080",
+     "time": "2113-08-05 20:01:00",
+     "item": "mean arterial pressure",
+     "value": "76 mmHg"
+    },
+    {
+     "rid": "chart:220181:2113-08-05 21:01:00:98082",
+     "time": "2113-08-05 21:01:00",
+     "item": "mean arterial pressure",
+     "value": "75 mmHg"
+    },
+    {
+     "rid": "chart:220210:2113-08-05 19:00:00:97993",
+     "time": "2113-08-05 19:00:00",
+     "item": "respiratory rate",
+     "value": "22 insp/min"
+    },
+    {
+     "rid": "chart:220210:2113-08-05 20:00:00:98006",
+     "time": "2113-08-05 20:00:00",
+     "item": "respiratory rate",
+     "value": "23 insp/min"
+    },
+    {
+     "rid": "chart:220277:2113-08-05 23:00:00:98025",
+     "time": "2113-08-05 23:00:00",
+     "item": "SpO2",
+     "value": "94 %"
+    },
+    {
+     "rid": "chart:220277:2113-08-05 21:09:00:98160",
+     "time": "2113-08-05 21:09:00",
+     "item": "SpO2",
+     "value": "92 %"
+    },
+    {
+     "rid": "chart:223761:2113-08-05 20:00:00:98008",
+     "time": "2113-08-05 20:00:00",
+     "item": "temperature",
+     "value": "98 °F"
+    }
+   ],
+   "reason": "Measured in the 5.0 h observation window after the decision (24 h or until ICU discharge): heart rate x5, systolic BP x5, mean arterial pressure x5, respiratory rate x5, SpO2 x2, temperature x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A1::02",
+   "claim_id": "M35544374A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation given tachycardia, tachypnea, and supplemental oxygen use.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220277:2113-08-05 23:00:00:98025",
+     "time": "2113-08-05 23:00:00",
+     "item": "SpO2",
+     "value": "94 %"
+    },
+    {
+     "rid": "chart:220277:2113-08-05 21:09:00:98160",
+     "time": "2113-08-05 21:09:00",
+     "item": "SpO2",
+     "value": "92 %"
+    }
+   ],
+   "reason": "Measured in the 5.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A2::06",
+   "claim_id": "M35544374A2",
+   "claim_text": "Continue supplemental oxygen at 2 L/min to maintain oxygen saturation above the desaturation limit.",
+   "kind": "action",
+   "text": "Continue supplemental oxygen at 2 L/min.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35544374A3::09",
+   "claim_id": "M35544374A3",
+   "claim_text": "Perform a pain assessment and manage moderate pain as clinically indicated.",
+   "kind": "action",
+   "text": "Perform a pain assessment.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No pain score measurement in the 5.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35544374A3::10",
+   "claim_id": "M35544374A3",
+   "claim_text": "Perform a pain assessment and manage moderate pain as clinically indicated.",
+   "kind": "action",
+   "text": "Manage pain as clinically indicated.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 5.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 4,
+ "observation_window_hours": 5.0,
+ "scoresheet": {
+  "n": 5,
+  "supported": 4,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.8,
+  "not_supported_share": 0.2,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently receiving supplemental oxygen at 2 L/min. -- The records show that the O2 delivery device was switched to 'None' at 08:43, indicating that supplemental oxygen was not being delivered at that time. This is not supported by any administration record of supplemental oxygen in the 24 hours before the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.8,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

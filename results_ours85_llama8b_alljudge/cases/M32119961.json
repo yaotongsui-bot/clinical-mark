@@ -1,0 +1,696 @@
+{
+ "case_id": "M32119961",
+ "decision_point": "2155-12-03 20:33:00",
+ "claims": [
+  "Continue norepinephrine infusion at the current rate for hemodynamic support.",
+  "Monitor serum potassium given hyperkalemia and renal dysfunction.",
+  "Monitor troponin and CK-MB trends for ongoing cardiac injury."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32119961A1::01",
+   "claim_id": "M32119961A1",
+   "claim_text": "Continue norepinephrine infusion at the current rate for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion at the current rate.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32119961A1::02",
+   "claim_id": "M32119961A1",
+   "claim_text": "Continue norepinephrine infusion at the current rate for hemodynamic support.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being infused.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M32119961A2::03",
+   "claim_id": "M32119961A2",
+   "claim_text": "Monitor serum potassium given hyperkalemia and renal dysfunction.",
+   "kind": "action",
+   "text": "Monitor serum potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32119961A2::04",
+   "claim_id": "M32119961A2",
+   "claim_text": "Monitor serum potassium given hyperkalemia and renal dysfunction.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M32119961A2::05",
+   "claim_id": "M32119961A2",
+   "claim_text": "Monitor serum potassium given hyperkalemia and renal dysfunction.",
+   "kind": "fact",
+   "text": "Renal dysfunction is present.",
+   "concept": "creatinine",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M32119961A3::06",
+   "claim_id": "M32119961A3",
+   "claim_text": "Monitor troponin and CK-MB trends for ongoing cardiac injury.",
+   "kind": "action",
+   "text": "Monitor troponin trends.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "troponin",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32119961A3::07",
+   "claim_id": "M32119961A3",
+   "claim_text": "Monitor troponin and CK-MB trends for ongoing cardiac injury.",
+   "kind": "action",
+   "text": "Monitor CK-MB trends.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "CK-MB",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32119961A3::08",
+   "claim_id": "M32119961A3",
+   "claim_text": "Monitor troponin and CK-MB trends for ongoing cardiac injury.",
+   "kind": "fact",
+   "text": "There is ongoing cardiac injury.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32119961A1::02",
+   "claim_id": "M32119961A1",
+   "claim_text": "Continue norepinephrine infusion at the current rate for hemodynamic support.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being infused.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The statement 'Norepinephrine is currently being infused' is supported by record R44, which shows that Norepinephrine is being infused at decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:7256071:221906:2155-12-03 15:40:00",
+     "time": "2155-12-03 15:40:00",
+     "item": "Running at decision time (started 2155-12-03 15:40:00): Infusion/input Norepinephrine at 0.10005916556110606 mcg/kg/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "M32119961A2::04",
+   "claim_id": "M32119961A2",
+   "claim_text": "Monitor serum potassium given hyperkalemia and renal dysfunction.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "The records do not address the statement 'Hyperkalemia is present.'",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_addressed"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "M32119961A2::05",
+   "claim_id": "M32119961A2",
+   "claim_text": "Monitor serum potassium given hyperkalemia and renal dysfunction.",
+   "kind": "fact",
+   "text": "Renal dysfunction is present.",
+   "concept": "creatinine",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "The records do not contain any information about renal dysfunction.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_addressed"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "M32119961A3::08",
+   "claim_id": "M32119961A3",
+   "claim_text": "Monitor troponin and CK-MB trends for ongoing cardiac injury.",
+   "kind": "fact",
+   "text": "There is ongoing cardiac injury.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "The records do not contain any information about cardiac injury, only heart rhythm and rate measurements.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_addressed"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:32119961:220048:2155-12-02 20:00:00",
+     "time": "2155-12-02 20:00:00",
+     "item": "Heart Rhythm: 1st AV (First degree AV Block)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32119961A1::01",
+   "claim_id": "M32119961A1",
+   "claim_text": "Continue norepinephrine infusion at the current rate for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion at the current rate.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN221906",
+     "time": "2155-12-03 15:40:00",
+     "item": "Norepinephrine infusion continuing at 0.10005916556110606 mcg/kg/min",
+     "class": "vasopressor"
+    },
+    {
+     "rid": "IN221906#2",
+     "time": "2155-12-03 21:12:00",
+     "item": "Norepinephrine infusion started at 0.15008874470368028 mcg/kg/min",
+     "class": "vasopressor"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded vasopressors after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32119961A2::03",
+   "claim_id": "M32119961A2",
+   "claim_text": "Monitor serum potassium given hyperkalemia and renal dysfunction.",
+   "kind": "action",
+   "text": "Monitor serum potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227442:2155-12-04 04:03:00:393732",
+     "time": "2155-12-04 04:03:00",
+     "item": "potassium",
+     "value": "5.1 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2155-12-04 12:25:00:394587",
+     "time": "2155-12-04 12:25:00",
+     "item": "potassium",
+     "value": "4.9 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32119961A3::06",
+   "claim_id": "M32119961A3",
+   "claim_text": "Monitor troponin and CK-MB trends for ongoing cardiac injury.",
+   "kind": "action",
+   "text": "Monitor troponin trends.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "troponin",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32119961A3::07",
+   "claim_id": "M32119961A3",
+   "claim_text": "Monitor troponin and CK-MB trends for ongoing cardiac injury.",
+   "kind": "action",
+   "text": "Monitor CK-MB trends.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "CK-MB",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13 K/uL at 2155-12-03 05:41:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 13 K/uL at 2155-12-03 05:41:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Vancomycin"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "renal_replacement",
+   "name": "renal replacement therapy",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hemodialysis"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes."
+    }
+   ],
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 12,
+   "covered": true,
+   "by_atoms": [
+    "M32119961A1::01"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "EKG"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen",
+    "Acetaminophen IV",
+    "Acetaminophen-IV",
+    "Gabapentin",
+    "Lidocaine 5% Patch"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Methadone"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Amiodarone",
+    "Amiodarone 600/500"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13 K/uL at 2155-12-03 05:41:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 13 K/uL at 2155-12-03 05:41:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Vancomycin"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "renal_replacement",
+   "name": "renal replacement therapy",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hemodialysis"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes."
+    }
+   ],
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 12,
+   "covered": true,
+   "by_atoms": [
+    "M32119961A1::01"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "EKG"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen",
+    "Acetaminophen IV",
+    "Acetaminophen-IV",
+    "Gabapentin",
+    "Lidocaine 5% Patch"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Methadone"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Amiodarone",
+    "Amiodarone 600/500"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "blood_pressure",
+   "direction": "low",
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "name": "blood pressure",
+   "treated_by": [
+    "IV fluids",
+    "vasopressors"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 13 K/uL at 2155-12-03 05:41:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 79,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 3,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.75,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Hyperkalemia is present. -- The records do not address the statement 'Hyperkalemia is present.'",
+    "Renal dysfunction is present. -- The records do not contain any information about renal dysfunction.",
+    "There is ongoing cardiac injury. -- The records do not contain any information about cardiac injury, only heart rhythm and rate measurements."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 2,
+  "treatments_omitted": 8,
+  "recall_vital": 0.25,
+  "recall_okay": 0.0,
+  "recall_all": 0.111,
+  "recall_vital_at3": 0.25,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.111
+ }
+}

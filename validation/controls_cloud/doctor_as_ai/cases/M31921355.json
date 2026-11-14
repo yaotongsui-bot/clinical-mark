@@ -1,0 +1,180 @@
+{
+ "case_id": "M31921355",
+ "decision_point": "2136-04-23 18:01:13",
+ "claims": [
+  "Continue TPN w/ Lipids."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31921355A1::01",
+   "claim_id": "M31921355A1",
+   "claim_text": "Continue TPN w/ Lipids.",
+   "kind": "action",
+   "text": "Continue TPN with lipids.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "TPN with lipids",
+   "conditional": false,
+   "treatment_class": "nutrition",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31921355A1::02",
+   "claim_id": "M31921355A1",
+   "claim_text": "Continue TPN w/ Lipids.",
+   "kind": "fact",
+   "text": "TPN with lipids is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M31921355A1::02",
+   "claim_id": "M31921355A1",
+   "claim_text": "Continue TPN w/ Lipids.",
+   "kind": "fact",
+   "text": "TPN with lipids is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Records show TPN w/ Lipids running at decision time (started 2136-04-22 21:00) and a Lipids additive infusion running, confirming TPN with lipids is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "supported",
+     "glm-5.3-flash:cloud": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:5910749:225916:2136-04-22 21:00:00",
+     "time": "2136-04-22 21:00:00",
+     "item": "Running at decision time (started 2136-04-22 21:00:00): Infusion/input TPN w/ Lipids at 70.833335876464844 mL/hour"
+    },
+    {
+     "rid": "inputevents:5910749:225969:2136-04-22 21:00:00",
+     "time": "2136-04-22 21:00:00",
+     "item": "Running at decision time (started 2136-04-22 21:00:00): Infusion/input Lipids (additive)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M31921355A1::01",
+   "claim_id": "M31921355A1",
+   "claim_text": "Continue TPN w/ Lipids.",
+   "kind": "action",
+   "text": "Continue TPN with lipids.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "TPN with lipids",
+   "conditional": false,
+   "treatment_class": "nutrition",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225916",
+     "time": "2136-04-22 21:00:00",
+     "item": "TPN w/ Lipids infusion continuing at 70.833335876464844 mL/hour",
+     "class": "nutrition"
+    },
+    {
+     "rid": "IN225947",
+     "time": "2136-04-22 21:00:00",
+     "item": "Dextrose PN infusion continuing at",
+     "class": "nutrition"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded nutrition support after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Amino Acids",
+    "Dextrose PN",
+    "Lipids (additive)",
+    "TPN w/ Lipids"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M31921355A1::01"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Amino Acids",
+    "Dextrose PN",
+    "Lipids (additive)",
+    "TPN w/ Lipids"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M31921355A1::01"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 8,
+ "observation_window_hours": 1.2,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": null,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 1.0,
+  "recall_all_at3": 1.0
+ }
+}

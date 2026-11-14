@@ -1,0 +1,882 @@
+{
+ "case_id": "M34531557",
+ "decision_point": "2117-03-15 16:34:58",
+ "claims": [
+  "Continue mechanical ventilation in SPONT/PSV mode with PEEP 5 cmH2O and FiO2 40%, monitoring spontaneous tidal volumes and respiratory rate.",
+  "Continue phenylephrine infusion at 0.5 mcg/kg/min for hemodynamic support.",
+  "Monitor serum potassium given whole blood potassium 5.1 mEq/L and active potassium replacement orders."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34531557A1::01",
+   "claim_id": "M34531557A1",
+   "claim_text": "Continue mechanical ventilation in SPONT/PSV mode with PEEP 5 cmH2O and FiO2 40%, monitoring spontaneous tidal volumes and respiratory rate.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation in SPONT/PSV mode with PEEP 5 cmH2O and FiO2 40%.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34531557A1::02",
+   "claim_id": "M34531557A1",
+   "claim_text": "Continue mechanical ventilation in SPONT/PSV mode with PEEP 5 cmH2O and FiO2 40%, monitoring spontaneous tidal volumes and respiratory rate.",
+   "kind": "action",
+   "text": "Monitor spontaneous tidal volumes and respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "spontaneous tidal volumes and respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34531557A2::03",
+   "claim_id": "M34531557A2",
+   "claim_text": "Continue phenylephrine infusion at 0.5 mcg/kg/min for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue phenylephrine infusion at 0.5 mcg/kg/min for hemodynamic support.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "phenylephrine infusion",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34531557A3::04",
+   "claim_id": "M34531557A3",
+   "claim_text": "Monitor serum potassium given whole blood potassium 5.1 mEq/L and active potassium replacement orders.",
+   "kind": "action",
+   "text": "Monitor serum potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34531557A3::05",
+   "claim_id": "M34531557A3",
+   "claim_text": "Monitor serum potassium given whole blood potassium 5.1 mEq/L and active potassium replacement orders.",
+   "kind": "fact",
+   "text": "Whole blood potassium is 5.1 mEq/L.",
+   "concept": "potassium",
+   "notes": [
+    "concept set by the rule files: electrolytes -> potassium"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M34531557A3::06",
+   "claim_id": "M34531557A3",
+   "claim_text": "Monitor serum potassium given whole blood potassium 5.1 mEq/L and active potassium replacement orders.",
+   "kind": "fact",
+   "text": "Active potassium replacement orders are present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M34531557A1::P01",
+   "claim_id": "M34531557A1",
+   "claim_text": "Continue mechanical ventilation in SPONT/PSV mode with PEEP 5 cmH2O and FiO2 40%, monitoring spontaneous tidal volumes and respiratory rate.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M34531557A2::P02",
+   "claim_id": "M34531557A2",
+   "claim_text": "Continue phenylephrine infusion at 0.5 mcg/kg/min for hemodynamic support.",
+   "kind": "fact",
+   "text": "The patient is currently receiving phenylephrine infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M34531557A3::05",
+   "claim_id": "M34531557A3",
+   "claim_text": "Monitor serum potassium given whole blood potassium 5.1 mEq/L and active potassium replacement orders.",
+   "kind": "fact",
+   "text": "Whole blood potassium is 5.1 mEq/L.",
+   "concept": "potassium",
+   "notes": [
+    "concept set by the rule files: electrolytes -> potassium"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:435664",
+     "time": "2117-03-14 17:51:00",
+     "item": "Potassium, Whole Blood",
+     "value": 5.1,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:435689",
+     "time": "2117-03-14 21:19:00",
+     "item": "Potassium",
+     "value": 4.1,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:435724",
+     "time": "2117-03-15 01:45:00",
+     "item": "Potassium",
+     "value": 4.2,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest potassium 4.2 mEq/L at 2117-03-15 01:45:00 (reference 3.3 to 5.1) is normal, not consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M34531557A3::06",
+   "claim_id": "M34531557A3",
+   "claim_text": "Monitor serum potassium given whole blood potassium 5.1 mEq/L and active potassium replacement orders.",
+   "kind": "fact",
+   "text": "Active potassium replacement orders are present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Several potassium chloride replacement orders are explicitly listed as active at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "not_supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "rx:78883387:2117-03-14 22:00:00",
+     "time": "2117-03-14 22:00:00",
+     "item": "Order: Potassium Chloride Replacement (Critical Care and Oncology)  40 mEq PO (active at decision time)"
+    },
+    {
+     "rid": "rx:74885457:2117-03-14 22:00:00",
+     "time": "2117-03-14 22:00:00",
+     "item": "Order: Potassium Chloride Replacement (Critical Care and Oncology)  60 mEq PO (active at decision time)"
+    },
+    {
+     "rid": "rx:48977948:2117-03-14 22:00:00",
+     "time": "2117-03-14 22:00:00",
+     "item": "Order: Potassium Chloride Replacement (Critical Care and Oncology)  80 mEq PO (active at decision time)"
+    },
+    {
+     "rid": "rx:29737629:2117-03-14 22:00:00",
+     "time": "2117-03-14 22:00:00",
+     "item": "Order: Potassium Chloride Replacement (Critical Care and Oncology)  40 mEq PO (active at decision time)"
+    },
+    {
+     "rid": "rx:60711816:2117-03-14 22:00:00",
+     "time": "2117-03-14 22:00:00",
+     "item": "Order: Potassium Chloride Replacement (Critical Care and Oncology)  60 mEq PO (active at decision time)"
+    },
+    {
+     "rid": "rx:78294076:2117-03-14 22:00:00",
+     "time": "2117-03-14 22:00:00",
+     "item": "Order: Potassium Chloride Replacement (Critical Care and Oncology)  80 mEq PO (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M34531557A1::P01",
+   "claim_id": "M34531557A1",
+   "claim_text": "Continue mechanical ventilation in SPONT/PSV mode with PEEP 5 cmH2O and FiO2 40%, monitoring spontaneous tidal volumes and respiratory rate.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:9632049:225792:2117-03-14 20:57:00",
+     "time": "2117-03-14 20:57:00",
+     "item": "Running at decision time (started 2117-03-14 20:57:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M34531557A2::P02",
+   "claim_id": "M34531557A2",
+   "claim_text": "Continue phenylephrine infusion at 0.5 mcg/kg/min for hemodynamic support.",
+   "kind": "fact",
+   "text": "The patient is currently receiving phenylephrine infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R44 explicitly states that the phenylephrine infusion was 'Running at decision time'.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:7955862:221749:2117-03-15 12:30:00",
+     "time": "2117-03-15 12:30:00",
+     "item": "Running at decision time (started 2117-03-15 12:30:00): Infusion/input Phenylephrine at 0.5003002006560564 mcg/kg/min"
+    },
+    {
+     "rid": "inputevents:7955862:220949:2117-03-15 12:30:00",
+     "time": "2117-03-15 12:30:00",
+     "item": "Running at decision time (started 2117-03-15 12:30:00): Infusion/input Dextrose 5% at 9.50570297241211 mL/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M34531557A1::01",
+   "claim_id": "M34531557A1",
+   "claim_text": "Continue mechanical ventilation in SPONT/PSV mode with PEEP 5 cmH2O and FiO2 40%, monitoring spontaneous tidal volumes and respiratory rate.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation in SPONT/PSV mode with PEEP 5 cmH2O and FiO2 40%.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2117-03-14 20:57:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34531557A1::02",
+   "claim_id": "M34531557A1",
+   "claim_text": "Continue mechanical ventilation in SPONT/PSV mode with PEEP 5 cmH2O and FiO2 40%, monitoring spontaneous tidal volumes and respiratory rate.",
+   "kind": "action",
+   "text": "Monitor spontaneous tidal volumes and respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "spontaneous tidal volumes and respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:224690:2117-03-16 00:00:00:575912",
+     "time": "2117-03-16 00:00:00",
+     "item": "respiratory rate",
+     "value": "16 insp/min"
+    },
+    {
+     "rid": "chart:220210:2117-03-16 00:00:00:575926",
+     "time": "2117-03-16 00:00:00",
+     "item": "respiratory rate",
+     "value": "16 insp/min"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x30.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34531557A2::03",
+   "claim_id": "M34531557A2",
+   "claim_text": "Continue phenylephrine infusion at 0.5 mcg/kg/min for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue phenylephrine infusion at 0.5 mcg/kg/min for hemodynamic support.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "phenylephrine infusion",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN221749",
+     "time": "2117-03-15 12:30:00",
+     "item": "Phenylephrine infusion continuing at 0.5003002006560564 mcg/kg/min",
+     "class": "vasopressor"
+    },
+    {
+     "rid": "IN221749#2",
+     "time": "2117-03-15 20:20:00",
+     "item": "Phenylephrine infusion started at 0.30012594652362168 mcg/kg/min",
+     "class": "vasopressor"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded vasopressors after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34531557A3::04",
+   "claim_id": "M34531557A3",
+   "claim_text": "Monitor serum potassium given whole blood potassium 5.1 mEq/L and active potassium replacement orders.",
+   "kind": "action",
+   "text": "Monitor serum potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227442:2117-03-16 01:25:00:587883",
+     "time": "2117-03-16 01:25:00",
+     "item": "potassium",
+     "value": "4 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2117-03-16 01:25:00:50442",
+     "time": "2117-03-16 01:25:00",
+     "item": "potassium",
+     "value": "4.0 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 16 K/uL at 2117-03-15 01:45:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 16 K/uL at 2117-03-15 01:45:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CefTRIAXone",
+    "Ceftriaxone"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.9 mg/dL at 2117-03-15 01:45:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 7.9 mg/dL at 2117-03-15 01:45:00 (reference 8.4 to 10.3) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate",
+    "Calcium Gluconate sliding scale (Critical Care-Ionized calcium)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Phenylephrine"
+   ],
+   "doctor_rows": 14,
+   "covered": true,
+   "by_atoms": [
+    "M34531557A2::03"
+   ]
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M34531557A1::01"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "LevETIRAcetam",
+    "Levetiracetam (Keppra)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CT scan",
+    "Portable Chest X-Ray"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 18,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Osmolite 1.5 (Full)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "OxyCODONE--Acetaminophen (5mg-325mg)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 16 K/uL at 2117-03-15 01:45:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 16 K/uL at 2117-03-15 01:45:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CefTRIAXone",
+    "Ceftriaxone"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.9 mg/dL at 2117-03-15 01:45:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 7.9 mg/dL at 2117-03-15 01:45:00 (reference 8.4 to 10.3) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate",
+    "Calcium Gluconate sliding scale (Critical Care-Ionized calcium)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Phenylephrine"
+   ],
+   "doctor_rows": 14,
+   "covered": true,
+   "by_atoms": [
+    "M34531557A2::03"
+   ]
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M34531557A1::01"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "LevETIRAcetam",
+    "Levetiracetam (Keppra)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CT scan",
+    "Portable Chest X-Ray"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 18,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Osmolite 1.5 (Full)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "OxyCODONE--Acetaminophen (5mg-325mg)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "calcium",
+   "direction": "low",
+   "reason": "Latest calcium 7.9 mg/dL at 2117-03-15 01:45:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "name": "calcium",
+   "treated_by": [
+    "calcium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 16 K/uL at 2117-03-15 01:45:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 84,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 3,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.75,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Whole blood potassium is 5.1 mEq/L. -- Latest potassium 4.2 mEq/L at 2117-03-15 01:45:00 (reference 3.3 to 5.1) is normal, not consistent with 'high'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.75,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "facts_omitted": 2,
+  "treatments_omitted": 11,
+  "recall_vital": 0.5,
+  "recall_okay": 0.0,
+  "recall_all": 0.154,
+  "recall_vital_at3": 0.5,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.154
+ }
+}

@@ -1,0 +1,470 @@
+{
+ "case_id": "M39880770-D54",
+ "decision_point": "2147-12-31 09:33:00",
+ "claims": [
+  "Continue norepinephrine with current settings."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39880770-D54A1::01",
+   "claim_id": "M39880770-D54A1",
+   "claim_text": "Continue norepinephrine with current settings.",
+   "kind": "action",
+   "text": "Continue norepinephrine with current settings.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39880770-D54A1::02",
+   "claim_id": "M39880770-D54A1",
+   "claim_text": "Continue norepinephrine with current settings.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39880770-D54A1::02",
+   "claim_id": "M39880770-D54A1",
+   "claim_text": "Continue norepinephrine with current settings.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_addressed",
+   "reason": "The records contain no mention of norepinephrine, either as an order or an administration, so they do not address whether it is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39880770-D54A1::01",
+   "claim_id": "M39880770-D54A1",
+   "claim_text": "Continue norepinephrine with current settings.",
+   "kind": "action",
+   "text": "Continue norepinephrine with current settings.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 11.7 K/uL at 2147-12-31 02:38:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 11.7 K/uL at 2147-12-31 02:38:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Urine Culture"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes."
+    }
+   ],
+   "doctor_targets": [
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%",
+    "OR Crystalloid Intake"
+   ],
+   "doctor_rows": 16,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "LeVETiracetam",
+    "Levetiracetam (Keppra)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CT scan",
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dexmedetomidine",
+    "Dexmedetomidine (Precedex)",
+    "Propofol"
+   ],
+   "doctor_rows": 31,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 11.7 K/uL at 2147-12-31 02:38:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 11.7 K/uL at 2147-12-31 02:38:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Urine Culture"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes."
+    }
+   ],
+   "doctor_targets": [
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%",
+    "OR Crystalloid Intake"
+   ],
+   "doctor_rows": 16,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "LeVETiracetam",
+    "Levetiracetam (Keppra)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CT scan",
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dexmedetomidine",
+    "Dexmedetomidine (Precedex)",
+    "Propofol"
+   ],
+   "doctor_rows": 31,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "blood_pressure",
+   "direction": "low",
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "name": "blood pressure",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 11.7 K/uL at 2147-12-31 02:38:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "cultures"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 126,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 1.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Norepinephrine is currently being given. -- The records contain no mention of norepinephrine, either as an order or an administration, so they do not address whether it is currently being given."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 2,
+  "treatments_omitted": 10,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

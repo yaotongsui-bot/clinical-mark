@@ -1,0 +1,304 @@
+{
+ "case_id": "M31921355",
+ "decision_point": "2136-04-23 18:01:13",
+ "claims": [
+  "Monitor electrolyte levels due to low potassium.",
+  "Administer intravenous fluids to address dehydration.",
+  "Continue monitoring vital signs and oxygen saturation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31921355A1::01",
+   "claim_id": "M31921355A1",
+   "claim_text": "Monitor electrolyte levels due to low potassium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31921355A1::02",
+   "claim_id": "M31921355A1",
+   "claim_text": "Monitor electrolyte levels due to low potassium.",
+   "kind": "fact",
+   "text": "Potassium is low.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M31921355A2::03",
+   "claim_id": "M31921355A2",
+   "claim_text": "Administer intravenous fluids to address dehydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31921355A2::04",
+   "claim_id": "M31921355A2",
+   "claim_text": "Administer intravenous fluids to address dehydration.",
+   "kind": "fact",
+   "text": "Dehydration is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M31921355A3::05",
+   "claim_id": "M31921355A3",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31921355A3::06",
+   "claim_id": "M31921355A3",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M31921355A1::02",
+   "claim_id": "M31921355A1",
+   "claim_text": "Monitor electrolyte levels due to low potassium.",
+   "kind": "fact",
+   "text": "Potassium is low.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:94650",
+     "time": "2136-04-21 06:19:00",
+     "item": "Potassium",
+     "value": 3.4,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:94680",
+     "time": "2136-04-22 06:07:00",
+     "item": "Potassium",
+     "value": 3.4,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:94742",
+     "time": "2136-04-23 05:56:00",
+     "item": "Potassium",
+     "value": 3.2,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest potassium 3.2 mEq/L at 2136-04-23 05:56:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31921355A2::04",
+   "claim_id": "M31921355A2",
+   "claim_text": "Administer intravenous fluids to address dehydration.",
+   "kind": "fact",
+   "text": "Dehydration is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "The records contain no assessment, diagnosis, or measurement of dehydration; fluid orders and infusions do not document that dehydration is present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "not_addressed",
+     "glm-5.3-flash:cloud": "not_addressed",
+     "qwen2.5:14b": "not_addressed"
+    }
+   },
+   "evidence": []
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M31921355A1::01",
+   "claim_id": "M31921355A1",
+   "claim_text": "Monitor electrolyte levels due to low potassium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 1.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31921355A2::03",
+   "claim_id": "M31921355A2",
+   "claim_text": "Administer intravenous fluids to address dehydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 1.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M31921355A3::05",
+   "claim_id": "M31921355A3",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No vital signs measurement in the 1.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31921355A3::06",
+   "claim_id": "M31921355A3",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No SpO2 measurement in the 1.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Amino Acids",
+    "Dextrose PN",
+    "Lipids (additive)",
+    "TPN w/ Lipids"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Amino Acids",
+    "Dextrose PN",
+    "Lipids (additive)",
+    "TPN w/ Lipids"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 8,
+ "observation_window_hours": 1.2,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Dehydration is present. -- The records contain no assessment, diagnosis, or measurement of dehydration; fluid orders and infusions do not document that dehydration is present."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

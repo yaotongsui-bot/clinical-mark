@@ -4,7 +4,7 @@
   error injection  every edited suggestion carries one known error: detected / missed / not scored
 
 Usage
-  python score_controls.py [--out validation/known_answer_tests.md]
+  python score_controls.py [--out validation/known_answer_tests.md] [--controls validation/controls]
 """
 
 from __future__ import annotations
@@ -108,7 +108,7 @@ def error_injection(lines: list[str]) -> dict:
         verdict, label, reason = _outcome(control["type"], case) if case else ("not scored", "no case", "")
         inserted = (control.get("inserted") or "").lower()  # only a premise about the inserted drug is false
         premise = [f["label"] for f in (case or {}).get("facts", []) if inserted and inserted in f["text"].lower()
-                   and f["text"].lower().startswith("the patient is currently")]
+                   and f.get("fact_kind") == "presupposition"]  # any wording of "X is being given"
         rows.append({"type": control["type"], "case": t["triple_id"], "edited": control["edited"],
                      "verdict": verdict, "label": label, "reason": reason, "premise": premise})
     lines += ["## Error injection (every edited suggestion carries one error)", "",
@@ -138,9 +138,12 @@ def error_injection(lines: list[str]) -> dict:
 
 
 def main() -> None:
+    global CONTROLS
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", type=Path, default=ROOT / "validation" / "known_answer_tests.md")
+    parser.add_argument("--controls", type=Path, default=CONTROLS, help="folder holding the two control runs")
     args = parser.parse_args()
+    CONTROLS = args.controls
     lines = ["# Known-answer tests", "",
              "Inputs with a known answer, built by make_controls.py from the clinicians' own actions and from "
              "suggestions the evaluator judged correct. They test the evaluator without human labels; they "

@@ -1,0 +1,500 @@
+{
+ "case_id": "M37049133",
+ "decision_point": "2196-04-15 13:40:00",
+ "claims": [
+  "Continue D5NS.",
+  "Administer Neutra-Phos.",
+  "Administer Potassium Chloride.",
+  "Administer Heparin Sodium (Prophylaxis)."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37049133A1::01",
+   "claim_id": "M37049133A1",
+   "claim_text": "Continue D5NS.",
+   "kind": "action",
+   "text": "Continue D5NS.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "D5NS",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37049133A1::02",
+   "claim_id": "M37049133A1",
+   "claim_text": "Continue D5NS.",
+   "kind": "fact",
+   "text": "D5NS is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M37049133A2::03",
+   "claim_id": "M37049133A2",
+   "claim_text": "Administer Neutra-Phos.",
+   "kind": "action",
+   "text": "Administer Neutra-Phos.",
+   "concept": "phosphate",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Neutra-Phos",
+   "conditional": false,
+   "treatment_class": "phosphate_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37049133A2::04",
+   "claim_id": "M37049133A2",
+   "claim_text": "Administer Neutra-Phos.",
+   "kind": "fact",
+   "text": "Phosphate is low.",
+   "concept": "phosphate",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M37049133A3::05",
+   "claim_id": "M37049133A3",
+   "claim_text": "Administer Potassium Chloride.",
+   "kind": "action",
+   "text": "Administer Potassium Chloride.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Potassium Chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37049133A3::06",
+   "claim_id": "M37049133A3",
+   "claim_text": "Administer Potassium Chloride.",
+   "kind": "fact",
+   "text": "Potassium is low.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M37049133A4::07",
+   "claim_id": "M37049133A4",
+   "claim_text": "Administer Heparin Sodium (Prophylaxis).",
+   "kind": "action",
+   "text": "Administer Heparin Sodium for prophylaxis.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Heparin Sodium",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37049133A1::02",
+   "claim_id": "M37049133A1",
+   "claim_text": "Continue D5NS.",
+   "kind": "fact",
+   "text": "D5NS is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R3 documents a D5NS infusion started 2196-04-14 14:03 at 5 mL/hour and explicitly marked as running at the decision time. The separate 1000 mL D5NS order (R10) was stopped 2196-04-15 00:00, but that does not negate the ongoing infusion record.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:739068:225825:2196-04-14 14:03:00",
+     "time": "2196-04-14 14:03:00",
+     "item": "Running at decision time (started 2196-04-14 14:03:00): Infusion/input D5NS at 5 mL/hour"
+    },
+    {
+     "rid": "rx:77146634:2196-04-14 15:00:00",
+     "time": "2196-04-14 15:00:00",
+     "item": "Order: D5NS 1000 mL IV (stopped 2196-04-15 00:00:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M37049133A2::04",
+   "claim_id": "M37049133A2",
+   "claim_text": "Administer Neutra-Phos.",
+   "kind": "fact",
+   "text": "Phosphate is low.",
+   "concept": "phosphate",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:38824",
+     "time": "2196-04-15 03:36:00",
+     "item": "Phosphate",
+     "value": 2.6,
+     "unit": "mg/dL",
+     "bounds": "2.7 to 4.5",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M37049133A3::06",
+   "claim_id": "M37049133A3",
+   "claim_text": "Administer Potassium Chloride.",
+   "kind": "fact",
+   "text": "Potassium is low.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:38825",
+     "time": "2196-04-15 03:36:00",
+     "item": "Potassium",
+     "value": 3.4,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest potassium 3.4 mEq/L at 2196-04-15 03:36:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37049133A1::01",
+   "claim_id": "M37049133A1",
+   "claim_text": "Continue D5NS.",
+   "kind": "action",
+   "text": "Continue D5NS.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "D5NS",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225825",
+     "time": "2196-04-14 14:03:00",
+     "item": "D5NS infusion continuing at 5 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37049133A2::03",
+   "claim_id": "M37049133A2",
+   "claim_text": "Administer Neutra-Phos.",
+   "kind": "action",
+   "text": "Administer Neutra-Phos.",
+   "concept": "phosphate",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Neutra-Phos",
+   "conditional": false,
+   "treatment_class": "phosphate_replacement",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX50947623",
+     "time": "2196-04-15 14:00:00",
+     "item": "Ordered: Neutra-Phos 2 PKT PO/NG",
+     "class": "phosphate_replacement"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded phosphate replacement after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37049133A3::05",
+   "claim_id": "M37049133A3",
+   "claim_text": "Administer Potassium Chloride.",
+   "kind": "action",
+   "text": "Administer Potassium Chloride.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Potassium Chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX79840561",
+     "time": "2196-04-15 14:00:00",
+     "item": "Ordered: Potassium Chloride 40 mEq PO",
+     "class": "potassium_replacement"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded potassium replacement after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37049133A4::07",
+   "claim_id": "M37049133A4",
+   "claim_text": "Administer Heparin Sodium (Prophylaxis).",
+   "kind": "action",
+   "text": "Administer Heparin Sodium for prophylaxis.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Heparin Sodium",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225975",
+     "time": "2196-04-15 14:02:00",
+     "item": "Heparin Sodium (Prophylaxis) infusion started at",
+     "class": "dvt_prophylaxis"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded anticoagulation (prophylactic) after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37049133A2::03"
+   ]
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37049133A4::07"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "D5NS"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37049133A1::01"
+   ]
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37049133A3::05"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37049133A2::03"
+   ]
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "D5NS"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37049133A1::01"
+   ]
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M37049133A3::05"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "phosphate",
+   "direction": "low",
+   "reason": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "name": "phosphate",
+   "treated_by": [
+    "phosphate replacement"
+   ],
+   "mentioned": true,
+   "by_atoms": [
+    "M37049133A2::04"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 5,
+ "observation_window_hours": 3.2,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Potassium is low. -- Latest potassium 3.4 mEq/L at 2196-04-15 03:36:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": 1.0,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": 1.0,
+  "recall_okay_at3": 0.667,
+  "recall_all_at3": 0.75
+ }
+}

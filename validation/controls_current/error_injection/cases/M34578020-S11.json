@@ -1,0 +1,512 @@
+{
+ "case_id": "M34578020-S11",
+ "decision_point": "2187-02-11 20:34:00",
+ "claims": [
+  "Discontinue mechanical ventilation with close monitoring of respiratory parameters."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34578020-S11A1::01",
+   "claim_id": "M34578020-S11A1",
+   "claim_text": "Discontinue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Discontinue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "stop",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34578020-S11A1::02",
+   "claim_id": "M34578020-S11A1",
+   "claim_text": "Discontinue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M34578020-S11A1::03",
+   "claim_id": "M34578020-S11A1",
+   "claim_text": "Discontinue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Closely monitor respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M34578020-S11A1::02",
+   "claim_id": "M34578020-S11A1",
+   "claim_text": "Discontinue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:7342471:225792:2187-02-10 23:00:00",
+     "time": "2187-02-10 23:00:00",
+     "item": "Running at decision time (started 2187-02-10 23:00:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M34578020-S11A1::01",
+   "claim_id": "M34578020-S11A1",
+   "claim_text": "Discontinue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Discontinue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "stop",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2187-02-10 23:00:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "direction_mismatch": true,
+   "reason": "Opposite direction: the AI suggested stopping, but invasive mechanical ventilation is still recorded after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34578020-S11A1::03",
+   "claim_id": "M34578020-S11A1",
+   "claim_text": "Discontinue mechanical ventilation with close monitoring of respiratory parameters.",
+   "kind": "action",
+   "text": "Closely monitor respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2187-02-11 21:00:00:263819",
+     "time": "2187-02-11 21:00:00",
+     "item": "respiratory rate",
+     "value": "18 insp/min"
+    },
+    {
+     "rid": "chart:220210:2187-02-11 22:00:00:263826",
+     "time": "2187-02-11 22:00:00",
+     "item": "respiratory rate",
+     "value": "20 insp/min"
+    },
+    {
+     "rid": "chart:220277:2187-02-11 21:00:00:263814",
+     "time": "2187-02-11 21:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:220277:2187-02-11 22:00:00:263830",
+     "time": "2187-02-11 22:00:00",
+     "item": "SpO2",
+     "value": "99 %"
+    },
+    {
+     "rid": "chart:223849:2187-02-12 00:00:00:263889",
+     "time": "2187-02-12 00:00:00",
+     "item": "ventilator settings",
+     "value": "CPAP/PSV"
+    },
+    {
+     "rid": "chart:224695:2187-02-12 00:00:00:263891",
+     "time": "2187-02-12 00:00:00",
+     "item": "ventilator settings",
+     "value": "11 cmH2O"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x28, SpO2 x21, ventilator settings x38.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13.1 K/uL at 2187-02-11 20:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 13.1 K/uL at 2187-02-11 20:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "MetRONIDAZOLE (FLagyl)",
+    "Piperacillin-Tazobactam",
+    "Vancomycin"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.09 mmol/L at 2187-02-11 06:41:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 1.09 mmol/L at 2187-02-11 06:41:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fresh Frozen Plasma",
+    "Platelets"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "PHENYLEPHrine"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "Lactated Ringers",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 13,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13.1 K/uL at 2187-02-11 20:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 13.1 K/uL at 2187-02-11 20:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "MetRONIDAZOLE (FLagyl)",
+    "Piperacillin-Tazobactam",
+    "Vancomycin"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.09 mmol/L at 2187-02-11 06:41:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 1.09 mmol/L at 2187-02-11 06:41:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fresh Frozen Plasma",
+    "Platelets"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "PHENYLEPHrine"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "Lactated Ringers",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 13,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "calcium",
+   "direction": "low",
+   "reason": "Latest calcium 1.09 mmol/L at 2187-02-11 06:41:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "name": "calcium",
+   "treated_by": [
+    "calcium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 13.1 K/uL at 2187-02-11 20:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 84,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 2,
+  "treatments_omitted": 9,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

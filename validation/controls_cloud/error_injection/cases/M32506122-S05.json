@@ -1,0 +1,379 @@
+{
+ "case_id": "M32506122-S05",
+ "decision_point": "2167-11-08 20:22:00",
+ "claims": [
+  "Discontinue intravenous fluids and heparin therapy."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32506122-S05A1::01",
+   "claim_id": "M32506122-S05A1",
+   "claim_text": "Discontinue intravenous fluids and heparin therapy.",
+   "kind": "action",
+   "text": "Discontinue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "stop",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32506122-S05A1::02",
+   "claim_id": "M32506122-S05A1",
+   "claim_text": "Discontinue intravenous fluids and heparin therapy.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M32506122-S05A1::03",
+   "claim_id": "M32506122-S05A1",
+   "claim_text": "Discontinue intravenous fluids and heparin therapy.",
+   "kind": "action",
+   "text": "Discontinue heparin therapy.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "stop",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32506122-S05A1::04",
+   "claim_id": "M32506122-S05A1",
+   "claim_text": "Discontinue intravenous fluids and heparin therapy.",
+   "kind": "fact",
+   "text": "Heparin therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32506122-S05A1::02",
+   "claim_id": "M32506122-S05A1",
+   "claim_text": "Discontinue intravenous fluids and heparin therapy.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "At the decision time, an infusion of Dextrose 5% was running (R47), and the NaCl 0.45% infusion ran until 20:05 (R40), so intravenous fluids were being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "supported",
+     "glm-5.3-flash:cloud": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:9810283:220949:2167-11-08 17:00:00",
+     "time": "2167-11-08 17:00:00",
+     "item": "Running at decision time (started 2167-11-08 17:00:00): Infusion/input Dextrose 5% at 12.502091407775879 mL/hour"
+    },
+    {
+     "rid": "inputevents:7928867:225159:2167-11-08 14:05:00",
+     "time": "2167-11-08 14:05:00",
+     "item": "Infusion/input NaCl 0.45% at 75 mL/hour (2167-11-08 14:05:00 to 2167-11-08 20:05:00)"
+    },
+    {
+     "rid": "rx:70795559:2167-11-07 21:00:00",
+     "time": "2167-11-07 21:00:00",
+     "item": "Order: Lactated Ringers 1000 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:64039722:2167-11-08 02:00:00",
+     "time": "2167-11-08 02:00:00",
+     "item": "Order: 5% Dextrose 250 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:64039722:2167-11-08 02:00:00",
+     "time": "2167-11-08 02:00:00",
+     "item": "Order: Heparin Sodium 25,000 UNIT IV (active at decision time)"
+    },
+    {
+     "rid": "inputevents:9810283:225152:2167-11-08 17:00:00",
+     "time": "2167-11-08 17:00:00",
+     "item": "Running at decision time (started 2167-11-08 17:00:00): Infusion/input Heparin Sodium at 1250.209228515625 units/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "M32506122-S05A1::04",
+   "claim_id": "M32506122-S05A1",
+   "claim_text": "Discontinue intravenous fluids and heparin therapy.",
+   "kind": "fact",
+   "text": "Heparin therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "A heparin sodium infusion is documented as running at the decision time (started 2167-11-08 17:00), confirming heparin therapy is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "supported",
+     "glm-5.3-flash:cloud": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:9810283:225152:2167-11-08 17:00:00",
+     "time": "2167-11-08 17:00:00",
+     "item": "Running at decision time (started 2167-11-08 17:00:00): Infusion/input Heparin Sodium at 1250.209228515625 units/hour"
+    },
+    {
+     "rid": "rx:35387819:2167-11-08 18:00:00",
+     "time": "2167-11-08 18:00:00",
+     "item": "Order: Heparin Sodium 25,000 UNIT IV (active at decision time)"
+    },
+    {
+     "rid": "rx:1447139:2167-11-08 18:00:00",
+     "time": "2167-11-08 18:00:00",
+     "item": "Order: Heparin 1200 UNIT IV (active at decision time)"
+    },
+    {
+     "rid": "rx:44748319:2167-11-08 20:00:00",
+     "time": "2167-11-08 20:00:00",
+     "item": "Order: Metoprolol Tartrate 6.25 mg PO/NG (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32506122-S05A1::01",
+   "claim_id": "M32506122-S05A1",
+   "claim_text": "Discontinue intravenous fluids and heparin therapy.",
+   "kind": "action",
+   "text": "Discontinue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "stop",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "partial_match",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2167-11-08 17:00:00",
+     "item": "Dextrose 5% infusion continuing at 12.502091407775879 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN220949#2",
+     "time": "2167-11-09 12:55:00",
+     "item": "Dextrose 5% infusion started at 12.5 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "The AI suggested stopping, but IV fluids is still recorded after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32506122-S05A1::03",
+   "claim_id": "M32506122-S05A1",
+   "claim_text": "Discontinue intravenous fluids and heparin therapy.",
+   "kind": "action",
+   "text": "Discontinue heparin therapy.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "stop",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "partial_match",
+   "evidence": [
+    {
+     "rid": "IN225152",
+     "time": "2167-11-08 17:00:00",
+     "item": "Heparin Sodium infusion continuing at 1250.209228515625 units/hour",
+     "class": "anticoagulant_therapeutic"
+    },
+    {
+     "rid": "IN225152#2",
+     "time": "2167-11-09 12:55:00",
+     "item": "Heparin Sodium infusion started at 1250 units/hour",
+     "class": "anticoagulant_therapeutic"
+    }
+   ],
+   "method": "rule",
+   "reason": "The AI suggested stopping, but anticoagulation (therapeutic) is still recorded after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Oxide",
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Oxide",
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 33,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

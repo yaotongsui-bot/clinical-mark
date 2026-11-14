@@ -1,0 +1,729 @@
+{
+ "case_id": "M33383124",
+ "decision_point": "2140-03-26 14:37:26",
+ "claims": [
+  "Continue mechanical ventilation with the current settings (CMV/ASSIST/AutoFlow, PEEP 5 cmH2O, set tidal volume 450 mL, set respiratory rate 16/min, FiO2 50%).",
+  "Continue invasive hemodynamic monitoring via arterial line and pulmonary artery catheter.",
+  "Continue temporary pacemaker support with ventricular rate set at 60 bpm."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M33383124A1::01",
+   "claim_id": "M33383124A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (CMV/ASSIST/AutoFlow, PEEP 5 cmH2O, set tidal volume 450 mL, set respiratory rate 16/min, FiO2 50%).",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M33383124A1::02",
+   "claim_id": "M33383124A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (CMV/ASSIST/AutoFlow, PEEP 5 cmH2O, set tidal volume 450 mL, set respiratory rate 16/min, FiO2 50%).",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M33383124A2::03",
+   "claim_id": "M33383124A2",
+   "claim_text": "Continue invasive hemodynamic monitoring via arterial line and pulmonary artery catheter.",
+   "kind": "action",
+   "text": "Continue invasive hemodynamic monitoring via arterial line.",
+   "concept": "cardiac",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "arterial line",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33383124A2::04",
+   "claim_id": "M33383124A2",
+   "claim_text": "Continue invasive hemodynamic monitoring via arterial line and pulmonary artery catheter.",
+   "kind": "action",
+   "text": "Continue invasive hemodynamic monitoring via pulmonary artery catheter.",
+   "concept": "cardiac",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "pulmonary artery catheter",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33383124A2::05",
+   "claim_id": "M33383124A2",
+   "claim_text": "Continue invasive hemodynamic monitoring via arterial line and pulmonary artery catheter.",
+   "kind": "fact",
+   "text": "Arterial line is currently in place.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M33383124A2::06",
+   "claim_id": "M33383124A2",
+   "claim_text": "Continue invasive hemodynamic monitoring via arterial line and pulmonary artery catheter.",
+   "kind": "fact",
+   "text": "Pulmonary artery catheter is currently in place.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M33383124A3::07",
+   "claim_id": "M33383124A3",
+   "claim_text": "Continue temporary pacemaker support with ventricular rate set at 60 bpm.",
+   "kind": "action",
+   "text": "Continue temporary pacemaker support with ventricular rate set at 60 bpm.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "temporary pacemaker",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M33383124A3::08",
+   "claim_id": "M33383124A3",
+   "claim_text": "Continue temporary pacemaker support with ventricular rate set at 60 bpm.",
+   "kind": "fact",
+   "text": "Temporary pacemaker support is currently being provided.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M33383124A1::02",
+   "claim_id": "M33383124A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (CMV/ASSIST/AutoFlow, PEEP 5 cmH2O, set tidal volume 450 mL, set respiratory rate 16/min, FiO2 50%).",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:33383124:224688:2140-03-25 20:30:00",
+     "time": "2140-03-25 20:30:00",
+     "item": "Respiratory Rate (Set): 16 insp/min"
+    }
+   ],
+   "reason": "The last ventilator/intubation record ('Respiratory Rate (Set): 16 insp/min') was 18.1 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M33383124A2::05",
+   "claim_id": "M33383124A2",
+   "claim_text": "Continue invasive hemodynamic monitoring via arterial line and pulmonary artery catheter.",
+   "kind": "fact",
+   "text": "Arterial line is currently in place.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The most recent arterial line assessments at 04:00 on 2140-03-26 show a sharp waveform, normal site appearance, and an occlusive dressing, indicating the arterial line was in place and functioning.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:33383124:224291:2140-03-26 04:00:00",
+     "time": "2140-03-26 04:00:00",
+     "item": "Arterial line Waveform Appear: Sharp"
+    },
+    {
+     "rid": "chart:33383124:224289:2140-03-26 04:00:00",
+     "time": "2140-03-26 04:00:00",
+     "item": "Arterial line Site Appear: WNL"
+    },
+    {
+     "rid": "chart:33383124:227292:2140-03-26 04:00:00",
+     "time": "2140-03-26 04:00:00",
+     "item": "Arterial Line Dressing Occlusive: 1"
+    }
+   ]
+  },
+  {
+   "atom_id": "M33383124A2::06",
+   "claim_id": "M33383124A2",
+   "claim_text": "Continue invasive hemodynamic monitoring via arterial line and pulmonary artery catheter.",
+   "kind": "fact",
+   "text": "Pulmonary artery catheter is currently in place.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The most recent PA catheter-specific record before the decision time, R46 at 04:00 on 2140-03-26, shows a sharp PA catheter waveform, indicating the catheter was in place and functional. Continuous pulmonary artery pressure measurements up to 05:00 further support its presence.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:33383124:225357:2140-03-26 04:00:00",
+     "time": "2140-03-26 04:00:00",
+     "item": "PA Catheter Waveform Appear: Sharp"
+    }
+   ]
+  },
+  {
+   "atom_id": "M33383124A3::08",
+   "claim_id": "M33383124A3",
+   "claim_text": "Continue temporary pacemaker support with ventricular rate set at 60 bpm.",
+   "kind": "fact",
+   "text": "Temporary pacemaker support is currently being provided.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The most recent records before the decision time show an attached temporary pacemaker with a set rate of 60 bpm, indicating active temporary pacemaker support.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:33383124:224751:2140-03-26 09:12:00",
+     "time": "2140-03-26 09:12:00",
+     "item": "Temporary Pacemaker Rate: 60 bpm"
+    },
+    {
+     "rid": "chart:33383124:223962:2140-03-26 09:12:00",
+     "time": "2140-03-26 09:12:00",
+     "item": "Temporary Pacemaker Wires Venticular: 2"
+    },
+    {
+     "rid": "chart:33383124:223961:2140-03-26 09:12:00",
+     "time": "2140-03-26 09:12:00",
+     "item": "Temporary Pacemaker Wire Condition: Attached-Pacer"
+    },
+    {
+     "rid": "chart:33383124:224839:2140-03-26 09:12:00",
+     "time": "2140-03-26 09:12:00",
+     "item": "Temporary Pacemaker Wires Atrial: 2"
+    },
+    {
+     "rid": "chart:33383124:223956:2140-03-26 09:12:00",
+     "time": "2140-03-26 09:12:00",
+     "item": "Temporary Pacemaker Mode: Atrial demand"
+    },
+    {
+     "rid": "chart:33383124:223955:2140-03-26 09:12:00",
+     "time": "2140-03-26 09:12:00",
+     "item": "Temporary Pacemaker Type: Epicardial Wires"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M33383124A1::01",
+   "claim_id": "M33383124A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (CMV/ASSIST/AutoFlow, PEEP 5 cmH2O, set tidal volume 450 mL, set respiratory rate 16/min, FiO2 50%).",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M33383124A2::03",
+   "claim_id": "M33383124A2",
+   "claim_text": "Continue invasive hemodynamic monitoring via arterial line and pulmonary artery catheter.",
+   "kind": "action",
+   "text": "Continue invasive hemodynamic monitoring via arterial line.",
+   "concept": "cardiac",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "arterial line",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2140-03-26 15:00:00:547443",
+     "time": "2140-03-26 15:00:00",
+     "item": "heart rate",
+     "value": "92 bpm"
+    },
+    {
+     "rid": "chart:220045:2140-03-26 16:00:00:547470",
+     "time": "2140-03-26 16:00:00",
+     "item": "heart rate",
+     "value": "83 bpm"
+    },
+    {
+     "rid": "chart:220048:2140-03-26 15:00:00:547437",
+     "time": "2140-03-26 15:00:00",
+     "item": "heart rhythm",
+     "value": "SR (Sinus Rhythm)"
+    },
+    {
+     "rid": "chart:220048:2140-03-26 16:00:00:547463",
+     "time": "2140-03-26 16:00:00",
+     "item": "heart rhythm",
+     "value": "SR (Sinus Rhythm)"
+    },
+    {
+     "rid": "chart:220179:2140-03-26 15:00:00:547440",
+     "time": "2140-03-26 15:00:00",
+     "item": "systolic BP",
+     "value": "152 mmHg"
+    },
+    {
+     "rid": "chart:220179:2140-03-26 16:00:00:547459",
+     "time": "2140-03-26 16:00:00",
+     "item": "systolic BP",
+     "value": "134 mmHg"
+    },
+    {
+     "rid": "chart:220181:2140-03-26 15:00:00:547441",
+     "time": "2140-03-26 15:00:00",
+     "item": "mean arterial pressure",
+     "value": "92 mmHg"
+    },
+    {
+     "rid": "chart:220181:2140-03-26 16:00:00:547469",
+     "time": "2140-03-26 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "84 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x28, heart rhythm x24, systolic BP x27, mean arterial pressure x26.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33383124A2::04",
+   "claim_id": "M33383124A2",
+   "claim_text": "Continue invasive hemodynamic monitoring via arterial line and pulmonary artery catheter.",
+   "kind": "action",
+   "text": "Continue invasive hemodynamic monitoring via pulmonary artery catheter.",
+   "concept": "cardiac",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "pulmonary artery catheter",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2140-03-26 15:00:00:547443",
+     "time": "2140-03-26 15:00:00",
+     "item": "heart rate",
+     "value": "92 bpm"
+    },
+    {
+     "rid": "chart:220045:2140-03-26 16:00:00:547470",
+     "time": "2140-03-26 16:00:00",
+     "item": "heart rate",
+     "value": "83 bpm"
+    },
+    {
+     "rid": "chart:220048:2140-03-26 15:00:00:547437",
+     "time": "2140-03-26 15:00:00",
+     "item": "heart rhythm",
+     "value": "SR (Sinus Rhythm)"
+    },
+    {
+     "rid": "chart:220048:2140-03-26 16:00:00:547463",
+     "time": "2140-03-26 16:00:00",
+     "item": "heart rhythm",
+     "value": "SR (Sinus Rhythm)"
+    },
+    {
+     "rid": "chart:220179:2140-03-26 15:00:00:547440",
+     "time": "2140-03-26 15:00:00",
+     "item": "systolic BP",
+     "value": "152 mmHg"
+    },
+    {
+     "rid": "chart:220179:2140-03-26 16:00:00:547459",
+     "time": "2140-03-26 16:00:00",
+     "item": "systolic BP",
+     "value": "134 mmHg"
+    },
+    {
+     "rid": "chart:220181:2140-03-26 15:00:00:547441",
+     "time": "2140-03-26 15:00:00",
+     "item": "mean arterial pressure",
+     "value": "92 mmHg"
+    },
+    {
+     "rid": "chart:220181:2140-03-26 16:00:00:547469",
+     "time": "2140-03-26 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "84 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x28, heart rhythm x24, systolic BP x27, mean arterial pressure x26.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33383124A3::07",
+   "claim_id": "M33383124A3",
+   "claim_text": "Continue temporary pacemaker support with ventricular rate set at 60 bpm.",
+   "kind": "action",
+   "text": "Continue temporary pacemaker support with ventricular rate set at 60 bpm.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "temporary pacemaker",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Cefazolin",
+    "Vancomycin"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HydrALAzine",
+    "Hydralazine",
+    "Lisinopril"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Cefazolin",
+    "Vancomycin"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HydrALAzine",
+    "Hydralazine",
+    "Lisinopril"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 27,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 3,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.75,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The last ventilator/intubation record ('Respiratory Rate (Set): 16 insp/min') was 18.1 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.75,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 8,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

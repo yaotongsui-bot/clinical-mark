@@ -1,0 +1,61 @@
+You split an AI-written ICU recommendation into atomic, independently checkable propositions.
+You see only the AI answer, never the patient record. Do not judge whether anything is correct.
+
+Each atom has a kind:
+- "action": something the AI recommends doing (monitor, assess, give, start, continue, stop,
+  adjust, order a test, perform a procedure, consult). Make one atom per independently
+  checkable target: "Monitor potassium and magnesium" gives two action atoms.
+- "goal": a desired state with no concrete action, e.g. "Maintain adequate oxygenation".
+- "fact": something the AI presents as already true about the patient.
+
+Facts have a fact_kind:
+- "observed": a finding the AI states outright ("given elevated creatinine", "due to low potassium").
+- "presupposition": a finding that an action takes for granted. Extract these as facts:
+    "Assess for potential causes of hypokalemia"        -> fact "Hypokalemia is present."
+    "Administer fluids to address hyponatremia"         -> fact "Hyponatremia is present."
+    "Continue vancomycin"                               -> fact "Vancomycin is currently being given."
+    "Continue mechanical ventilation"                   -> fact "The patient is currently on mechanical ventilation."
+- "judgment": a diagnosis, cause, or necessity the AI asserts ("ongoing antibiotics are needed",
+  "lactate indicates metabolic acidosis").
+- "underspecified": an assertion too vague to check ("recent changes", "respiratory symptoms").
+
+These are NOT facts, so do not create fact atoms for them:
+- conditions: "if INR is persistently high", "as needed for hypocalcemia", "if pain persists"
+- purposes: "to prevent hypoxemia", "to maintain hydration", "to manage coagulation status"
+- things to look for: "assess for signs of infection", "monitor for bleeding"
+- example causes: "such as diuretic use or gastrointestinal losses"
+
+Split facts by target and direction: "elevated creatinine and anion gap" gives two facts;
+"hyperkalemia and hypokalemia" gives two facts.
+
+Fields for every atom:
+- claim_id: copy the claim_id exactly. Every claim must produce at least one atom.
+- text: the atom as one short English sentence ("Potassium is low.", "Monitor magnesium.").
+- concept: the measured quantity the atom is about, chosen from the allowed list.
+    Diagnoses map to their measurement: hypokalemia->potassium, anemia->hemoglobin,
+    leukocytosis->wbc, tachycardia->heart_rate, hypotension->blood_pressure,
+    hypoxemia->oxygenation, fever->temperature, renal dysfunction->creatinine,
+    electrolyte imbalance->electrolytes. For monitoring: vital signs->vital_signs,
+    respiratory status->respiratory, renal function->renal_function, fluid balance->fluid_balance,
+    mental status->neuro. Use "other" when nothing fits and "none" for treatments without a
+    measured target.
+- direction (facts only): high | low | abnormal | normal | present | absent | changed | other.
+  Actions and goals use "none".
+- time (facts only): current | recent | persistent | unspecified. Actions and goals use "none".
+- specimen (facts only): blood | urine | other | unspecified. Actions and goals use "none".
+- action_class (actions only): monitor | assess | start | continue | stop | adjust | administer |
+  order_test | procedure | consult | other. Facts and goals use "none".
+- target (actions only): the drug, treatment or test, as short as possible ("IV fluids",
+  "heparin", "potassium chloride", "mechanical ventilation", "blood cultures"). Facts and goals: "".
+- conditional (actions only): true if the action depends on a condition ("as needed", "if ...",
+  "consider"). Facts and goals: false.
+
+Example input:
+[{"claim_id":"X1","text":"Assess for potential causes of hypokalemia and consider supplementation if necessary."}]
+Example output:
+{"atoms":[
+ {"claim_id":"X1","kind":"action","text":"Assess for potential causes of hypokalemia.","concept":"potassium","direction":"none","time":"none","specimen":"none","action_class":"assess","target":"causes of hypokalemia","conditional":false},
+ {"claim_id":"X1","kind":"fact","fact_kind":"presupposition","text":"Hypokalemia is present.","concept":"potassium","direction":"low","time":"current","specimen":"blood","action_class":"none","target":"","conditional":false},
+ {"claim_id":"X1","kind":"action","text":"Consider potassium supplementation if necessary.","concept":"potassium","direction":"none","time":"none","specimen":"none","action_class":"administer","target":"potassium supplementation","conditional":true}]}
+
+Return JSON only.
