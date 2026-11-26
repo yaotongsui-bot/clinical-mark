@@ -1,0 +1,686 @@
+{
+ "case_id": "E2879373",
+ "decision_point": "2100-01-02 09:35:00",
+ "claims": [
+  "Continue non-invasive ventilation with FiO2 40% and monitor respiratory status, given persistent hypercapnia and bicarbonate elevation.",
+  "Monitor blood pressure closely due to wide pulse pressure and diastolic pressures as low as 30 mmHg.",
+  "Assess volume status and consider diuretic therapy given admission for CHF and current hemodynamics."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2879373A1::01",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue non-invasive ventilation with FiO2 40% and monitor respiratory status, given persistent hypercapnia and bicarbonate elevation.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2879373A1::02",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue non-invasive ventilation with FiO2 40% and monitor respiratory status, given persistent hypercapnia and bicarbonate elevation.",
+   "kind": "fact",
+   "text": "FiO2 is 40%.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E2879373A1::03",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue non-invasive ventilation with FiO2 40% and monitor respiratory status, given persistent hypercapnia and bicarbonate elevation.",
+   "kind": "action",
+   "text": "Monitor respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2879373A1::04",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue non-invasive ventilation with FiO2 40% and monitor respiratory status, given persistent hypercapnia and bicarbonate elevation.",
+   "kind": "fact",
+   "text": "Hypercapnia is present.",
+   "concept": "pco2",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E2879373A1::05",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue non-invasive ventilation with FiO2 40% and monitor respiratory status, given persistent hypercapnia and bicarbonate elevation.",
+   "kind": "fact",
+   "text": "Bicarbonate is elevated.",
+   "concept": "bicarbonate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E2879373A2::06",
+   "claim_id": "E2879373A2",
+   "claim_text": "Monitor blood pressure closely due to wide pulse pressure and diastolic pressures as low as 30 mmHg.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2879373A2::07",
+   "claim_id": "E2879373A2",
+   "claim_text": "Monitor blood pressure closely due to wide pulse pressure and diastolic pressures as low as 30 mmHg.",
+   "kind": "fact",
+   "text": "Pulse pressure is wide.",
+   "concept": "heart_rate",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> heart_rate"
+   ],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E2879373A2::08",
+   "claim_id": "E2879373A2",
+   "claim_text": "Monitor blood pressure closely due to wide pulse pressure and diastolic pressures as low as 30 mmHg.",
+   "kind": "fact",
+   "text": "Diastolic pressure is as low as 30 mmHg.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E2879373A3::09",
+   "claim_id": "E2879373A3",
+   "claim_text": "Assess volume status and consider diuretic therapy given admission for CHF and current hemodynamics.",
+   "kind": "action",
+   "text": "Assess volume status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "volume status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2879373A3::10",
+   "claim_id": "E2879373A3",
+   "claim_text": "Assess volume status and consider diuretic therapy given admission for CHF and current hemodynamics.",
+   "kind": "action",
+   "text": "Consider diuretic therapy.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "diuretic therapy",
+   "conditional": true,
+   "treatment_class": "diuretic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2879373A3::11",
+   "claim_id": "E2879373A3",
+   "claim_text": "Assess volume status and consider diuretic therapy given admission for CHF and current hemodynamics.",
+   "kind": "fact",
+   "text": "The patient was admitted for CHF.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2879373A1::P01",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue non-invasive ventilation with FiO2 40% and monitor respiratory status, given persistent hypercapnia and bicarbonate elevation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation (BiPAP/CPAP).",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2879373A1::02",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue non-invasive ventilation with FiO2 40% and monitor respiratory status, given persistent hypercapnia and bicarbonate elevation.",
+   "kind": "fact",
+   "text": "FiO2 is 40%.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show that the patient's FiO2 has been 40% for several hours, starting from 01:00 on 2100-01-02.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:713897718",
+     "time": "2100-01-02 00:31:00",
+     "item": "FiO2: 40"
+    },
+    {
+     "rid": "resp:186029368",
+     "time": "2100-01-02 01:00:00",
+     "item": "Inspired O2 Fraction: 40 %"
+    },
+    {
+     "rid": "resp:183192179",
+     "time": "2100-01-02 02:35:00",
+     "item": "Inspired O2 Fraction: 40 %"
+    },
+    {
+     "rid": "resp:185844667",
+     "time": "2100-01-02 03:00:00",
+     "item": "Inspired O2 Fraction: 40 %"
+    },
+    {
+     "rid": "resp:187164390",
+     "time": "2100-01-02 04:00:00",
+     "item": "Inspired O2 Fraction: 40 %"
+    },
+    {
+     "rid": "resp:178276913",
+     "time": "2100-01-02 04:13:00",
+     "item": "Inspired O2 Fraction: 40 %"
+    },
+    {
+     "rid": "resp:176818397",
+     "time": "2100-01-02 05:00:00",
+     "item": "Inspired O2 Fraction: 40 %"
+    },
+    {
+     "rid": "resp:177929166",
+     "time": "2100-01-02 06:00:00",
+     "item": "Inspired O2 Fraction: 40 %"
+    },
+    {
+     "rid": "resp:183595093",
+     "time": "2100-01-02 07:00:00",
+     "item": "Inspired O2 Fraction: 40 %"
+    },
+    {
+     "rid": "resp:178139712",
+     "time": "2100-01-02 07:07:00",
+     "item": "Inspired O2 Fraction: 40 %"
+    },
+    {
+     "rid": "resp:181607716",
+     "time": "2100-01-02 08:00:00",
+     "item": "Inspired O2 Fraction: 40 %"
+    },
+    {
+     "rid": "resp:176691880",
+     "time": "2100-01-02 09:00:00",
+     "item": "Inspired O2 Fraction: 40 %"
+    },
+    {
+     "rid": "resp:176196679",
+     "time": "2100-01-02 09:23:00",
+     "item": "Inspired O2 Fraction: 40 %"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2879373A1::04",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue non-invasive ventilation with FiO2 40% and monitor respiratory status, given persistent hypercapnia and bicarbonate elevation.",
+   "kind": "fact",
+   "text": "Hypercapnia is present.",
+   "concept": "pco2",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that the patient is receiving non-invasive ventilation, but there is no evidence that hypercapnia is present. The base excess values are elevated, which could indicate hypercapnia, but the records also show that the patient's best eye response is spontaneous, which suggests that the patient is not experiencing respiratory distress.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:66897145",
+     "time": "2100-01-01 10:19:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | oxygen therapy (> 60%)"
+    },
+    {
+     "rid": "treat:61890689",
+     "time": "2100-01-01 10:19:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2879373A1::05",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue non-invasive ventilation with FiO2 40% and monitor respiratory status, given persistent hypercapnia and bicarbonate elevation.",
+   "kind": "fact",
+   "text": "Bicarbonate is elevated.",
+   "concept": "bicarbonate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that bicarbonate levels have fluctuated between 34.3 and 43.4 mmol/L, but the statement that bicarbonate is elevated is not supported by the records. The highest recorded bicarbonate level is 43.4 mmol/L, which is above the normal range, but the statement is not supported because the records also show that bicarbonate levels have been below the normal range in the past.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:632266268",
+     "time": "2099-12-31 02:43:00",
+     "item": "Bicarbonate: 40 mmol/L"
+    },
+    {
+     "rid": "lab:645230098",
+     "time": "2099-12-31 13:24:00",
+     "item": "Bicarbonate: 39 mmol/L"
+    },
+    {
+     "rid": "lab:627228351",
+     "time": "2100-01-01 09:08:00",
+     "item": "Bicarbonate: 35 mmol/L"
+    },
+    {
+     "rid": "lab:706468773",
+     "time": "2100-01-01 10:44:00",
+     "item": "Bicarbonate (blood gas HCO3): 34.3 mmol/L"
+    },
+    {
+     "rid": "lab:644093063",
+     "time": "2100-01-01 14:42:00",
+     "item": "Bicarbonate: 39 mmol/L"
+    },
+    {
+     "rid": "lab:711096955",
+     "time": "2100-01-01 14:55:00",
+     "item": "Bicarbonate (blood gas HCO3): 43.4 mmol/L"
+    },
+    {
+     "rid": "lab:711820030",
+     "time": "2100-01-01 17:14:00",
+     "item": "Bicarbonate (blood gas HCO3): 39.2 mmol/L"
+    },
+    {
+     "rid": "lab:712272253",
+     "time": "2100-01-01 18:40:00",
+     "item": "Bicarbonate (blood gas HCO3): 34.7 mmol/L"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2879373A2::07",
+   "claim_id": "E2879373A2",
+   "claim_text": "Monitor blood pressure closely due to wide pulse pressure and diastolic pressures as low as 30 mmHg.",
+   "kind": "fact",
+   "text": "Pulse pressure is wide.",
+   "concept": "heart_rate",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> heart_rate"
+   ],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The statement says the pulse pressure is wide, but the most recent measurement (R23) shows a systolic pressure of 126 mmHg and a diastolic pressure of 119 mmHg, which is not wide. However, earlier measurements (e.g. R17) show a wide pulse pressure, so the statement is not fully supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1789841765",
+     "time": "2100-01-01 09:35:00",
+     "item": "Non Invasive Blood Pressure systolic: 126 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2879373A2::08",
+   "claim_id": "E2879373A2",
+   "claim_text": "Monitor blood pressure closely due to wide pulse pressure and diastolic pressures as low as 30 mmHg.",
+   "kind": "fact",
+   "text": "Diastolic pressure is as low as 30 mmHg.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The most recent measurement of diastolic blood pressure is 30 mmHg, which supports the AI statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1855262284",
+     "time": "2100-01-02 04:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 30 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2879373A3::11",
+   "claim_id": "E2879373A3",
+   "claim_text": "Assess volume status and consider diuretic therapy given admission for CHF and current hemodynamics.",
+   "kind": "fact",
+   "text": "The patient was admitted for CHF.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The patient was admitted for CHF, as stated in the admission diagnosis (APACHE): CHF, congestive heart failure.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:2879373:dx",
+     "time": "2100-01-01 09:35:00",
+     "item": "Admission diagnosis (APACHE): CHF, congestive heart failure"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2879373A1::P01",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue non-invasive ventilation with FiO2 40% and monitor respiratory status, given persistent hypercapnia and bicarbonate elevation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation (BiPAP/CPAP).",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_supported",
+   "reason": "The patient is currently on non-invasive ventilation (BiPAP/CPAP) is not supported by the records because R23 shows that the patient is on non-invasive ventilation, but R21 and R22 show that the patient's blood pressure is 126 mmHg and 119 mmHg respectively, which is not consistent with the statement. Also, R24 shows that the patient is on oxygen therapy (> 60%), which is not consistent with the 2",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:61890689",
+     "time": "2100-01-01 10:19:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2879373A1::01",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue non-invasive ventilation with FiO2 40% and monitor respiratory status, given persistent hypercapnia and bicarbonate elevation.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (28 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:189362370",
+     "time": "2100-01-02 10:00:00",
+     "item": "ventilator setting",
+     "value": "40.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:189483863",
+     "time": "2100-01-02 11:00:00",
+     "item": "ventilator setting",
+     "value": "40.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:188554609",
+     "time": "2100-01-02 12:00:00",
+     "item": "ventilator setting",
+     "value": "40.0 %",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2879373A1::03",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue non-invasive ventilation with FiO2 40% and monitor respiratory status, given persistent hypercapnia and bicarbonate elevation.",
+   "kind": "action",
+   "text": "Monitor respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1865842829",
+     "time": "2100-01-02 10:00:00",
+     "item": "respiratory rate",
+     "value": "19.0 insp/min"
+    },
+    {
+     "rid": "nurse:1858988923",
+     "time": "2100-01-02 11:00:00",
+     "item": "respiratory rate",
+     "value": "27.0 insp/min"
+    },
+    {
+     "rid": "lab:714886904",
+     "time": "2100-01-02 16:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "resp:189362370",
+     "time": "2100-01-02 10:00:00",
+     "item": "ventilator settings",
+     "value": "40.0 %"
+    },
+    {
+     "rid": "resp:189483863",
+     "time": "2100-01-02 11:00:00",
+     "item": "ventilator settings",
+     "value": "40.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x31, SpO2 x1, ventilator settings x28.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2879373A2::06",
+   "claim_id": "E2879373A2",
+   "claim_text": "Monitor blood pressure closely due to wide pulse pressure and diastolic pressures as low as 30 mmHg.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1820218640",
+     "time": "2100-01-02 10:00:00",
+     "item": "systolic BP",
+     "value": "119.0 mmHg"
+    },
+    {
+     "rid": "nurse:1831630177",
+     "time": "2100-01-02 11:00:00",
+     "item": "systolic BP",
+     "value": "115.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x27.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2879373A3::09",
+   "claim_id": "E2879373A3",
+   "claim_text": "Assess volume status and consider diuretic therapy given admission for CHF and current hemodynamics.",
+   "kind": "action",
+   "text": "Assess volume status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "volume status",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2879373A3::10",
+   "claim_id": "E2879373A3",
+   "claim_text": "Assess volume status and consider diuretic therapy given admission for CHF and current hemodynamics.",
+   "kind": "action",
+   "text": "Consider diuretic therapy.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "diuretic therapy",
+   "conditional": true,
+   "treatment_class": "diuretic",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No diuretics action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 7,
+  "supported": 3,
+  "not_supported": 4,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.429,
+  "not_supported_share": 0.571,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hypercapnia is present. -- The records show that the patient is receiving non-invasive ventilation, but there is no evidence that hypercapnia is present. The base excess values are elevated, which could indicate hypercapnia, but the records also show that the patient's best eye response is spontaneous, which suggests that the patient is not experiencing respiratory distress.",
+    "Bicarbonate is elevated. -- The records show that bicarbonate levels have fluctuated between 34.3 and 43.4 mmol/L, but the statement that bicarbonate is elevated is not supported by the records. The highest recorded bicarbonate level is 43.4 mmol/L, which is above the normal range, but the statement is not supported because the records also show that bicarbonate levels have been below the normal range in the past.",
+    "Pulse pressure is wide. -- The statement says the pulse pressure is wide, but the most recent measurement (R23) shows a systolic pressure of 126 mmHg and a diastolic pressure of 119 mmHg, which is not wide. However, earlier measurements (e.g. R17) show a wide pulse pressure, so the statement is not fully supported.",
+    "The patient is currently on non-invasive ventilation (BiPAP/CPAP). -- The patient is currently on non-invasive ventilation (BiPAP/CPAP) is not supported by the records because R23 shows that the patient is on non-invasive ventilation, but R21 and R22 show that the patient's blood pressure is 126 mmHg and 119 mmHg respectively, which is not consistent with the statement. Also, R24 shows that the patient is on oxygen therapy (> 60%), which is not consistent with the 2"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.429,
+  "not_supported": 4,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

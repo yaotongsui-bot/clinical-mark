@@ -1,0 +1,324 @@
+{
+ "case_id": "E850469",
+ "decision_point": "2100-01-02 13:47:00",
+ "claims": [
+  "Obtain repeat blood cultures to assess ongoing bacteremia.",
+  "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+  "Monitor serum lactate q6h to track response to sepsis therapy."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E850469A1::01",
+   "claim_id": "E850469A1",
+   "claim_text": "Obtain repeat blood cultures to assess ongoing bacteremia.",
+   "kind": "action",
+   "text": "Obtain repeat blood cultures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": false,
+   "treatment_class": "cultures",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E850469A1::02",
+   "claim_id": "E850469A1",
+   "claim_text": "Obtain repeat blood cultures to assess ongoing bacteremia.",
+   "kind": "fact",
+   "text": "Bacteremia is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E850469A2::03",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "action",
+   "text": "Continue piperacillin-tazobactam.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "piperacillin-tazobactam",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E850469A2::04",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "action",
+   "text": "Continue vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E850469A2::05",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "fact",
+   "text": "Piperacillin-tazobactam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E850469A2::06",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E850469A3::07",
+   "claim_id": "E850469A3",
+   "claim_text": "Monitor serum lactate q6h to track response to sepsis therapy.",
+   "kind": "action",
+   "text": "Monitor serum lactate q6h.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E850469A1::02",
+   "claim_id": "E850469A1",
+   "claim_text": "Obtain repeat blood cultures to assess ongoing bacteremia.",
+   "kind": "fact",
+   "text": "Bacteremia is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The admission diagnosis is sepsis, pulmonary, but there is no evidence of bacteremia in the records. Bacteremia is a specific condition that requires evidence of bacteria in the blood, which is not present in the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:850469:dx",
+     "time": "2100-01-01 13:47:00",
+     "item": "Admission diagnosis (APACHE): Sepsis, pulmonary"
+    }
+   ]
+  },
+  {
+   "atom_id": "E850469A2::05",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "fact",
+   "text": "Piperacillin-tazobactam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that piperacillin-tazobactam was ordered and administered at some point, but the current administration status is not clear. R23 shows that it was administered from 14:33 to 15:18, but R30 shows that it is still running at decision time. This suggests that it may still be being administered, but the records do not provide clear evidence of current administration.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:31585302",
+     "time": "2100-01-01 14:33:00",
+     "item": "Medication VANCOmycin 1 GM in NS 250 mL IVPB IVPB Q24H (2100-01-01 14:33:00 to 2100-01-01 15:18:00)"
+    },
+    {
+     "rid": "med:27545705",
+     "time": "2100-01-01 15:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 15:30:00): Medication VANCOmycin 1 GM in NS 250 mL IVPB IVPB Q24H"
+    }
+   ]
+  },
+  {
+   "atom_id": "E850469A2::06",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that vancomycin was administered at 14:33 and again at 15:30, but the statement says it is currently being given. The most recent administration was at 15:30, which is not within the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:31585302",
+     "time": "2100-01-01 14:33:00",
+     "item": "Medication VANCOmycin 1 GM in NS 250 mL IVPB IVPB Q24H (2100-01-01 14:33:00 to 2100-01-01 15:18:00)"
+    },
+    {
+     "rid": "med:27545705",
+     "time": "2100-01-01 15:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 15:30:00): Medication VANCOmycin 1 GM in NS 250 mL IVPB IVPB Q24H"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E850469A1::01",
+   "claim_id": "E850469A1",
+   "claim_text": "Obtain repeat blood cultures to assess ongoing bacteremia.",
+   "kind": "action",
+   "text": "Obtain repeat blood cultures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": false,
+   "treatment_class": "cultures",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No cultures action recorded in the 3.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E850469A2::03",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "action",
+   "text": "Continue piperacillin-tazobactam.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "piperacillin-tazobactam",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 3.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E850469A2::04",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "action",
+   "text": "Continue vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 3.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E850469A3::07",
+   "claim_id": "E850469A3",
+   "claim_text": "Monitor serum lactate q6h to track response to sepsis therapy.",
+   "kind": "action",
+   "text": "Monitor serum lactate q6h.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 3.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 3.2,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Bacteremia is present. -- The admission diagnosis is sepsis, pulmonary, but there is no evidence of bacteremia in the records. Bacteremia is a specific condition that requires evidence of bacteria in the blood, which is not present in the records.",
+    "Piperacillin-tazobactam is currently being given. -- The records show that piperacillin-tazobactam was ordered and administered at some point, but the current administration status is not clear. R23 shows that it was administered from 14:33 to 15:18, but R30 shows that it is still running at decision time. This suggests that it may still be being administered, but the records do not provide clear evidence of current administration.",
+    "Vancomycin is currently being given. -- The records show that vancomycin was administered at 14:33 and again at 15:30, but the statement says it is currently being given. The most recent administration was at 15:30, which is not within the 24 hours before the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

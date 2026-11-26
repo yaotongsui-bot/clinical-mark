@@ -1,0 +1,330 @@
+{
+ "case_id": "E899746",
+ "decision_point": "2100-01-02 01:45:00",
+ "claims": [
+  "Transfuse packed red blood cells to address hemoglobin of 8.6 g/dL.",
+  "Administer platelet transfusion for platelet count of 82 K/MM³.",
+  "Monitor coagulation profile (PT/INR) and repeat CBC in 6 hours."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E899746A1::01",
+   "claim_id": "E899746A1",
+   "claim_text": "Transfuse packed red blood cells to address hemoglobin of 8.6 g/dL.",
+   "kind": "action",
+   "text": "Transfuse packed red blood cells.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "administer",
+   "target": "packed red blood cells",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E899746A1::02",
+   "claim_id": "E899746A1",
+   "claim_text": "Transfuse packed red blood cells to address hemoglobin of 8.6 g/dL.",
+   "kind": "fact",
+   "text": "Hemoglobin is 8.6 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E899746A2::03",
+   "claim_id": "E899746A2",
+   "claim_text": "Administer platelet transfusion for platelet count of 82 K/MM³.",
+   "kind": "action",
+   "text": "Administer platelet transfusion.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "administer",
+   "target": "platelet transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_other",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E899746A2::04",
+   "claim_id": "E899746A2",
+   "claim_text": "Administer platelet transfusion for platelet count of 82 K/MM³.",
+   "kind": "fact",
+   "text": "Platelet count is 82 K/MM³.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E899746A3::05",
+   "claim_id": "E899746A3",
+   "claim_text": "Monitor coagulation profile (PT/INR) and repeat CBC in 6 hours.",
+   "kind": "action",
+   "text": "Monitor PT.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false
+  },
+  {
+   "atom_id": "E899746A3::06",
+   "claim_id": "E899746A3",
+   "claim_text": "Monitor coagulation profile (PT/INR) and repeat CBC in 6 hours.",
+   "kind": "action",
+   "text": "Monitor INR.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false
+  },
+  {
+   "atom_id": "E899746A3::07",
+   "claim_id": "E899746A3",
+   "claim_text": "Monitor coagulation profile (PT/INR) and repeat CBC in 6 hours.",
+   "kind": "action",
+   "text": "Repeat CBC in 6 hours.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "CBC",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E899746A1::02",
+   "claim_id": "E899746A1",
+   "claim_text": "Transfuse packed red blood cells to address hemoglobin of 8.6 g/dL.",
+   "kind": "fact",
+   "text": "Hemoglobin is 8.6 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The most recent hemoglobin measurement is 8.6 g/dL, which supports the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:183641917",
+     "time": "2100-01-01 10:25:00",
+     "item": "Hemoglobin: 8.6 g/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E899746A2::04",
+   "claim_id": "E899746A2",
+   "claim_text": "Administer platelet transfusion for platelet count of 82 K/MM³.",
+   "kind": "fact",
+   "text": "Platelet count is 82 K/MM³.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement says the platelet count is 82 K/MM³, but the most recent relevant record (R30) shows the platelet count is 82 K/MM³, which matches the statement. However, there is a record (R30) that shows the platelet count is 82 K/MM³, which is the same as the statement. But there is also a record (R1) that shows the platelet count is 106 K/MM3, which is higher than the statement. Therefore, the 2",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:183641921",
+     "time": "2100-01-01 10:25:00",
+     "item": "Platelet Count: 82 K/MM3"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E899746A1::01",
+   "claim_id": "E899746A1",
+   "claim_text": "Transfuse packed red blood cells to address hemoglobin of 8.6 g/dL.",
+   "kind": "action",
+   "text": "Transfuse packed red blood cells.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "administer",
+   "target": "packed red blood cells",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E899746A2::03",
+   "claim_id": "E899746A2",
+   "claim_text": "Administer platelet transfusion for platelet count of 82 K/MM³.",
+   "kind": "action",
+   "text": "Administer platelet transfusion.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "administer",
+   "target": "platelet transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_other",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No platelet / plasma transfusion action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E899746A3::05",
+   "claim_id": "E899746A3",
+   "claim_text": "Monitor coagulation profile (PT/INR) and repeat CBC in 6 hours.",
+   "kind": "action",
+   "text": "Monitor PT.",
+   "concept": "pt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:170816589",
+     "time": "2100-01-02 10:40:00",
+     "item": "PT",
+     "value": "24.1 second(s)"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): PT x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E899746A3::06",
+   "claim_id": "E899746A3",
+   "claim_text": "Monitor coagulation profile (PT/INR) and repeat CBC in 6 hours.",
+   "kind": "action",
+   "text": "Monitor INR.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:170816590",
+     "time": "2100-01-02 10:40:00",
+     "item": "INR",
+     "value": "2.2"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): INR x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E899746A3::07",
+   "claim_id": "E899746A3",
+   "claim_text": "Monitor coagulation profile (PT/INR) and repeat CBC in 6 hours.",
+   "kind": "action",
+   "text": "Repeat CBC in 6 hours.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "CBC",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:168777581",
+     "time": "2100-01-02 10:40:00",
+     "item": "WBC",
+     "value": "3.6 K/MM3"
+    },
+    {
+     "rid": "lab:168777580",
+     "time": "2100-01-02 10:40:00",
+     "item": "hemoglobin",
+     "value": "7.4 g/dL"
+    },
+    {
+     "rid": "lab:185500157",
+     "time": "2100-01-02 16:12:00",
+     "item": "hemoglobin",
+     "value": "6.9 g/dL"
+    },
+    {
+     "rid": "lab:168777584",
+     "time": "2100-01-02 10:40:00",
+     "item": "platelets",
+     "value": "75.0 K/MM3"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): WBC x1, hemoglobin x2, platelets x1.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Platelet count is 82 K/MM³. -- The statement says the platelet count is 82 K/MM³, but the most recent relevant record (R30) shows the platelet count is 82 K/MM³, which matches the statement. However, there is a record (R30) that shows the platelet count is 82 K/MM³, which is the same as the statement. But there is also a record (R1) that shows the platelet count is 106 K/MM3, which is higher than the statement. Therefore, the 2"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

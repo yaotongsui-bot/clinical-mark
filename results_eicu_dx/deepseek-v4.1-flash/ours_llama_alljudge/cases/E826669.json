@@ -1,0 +1,400 @@
+{
+ "case_id": "E826669",
+ "decision_point": "2100-01-02 00:46:00",
+ "claims": [
+  "Continue norepinephrine infusion for hemodynamic support, titrating to maintain adequate mean arterial pressure.",
+  "Monitor arterial blood pressure and heart rate closely to assess response to vasopressor therapy and detect arrhythmias.",
+  "Assess and manage metabolic acidosis, including consideration of sodium bicarbonate therapy based on blood gas results."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E826669A1::01",
+   "claim_id": "E826669A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support, titrating to maintain adequate mean arterial pressure.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E826669A1::02",
+   "claim_id": "E826669A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support, titrating to maintain adequate mean arterial pressure.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E826669A1::03",
+   "claim_id": "E826669A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support, titrating to maintain adequate mean arterial pressure.",
+   "kind": "action",
+   "text": "Titrate norepinephrine to maintain adequate mean arterial pressure.",
+   "concept": "map",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E826669A2::04",
+   "claim_id": "E826669A2",
+   "claim_text": "Monitor arterial blood pressure and heart rate closely to assess response to vasopressor therapy and detect arrhythmias.",
+   "kind": "action",
+   "text": "Monitor arterial blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E826669A2::05",
+   "claim_id": "E826669A2",
+   "claim_text": "Monitor arterial blood pressure and heart rate closely to assess response to vasopressor therapy and detect arrhythmias.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E826669A3::06",
+   "claim_id": "E826669A3",
+   "claim_text": "Assess and manage metabolic acidosis, including consideration of sodium bicarbonate therapy based on blood gas results.",
+   "kind": "action",
+   "text": "Assess metabolic acidosis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "metabolic acidosis",
+   "conditional": false
+  },
+  {
+   "atom_id": "E826669A3::07",
+   "claim_id": "E826669A3",
+   "claim_text": "Assess and manage metabolic acidosis, including consideration of sodium bicarbonate therapy based on blood gas results.",
+   "kind": "fact",
+   "text": "Metabolic acidosis is present.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E826669A3::08",
+   "claim_id": "E826669A3",
+   "claim_text": "Assess and manage metabolic acidosis, including consideration of sodium bicarbonate therapy based on blood gas results.",
+   "kind": "action",
+   "text": "Manage metabolic acidosis.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "other",
+   "target": "metabolic acidosis",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E826669A3::09",
+   "claim_id": "E826669A3",
+   "claim_text": "Assess and manage metabolic acidosis, including consideration of sodium bicarbonate therapy based on blood gas results.",
+   "kind": "action",
+   "text": "Consider sodium bicarbonate therapy based on blood gas results.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "administer",
+   "target": "sodium bicarbonate",
+   "conditional": true,
+   "treatment_class": "bicarbonate",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E826669A1::02",
+   "claim_id": "E826669A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support, titrating to maintain adequate mean arterial pressure.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that norepinephrine infusion was started at 17:48 on 2100-01-01 and was still running at the decision time of 2100-01-02 00:46:00.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:33680064",
+     "time": "2100-01-01 17:48:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 17:48:00): Medication NOREPINEPHRINE 8 MG in 250mL NS IVPB"
+    }
+   ]
+  },
+  {
+   "atom_id": "E826669A3::07",
+   "claim_id": "E826669A3",
+   "claim_text": "Assess and manage metabolic acidosis, including consideration of sodium bicarbonate therapy based on blood gas results.",
+   "kind": "fact",
+   "text": "Metabolic acidosis is present.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement 'Metabolic acidosis is present' is not supported by the records. The respiratory rate is 40 inspirations per minute, which is higher than normal, but there is no evidence of metabolic acidosis. The admission diagnosis is sepsis, which can cause metabolic acidosis, but there is no direct evidence of it in the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "resp:35229551",
+     "time": "2100-01-01 00:45:00",
+     "item": "Respiratory Rate (spontaneous): 40 insp/min"
+    },
+    {
+     "rid": "pat:826669:dx",
+     "time": "2100-01-01 00:46:00",
+     "item": "Admission diagnosis (APACHE): Sepsis, cutaneous/soft tissue"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E826669A1::01",
+   "claim_id": "E826669A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support, titrating to maintain adequate mean arterial pressure.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 15.7 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E826669A1::03",
+   "claim_id": "E826669A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support, titrating to maintain adequate mean arterial pressure.",
+   "kind": "action",
+   "text": "Titrate norepinephrine to maintain adequate mean arterial pressure.",
+   "concept": "map",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 15.7 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E826669A2::04",
+   "claim_id": "E826669A2",
+   "claim_text": "Monitor arterial blood pressure and heart rate closely to assess response to vasopressor therapy and detect arrhythmias.",
+   "kind": "action",
+   "text": "Monitor arterial blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:528055970",
+     "time": "2100-01-02 01:00:00",
+     "item": "systolic BP",
+     "value": "135.0 mmHg"
+    },
+    {
+     "rid": "nurse:489999735",
+     "time": "2100-01-02 01:15:00",
+     "item": "systolic BP",
+     "value": "137.0 mmHg"
+    },
+    {
+     "rid": "nurse:521852495",
+     "time": "2100-01-02 03:00:00",
+     "item": "mean arterial pressure",
+     "value": "103.0 mmHg"
+    },
+    {
+     "rid": "nurse:477911259",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "105.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 15.7 h observation window after the decision (24 h or until ICU discharge): systolic BP x27, mean arterial pressure x20.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E826669A2::05",
+   "claim_id": "E826669A2",
+   "claim_text": "Monitor arterial blood pressure and heart rate closely to assess response to vasopressor therapy and detect arrhythmias.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:479772072",
+     "time": "2100-01-02 01:00:00",
+     "item": "heart rate",
+     "value": "96.0 bpm"
+    },
+    {
+     "rid": "nurse:550555546",
+     "time": "2100-01-02 01:15:00",
+     "item": "heart rate",
+     "value": "90.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 15.7 h observation window after the decision (24 h or until ICU discharge): heart rate x27.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E826669A3::06",
+   "claim_id": "E826669A3",
+   "claim_text": "Assess and manage metabolic acidosis, including consideration of sodium bicarbonate therapy based on blood gas results.",
+   "kind": "action",
+   "text": "Assess metabolic acidosis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "metabolic acidosis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E826669A3::08",
+   "claim_id": "E826669A3",
+   "claim_text": "Assess and manage metabolic acidosis, including consideration of sodium bicarbonate therapy based on blood gas results.",
+   "kind": "action",
+   "text": "Manage metabolic acidosis.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "other",
+   "target": "metabolic acidosis",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E826669A3::09",
+   "claim_id": "E826669A3",
+   "claim_text": "Assess and manage metabolic acidosis, including consideration of sodium bicarbonate therapy based on blood gas results.",
+   "kind": "action",
+   "text": "Consider sodium bicarbonate therapy based on blood gas results.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "administer",
+   "target": "sodium bicarbonate",
+   "conditional": true,
+   "treatment_class": "bicarbonate",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sodium bicarbonate action recorded in the 15.7 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 15.7,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Metabolic acidosis is present. -- The statement 'Metabolic acidosis is present' is not supported by the records. The respiratory rate is 40 inspirations per minute, which is higher than normal, but there is no evidence of metabolic acidosis. The admission diagnosis is sepsis, which can cause metabolic acidosis, but there is no direct evidence of it in the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

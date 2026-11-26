@@ -1,0 +1,409 @@
+{
+ "case_id": "E3035113",
+ "decision_point": "2100-01-02 11:08:00",
+ "claims": [
+  "Continue scheduled amiodarone therapy.",
+  "Monitor blood glucose given recent hyperglycemia and hypoglycemia.",
+  "Assess and manage hypokalemia (potassium 3.4 mmol/L)."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3035113A1::01",
+   "claim_id": "E3035113A1",
+   "claim_text": "Continue scheduled amiodarone therapy.",
+   "kind": "action",
+   "text": "Continue scheduled amiodarone therapy.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "amiodarone",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3035113A1::02",
+   "claim_id": "E3035113A1",
+   "claim_text": "Continue scheduled amiodarone therapy.",
+   "kind": "fact",
+   "text": "Amiodarone is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3035113A2::03",
+   "claim_id": "E3035113A2",
+   "claim_text": "Monitor blood glucose given recent hyperglycemia and hypoglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3035113A2::04",
+   "claim_id": "E3035113A2",
+   "claim_text": "Monitor blood glucose given recent hyperglycemia and hypoglycemia.",
+   "kind": "fact",
+   "text": "Recent hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E3035113A2::05",
+   "claim_id": "E3035113A2",
+   "claim_text": "Monitor blood glucose given recent hyperglycemia and hypoglycemia.",
+   "kind": "fact",
+   "text": "Recent hypoglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E3035113A3::06",
+   "claim_id": "E3035113A3",
+   "claim_text": "Assess and manage hypokalemia (potassium 3.4 mmol/L).",
+   "kind": "action",
+   "text": "Assess hypokalemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "hypokalemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3035113A3::07",
+   "claim_id": "E3035113A3",
+   "claim_text": "Assess and manage hypokalemia (potassium 3.4 mmol/L).",
+   "kind": "action",
+   "text": "Manage hypokalemia.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3035113A3::08",
+   "claim_id": "E3035113A3",
+   "claim_text": "Assess and manage hypokalemia (potassium 3.4 mmol/L).",
+   "kind": "fact",
+   "text": "Potassium is 3.4 mmol/L.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E3035113A3::09",
+   "claim_id": "E3035113A3",
+   "claim_text": "Assess and manage hypokalemia (potassium 3.4 mmol/L).",
+   "kind": "fact",
+   "text": "Hypokalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3035113A1::02",
+   "claim_id": "E3035113A1",
+   "claim_text": "Continue scheduled amiodarone therapy.",
+   "kind": "fact",
+   "text": "Amiodarone is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement says amiodarone is currently being given, but R17 only shows that it is a scheduled order that started at 14:00, not that it has been administered. There is no record of amiodarone administration in the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:103137216",
+     "time": "2100-01-01 14:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 14:00:00): Medication amiodarone PO"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3035113A2::04",
+   "claim_id": "E3035113A2",
+   "claim_text": "Monitor blood glucose given recent hyperglycemia and hypoglycemia.",
+   "kind": "fact",
+   "text": "Recent hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:746987185",
+     "time": "2100-01-02 09:39:00",
+     "item": "Glucose",
+     "value": 231.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "1 of 1 glucose values in the 24 h before the decision were high.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E3035113A2::05",
+   "claim_id": "E3035113A2",
+   "claim_text": "Monitor blood glucose given recent hyperglycemia and hypoglycemia.",
+   "kind": "fact",
+   "text": "Recent hypoglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:746987185",
+     "time": "2100-01-02 09:39:00",
+     "item": "Glucose",
+     "value": 231.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "0 of 1 glucose values in the 24 h before the decision were low.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E3035113A3::08",
+   "claim_id": "E3035113A3",
+   "claim_text": "Assess and manage hypokalemia (potassium 3.4 mmol/L).",
+   "kind": "fact",
+   "text": "Potassium is 3.4 mmol/L.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:746987179",
+     "time": "2100-01-02 09:39:00",
+     "item": "Potassium",
+     "value": 3.4,
+     "unit": "mmol/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "The stated potassium (3.4) matches recorded values before the decision (3.4 at 2100-01-02 09:39:00).",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E3035113A3::09",
+   "claim_id": "E3035113A3",
+   "claim_text": "Assess and manage hypokalemia (potassium 3.4 mmol/L).",
+   "kind": "fact",
+   "text": "Hypokalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:745706190",
+     "time": "2100-01-01 09:18:00",
+     "item": "Potassium",
+     "value": 3.5,
+     "unit": "mmol/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:746987179",
+     "time": "2100-01-02 09:39:00",
+     "item": "Potassium",
+     "value": 3.4,
+     "unit": "mmol/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest potassium 3.4 mmol/L at 2100-01-02 09:39:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3035113A1::01",
+   "claim_id": "E3035113A1",
+   "claim_text": "Continue scheduled amiodarone therapy.",
+   "kind": "action",
+   "text": "Continue scheduled amiodarone therapy.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "amiodarone",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 11.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3035113A2::03",
+   "claim_id": "E3035113A2",
+   "claim_text": "Monitor blood glucose given recent hyperglycemia and hypoglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:763108740",
+     "time": "2100-01-02 16:44:00",
+     "item": "glucose",
+     "value": "146.0 mg/dL"
+    },
+    {
+     "rid": "lab:761870891",
+     "time": "2100-01-02 21:21:00",
+     "item": "glucose",
+     "value": "181.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 11.9 h observation window after the decision (24 h or until ICU discharge): glucose x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3035113A3::06",
+   "claim_id": "E3035113A3",
+   "claim_text": "Assess and manage hypokalemia (potassium 3.4 mmol/L).",
+   "kind": "action",
+   "text": "Assess hypokalemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "hypokalemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3035113A3::07",
+   "claim_id": "E3035113A3",
+   "claim_text": "Assess and manage hypokalemia (potassium 3.4 mmol/L).",
+   "kind": "action",
+   "text": "Manage hypokalemia.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No potassium replacement action recorded in the 11.9 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 11.9,
+ "scoresheet": {
+  "n": 5,
+  "supported": 2,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.4,
+  "not_supported_share": 0.6,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Amiodarone is currently being given. -- The statement says amiodarone is currently being given, but R17 only shows that it is a scheduled order that started at 14:00, not that it has been administered. There is no record of amiodarone administration in the 24 hours before the decision time.",
+    "Recent hypoglycemia is present. -- 0 of 1 glucose values in the 24 h before the decision were low.",
+    "Hypokalemia is present. -- Latest potassium 3.4 mmol/L at 2100-01-02 09:39:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.4,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,113 @@
+# E733082   T = 2100-01-02 06:09:00   records before T: 450
+ICU stay 733082 (Med-Surg ICU; Female, age 68; admission diagnosis: Sepsis, GI).
+
+## Atoms
+deepseek-v4.1-flash|E733082A1::04 [presupposition] Zosyn is currently being given.   <- Continue scheduled IV antibiotics (Zosyn and vancomycin) and levofloxacin as ordered.
+deepseek-v4.1-flash|E733082A1::05 [presupposition] Vancomycin is currently being given.   <- Continue scheduled IV antibiotics (Zosyn and vancomycin) and levofloxacin as ordered.
+deepseek-v4.1-flash|E733082A1::06 [presupposition] Levofloxacin is currently being given.   <- Continue scheduled IV antibiotics (Zosyn and vancomycin) and levofloxacin as ordered.
+deepseek-v4.1-flash|E733082A2::09 [observed] Tachycardia is present.   <- Monitor vital signs and oxygen saturation closely given persistent tachycardia and borderline oxygen saturation.
+deepseek-v4.1-flash|E733082A2::10 [observed] Oxygen saturation is borderline.   <- Monitor vital signs and oxygen saturation closely given persistent tachycardia and borderline oxygen saturation.
+gpt-oss-120b|E733082A1::02 [presupposition] Bacteremia is present.   <- Obtain repeat blood cultures to assess ongoing bacteremia and guide antimicrobial therapy.
+gpt-oss-120b|E733082A2::04 [observed] Mean arterial pressure is borderline.   <- Administer a 500 mL crystalloid bolus to support borderline mean arterial pressure and improve tissue perfusion.
+gpt-oss-120b|E733082A3::06 [presupposition] Piperacillin-tazobactam is currently being given.   <- Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) and add levofloxacin as scheduled for extended Gram‑negative coverage.
+gpt-oss-120b|E733082A3::08 [presupposition] Vancomycin is currently being given.   <- Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) and add levofloxacin as scheduled for extended Gram‑negative coverage.
+qwen2.5-7b|E733082A1::02 [observed] Recent blood glucose readings are high.   <- Monitor blood glucose levels closely due to recent high readings and risk of hypoglycemia.
+qwen2.5-7b|E733082A1::03 [judgment] There is a risk of hypoglycemia.   <- Monitor blood glucose levels closely due to recent high readings and risk of hypoglycemia.
+qwen2.5-7b|E733082A2::05 [presupposition] Hydration is inadequate.   <- Administer IV fluids to maintain adequate hydration and blood pressure support.
+qwen2.5-7b|E733082A2::06 [presupposition] Blood pressure support is needed.   <- Administer IV fluids to maintain adequate hydration and blood pressure support.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2099-12-31 14:03:00): Medication SODIUM CHLORIDE 0.9% 1000 ML LVP IV
+  Running at decision time (scheduled order started 2099-12-31 16:00:00): Medication DOCUSATE SODIUM 100 MG CAP PO BID
+  Running at decision time (scheduled order started 2099-12-31 21:00:00): Medication ZOSYN 3.375 GRAM in NS 100 mL IVPB IVPB Q8H
+  Running at decision time (scheduled order started 2100-01-01 02:13:00): Medication SODIUM CHLORIDE 0.9% 250 ML LVP IV
+  Running at decision time (scheduled order started 2100-01-01 06:00:00): Medication VANCOmycin 1.25 GM in NS 500ML IVPB IVPB Q48H
+  Running at decision time (scheduled order started 2100-01-01 15:00:00): Medication LEVOFLOXACIN 750 mg in D5W 150mL IVPB Q48H
+  Running at decision time (scheduled order started 2100-01-01 16:00:00): Medication PANTOPRAZOLE 40 MG INJ IV Push BID
+
+## PRN orders
+  12-31 14:02 Order: MORPHINE 4 MG/1 ML 1 ML SYR IV Push Q3H PRN (stopped 2100-01-01 07:12:00)
+  12-31 14:03 Order: POLYETHYLENE GLYCOL 3350 UDPWD PO DAILY PRN (stopped 2099-12-31 23:18:00)
+  12-31 14:03 Order: ONDANSETRON 2 MG/1 ML 2ML SDV INJ IV Q4H PRN (active at decision time)
+  12-31 14:03 Order: NALOXONE 0.4 MG/1 ML SDV INJ IV Push PRN (active at decision time)
+  12-31 14:04 Order: ALBUTEROL 2.5 MG/3 ML UD INH SOLN SVN RSPQ4H PRN (active at decision time)
+  12-31 14:06 Order: METOPROLOL 1 MG/ML 5ML SDV INJ IV Push Q6H PRN (active at decision time)
+  12-31 15:43 Order: acetaMINOPHEN 325 MG TAB PO Q4H PRN (active at decision time)
+  12-31 15:43 Order: PERCOCET 5/325 TAB PO Q4H PRN (active at decision time)
+  12-31 15:43 Order: PERCOCET 5/325 TAB PO Q4H PRN (active at decision time)
+  12-31 15:44 Order: SENOKOT-S TAB PO BID PRN (active at decision time)
+  12-31 15:44 Order: POLYETHYLENE GLYCOL 3350 UDPWD PO DAILY PRN (active at decision time)
+  01-01 07:12 Order: fentaNYL (PF) 50 MCG/1 ML 2 ML INJ IV Push Q1H PRN (active at decision time)
+  01-01 16:30 Order: MORPHINE 4 MG/1 ML 1 ML SYR IV Push Q3H PRN (active at decision time)
+  01-01 18:07 Order: GLUCAGON 1 MG (1 UNIT) INJ SubQ ONCALL PRN (active at decision time)
+  01-01 18:07 Order: GLUCOSE 15 GRAM/60 ML BQ LIQ PO ONCALL PRN (active at decision time)
+  01-01 18:07 Order: GLUCOSE 15 GRAM/60 ML BQ LIQ PO ONCALL PRN (active at decision time)
+  01-01 18:07 Order: DEXTROSE 50% 25 GRAM/50 ML SYR IV Push ONCALL PRN (active at decision time)
+  01-02 04:00 Order: INSULIN-LISPRO (rDNA) *UNIT* INJ SubQ Q4H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication MORPHINE 4 MG/1 ML 1 ML SYR IV Push ONCALL (2099-12-31 11:48:00 to 2099-12-31 12:07:00)
+  Medication SODIUM CHLORIDE 0.9% 500 ML PB IV 1XONLY (2099-12-31 15:56:00 to 2099-12-31 16:18:00)
+  Medication PANTOPRAZOLE 40 MG INJ IV Push DAILY (2099-12-31 16:44:00 to 2100-01-01 15:15:00)
+  Medication SODIUM CHLORIDE 0.9% 500 ML LVP IV 1XONLY (2100-01-01 00:46:00 to 2100-01-01 01:07:00)
+  Medication PANTOPRAZOLE 40 MG in 100 mL NS IV (2100-01-01 07:30:00 to 2100-01-01 14:49:00)
+  Medication MAGNESIUM SULFATE 2 GM/50 ML IVPB IVPB 1XONLY X1 (2100-01-01 19:31:00 to 2100-01-01 19:52:00)
+
+## Laboratory (newest first, up to 5)
+  Alanine Aminotransferase (ALT): 01-01 13:38 24 IU/L; 12-31 10:25 16 IU/L
+  Albumin: 01-01 13:38 2.1 g/dL; 12-31 10:25 2.9 g/dL
+  Alkaline Phosphatase: 01-01 13:38 286 IU/L; 12-31 10:25 506 IU/L
+  Anion Gap: 01-01 13:38 10; 12-31 22:12 7; 12-31 10:25 10
+  Asparate Aminotransferase (AST): 01-01 13:38 54 IU/L; 12-31 10:25 31 IU/L
+  Bicarbonate: 01-01 13:38 23 mmol/L; 12-31 22:12 24 mmol/L; 12-31 10:25 27 mmol/L
+  Bilirubin, Total: 01-01 13:38 0.8 mg/dL; 12-31 10:25 0.6 mg/dL
+  Calcium, Total: 01-01 13:38 7.3 mg/dL; 12-31 22:12 7.6 mg/dL; 12-31 10:25 9.2 mg/dL
+  Chloride: 01-01 13:38 102 mmol/L; 12-31 22:12 104 mmol/L; 12-31 10:25 94 mmol/L
+  Creatinine: 01-01 13:38 1.75 mg/dL; 12-31 22:12 1.38 mg/dL; 12-31 10:25 0.99 mg/dL
+  FiO2: 01-01 06:26 33 %
+  Glucose: 01-01 13:38 153 mg/dL; 12-31 22:12 167 mg/dL; 12-31 10:25 163 mg/dL
+  Glucose finger stick: 01-01 22:59 195 mg/dL; 01-01 05:56 216 mg/dL
+  Hematocrit: 01-01 23:40 29 %; 01-01 13:38 30.7 %; 12-31 10:25 22.1 %
+  Hemoglobin: 01-01 23:40 10 g/dL; 01-01 13:38 10.6 g/dL; 01-01 00:54 7 g/dL; 12-31 17:48 7.5 g/dL; 12-31 10:25 7.6 g/dL
+  INR(PT): 01-01 13:38 1.2
+  Lactate: 01-01 23:40 2.7 mmol/L; 01-01 13:38 2.5 mmol/L; 01-01 03:54 4.3 mmol/L; 12-31 22:12 1.6 mmol/L; 12-31 17:48 2.6 mmol/L   [+1 earlier]
+  MCH: 01-01 13:38 30.4 pg; 12-31 10:25 29.6 pg
+  MCHC: 01-01 13:38 34.5 g/dL; 12-31 10:25 34.4 g/dL
+  MCV: 01-01 13:38 88 fL; 12-31 10:25 86 fL
+  MPV: 01-01 13:38 10.2 fL; 12-31 10:25 9.7 fL
+  Magnesium: 01-01 23:40 2.2 mg/dL; 01-01 13:38 1.6 mg/dL
+  PT: 01-01 13:38 15 second(s)
+  PTT: 01-01 13:38 35 second(s)
+  Phosphate: 01-01 13:38 4.7 mg/dL
+  Platelet Count: 01-01 13:38 310 K/MM3; 12-31 10:25 344 K/MM3
+  Potassium: 01-01 23:40 3.6 mmol/L; 01-01 13:38 3.6 mmol/L; 12-31 22:12 4.2 mmol/L; 12-31 10:25 4 mmol/L
+  RBC: 01-01 13:38 3.49 M/MM3; 12-31 10:25 2.57 M/MM3
+  RDW: 01-01 13:38 15.4 %; 12-31 10:25 15.7 %
+  Sodium: 01-01 13:38 135 mmol/L; 12-31 22:12 135 mmol/L; 12-31 10:25 131 mmol/L
+  Urea Nitrogen: 01-01 13:38 34 mg/dL; 12-31 22:12 29 mg/dL; 12-31 10:25 27 mg/dL
+  White Blood Cells: 01-01 13:38 82.5 K/MM3; 12-31 10:25 127 K/MM3
+  lipase: 12-31 10:25 106 IU/L
+  total protein: 01-01 13:38 5.7 g/dL; 12-31 10:25 6.9 g/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-02 02:52   24h 4-4 (n=6)
+  Glasgow coma score GCS Total: 15 @01-02 02:52   24h 15-15 (n=6)
+  Glasgow coma score Motor: 6 @01-02 02:52   24h 6-6 (n=6)
+  Glasgow coma score Verbal: 5 @01-02 02:52   24h 5-5 (n=6)
+  Glucose finger stick: 195 mg/dL @01-01 22:59   earlier: 216 mg/dL @01-01 05:56
+  Heart Rate: 119 bpm @01-02 02:10   24h 101-122 (n=40)
+  Non Invasive Blood Pressure diastolic: 68 mmHg @01-02 02:10   24h 66-86 (n=39)
+  Non Invasive Blood Pressure mean: 82 mmHg @01-02 02:10   24h 72-94 (n=39)
+  Non Invasive Blood Pressure systolic: 120 mmHg @01-02 02:10   24h 87-147 (n=39)
+  O2 Flow: 3 L/min @01-02 02:52   24h 3-3 (n=15)
+  O2 saturation pulseoxymetry: 96 % @01-02 02:10   24h 94-100 (n=40)
+  Respiratory Rate: 18 insp/min @01-02 02:10   24h 7-25 (n=40)
+  Respiratory Rate (spontaneous): 18 insp/min @01-02 02:10   24h 7-25 (n=40)
+  Temperature Fahrenheit: 97.7 F @01-02 03:41   24h 97.3-99.1 (n=7)
+  Temperature Location: Oral @01-02 03:41   earlier: undocumented @01-01 23:18; oral @01-01 06:26
+
+## Treatments documented
+
+## Microbiology

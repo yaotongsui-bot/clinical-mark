@@ -1,0 +1,251 @@
+{
+ "case_id": "E1090889",
+ "decision_point": "2100-01-02 22:00:00",
+ "claims": [
+  "Monitor patient for signs of respiratory distress.",
+  "Continue mechanical ventilation with current settings.",
+  "Assess for potential causes of hypotension."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1090889A1::01",
+   "claim_id": "E1090889A1",
+   "claim_text": "Monitor patient for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Monitor patient for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1090889A2::02",
+   "claim_id": "E1090889A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1090889A2::03",
+   "claim_id": "E1090889A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1090889A3::04",
+   "claim_id": "E1090889A3",
+   "claim_text": "Assess for potential causes of hypotension.",
+   "kind": "action",
+   "text": "Assess for potential causes of hypotension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hypotension",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1090889A3::05",
+   "claim_id": "E1090889A3",
+   "claim_text": "Assess for potential causes of hypotension.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1090889A2::03",
+   "claim_id": "E1090889A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The patient is currently on mechanical ventilation, as documented in the treatment documentation at 22:47 on 2100-01-01.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:31264474",
+     "time": "2100-01-01 22:47:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1090889A3::05",
+   "claim_id": "E1090889A3",
+   "claim_text": "Assess for potential causes of hypotension.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The statement 'Hypotension is present' is not supported by the records. The PEEP setting of 5 cm H2O in record R28 does not indicate hypotension. Additionally, the recent vital signs in records R25-R27 do not show any indication of hypotension.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:274839857",
+     "time": "2100-01-02 00:18:00",
+     "item": "PEEP: 5 cm H2O"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1090889A1::01",
+   "claim_id": "E1090889A1",
+   "claim_text": "Monitor patient for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Monitor patient for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1090889A2::02",
+   "claim_id": "E1090889A2",
+   "claim_text": "Continue mechanical ventilation with current settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (9 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:76580280",
+     "time": "2100-01-03 04:57:00",
+     "item": "ventilator setting",
+     "value": "40.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:76580283",
+     "time": "2100-01-03 04:57:00",
+     "item": "ventilator setting",
+     "value": "5.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:76580284",
+     "time": "2100-01-03 04:57:00",
+     "item": "ventilator setting",
+     "value": "450.0 mL",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1090889A3::04",
+   "claim_id": "E1090889A3",
+   "claim_text": "Assess for potential causes of hypotension.",
+   "kind": "action",
+   "text": "Assess for potential causes of hypotension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hypotension",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 20.3,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hypotension is present. -- The statement 'Hypotension is present' is not supported by the records. The PEEP setting of 5 cm H2O in record R28 does not indicate hypotension. Additionally, the recent vital signs in records R25-R27 do not show any indication of hypotension."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

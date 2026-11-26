@@ -1,0 +1,297 @@
+{
+ "case_id": "E454584",
+ "decision_point": "2100-01-02 20:29:00",
+ "claims": [
+  "Monitor blood glucose levels closely and adjust insulin therapy as needed.",
+  "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+  "Administer intravenous Ativan as ordered."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E454584A1::01",
+   "claim_id": "E454584A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E454584A1::02",
+   "claim_id": "E454584A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Adjust insulin therapy as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E454584A2::03",
+   "claim_id": "E454584A2",
+   "claim_text": "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E454584A2::04",
+   "claim_id": "E454584A2",
+   "claim_text": "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E454584A2::05",
+   "claim_id": "E454584A2",
+   "claim_text": "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+   "kind": "fact",
+   "text": "PEEP is set at 5 cmH2O.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E454584A3::06",
+   "claim_id": "E454584A3",
+   "claim_text": "Administer intravenous Ativan as ordered.",
+   "kind": "action",
+   "text": "Administer intravenous Ativan as ordered.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Ativan",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E454584A2::04",
+   "claim_id": "E454584A2",
+   "claim_text": "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "resp:10999672",
+     "time": "2100-01-02 18:10:00",
+     "item": "Tidal Volume (observed): 357 mL"
+    }
+   ],
+   "reason": "Ventilator charting 2.3 h before the decision ('Tidal Volume (observed): 357 mL').",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E454584A2::05",
+   "claim_id": "E454584A2",
+   "claim_text": "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+   "kind": "fact",
+   "text": "PEEP is set at 5 cmH2O.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The most recent PEEP setting before the decision time is 5 cmH2O at 18:10 on 2100-01-02, which directly supports the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "resp:10999673",
+     "time": "2100-01-02 18:10:00",
+     "item": "PEEP set: 5 cmH2O"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E454584A1::01",
+   "claim_id": "E454584A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:126006455",
+     "time": "2100-01-02 22:51:00",
+     "item": "glucose",
+     "value": "169.0 mg/dL"
+    },
+    {
+     "rid": "lab:125161089",
+     "time": "2100-01-03 01:38:00",
+     "item": "glucose",
+     "value": "190.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E454584A1::02",
+   "claim_id": "E454584A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Adjust insulin therapy as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E454584A2::03",
+   "claim_id": "E454584A2",
+   "claim_text": "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (58 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:11844054",
+     "time": "2100-01-02 20:52:00",
+     "item": "ventilator setting",
+     "value": "386.0 mL",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:11844055",
+     "time": "2100-01-02 20:52:00",
+     "item": "ventilator setting",
+     "value": "5.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:11844056",
+     "time": "2100-01-02 20:52:00",
+     "item": "ventilator setting",
+     "value": "27.0 cmH2O",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E454584A3::06",
+   "claim_id": "E454584A3",
+   "claim_text": "Administer intravenous Ativan as ordered.",
+   "kind": "action",
+   "text": "Administer intravenous Ativan as ordered.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Ativan",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

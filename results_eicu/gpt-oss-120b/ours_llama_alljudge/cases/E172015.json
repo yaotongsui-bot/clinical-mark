@@ -1,0 +1,669 @@
+{
+ "case_id": "E172015",
+ "decision_point": "2100-01-02 23:52:00",
+ "claims": [
+  "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+  "Monitor serum magnesium and replace if below 1.5 mg/dL.",
+  "Continue PRN lorazepam dosing for alcohol withdrawal symptom control."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E172015A1::01",
+   "claim_id": "E172015A1",
+   "claim_text": "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+   "kind": "action",
+   "text": "Administer platelet transfusion.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "administer",
+   "target": "platelet transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_other",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E172015A1::02",
+   "claim_id": "E172015A1",
+   "claim_text": "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+   "kind": "fact",
+   "text": "Thrombocytopenia is present.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E172015A1::03",
+   "claim_id": "E172015A1",
+   "claim_text": "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+   "kind": "fact",
+   "text": "Platelet count is 45 K/µL.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E172015A2::04",
+   "claim_id": "E172015A2",
+   "claim_text": "Monitor serum magnesium and replace if below 1.5 mg/dL.",
+   "kind": "action",
+   "text": "Monitor serum magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E172015A2::05",
+   "claim_id": "E172015A2",
+   "claim_text": "Monitor serum magnesium and replace if below 1.5 mg/dL.",
+   "kind": "action",
+   "text": "Replace magnesium if below 1.5 mg/dL.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "magnesium",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E172015A3::06",
+   "claim_id": "E172015A3",
+   "claim_text": "Continue PRN lorazepam dosing for alcohol withdrawal symptom control.",
+   "kind": "action",
+   "text": "Continue PRN lorazepam dosing.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E172015A3::07",
+   "claim_id": "E172015A3",
+   "claim_text": "Continue PRN lorazepam dosing for alcohol withdrawal symptom control.",
+   "kind": "fact",
+   "text": "PRN lorazepam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E172015A3::08",
+   "claim_id": "E172015A3",
+   "claim_text": "Continue PRN lorazepam dosing for alcohol withdrawal symptom control.",
+   "kind": "fact",
+   "text": "Alcohol withdrawal is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E172015A1::02",
+   "claim_id": "E172015A1",
+   "claim_text": "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+   "kind": "fact",
+   "text": "Thrombocytopenia is present.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that the patient's temperature has fluctuated, but there is no indication of thrombocytopenia. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:95547395",
+     "time": "2099-12-30 23:54:00",
+     "item": "Temperature Fahrenheit: 98.2 F"
+    },
+    {
+     "rid": "nurse:188433299",
+     "time": "2099-12-31 05:55:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:139696789",
+     "time": "2099-12-31 05:55:00",
+     "item": "Eye Opening: 4"
+    },
+    {
+     "rid": "nurse:276839720",
+     "time": "2099-12-31 05:55:00",
+     "item": "Eye, Ear, Nose, Throat Assessment: WDL"
+    },
+    {
+     "rid": "nurse:293222605",
+     "time": "2099-12-31 06:00:00",
+     "item": "Temperature Fahrenheit: 97 F"
+    },
+    {
+     "rid": "nurse:95719729",
+     "time": "2099-12-31 08:00:00",
+     "item": "Temperature Fahrenheit: 97.3 F"
+    },
+    {
+     "rid": "nurse:167662649",
+     "time": "2099-12-31 12:00:00",
+     "item": "Temperature Fahrenheit: 96.8 F"
+    },
+    {
+     "rid": "nurse:242591118",
+     "time": "2099-12-31 15:20:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:132408050",
+     "time": "2099-12-31 15:20:00",
+     "item": "Eye, Ear, Nose, Throat Assessment: WDL"
+    },
+    {
+     "rid": "nurse:131448418",
+     "time": "2099-12-31 15:59:00",
+     "item": "Temperature Fahrenheit: 96.3 F"
+    },
+    {
+     "rid": "nurse:131485884",
+     "time": "2099-12-31 20:00:00",
+     "item": "Temperature Fahrenheit: 97.2 F"
+    },
+    {
+     "rid": "nurse:278702236",
+     "time": "2099-12-31 22:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:132408047",
+     "time": "2099-12-31 22:00:00",
+     "item": "Eye, Ear, Nose, Throat Assessment: WDL"
+    },
+    {
+     "rid": "nurse:257961126",
+     "time": "2099-12-31 22:46:00",
+     "item": "Temperature Fahrenheit: 97.9 F"
+    },
+    {
+     "rid": "nurse:186028676",
+     "time": "2099-12-31 23:46:00",
+     "item": "Temperature Fahrenheit: 98.1 F"
+    },
+    {
+     "rid": "nurse:77037803",
+     "time": "2100-01-01 00:47:00",
+     "item": "Temperature Fahrenheit: 98.2 F"
+    },
+    {
+     "rid": "nurse:240126208",
+     "time": "2100-01-01 01:45:00",
+     "item": "Temperature Fahrenheit: 98.8 F"
+    },
+    {
+     "rid": "nurse:185737367",
+     "time": "2100-01-01 02:45:00",
+     "item": "Temperature Fahrenheit: 98.8 F"
+    },
+    {
+     "rid": "nurse:293530404",
+     "time": "2100-01-01 03:54:00",
+     "item": "Temperature Fahrenheit: 97.3 F"
+    },
+    {
+     "rid": "nurse:77554721",
+     "time": "2100-01-01 05:44:00",
+     "item": "Temperature Fahrenheit: 97.3 F"
+    },
+    {
+     "rid": "nurse:206485815",
+     "time": "2100-01-01 05:55:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:103591147",
+     "time": "2100-01-01 05:55:00",
+     "item": "Eye Opening: 3"
+    },
+    {
+     "rid": "nurse:113856306",
+     "time": "2100-01-01 09:45:00",
+     "item": "Temperature Fahrenheit: 98.4 F"
+    },
+    {
+     "rid": "nurse:278702230",
+     "time": "2100-01-01 13:49:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:222258794",
+     "time": "2100-01-01 13:49:00",
+     "item": "Temperature Fahrenheit: 98.4 F"
+    },
+    {
+     "rid": "nurse:78244324",
+     "time": "2100-01-01 13:49:00",
+     "item": "Eye, Ear, Nose, Throat Assessment: X"
+    },
+    {
+     "rid": "nurse:224538725",
+     "time": "2100-01-01 20:47:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:211914371",
+     "time": "2100-01-01 20:47:00",
+     "item": "Eye Opening: 3"
+    },
+    {
+     "rid": "nurse:77091556",
+     "time": "2100-01-01 20:47:00",
+     "item": "Temperature Fahrenheit: 98.1 F"
+    },
+    {
+     "rid": "nurse:222028169",
+     "time": "2100-01-01 23:36:00",
+     "item": "Temperature Fahrenheit: 98.2 F"
+    },
+    {
+     "rid": "nurse:116217007",
+     "time": "2100-01-01 23:50:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:229968919",
+     "time": "2100-01-01 23:50:00",
+     "item": "Eye Opening: 3"
+    },
+    {
+     "rid": "nurse:224538728",
+     "time": "2100-01-02 01:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:299661739",
+     "time": "2100-01-02 01:00:00",
+     "item": "Eye Opening: 3"
+    },
+    {
+     "rid": "nurse:293141775",
+     "time": "2100-01-02 01:00:00",
+     "item": "Temperature Fahrenheit: 99.1 F"
+    },
+    {
+     "rid": "nurse:188433293",
+     "time": "2100-01-02 05:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:211914374",
+     "time": "2100-01-02 05:00:00",
+     "item": "Eye Opening: 3"
+    },
+    {
+     "rid": "nurse:77529481",
+     "time": "2100-01-02 05:00:00",
+     "item": "Temperature Fahrenheit: 98.8 F"
+    },
+    {
+     "rid": "nurse:80109114",
+     "time": "2100-01-02 09:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:85532182",
+     "time": "2100-01-02 09:00:00",
+     "item": "Eye Opening: 2"
+    },
+    {
+     "rid": "nurse:186123765",
+     "time": "2100-01-02 09:00:00",
+     "item": "Temperature Fahrenheit: 98.4 F"
+    },
+    {
+     "rid": "nurse:98161980",
+     "time": "2100-01-02 13:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:85532181",
+     "time": "2100-01-02 13:00:00",
+     "item": "Eye Opening: 2"
+    },
+    {
+     "rid": "nurse:275623800",
+     "time": "2100-01-02 13:00:00",
+     "item": "Temperature Fahrenheit: 98.8 F"
+    },
+    {
+     "rid": "nurse:98161981",
+     "time": "2100-01-02 17:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:284128862",
+     "time": "2100-01-02 17:00:00",
+     "item": "Eye Opening: 4"
+    },
+    {
+     "rid": "nurse:221702360",
+     "time": "2100-01-02 17:00:00",
+     "item": "Temperature Fahrenheit: 98.4 F"
+    },
+    {
+     "rid": "nurse:98161979",
+     "time": "2100-01-02 21:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:157751764",
+     "time": "2100-01-02 21:00:00",
+     "item": "Eye Opening: 4"
+    },
+    {
+     "rid": "nurse:203576519",
+     "time": "2100-01-02 21:00:00",
+     "item": "Temperature Fahrenheit: 99 F"
+    }
+   ]
+  },
+  {
+   "atom_id": "E172015A1::03",
+   "claim_id": "E172015A1",
+   "claim_text": "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+   "kind": "fact",
+   "text": "Platelet count is 45 K/µL.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement says the platelet count is 45 K/µL, but the most recent relevant record (R45) shows the platelet count is 45 K/mcL, which is a different unit. The statement is not supported by this record.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:54110455",
+     "time": "2100-01-02 09:40:00",
+     "item": "Platelet Count: 45 K/mcL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E172015A3::07",
+   "claim_id": "E172015A3",
+   "claim_text": "Continue PRN lorazepam dosing for alcohol withdrawal symptom control.",
+   "kind": "fact",
+   "text": "PRN lorazepam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that lorazepam was administered once on 2099-12-31 00:15:00 and a PRN order for lorazepam was active at decision time. This supports the statement that PRN lorazepam is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:10345704",
+     "time": "2099-12-31 00:15:00",
+     "item": "Given once: 1 ML  -  LORAZEPAM 2 MG/ML IJ SOLN IV Once (2099-12-31 00:15:00)"
+    },
+    {
+     "rid": "med:9282055",
+     "time": "2099-12-31 03:18:00",
+     "item": "Order: 1 ML  -  LORAZEPAM 2 MG/ML IJ SOLN IV Q8H PRN (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E172015A3::08",
+   "claim_id": "E172015A3",
+   "claim_text": "Continue PRN lorazepam dosing for alcohol withdrawal symptom control.",
+   "kind": "fact",
+   "text": "Alcohol withdrawal is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient has not exhibited symptoms of delirium, but the statement about alcohol withdrawal being present is not supported by the records. The records do not mention alcohol withdrawal at all.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:188433299",
+     "time": "2099-12-31 05:55:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:242591118",
+     "time": "2099-12-31 15:20:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:278702236",
+     "time": "2099-12-31 22:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:206485815",
+     "time": "2100-01-01 05:55:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:278702230",
+     "time": "2100-01-01 13:49:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:224538725",
+     "time": "2100-01-01 20:47:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:116217007",
+     "time": "2100-01-01 23:50:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:224538728",
+     "time": "2100-01-02 01:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:188433293",
+     "time": "2100-01-02 05:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:80109114",
+     "time": "2100-01-02 09:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:98161980",
+     "time": "2100-01-02 13:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:98161981",
+     "time": "2100-01-02 17:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    },
+    {
+     "rid": "nurse:98161979",
+     "time": "2100-01-02 21:00:00",
+     "item": "Symptoms of Delirium Present: No"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E172015A1::01",
+   "claim_id": "E172015A1",
+   "claim_text": "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+   "kind": "action",
+   "text": "Administer platelet transfusion.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "administer",
+   "target": "platelet transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_other",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No platelet / plasma transfusion action recorded in the 20.3 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E172015A2::04",
+   "claim_id": "E172015A2",
+   "claim_text": "Monitor serum magnesium and replace if below 1.5 mg/dL.",
+   "kind": "action",
+   "text": "Monitor serum magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:43101823",
+     "time": "2100-01-03 10:25:00",
+     "item": "magnesium",
+     "value": "1.8 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 20.3 h observation window after the decision (24 h or until ICU discharge): magnesium x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E172015A2::05",
+   "claim_id": "E172015A2",
+   "claim_text": "Monitor serum magnesium and replace if below 1.5 mg/dL.",
+   "kind": "action",
+   "text": "Replace magnesium if below 1.5 mg/dL.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "magnesium",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E172015A3::06",
+   "claim_id": "E172015A3",
+   "claim_text": "Continue PRN lorazepam dosing for alcohol withdrawal symptom control.",
+   "kind": "action",
+   "text": "Continue PRN lorazepam dosing.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 20.3 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 20.3,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.75,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Thrombocytopenia is present. -- The records show that the patient's temperature has fluctuated, but there is no indication of thrombocytopenia. The statement is not supported by the records.",
+    "Platelet count is 45 K/µL. -- The statement says the platelet count is 45 K/µL, but the most recent relevant record (R45) shows the platelet count is 45 K/mcL, which is a different unit. The statement is not supported by this record.",
+    "Alcohol withdrawal is present. -- The records show that the patient has not exhibited symptoms of delirium, but the statement about alcohol withdrawal being present is not supported by the records. The records do not mention alcohol withdrawal at all."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.25,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

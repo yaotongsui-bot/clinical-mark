@@ -1,0 +1,372 @@
+{
+ "case_id": "E758325",
+ "decision_point": "2100-01-02 16:29:00",
+ "claims": [
+  "Continue mechanical ventilation with current settings and monitor respiratory parameters closely.",
+  "Obtain a repeat complete blood count in 6 hours to reassess platelet trend.",
+  "Initiate a low-dose intravenous antihypertensive infusion (e.g., nicardipine) to target MAP 65‑75 mmHg."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E758325A1::01",
+   "claim_id": "E758325A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters closely.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E758325A1::02",
+   "claim_id": "E758325A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters closely.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E758325A1::03",
+   "claim_id": "E758325A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters closely.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters closely.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "E758325A2::04",
+   "claim_id": "E758325A2",
+   "claim_text": "Obtain a repeat complete blood count in 6 hours to reassess platelet trend.",
+   "kind": "action",
+   "text": "Obtain a repeat complete blood count in 6 hours.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "complete blood count",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E758325A2::05",
+   "claim_id": "E758325A2",
+   "claim_text": "Obtain a repeat complete blood count in 6 hours to reassess platelet trend.",
+   "kind": "fact",
+   "text": "Platelet trend is being reassessed.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E758325A3::06",
+   "claim_id": "E758325A3",
+   "claim_text": "Initiate a low-dose intravenous antihypertensive infusion (e.g., nicardipine) to target MAP 65‑75 mmHg.",
+   "kind": "action",
+   "text": "Initiate a low-dose intravenous antihypertensive infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "nicardipine",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E758325A3::07",
+   "claim_id": "E758325A3",
+   "claim_text": "Initiate a low-dose intravenous antihypertensive infusion (e.g., nicardipine) to target MAP 65‑75 mmHg.",
+   "kind": "goal",
+   "text": "Target MAP 65-75 mmHg.",
+   "concept": "map",
+   "notes": []
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E758325A1::01",
+   "claim_id": "E758325A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters closely.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "resp:39111960",
+     "time": "2100-01-02 15:31:00",
+     "item": "Mean Airway Pressure: 15 cmH2O"
+    }
+   ],
+   "reason": "Ventilator charting 1.0 h before the decision ('Mean Airway Pressure: 15 cmH2O').",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E758325A2::05",
+   "claim_id": "E758325A2",
+   "claim_text": "Obtain a repeat complete blood count in 6 hours to reassess platelet trend.",
+   "kind": "fact",
+   "text": "Platelet trend is being reassessed.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show platelet counts of 130 and 90 K/MM3, but they do not document a repeat CBC order or that the platelet trend is being reassessed.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:174823729",
+     "time": "2100-01-01 11:55:00",
+     "item": "Platelet Count: 130 K/MM3"
+    },
+    {
+     "rid": "lab:170551550",
+     "time": "2100-01-02 10:11:00",
+     "item": "Platelet Count: 90 K/MM3"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E758325A1::02",
+   "claim_id": "E758325A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters closely.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (67 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:21939060",
+     "time": "2100-01-02 19:05:00",
+     "item": "ventilator setting",
+     "value": "45.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:21939064",
+     "time": "2100-01-02 19:05:00",
+     "item": "ventilator setting",
+     "value": "14.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:21939066",
+     "time": "2100-01-02 19:05:00",
+     "item": "ventilator setting",
+     "value": "10.0 cmH2O",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E758325A1::03",
+   "claim_id": "E758325A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters closely.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters closely.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:519755824",
+     "time": "2100-01-02 17:00:00",
+     "item": "respiratory rate",
+     "value": "20.0 insp/min"
+    },
+    {
+     "rid": "nurse:467956204",
+     "time": "2100-01-02 18:00:00",
+     "item": "respiratory rate",
+     "value": "20.0 insp/min"
+    },
+    {
+     "rid": "nurse:549068010",
+     "time": "2100-01-02 17:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:538283160",
+     "time": "2100-01-02 18:00:00",
+     "item": "SpO2",
+     "value": "99.0 %"
+    },
+    {
+     "rid": "resp:21939060",
+     "time": "2100-01-02 19:05:00",
+     "item": "ventilator settings",
+     "value": "45.0 %"
+    },
+    {
+     "rid": "resp:21939064",
+     "time": "2100-01-02 19:05:00",
+     "item": "ventilator settings",
+     "value": "14.0 cmH2O"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x37, SpO2 x29, ventilator settings x67.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E758325A2::04",
+   "claim_id": "E758325A2",
+   "claim_text": "Obtain a repeat complete blood count in 6 hours to reassess platelet trend.",
+   "kind": "action",
+   "text": "Obtain a repeat complete blood count in 6 hours.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "complete blood count",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:166797797",
+     "time": "2100-01-02 18:12:00",
+     "item": "WBC",
+     "value": "7.6 K/MM3"
+    },
+    {
+     "rid": "lab:181713702",
+     "time": "2100-01-02 19:40:00",
+     "item": "WBC",
+     "value": "6.6 K/MM3"
+    },
+    {
+     "rid": "lab:166797796",
+     "time": "2100-01-02 18:12:00",
+     "item": "hemoglobin",
+     "value": "13.2 g/dL"
+    },
+    {
+     "rid": "lab:181713701",
+     "time": "2100-01-02 19:40:00",
+     "item": "hemoglobin",
+     "value": "12.5 g/dL"
+    },
+    {
+     "rid": "lab:166797800",
+     "time": "2100-01-02 18:12:00",
+     "item": "platelets",
+     "value": "98.0 K/MM3"
+    },
+    {
+     "rid": "lab:181713705",
+     "time": "2100-01-02 19:40:00",
+     "item": "platelets",
+     "value": "91.0 K/MM3"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): WBC x3, hemoglobin x3, platelets x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E758325A3::06",
+   "claim_id": "E758325A3",
+   "claim_text": "Initiate a low-dose intravenous antihypertensive infusion (e.g., nicardipine) to target MAP 65‑75 mmHg.",
+   "kind": "action",
+   "text": "Initiate a low-dose intravenous antihypertensive infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "nicardipine",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Platelet trend is being reassessed. -- The records show platelet counts of 130 and 90 K/MM3, but they do not document a repeat CBC order or that the platelet trend is being reassessed."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

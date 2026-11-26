@@ -1,0 +1,283 @@
+{
+ "case_id": "E1497157",
+ "decision_point": "2100-01-02 19:30:00",
+ "claims": [
+  "Continue magnesium infusion at the current rate.",
+  "Monitor blood pressure and heart rate per ICU protocol.",
+  "Assess pain and administer PRN analgesics as ordered."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1497157A1::01",
+   "claim_id": "E1497157A1",
+   "claim_text": "Continue magnesium infusion at the current rate.",
+   "kind": "action",
+   "text": "Continue magnesium infusion at the current rate.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "magnesium infusion",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1497157A1::02",
+   "claim_id": "E1497157A1",
+   "claim_text": "Continue magnesium infusion at the current rate.",
+   "kind": "fact",
+   "text": "Magnesium infusion is currently being given.",
+   "concept": "magnesium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1497157A2::03",
+   "claim_id": "E1497157A2",
+   "claim_text": "Monitor blood pressure and heart rate per ICU protocol.",
+   "kind": "action",
+   "text": "Monitor blood pressure per ICU protocol.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1497157A2::04",
+   "claim_id": "E1497157A2",
+   "claim_text": "Monitor blood pressure and heart rate per ICU protocol.",
+   "kind": "action",
+   "text": "Monitor heart rate per ICU protocol.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1497157A3::05",
+   "claim_id": "E1497157A3",
+   "claim_text": "Assess pain and administer PRN analgesics as ordered.",
+   "kind": "action",
+   "text": "Assess pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1497157A3::06",
+   "claim_id": "E1497157A3",
+   "claim_text": "Assess pain and administer PRN analgesics as ordered.",
+   "kind": "action",
+   "text": "Administer PRN analgesics as ordered.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "PRN analgesics",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1497157A1::02",
+   "claim_id": "E1497157A1",
+   "claim_text": "Continue magnesium infusion at the current rate.",
+   "kind": "fact",
+   "text": "Magnesium infusion is currently being given.",
+   "concept": "magnesium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R46 shows a magnesium infusion running at decision time (2100-01-02 10:00:00, ongoing at decision), which directly supports the statement that magnesium infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Volume (mL) Magnesium  (ml/hr):870",
+     "time": "2100-01-02 10:00:00",
+     "item": "Running at decision time (started 2100-01-02 10:00:00): Infusion/input Volume (mL) Magnesium at 25 ml/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1497157A1::01",
+   "claim_id": "E1497157A1",
+   "claim_text": "Continue magnesium infusion at the current rate.",
+   "kind": "action",
+   "text": "Continue magnesium infusion at the current rate.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "magnesium infusion",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1497157A2::03",
+   "claim_id": "E1497157A2",
+   "claim_text": "Monitor blood pressure and heart rate per ICU protocol.",
+   "kind": "action",
+   "text": "Monitor blood pressure per ICU protocol.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:977503697",
+     "time": "2100-01-02 20:10:00",
+     "item": "systolic BP",
+     "value": "146.0 mmHg"
+    },
+    {
+     "rid": "nurse:1031232873",
+     "time": "2100-01-02 21:16:00",
+     "item": "systolic BP",
+     "value": "125.0 mmHg"
+    },
+    {
+     "rid": "nurse:977503699",
+     "time": "2100-01-02 20:10:00",
+     "item": "mean arterial pressure",
+     "value": "104.0 mmHg"
+    },
+    {
+     "rid": "nurse:1031232875",
+     "time": "2100-01-02 21:16:00",
+     "item": "mean arterial pressure",
+     "value": "94.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 22.2 h observation window after the decision (24 h or until ICU discharge): systolic BP x20, mean arterial pressure x19.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1497157A2::04",
+   "claim_id": "E1497157A2",
+   "claim_text": "Monitor blood pressure and heart rate per ICU protocol.",
+   "kind": "action",
+   "text": "Monitor heart rate per ICU protocol.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:975666532",
+     "time": "2100-01-02 20:10:00",
+     "item": "heart rate",
+     "value": "64.0 bpm"
+    },
+    {
+     "rid": "nurse:1026287600",
+     "time": "2100-01-02 21:16:00",
+     "item": "heart rate",
+     "value": "66.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 22.2 h observation window after the decision (24 h or until ICU discharge): heart rate x16.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1497157A3::05",
+   "claim_id": "E1497157A3",
+   "claim_text": "Assess pain and administer PRN analgesics as ordered.",
+   "kind": "action",
+   "text": "Assess pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No pain score measurement in the 22.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1497157A3::06",
+   "claim_id": "E1497157A3",
+   "claim_text": "Assess pain and administer PRN analgesics as ordered.",
+   "kind": "action",
+   "text": "Administer PRN analgesics as ordered.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "PRN analgesics",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 22.2 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 22.2,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

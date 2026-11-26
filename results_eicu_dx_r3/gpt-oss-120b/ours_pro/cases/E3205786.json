@@ -1,0 +1,376 @@
+{
+ "case_id": "E3205786",
+ "decision_point": "2100-01-02 22:25:00",
+ "claims": [
+  "Continue low‑dose intravenous fluid bolus of 0.9% sodium chloride to maintain euvolemia and support blood pressure.",
+  "Monitor serum potassium level q6h and replace if <3.5 mmol/L.",
+  "Maintain current nasal cannula oxygen at 2 L/min and reassess SpO₂ in 2 hours; consider weaning to room air if SpO₂ remains ≥94% on 21% FiO₂."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3205786A1::01",
+   "claim_id": "E3205786A1",
+   "claim_text": "Continue low‑dose intravenous fluid bolus of 0.9% sodium chloride to maintain euvolemia and support blood pressure.",
+   "kind": "action",
+   "text": "Continue low-dose intravenous fluid bolus of 0.9% sodium chloride.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "0.9% sodium chloride",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3205786A1::02",
+   "claim_id": "E3205786A1",
+   "claim_text": "Continue low‑dose intravenous fluid bolus of 0.9% sodium chloride to maintain euvolemia and support blood pressure.",
+   "kind": "fact",
+   "text": "Low-dose intravenous fluid bolus of 0.9% sodium chloride is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3205786A2::03",
+   "claim_id": "E3205786A2",
+   "claim_text": "Monitor serum potassium level q6h and replace if <3.5 mmol/L.",
+   "kind": "action",
+   "text": "Monitor serum potassium level q6h.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3205786A2::04",
+   "claim_id": "E3205786A2",
+   "claim_text": "Monitor serum potassium level q6h and replace if <3.5 mmol/L.",
+   "kind": "action",
+   "text": "Replace potassium if <3.5 mmol/L.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3205786A3::05",
+   "claim_id": "E3205786A3",
+   "claim_text": "Maintain current nasal cannula oxygen at 2 L/min and reassess SpO₂ in 2 hours; consider weaning to room air if SpO₂ remains ≥94% on 21% FiO₂.",
+   "kind": "action",
+   "text": "Maintain current nasal cannula oxygen at 2 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nasal cannula oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3205786A3::06",
+   "claim_id": "E3205786A3",
+   "claim_text": "Maintain current nasal cannula oxygen at 2 L/min and reassess SpO₂ in 2 hours; consider weaning to room air if SpO₂ remains ≥94% on 21% FiO₂.",
+   "kind": "fact",
+   "text": "The patient is currently on nasal cannula oxygen at 2 L/min.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3205786A3::07",
+   "claim_id": "E3205786A3",
+   "claim_text": "Maintain current nasal cannula oxygen at 2 L/min and reassess SpO₂ in 2 hours; consider weaning to room air if SpO₂ remains ≥94% on 21% FiO₂.",
+   "kind": "action",
+   "text": "Reassess SpO2 in 2 hours.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "SpO2",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3205786A3::08",
+   "claim_id": "E3205786A3",
+   "claim_text": "Maintain current nasal cannula oxygen at 2 L/min and reassess SpO₂ in 2 hours; consider weaning to room air if SpO₂ remains ≥94% on 21% FiO₂.",
+   "kind": "action",
+   "text": "Consider weaning to room air if SpO2 remains ≥94% on 21% FiO2.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3205786A1::02",
+   "claim_id": "E3205786A1",
+   "claim_text": "Continue low‑dose intravenous fluid bolus of 0.9% sodium chloride to maintain euvolemia and support blood pressure.",
+   "kind": "fact",
+   "text": "Low-dose intravenous fluid bolus of 0.9% sodium chloride is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show a continuous infusion of 0.9% sodium chloride was running at decision time (R26), but it is not documented as a low-dose bolus. The only bolus order for 0.9% sodium chloride (R8) was stopped before the decision time, and the most recent administration of a sodium chloride-containing fluid (R43) is a magnesium sulfate stock bag, not a low-dose bolus.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:107378113",
+     "time": "2100-01-01 23:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 23:00:00): Medication SODIUM CHLORIDE 0.9 % IV SOLN Intravenous continuous INDEF"
+    },
+    {
+     "rid": "med:106098696",
+     "time": "2100-01-02 10:00:00",
+     "item": "Medication MAGNESIUM SULFATE 2G/SODIUM CHLORIDE 0.9% 100ML STOCK BAG Intravenous (2100-01-02 10:00:00 to 2100-01-02 18:00:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3205786A3::06",
+   "claim_id": "E3205786A3",
+   "claim_text": "Maintain current nasal cannula oxygen at 2 L/min and reassess SpO₂ in 2 hours; consider weaning to room air if SpO₂ remains ≥94% on 21% FiO₂.",
+   "kind": "fact",
+   "text": "The patient is currently on nasal cannula oxygen at 2 L/min.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show a nasal cannula was documented (R27) and O2 flow was set to 2 L/min at 23:06 on 2100-01-01 (R25), but subsequent Inspired O2 Fraction readings of 21% (R36, R41, R46, R49) indicate the patient was on room air, not 2 L/min nasal cannula, at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "resp:242192585",
+     "time": "2100-01-01 23:06:00",
+     "item": "O2 Flow: 2 L/min"
+    },
+    {
+     "rid": "treat:79522409",
+     "time": "2100-01-02 00:16:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (< 40%) | nasal cannula"
+    },
+    {
+     "rid": "resp:239090130",
+     "time": "2100-01-02 06:35:00",
+     "item": "Inspired O2 Fraction: 21 %"
+    },
+    {
+     "rid": "resp:235896768",
+     "time": "2100-01-02 10:05:00",
+     "item": "Inspired O2 Fraction: 21 %"
+    },
+    {
+     "rid": "resp:245353507",
+     "time": "2100-01-02 15:05:00",
+     "item": "Inspired O2 Fraction: 21 %"
+    },
+    {
+     "rid": "resp:234737682",
+     "time": "2100-01-02 21:31:00",
+     "item": "Inspired O2 Fraction: 21 %"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3205786A1::01",
+   "claim_id": "E3205786A1",
+   "claim_text": "Continue low‑dose intravenous fluid bolus of 0.9% sodium chloride to maintain euvolemia and support blood pressure.",
+   "kind": "action",
+   "text": "Continue low-dose intravenous fluid bolus of 0.9% sodium chloride.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "0.9% sodium chloride",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 5.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3205786A2::03",
+   "claim_id": "E3205786A2",
+   "claim_text": "Monitor serum potassium level q6h and replace if <3.5 mmol/L.",
+   "kind": "action",
+   "text": "Monitor serum potassium level q6h.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 5.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3205786A2::04",
+   "claim_id": "E3205786A2",
+   "claim_text": "Monitor serum potassium level q6h and replace if <3.5 mmol/L.",
+   "kind": "action",
+   "text": "Replace potassium if <3.5 mmol/L.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3205786A3::05",
+   "claim_id": "E3205786A3",
+   "claim_text": "Maintain current nasal cannula oxygen at 2 L/min and reassess SpO₂ in 2 hours; consider weaning to room air if SpO₂ remains ≥94% on 21% FiO₂.",
+   "kind": "action",
+   "text": "Maintain current nasal cannula oxygen at 2 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nasal cannula oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3205786A3::07",
+   "claim_id": "E3205786A3",
+   "claim_text": "Maintain current nasal cannula oxygen at 2 L/min and reassess SpO₂ in 2 hours; consider weaning to room air if SpO₂ remains ≥94% on 21% FiO₂.",
+   "kind": "action",
+   "text": "Reassess SpO2 in 2 hours.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "SpO2",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2233560126",
+     "time": "2100-01-03 01:50:00",
+     "item": "SpO2",
+     "value": "96.0 %"
+    },
+    {
+     "rid": "nurse:2226695758",
+     "time": "2100-01-03 03:00:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    }
+   ],
+   "reason": "Measured in the 5.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3205786A3::08",
+   "claim_id": "E3205786A3",
+   "claim_text": "Maintain current nasal cannula oxygen at 2 L/min and reassess SpO₂ in 2 hours; consider weaning to room air if SpO₂ remains ≥94% on 21% FiO₂.",
+   "kind": "action",
+   "text": "Consider weaning to room air if SpO2 remains ≥94% on 21% FiO2.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 5.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Low-dose intravenous fluid bolus of 0.9% sodium chloride is currently being given. -- The records show a continuous infusion of 0.9% sodium chloride was running at decision time (R26), but it is not documented as a low-dose bolus. The only bolus order for 0.9% sodium chloride (R8) was stopped before the decision time, and the most recent administration of a sodium chloride-containing fluid (R43) is a magnesium sulfate stock bag, not a low-dose bolus.",
+    "The patient is currently on nasal cannula oxygen at 2 L/min. -- The records show a nasal cannula was documented (R27) and O2 flow was set to 2 L/min at 23:06 on 2100-01-01 (R25), but subsequent Inspired O2 Fraction readings of 21% (R36, R41, R46, R49) indicate the patient was on room air, not 2 L/min nasal cannula, at the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

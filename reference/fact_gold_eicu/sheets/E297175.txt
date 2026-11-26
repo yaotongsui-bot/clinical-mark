@@ -1,0 +1,152 @@
+# E297175   T = 2100-01-02 01:21:00   records before T: 179
+ICU stay 297175 (Med-Surg ICU; Male, age 61; admission diagnosis: Emphysema/bronchitis).
+
+## Atoms
+deepseek-v4.1-flash|E297175A1::02 [presupposition] The patient is currently on non-invasive ventilation.   <- Continue non-invasive ventilation with FiO2 40% and PEEP 5 cmH2O, monitoring oxygenation and respiratory status.
+deepseek-v4.1-flash|E297175A1::03 [observed] FiO2 is 40%.   <- Continue non-invasive ventilation with FiO2 40% and PEEP 5 cmH2O, monitoring oxygenation and respiratory status.
+deepseek-v4.1-flash|E297175A1::04 [observed] PEEP is 5 cmH2O.   <- Continue non-invasive ventilation with FiO2 40% and PEEP 5 cmH2O, monitoring oxygenation and respiratory status.
+deepseek-v4.1-flash|E297175A2::08 [presupposition] Scheduled nebulized albuterol/ipratropium is currently being given.   <- Continue scheduled nebulized albuterol/ipratropium and IV methylprednisolone for bronchodilation and anti-inflammatory therapy.
+deepseek-v4.1-flash|E297175A2::10 [presupposition] IV methylprednisolone is currently being given.   <- Continue scheduled nebulized albuterol/ipratropium and IV methylprednisolone for bronchodilation and anti-inflammatory therapy.
+gpt-oss-120b|E297175A1::02 [presupposition] The patient is currently on non-invasive ventilation.   <- Obtain a repeat arterial blood gas to assess ongoing ventilation status and guide weaning from non‑invasive ventilation.
+gpt-oss-120b|E297175A2::P01 [presupposition] The patient is currently on non-invasive ventilation (BiPAP/CPAP).   <- Continue current non‑invasive ventilation settings and monitor respiratory parameters closely for the next 4–6 hours.
+gpt-oss-120b|E297175A3::06 [observed] Persistent respiratory symptoms are present.   <- Order a chest radiograph to evaluate for possible infiltrates or atelectasis given persistent respiratory symptoms.
+qwen2.5-7b|E297175A1::02 [observed] Respiratory distress is ongoing.   <- Monitor patient's respiratory status closely due to ongoing respiratory distress.
+qwen2.5-7b|E297175A2::04 [presupposition] Bronchodilators are currently being given.   <- Continue administration of bronchodilators as ordered.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 00:30:00): Medication ALBUTEROL/IPRATROPIUM NEB 3ML NEB
+  Running at decision time (scheduled order started 2100-01-01 00:54:00): Medication ALBUTEROL/IPRATROPIUM NEB 3ML .ROUTE .STK-MED
+  Running at decision time (scheduled order started 2100-01-01 02:00:00): Medication ENOXAPARIN INJ SUB-Q BEDTIME
+  Running at decision time (scheduled order started 2100-01-01 02:00:00): Medication METHYLPREDNISOLONE SOD SUCC IV 12H
+  Running at decision time (scheduled order started 2100-01-01 14:00:00): Medication ASPIRIN EC PO DAILY
+  Running at decision time (scheduled order started 2100-01-01 14:00:00): Medication GABAPENTIN PO BID
+
+## PRN orders
+  01-01 01:15 Order: ACETAMINOPHEN PO Q4H PRN (active at decision time)
+  01-01 01:15 Order: ALBUTEROL/IPRATROPIUM NEB 3ML NEB PRN (active at decision time)
+  01-01 12:30 Order: ACETAMINOPHEN PO Q4H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 10:10 0 %
+  -eos: 01-01 10:10 0 %
+  -lymphs: 01-01 10:10 6.5 %
+  -monos: 01-01 10:10 2.8 %
+  -polys: 01-01 10:10 90.7 %
+  Alanine Aminotransferase (ALT): 01-01 10:10 26 U/L
+  Albumin: 01-01 10:10 4.1 g/dL
+  Alkaline Phosphatase: 01-01 10:10 66 U/L
+  Anion Gap: 01-01 10:10 6 mmol/L
+  Asparate Aminotransferase (AST): 01-01 10:10 25 U/L
+  Base Excess: 01-01 13:16 13.3 mmol/L; 01-01 02:06 12 mmol/L; 01-01 01:08 12.9 mmol/L
+  Bicarbonate: 01-01 10:10 42 mmol/L
+  Bicarbonate (blood gas HCO3): 01-01 13:16 39.8 mmol/L; 01-01 02:06 43.2 mmol/L; 01-01 01:08 44.7 mmol/L
+  Bilirubin, Total: 01-01 10:10 0.5 mg/dL
+  Calcium, Total: 01-01 10:10 9.7 mg/dL
+  Chloride: 01-01 10:10 92 mmol/L
+  Creatinine: 01-01 10:10 0.36 mg/dL
+  FiO2: 01-01 13:16 45; 01-01 12:18 40; 01-01 02:06 40; 01-01 01:08 50
+  Glucose: 01-01 10:10 121 mg/dL
+  Hematocrit: 01-01 10:10 38.5 %
+  Hemoglobin: 01-01 10:10 11.9 g/dL
+  MCH: 01-01 10:10 31 pg
+  MCHC: 01-01 10:10 30.9 g/dL
+  MCV: 01-01 10:10 100.5 fL
+  Oxygen Saturation: 01-01 13:16 95.6 %; 01-01 02:06 88.1 %; 01-01 01:08 95.6 %
+  PEEP: 01-01 13:16 5
+  Platelet Count: 01-01 10:10 202 K/uL
+  Potassium: 01-01 10:10 4.3 mmol/L
+  Pressure Support: 01-01 13:16 5
+  RBC: 01-01 10:10 3.83 M/uL
+  RDW: 01-01 10:10 16.4 %
+  Sodium: 01-01 10:10 140 mmol/L
+  Urea Nitrogen: 01-01 10:10 10 mg/dL
+  White Blood Cells: 01-01 10:10 5.7 K/uL
+  pCO2: 01-01 13:16 57 mm Hg; 01-01 02:06 93.1 mm Hg; 01-01 01:08 103.2 mm Hg
+  pH: 01-01 13:16 7.452; 01-01 02:06 7.275; 01-01 01:08 7.244
+  pO2: 01-01 13:16 78 mm Hg; 01-01 02:06 66.4 mm Hg; 01-01 01:08 99.7 mm Hg
+  prealbumin: 01-01 10:10 13 mg/dL
+  total protein: 01-01 10:10 7.2 g/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-01 12:00   24h 4-4 (n=2)
+  Glasgow coma score GCS Total: 15 @01-01 12:00   24h 15-15 (n=2)
+  Glasgow coma score Motor: 6 @01-01 12:00   24h 6-6 (n=2)
+  Glasgow coma score Verbal: 5 @01-01 12:00   24h 5-5 (n=2)
+  Heart Rate: 113 bpm @01-01 21:00   24h 84-113 (n=7)
+  Inspired O2 Fraction: 40 % @01-01 02:13
+  Non Invasive Blood Pressure diastolic: 70 mmHg @01-01 21:00   24h 70-80 (n=7)
+  Non Invasive Blood Pressure mean: 85 mmHg @01-01 21:00   24h 85-96 (n=7)
+  Non Invasive Blood Pressure systolic: 107 mmHg @01-01 21:00   24h 107-123 (n=7)
+  O2 saturation pulseoxymetry: 96 % @01-01 21:00   24h 94-97 (n=7)
+  PEEP set: 5 cmH2O @01-01 02:13
+  Respiratory Rate: 23 insp/min @01-01 21:00   24h 15-26 (n=7)
+  Temperature Fahrenheit: 98.5 F @01-01 17:00   24h 98-98.5 (n=3)
+
+## Treatments documented
+  01-01 02:42 pulmonary | medications | bronchodilator
+  01-01 02:42 antibacterials | macrolide | azithromycin
+  01-01 02:42 medications | antibacterials | vancomycin
+  01-01 02:42 pulmonary | medications | glucocorticoid administration
+  01-01 02:42 VTE prophylaxis | low molecular weight heparin | enoxaparin
+  01-01 02:42 cultures / immuno-assays | cultures | sputum
+  01-01 02:42 antibacterials | third generation cephalosporin | ceftriaxone
+  01-01 02:42 pulmonary | ventilation and oxygenation | non-invasive ventilation
+  01-01 15:28 pain / agitation / altered mentation | analgesics | narcotic analgesic
+  01-01 15:28 medications | bronchodilator | nebulized
+  01-01 15:28 pulmonary | medications | glucocorticoid administration
+  01-01 15:28 antibacterials | third generation cephalosporin | ceftriaxone
+  01-01 15:28 medications | bronchodilator | beta-agonist
+  01-01 15:28 analgesics | non-narcotic analgesic | acetaminophen
+  01-01 15:28 VTE prophylaxis | low molecular weight heparin | enoxaparin
+  01-01 15:28 seizure therapy | anticonvulsant | gabapentin
+  01-01 15:28 medications | therapeutic antibacterials | vancomycin
+  01-01 15:28 myocardial ischemia / infarction | antiplatelet agent | aspirin
+  01-01 15:28 cultures / immuno-assays | cultures | sputum
+  01-01 15:28 antibacterials | macrolide | azithromycin
+  01-01 15:28 pain / agitation / altered mentation | systemic glucocorticoid | methylprednisolone
+  01-01 15:28 pain / agitation / altered mentation | analgesics | oral analgesics
+  01-01 15:28 medications | stress ulcer prophylaxis | omeprazole
+  01-01 15:28 medications | antibacterials | vancomycin
+  01-01 15:28 pulmonary | ventilation and oxygenation | non-invasive ventilation
+  01-01 15:31 VTE prophylaxis | low molecular weight heparin | enoxaparin
+  01-01 15:31 cultures / immuno-assays | cultures | sputum
+  01-01 15:31 pain / agitation / altered mentation | analgesics | narcotic analgesic
+  01-01 15:31 antibacterials | third generation cephalosporin | ceftriaxone
+  01-01 15:31 pulmonary | consultations | Pulmonary medicine consultation
+  01-01 15:31 medications | bronchodilator | beta-agonist
+  01-01 15:31 analgesics | non-narcotic analgesic | acetaminophen
+  01-01 15:31 myocardial ischemia / infarction | antiplatelet agent | aspirin
+  01-01 15:31 seizure therapy | anticonvulsant | gabapentin
+  01-01 15:31 antibacterials | macrolide | azithromycin
+  01-01 15:31 pain / agitation / altered mentation | analgesics | oral analgesics
+  01-01 15:31 medications | therapeutic antibacterials | vancomycin
+  01-01 15:31 pulmonary | medications | glucocorticoid administration
+  01-01 15:31 pain / agitation / altered mentation | systemic glucocorticoid | methylprednisolone
+  01-01 15:31 medications | stress ulcer prophylaxis | omeprazole
+  01-01 15:31 pulmonary | ventilation and oxygenation | non-invasive ventilation
+  01-01 15:31 medications | antibacterials | vancomycin
+  01-01 15:31 medications | bronchodilator | nebulized
+  01-01 15:33 pain / agitation / altered mentation | analgesics | narcotic analgesic
+  01-01 15:33 antibacterials | third generation cephalosporin | ceftriaxone
+  01-01 15:33 medications | therapeutic antibacterials | vancomycin
+  01-01 15:33 cultures / immuno-assays | cultures | sputum
+  01-01 15:33 pulmonary | medications | glucocorticoid administration
+  01-01 15:33 pulmonary | consultations | Pulmonary medicine consultation
+  01-01 15:33 pain / agitation / altered mentation | systemic glucocorticoid | methylprednisolone
+  01-01 15:33 pain / agitation / altered mentation | analgesics | oral analgesics
+  01-01 15:33 medications | stress ulcer prophylaxis | omeprazole
+  01-01 15:33 antibacterials | macrolide | azithromycin
+  01-01 15:33 pulmonary | ventilation and oxygenation | non-invasive ventilation
+  01-01 15:33 analgesics | non-narcotic analgesic | acetaminophen
+  01-01 15:33 medications | antibacterials | vancomycin
+  01-01 15:33 medications | bronchodilator | beta-agonist
+  01-01 15:33 VTE prophylaxis | low molecular weight heparin | enoxaparin
+  01-01 15:33 medications | bronchodilator | nebulized
+  01-01 15:33 myocardial ischemia / infarction | antiplatelet agent | aspirin
+  01-01 15:33 seizure therapy | anticonvulsant | gabapentin
+
+## Microbiology

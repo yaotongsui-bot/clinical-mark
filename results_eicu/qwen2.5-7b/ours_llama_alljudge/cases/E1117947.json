@@ -1,0 +1,288 @@
+{
+ "case_id": "E1117947",
+ "decision_point": "2100-01-02 06:58:00",
+ "claims": [
+  "Monitor blood glucose levels closely and adjust insulin therapy if necessary.",
+  "Continue non-invasive ventilation to support respiratory function.",
+  "Assess for signs of infection and consider adjusting antibiotic therapy if needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1117947A1::01",
+   "claim_id": "E1117947A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy if necessary.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1117947A1::02",
+   "claim_id": "E1117947A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy if necessary.",
+   "kind": "action",
+   "text": "Adjust insulin therapy if necessary.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1117947A2::03",
+   "claim_id": "E1117947A2",
+   "claim_text": "Continue non-invasive ventilation to support respiratory function.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1117947A2::04",
+   "claim_id": "E1117947A2",
+   "claim_text": "Continue non-invasive ventilation to support respiratory function.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1117947A3::05",
+   "claim_id": "E1117947A3",
+   "claim_text": "Assess for signs of infection and consider adjusting antibiotic therapy if needed.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1117947A3::06",
+   "claim_id": "E1117947A3",
+   "claim_text": "Assess for signs of infection and consider adjusting antibiotic therapy if needed.",
+   "kind": "action",
+   "text": "Consider adjusting antibiotic therapy if needed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1117947A2::04",
+   "claim_id": "E1117947A2",
+   "claim_text": "Continue non-invasive ventilation to support respiratory function.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records state that the patient is on non-invasive ventilation, but the most recent relevant rows show that the patient's blood pressure is fluctuating and not necessarily supported by the ventilation. The records do not show that the ventilation was discontinued or changed to invasive ventilation.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:31336792",
+     "time": "2100-01-01 07:31:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1117947A1::01",
+   "claim_id": "E1117947A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy if necessary.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:262472690",
+     "time": "2100-01-02 10:23:00",
+     "item": "glucose",
+     "value": "175.0 mg/dL"
+    },
+    {
+     "rid": "lab:272642071",
+     "time": "2100-01-02 12:30:00",
+     "item": "glucose",
+     "value": "192.0 mg/dl"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x9.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1117947A1::02",
+   "claim_id": "E1117947A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy if necessary.",
+   "kind": "action",
+   "text": "Adjust insulin therapy if necessary.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1117947A2::03",
+   "claim_id": "E1117947A2",
+   "claim_text": "Continue non-invasive ventilation to support respiratory function.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (65 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:71762421",
+     "time": "2100-01-02 07:00:00",
+     "item": "ventilator setting",
+     "value": "80.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:71777427",
+     "time": "2100-01-02 07:45:00",
+     "item": "ventilator setting",
+     "value": "80.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:75892888",
+     "time": "2100-01-02 08:00:00",
+     "item": "ventilator setting",
+     "value": "80.0 %",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1117947A3::05",
+   "claim_id": "E1117947A3",
+   "claim_text": "Assess for signs of infection and consider adjusting antibiotic therapy if needed.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1117947A3::06",
+   "claim_id": "E1117947A3",
+   "claim_text": "Assess for signs of infection and consider adjusting antibiotic therapy if needed.",
+   "kind": "action",
+   "text": "Consider adjusting antibiotic therapy if needed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on non-invasive ventilation. -- The records state that the patient is on non-invasive ventilation, but the most recent relevant rows show that the patient's blood pressure is fluctuating and not necessarily supported by the ventilation. The records do not show that the ventilation was discontinued or changed to invasive ventilation."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

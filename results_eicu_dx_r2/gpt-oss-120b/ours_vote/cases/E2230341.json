@@ -1,0 +1,328 @@
+{
+ "case_id": "E2230341",
+ "decision_point": "2100-01-02 14:38:00",
+ "claims": [
+  "Continue eptifibatide infusion at the current rate and monitor for bleeding complications.",
+  "Obtain serial cardiac enzyme labs (troponin) to assess for peri‑procedural myocardial injury.",
+  "Monitor platelet count and hemoglobin every 6 hours while on the glycoprotein IIb/IIIa inhibitor."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2230341A1::01",
+   "claim_id": "E2230341A1",
+   "claim_text": "Continue eptifibatide infusion at the current rate and monitor for bleeding complications.",
+   "kind": "action",
+   "text": "Continue eptifibatide infusion at the current rate.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "eptifibatide",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E2230341A1::02",
+   "claim_id": "E2230341A1",
+   "claim_text": "Continue eptifibatide infusion at the current rate and monitor for bleeding complications.",
+   "kind": "fact",
+   "text": "Eptifibatide infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2230341A1::03",
+   "claim_id": "E2230341A1",
+   "claim_text": "Continue eptifibatide infusion at the current rate and monitor for bleeding complications.",
+   "kind": "action",
+   "text": "Monitor for bleeding complications.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "bleeding complications",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2230341A2::04",
+   "claim_id": "E2230341A2",
+   "claim_text": "Obtain serial cardiac enzyme labs (troponin) to assess for peri‑procedural myocardial injury.",
+   "kind": "action",
+   "text": "Obtain serial troponin labs.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "troponin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E2230341A3::05",
+   "claim_id": "E2230341A3",
+   "claim_text": "Monitor platelet count and hemoglobin every 6 hours while on the glycoprotein IIb/IIIa inhibitor.",
+   "kind": "action",
+   "text": "Monitor platelet count every 6 hours.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "platelet count",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2230341A3::06",
+   "claim_id": "E2230341A3",
+   "claim_text": "Monitor platelet count and hemoglobin every 6 hours while on the glycoprotein IIb/IIIa inhibitor.",
+   "kind": "action",
+   "text": "Monitor hemoglobin every 6 hours.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2230341A3::07",
+   "claim_id": "E2230341A3",
+   "claim_text": "Monitor platelet count and hemoglobin every 6 hours while on the glycoprotein IIb/IIIa inhibitor.",
+   "kind": "fact",
+   "text": "The patient is currently on a glycoprotein IIb/IIIa inhibitor.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2230341A1::02",
+   "claim_id": "E2230341A1",
+   "claim_text": "Continue eptifibatide infusion at the current rate and monitor for bleeding complications.",
+   "kind": "fact",
+   "text": "Eptifibatide infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The most recent documented eptifibatide infusion ran from 04:24 to 09:05 on 2100-01-02 and had ended before the 14:38 decision time; no ongoing administration is documented.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Eptifibatide ():826",
+     "time": "2100-01-02 04:24:00",
+     "item": "Infusion/input Eptifibatide at 100 (2100-01-02 04:24:00 to 2100-01-02 09:05:00)"
+    },
+    {
+     "rid": "inf:Eptifibatide (ml/hr):862",
+     "time": "2100-01-02 05:00:00",
+     "item": "Infusion/input Eptifibatide at 20.6 ml/hour (2100-01-02 05:00:00 to 2100-01-02 05:00:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2230341A3::07",
+   "claim_id": "E2230341A3",
+   "claim_text": "Monitor platelet count and hemoglobin every 6 hours while on the glycoprotein IIb/IIIa inhibitor.",
+   "kind": "fact",
+   "text": "The patient is currently on a glycoprotein IIb/IIIa inhibitor.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show an Eptifibatide infusion running from 2100-01-01 17:58 to 2100-01-02 00:24, which overlaps with the decision time of 2100-01-01 14:38. Eptifibatide is a glycoprotein IIb/IIIa inhibitor, so the statement is supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Eptifibatide ():200",
+     "time": "2100-01-01 17:58:00",
+     "item": "Infusion/input Eptifibatide at 100 (2100-01-01 17:58:00 to 2100-01-02 00:24:00)"
+    },
+    {
+     "rid": "inf:Eptifibatide ():826",
+     "time": "2100-01-02 04:24:00",
+     "item": "Infusion/input Eptifibatide at 100 (2100-01-02 04:24:00 to 2100-01-02 09:05:00)"
+    },
+    {
+     "rid": "inf:Eptifibatide (ml/hr):862",
+     "time": "2100-01-02 05:00:00",
+     "item": "Infusion/input Eptifibatide at 20.6 ml/hour (2100-01-02 05:00:00 to 2100-01-02 05:00:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2230341A1::01",
+   "claim_id": "E2230341A1",
+   "claim_text": "Continue eptifibatide infusion at the current rate and monitor for bleeding complications.",
+   "kind": "action",
+   "text": "Continue eptifibatide infusion at the current rate.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "eptifibatide",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2230341A1::03",
+   "claim_id": "E2230341A1",
+   "claim_text": "Continue eptifibatide infusion at the current rate and monitor for bleeding complications.",
+   "kind": "action",
+   "text": "Monitor for bleeding complications.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "bleeding complications",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2230341A2::04",
+   "claim_id": "E2230341A2",
+   "claim_text": "Obtain serial cardiac enzyme labs (troponin) to assess for peri‑procedural myocardial injury.",
+   "kind": "action",
+   "text": "Obtain serial troponin labs.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "troponin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2230341A3::05",
+   "claim_id": "E2230341A3",
+   "claim_text": "Monitor platelet count and hemoglobin every 6 hours while on the glycoprotein IIb/IIIa inhibitor.",
+   "kind": "action",
+   "text": "Monitor platelet count every 6 hours.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "platelet count",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:508092758",
+     "time": "2100-01-02 14:52:00",
+     "item": "platelets",
+     "value": "247.0 K/uL"
+    }
+   ],
+   "reason": "Measured in the 1.7 h observation window after the decision (24 h or until ICU discharge): platelets x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2230341A3::06",
+   "claim_id": "E2230341A3",
+   "claim_text": "Monitor platelet count and hemoglobin every 6 hours while on the glycoprotein IIb/IIIa inhibitor.",
+   "kind": "action",
+   "text": "Monitor hemoglobin every 6 hours.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:508092752",
+     "time": "2100-01-02 14:52:00",
+     "item": "hemoglobin",
+     "value": "14.2 GM/DL"
+    }
+   ],
+   "reason": "Measured in the 1.7 h observation window after the decision (24 h or until ICU discharge): hemoglobin x1.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 1.7,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Eptifibatide infusion is currently being given. -- The most recent documented eptifibatide infusion ran from 04:24 to 09:05 on 2100-01-02 and had ended before the 14:38 decision time; no ongoing administration is documented."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

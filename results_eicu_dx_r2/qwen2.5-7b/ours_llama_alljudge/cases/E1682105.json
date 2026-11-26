@@ -1,0 +1,314 @@
+{
+ "case_id": "E1682105",
+ "decision_point": "2100-01-02 13:56:00",
+ "claims": [
+  "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+  "Monitor electrolyte levels, particularly calcium and potassium.",
+  "Administer sodium chloride 0.9% IV as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1682105A1::01",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1682105A1::02",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1682105A1::03",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+   "kind": "fact",
+   "text": "PEEP is set at 5 cmH2O.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1682105A2::04",
+   "claim_id": "E1682105A2",
+   "claim_text": "Monitor electrolyte levels, particularly calcium and potassium.",
+   "kind": "action",
+   "text": "Monitor calcium.",
+   "concept": "calcium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "calcium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1682105A2::05",
+   "claim_id": "E1682105A2",
+   "claim_text": "Monitor electrolyte levels, particularly calcium and potassium.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1682105A3::06",
+   "claim_id": "E1682105A3",
+   "claim_text": "Administer sodium chloride 0.9% IV as needed.",
+   "kind": "action",
+   "text": "Administer sodium chloride 0.9% IV as needed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "sodium chloride 0.9% IV",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1682105A1::02",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The statement says the patient is currently on mechanical ventilation, but the most recent relevant record (R13) shows that the patient was on mechanical ventilation at 15:15, but there is no record of the patient being on mechanical ventilation at the decision time (13:56).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:45020294",
+     "time": "2100-01-01 15:17:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1682105A1::03",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+   "kind": "fact",
+   "text": "PEEP is set at 5 cmH2O.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show that PEEP was set at 5 cmH2O at 09:52 on 2100-01-02, which is within the 24 hours before the decision time of 2100-01-02 13:56:00.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "resp:118788608",
+     "time": "2100-01-02 09:52:00",
+     "item": "PEEP set: 5 cmH2O"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1682105A1::01",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue mechanical ventilation with PEEP set at 5 cmH2O.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (93 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:121400689",
+     "time": "2100-01-02 14:00:00",
+     "item": "ventilator setting",
+     "value": "60.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:120193107",
+     "time": "2100-01-02 14:15:00",
+     "item": "ventilator setting",
+     "value": "60.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:126640482",
+     "time": "2100-01-02 14:30:00",
+     "item": "ventilator setting",
+     "value": "60.0 %",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1682105A2::04",
+   "claim_id": "E1682105A2",
+   "claim_text": "Monitor electrolyte levels, particularly calcium and potassium.",
+   "kind": "action",
+   "text": "Monitor calcium.",
+   "concept": "calcium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "calcium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:387664522",
+     "time": "2100-01-02 19:05:00",
+     "item": "calcium",
+     "value": "7.7 mg/dL"
+    },
+    {
+     "rid": "lab:389801929",
+     "time": "2100-01-03 01:05:00",
+     "item": "calcium",
+     "value": "6.9 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): calcium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1682105A2::05",
+   "claim_id": "E1682105A2",
+   "claim_text": "Monitor electrolyte levels, particularly calcium and potassium.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:387664516",
+     "time": "2100-01-02 19:05:00",
+     "item": "potassium",
+     "value": "4.3 mmol/L"
+    },
+    {
+     "rid": "lab:389801924",
+     "time": "2100-01-03 01:05:00",
+     "item": "potassium",
+     "value": "4.7 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1682105A3::06",
+   "claim_id": "E1682105A3",
+   "claim_text": "Administer sodium chloride 0.9% IV as needed.",
+   "kind": "action",
+   "text": "Administer sodium chloride 0.9% IV as needed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "sodium chloride 0.9% IV",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The statement says the patient is currently on mechanical ventilation, but the most recent relevant record (R13) shows that the patient was on mechanical ventilation at 15:15, but there is no record of the patient being on mechanical ventilation at the decision time (13:56)."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

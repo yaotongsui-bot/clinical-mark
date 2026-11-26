@@ -1,0 +1,298 @@
+{
+ "case_id": "E876429",
+ "decision_point": "2100-01-02 19:53:00",
+ "claims": [
+  "Continue monitoring vital signs and respiratory status.",
+  "Administer intravenous fluids as ordered.",
+  "Monitor and adjust vasopressor therapy as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E876429A1::01",
+   "claim_id": "E876429A1",
+   "claim_text": "Continue monitoring vital signs and respiratory status.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E876429A1::02",
+   "claim_id": "E876429A1",
+   "claim_text": "Continue monitoring vital signs and respiratory status.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E876429A2::03",
+   "claim_id": "E876429A2",
+   "claim_text": "Administer intravenous fluids as ordered.",
+   "kind": "action",
+   "text": "Administer intravenous fluids as ordered.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E876429A3::04",
+   "claim_id": "E876429A3",
+   "claim_text": "Monitor and adjust vasopressor therapy as needed.",
+   "kind": "action",
+   "text": "Monitor vasopressor therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vasopressor therapy",
+   "conditional": false
+  },
+  {
+   "atom_id": "E876429A3::05",
+   "claim_id": "E876429A3",
+   "claim_text": "Monitor and adjust vasopressor therapy as needed.",
+   "kind": "action",
+   "text": "Adjust vasopressor therapy as needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "vasopressor therapy",
+   "conditional": true,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "E876429A1::01",
+   "claim_id": "E876429A1",
+   "claim_text": "Continue monitoring vital signs and respiratory status.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:474606395",
+     "time": "2100-01-02 20:00:00",
+     "item": "heart rate",
+     "value": "77.0 bpm"
+    },
+    {
+     "rid": "nurse:482182909",
+     "time": "2100-01-02 21:00:00",
+     "item": "heart rate",
+     "value": "78.0 bpm"
+    },
+    {
+     "rid": "nurse:497171877",
+     "time": "2100-01-02 20:00:00",
+     "item": "systolic BP",
+     "value": "122.0 mmHg"
+    },
+    {
+     "rid": "nurse:461262415",
+     "time": "2100-01-02 20:00:00",
+     "item": "systolic BP",
+     "value": "135.0 mmHg"
+    },
+    {
+     "rid": "nurse:497171876",
+     "time": "2100-01-02 20:00:00",
+     "item": "mean arterial pressure",
+     "value": "85.0 mmHg"
+    },
+    {
+     "rid": "nurse:461262414",
+     "time": "2100-01-02 20:00:00",
+     "item": "mean arterial pressure",
+     "value": "93.0 mmHg"
+    },
+    {
+     "rid": "nurse:507427549",
+     "time": "2100-01-02 20:00:00",
+     "item": "respiratory rate",
+     "value": "16.0 insp/min"
+    },
+    {
+     "rid": "nurse:485289375",
+     "time": "2100-01-02 21:00:00",
+     "item": "respiratory rate",
+     "value": "15.0 insp/min"
+    },
+    {
+     "rid": "nurse:545780008",
+     "time": "2100-01-03 00:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:453039024",
+     "time": "2100-01-03 01:00:00",
+     "item": "SpO2",
+     "value": "93.0 %"
+    },
+    {
+     "rid": "nurse:487248930",
+     "time": "2100-01-02 20:00:00",
+     "item": "temperature",
+     "value": "99.5 F"
+    },
+    {
+     "rid": "nurse:542352915",
+     "time": "2100-01-02 23:00:00",
+     "item": "temperature",
+     "value": "98.8 F"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x22, systolic BP x38, mean arterial pressure x37, respiratory rate x22, SpO2 x18, temperature x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E876429A1::02",
+   "claim_id": "E876429A1",
+   "claim_text": "Continue monitoring vital signs and respiratory status.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:507427549",
+     "time": "2100-01-02 20:00:00",
+     "item": "respiratory rate",
+     "value": "16.0 insp/min"
+    },
+    {
+     "rid": "nurse:485289375",
+     "time": "2100-01-02 21:00:00",
+     "item": "respiratory rate",
+     "value": "15.0 insp/min"
+    },
+    {
+     "rid": "nurse:545780008",
+     "time": "2100-01-03 00:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:453039024",
+     "time": "2100-01-03 01:00:00",
+     "item": "SpO2",
+     "value": "93.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x22, SpO2 x18.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E876429A2::03",
+   "claim_id": "E876429A2",
+   "claim_text": "Administer intravenous fluids as ordered.",
+   "kind": "action",
+   "text": "Administer intravenous fluids as ordered.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E876429A3::04",
+   "claim_id": "E876429A3",
+   "claim_text": "Monitor and adjust vasopressor therapy as needed.",
+   "kind": "action",
+   "text": "Monitor vasopressor therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vasopressor therapy",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E876429A3::05",
+   "claim_id": "E876429A3",
+   "claim_text": "Monitor and adjust vasopressor therapy as needed.",
+   "kind": "action",
+   "text": "Adjust vasopressor therapy as needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "vasopressor therapy",
+   "conditional": true,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

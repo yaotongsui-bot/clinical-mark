@@ -1,0 +1,358 @@
+{
+ "case_id": "E1090889",
+ "decision_point": "2100-01-02 22:00:00",
+ "claims": [
+  "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+  "Obtain a chest radiograph to assess for pulmonary infiltrates or complications.",
+  "Monitor serum sodium and consider correction if hyponatremia persists."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1090889A1::01",
+   "claim_id": "E1090889A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1090889A1::02",
+   "claim_id": "E1090889A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1090889A1::03",
+   "claim_id": "E1090889A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1090889A2::04",
+   "claim_id": "E1090889A2",
+   "claim_text": "Obtain a chest radiograph to assess for pulmonary infiltrates or complications.",
+   "kind": "action",
+   "text": "Obtain a chest radiograph.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "chest radiograph",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1090889A2::05",
+   "claim_id": "E1090889A2",
+   "claim_text": "Obtain a chest radiograph to assess for pulmonary infiltrates or complications.",
+   "kind": "action",
+   "text": "Assess for pulmonary infiltrates or complications.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pulmonary infiltrates or complications",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1090889A3::06",
+   "claim_id": "E1090889A3",
+   "claim_text": "Monitor serum sodium and consider correction if hyponatremia persists.",
+   "kind": "action",
+   "text": "Monitor serum sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum sodium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1090889A3::08",
+   "claim_id": "E1090889A3",
+   "claim_text": "Monitor serum sodium and consider correction if hyponatremia persists.",
+   "kind": "action",
+   "text": "Consider correction if hyponatremia persists.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sodium",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1090889A1::01",
+   "claim_id": "E1090889A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The patient is currently on mechanical ventilation, but the records show that the ventilator settings were changed at 16:47, and the PEEP and tidal volume were set to 5 cmH2O and 450 mL, respectively. However, the records also show that the patient was not receiving mechanical ventilation at 13:00, and the respiratory rate was 0 insp/min.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:31264474",
+     "time": "2100-01-01 22:47:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    },
+    {
+     "rid": "resp:74576770",
+     "time": "2100-01-02 16:47:00",
+     "item": "PEEP set: 5 cmH2O"
+    },
+    {
+     "rid": "resp:74576771",
+     "time": "2100-01-02 16:47:00",
+     "item": "Tidal Volume (set): 450 mL"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1090889A1::02",
+   "claim_id": "E1090889A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (9 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:76580280",
+     "time": "2100-01-03 04:57:00",
+     "item": "ventilator setting",
+     "value": "40.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:76580283",
+     "time": "2100-01-03 04:57:00",
+     "item": "ventilator setting",
+     "value": "5.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:76580284",
+     "time": "2100-01-03 04:57:00",
+     "item": "ventilator setting",
+     "value": "450.0 mL",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1090889A1::03",
+   "claim_id": "E1090889A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:705842682",
+     "time": "2100-01-03 01:00:00",
+     "item": "respiratory rate",
+     "value": "23.0 insp/min"
+    },
+    {
+     "rid": "nurse:713658229",
+     "time": "2100-01-03 05:00:00",
+     "item": "respiratory rate",
+     "value": "21.0 insp/min"
+    },
+    {
+     "rid": "nurse:676195130",
+     "time": "2100-01-03 01:00:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    },
+    {
+     "rid": "nurse:707144696",
+     "time": "2100-01-03 05:00:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    },
+    {
+     "rid": "resp:76580280",
+     "time": "2100-01-03 04:57:00",
+     "item": "ventilator settings",
+     "value": "40.0 %"
+    },
+    {
+     "rid": "resp:76580283",
+     "time": "2100-01-03 04:57:00",
+     "item": "ventilator settings",
+     "value": "5.0 cmH2O"
+    }
+   ],
+   "reason": "Measured in the 20.3 h observation window after the decision (24 h or until ICU discharge): respiratory rate x4, SpO2 x4, ventilator settings x9.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1090889A2::04",
+   "claim_id": "E1090889A2",
+   "claim_text": "Obtain a chest radiograph to assess for pulmonary infiltrates or complications.",
+   "kind": "action",
+   "text": "Obtain a chest radiograph.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "chest radiograph",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 20.3 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1090889A2::05",
+   "claim_id": "E1090889A2",
+   "claim_text": "Obtain a chest radiograph to assess for pulmonary infiltrates or complications.",
+   "kind": "action",
+   "text": "Assess for pulmonary infiltrates or complications.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pulmonary infiltrates or complications",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1090889A3::06",
+   "claim_id": "E1090889A3",
+   "claim_text": "Monitor serum sodium and consider correction if hyponatremia persists.",
+   "kind": "action",
+   "text": "Monitor serum sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum sodium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:262475914",
+     "time": "2100-01-03 10:05:00",
+     "item": "sodium",
+     "value": "132.0 mmol/l"
+    }
+   ],
+   "reason": "Measured in the 20.3 h observation window after the decision (24 h or until ICU discharge): sodium x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1090889A3::08",
+   "claim_id": "E1090889A3",
+   "claim_text": "Monitor serum sodium and consider correction if hyponatremia persists.",
+   "kind": "action",
+   "text": "Consider correction if hyponatremia persists.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sodium",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 20.3,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The patient is currently on mechanical ventilation, but the records show that the ventilator settings were changed at 16:47, and the PEEP and tidal volume were set to 5 cmH2O and 450 mL, respectively. However, the records also show that the patient was not receiving mechanical ventilation at 13:00, and the respiratory rate was 0 insp/min."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

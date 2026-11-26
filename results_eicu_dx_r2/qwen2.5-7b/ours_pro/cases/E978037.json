@@ -1,0 +1,274 @@
+{
+ "case_id": "E978037",
+ "decision_point": "2100-01-02 04:37:00",
+ "claims": [
+  "Monitor blood glucose levels closely and adjust insulin administration as needed.",
+  "Continue intravenous fluid therapy with normal saline.",
+  "Assess for signs of delirium and adjust sedation levels accordingly."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E978037A1::01",
+   "claim_id": "E978037A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin administration as needed.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E978037A1::02",
+   "claim_id": "E978037A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin administration as needed.",
+   "kind": "action",
+   "text": "Adjust insulin administration as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E978037A2::03",
+   "claim_id": "E978037A2",
+   "claim_text": "Continue intravenous fluid therapy with normal saline.",
+   "kind": "action",
+   "text": "Continue intravenous fluid therapy with normal saline.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "normal saline",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E978037A2::04",
+   "claim_id": "E978037A2",
+   "claim_text": "Continue intravenous fluid therapy with normal saline.",
+   "kind": "fact",
+   "text": "Intravenous fluid therapy with normal saline is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E978037A3::05",
+   "claim_id": "E978037A3",
+   "claim_text": "Assess for signs of delirium and adjust sedation levels accordingly.",
+   "kind": "action",
+   "text": "Assess for signs of delirium.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "delirium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E978037A3::06",
+   "claim_id": "E978037A3",
+   "claim_text": "Assess for signs of delirium and adjust sedation levels accordingly.",
+   "kind": "action",
+   "text": "Adjust sedation levels accordingly.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E978037A2::04",
+   "claim_id": "E978037A2",
+   "claim_text": "Continue intravenous fluid therapy with normal saline.",
+   "kind": "fact",
+   "text": "Intravenous fluid therapy with normal saline is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R10 and R13 show normal saline (Sodium Chloride 0.9%) running at the decision time, and R26 documents normal saline administration. This supports the statement that intravenous fluid therapy with normal saline is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:36000257",
+     "time": "2100-01-01 03:17:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 03:17:00): Medication Sodium Chloride 0.9% 1,000 mL IV"
+    },
+    {
+     "rid": "med:36038089",
+     "time": "2100-01-01 03:21:00",
+     "item": "Medication Sodium Chloride 0.9% 1,000 mL IV (2100-01-01 03:21:00 to 2100-01-01 09:48:00)"
+    },
+    {
+     "rid": "treat:27924482",
+     "time": "2100-01-01 05:28:00",
+     "item": "Treatment documented: cardiovascular | intravenous fluid | normal saline administration"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E978037A1::01",
+   "claim_id": "E978037A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin administration as needed.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:227887808",
+     "time": "2100-01-02 10:00:00",
+     "item": "glucose",
+     "value": "181.0 mg/dL"
+    },
+    {
+     "rid": "lab:231434102",
+     "time": "2100-01-02 12:28:00",
+     "item": "glucose",
+     "value": "206.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 17.9 h observation window after the decision (24 h or until ICU discharge): glucose x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E978037A1::02",
+   "claim_id": "E978037A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin administration as needed.",
+   "kind": "action",
+   "text": "Adjust insulin administration as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 17.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E978037A2::03",
+   "claim_id": "E978037A2",
+   "claim_text": "Continue intravenous fluid therapy with normal saline.",
+   "kind": "action",
+   "text": "Continue intravenous fluid therapy with normal saline.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "normal saline",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 17.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E978037A3::05",
+   "claim_id": "E978037A3",
+   "claim_text": "Assess for signs of delirium and adjust sedation levels accordingly.",
+   "kind": "action",
+   "text": "Assess for signs of delirium.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "delirium",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E978037A3::06",
+   "claim_id": "E978037A3",
+   "claim_text": "Assess for signs of delirium and adjust sedation levels accordingly.",
+   "kind": "action",
+   "text": "Adjust sedation levels accordingly.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 17.9 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 17.9,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

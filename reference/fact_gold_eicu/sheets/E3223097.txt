@@ -1,0 +1,116 @@
+# E3223097   T = 2100-01-02 22:45:00   records before T: 298
+ICU stay 3223097 (Med-Surg ICU; Male, age 73; admission diagnosis: Bleeding, upper GI).
+
+## Atoms
+deepseek-v4.1-flash|E3223097A1::02 [presupposition] Octreotide infusion is currently being given.   <- Continue octreotide infusion at 50 mcg/hour for variceal bleeding.
+deepseek-v4.1-flash|E3223097A1::03 [observed] Variceal bleeding is present.   <- Continue octreotide infusion at 50 mcg/hour for variceal bleeding.
+deepseek-v4.1-flash|E3223097A2::06 [presupposition] Hyperkalemia is present.   <- Monitor serum potassium and treat hyperkalemia as indicated.
+deepseek-v4.1-flash|E3223097A3::09 [observed] Ongoing bleeding is present.   <- Monitor blood pressure and hemoglobin for ongoing bleeding and hemodynamic instability.
+deepseek-v4.1-flash|E3223097A3::10 [observed] Hemodynamic instability is present.   <- Monitor blood pressure and hemoglobin for ongoing bleeding and hemodynamic instability.
+gpt-oss-120b|E3223097A1::02 [presupposition] Octreotide infusion is currently being given.   <- Continue octreotide infusion at 50 mcg/hour for variceal bleeding control.
+gpt-oss-120b|E3223097A1::03 [judgment] Variceal bleeding is present.   <- Continue octreotide infusion at 50 mcg/hour for variceal bleeding control.
+gpt-oss-120b|E3223097A2::05 [observed] Hypotension is present.   <- Administer a bolus of isotonic crystalloid (e.g., 500 mL normal saline) to address persistent hypotension (SBP ≈ 85‑95 mmHg).
+gpt-oss-120b|E3223097A2::06 [observed] SBP is 85-95 mmHg.   <- Administer a bolus of isotonic crystalloid (e.g., 500 mL normal saline) to address persistent hypotension (SBP ≈ 85‑95 mmHg).
+gpt-oss-120b|E3223097A3::09 [observed] Hyperkalemia is present.   <- Monitor serum potassium and renal function q4 h given recent hyper‑kalemia and acute kidney injury.
+gpt-oss-120b|E3223097A3::10 [observed] Acute kidney injury is present.   <- Monitor serum potassium and renal function q4 h given recent hyper‑kalemia and acute kidney injury.
+qwen2.5-7b|E3223097A2::04 [presupposition] IV morphine is currently being given.   <- Continue pain management with IV morphine as needed.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-02 03:00:00): Medication ESOMEPRAZOLE INJ IV
+  Running at decision time (scheduled order started 2100-01-02 04:30:00): Medication SODIUM CHLORIDE 0.9% IV
+  Running at decision time (started 2100-01-02 09:00:00): Infusion/input Octreotide at 50 mcg/hour
+
+## PRN orders
+  01-01 22:00 Order: SODIUM CHLORIDE 0.9% IV PRN (stopped 2100-01-02 09:59:00)
+  01-02 01:00 Order: MORPHINE INJ IV PUSH Q2H PRN (active at decision time)
+  01-02 13:30 Order: SODIUM CHLORIDE 0.9% IV PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication SODIUM CHLORIDE 0.9% IV (2100-01-01 20:37:00 to 2100-01-02 04:36:00)
+  Medication INSULIN HUMAN REGULAR IV PUSH ONETIME (2100-01-01 21:15:00 to 2100-01-01 21:16:00)
+  Medication DEXTROSE 50% INJ IV PUSH ONETIME (2100-01-01 21:15:00 to 2100-01-01 21:16:00)
+  Medication DEXTROSE 50% INJ IV PUSH ONETIME (2100-01-02 01:15:00 to 2100-01-02 01:16:00)
+  Medication INSULIN HUMAN REGULAR IV PUSH ONETIME (2100-01-02 01:30:00 to 2100-01-02 01:31:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-02 08:10 0.3 %; 01-02 01:59 0.3 %
+  -eos: 01-02 08:10 1.2 %; 01-02 01:59 0.5 %
+  -lymphs: 01-02 08:10 5 %; 01-02 01:59 3.6 %
+  -monos: 01-02 08:10 10.9 %; 01-02 01:59 10.4 %
+  -polys: 01-02 08:10 82.6 %; 01-02 01:59 85.2 %
+  Alanine Aminotransferase (ALT): 01-02 08:10 119 IU/L; 01-02 01:59 54 IU/L
+  Albumin: 01-02 08:10 1.7 g/dL; 01-02 01:59 2.5 g/dL
+  Alkaline Phosphatase: 01-02 08:10 61 IU/L; 01-02 01:59 86 IU/L
+  Anion Gap: 01-02 08:10 7; 01-02 03:10 10; 01-02 01:59 14
+  Asparate Aminotransferase (AST): 01-02 08:10 90 IU/L; 01-02 01:59 65 IU/L
+  Bicarbonate: 01-02 08:10 15 mmol/L; 01-02 03:10 19 mmol/L; 01-02 01:59 18 mmol/L
+  Bilirubin, Total: 01-02 08:10 1.5 mg/dL; 01-02 01:59 0.9 mg/dL
+  Calcium, Total: 01-02 08:10 5.8 mg/dL; 01-02 03:10 8.4 mg/dL; 01-02 01:59 8 mg/dL
+  Chloride: 01-02 08:10 111 mmol/L; 01-02 03:10 103 mmol/L; 01-02 01:59 97 mmol/L
+  Creatinine: 01-02 08:10 1.06 mg/dL; 01-02 03:10 1.58 mg/dL; 01-02 01:59 1.69 mg/dL
+  Free Calcium: 01-02 15:56 4.6 mmol/L
+  Glucose: 01-02 08:10 175 mg/dL; 01-02 03:10 126 mg/dL; 01-02 01:59 135 mg/dL
+  Glucose finger stick: 01-01 21:28 128 mg/dl
+  Hematocrit: 01-02 08:10 20.8 %; 01-02 01:59 22.6 %
+  Hemoglobin: 01-02 08:10 7.2 g/dL; 01-02 01:59 7.5 g/dL
+  INR(PT): 01-02 06:43 1.6; 01-02 01:59 1.4
+  MCH: 01-02 08:10 32.4 pg; 01-02 01:59 30.9 pg
+  MCHC: 01-02 08:10 34.8 g/dL; 01-02 01:59 32.9 g/dL
+  MCV: 01-02 08:10 93.2 fL; 01-02 01:59 93.7 fL
+  MPV: 01-02 08:10 8 fl; 01-02 01:59 8.6 fl
+  Magnesium: 01-02 08:10 1.5 mg/dL
+  PT: 01-02 06:43 17.9 sec; 01-02 01:59 16.2 sec
+  PTT: 01-02 01:59 28.6 sec
+  Phosphate: 01-02 08:10 2.9 mg/dL
+  Platelet Count: 01-02 08:10 82 k/uL; 01-02 01:59 164 k/uL
+  Potassium: 01-02 08:10 4.2 mmol/L; 01-02 03:10 6.3 mmol/L; 01-02 01:59 6.9 mmol/L; 01-02 00:16 6.5 mmol/L
+  RBC: 01-02 08:10 2.23 m/uL; 01-02 01:59 2.42 m/uL
+  RDW: 01-02 08:10 16.3 %; 01-02 01:59 16.8 %
+  Sodium: 01-02 08:10 129 mmol/L; 01-02 03:10 126 mmol/L; 01-02 01:59 122 mmol/L
+  Urea Nitrogen: 01-02 08:10 54 mg/dL; 01-02 03:10 72 mg/dL; 01-02 01:59 71 mg/dL
+  White Blood Cells: 01-02 08:10 7.2 k/uL; 01-02 01:59 11.4 k/uL
+  total protein: 01-02 08:10 4.1 g/dL; 01-02 01:59 6.3 g/dL
+  urinary specific gravity: 01-02 01:59 1.015
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Arterial Blood Pressure diastolic: 55 mmHg @01-02 22:44   24h 40-70 (n=14)
+  Arterial Blood Pressure mean: 64 mmHg @01-02 22:44   24h 45-73 (n=14)
+  Arterial Blood Pressure systolic: 94 mmHg @01-02 22:44   24h 78-102 (n=14)
+  Glasgow coma score Eyes: 4 @01-02 01:00
+  Glasgow coma score GCS Total: 15 @01-02 01:00
+  Glasgow coma score Motor: 6 @01-02 01:00
+  Glasgow coma score Verbal: 5 @01-02 01:00
+  Heart Rate: 60 bpm @01-02 22:44   24h 60-60 (n=19)
+  Inspired O2 Fraction: 21 % @01-02 21:07   24h 21-21 (n=5)
+  Non Invasive Blood Pressure diastolic: 52 mmHg @01-02 21:05   24h 41-57 (n=5)
+  Non Invasive Blood Pressure mean: 66 mmHg @01-02 21:05   24h 51-66 (n=5)
+  Non Invasive Blood Pressure systolic: 104 mmHg @01-02 21:05   24h 83-104 (n=5)
+  O2 Delivery Device(s): None (charted: Room air) @01-02 22:44
+  O2 saturation pulseoxymetry: 99 % @01-02 21:05   24h 99-100 (n=5)
+  Pain Level: 0 @01-02 20:43   24h 0-9 (n=7)
+  Pain Present: Yes @01-02 20:43
+  Pain Score/Goal Pain Goal: 4 @01-02 20:43   24h 4-4 (n=7)
+  Respiratory Rate: 26 insp/min @01-02 22:44   24h 12-26 (n=19)
+  Respiratory Rate (spontaneous): 19 insp/min @01-02 21:07   24h 17-23 (n=5)
+  SaO2: 100 @01-02 22:44   24h 98-100 (n=19)
+  Temperature Fahrenheit: 99.3 F @01-02 22:44   24h 97.8-99.3 (n=13)
+  Temperature Location: Core urinary catheter @01-02 22:44   earlier: Oral @01-01 22:59
+
+## Treatments documented
+  01-01 23:21 endocrine | glucose metabolism | insulin
+  01-01 23:21 medications | hormonal therapy (for varices) | octreotide
+  01-01 23:21 medications | stress ulcer treatment | pantoprazole
+  01-01 23:21 gastrointestinal | intravenous fluid administration | blood product administration
+  01-01 23:21 medications | bicarbonate | sodium bicarbonate
+  01-01 23:21 vascular disorders | VTE prophylaxis | compression stockings
+  01-02 15:03 gastrointestinal | radiology, diagnostic and procedures | paracentesis
+  01-02 15:03 medications | bicarbonate | sodium bicarbonate
+  01-02 15:03 endocrine | glucose metabolism | insulin
+  01-02 15:03 nutrition | enteral feeds | oral feeds
+  01-02 15:03 gastrointestinal | intravenous fluid administration | blood product administration
+  01-02 15:03 medications | hormonal therapy (for varices) | octreotide
+  01-02 15:03 vascular disorders | VTE prophylaxis | compression stockings
+
+## Microbiology

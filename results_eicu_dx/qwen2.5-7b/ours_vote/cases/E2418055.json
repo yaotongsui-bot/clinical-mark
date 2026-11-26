@@ -1,0 +1,436 @@
+{
+ "case_id": "E2418055",
+ "decision_point": "2100-01-02 01:07:00",
+ "claims": [
+  "Continue mechanical ventilation with adjusted settings.",
+  "Monitor blood glucose levels and adjust insulin therapy as needed.",
+  "Administer intravenous magnesium and potassium to address electrolyte imbalances."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2418055A1::01",
+   "claim_id": "E2418055A1",
+   "claim_text": "Continue mechanical ventilation with adjusted settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2418055A1::02",
+   "claim_id": "E2418055A1",
+   "claim_text": "Continue mechanical ventilation with adjusted settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E2418055A1::03",
+   "claim_id": "E2418055A1",
+   "claim_text": "Continue mechanical ventilation with adjusted settings.",
+   "kind": "action",
+   "text": "Adjust mechanical ventilation settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "mechanical ventilation settings",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2418055A2::04",
+   "claim_id": "E2418055A2",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2418055A2::05",
+   "claim_id": "E2418055A2",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Adjust insulin therapy as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2418055A2::06",
+   "claim_id": "E2418055A2",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy as needed.",
+   "kind": "fact",
+   "text": "Insulin therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E2418055A3::07",
+   "claim_id": "E2418055A3",
+   "claim_text": "Administer intravenous magnesium and potassium to address electrolyte imbalances.",
+   "kind": "action",
+   "text": "Administer intravenous magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "magnesium",
+   "conditional": false,
+   "treatment_class": "magnesium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2418055A3::08",
+   "claim_id": "E2418055A3",
+   "claim_text": "Administer intravenous magnesium and potassium to address electrolyte imbalances.",
+   "kind": "action",
+   "text": "Administer intravenous potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2418055A3::09",
+   "claim_id": "E2418055A3",
+   "claim_text": "Administer intravenous magnesium and potassium to address electrolyte imbalances.",
+   "kind": "fact",
+   "text": "Electrolyte imbalances are present.",
+   "concept": "electrolytes",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2418055A1::02",
+   "claim_id": "E2418055A1",
+   "claim_text": "Continue mechanical ventilation with adjusted settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "resp:168839235",
+     "time": "2100-01-02 00:17:00",
+     "item": "Tidal Volume (set): 600 mL"
+    }
+   ],
+   "reason": "Ventilator charting 0.8 h before the decision ('Tidal Volume (set): 600 mL').",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E2418055A2::06",
+   "claim_id": "E2418055A2",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy as needed.",
+   "kind": "fact",
+   "text": "Insulin therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_addressed",
+   "reason": "No record of this treatment. (Panel verdict: supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    },
+    "panel_label": "supported"
+   },
+   "evidence": [
+    {
+     "rid": "med:82911235",
+     "time": "2100-01-01 21:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 21:00:00): Medication NOVOLOG subCUT q 4 hour"
+    },
+    {
+     "rid": "med:87018665",
+     "time": "2100-01-01 19:48:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 19:48:00): Medication NOVOLOG XX See Admin Notes"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2418055A3::09",
+   "claim_id": "E2418055A3",
+   "claim_text": "Administer intravenous magnesium and potassium to address electrolyte imbalances.",
+   "kind": "fact",
+   "text": "Electrolyte imbalances are present.",
+   "concept": "electrolytes",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:544448788",
+     "time": "2100-01-01 07:21:00",
+     "item": "Calcium, Total",
+     "value": 7.5,
+     "unit": "mg/dL",
+     "bounds": "8.4 to 10.3",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "'electrolytes abnormal' holds when any component is abnormal. sodium: no; potassium: no; chloride: no; bicarbonate: no; magnesium: no; calcium: yes.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2418055A1::01",
+   "claim_id": "E2418055A1",
+   "claim_text": "Continue mechanical ventilation with adjusted settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (23 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:170338414",
+     "time": "2100-01-02 04:20:00",
+     "item": "ventilator setting",
+     "value": "6.1 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:170338418",
+     "time": "2100-01-02 04:20:00",
+     "item": "ventilator setting",
+     "value": "10.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:169923479",
+     "time": "2100-01-02 07:55:00",
+     "item": "ventilator setting",
+     "value": "9.7 cmH2O",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2418055A1::03",
+   "claim_id": "E2418055A1",
+   "claim_text": "Continue mechanical ventilation with adjusted settings.",
+   "kind": "action",
+   "text": "Adjust mechanical ventilation settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "mechanical ventilation settings",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings changed after the decision (3 settings took different values).",
+   "evidence": [
+    {
+     "rid": "resp:170338414",
+     "time": "2100-01-02 04:20:00",
+     "item": "ventilator setting",
+     "value": "6.1 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:170338418",
+     "time": "2100-01-02 04:20:00",
+     "item": "ventilator setting",
+     "value": "10.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:169923479",
+     "time": "2100-01-02 07:55:00",
+     "item": "ventilator setting",
+     "value": "9.7 cmH2O",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2418055A2::04",
+   "claim_id": "E2418055A2",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:566333563",
+     "time": "2100-01-02 05:49:00",
+     "item": "glucose",
+     "value": "203.0 mg/dL"
+    },
+    {
+     "rid": "lab:539487503",
+     "time": "2100-01-02 08:37:00",
+     "item": "glucose",
+     "value": "303.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2418055A2::05",
+   "claim_id": "E2418055A2",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Adjust insulin therapy as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2418055A3::07",
+   "claim_id": "E2418055A3",
+   "claim_text": "Administer intravenous magnesium and potassium to address electrolyte imbalances.",
+   "kind": "action",
+   "text": "Administer intravenous magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "magnesium",
+   "conditional": false,
+   "treatment_class": "magnesium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No magnesium replacement action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2418055A3::08",
+   "claim_id": "E2418055A3",
+   "claim_text": "Administer intravenous magnesium and potassium to address electrolyte imbalances.",
+   "kind": "action",
+   "text": "Administer intravenous potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No potassium replacement action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.333,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Insulin therapy is currently being given. -- No record of this treatment. (Panel verdict: supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

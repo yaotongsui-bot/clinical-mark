@@ -1,0 +1,94 @@
+# E942382   T = 2100-01-02 15:23:00   records before T: 410
+ICU stay 942382 (Med-Surg ICU; Female, age > 89; admission diagnosis: Rhythm disturbance (atrial, supraventricular)).
+
+## Atoms
+deepseek-v4.1-flash|E942382A1::02 [presupposition] Diltiazem infusion is currently being given.   <- Continue diltiazem infusion for rate control of atrial arrhythmia.
+deepseek-v4.1-flash|E942382A1::03 [observed] Atrial arrhythmia is present.   <- Continue diltiazem infusion for rate control of atrial arrhythmia.
+deepseek-v4.1-flash|E942382A2::06 [observed] Bradycardia is present.   <- Monitor heart rate and blood pressure closely given bradycardia and intermittent hypotension.
+deepseek-v4.1-flash|E942382A2::07 [observed] Intermittent hypotension is present.   <- Monitor heart rate and blood pressure closely given bradycardia and intermittent hypotension.
+gpt-oss-120b|E942382A1::02 [presupposition] IV diltiazem infusion is currently being given.   <- Continue the IV diltiazem infusion to maintain rate control of atrial arrhythmia.
+gpt-oss-120b|E942382A1::03 [presupposition] Atrial arrhythmia is present.   <- Continue the IV diltiazem infusion to maintain rate control of atrial arrhythmia.
+qwen2.5-7b|E942382A1::03 [observed] Blood pressure has been fluctuating significantly.   <- Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.
+qwen2.5-7b|E942382A1::04 [observed] Respiratory rate has been fluctuating significantly.   <- Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.
+qwen2.5-7b|E942382A2::06 [presupposition] Diltiazem is currently being given.   <- Continue the administration of diltiazem to manage the patient's heart rate and rhythm.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2099-12-29 15:00:00): Medication ENOXAPARIN 40 MG/0.4 ML SYR SubQ Q24H
+  Running at decision time (scheduled order started 2099-12-29 15:09:00): Medication ASPIRIN 81 MG EC TAB PO DAILY
+  Running at decision time (scheduled order started 2099-12-29 15:10:00): Medication CLOPIDOGREL 75 MG TAB PO DAILY
+  Running at decision time (scheduled order started 2100-01-02 03:00:00): Medication LISINOPRIL 10 MG TAB PO QHS
+
+## PRN orders
+  12-29 10:45 Order: acetaMINOPHEN 325 MG TAB PO Q4H PRN (active at decision time)
+  12-29 10:45 Order: LORazepam 0.5 MG TAB PO Q8H PRN (active at decision time)
+  12-29 15:08 Order: ONDANSETRON 2 MG/1 ML 2ML SDV INJ IV Push Q6H PRN (active at decision time)
+  12-29 15:10 Order: BISACODYL 10 MG RECT SUPP PR DAILY PRN (active at decision time)
+  12-29 15:27 Order: CALCIUM CARBONATE 500 MG CHEW TAB PO QID PRN (active at decision time)
+  12-31 01:11 Order: SENOKOT-S TAB PO BID PRN (active at decision time)
+  12-31 01:11 Order: POLYETHYLENE GLYCOL 3350 UDPWD PO DAILY PRN (active at decision time)
+  12-31 02:52 Order: MILK OF MAGNESIA UD LIQ 30 ML PO Q4H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Diltiazem at 7.25 ml/hour (2100-01-01 17:04:00 to 2100-01-01 17:04:00)
+
+## Medications given once or ended before T
+  Medication potassium CHLORIDE 20 MEQ TR TAB PO (2099-12-29 15:10:00 to 2099-12-29 15:56:00)
+  Medication LISINOPRIL 10 MG TAB PO BID (2099-12-29 15:24:00 to 2100-01-01 14:30:00)
+  Medication FUROSEMIDE 10 MG/1 ML 4ML SDV INJ IV Push 1XONLY (2099-12-30 14:28:00 to 2099-12-30 15:26:00)
+  Medication FUROSEMIDE 10 MG/1 ML 4ML SDV INJ IV Push 1XONLY (2099-12-30 20:57:00 to 2099-12-30 21:57:00)
+  Medication FUROSEMIDE 10 MG/1 ML 2ML SDV INJ IV 1XONLY (2099-12-30 21:23:00 to 2099-12-30 21:57:00)
+  Medication FUROSEMIDE 10 MG/1 ML 4ML SDV INJ IV Push 1XONLY (2099-12-31 13:51:00 to 2099-12-31 15:02:00)
+  Medication FUROSEMIDE 10 MG/1 ML 4ML SDV INJ IV Push 1XONLY (2099-12-31 19:57:00 to 2099-12-31 20:32:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-02 12:04 0 %; 01-01 11:45 0 %; 12-29 09:36 0 %
+  -eos: 01-02 12:04 3 %; 01-01 11:45 5 %; 12-29 09:36 3 %
+  -lymphs: 01-02 12:04 26 %; 01-01 11:45 24 %; 12-29 09:36 25 %
+  -monos: 01-02 12:04 6 %; 01-01 11:45 6 %; 12-29 09:36 5 %
+  -polys: 01-02 12:04 64 %; 01-01 11:45 64 %; 12-29 09:36 66 %
+  Alanine Aminotransferase (ALT): 12-29 09:36 44 U/L
+  Albumin: 12-29 09:36 3.6 g/dL
+  Alkaline Phosphatase: 12-29 09:36 114 U/L
+  Anion Gap: 01-02 12:04 6; 01-01 11:45 6; 12-31 11:51 7; 12-30 12:03 3; 12-29 09:36 8
+  Asparate Aminotransferase (AST): 12-29 09:36 40 U/L
+  BNP: 01-01 11:45 7200 pg/mL
+  Bicarbonate: 01-02 12:04 33 mmol/L; 01-01 11:45 31 mmol/L; 12-31 11:51 31 mmol/L; 12-30 12:03 30 mmol/L; 12-29 09:36 27 mmol/L
+  Bilirubin, Total: 12-29 09:36 0.6 mg/dL
+  CPK: 12-29 09:36 76 U/L
+  Calcium, Total: 01-02 12:04 9.3 mg/dL; 01-01 11:45 9.1 mg/dL; 12-31 11:51 9.6 mg/dL; 12-30 12:03 9.4 mg/dL; 12-29 09:36 10.3 mg/dL
+  Chloride: 01-02 12:04 101 mmol/L; 01-01 11:45 104 mmol/L; 12-31 11:51 105 mmol/L; 12-30 12:03 108 mmol/L; 12-29 09:36 108 mmol/L
+  Creatinine: 01-02 12:04 0.81 mg/dL; 01-01 11:45 0.75 mg/dL; 12-31 11:51 0.89 mg/dL; 12-30 12:03 0.94 mg/dL; 12-29 09:36 0.88 mg/dL
+  FiO2: 01-01 16:15 24 %
+  Glucose: 01-02 12:04 81 mg/dL; 01-01 11:45 78 mg/dL; 12-31 11:51 76 mg/dL; 12-30 12:03 80 mg/dL; 12-29 09:36 129 mg/dL
+  Hematocrit: 01-02 12:04 35 %; 01-01 11:45 34.1 %; 12-29 09:36 37.8 %
+  Hemoglobin: 01-02 12:04 11.2 g/dL; 01-01 11:45 10.8 g/dL; 12-29 09:36 12.3 g/dL
+  MCH: 01-02 12:04 30.4 pg; 01-01 11:45 30.1 pg; 12-29 09:36 30.5 pg
+  MCHC: 01-02 12:04 32 g/dL; 01-01 11:45 31.7 g/dL; 12-29 09:36 32.5 g/dL
+  MCV: 01-02 12:04 95 fL; 01-01 11:45 95 fL; 12-29 09:36 94 fL
+  MPV: 01-02 12:04 9.4 fL; 01-01 11:45 9.7 fL; 12-29 09:36 10 fL
+  Magnesium: 01-02 12:04 2.4 mg/dL; 01-01 11:45 2.3 mg/dL
+  Platelet Count: 01-02 12:04 195 K/MM3; 01-01 11:45 210 K/MM3; 12-29 09:36 215 K/MM3
+  Potassium: 01-02 12:04 4 mmol/L; 01-01 11:45 3.6 mmol/L; 12-31 11:51 4 mmol/L; 12-30 12:03 4.1 mmol/L; 12-29 09:36 3.9 mmol/L
+  RBC: 01-02 12:04 3.69 M/MM3; 01-01 11:45 3.59 M/MM3; 12-29 09:36 4.03 M/MM3
+  Sodium: 01-02 12:04 140 mmol/L; 01-01 11:45 141 mmol/L; 12-31 11:51 143 mmol/L; 12-30 12:03 141 mmol/L; 12-29 09:36 143 mmol/L
+  Urea Nitrogen: 01-02 12:04 17 mg/dL; 01-01 11:45 20 mg/dL; 12-31 11:51 25 mg/dL; 12-30 12:03 25 mg/dL; 12-29 09:36 25 mg/dL
+  White Blood Cells: 01-02 12:04 6.2 K/MM3; 01-01 11:45 5.4 K/MM3; 12-29 09:36 8.4 K/MM3
+  total protein: 12-29 09:36 6.8 g/dL
+  troponin - I: 12-29 09:36 1.64 ng/mL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Heart Rate: 63 bpm @01-02 14:00   24h 55-106 (n=35)
+  Non Invasive Blood Pressure diastolic: 69 mmHg @01-02 14:00   24h 49-90 (n=33)
+  Non Invasive Blood Pressure mean: 87 mmHg @01-02 14:00   24h 60-97 (n=33)
+  Non Invasive Blood Pressure systolic: 151 mmHg @01-02 14:00   24h 89-151 (n=33)
+  O2 Flow: 1 L/min @01-02 13:53   24h 1-1.5 (n=36)
+  O2 saturation pulseoxymetry: 95 % @01-02 14:00   24h 86-100 (n=38)
+  Respiratory Rate: 20 insp/min @01-02 14:00   24h 12-23 (n=35)
+  Respiratory Rate (spontaneous): 20 insp/min @01-02 14:00   24h 12-23 (n=35)
+  Temperature Fahrenheit: 96.8 F @01-02 11:00   24h 96.8-98.1 (n=6)
+  Temperature Location: Temporal scan @01-02 11:00   earlier: tympanic @01-01 16:15
+
+## Treatments documented
+  01-01 16:20 antiarrhythmics | class IV antiarrhythmic | diltiazem
+
+## Microbiology

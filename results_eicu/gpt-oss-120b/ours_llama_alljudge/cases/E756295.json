@@ -1,0 +1,338 @@
+{
+ "case_id": "E756295",
+ "decision_point": "2100-01-02 23:16:00",
+ "claims": [
+  "Increase sodium bicarbonate infusion to target serum bicarbonate >22 mmol/L and correct metabolic acidosis.",
+  "Titrate dobutamine infusion to maintain mean arterial pressure ≥65 mmHg.",
+  "Obtain repeat arterial blood gas and serum lactate in 2 hours to assess response to therapy."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E756295A1::01",
+   "claim_id": "E756295A1",
+   "claim_text": "Increase sodium bicarbonate infusion to target serum bicarbonate >22 mmol/L and correct metabolic acidosis.",
+   "kind": "action",
+   "text": "Increase sodium bicarbonate infusion.",
+   "concept": "bicarbonate",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sodium bicarbonate infusion",
+   "conditional": false,
+   "treatment_class": "bicarbonate",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E756295A1::02",
+   "claim_id": "E756295A1",
+   "claim_text": "Increase sodium bicarbonate infusion to target serum bicarbonate >22 mmol/L and correct metabolic acidosis.",
+   "kind": "goal",
+   "text": "Serum bicarbonate is >22 mmol/L.",
+   "concept": "bicarbonate",
+   "notes": []
+  },
+  {
+   "atom_id": "E756295A1::03",
+   "claim_id": "E756295A1",
+   "claim_text": "Increase sodium bicarbonate infusion to target serum bicarbonate >22 mmol/L and correct metabolic acidosis.",
+   "kind": "fact",
+   "text": "Metabolic acidosis is present.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E756295A2::04",
+   "claim_id": "E756295A2",
+   "claim_text": "Titrate dobutamine infusion to maintain mean arterial pressure ≥65 mmHg.",
+   "kind": "action",
+   "text": "Titrate dobutamine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "dobutamine infusion",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E756295A2::05",
+   "claim_id": "E756295A2",
+   "claim_text": "Titrate dobutamine infusion to maintain mean arterial pressure ≥65 mmHg.",
+   "kind": "goal",
+   "text": "Mean arterial pressure is ≥65 mmHg.",
+   "concept": "map",
+   "notes": []
+  },
+  {
+   "atom_id": "E756295A2::06",
+   "claim_id": "E756295A2",
+   "claim_text": "Titrate dobutamine infusion to maintain mean arterial pressure ≥65 mmHg.",
+   "kind": "fact",
+   "text": "Dobutamine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E756295A3::07",
+   "claim_id": "E756295A3",
+   "claim_text": "Obtain repeat arterial blood gas and serum lactate in 2 hours to assess response to therapy.",
+   "kind": "action",
+   "text": "Obtain repeat arterial blood gas in 2 hours.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E756295A3::08",
+   "claim_id": "E756295A3",
+   "claim_text": "Obtain repeat arterial blood gas and serum lactate in 2 hours to assess response to therapy.",
+   "kind": "action",
+   "text": "Obtain serum lactate in 2 hours.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E756295A1::03",
+   "claim_id": "E756295A1",
+   "claim_text": "Increase sodium bicarbonate infusion to target serum bicarbonate >22 mmol/L and correct metabolic acidosis.",
+   "kind": "fact",
+   "text": "Metabolic acidosis is present.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement 'Metabolic acidosis is present' is not supported by the records. The records show that the patient is receiving sodium bicarbonate infusion (R35), but there is no evidence of metabolic acidosis. The oxygen saturation levels are mostly normal (R3, R4, R10, R34), and there is no indication of acidosis in the laboratory results (R1, R2, R24, R25, R32, R33).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:32882090",
+     "time": "2100-01-02 17:28:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 17:28:00): Medication SODIUM BICARBONATE 8.4% 50 ML INJ IV"
+    }
+   ]
+  },
+  {
+   "atom_id": "E756295A2::06",
+   "claim_id": "E756295A2",
+   "claim_text": "Titrate dobutamine infusion to maintain mean arterial pressure ≥65 mmHg.",
+   "kind": "fact",
+   "text": "Dobutamine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that dobutamine infusion is currently being given, as indicated by the 'Running at decision time' record for dobutamine infusion at 44 ml/hour.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Dobutamine (ml/hr):1364",
+     "time": "2100-01-02 22:00:00",
+     "item": "Running at decision time (started 2100-01-02 22:00:00): Infusion/input Dobutamine at 44 ml/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E756295A1::01",
+   "claim_id": "E756295A1",
+   "claim_text": "Increase sodium bicarbonate infusion to target serum bicarbonate >22 mmol/L and correct metabolic acidosis.",
+   "kind": "action",
+   "text": "Increase sodium bicarbonate infusion.",
+   "concept": "bicarbonate",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sodium bicarbonate infusion",
+   "conditional": false,
+   "treatment_class": "bicarbonate",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sodium bicarbonate action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E756295A2::04",
+   "claim_id": "E756295A2",
+   "claim_text": "Titrate dobutamine infusion to maintain mean arterial pressure ≥65 mmHg.",
+   "kind": "action",
+   "text": "Titrate dobutamine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "dobutamine infusion",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E756295A3::07",
+   "claim_id": "E756295A3",
+   "claim_text": "Obtain repeat arterial blood gas and serum lactate in 2 hours to assess response to therapy.",
+   "kind": "action",
+   "text": "Obtain repeat arterial blood gas in 2 hours.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:227359338",
+     "time": "2100-01-03 01:17:00",
+     "item": "pH",
+     "value": "7.41 unit(s)"
+    },
+    {
+     "rid": "lab:221019064",
+     "time": "2100-01-03 11:07:00",
+     "item": "pH",
+     "value": "7.46 unit(s)"
+    },
+    {
+     "rid": "lab:227359337",
+     "time": "2100-01-03 01:17:00",
+     "item": "PaCO2",
+     "value": "43.8 mmHg"
+    },
+    {
+     "rid": "lab:221019063",
+     "time": "2100-01-03 11:07:00",
+     "item": "PaCO2",
+     "value": "34.0 mmHg"
+    },
+    {
+     "rid": "lab:227359336",
+     "time": "2100-01-03 01:17:00",
+     "item": "PaO2",
+     "value": "39.9 mmHg"
+    },
+    {
+     "rid": "lab:221019062",
+     "time": "2100-01-03 11:07:00",
+     "item": "PaO2",
+     "value": "81.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pH x2, PaCO2 x2, PaO2 x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E756295A3::08",
+   "claim_id": "E756295A3",
+   "claim_text": "Obtain repeat arterial blood gas and serum lactate in 2 hours to assess response to therapy.",
+   "kind": "action",
+   "text": "Obtain serum lactate in 2 hours.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:147771847",
+     "time": "2100-01-03 00:42:00",
+     "item": "lactate",
+     "value": "2.0 mmol/L"
+    },
+    {
+     "rid": "lab:157430421",
+     "time": "2100-01-03 10:26:00",
+     "item": "lactate",
+     "value": "1.4 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): lactate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Metabolic acidosis is present. -- The statement 'Metabolic acidosis is present' is not supported by the records. The records show that the patient is receiving sodium bicarbonate infusion (R35), but there is no evidence of metabolic acidosis. The oxygen saturation levels are mostly normal (R3, R4, R10, R34), and there is no indication of acidosis in the laboratory results (R1, R2, R24, R25, R32, R33)."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

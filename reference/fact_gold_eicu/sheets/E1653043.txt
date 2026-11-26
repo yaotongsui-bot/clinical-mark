@@ -1,0 +1,105 @@
+# E1653043   T = 2100-01-02 21:32:00   records before T: 288
+ICU stay 1653043 (Med-Surg ICU; Male, age 54; admission diagnosis: Embolus, pulmonary).
+
+## Atoms
+deepseek-v4.1-flash|E1653043A1::03 [observed] PTT is 159.3 s.   <- Continue monitoring anticoagulation with serial PTT/INR given supratherapeutic PTT levels (159.3 s, 97.8 s, 95.4 s) on heparin and warfarin therapy.
+deepseek-v4.1-flash|E1653043A1::04 [observed] PTT is 97.8 s.   <- Continue monitoring anticoagulation with serial PTT/INR given supratherapeutic PTT levels (159.3 s, 97.8 s, 95.4 s) on heparin and warfarin therapy.
+deepseek-v4.1-flash|E1653043A1::05 [observed] PTT is 95.4 s.   <- Continue monitoring anticoagulation with serial PTT/INR given supratherapeutic PTT levels (159.3 s, 97.8 s, 95.4 s) on heparin and warfarin therapy.
+deepseek-v4.1-flash|E1653043A1::06 [presupposition] Heparin therapy is currently being given.   <- Continue monitoring anticoagulation with serial PTT/INR given supratherapeutic PTT levels (159.3 s, 97.8 s, 95.4 s) on heparin and warfarin therapy.
+deepseek-v4.1-flash|E1653043A1::07 [presupposition] Warfarin therapy is currently being given.   <- Continue monitoring anticoagulation with serial PTT/INR given supratherapeutic PTT levels (159.3 s, 97.8 s, 95.4 s) on heparin and warfarin therapy.
+deepseek-v4.1-flash|E1653043A2::10 [observed] Pain scores are 1-2.   <- Assess and manage pain as needed, given intermittent pain scores of 1-2 and PRN acetaminophen ordered.
+deepseek-v4.1-flash|E1653043A2::11 [observed] PRN acetaminophen is ordered.   <- Assess and manage pain as needed, given intermittent pain scores of 1-2 and PRN acetaminophen ordered.
+deepseek-v4.1-flash|E1653043A3::14 [presupposition] Supplemental oxygen is currently being given.   <- Continue supplemental oxygen at 2 L/min to maintain oxygen saturation, with ongoing pulse oximetry monitoring.
+gpt-oss-120b|E1653043A1::02 [presupposition] The patient is currently receiving intravenous heparin.   <- Continue therapeutic anticoagulation with intravenous heparin and monitor PTT q6h.
+gpt-oss-120b|E1653043A2::05 [presupposition] DVT is present.   <- Order repeat lower extremity duplex ultrasound to assess for DVT progression.
+gpt-oss-120b|E1653043A3::07 [presupposition] The patient is currently receiving oxygen supplementation at 2 L/min via nasal cannula.   <- Maintain current oxygen supplementation at 2 L/min via nasal cannula and reassess SpO₂ q4h.
+qwen2.5-7b|E1653043A2::04 [presupposition] Warfarin is currently being given.   <- Continue anticoagulant therapy with warfarin.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-02 01:30:00): Medication SIMVASTATIN ORAL QHS
+  Running at decision time (scheduled order started 2100-01-02 19:00:00): Medication SODIUM CHLORIDE 0.9% IV CONT CoNtInUos
+
+## PRN orders
+  01-01 22:00 Order: ACETAMINOPHEN ORAL Q4HP PRN (active at decision time)
+  01-01 22:00 Order: MAGNESIUM HYDROXIDE ORAL QDP PRN (active at decision time)
+  01-01 22:00 Order: BISACODYL RTL QDP PRN (active at decision time)
+  01-01 22:00 Order: TRAZODONE ORAL QHSMRP PRN (active at decision time)
+  01-01 22:00 Order: ONDANSETRON (PF) IV Q6HP PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication WARFARIN ORAL (2100-01-01 22:00:00 to 2100-01-02 03:59:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 15:55 0.7 %
+  -eos: 01-01 15:55 3.5 %
+  -lymphs: 01-01 15:55 13.1 %
+  -monos: 01-01 15:55 6.5 %
+  -polys: 01-01 15:55 76.2 %
+  ANF/ANA: 01-01 18:00 <40
+  Alanine Aminotransferase (ALT): 01-01 15:55 56 U/L
+  Albumin: 01-01 15:55 2.5 g/dL
+  Alkaline Phosphatase: 01-01 15:55 107 U/L
+  Anion Gap: 01-02 07:24 13; 01-01 15:55 13
+  Asparate Aminotransferase (AST): 01-01 15:55 34 U/L
+  Bicarbonate: 01-02 07:24 25 mmol/L; 01-01 15:55 24 mmol/L
+  Bilirubin, Total: 01-01 15:55 0.4 mg/dL
+  CPK: 01-01 17:55 68 U/L; 01-01 15:55 63 U/L
+  Calcium, Total: 01-02 07:24 8.9 mg/dL; 01-01 15:55 8.6 mg/dL
+  Chloride: 01-02 07:24 108 mmol/L; 01-01 15:55 107 mmol/L
+  Creatinine: 01-02 07:24 1.06 mg/dL; 01-01 15:55 1.1 mg/dL
+  Glucose: 01-02 07:24 152 mg/dL; 01-01 15:55 125 mg/dL
+  Hematocrit: 01-02 07:24 35.4 %; 01-01 15:55 36.1 %
+  Hemoglobin: 01-02 07:24 11.6 g/dL; 01-01 15:55 12.7 g/dL
+  INR(PT): 01-02 07:24 1.1; 01-01 17:55 0.9
+  Lactate: 01-01 15:55 1.5 mmol/L
+  MCH: 01-02 07:24 33 PG; 01-01 15:55 34.3 PG
+  MCHC: 01-02 07:24 32.8 g/dL; 01-01 15:55 35.2 g/dL
+  MCV: 01-02 07:24 100.6 fL; 01-01 15:55 97.6 fL
+  MPV: 01-02 07:24 10.7 fL; 01-01 15:55 9.9 fL
+  PT: 01-02 07:24 13.7 seconds; 01-01 17:55 12.3 seconds
+  PTT: 01-02 19:42 95.4 seconds; 01-02 13:52 97.8 seconds; 01-02 07:24 60.1 seconds; 01-01 23:51 159.3 seconds; 01-01 17:55 21.2 seconds
+  Platelet Count: 01-02 07:24 372 K/mcL; 01-01 15:55 329 K/mcL
+  Potassium: 01-02 07:24 3.8 mmol/L; 01-01 15:55 3.8 mmol/L
+  RBC: 01-02 07:24 3.52 M/mcL; 01-01 15:55 3.7 M/mcL
+  RDW: 01-02 07:24 12.9 %; 01-01 15:55 13.1 %
+  Sodium: 01-02 07:24 142 mmol/L; 01-01 15:55 140 mmol/L
+  Urea Nitrogen: 01-02 07:24 16 mg/dL; 01-01 15:55 15 mg/dL
+  White Blood Cells: 01-02 07:24 14.81 K/mcL; 01-01 15:55 9.51 K/mcL
+  direct bilirubin: 01-01 15:55 0.1 mg/dL
+  lipase: 01-01 15:55 119 U/L
+  protein C: 01-01 18:00 101 %
+  protein S: 01-01 18:00 106 %
+  total protein: 01-01 15:55 6.5 g/dL
+  troponin - I: 01-01 17:55 <0.04; 01-01 15:55 <0.04
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Delirium Scale/Score Delirium Scale: CAM-ICU @01-02 12:00
+  Delirium Scale/Score Delirium Score: No @01-02 12:00
+  Glasgow coma score Eyes: 4 @01-02 12:00   24h 4-4 (n=2)
+  Glasgow coma score GCS Total: 15 @01-02 12:00   24h 15-15 (n=2)
+  Glasgow coma score Motor: 6 @01-02 12:00   24h 6-6 (n=2)
+  Glasgow coma score Verbal: 5 @01-02 12:00   24h 5-5 (n=2)
+  Heart Rate: 79 bpm @01-02 21:00   24h 58-88 (n=24)
+  Non Invasive Blood Pressure diastolic: 61 mmHg @01-02 21:00   24h 47-75 (n=24)
+  Non Invasive Blood Pressure mean: 73 mmHg @01-02 21:00   24h 57-85 (n=24)
+  Non Invasive Blood Pressure systolic: 121 mmHg @01-02 21:00   24h 80-123 (n=24)
+  O2 L/%: 2 @01-02 20:00   24h 2-2 (n=7)
+  O2 saturation pulseoxymetry: 95 % @01-02 21:00   24h 93-98 (n=24)
+  Pain Level: 2 @01-02 21:00   24h 1-2 (n=4)
+  Pain Present: Yes @01-02 21:00   earlier: No @01-02 20:00
+  Respiratory Rate: 21 insp/min @01-02 21:00   24h 10-33 (n=24)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-02 20:00
+  Sedation Scale/Score/Goal Sedation Score: 0 @01-02 20:00   24h -1-1 (n=7)
+  Temperature Fahrenheit: 98.6 F @01-02 19:58   24h 97.8-98.6 (n=7)
+  Temperature Location: Oral @01-02 19:58   earlier: Axilla @01-02 02:51
+
+## Treatments documented
+  01-02 07:45 cardiovascular | vascular disorders | non-invasive testing for DVT
+  01-02 07:45 vascular disorders | anticoagulant administration | coumadin
+  01-02 07:45 cardiovascular | consultations | Cardiology consultation
+  01-02 07:45 anticoagulant administration | conventional heparin therapy | intravenous
+  01-02 07:45 vascular disorders | CT scan | spiral CT
+
+## Microbiology

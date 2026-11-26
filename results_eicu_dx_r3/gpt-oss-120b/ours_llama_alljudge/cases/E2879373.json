@@ -1,0 +1,447 @@
+{
+ "case_id": "E2879373",
+ "decision_point": "2100-01-02 09:35:00",
+ "claims": [
+  "Continue intravenous furosemide infusion to maintain diuresis and manage congestive heart failure.",
+  "Monitor urine output hourly and assess fluid balance to guide ongoing diuretic therapy.",
+  "Obtain a repeat platelet count in 6 hours to evaluate the trend of thrombocytopenia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2879373A1::01",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue intravenous furosemide infusion to maintain diuresis and manage congestive heart failure.",
+   "kind": "action",
+   "text": "Continue intravenous furosemide infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2879373A1::02",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue intravenous furosemide infusion to maintain diuresis and manage congestive heart failure.",
+   "kind": "fact",
+   "text": "Intravenous furosemide infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2879373A1::03",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue intravenous furosemide infusion to maintain diuresis and manage congestive heart failure.",
+   "kind": "fact",
+   "text": "Congestive heart failure is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2879373A2::04",
+   "claim_id": "E2879373A2",
+   "claim_text": "Monitor urine output hourly and assess fluid balance to guide ongoing diuretic therapy.",
+   "kind": "action",
+   "text": "Monitor urine output hourly.",
+   "concept": "urine_output",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "urine output",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2879373A2::05",
+   "claim_id": "E2879373A2",
+   "claim_text": "Monitor urine output hourly and assess fluid balance to guide ongoing diuretic therapy.",
+   "kind": "action",
+   "text": "Assess fluid balance.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "assess",
+   "target": "fluid balance",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2879373A3::06",
+   "claim_id": "E2879373A3",
+   "claim_text": "Obtain a repeat platelet count in 6 hours to evaluate the trend of thrombocytopenia.",
+   "kind": "action",
+   "text": "Obtain a repeat platelet count in 6 hours.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "platelet count",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E2879373A3::07",
+   "claim_id": "E2879373A3",
+   "claim_text": "Obtain a repeat platelet count in 6 hours to evaluate the trend of thrombocytopenia.",
+   "kind": "fact",
+   "text": "Thrombocytopenia is present.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2879373A1::02",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue intravenous furosemide infusion to maintain diuresis and manage congestive heart failure.",
+   "kind": "fact",
+   "text": "Intravenous furosemide infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that IV furosemide was ordered, but there is no record of it being administered in the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:67166509",
+     "time": "2100-01-01 10:19:00",
+     "item": "Treatment documented: medications | intravenous diuretic | IV furosemide"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2879373A1::03",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue intravenous furosemide infusion to maintain diuresis and manage congestive heart failure.",
+   "kind": "fact",
+   "text": "Congestive heart failure is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient has a history of congestive heart failure (CHF), but the recent heart rate measurements do not support the statement that congestive heart failure is present. The heart rate has been fluctuating, but there is no indication of congestive heart failure.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:2879373:dx",
+     "time": "2100-01-01 09:35:00",
+     "item": "Admission diagnosis (APACHE): CHF, congestive heart failure"
+    },
+    {
+     "rid": "nurse:1864202435",
+     "time": "2100-01-01 10:00:00",
+     "item": "Heart Rate: 86 bpm"
+    },
+    {
+     "rid": "nurse:1780377854",
+     "time": "2100-01-01 10:30:00",
+     "item": "Heart Rate: 88 bpm"
+    },
+    {
+     "rid": "nurse:1799619732",
+     "time": "2100-01-01 11:00:00",
+     "item": "Heart Rate: 88 bpm"
+    },
+    {
+     "rid": "nurse:1840648969",
+     "time": "2100-01-01 11:30:00",
+     "item": "Heart Rate: 92 bpm"
+    },
+    {
+     "rid": "nurse:1880336475",
+     "time": "2100-01-01 12:00:00",
+     "item": "Heart Rate: 93 bpm"
+    },
+    {
+     "rid": "nurse:1858962007",
+     "time": "2100-01-01 12:30:00",
+     "item": "Heart Rate: 91 bpm"
+    },
+    {
+     "rid": "nurse:1830454718",
+     "time": "2100-01-01 13:00:00",
+     "item": "Heart Rate: 90 bpm"
+    },
+    {
+     "rid": "nurse:1848486751",
+     "time": "2100-01-01 14:00:00",
+     "item": "Heart Rate: 93 bpm"
+    },
+    {
+     "rid": "nurse:1859160428",
+     "time": "2100-01-01 15:00:00",
+     "item": "Heart Rate: 84 bpm"
+    },
+    {
+     "rid": "nurse:1836513466",
+     "time": "2100-01-01 16:00:00",
+     "item": "Heart Rate: 83 bpm"
+    },
+    {
+     "rid": "nurse:1812934363",
+     "time": "2100-01-01 17:00:00",
+     "item": "Heart Rate: 92 bpm"
+    },
+    {
+     "rid": "nurse:1828740342",
+     "time": "2100-01-01 18:00:00",
+     "item": "Heart Rate: 91 bpm"
+    },
+    {
+     "rid": "nurse:1791189494",
+     "time": "2100-01-01 19:00:00",
+     "item": "Heart Rate: 80 bpm"
+    },
+    {
+     "rid": "nurse:1831478779",
+     "time": "2100-01-01 20:00:00",
+     "item": "Heart Rate: 80 bpm"
+    },
+    {
+     "rid": "nurse:1865867960",
+     "time": "2100-01-01 21:00:00",
+     "item": "Heart Rate: 82 bpm"
+    },
+    {
+     "rid": "nurse:1853397647",
+     "time": "2100-01-01 22:00:00",
+     "item": "Heart Rate: 77 bpm"
+    },
+    {
+     "rid": "nurse:1823499607",
+     "time": "2100-01-01 23:00:00",
+     "item": "Heart Rate: 80 bpm"
+    },
+    {
+     "rid": "nurse:1849671622",
+     "time": "2100-01-02 00:00:00",
+     "item": "Heart Rate: 80 bpm"
+    },
+    {
+     "rid": "nurse:1779526670",
+     "time": "2100-01-02 01:00:00",
+     "item": "Heart Rate: 89 bpm"
+    },
+    {
+     "rid": "nurse:1882627051",
+     "time": "2100-01-02 03:00:00",
+     "item": "Heart Rate: 80 bpm"
+    },
+    {
+     "rid": "nurse:1782151796",
+     "time": "2100-01-02 04:00:00",
+     "item": "Heart Rate: 86 bpm"
+    },
+    {
+     "rid": "nurse:1859639713",
+     "time": "2100-01-02 05:00:00",
+     "item": "Heart Rate: 80 bpm"
+    },
+    {
+     "rid": "nurse:1884581660",
+     "time": "2100-01-02 06:00:00",
+     "item": "Heart Rate: 86 bpm"
+    },
+    {
+     "rid": "nurse:1833584449",
+     "time": "2100-01-02 07:00:00",
+     "item": "Heart Rate: 88 bpm"
+    },
+    {
+     "rid": "nurse:1832781964",
+     "time": "2100-01-02 08:00:00",
+     "item": "Heart Rate: 86 bpm"
+    },
+    {
+     "rid": "nurse:1839074829",
+     "time": "2100-01-02 09:00:00",
+     "item": "Heart Rate: 86 bpm"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2879373A3::07",
+   "claim_id": "E2879373A3",
+   "claim_text": "Obtain a repeat platelet count in 6 hours to evaluate the trend of thrombocytopenia.",
+   "kind": "fact",
+   "text": "Thrombocytopenia is present.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement 'Thrombocytopenia is present' is not supported by the records. The most recent relevant record is R33, which shows a respiratory rate of 21 insp/min, but does not mention thrombocytopenia. The statement is not supported by any other record in the time order.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1844051645",
+     "time": "2100-01-01 09:35:00",
+     "item": "Respiratory Rate: 21 insp/min"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2879373A1::01",
+   "claim_id": "E2879373A1",
+   "claim_text": "Continue intravenous furosemide infusion to maintain diuresis and manage congestive heart failure.",
+   "kind": "action",
+   "text": "Continue intravenous furosemide infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No diuretics action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2879373A2::04",
+   "claim_id": "E2879373A2",
+   "claim_text": "Monitor urine output hourly and assess fluid balance to guide ongoing diuretic therapy.",
+   "kind": "action",
+   "text": "Monitor urine output hourly.",
+   "concept": "urine_output",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "urine output",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No urine output measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2879373A2::05",
+   "claim_id": "E2879373A2",
+   "claim_text": "Monitor urine output hourly and assess fluid balance to guide ongoing diuretic therapy.",
+   "kind": "action",
+   "text": "Assess fluid balance.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "assess",
+   "target": "fluid balance",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No fluid balance measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2879373A3::06",
+   "claim_id": "E2879373A3",
+   "claim_text": "Obtain a repeat platelet count in 6 hours to evaluate the trend of thrombocytopenia.",
+   "kind": "action",
+   "text": "Obtain a repeat platelet count in 6 hours.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "platelet count",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:665319158",
+     "time": "2100-01-02 13:00:00",
+     "item": "platelets",
+     "value": "84.0 K/uL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): platelets x1.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous furosemide infusion is currently being given. -- The records show that IV furosemide was ordered, but there is no record of it being administered in the 24 hours before the decision time.",
+    "Congestive heart failure is present. -- The records show that the patient has a history of congestive heart failure (CHF), but the recent heart rate measurements do not support the statement that congestive heart failure is present. The heart rate has been fluctuating, but there is no indication of congestive heart failure.",
+    "Thrombocytopenia is present. -- The statement 'Thrombocytopenia is present' is not supported by the records. The most recent relevant record is R33, which shows a respiratory rate of 21 insp/min, but does not mention thrombocytopenia. The statement is not supported by any other record in the time order."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

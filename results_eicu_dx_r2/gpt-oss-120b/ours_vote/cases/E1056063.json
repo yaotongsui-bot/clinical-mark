@@ -1,0 +1,329 @@
+{
+ "case_id": "E1056063",
+ "decision_point": "2100-01-02 10:15:00",
+ "claims": [
+  "Continue cardiac monitoring and frequent vital sign checks (q1h) to assess for hemodynamic instability.",
+  "Order repeat serum electrolytes and renal panel in 6 hours to evaluate for evolving metabolic derangements.",
+  "Maintain therapeutic enoxaparin dosing and schedule the next subcutaneous dose per protocol."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1056063A1::01",
+   "claim_id": "E1056063A1",
+   "claim_text": "Continue cardiac monitoring and frequent vital sign checks (q1h) to assess for hemodynamic instability.",
+   "kind": "action",
+   "text": "Continue cardiac monitoring.",
+   "concept": "other",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "cardiac monitoring",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1056063A1::02",
+   "claim_id": "E1056063A1",
+   "claim_text": "Continue cardiac monitoring and frequent vital sign checks (q1h) to assess for hemodynamic instability.",
+   "kind": "action",
+   "text": "Check vital signs every hour.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1056063A2::03",
+   "claim_id": "E1056063A2",
+   "claim_text": "Order repeat serum electrolytes and renal panel in 6 hours to evaluate for evolving metabolic derangements.",
+   "kind": "action",
+   "text": "Order repeat serum electrolytes in 6 hours.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum electrolytes",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E1056063A2::04",
+   "claim_id": "E1056063A2",
+   "claim_text": "Order repeat serum electrolytes and renal panel in 6 hours to evaluate for evolving metabolic derangements.",
+   "kind": "action",
+   "text": "Order repeat renal panel in 6 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "renal panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1056063A3::05",
+   "claim_id": "E1056063A3",
+   "claim_text": "Maintain therapeutic enoxaparin dosing and schedule the next subcutaneous dose per protocol.",
+   "kind": "action",
+   "text": "Maintain therapeutic enoxaparin dosing.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "enoxaparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1056063A3::06",
+   "claim_id": "E1056063A3",
+   "claim_text": "Maintain therapeutic enoxaparin dosing and schedule the next subcutaneous dose per protocol.",
+   "kind": "fact",
+   "text": "Enoxaparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1056063A3::07",
+   "claim_id": "E1056063A3",
+   "claim_text": "Maintain therapeutic enoxaparin dosing and schedule the next subcutaneous dose per protocol.",
+   "kind": "action",
+   "text": "Schedule the next subcutaneous enoxaparin dose per protocol.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "enoxaparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1056063A3::06",
+   "claim_id": "E1056063A3",
+   "claim_text": "Maintain therapeutic enoxaparin dosing and schedule the next subcutaneous dose per protocol.",
+   "kind": "fact",
+   "text": "Enoxaparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The only enoxaparin record is an administration on 2100-01-01 at 14:00, which is more than 24 hours before the decision time of 2100-01-02 10:15. There is no administration record in the 24 hours before the decision time, so the statement that enoxaparin is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:37287235",
+     "time": "2100-01-01 14:00:00",
+     "item": "Medication enoxaparin Subcutan qDay (2100-01-01 14:00:00 to 2100-01-01 20:06:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1056063A1::01",
+   "claim_id": "E1056063A1",
+   "claim_text": "Continue cardiac monitoring and frequent vital sign checks (q1h) to assess for hemodynamic instability.",
+   "kind": "action",
+   "text": "Continue cardiac monitoring.",
+   "concept": "other",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "cardiac monitoring",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1056063A1::02",
+   "claim_id": "E1056063A1",
+   "claim_text": "Continue cardiac monitoring and frequent vital sign checks (q1h) to assess for hemodynamic instability.",
+   "kind": "action",
+   "text": "Check vital signs every hour.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:668711347",
+     "time": "2100-01-02 13:00:00",
+     "item": "heart rate",
+     "value": "100.0 bpm"
+    },
+    {
+     "rid": "nurse:662645849",
+     "time": "2100-01-02 13:00:00",
+     "item": "systolic BP",
+     "value": "117.0 mmHg"
+    },
+    {
+     "rid": "nurse:656691538",
+     "time": "2100-01-02 13:43:00",
+     "item": "systolic BP",
+     "value": "117.0 mmHg"
+    },
+    {
+     "rid": "nurse:662645851",
+     "time": "2100-01-02 13:00:00",
+     "item": "mean arterial pressure",
+     "value": "103.0 mmHg"
+    },
+    {
+     "rid": "nurse:656691540",
+     "time": "2100-01-02 13:43:00",
+     "item": "mean arterial pressure",
+     "value": "103.0 mmHg"
+    },
+    {
+     "rid": "nurse:667011631",
+     "time": "2100-01-02 13:09:00",
+     "item": "temperature",
+     "value": "98.1 F"
+    }
+   ],
+   "reason": "Measured in the 5.0 h observation window after the decision (24 h or until ICU discharge): heart rate x1, systolic BP x2, mean arterial pressure x2, temperature x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1056063A2::03",
+   "claim_id": "E1056063A2",
+   "claim_text": "Order repeat serum electrolytes and renal panel in 6 hours to evaluate for evolving metabolic derangements.",
+   "kind": "action",
+   "text": "Order repeat serum electrolytes in 6 hours.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum electrolytes",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 5.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1056063A2::04",
+   "claim_id": "E1056063A2",
+   "claim_text": "Order repeat serum electrolytes and renal panel in 6 hours to evaluate for evolving metabolic derangements.",
+   "kind": "action",
+   "text": "Order repeat renal panel in 6 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "renal panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1056063A3::05",
+   "claim_id": "E1056063A3",
+   "claim_text": "Maintain therapeutic enoxaparin dosing and schedule the next subcutaneous dose per protocol.",
+   "kind": "action",
+   "text": "Maintain therapeutic enoxaparin dosing.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "enoxaparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (prophylactic) action recorded in the 5.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1056063A3::07",
+   "claim_id": "E1056063A3",
+   "claim_text": "Maintain therapeutic enoxaparin dosing and schedule the next subcutaneous dose per protocol.",
+   "kind": "action",
+   "text": "Schedule the next subcutaneous enoxaparin dose per protocol.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "enoxaparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (prophylactic) action recorded in the 5.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 5.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Enoxaparin is currently being given. -- The only enoxaparin record is an administration on 2100-01-01 at 14:00, which is more than 24 hours before the decision time of 2100-01-02 10:15. There is no administration record in the 24 hours before the decision time, so the statement that enoxaparin is currently being given is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,313 @@
+{
+ "case_id": "E211144",
+ "decision_point": "2100-01-02 23:26:00",
+ "claims": [
+  "Monitor patient's pain levels closely and adjust analgesic therapy as needed.",
+  "Continue intravenous insulin infusion to manage blood glucose levels.",
+  "Assess and manage patient's respiratory status, ensuring adequate oxygenation and ventilation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E211144A1::01",
+   "claim_id": "E211144A1",
+   "claim_text": "Monitor patient's pain levels closely and adjust analgesic therapy as needed.",
+   "kind": "action",
+   "text": "Monitor patient's pain levels closely.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "E211144A1::02",
+   "claim_id": "E211144A1",
+   "claim_text": "Monitor patient's pain levels closely and adjust analgesic therapy as needed.",
+   "kind": "action",
+   "text": "Adjust analgesic therapy as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "analgesic therapy",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E211144A2::03",
+   "claim_id": "E211144A2",
+   "claim_text": "Continue intravenous insulin infusion to manage blood glucose levels.",
+   "kind": "action",
+   "text": "Continue intravenous insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E211144A2::04",
+   "claim_id": "E211144A2",
+   "claim_text": "Continue intravenous insulin infusion to manage blood glucose levels.",
+   "kind": "fact",
+   "text": "Intravenous insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E211144A3::05",
+   "claim_id": "E211144A3",
+   "claim_text": "Assess and manage patient's respiratory status, ensuring adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Assess patient's respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E211144A3::06",
+   "claim_id": "E211144A3",
+   "claim_text": "Assess and manage patient's respiratory status, ensuring adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Manage patient's respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "other",
+   "target": "respiratory status",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E211144A3::07",
+   "claim_id": "E211144A3",
+   "claim_text": "Assess and manage patient's respiratory status, ensuring adequate oxygenation and ventilation.",
+   "kind": "goal",
+   "text": "Ensure adequate oxygenation.",
+   "concept": "oxygenation",
+   "notes": []
+  },
+  {
+   "atom_id": "E211144A3::08",
+   "claim_id": "E211144A3",
+   "claim_text": "Assess and manage patient's respiratory status, ensuring adequate oxygenation and ventilation.",
+   "kind": "goal",
+   "text": "Ensure adequate ventilation.",
+   "concept": "ventilator",
+   "notes": []
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E211144A2::04",
+   "claim_id": "E211144A2",
+   "claim_text": "Continue intravenous insulin infusion to manage blood glucose levels.",
+   "kind": "fact",
+   "text": "Intravenous insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that an intravenous insulin infusion was ordered and is currently being administered, as indicated by the 'Running at decision time' status of the order in R14.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:8521377",
+     "time": "2100-01-01 22:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 22:30:00): Medication 100 ML BAG CUSTOM NDC : INSULIN INFUSION IV Continuous"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E211144A1::01",
+   "claim_id": "E211144A1",
+   "claim_text": "Monitor patient's pain levels closely and adjust analgesic therapy as needed.",
+   "kind": "action",
+   "text": "Monitor patient's pain levels closely.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:202828959",
+     "time": "2100-01-03 00:44:00",
+     "item": "pain score",
+     "value": "9.0"
+    },
+    {
+     "rid": "nurse:148810536",
+     "time": "2100-01-03 01:00:00",
+     "item": "pain score",
+     "value": "2.0"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x14.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E211144A1::02",
+   "claim_id": "E211144A1",
+   "claim_text": "Monitor patient's pain levels closely and adjust analgesic therapy as needed.",
+   "kind": "action",
+   "text": "Adjust analgesic therapy as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "analgesic therapy",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E211144A2::03",
+   "claim_id": "E211144A2",
+   "claim_text": "Continue intravenous insulin infusion to manage blood glucose levels.",
+   "kind": "action",
+   "text": "Continue intravenous insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E211144A3::05",
+   "claim_id": "E211144A3",
+   "claim_text": "Assess and manage patient's respiratory status, ensuring adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Assess patient's respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:283674395",
+     "time": "2100-01-03 13:00:00",
+     "item": "respiratory rate",
+     "value": "20.0 insp/min"
+    },
+    {
+     "rid": "nurse:283571638",
+     "time": "2100-01-03 17:56:00",
+     "item": "respiratory rate",
+     "value": "18.0 insp/min"
+    },
+    {
+     "rid": "nurse:106595433",
+     "time": "2100-01-03 00:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:88462282",
+     "time": "2100-01-03 00:30:00",
+     "item": "SpO2",
+     "value": "96.0 %"
+    },
+    {
+     "rid": "resp:513116",
+     "time": "2100-01-03 00:57:00",
+     "item": "ventilator settings",
+     "value": "33.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x3, SpO2 x24, ventilator settings x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E211144A3::06",
+   "claim_id": "E211144A3",
+   "claim_text": "Assess and manage patient's respiratory status, ensuring adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Manage patient's respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "other",
+   "target": "respiratory status",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

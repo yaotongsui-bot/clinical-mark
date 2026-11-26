@@ -1,0 +1,324 @@
+{
+ "case_id": "E211144",
+ "decision_point": "2100-01-02 23:26:00",
+ "claims": [
+  "Obtain INR to monitor warfarin therapy and adjust dose as needed.",
+  "Assess pain level regularly and titrate opioid analgesics to maintain pain score ≤3.",
+  "Schedule physical therapy evaluation to begin early mobilization."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E211144A1::01",
+   "claim_id": "E211144A1",
+   "claim_text": "Obtain INR to monitor warfarin therapy and adjust dose as needed.",
+   "kind": "action",
+   "text": "Obtain INR.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "INR",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E211144A1::02",
+   "claim_id": "E211144A1",
+   "claim_text": "Obtain INR to monitor warfarin therapy and adjust dose as needed.",
+   "kind": "fact",
+   "text": "Warfarin therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E211144A1::03",
+   "claim_id": "E211144A1",
+   "claim_text": "Obtain INR to monitor warfarin therapy and adjust dose as needed.",
+   "kind": "action",
+   "text": "Adjust warfarin dose as needed.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "warfarin",
+   "conditional": true,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E211144A2::04",
+   "claim_id": "E211144A2",
+   "claim_text": "Assess pain level regularly and titrate opioid analgesics to maintain pain score ≤3.",
+   "kind": "action",
+   "text": "Assess pain level regularly.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain level",
+   "conditional": false
+  },
+  {
+   "atom_id": "E211144A2::05",
+   "claim_id": "E211144A2",
+   "claim_text": "Assess pain level regularly and titrate opioid analgesics to maintain pain score ≤3.",
+   "kind": "action",
+   "text": "Titrate opioid analgesics to maintain pain score ≤3.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "opioid analgesics",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E211144A2::06",
+   "claim_id": "E211144A2",
+   "claim_text": "Assess pain level regularly and titrate opioid analgesics to maintain pain score ≤3.",
+   "kind": "goal",
+   "text": "Maintain pain score ≤3.",
+   "concept": "pain",
+   "notes": []
+  },
+  {
+   "atom_id": "E211144A3::07",
+   "claim_id": "E211144A3",
+   "claim_text": "Schedule physical therapy evaluation to begin early mobilization.",
+   "kind": "action",
+   "text": "Schedule physical therapy evaluation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "consult",
+   "target": "physical therapy evaluation",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E211144A3::08",
+   "claim_id": "E211144A3",
+   "claim_text": "Schedule physical therapy evaluation to begin early mobilization.",
+   "kind": "action",
+   "text": "Begin early mobilization.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "early mobilization",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E211144A1::02",
+   "claim_id": "E211144A1",
+   "claim_text": "Obtain INR to monitor warfarin therapy and adjust dose as needed.",
+   "kind": "fact",
+   "text": "Warfarin therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that warfarin therapy is being given, but the administration records do not support the statement. The records mention warfarin therapy being given, but the administration records do not show administration of warfarin in the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:10841992",
+     "time": "2100-01-02 23:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 23:00:00): Medication WARFARIN SODIUM 3 MG PO TABS PO Q Evening"
+    },
+    {
+     "rid": "med:11418026",
+     "time": "2100-01-02 23:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 23:00:00): Medication WARFARIN - PHYSICIAN MONITORED PO Q Evening"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E211144A1::01",
+   "claim_id": "E211144A1",
+   "claim_text": "Obtain INR to monitor warfarin therapy and adjust dose as needed.",
+   "kind": "action",
+   "text": "Obtain INR.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "INR",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:55909146",
+     "time": "2100-01-03 10:00:00",
+     "item": "INR",
+     "value": "1.2"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): INR x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E211144A1::03",
+   "claim_id": "E211144A1",
+   "claim_text": "Obtain INR to monitor warfarin therapy and adjust dose as needed.",
+   "kind": "action",
+   "text": "Adjust warfarin dose as needed.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "warfarin",
+   "conditional": true,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (therapeutic) action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E211144A2::04",
+   "claim_id": "E211144A2",
+   "claim_text": "Assess pain level regularly and titrate opioid analgesics to maintain pain score ≤3.",
+   "kind": "action",
+   "text": "Assess pain level regularly.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain level",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:202828959",
+     "time": "2100-01-03 00:44:00",
+     "item": "pain score",
+     "value": "9.0"
+    },
+    {
+     "rid": "nurse:148810536",
+     "time": "2100-01-03 01:00:00",
+     "item": "pain score",
+     "value": "2.0"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x14.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E211144A2::05",
+   "claim_id": "E211144A2",
+   "claim_text": "Assess pain level regularly and titrate opioid analgesics to maintain pain score ≤3.",
+   "kind": "action",
+   "text": "Titrate opioid analgesics to maintain pain score ≤3.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "opioid analgesics",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E211144A3::07",
+   "claim_id": "E211144A3",
+   "claim_text": "Schedule physical therapy evaluation to begin early mobilization.",
+   "kind": "action",
+   "text": "Schedule physical therapy evaluation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "consult",
+   "target": "physical therapy evaluation",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E211144A3::08",
+   "claim_id": "E211144A3",
+   "claim_text": "Schedule physical therapy evaluation to begin early mobilization.",
+   "kind": "action",
+   "text": "Begin early mobilization.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "early mobilization",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Warfarin therapy is currently being given. -- The records show that warfarin therapy is being given, but the administration records do not support the statement. The records mention warfarin therapy being given, but the administration records do not show administration of warfarin in the 24 hours before the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

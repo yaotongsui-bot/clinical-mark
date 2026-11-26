@@ -1,0 +1,216 @@
+{
+ "case_id": "E3124669",
+ "decision_point": "2100-01-02 03:21:00",
+ "claims": [
+  "Monitor serum salicylate levels closely.",
+  "Administer intravenous fluids to maintain hydration.",
+  "Continue pain management with oral medications as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3124669A1::01",
+   "claim_id": "E3124669A1",
+   "claim_text": "Monitor serum salicylate levels closely.",
+   "kind": "action",
+   "text": "Monitor serum salicylate levels closely.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum salicylate levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3124669A2::02",
+   "claim_id": "E3124669A2",
+   "claim_text": "Administer intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3124669A3::03",
+   "claim_id": "E3124669A3",
+   "claim_text": "Continue pain management with oral medications as needed.",
+   "kind": "action",
+   "text": "Continue pain management with oral medications as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oral pain medications",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E3124669A3::04",
+   "claim_id": "E3124669A3",
+   "claim_text": "Continue pain management with oral medications as needed.",
+   "kind": "fact",
+   "text": "Pain management with oral medications is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3124669A3::04",
+   "claim_id": "E3124669A3",
+   "claim_text": "Continue pain management with oral medications as needed.",
+   "kind": "fact",
+   "text": "Pain management with oral medications is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient is receiving oral medications for pain management, but the current administration of these medications is not supported by the records. The records show that the patient is receiving bronchodilators, antibacterials, and glucocorticoid administration, but these are not the medications being given for pain management. The current administration of oral medications, ",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:72338766",
+     "time": "2100-01-01 08:35:00",
+     "item": "Treatment documented: pulmonary | medications | antibacterials"
+    },
+    {
+     "rid": "treat:70847170",
+     "time": "2100-01-01 08:35:00",
+     "item": "Treatment documented: pulmonary | medications | bronchodilator"
+    },
+    {
+     "rid": "treat:76060953",
+     "time": "2100-01-01 08:35:00",
+     "item": "Treatment documented: pulmonary | medications | glucocorticoid administration"
+    },
+    {
+     "rid": "treat:75796698",
+     "time": "2100-01-01 21:56:00",
+     "item": "Treatment documented: pulmonary | medications | bronchodilator"
+    },
+    {
+     "rid": "treat:73316394",
+     "time": "2100-01-01 21:56:00",
+     "item": "Treatment documented: pulmonary | medications | antibacterials"
+    },
+    {
+     "rid": "treat:72174931",
+     "time": "2100-01-01 21:56:00",
+     "item": "Treatment documented: pulmonary | medications | glucocorticoid administration"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3124669A1::01",
+   "claim_id": "E3124669A1",
+   "claim_text": "Monitor serum salicylate levels closely.",
+   "kind": "action",
+   "text": "Monitor serum salicylate levels closely.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum salicylate levels",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3124669A2::02",
+   "claim_id": "E3124669A2",
+   "claim_text": "Administer intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 10.1 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3124669A3::03",
+   "claim_id": "E3124669A3",
+   "claim_text": "Continue pain management with oral medications as needed.",
+   "kind": "action",
+   "text": "Continue pain management with oral medications as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oral pain medications",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 10.1 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 10.1,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Pain management with oral medications is currently being given. -- The records show that the patient is receiving oral medications for pain management, but the current administration of these medications is not supported by the records. The records show that the patient is receiving bronchodilators, antibacterials, and glucocorticoid administration, but these are not the medications being given for pain management. The current administration of oral medications, "
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

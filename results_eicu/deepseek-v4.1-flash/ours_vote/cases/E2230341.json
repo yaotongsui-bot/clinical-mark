@@ -1,0 +1,231 @@
+{
+ "case_id": "E2230341",
+ "decision_point": "2100-01-02 14:38:00",
+ "claims": [
+  "Continue monitoring vital signs and cardiac rhythm in the ICU.",
+  "Continue eptifibatide infusion as ordered.",
+  "Perform a neurological assessment using the Glasgow Coma Scale."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2230341A1::01",
+   "claim_id": "E2230341A1",
+   "claim_text": "Continue monitoring vital signs and cardiac rhythm in the ICU.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2230341A1::02",
+   "claim_id": "E2230341A1",
+   "claim_text": "Continue monitoring vital signs and cardiac rhythm in the ICU.",
+   "kind": "action",
+   "text": "Continue monitoring cardiac rhythm.",
+   "concept": "heart_rhythm",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "cardiac rhythm",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2230341A2::03",
+   "claim_id": "E2230341A2",
+   "claim_text": "Continue eptifibatide infusion as ordered.",
+   "kind": "action",
+   "text": "Continue eptifibatide infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "eptifibatide",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E2230341A2::04",
+   "claim_id": "E2230341A2",
+   "claim_text": "Continue eptifibatide infusion as ordered.",
+   "kind": "fact",
+   "text": "Eptifibatide infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2230341A3::05",
+   "claim_id": "E2230341A3",
+   "claim_text": "Perform a neurological assessment using the Glasgow Coma Scale.",
+   "kind": "action",
+   "text": "Perform a neurological assessment using the Glasgow Coma Scale.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "Glasgow Coma Scale",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2230341A2::04",
+   "claim_id": "E2230341A2",
+   "claim_text": "Continue eptifibatide infusion as ordered.",
+   "kind": "fact",
+   "text": "Eptifibatide infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "Eptifibatide infusions are documented, but the latest infusion ended at 09:05 on 2100-01-02, before the 14:38 decision time. No record shows it was still running or administered in the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Eptifibatide ():826",
+     "time": "2100-01-02 04:24:00",
+     "item": "Infusion/input Eptifibatide at 100 (2100-01-02 04:24:00 to 2100-01-02 09:05:00)"
+    },
+    {
+     "rid": "inf:Eptifibatide (ml/hr):862",
+     "time": "2100-01-02 05:00:00",
+     "item": "Infusion/input Eptifibatide at 20.6 ml/hour (2100-01-02 05:00:00 to 2100-01-02 05:00:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2230341A1::01",
+   "claim_id": "E2230341A1",
+   "claim_text": "Continue monitoring vital signs and cardiac rhythm in the ICU.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No vital signs measurement in the 1.7 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2230341A1::02",
+   "claim_id": "E2230341A1",
+   "claim_text": "Continue monitoring vital signs and cardiac rhythm in the ICU.",
+   "kind": "action",
+   "text": "Continue monitoring cardiac rhythm.",
+   "concept": "heart_rhythm",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "cardiac rhythm",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No heart rhythm measurement in the 1.7 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2230341A2::03",
+   "claim_id": "E2230341A2",
+   "claim_text": "Continue eptifibatide infusion as ordered.",
+   "kind": "action",
+   "text": "Continue eptifibatide infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "eptifibatide",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2230341A3::05",
+   "claim_id": "E2230341A3",
+   "claim_text": "Perform a neurological assessment using the Glasgow Coma Scale.",
+   "kind": "action",
+   "text": "Perform a neurological assessment using the Glasgow Coma Scale.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "Glasgow Coma Scale",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No GCS / mental status measurement in the 1.7 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 1.7,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Eptifibatide infusion is currently being given. -- Eptifibatide infusions are documented, but the latest infusion ended at 09:05 on 2100-01-02, before the 14:38 decision time. No record shows it was still running or administered in the 24 hours before the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

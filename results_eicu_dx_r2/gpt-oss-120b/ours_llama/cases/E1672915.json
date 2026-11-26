@@ -1,0 +1,346 @@
+{
+ "case_id": "E1672915",
+ "decision_point": "2100-01-02 19:54:00",
+ "claims": [
+  "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent tachycardia, hypertension, and signs of septic shock.",
+  "Obtain a repeat serum lactate level to assess response to therapy and guide further resuscitation.",
+  "Order a portable chest X‑ray to evaluate for new infiltrates or pneumonia progression."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1672915A1::01",
+   "claim_id": "E1672915A1",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent tachycardia, hypertension, and signs of septic shock.",
+   "kind": "action",
+   "text": "Start norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1672915A1::02",
+   "claim_id": "E1672915A1",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent tachycardia, hypertension, and signs of septic shock.",
+   "kind": "goal",
+   "text": "Maintain MAP ≥65 mmHg.",
+   "concept": "map",
+   "notes": []
+  },
+  {
+   "atom_id": "E1672915A1::03",
+   "claim_id": "E1672915A1",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent tachycardia, hypertension, and signs of septic shock.",
+   "kind": "fact",
+   "text": "Tachycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1672915A1::04",
+   "claim_id": "E1672915A1",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent tachycardia, hypertension, and signs of septic shock.",
+   "kind": "fact",
+   "text": "Hypertension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1672915A1::05",
+   "claim_id": "E1672915A1",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent tachycardia, hypertension, and signs of septic shock.",
+   "kind": "fact",
+   "text": "Septic shock is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1672915A2::06",
+   "claim_id": "E1672915A2",
+   "claim_text": "Obtain a repeat serum lactate level to assess response to therapy and guide further resuscitation.",
+   "kind": "action",
+   "text": "Obtain a repeat serum lactate level.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1672915A3::07",
+   "claim_id": "E1672915A3",
+   "claim_text": "Order a portable chest X‑ray to evaluate for new infiltrates or pneumonia progression.",
+   "kind": "action",
+   "text": "Order a portable chest X-ray.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "portable chest X-ray",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1672915A1::03",
+   "claim_id": "E1672915A1",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent tachycardia, hypertension, and signs of septic shock.",
+   "kind": "fact",
+   "text": "Tachycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1254707973",
+     "time": "2100-01-02 17:10:00",
+     "item": "Heart Rate",
+     "value": 126.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "nurse:1225632369",
+     "time": "2100-01-02 17:20:00",
+     "item": "Heart Rate",
+     "value": 120.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "nurse:1179374614",
+     "time": "2100-01-02 18:00:00",
+     "item": "Heart Rate",
+     "value": 123.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "nurse:1247485233",
+     "time": "2100-01-02 19:17:00",
+     "item": "Heart Rate",
+     "value": 101.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "Median heart rate over the 6 h before the decision: 124.5 bpm (6 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "computed": {
+    "median": 124.5,
+    "status": "high",
+    "n": 6
+   },
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1672915A1::04",
+   "claim_id": "E1672915A1",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent tachycardia, hypertension, and signs of septic shock.",
+   "kind": "fact",
+   "text": "Hypertension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1179987908",
+     "time": "2100-01-02 18:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 132.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'blood pressure high' holds when any component is high. systolic BP: yes; mean arterial pressure: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1672915A1::05",
+   "claim_id": "E1672915A1",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent tachycardia, hypertension, and signs of septic shock.",
+   "kind": "fact",
+   "text": "Septic shock is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient has sepsis, but the temperature readings are fluctuating and do not consistently indicate septic shock. The patient's sedation level is also fluctuating, but it is not consistently at a level that would indicate septic shock. The patient's pain level is also fluctuating, but it is not consistently at a level that would indicate septic shock.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:1672915:dx",
+     "time": "2100-01-01 19:54:00",
+     "item": "Admission diagnosis (APACHE): Sepsis, unknown"
+    },
+    {
+     "rid": "nurse:1213603879",
+     "time": "2100-01-01 20:40:00",
+     "item": "Temperature Fahrenheit: 101.1 F"
+    },
+    {
+     "rid": "nurse:1176268533",
+     "time": "2100-01-02 00:22:00",
+     "item": "Temperature Fahrenheit: 98.2 F"
+    },
+    {
+     "rid": "nurse:1193798975",
+     "time": "2100-01-02 03:39:00",
+     "item": "Temperature Fahrenheit: 102 F"
+    },
+    {
+     "rid": "nurse:1216666750",
+     "time": "2100-01-02 12:15:00",
+     "item": "Temperature Fahrenheit: 102.6 F"
+    },
+    {
+     "rid": "nurse:1264354396",
+     "time": "2100-01-02 18:01:00",
+     "item": "Temperature Fahrenheit: 101.5 F"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1672915A1::01",
+   "claim_id": "E1672915A1",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent tachycardia, hypertension, and signs of septic shock.",
+   "kind": "action",
+   "text": "Start norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1672915A2::06",
+   "claim_id": "E1672915A2",
+   "claim_text": "Obtain a repeat serum lactate level to assess response to therapy and guide further resuscitation.",
+   "kind": "action",
+   "text": "Obtain a repeat serum lactate level.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1672915A3::07",
+   "claim_id": "E1672915A3",
+   "claim_text": "Order a portable chest X‑ray to evaluate for new infiltrates or pneumonia progression.",
+   "kind": "action",
+   "text": "Order a portable chest X-ray.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "portable chest X-ray",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Septic shock is present. -- The records show that the patient has sepsis, but the temperature readings are fluctuating and do not consistently indicate septic shock. The patient's sedation level is also fluctuating, but it is not consistently at a level that would indicate septic shock. The patient's pain level is also fluctuating, but it is not consistently at a level that would indicate septic shock."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

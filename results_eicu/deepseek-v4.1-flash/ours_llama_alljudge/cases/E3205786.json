@@ -1,0 +1,288 @@
+{
+ "case_id": "E3205786",
+ "decision_point": "2100-01-02 22:25:00",
+ "claims": [
+  "Continue levetiracetam 500 mg PO twice daily for seizure prophylaxis.",
+  "Monitor blood pressure and neurological status (GCS) per ICU protocol.",
+  "Maintain nasal cannula oxygen therapy to keep SpO2 above 92%."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3205786A1::01",
+   "claim_id": "E3205786A1",
+   "claim_text": "Continue levetiracetam 500 mg PO twice daily for seizure prophylaxis.",
+   "kind": "action",
+   "text": "Continue levetiracetam 500 mg PO twice daily.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "levetiracetam",
+   "conditional": false,
+   "treatment_class": "antiepileptic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3205786A1::02",
+   "claim_id": "E3205786A1",
+   "claim_text": "Continue levetiracetam 500 mg PO twice daily for seizure prophylaxis.",
+   "kind": "fact",
+   "text": "Levetiracetam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3205786A2::03",
+   "claim_id": "E3205786A2",
+   "claim_text": "Monitor blood pressure and neurological status (GCS) per ICU protocol.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3205786A2::04",
+   "claim_id": "E3205786A2",
+   "claim_text": "Monitor blood pressure and neurological status (GCS) per ICU protocol.",
+   "kind": "action",
+   "text": "Monitor neurological status (GCS).",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "neurological status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3205786A3::05",
+   "claim_id": "E3205786A3",
+   "claim_text": "Maintain nasal cannula oxygen therapy to keep SpO2 above 92%.",
+   "kind": "action",
+   "text": "Continue nasal cannula oxygen therapy.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nasal cannula oxygen therapy",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3205786A3::06",
+   "claim_id": "E3205786A3",
+   "claim_text": "Maintain nasal cannula oxygen therapy to keep SpO2 above 92%.",
+   "kind": "fact",
+   "text": "The patient is currently on nasal cannula oxygen therapy.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3205786A3::07",
+   "claim_id": "E3205786A3",
+   "claim_text": "Maintain nasal cannula oxygen therapy to keep SpO2 above 92%.",
+   "kind": "goal",
+   "text": "Maintain SpO2 above 92%.",
+   "concept": "spo2",
+   "notes": []
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3205786A1::02",
+   "claim_id": "E3205786A1",
+   "claim_text": "Continue levetiracetam 500 mg PO twice daily for seizure prophylaxis.",
+   "kind": "fact",
+   "text": "Levetiracetam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement that Levetiracetam is currently being given is not supported by the records. Although there is a medication administration record for Levetiracetam at 04:00 on 2100-01-02, it is a scheduled order that started at 04:00, not an administration record of the drug being given at the decision time of 22:25:00.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:106369750",
+     "time": "2100-01-02 04:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 04:00:00): Medication LEVETIRACETAM 500 MG PO TABS Oral bida,0800,2200 INDEF"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3205786A3::06",
+   "claim_id": "E3205786A3",
+   "claim_text": "Maintain nasal cannula oxygen therapy to keep SpO2 above 92%.",
+   "kind": "fact",
+   "text": "The patient is currently on nasal cannula oxygen therapy.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The patient is currently on nasal cannula oxygen therapy because R23 states that the patient is receiving oxygen therapy via nasal cannula.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:79522409",
+     "time": "2100-01-02 00:16:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (< 40%) | nasal cannula"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3205786A1::01",
+   "claim_id": "E3205786A1",
+   "claim_text": "Continue levetiracetam 500 mg PO twice daily for seizure prophylaxis.",
+   "kind": "action",
+   "text": "Continue levetiracetam 500 mg PO twice daily.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "levetiracetam",
+   "conditional": false,
+   "treatment_class": "antiepileptic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antiepileptics action recorded in the 5.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3205786A2::03",
+   "claim_id": "E3205786A2",
+   "claim_text": "Monitor blood pressure and neurological status (GCS) per ICU protocol.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2234849256",
+     "time": "2100-01-03 01:50:00",
+     "item": "systolic BP",
+     "value": "119.0 mmHg"
+    },
+    {
+     "rid": "nurse:2234849258",
+     "time": "2100-01-03 01:50:00",
+     "item": "mean arterial pressure",
+     "value": "80.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 5.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x1, mean arterial pressure x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3205786A2::04",
+   "claim_id": "E3205786A2",
+   "claim_text": "Monitor blood pressure and neurological status (GCS) per ICU protocol.",
+   "kind": "action",
+   "text": "Monitor neurological status (GCS).",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "neurological status",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No GCS / mental status measurement in the 5.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3205786A3::05",
+   "claim_id": "E3205786A3",
+   "claim_text": "Maintain nasal cannula oxygen therapy to keep SpO2 above 92%.",
+   "kind": "action",
+   "text": "Continue nasal cannula oxygen therapy.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nasal cannula oxygen therapy",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 5.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Levetiracetam is currently being given. -- The statement that Levetiracetam is currently being given is not supported by the records. Although there is a medication administration record for Levetiracetam at 04:00 on 2100-01-02, it is a scheduled order that started at 04:00, not an administration record of the drug being given at the decision time of 22:25:00."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

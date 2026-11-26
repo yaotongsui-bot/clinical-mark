@@ -1,0 +1,391 @@
+{
+ "case_id": "E942382",
+ "decision_point": "2100-01-02 15:23:00",
+ "claims": [
+  "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+  "Continue the administration of diltiazem to manage the patient's heart rate and rhythm.",
+  "Evaluate the patient's oxygen saturation and consider adjusting the oxygen flow rate if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E942382A1::01",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E942382A1::02",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "action",
+   "text": "Monitor respiratory rate closely.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E942382A1::03",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "fact",
+   "text": "Blood pressure has been fluctuating significantly.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E942382A1::04",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "fact",
+   "text": "Respiratory rate has been fluctuating significantly.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E942382A2::05",
+   "claim_id": "E942382A2",
+   "claim_text": "Continue the administration of diltiazem to manage the patient's heart rate and rhythm.",
+   "kind": "action",
+   "text": "Continue diltiazem.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "diltiazem",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E942382A2::06",
+   "claim_id": "E942382A2",
+   "claim_text": "Continue the administration of diltiazem to manage the patient's heart rate and rhythm.",
+   "kind": "fact",
+   "text": "Diltiazem is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E942382A3::07",
+   "claim_id": "E942382A3",
+   "claim_text": "Evaluate the patient's oxygen saturation and consider adjusting the oxygen flow rate if necessary.",
+   "kind": "action",
+   "text": "Evaluate oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E942382A3::08",
+   "claim_id": "E942382A3",
+   "claim_text": "Evaluate the patient's oxygen saturation and consider adjusting the oxygen flow rate if necessary.",
+   "kind": "action",
+   "text": "Consider adjusting the oxygen flow rate if necessary.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen flow rate",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E942382A1::03",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "fact",
+   "text": "Blood pressure has been fluctuating significantly.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient's blood pressure has been fluctuating, but the most recent measurement (R50) shows a diastolic pressure of 69 mmHg, which is not significantly fluctuating. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:547574285",
+     "time": "2100-01-02 14:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 69 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E942382A1::04",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "fact",
+   "text": "Respiratory rate has been fluctuating significantly.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The respiratory rate has been fluctuating significantly, but the most recent measurement (R36) shows a respiratory rate of 18 insp/min, which is not fluctuating.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:541727616",
+     "time": "2100-01-02 00:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "E942382A2::06",
+   "claim_id": "E942382A2",
+   "claim_text": "Continue the administration of diltiazem to manage the patient's heart rate and rhythm.",
+   "kind": "fact",
+   "text": "Diltiazem is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that diltiazem was ordered and administered, but the administration record (R20) shows that it was started at 17:04, which is after the decision time. Therefore, the statement that diltiazem is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:25033406",
+     "time": "2100-01-01 16:20:00",
+     "item": "Treatment documented: antiarrhythmics | class IV antiarrhythmic | diltiazem"
+    },
+    {
+     "rid": "inf:Diltiazem (ml/hr):101",
+     "time": "2100-01-01 17:04:00",
+     "item": "Infusion/input Diltiazem at 7.25 ml/hour (2100-01-01 17:04:00 to 2100-01-01 17:04:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E942382A1::01",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:466047096",
+     "time": "2100-01-02 16:00:00",
+     "item": "systolic BP",
+     "value": "101.0 mmHg"
+    },
+    {
+     "rid": "nurse:487129162",
+     "time": "2100-01-02 17:00:00",
+     "item": "systolic BP",
+     "value": "112.0 mmHg"
+    },
+    {
+     "rid": "nurse:466047095",
+     "time": "2100-01-02 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "85.0 mmHg"
+    },
+    {
+     "rid": "nurse:487129161",
+     "time": "2100-01-02 17:00:00",
+     "item": "mean arterial pressure",
+     "value": "81.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 3.5 h observation window after the decision (24 h or until ICU discharge): systolic BP x2, mean arterial pressure x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E942382A1::02",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "action",
+   "text": "Monitor respiratory rate closely.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:468280634",
+     "time": "2100-01-02 16:00:00",
+     "item": "respiratory rate",
+     "value": "19.0 insp/min"
+    },
+    {
+     "rid": "nurse:511629375",
+     "time": "2100-01-02 17:00:00",
+     "item": "respiratory rate",
+     "value": "21.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 3.5 h observation window after the decision (24 h or until ICU discharge): respiratory rate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E942382A2::05",
+   "claim_id": "E942382A2",
+   "claim_text": "Continue the administration of diltiazem to manage the patient's heart rate and rhythm.",
+   "kind": "action",
+   "text": "Continue diltiazem.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "diltiazem",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 3.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E942382A3::07",
+   "claim_id": "E942382A3",
+   "claim_text": "Evaluate the patient's oxygen saturation and consider adjusting the oxygen flow rate if necessary.",
+   "kind": "action",
+   "text": "Evaluate oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:471348374",
+     "time": "2100-01-02 16:00:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    },
+    {
+     "rid": "nurse:508970228",
+     "time": "2100-01-02 17:00:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    }
+   ],
+   "reason": "Measured in the 3.5 h observation window after the decision (24 h or until ICU discharge): SpO2 x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E942382A3::08",
+   "claim_id": "E942382A3",
+   "claim_text": "Evaluate the patient's oxygen saturation and consider adjusting the oxygen flow rate if necessary.",
+   "kind": "action",
+   "text": "Consider adjusting the oxygen flow rate if necessary.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen flow rate",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 3.5,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Blood pressure has been fluctuating significantly. -- The records show that the patient's blood pressure has been fluctuating, but the most recent measurement (R50) shows a diastolic pressure of 69 mmHg, which is not significantly fluctuating. The statement is not supported by the records.",
+    "Respiratory rate has been fluctuating significantly. -- The respiratory rate has been fluctuating significantly, but the most recent measurement (R36) shows a respiratory rate of 18 insp/min, which is not fluctuating.",
+    "Diltiazem is currently being given. -- The records show that diltiazem was ordered and administered, but the administration record (R20) shows that it was started at 17:04, which is after the decision time. Therefore, the statement that diltiazem is currently being given is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

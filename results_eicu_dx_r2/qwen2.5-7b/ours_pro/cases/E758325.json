@@ -1,0 +1,654 @@
+{
+ "case_id": "E758325",
+ "decision_point": "2100-01-02 16:29:00",
+ "claims": [
+  "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+  "Continue mechanical ventilation with adjusted oxygenation settings.",
+  "Assess for signs of infection or complications, including troponin levels."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E758325A1::01",
+   "claim_id": "E758325A1",
+   "claim_text": "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E758325A1::02",
+   "claim_id": "E758325A1",
+   "claim_text": "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E758325A1::03",
+   "claim_id": "E758325A1",
+   "claim_text": "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure and heart rate have been fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [
+    "concept set by the rule files: vital_signs -> blood_pressure"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E758325A2::04",
+   "claim_id": "E758325A2",
+   "claim_text": "Continue mechanical ventilation with adjusted oxygenation settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E758325A2::05",
+   "claim_id": "E758325A2",
+   "claim_text": "Continue mechanical ventilation with adjusted oxygenation settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E758325A2::06",
+   "claim_id": "E758325A2",
+   "claim_text": "Continue mechanical ventilation with adjusted oxygenation settings.",
+   "kind": "action",
+   "text": "Adjust oxygenation settings.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygenation settings",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E758325A3::07",
+   "claim_id": "E758325A3",
+   "claim_text": "Assess for signs of infection or complications, including troponin levels.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "E758325A3::08",
+   "claim_id": "E758325A3",
+   "claim_text": "Assess for signs of infection or complications, including troponin levels.",
+   "kind": "action",
+   "text": "Assess for complications.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "complications",
+   "conditional": false
+  },
+  {
+   "atom_id": "E758325A3::09",
+   "claim_id": "E758325A3",
+   "claim_text": "Assess for signs of infection or complications, including troponin levels.",
+   "kind": "action",
+   "text": "Order troponin levels.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "troponin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E758325A1::03",
+   "claim_id": "E758325A1",
+   "claim_text": "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure and heart rate have been fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [
+    "concept set by the rule files: vital_signs -> blood_pressure"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show heart rate values ranging from 90 to 150 bpm and arterial blood pressure mean values ranging from 72 to 126 mmHg over the 24 hours before the decision time, demonstrating significant fluctuation in both parameters.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:528186371",
+     "time": "2100-01-01 11:47:00",
+     "item": "Heart Rate: 104 bpm"
+    },
+    {
+     "rid": "nurse:479012725",
+     "time": "2100-01-01 15:52:00",
+     "item": "Heart Rate: 119 bpm"
+    },
+    {
+     "rid": "nurse:552603286",
+     "time": "2100-01-01 16:07:00",
+     "item": "Heart Rate: 122 bpm"
+    },
+    {
+     "rid": "nurse:547285271",
+     "time": "2100-01-01 16:30:00",
+     "item": "Heart Rate: 128 bpm"
+    },
+    {
+     "rid": "nurse:541392617",
+     "time": "2100-01-01 17:35:00",
+     "item": "Heart Rate: 128 bpm"
+    },
+    {
+     "rid": "nurse:507897077",
+     "time": "2100-01-01 18:00:00",
+     "item": "Heart Rate: 133 bpm"
+    },
+    {
+     "rid": "nurse:521078661",
+     "time": "2100-01-01 19:00:00",
+     "item": "Heart Rate: 150 bpm"
+    },
+    {
+     "rid": "nurse:480788564",
+     "time": "2100-01-01 19:40:00",
+     "item": "Arterial Blood Pressure diastolic: 70 mmHg"
+    },
+    {
+     "rid": "nurse:531452035",
+     "time": "2100-01-01 20:00:00",
+     "item": "Arterial Blood Pressure mean: 83 mmHg"
+    },
+    {
+     "rid": "nurse:551443287",
+     "time": "2100-01-01 20:12:00",
+     "item": "Heart Rate: 128 bpm"
+    },
+    {
+     "rid": "nurse:505654060",
+     "time": "2100-01-01 21:00:00",
+     "item": "Heart Rate: 137 bpm"
+    },
+    {
+     "rid": "nurse:494939977",
+     "time": "2100-01-01 21:00:00",
+     "item": "Arterial Blood Pressure mean: 77 mmHg"
+    },
+    {
+     "rid": "nurse:513247324",
+     "time": "2100-01-01 22:00:00",
+     "item": "Heart Rate: 133 bpm"
+    },
+    {
+     "rid": "nurse:513039273",
+     "time": "2100-01-01 22:00:00",
+     "item": "Arterial Blood Pressure mean: 84 mmHg"
+    },
+    {
+     "rid": "nurse:540803909",
+     "time": "2100-01-01 23:00:00",
+     "item": "Heart Rate: 123 bpm"
+    },
+    {
+     "rid": "nurse:531358367",
+     "time": "2100-01-01 23:00:00",
+     "item": "Arterial Blood Pressure mean: 83 mmHg"
+    },
+    {
+     "rid": "nurse:527366082",
+     "time": "2100-01-02 00:00:00",
+     "item": "Heart Rate: 133 bpm"
+    },
+    {
+     "rid": "nurse:529521031",
+     "time": "2100-01-02 00:00:00",
+     "item": "Arterial Blood Pressure mean: 88 mmHg"
+    },
+    {
+     "rid": "nurse:515888208",
+     "time": "2100-01-02 01:00:00",
+     "item": "Heart Rate: 94 bpm"
+    },
+    {
+     "rid": "nurse:503996787",
+     "time": "2100-01-02 01:00:00",
+     "item": "Arterial Blood Pressure mean: 81 mmHg"
+    },
+    {
+     "rid": "nurse:530795922",
+     "time": "2100-01-02 02:00:00",
+     "item": "Arterial Blood Pressure mean: 72 mmHg"
+    },
+    {
+     "rid": "nurse:522384107",
+     "time": "2100-01-02 02:17:00",
+     "item": "Heart Rate: 90 bpm"
+    },
+    {
+     "rid": "nurse:532062056",
+     "time": "2100-01-02 03:00:00",
+     "item": "Heart Rate: 92 bpm"
+    },
+    {
+     "rid": "nurse:525122846",
+     "time": "2100-01-02 03:00:00",
+     "item": "Arterial Blood Pressure mean: 75 mmHg"
+    },
+    {
+     "rid": "nurse:461209471",
+     "time": "2100-01-02 04:00:00",
+     "item": "Heart Rate: 95 bpm"
+    },
+    {
+     "rid": "nurse:495194458",
+     "time": "2100-01-02 04:00:00",
+     "item": "Arterial Blood Pressure mean: 84 mmHg"
+    },
+    {
+     "rid": "nurse:469032589",
+     "time": "2100-01-02 05:00:00",
+     "item": "Heart Rate: 99 bpm"
+    },
+    {
+     "rid": "nurse:506863061",
+     "time": "2100-01-02 05:00:00",
+     "item": "Arterial Blood Pressure mean: 85 mmHg"
+    },
+    {
+     "rid": "nurse:540689576",
+     "time": "2100-01-02 06:00:00",
+     "item": "Heart Rate: 101 bpm"
+    },
+    {
+     "rid": "nurse:519026786",
+     "time": "2100-01-02 06:00:00",
+     "item": "Arterial Blood Pressure mean: 87 mmHg"
+    },
+    {
+     "rid": "nurse:492840445",
+     "time": "2100-01-02 07:00:00",
+     "item": "Heart Rate: 97 bpm"
+    },
+    {
+     "rid": "nurse:527809992",
+     "time": "2100-01-02 07:00:00",
+     "item": "Arterial Blood Pressure mean: 91 mmHg"
+    },
+    {
+     "rid": "nurse:507445328",
+     "time": "2100-01-02 08:00:00",
+     "item": "Heart Rate: 100 bpm"
+    },
+    {
+     "rid": "nurse:555286795",
+     "time": "2100-01-02 08:00:00",
+     "item": "Arterial Blood Pressure mean: 93 mmHg"
+    },
+    {
+     "rid": "nurse:515831382",
+     "time": "2100-01-02 09:00:00",
+     "item": "Heart Rate: 109 bpm"
+    },
+    {
+     "rid": "nurse:546383466",
+     "time": "2100-01-02 09:00:00",
+     "item": "Arterial Blood Pressure mean: 116 mmHg"
+    },
+    {
+     "rid": "nurse:559504196",
+     "time": "2100-01-02 09:31:00",
+     "item": "Heart Rate: 110 bpm"
+    },
+    {
+     "rid": "nurse:548949051",
+     "time": "2100-01-02 10:00:00",
+     "item": "Heart Rate: 109 bpm"
+    },
+    {
+     "rid": "nurse:485167938",
+     "time": "2100-01-02 10:00:00",
+     "item": "Arterial Blood Pressure mean: 101 mmHg"
+    },
+    {
+     "rid": "nurse:564099486",
+     "time": "2100-01-02 11:00:00",
+     "item": "Heart Rate: 103 bpm"
+    },
+    {
+     "rid": "nurse:462697891",
+     "time": "2100-01-02 11:00:00",
+     "item": "Arterial Blood Pressure mean: 80 mmHg"
+    },
+    {
+     "rid": "nurse:526455562",
+     "time": "2100-01-02 12:00:00",
+     "item": "Heart Rate: 105 bpm"
+    },
+    {
+     "rid": "nurse:485485855",
+     "time": "2100-01-02 12:00:00",
+     "item": "Arterial Blood Pressure mean: 99 mmHg"
+    },
+    {
+     "rid": "nurse:448705829",
+     "time": "2100-01-02 13:00:00",
+     "item": "Heart Rate: 112 bpm"
+    },
+    {
+     "rid": "nurse:534058761",
+     "time": "2100-01-02 13:00:00",
+     "item": "Arterial Blood Pressure mean: 107 mmHg"
+    },
+    {
+     "rid": "nurse:489768804",
+     "time": "2100-01-02 14:00:00",
+     "item": "Heart Rate: 114 bpm"
+    },
+    {
+     "rid": "nurse:470109214",
+     "time": "2100-01-02 14:00:00",
+     "item": "Arterial Blood Pressure mean: 126 mmHg"
+    },
+    {
+     "rid": "nurse:535880227",
+     "time": "2100-01-02 14:11:00",
+     "item": "Heart Rate: 101 bpm"
+    },
+    {
+     "rid": "nurse:458079522",
+     "time": "2100-01-02 15:00:00",
+     "item": "Heart Rate: 117 bpm"
+    },
+    {
+     "rid": "nurse:490248459",
+     "time": "2100-01-02 15:00:00",
+     "item": "Arterial Blood Pressure mean: 122 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E758325A2::05",
+   "claim_id": "E758325A2",
+   "claim_text": "Continue mechanical ventilation with adjusted oxygenation settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "resp:39111960",
+     "time": "2100-01-02 15:31:00",
+     "item": "Mean Airway Pressure: 15 cmH2O"
+    }
+   ],
+   "reason": "Ventilator charting 1.0 h before the decision ('Mean Airway Pressure: 15 cmH2O').",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E758325A1::01",
+   "claim_id": "E758325A1",
+   "claim_text": "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:470573808",
+     "time": "2100-01-02 17:00:00",
+     "item": "systolic BP",
+     "value": "138.0 mmHg"
+    },
+    {
+     "rid": "nurse:521752799",
+     "time": "2100-01-02 18:00:00",
+     "item": "systolic BP",
+     "value": "113.0 mmHg"
+    },
+    {
+     "rid": "nurse:470573807",
+     "time": "2100-01-02 17:00:00",
+     "item": "mean arterial pressure",
+     "value": "103.0 mmHg"
+    },
+    {
+     "rid": "nurse:521752798",
+     "time": "2100-01-02 18:00:00",
+     "item": "mean arterial pressure",
+     "value": "88.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x23, mean arterial pressure x23.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E758325A1::02",
+   "claim_id": "E758325A1",
+   "claim_text": "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:518781067",
+     "time": "2100-01-02 17:00:00",
+     "item": "heart rate",
+     "value": "88.0 bpm"
+    },
+    {
+     "rid": "nurse:446754484",
+     "time": "2100-01-02 18:00:00",
+     "item": "heart rate",
+     "value": "96.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x28.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E758325A2::04",
+   "claim_id": "E758325A2",
+   "claim_text": "Continue mechanical ventilation with adjusted oxygenation settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (67 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:21939060",
+     "time": "2100-01-02 19:05:00",
+     "item": "ventilator setting",
+     "value": "45.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:21939064",
+     "time": "2100-01-02 19:05:00",
+     "item": "ventilator setting",
+     "value": "14.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:21939066",
+     "time": "2100-01-02 19:05:00",
+     "item": "ventilator setting",
+     "value": "10.0 cmH2O",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E758325A2::06",
+   "claim_id": "E758325A2",
+   "claim_text": "Continue mechanical ventilation with adjusted oxygenation settings.",
+   "kind": "action",
+   "text": "Adjust oxygenation settings.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygenation settings",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E758325A3::07",
+   "claim_id": "E758325A3",
+   "claim_text": "Assess for signs of infection or complications, including troponin levels.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E758325A3::08",
+   "claim_id": "E758325A3",
+   "claim_text": "Assess for signs of infection or complications, including troponin levels.",
+   "kind": "action",
+   "text": "Assess for complications.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "complications",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E758325A3::09",
+   "claim_id": "E758325A3",
+   "claim_text": "Assess for signs of infection or complications, including troponin levels.",
+   "kind": "action",
+   "text": "Order troponin levels.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "troponin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

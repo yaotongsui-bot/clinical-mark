@@ -1,0 +1,372 @@
+{
+ "case_id": "E1071224",
+ "decision_point": "2100-01-02 16:46:00",
+ "claims": [
+  "Continue heparin infusion at 1300 units/hour, as it is running at the decision point.",
+  "Monitor PTT to assess anticoagulation response, given recent PTT of 51.2 seconds.",
+  "Assess and manage pain, as pain scores have been elevated (up to 10) with PRN morphine ordered."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1071224A1::01",
+   "claim_id": "E1071224A1",
+   "claim_text": "Continue heparin infusion at 1300 units/hour, as it is running at the decision point.",
+   "kind": "action",
+   "text": "Continue heparin infusion at 1300 units/hour.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin infusion",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1071224A1::02",
+   "claim_id": "E1071224A1",
+   "claim_text": "Continue heparin infusion at 1300 units/hour, as it is running at the decision point.",
+   "kind": "fact",
+   "text": "Heparin infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1071224A2::03",
+   "claim_id": "E1071224A2",
+   "claim_text": "Monitor PTT to assess anticoagulation response, given recent PTT of 51.2 seconds.",
+   "kind": "action",
+   "text": "Monitor PTT.",
+   "concept": "ptt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PTT",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1071224A2::04",
+   "claim_id": "E1071224A2",
+   "claim_text": "Monitor PTT to assess anticoagulation response, given recent PTT of 51.2 seconds.",
+   "kind": "fact",
+   "text": "Recent PTT is 51.2 seconds.",
+   "concept": "ptt",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1071224A3::05",
+   "claim_id": "E1071224A3",
+   "claim_text": "Assess and manage pain, as pain scores have been elevated (up to 10) with PRN morphine ordered.",
+   "kind": "action",
+   "text": "Assess pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1071224A3::06",
+   "claim_id": "E1071224A3",
+   "claim_text": "Assess and manage pain, as pain scores have been elevated (up to 10) with PRN morphine ordered.",
+   "kind": "action",
+   "text": "Manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "other",
+   "target": "pain",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E1071224A3::07",
+   "claim_id": "E1071224A3",
+   "claim_text": "Assess and manage pain, as pain scores have been elevated (up to 10) with PRN morphine ordered.",
+   "kind": "fact",
+   "text": "Pain scores have been elevated up to 10.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1071224A3::08",
+   "claim_id": "E1071224A3",
+   "claim_text": "Assess and manage pain, as pain scores have been elevated (up to 10) with PRN morphine ordered.",
+   "kind": "fact",
+   "text": "PRN morphine is ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1071224A1::02",
+   "claim_id": "E1071224A1",
+   "claim_text": "Continue heparin infusion at 1300 units/hour, as it is running at the decision point.",
+   "kind": "fact",
+   "text": "Heparin infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The statement 'Heparin infusion is currently running' is supported by record R47, which shows that the heparin infusion was running at 1300 units/hour at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Heparin (units/hr):1154",
+     "time": "2100-01-02 12:00:00",
+     "item": "Running at decision time (started 2100-01-02 12:00:00): Infusion/input Heparin at 1300 units/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1071224A2::04",
+   "claim_id": "E1071224A2",
+   "claim_text": "Monitor PTT to assess anticoagulation response, given recent PTT of 51.2 seconds.",
+   "kind": "fact",
+   "text": "Recent PTT is 51.2 seconds.",
+   "concept": "ptt",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:253825833",
+     "time": "2100-01-02 11:00:00",
+     "item": "PTT",
+     "value": 51.2,
+     "unit": "sec",
+     "bounds": "25 to 36.5",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "The stated PTT (51.2) matches recorded values before the decision (51.2 at 2100-01-02 11:00:00).",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1071224A3::07",
+   "claim_id": "E1071224A3",
+   "claim_text": "Assess and manage pain, as pain scores have been elevated (up to 10) with PRN morphine ordered.",
+   "kind": "fact",
+   "text": "Pain scores have been elevated up to 10.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that the patient's pain level was 10 at 00:00 on 2099-12-31 and again at 12:00 on 2100-01-02, which supports the statement that pain scores have been elevated up to 10.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:668334291",
+     "time": "2099-12-31 00:00:00",
+     "item": "Pain Level: 10"
+    },
+    {
+     "rid": "nurse:658201745",
+     "time": "2100-01-02 12:00:00",
+     "item": "Pain Level: 10"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1071224A3::08",
+   "claim_id": "E1071224A3",
+   "claim_text": "Assess and manage pain, as pain scores have been elevated (up to 10) with PRN morphine ordered.",
+   "kind": "fact",
+   "text": "PRN morphine is ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The statement 'PRN morphine is ordered' is supported by record R25, which shows that morphine IV PRN is ordered and active at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:37267092",
+     "time": "2099-12-31 19:50:00",
+     "item": "Order: MORPHINE IV PRN (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1071224A1::01",
+   "claim_id": "E1071224A1",
+   "claim_text": "Continue heparin infusion at 1300 units/hour, as it is running at the decision point.",
+   "kind": "action",
+   "text": "Continue heparin infusion at 1300 units/hour.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin infusion",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (therapeutic) action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1071224A2::03",
+   "claim_id": "E1071224A2",
+   "claim_text": "Monitor PTT to assess anticoagulation response, given recent PTT of 51.2 seconds.",
+   "kind": "action",
+   "text": "Monitor PTT.",
+   "concept": "ptt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PTT",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:255132904",
+     "time": "2100-01-03 06:52:00",
+     "item": "PTT",
+     "value": "48.0 sec"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): PTT x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071224A3::05",
+   "claim_id": "E1071224A3",
+   "claim_text": "Assess and manage pain, as pain scores have been elevated (up to 10) with PRN morphine ordered.",
+   "kind": "action",
+   "text": "Assess pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:667315718",
+     "time": "2100-01-02 18:00:00",
+     "item": "pain score",
+     "value": "9.0"
+    },
+    {
+     "rid": "nurse:666598295",
+     "time": "2100-01-02 20:00:00",
+     "item": "pain score",
+     "value": "5.0"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071224A3::06",
+   "claim_id": "E1071224A3",
+   "claim_text": "Assess and manage pain, as pain scores have been elevated (up to 10) with PRN morphine ordered.",
+   "kind": "action",
+   "text": "Manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "other",
+   "target": "pain",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 4,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

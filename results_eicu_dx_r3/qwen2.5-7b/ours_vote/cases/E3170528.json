@@ -1,0 +1,293 @@
+{
+ "case_id": "E3170528",
+ "decision_point": "2100-01-02 03:39:00",
+ "claims": [
+  "Monitor blood pressure closely due to fluctuations.",
+  "Continue intravenous fluids to maintain hydration.",
+  "Assess for signs of intracranial hypertension."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3170528A1::01",
+   "claim_id": "E3170528A1",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3170528A1::02",
+   "claim_id": "E3170528A1",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3170528A2::03",
+   "claim_id": "E3170528A2",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3170528A2::04",
+   "claim_id": "E3170528A2",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3170528A3::05",
+   "claim_id": "E3170528A3",
+   "claim_text": "Assess for signs of intracranial hypertension.",
+   "kind": "action",
+   "text": "Assess for signs of intracranial hypertension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of intracranial hypertension",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3170528A1::02",
+   "claim_id": "E3170528A1",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The arterial blood pressure records show marked variability, including a spike to 217/145 mmHg at 21:00 and a drop to 74/54 mmHg at 01:00, supporting the statement that blood pressure is fluctuating.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2173039337",
+     "time": "2100-01-01 21:00:00",
+     "item": "Arterial Blood Pressure mean: 217 mmHg"
+    },
+    {
+     "rid": "nurse:2173039336",
+     "time": "2100-01-01 21:00:00",
+     "item": "Arterial Blood Pressure diastolic: 145 mmHg"
+    },
+    {
+     "rid": "nurse:2188058392",
+     "time": "2100-01-02 01:00:00",
+     "item": "Arterial Blood Pressure mean: 74 mmHg"
+    },
+    {
+     "rid": "nurse:2188058394",
+     "time": "2100-01-02 01:00:00",
+     "item": "Arterial Blood Pressure diastolic: 54 mmHg"
+    },
+    {
+     "rid": "nurse:2168918008",
+     "time": "2100-01-02 03:00:00",
+     "item": "Arterial Blood Pressure mean: 105 mmHg"
+    },
+    {
+     "rid": "nurse:2168918006",
+     "time": "2100-01-02 03:00:00",
+     "item": "Arterial Blood Pressure diastolic: 77 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3170528A2::04",
+   "claim_id": "E3170528A2",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The only intravenous fluid administration record, R22 (POTASSIUM CHLORIDE IN NACL IV Continuous), ended at 2100-01-02 01:40:00, which is before the decision time of 03:39:00. No other IV fluid administration is documented within the 24 hours prior to the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:105098552",
+     "time": "2100-01-01 03:45:00",
+     "item": "Medication POTASSIUM CHLORIDE IN NACL 20-0.9 MEQ/L-% IV SOLN IV Continuous (2100-01-01 03:45:00 to 2100-01-02 01:40:00)"
+    },
+    {
+     "rid": "med:105063445",
+     "time": "2100-01-01 03:27:00",
+     "item": "Order: DEXTROSE 50 % IV SOLN IV PRN (stopped 2100-01-02 01:40:00)"
+    },
+    {
+     "rid": "med:105770921",
+     "time": "2100-01-01 09:30:00",
+     "item": "Given once: POTASSIUM CHLORIDE 2 MEQ/ML IV SOLN IV Once X1 (2100-01-01 09:30:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3170528A1::01",
+   "claim_id": "E3170528A1",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2206252703",
+     "time": "2100-01-02 04:00:00",
+     "item": "systolic BP",
+     "value": "133.0 mmHg"
+    },
+    {
+     "rid": "nurse:2199211918",
+     "time": "2100-01-02 04:00:00",
+     "item": "systolic BP",
+     "value": "148.0 mmHg"
+    },
+    {
+     "rid": "nurse:2206252702",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "88.0 mmHg"
+    },
+    {
+     "rid": "nurse:2199211919",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "93.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 7.5 h observation window after the decision (24 h or until ICU discharge): systolic BP x11, mean arterial pressure x11.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3170528A2::03",
+   "claim_id": "E3170528A2",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 7.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3170528A3::05",
+   "claim_id": "E3170528A3",
+   "claim_text": "Assess for signs of intracranial hypertension.",
+   "kind": "action",
+   "text": "Assess for signs of intracranial hypertension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of intracranial hypertension",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 7.5,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous fluids are currently being given. -- The only intravenous fluid administration record, R22 (POTASSIUM CHLORIDE IN NACL IV Continuous), ended at 2100-01-02 01:40:00, which is before the decision time of 03:39:00. No other IV fluid administration is documented within the 24 hours prior to the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

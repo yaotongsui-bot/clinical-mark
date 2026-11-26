@@ -1,0 +1,403 @@
+{
+ "case_id": "E375854",
+ "decision_point": "2100-01-02 10:54:00",
+ "claims": [
+  "Order packed red blood cell transfusion to raise hemoglobin.",
+  "Continue intravenous meropenem therapy for broad‑spectrum coverage of possible intra‑abdominal infection.",
+  "Obtain an emergent upper endoscopy to locate and control the source of gastrointestinal bleeding."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E375854A1::01",
+   "claim_id": "E375854A1",
+   "claim_text": "Order packed red blood cell transfusion to raise hemoglobin.",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E375854A1::02",
+   "claim_id": "E375854A1",
+   "claim_text": "Order packed red blood cell transfusion to raise hemoglobin.",
+   "kind": "fact",
+   "text": "Hemoglobin is low.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E375854A2::03",
+   "claim_id": "E375854A2",
+   "claim_text": "Continue intravenous meropenem therapy for broad‑spectrum coverage of possible intra‑abdominal infection.",
+   "kind": "action",
+   "text": "Continue intravenous meropenem therapy.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "meropenem",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E375854A2::04",
+   "claim_id": "E375854A2",
+   "claim_text": "Continue intravenous meropenem therapy for broad‑spectrum coverage of possible intra‑abdominal infection.",
+   "kind": "fact",
+   "text": "Intravenous meropenem therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E375854A2::05",
+   "claim_id": "E375854A2",
+   "claim_text": "Continue intravenous meropenem therapy for broad‑spectrum coverage of possible intra‑abdominal infection.",
+   "kind": "fact",
+   "text": "Possible intra-abdominal infection is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "unspecified",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E375854A3::06",
+   "claim_id": "E375854A3",
+   "claim_text": "Obtain an emergent upper endoscopy to locate and control the source of gastrointestinal bleeding.",
+   "kind": "action",
+   "text": "Obtain an emergent upper endoscopy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "upper endoscopy",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E375854A3::07",
+   "claim_id": "E375854A3",
+   "claim_text": "Obtain an emergent upper endoscopy to locate and control the source of gastrointestinal bleeding.",
+   "kind": "fact",
+   "text": "Gastrointestinal bleeding is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E375854A1::02",
+   "claim_id": "E375854A1",
+   "claim_text": "Order packed red blood cell transfusion to raise hemoglobin.",
+   "kind": "fact",
+   "text": "Hemoglobin is low.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:89845221",
+     "time": "2100-01-02 03:22:00",
+     "item": "Hemoglobin",
+     "value": 9.5,
+     "unit": "g/dl",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:88721436",
+     "time": "2100-01-02 07:20:00",
+     "item": "Hemoglobin",
+     "value": 8.4,
+     "unit": "g/dl",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:95075590",
+     "time": "2100-01-02 09:00:00",
+     "item": "Hemoglobin",
+     "value": 7.8,
+     "unit": "g/dl",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 7.8 g/dl at 2100-01-02 09:00:00 (reference 12 to 16) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E375854A2::04",
+   "claim_id": "E375854A2",
+   "claim_text": "Continue intravenous meropenem therapy for broad‑spectrum coverage of possible intra‑abdominal infection.",
+   "kind": "fact",
+   "text": "Intravenous meropenem therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "The records document meropenem as a treatment (R32), but there is no administration record of intravenous meropenem in the 24 hours before the decision time. The statement that it is 'currently being given' is therefore not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:17013139",
+     "time": "2100-01-01 13:10:00",
+     "item": "Treatment documented: therapeutic antibacterials | carbapenem | meropenem"
+    }
+   ]
+  },
+  {
+   "atom_id": "E375854A2::05",
+   "claim_id": "E375854A2",
+   "claim_text": "Continue intravenous meropenem therapy for broad‑spectrum coverage of possible intra‑abdominal infection.",
+   "kind": "fact",
+   "text": "Possible intra-abdominal infection is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "unspecified",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show consultations with infectious disease, gastroenterology, and surgery, as well as a bleeding scan, but they do not contain a diagnosis of intra-abdominal infection. The consultations suggest investigation but do not directly state or confirm the presence of an infection.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_addressed"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:15066713",
+     "time": "2100-01-01 11:21:00",
+     "item": "Treatment documented: infectious diseases | consultations | Infectious Disease consultation"
+    },
+    {
+     "rid": "treat:10568208",
+     "time": "2100-01-01 11:21:00",
+     "item": "Treatment documented: gastrointestinal | consultations | Gastroenterology consultation"
+    },
+    {
+     "rid": "treat:14929082",
+     "time": "2100-01-01 11:21:00",
+     "item": "Treatment documented: surgery | consultations | Surgery consultation"
+    },
+    {
+     "rid": "treat:16275083",
+     "time": "2100-01-01 11:23:00",
+     "item": "Treatment documented: gastrointestinal | consultations | Gastroenterology consultation"
+    },
+    {
+     "rid": "treat:12914766",
+     "time": "2100-01-01 11:23:00",
+     "item": "Treatment documented: infectious diseases | consultations | Infectious Disease consultation"
+    },
+    {
+     "rid": "treat:15303586",
+     "time": "2100-01-01 11:23:00",
+     "item": "Treatment documented: surgery | consultations | Surgery consultation"
+    },
+    {
+     "rid": "treat:17801874",
+     "time": "2100-01-01 13:10:00",
+     "item": "Treatment documented: gastrointestinal | consultations | Gastroenterology consultation"
+    },
+    {
+     "rid": "treat:11441105",
+     "time": "2100-01-01 13:10:00",
+     "item": "Treatment documented: gastrointestinal | radiology, diagnostic and procedures | bleeding scan"
+    },
+    {
+     "rid": "treat:11820150",
+     "time": "2100-01-01 13:10:00",
+     "item": "Treatment documented: infectious diseases | consultations | Infectious Disease consultation"
+    },
+    {
+     "rid": "treat:12695590",
+     "time": "2100-01-01 13:10:00",
+     "item": "Treatment documented: surgery | consultations | Surgery consultation"
+    }
+   ]
+  },
+  {
+   "atom_id": "E375854A3::07",
+   "claim_id": "E375854A3",
+   "claim_text": "Obtain an emergent upper endoscopy to locate and control the source of gastrointestinal bleeding.",
+   "kind": "fact",
+   "text": "Gastrointestinal bleeding is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show a bleeding scan was ordered and stress ulcer prophylaxis with IV pantoprazole was documented, which suggests concern for bleeding, but no record explicitly states gastrointestinal bleeding is present or provides direct evidence of active bleeding.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:11441105",
+     "time": "2100-01-01 13:10:00",
+     "item": "Treatment documented: gastrointestinal | radiology, diagnostic and procedures | bleeding scan"
+    },
+    {
+     "rid": "treat:18251682",
+     "time": "2100-01-01 13:10:00",
+     "item": "Treatment documented: stress ulcer prophylaxis | pantoprazole | IV"
+    },
+    {
+     "rid": "treat:10568208",
+     "time": "2100-01-01 11:21:00",
+     "item": "Treatment documented: gastrointestinal | consultations | Gastroenterology consultation"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E375854A1::01",
+   "claim_id": "E375854A1",
+   "claim_text": "Order packed red blood cell transfusion to raise hemoglobin.",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E375854A2::03",
+   "claim_id": "E375854A2",
+   "claim_text": "Continue intravenous meropenem therapy for broad‑spectrum coverage of possible intra‑abdominal infection.",
+   "kind": "action",
+   "text": "Continue intravenous meropenem therapy.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "meropenem",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E375854A3::06",
+   "claim_id": "E375854A3",
+   "claim_text": "Obtain an emergent upper endoscopy to locate and control the source of gastrointestinal bleeding.",
+   "kind": "action",
+   "text": "Obtain an emergent upper endoscopy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "upper endoscopy",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.75,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous meropenem therapy is currently being given. -- The records document meropenem as a treatment (R32), but there is no administration record of intravenous meropenem in the 24 hours before the decision time. The statement that it is 'currently being given' is therefore not supported.",
+    "Possible intra-abdominal infection is present. -- The records show consultations with infectious disease, gastroenterology, and surgery, as well as a bleeding scan, but they do not contain a diagnosis of intra-abdominal infection. The consultations suggest investigation but do not directly state or confirm the presence of an infection.",
+    "Gastrointestinal bleeding is present. -- The records show a bleeding scan was ordered and stress ulcer prophylaxis with IV pantoprazole was documented, which suggests concern for bleeding, but no record explicitly states gastrointestinal bleeding is present or provides direct evidence of active bleeding."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.25,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

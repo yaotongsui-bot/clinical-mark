@@ -1,0 +1,114 @@
+# E1071450   T = 2100-01-02 02:03:00   records before T: 593
+ICU stay 1071450 (CTICU; Female, age 69; admission diagnosis: Cardiomyopathy).
+
+## Atoms
+deepseek-v4.1-flash|E1071450A1::04 [observed] PA mean is elevated.   <- Continue monitoring hemodynamic status, including pulmonary artery pressures and cardiac output, given recent elevated PA mean and heart rate.
+deepseek-v4.1-flash|E1071450A1::05 [observed] Heart rate is elevated.   <- Continue monitoring hemodynamic status, including pulmonary artery pressures and cardiac output, given recent elevated PA mean and heart rate.
+deepseek-v4.1-flash|E1071450A2::08 [observed] Hyperglycemia is persistent.   <- Monitor blood glucose and administer corrective insulin as ordered for persistent hyperglycemia.
+deepseek-v4.1-flash|E1071450A3::11 [observed] Pain level is 1 at 01:00.   <- Assess and manage pain as needed, given reported pain level of 1 at 01:00.
+gpt-oss-120b|E1071450A1::02 [presupposition] Milrinone infusion is currently being given.   <- Continue milrinone infusion for inotropic support.
+gpt-oss-120b|E1071450A3::08 [presupposition] Insulin aspart is currently being given.   <- Monitor capillary glucose q4h and adjust insulin aspart dosing per protocol.
+qwen2.5-7b|E1071450A2::04 [presupposition] Hypokalemia is present.   <- Administer intravenous potassium chloride to correct hypokalemia.
+qwen2.5-7b|E1071450A3::06 [presupposition] Milrinone is currently being given.   <- Continue inotropic support with milrinone.
+qwen2.5-7b|E1071450A3::P01 [presupposition] The patient is currently receiving milrinone.   <- Continue inotropic support with milrinone.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2099-12-28 02:00:00): Medication Coreg PO q12hr
+  Running at decision time (scheduled order started 2099-12-28 02:00:00): Medication Coreg PO q12hr
+  Running at decision time (scheduled order started 2099-12-28 14:00:00): Medication aspirin PO qDay
+  Running at decision time (scheduled order started 2099-12-31 03:00:00): Medication hydrALAZINE IV q8hr
+  Running at decision time (scheduled order started 2099-12-31 21:30:00): Medication insulin aspart Corrective dosing Subcutan AC+HS
+  Running at decision time (scheduled order started 2100-01-02 02:00:00): Medication hePARIN subcutaneous Subcutan q12hr
+
+## PRN orders
+  12-27 17:47 Order: ondansetron IV q6hr PRN (active at decision time)
+  12-27 17:47 Order: Maalox PO q6hr PRN (active at decision time)
+  12-27 17:47 Order: LORazepam PO q8hr PRN (active at decision time)
+  12-27 17:47 Order: zolpidem PO qHS PRN (active at decision time)
+  12-27 17:47 Order: acetaminophen PO q4hr PRN (active at decision time)
+  12-27 17:47 Order: nitroglycerin SL PRN (active at decision time)
+  12-27 19:45 Order: albuterol inhale Inhale q4hr PRN (active at decision time)
+  12-29 15:07 Order: Benadryl PO q4hr PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication Lasix IV BID (2099-12-27 17:52:00 to 2099-12-27 20:55:00)
+  Medication Lasix IV q8hr (2099-12-27 21:00:00 to 2099-12-30 22:38:00)
+  Given once: potassium chloride PO Once (2099-12-27 21:47:00)
+  Given once: magnesium sulfate ivpb. IVPB Once (2099-12-27 21:47:00)
+  Given once: potassium chloride PEG-tube Once (2099-12-28 12:55:00)
+  Medication hydrALAZINE PO q8hr (2099-12-29 03:00:00 to 2099-12-30 22:38:00)
+  Given once: potassium chloride PO Once (2099-12-30 14:46:00)
+  Medication potassium chloride ivpb in SW IVPB q2hr X2 (2100-01-01 11:00:00 to 2100-01-01 13:00:00)
+
+## Laboratory (newest first, up to 5)
+  Anion Gap: 01-01 08:01 19 mmol/L; 12-31 18:15 12 mmol/L; 12-30 08:37 15 mmol/L; 12-29 09:09 15 mmol/L; 12-28 09:24 13 mmol/L   [+1 earlier]
+  BNP: 12-30 08:37 840 pg/mL; 12-27 21:00 2057 pg/mL
+  Bicarbonate: 01-01 08:01 22 mmol/L; 12-31 18:15 29 mmol/L; 12-30 08:37 27 mmol/L; 12-29 09:09 24 mmol/L; 12-28 09:24 26 mmol/L   [+1 earlier]
+  Calcium, Total: 01-01 08:01 6.5 mg/dL; 12-31 18:15 9 mg/dL; 12-30 08:37 9 mg/dL; 12-29 09:09 9.2 mg/dL; 12-28 09:24 8.9 mg/dL   [+1 earlier]
+  Carboxyhemoglobin: 12-31 19:02 1.6 %
+  Chloride: 01-01 08:01 111 mmol/L; 12-31 18:15 102 mmol/L; 12-30 08:37 101 mmol/L; 12-29 09:09 103 mmol/L; 12-28 09:24 107 mmol/L   [+1 earlier]
+  Creatinine: 01-01 08:01 1.07 mg/dL; 12-31 18:15 1.71 mg/dL; 12-30 08:37 1.38 mg/dL; 12-29 09:09 1.33 mg/dL; 12-28 09:24 1.11 mg/dL   [+1 earlier]
+  FiO2: 01-01 02:23 35; 12-31 19:02 35; 12-31 19:02 35
+  Glucose: 01-01 08:01 271 mg/dL; 12-31 18:15 303 mg/dL; 12-30 08:37 130 mg/dL; 12-29 09:09 165 mg/dL; 12-28 09:24 54 mg/dL   [+1 earlier]
+  Glucose finger stick: 01-02 01:39 230 mg/dL; 01-01 21:39 216 mg/dL; 01-01 17:40 294 mg/dL; 01-01 13:21 281 mg/dL; 01-01 12:16 241 mg/dL   [+6 earlier]
+  HDL: 12-27 21:00 60 mg/dL
+  Hematocrit: 01-01 08:00 29.4 %; 12-30 08:37 43.7 %; 12-29 09:09 42.9 %; 12-28 09:24 41.5 %; 12-27 21:00 41.6 %
+  Hemoglobin: 01-01 08:00 9.3 gm/dL; 01-01 02:23 13.7 gm/dL; 12-31 19:02 14.2 gm/dL; 12-31 19:02 14.2 gm/dL; 12-30 08:37 13.8 gm/dL   [+3 earlier]
+  MCH: 01-01 08:00 25.2 pg; 12-30 08:37 25 pg; 12-29 09:09 25.3 pg; 12-28 09:24 25.4 pg; 12-27 21:00 26.5 pg
+  MCHC: 01-01 08:00 31.6 %; 12-30 08:37 31.6 %; 12-29 09:09 31.7 %; 12-28 09:24 31.8 %; 12-27 21:00 33.4 %
+  MCV: 01-01 08:00 79.7 fL; 12-30 08:37 79.2 fL; 12-29 09:09 79.9 fL; 12-28 09:24 80 fL; 12-27 21:00 79.4 fL
+  MPV: 01-01 08:00 10.1 fL; 12-30 08:37 10.6 fL; 12-29 09:09 11 fL; 12-28 09:24 10.7 fL; 12-27 21:00 10.2 fL
+  Magnesium: 12-31 18:15 2.1 mg/dL; 12-28 09:24 2.2 mg/dL; 12-27 21:00 1.9 mg/dL
+  Methemoglobin: 12-31 19:02 0.7 %
+  Platelet Count: 01-01 08:00 132 10E3/mcL; 12-30 08:37 187 10E3/mcL; 12-29 09:09 200 10E3/mcL; 12-28 09:24 190 10E3/mcL; 12-27 21:00 193 10E3/mcL
+  Potassium: 01-01 13:50 4.1 mmol/L; 01-01 08:01 2.8 mmol/L; 12-31 18:15 4.2 mmol/L; 12-30 08:37 3.6 mmol/L; 12-29 09:09 4.2 mmol/L   [+2 earlier]
+  RBC: 01-01 08:00 3.69 10E6/mcL; 12-30 08:37 5.52 10E6/mcL; 12-29 09:09 5.37 10E6/mcL; 12-28 09:24 5.19 10E6/mcL; 12-27 21:00 5.24 10E6/mcL
+  RDW: 01-01 08:00 16 %; 12-30 08:37 16.2 %; 12-29 09:09 16.5 %; 12-28 09:24 16.7 %; 12-27 21:00 16.7 %
+  Sodium: 01-01 08:01 149 mmol/L; 12-31 18:15 139 mmol/L; 12-30 08:37 139 mmol/L; 12-29 09:09 138 mmol/L; 12-28 09:24 142 mmol/L   [+1 earlier]
+  Temperature: 12-31 19:02 37
+  Urea Nitrogen: 01-01 08:01 25 mg/dL; 12-31 18:15 29 mg/dL; 12-30 08:37 26 mg/dL; 12-29 09:09 23 mg/dL; 12-28 09:24 17 mg/dL   [+1 earlier]
+  White Blood Cells: 01-01 08:00 4.2 10E3/mcL; 12-30 08:37 5.2 10E3/mcL; 12-29 09:09 5.7 10E3/mcL; 12-28 09:24 5.9 10E3/mcL; 12-27 21:00 6.7 10E3/mcL
+  total cholesterol: 12-27 21:00 189 mg/dL
+  triglycerides: 12-27 21:00 64 mg/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Best Motor Response: Obeys simple commands @01-02 01:00
+  Best Verbal Response: Oriented @01-02 01:00
+  CI: 3.75 @01-02 02:00   24h 2.12-4.17 (n=17)
+  CO: 7.2 @01-02 02:00   24h 4-8 (n=17)
+  Central Venous Pressure: 1 mmHg @01-02 02:00   24h -3-5 (n=17)
+  Delirium Scale/Score Delirium Scale: CAM-ICU @01-02 02:00
+  Delirium Scale/Score Delirium Score: No @01-02 02:00
+  Glasgow coma score Eyes: 4 @01-01 15:31   24h 4-4 (n=2)
+  Glasgow coma score GCS Total: 15 @01-02 01:00   24h 15-15 (n=4)
+  Glasgow coma score Motor: 6 @01-01 15:31   24h 6-6 (n=2)
+  Glasgow coma score Verbal: 5 @01-01 15:31   24h 5-5 (n=2)
+  Glucose finger stick: 216 mg/dL @01-01 21:39   24h 216-294 (n=5)
+  Heart Rate: 107 bpm @01-02 02:00   24h 90-110 (n=18)
+  Non Invasive Blood Pressure diastolic: 67 mmHg @01-02 02:00   24h 48-78 (n=19)
+  Non Invasive Blood Pressure mean: 83 mmHg @01-02 02:00   24h 60-98 (n=19)
+  Non Invasive Blood Pressure systolic: 136 mmHg @01-02 02:00   24h 97-154 (n=19)
+  O2 L/%: 2 @01-01 02:00
+  O2 saturation pulseoxymetry: 97 % @01-02 01:00   24h 94-98 (n=14)
+  PA Diastolic: 16 @01-02 02:00   24h 8-19 (n=17)
+  PA Mean: 25 @01-02 02:00   24h 13-28 (n=17)
+  PA Systolic: 40 @01-02 02:00   24h 22-44 (n=17)
+  Pain Level: 1 @01-02 01:00   24h 1-4 (n=3)
+  Respiratory Rate: 20 insp/min @01-02 02:00   24h 12-23 (n=18)
+  SVO2: 75 @01-02 02:00   24h 59-77 (n=17)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-02 02:00
+  Sedation Scale/Score/Goal Sedation Score: 0 @01-02 02:00   24h 0-0 (n=7)
+  Temperature Fahrenheit: 98.2 F @01-02 02:00   24h 97.9-99.7 (n=16)
+  Temperature Location: Core @01-02 02:00
+
+## Treatments documented
+  01-01 03:34 shock | inotropic agent | milrinone
+  01-01 03:34 ventilation and oxygenation | oxygen therapy (< 40%) | nasal cannula
+  01-01 03:34 surgery | analgesics /sedatives/ nmbs | analgesics
+  01-01 03:34 endocrine | glucose metabolism | insulin
+  01-01 03:34 cardiovascular | non-operative procedures | pulmonary artery catheter placement
+  01-01 03:34 infectious diseases | medications | therapeutic antibacterials
+
+## Microbiology

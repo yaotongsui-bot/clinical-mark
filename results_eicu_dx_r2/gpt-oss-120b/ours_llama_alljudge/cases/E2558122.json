@@ -1,0 +1,282 @@
+{
+ "case_id": "E2558122",
+ "decision_point": "2100-01-02 15:39:00",
+ "claims": [
+  "Administer intravenous calcium gluconate for hyperkalemia.",
+  "Continue non‑invasive positive pressure ventilation (BiPAP) to support oxygenation.",
+  "Monitor cardiac rhythm continuously for arrhythmias associated with elevated potassium."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2558122A1::01",
+   "claim_id": "E2558122A1",
+   "claim_text": "Administer intravenous calcium gluconate for hyperkalemia.",
+   "kind": "action",
+   "text": "Administer intravenous calcium gluconate.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "calcium gluconate",
+   "conditional": false,
+   "treatment_class": "calcium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2558122A1::02",
+   "claim_id": "E2558122A1",
+   "claim_text": "Administer intravenous calcium gluconate for hyperkalemia.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E2558122A2::03",
+   "claim_id": "E2558122A2",
+   "claim_text": "Continue non‑invasive positive pressure ventilation (BiPAP) to support oxygenation.",
+   "kind": "action",
+   "text": "Continue non-invasive positive pressure ventilation (BiPAP).",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive positive pressure ventilation (BiPAP)",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2558122A2::04",
+   "claim_id": "E2558122A2",
+   "claim_text": "Continue non‑invasive positive pressure ventilation (BiPAP) to support oxygenation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive positive pressure ventilation (BiPAP).",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E2558122A3::05",
+   "claim_id": "E2558122A3",
+   "claim_text": "Monitor cardiac rhythm continuously for arrhythmias associated with elevated potassium.",
+   "kind": "action",
+   "text": "Monitor cardiac rhythm continuously.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "cardiac rhythm",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2558122A3::06",
+   "claim_id": "E2558122A3",
+   "claim_text": "Monitor cardiac rhythm continuously for arrhythmias associated with elevated potassium.",
+   "kind": "fact",
+   "text": "Potassium is elevated.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2558122A1::02",
+   "claim_id": "E2558122A1",
+   "claim_text": "Administer intravenous calcium gluconate for hyperkalemia.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement 'Hyperkalemia is present' is not supported by the records. The records show that the patient's calcium level was 6.4 mg/dL at 04:52, which is below the normal range. However, this does not necessarily indicate the presence of hyperkalemia. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:592959971",
+     "time": "2100-01-02 04:52:00",
+     "item": "Calcium, Total: 6.4 mg/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2558122A2::04",
+   "claim_id": "E2558122A2",
+   "claim_text": "Continue non‑invasive positive pressure ventilation (BiPAP) to support oxygenation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive positive pressure ventilation (BiPAP).",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The patient is currently on nasal cannula for oxygen therapy, not non-invasive positive pressure ventilation (BiPAP).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:58346182",
+     "time": "2100-01-01 22:54:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (< 40%) | nasal cannula"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2558122A3::06",
+   "claim_id": "E2558122A3",
+   "claim_text": "Monitor cardiac rhythm continuously for arrhythmias associated with elevated potassium.",
+   "kind": "fact",
+   "text": "Potassium is elevated.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that the patient's potassium level was elevated, but the statement is not supported because the records do not show that the patient was receiving the medication at the time of the decision. The records show that the patient was receiving pantoprazole, but it is not clear if it was being administered at the time of the decision.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:592959966",
+     "time": "2100-01-02 04:52:00",
+     "item": "Potassium: 7 MMOL/L"
+    },
+    {
+     "rid": "lab:592937735",
+     "time": "2100-01-02 06:00:00",
+     "item": "Potassium: 7.2 MMOL/L"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2558122A1::01",
+   "claim_id": "E2558122A1",
+   "claim_text": "Administer intravenous calcium gluconate for hyperkalemia.",
+   "kind": "action",
+   "text": "Administer intravenous calcium gluconate.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "calcium gluconate",
+   "conditional": false,
+   "treatment_class": "calcium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No calcium replacement action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2558122A2::03",
+   "claim_id": "E2558122A2",
+   "claim_text": "Continue non‑invasive positive pressure ventilation (BiPAP) to support oxygenation.",
+   "kind": "action",
+   "text": "Continue non-invasive positive pressure ventilation (BiPAP).",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive positive pressure ventilation (BiPAP)",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-invasive ventilation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2558122A3::05",
+   "claim_id": "E2558122A3",
+   "claim_text": "Monitor cardiac rhythm continuously for arrhythmias associated with elevated potassium.",
+   "kind": "action",
+   "text": "Monitor cardiac rhythm continuously.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "cardiac rhythm",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No heart rhythm measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hyperkalemia is present. -- The statement 'Hyperkalemia is present' is not supported by the records. The records show that the patient's calcium level was 6.4 mg/dL at 04:52, which is below the normal range. However, this does not necessarily indicate the presence of hyperkalemia. The statement is not supported by the records.",
+    "The patient is currently on non-invasive positive pressure ventilation (BiPAP). -- The patient is currently on nasal cannula for oxygen therapy, not non-invasive positive pressure ventilation (BiPAP).",
+    "Potassium is elevated. -- The records show that the patient's potassium level was elevated, but the statement is not supported because the records do not show that the patient was receiving the medication at the time of the decision. The records show that the patient was receiving pantoprazole, but it is not clear if it was being administered at the time of the decision."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

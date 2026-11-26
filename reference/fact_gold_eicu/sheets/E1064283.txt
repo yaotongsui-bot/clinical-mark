@@ -1,0 +1,111 @@
+# E1064283   T = 2100-01-02 19:52:00   records before T: 292
+ICU stay 1064283 (Med-Surg ICU; Female, age 64; admission diagnosis: Myasthenia gravis).
+
+## Atoms
+deepseek-v4.1-flash|E1064283A1::03 [presupposition] Prednisone is currently being given.   <- Continue scheduled prednisone and pyridostigmine therapy for myasthenia gravis.
+deepseek-v4.1-flash|E1064283A1::04 [presupposition] Pyridostigmine is currently being given.   <- Continue scheduled prednisone and pyridostigmine therapy for myasthenia gravis.
+deepseek-v4.1-flash|E1064283A1::05 [judgment] Myasthenia gravis is present.   <- Continue scheduled prednisone and pyridostigmine therapy for myasthenia gravis.
+deepseek-v4.1-flash|E1064283A2::07 [observed] Recurrent severe hypertension is present.   <- Monitor blood pressure closely given recurrent severe hypertension (systolic up to 217 mmHg).
+deepseek-v4.1-flash|E1064283A2::08 [observed] Systolic blood pressure was up to 217 mmHg.   <- Monitor blood pressure closely given recurrent severe hypertension (systolic up to 217 mmHg).
+deepseek-v4.1-flash|E1064283A3::10 [observed] Systolic blood pressure is persistently greater than 190 mmHg.   <- Assess for need to intensify antihypertensive therapy given persistent systolic blood pressure >190 mmHg.
+gpt-oss-120b|E1064283A1::02 [presupposition] IV nicardipine infusion is currently being given.   <- Continue IV nicardipine infusion to maintain systolic blood pressure < 150 mmHg.
+gpt-oss-120b|E1064283A2::05 [presupposition] Myasthenia gravis is present.   <- Obtain serum acetylcholine receptor antibody titer to assess myasthenia gravis activity.
+gpt-oss-120b|E1064283A3::08 [presupposition] Antihypertensive therapy is currently being given.   <- Monitor blood pressure and heart rate every hour while on antihypertensive therapy.
+qwen2.5-7b|E1064283A1::02 [observed] Hypertension is present.   <- Monitor blood pressure closely due to hypertension.
+qwen2.5-7b|E1064283A2::04 [observed] Potassium is low.   <- Administer potassium chloride PO to address low potassium levels.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 02:24:00): Medication cloNIDine Topical
+  Running at decision time (scheduled order started 2100-01-01 22:30:00): Medication predniSONE PO TID
+  Running at decision time (scheduled order started 2100-01-02 14:00:00): Medication pantoprazole IV qDay
+  Running at decision time (scheduled order started 2100-01-02 16:04:00): Medication amLODIPine PO or NG qDay
+  Running at decision time (scheduled order started 2100-01-02 16:04:00): Medication amLODIPine PO or NG qDay
+
+## PRN orders
+  01-01 02:23 Order: ondansetron IV q4hr PRN (active at decision time)
+  01-01 03:49 Order: Ativan IV q6hr PRN (active at decision time)
+  01-01 14:36 Order: hydrALAZINE IV q6hr PRN (stopped 2100-01-01 14:38:00)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Given once: NS 1,000 mL IV X1 (2099-12-31 20:10:00)
+  Medication NS 1,000 mL IV (2099-12-31 20:10:00 to 2100-01-01 02:24:00)
+  Given once: labetalol IV Once (2099-12-31 20:10:00)
+  Given once: lisinopril PO Once (2099-12-31 20:33:00)
+  Given once: Maalox PO Once (2099-12-31 21:46:00)
+  Given once: Ativan IV Once (2099-12-31 22:05:00)
+  Given once: Ativan IV Once (2099-12-31 22:41:00)
+  Medication NS 1,000 mL IV (2100-01-01 02:23:00 to 2100-01-01 20:26:00)
+  Medication potassium chloride ivpb in SW IVPB q1hr X2 (2100-01-01 23:00:00 to 2100-01-02 00:00:00)
+  Given once: potassium chloride PO Once (2100-01-02 11:29:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 12-31 20:27 0.2 %
+  -eos: 12-31 20:27 0.6 %
+  -lymphs: 12-31 20:27 8.8 %
+  -monos: 12-31 20:27 5.8 %
+  -polys: 12-31 20:27 84.4 %
+  Alanine Aminotransferase (ALT): 12-31 20:27 25 unit/L
+  Albumin: 12-31 20:27 3.1 gm/dL
+  Alkaline Phosphatase: 12-31 20:27 65 unit/L
+  Anion Gap: 01-01 08:20 8 mmol/L; 12-31 20:27 10 mmol/L
+  Asparate Aminotransferase (AST): 12-31 20:27 20 unit/L
+  Bicarbonate: 01-01 08:20 29 mmol/L; 12-31 20:27 28 mmol/L
+  Bilirubin, Total: 12-31 20:27 0.7 mg/dL
+  CPK: 12-31 20:27 70 unit/L
+  CPK-MB: 12-31 20:27 2 ng/mL
+  CPK-MB INDEX: 12-31 20:27 2.9
+  Calcium, Total: 01-01 08:20 8.5 mg/dL; 12-31 20:27 9.4 mg/dL
+  Chloride: 01-01 08:20 106 mmol/L; 12-31 20:27 101 mmol/L
+  Creatinine: 01-01 08:20 0.57 mg/dL; 12-31 20:27 0.53 mg/dL
+  Glucose: 01-01 08:20 101 mg/dL; 12-31 20:27 123 mg/dL
+  Glucose finger stick: 01-02 16:43 98 mg/dL; 01-02 00:52 105 mg/dL; 01-01 19:28 87 mg/dL; 12-31 20:17 126 mg/dL
+  Hematocrit: 01-01 08:20 41.2 %; 12-31 20:27 44.4 %
+  Hemoglobin: 01-01 08:20 13.2 gm/dL; 12-31 20:27 14.7 gm/dL
+  MCH: 01-01 08:20 25.7 pg; 12-31 20:27 26 pg
+  MCHC: 01-01 08:20 32 gm/dL; 12-31 20:27 33.1 gm/dL
+  MCV: 01-01 08:20 80.3 fL; 12-31 20:27 78.6 fL
+  MPV: 01-01 08:20 10.5 fL; 12-31 20:27 10.5 fL
+  Magnesium: 01-01 20:04 1.7 mg/dL
+  Platelet Count: 01-01 08:20 231 10E3/mcL; 12-31 20:27 260 10E3/mcL
+  Potassium: 01-02 10:38 4.1 mmol/L; 01-01 20:04 3.8 mmol/L; 01-01 08:20 3.4 mmol/L; 12-31 20:27 3.3 mmol/L
+  RBC: 01-01 08:20 5.13 10E6/mcL; 12-31 20:27 5.65 10E6/mcL
+  RDW: 01-01 08:20 15.7 %; 12-31 20:27 15.5 %
+  Sodium: 01-01 08:20 140 mmol/L; 12-31 20:27 136 mmol/L
+  T4: 12-31 20:27 12.1 mcg/dL
+  TSH: 12-31 20:27 2.03 mcIU/mL
+  Urea Nitrogen: 01-01 08:20 6 mg/dL; 12-31 20:27 7 mg/dL
+  White Blood Cells: 01-01 08:20 9.6 10E3/mcL; 12-31 20:27 11.1 10E3/mcL
+  ethanol: 12-31 20:27 <0.003
+  free T4: 12-31 20:27 1.31 ng/dL
+  total protein: 12-31 20:27 7.6 gm/dL
+  troponin - I: 12-31 20:27 0.034 ng/mL
+  urinary creatinine: 12-31 21:00 67.2 mg/dL
+  urinary specific gravity: 12-31 21:00 1.01
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Best Motor Response: Obeys simple commands @01-02 05:00
+  Best Verbal Response: Oriented @01-02 05:00
+  Glasgow coma score Eyes: 4 @01-02 14:00   24h 4-4 (n=2)
+  Glasgow coma score GCS Total: 15 @01-02 14:00   24h 15-15 (n=4)
+  Glasgow coma score Motor: 6 @01-02 14:00   24h 6-6 (n=2)
+  Glasgow coma score Verbal: 5 @01-02 14:00   24h 5-5 (n=2)
+  Glucose finger stick: 98 mg/dL @01-02 16:43   24h 98-105 (n=2)
+  Heart Rate: 73 bpm @01-02 19:00   24h 59-103 (n=32)
+  Non Invasive Blood Pressure diastolic: 102 mmHg @01-02 19:00   24h 60-119 (n=27)
+  Non Invasive Blood Pressure mean: 126 mmHg @01-02 19:00   24h 65-143 (n=25)
+  Non Invasive Blood Pressure systolic: 194 mmHg @01-02 19:00   24h 121-217 (n=27)
+  O2 L/%: 2 @01-02 09:18   24h 2-3 (n=5)
+  O2 saturation pulseoxymetry: 99 % @01-02 19:00   24h 94-100 (n=31)
+  Pain Level: 0 @01-02 13:00   24h 0-0 (n=2)
+  Respiratory Rate: 20 insp/min @01-02 19:00   24h 17-21 (n=21)
+  Temperature Fahrenheit: 97.7 F @01-02 17:00   24h 97.7-98.8 (n=8)
+  Temperature Location: Oral @01-02 17:00   earlier: oral @01-01 20:00
+
+## Treatments documented
+  01-02 02:32 neuromyopathy therapy | reversal of neuromuscular blockade | pyridostigmine
+  01-02 02:32 hypertension | vasodilating agent - IV | nicardipine
+  01-02 02:32 neurologic | neuromyopathy therapy | IVIG administration
+
+## Microbiology

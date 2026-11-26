@@ -1,0 +1,105 @@
+# E1592666   T = 2100-01-02 23:07:00   records before T: 566
+ICU stay 1592666 (Med-Surg ICU; Male, age 87; admission diagnosis: Vascular surgery, other).
+
+## Atoms
+deepseek-v4.1-flash|E1592666A2::04 [observed] Hyperglycemia is present.   <- Monitor blood glucose levels given persistent hyperglycemia.
+deepseek-v4.1-flash|E1592666A3::06 [observed] Leukocytosis is present.   <- Assess for signs of infection given leukocytosis and recent vancomycin administration.
+deepseek-v4.1-flash|E1592666A3::07 [observed] Vancomycin was recently administered.   <- Assess for signs of infection given leukocytosis and recent vancomycin administration.
+gpt-oss-120b|E1592666A1::02 [presupposition] Anemia is present.   <- Obtain a repeat complete blood count with differential to assess ongoing anemia and evaluate need for red blood cell transfusion.
+gpt-oss-120b|E1592666A3::07 [presupposition] Vancomycin is currently being given.   <- Maintain current vancomycin therapy and obtain a trough level in 24 hours to ensure therapeutic dosing.
+qwen2.5-7b|E1592666A1::02 [observed] Hyperglycemia is persistent.   <- Monitor blood glucose levels closely due to persistent hyperglycemia.
+qwen2.5-7b|E1592666A2::04 [judgment] Infection is suspected.   <- Administer IV vancomycin for suspected infection.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-02 00:00:00): Medication ATORVASTATIN CALCIUM 40 MG PO TABS Oral QPM
+  Running at decision time (scheduled order started 2100-01-02 00:00:00): Medication 2 ML VIAL : FAMOTIDINE 20 MG/2ML IV SOLN Intravenous Daily
+  Running at decision time (scheduled order started 2100-01-02 00:00:00): Medication 1000 ML FLEX CONT : SODIUM CHLORIDE 0.45 % IV SOLN Intravenous Continuous
+  Running at decision time (scheduled order started 2100-01-02 00:00:00): Medication FAMOTIDINE 20 MG PO TABS Oral Daily
+  Running at decision time (scheduled order started 2100-01-02 00:00:00): Medication 1000 ML FLEX CONT : DEXTROSE-NACL 5-0.45 % IV SOLN Intravenous Continuous
+  Running at decision time (scheduled order started 2100-01-02 03:00:00): Medication METOPROLOL TARTRATE 50 MG PO TABS Oral BID
+  Running at decision time (scheduled order started 2100-01-02 15:00:00): Medication DOCUSATE SODIUM 100 MG PO CAPS Oral Daily
+  Running at decision time (scheduled order started 2100-01-02 15:00:00): Medication CLOPIDOGREL BISULFATE 75 MG PO TABS Oral Daily
+  Running at decision time (scheduled order started 2100-01-02 15:00:00): Medication 0.4 ML SYRINGE : ENOXAPARIN SODIUM 40 MG/0.4ML SC SOLN Subcutaneous
+  Running at decision time (scheduled order started 2100-01-02 15:00:00): Medication TAMSULOSIN HCL 0.4 MG PO CAPS Oral QAM
+
+## PRN orders
+  01-01 14:21 Order: ALPRAZOLAM 0.25 MG PO TABS Oral TID PRN (stopped 2100-01-01 23:22:00)
+  01-01 23:22 Order: BISACODYL 10 MG RE SUPP Rectal Daily PRN (active at decision time)
+  01-01 23:22 Order: 2 ML : ONDANSETRON HCL 4 MG/2ML IV SOLN Intravenous Q12H PRN (active at decision time)
+  01-01 23:22 Order: 2 ML VIAL : METOCLOPRAMIDE HCL 5 MG/ML IJ SOLN Intravenous Q6H PRN (active at decision time)
+  01-01 23:22 Order: NITROGLYCERIN 0.4 MG SL SUBL Sublingual Q5 Min PRN (active at decision time)
+  01-01 23:22 Order: 30 ML CUP : MAGNESIUM HYDROXIDE 400 MG/5ML PO SUSP Oral Daily PRN (active at decision time)
+  01-01 23:22 Order: METOCLOPRAMIDE HCL 10 MG PO TABS Oral Q6H PRN (active at decision time)
+  01-01 23:22 Order: 1 ML CRTRDG-NDL : MORPHINE SULFATE 2 MG/ML IJ SOLN Intravenous Q2H PRN (active at decision time)
+  01-01 23:22 Order: HYDROCODONE-ACETAMINOPHEN 5-325 MG PO TABS Oral Q6H PRN (active at decision time)
+  01-01 23:22 Order: ACETAMINOPHEN 650 MG RE SUPP Rectal Q6H PRN (active at decision time)
+  01-01 23:22 Order: ACETAMINOPHEN 325 MG PO TABS Oral Q6H PRN (active at decision time)
+  01-01 23:22 Order: 100 ML FLEX CONT : MAGNESIUM SULFATE IN D5W 10-5 MG/ML-% IV SOLN Intravenous PRN (active at decision time)
+  01-02 01:03 Order: 50 ML SYRINGE : DEXTROSE 50 % IV SOLN Intravenous PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Given once: 1000 ML FLEX CONT : SODIUM CHLORIDE 0.9 % IV SOLN Intravenous Once X1 (2100-01-01 15:00:00)
+  Given once: VANCOMYCIN HCL 1000 MG IV SOLR Intravenous Once X1 (2100-01-01 15:00:00)
+  Given once: 100 ML GLASS CONT : IOPAMIDOL 61 % IV SOLN Intraductal Once X1 (2100-01-01 16:00:00)
+  Given once: 100 ML GLASS CONT : IOPAMIDOL 61 % IV SOLN Intraductal Once X1 (2100-01-01 19:00:00)
+  Given once: 100 ML GLASS CONT : IOPAMIDOL 61 % IV SOLN Other Once X1 (2100-01-01 20:00:00)
+  Given once: VANCOMYCIN HCL 1000 MG IV SOLR Intravenous Once X1 (2100-01-02 17:00:00)
+
+## Laboratory (newest first, up to 5)
+  Anion Gap: 01-02 10:26 7 mmol/L
+  Base Excess: 01-01 21:42 -5.5
+  Bicarbonate: 01-02 10:26 22 mmol/L
+  Bicarbonate (blood gas HCO3): 01-01 21:42 22.3 mmol/L
+  Calcium, Total: 01-02 10:26 7.6 mg/dL
+  Chloride: 01-02 10:26 106 mmol/L
+  Creatinine: 01-02 10:26 1.08 mg/dL; 01-01 23:45 1.16 mg/dL
+  Glucose: 01-02 10:26 206 mg/dL
+  Glucose finger stick: 01-02 21:55 193 mg/dL; 01-02 17:31 224 mg/dL; 01-02 13:44 211 mg/dL; 01-02 04:57 256 mg/dL; 01-02 02:34 230 mg/dL   [+1 earlier]
+  Hematocrit: 01-02 11:57 25.4 %; 01-01 22:30 28.6 %
+  Hemoglobin: 01-02 11:57 8.3 g/dL; 01-01 22:30 9.3 g/dL
+  LPM O2: 01-01 21:42 6
+  MCH: 01-02 11:57 33.1 pg
+  MCHC: 01-02 11:57 32.7 g/dL
+  MCV: 01-02 11:57 101.2 fL
+  MPV: 01-02 11:57 9.2 fL
+  Magnesium: 01-02 11:57 2.4 mg/dL
+  Oxygen Saturation: 01-01 21:42 100 %
+  Platelet Count: 01-02 11:57 135 10(3)/mcL
+  Potassium: 01-02 10:26 4.5 mmol/L
+  RBC: 01-02 11:57 2.51 10(6)/mcL
+  RDW: 01-02 11:57 15.1 %
+  Sodium: 01-02 10:26 135 mmol/L
+  Urea Nitrogen: 01-02 10:26 19 mg/dL
+  White Blood Cells: 01-02 11:57 23.68 10(3)/mcL
+  pCO2: 01-01 21:42 52 mmHg
+  pH: 01-01 21:42 7.24
+  pO2: 01-01 21:42 111 mmHg
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Arterial Blood Pressure diastolic: 53 mmHg @01-01 23:05   earlier: 54 mmHg @01-01 23:00; 51 mmHg @01-01 22:40; 46 mmHg @01-01 22:25
+  Arterial Blood Pressure mean: 72 mmHg @01-01 23:05   earlier: 73 mmHg @01-01 23:00; 70 mmHg @01-01 22:45; 65 mmHg @01-01 22:40
+  Arterial Blood Pressure systolic: 112 mmHg @01-01 23:05   earlier: 109 mmHg @01-01 22:50; 106 mmHg @01-01 22:45; 90 mmHg @01-01 22:40
+  Arterial Line MAP (mmHg): 75 @01-02 12:00   24h 56-79 (n=22)
+  Best Eye Response: 4 @01-02 18:00   24h 4-4 (n=5)
+  Best Motor Response: 6 @01-02 18:00   24h 6-6 (n=5)
+  Best Verbal Response: 5 @01-02 18:00   24h 5-5 (n=5)
+  End Tidal CO2: 20 @01-02 02:15   24h 16-20 (n=6)
+  Glasgow coma score GCS Total: 15 @01-02 18:00   24h 15-15 (n=5)
+  Heart Rate: 76 bpm @01-02 18:00   24h 74-94 (n=26)
+  Non Invasive Blood Pressure diastolic: 67 mmHg @01-02 18:00   24h 53-67 (n=6)
+  Non Invasive Blood Pressure mean: 76 mmHg @01-02 18:00   24h 63-76 (n=7)
+  Non Invasive Blood Pressure systolic: 109 mmHg @01-02 18:00   24h 101-120 (n=6)
+  O2 Delivery Device(s): None (charted: None (Room air)) @01-02 12:52   earlier: Nasal cannula (charted: Nasal cannula) @01-02 06:30; Bipap mask (charted: Bi-PAP) @01-01 23:50; Medium conc mask (charted: Simple mask) @01-01 22:15
+  O2 L/%: 2 @01-02 06:30   24h 2-6 (n=4)
+  O2 saturation pulseoxymetry: 98 % @01-02 17:00   24h 92-100 (n=26)
+  Pulse: 98 @01-02 18:00   24h 72-98 (n=27)
+  RASS: 0 @01-02 18:00   24h -1-0 (n=15)
+  Respiratory Rate: 18 insp/min @01-02 15:00   24h 9-24 (n=25)
+  Temperature Fahrenheit: 97.5 F @01-02 21:00   24h 97.2-97.9 (n=7)
+  Temperature Location: Oral @01-02 21:00   earlier: Axillary @01-02 05:49
+
+## Treatments documented
+
+## Microbiology

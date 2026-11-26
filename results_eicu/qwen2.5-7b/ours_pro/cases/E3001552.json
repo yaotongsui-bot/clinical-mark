@@ -1,0 +1,692 @@
+{
+ "case_id": "E3001552",
+ "decision_point": "2100-01-02 09:39:00",
+ "claims": [
+  "Monitor heart rate and blood pressure closely due to fluctuations.",
+  "Continue non-invasive ventilation to maintain adequate oxygenation.",
+  "Administer IV furosemide to manage fluid overload and ventricular dysfunction."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3001552A1::01",
+   "claim_id": "E3001552A1",
+   "claim_text": "Monitor heart rate and blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3001552A1::02",
+   "claim_id": "E3001552A1",
+   "claim_text": "Monitor heart rate and blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3001552A1::03",
+   "claim_id": "E3001552A1",
+   "claim_text": "Monitor heart rate and blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Heart rate and blood pressure have been fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [
+    "concept set by the rule files: vital_signs -> blood_pressure"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3001552A2::04",
+   "claim_id": "E3001552A2",
+   "claim_text": "Continue non-invasive ventilation to maintain adequate oxygenation.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3001552A2::05",
+   "claim_id": "E3001552A2",
+   "claim_text": "Continue non-invasive ventilation to maintain adequate oxygenation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3001552A3::06",
+   "claim_id": "E3001552A3",
+   "claim_text": "Administer IV furosemide to manage fluid overload and ventricular dysfunction.",
+   "kind": "action",
+   "text": "Administer IV furosemide.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3001552A3::07",
+   "claim_id": "E3001552A3",
+   "claim_text": "Administer IV furosemide to manage fluid overload and ventricular dysfunction.",
+   "kind": "fact",
+   "text": "Fluid overload is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3001552A3::08",
+   "claim_id": "E3001552A3",
+   "claim_text": "Administer IV furosemide to manage fluid overload and ventricular dysfunction.",
+   "kind": "fact",
+   "text": "Ventricular dysfunction is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3001552A1::03",
+   "claim_id": "E3001552A1",
+   "claim_text": "Monitor heart rate and blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Heart rate and blood pressure have been fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [
+    "concept set by the rule files: vital_signs -> blood_pressure"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records contain only heart rate measurements and no blood pressure readings. While the heart rate values do fluctuate, the statement about blood pressure fluctuation cannot be assessed because blood pressure is not mentioned in any of the supplied records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1952821384",
+     "time": "2099-12-26 17:20:00",
+     "item": "Heart Rate: 60 bpm"
+    },
+    {
+     "rid": "nurse:1925344023",
+     "time": "2099-12-26 20:19:00",
+     "item": "Heart Rate: 88 bpm"
+    },
+    {
+     "rid": "nurse:1944105941",
+     "time": "2099-12-26 20:25:00",
+     "item": "Heart Rate: 91 bpm"
+    },
+    {
+     "rid": "nurse:1941301583",
+     "time": "2099-12-26 21:10:00",
+     "item": "Heart Rate: 87 bpm"
+    },
+    {
+     "rid": "nurse:1926077527",
+     "time": "2099-12-27 01:58:00",
+     "item": "Heart Rate: 85 bpm"
+    },
+    {
+     "rid": "nurse:1935529722",
+     "time": "2099-12-27 12:15:00",
+     "item": "Heart Rate: 78 bpm"
+    },
+    {
+     "rid": "nurse:1927531897",
+     "time": "2099-12-27 16:20:00",
+     "item": "Heart Rate: 77 bpm"
+    },
+    {
+     "rid": "nurse:1948624878",
+     "time": "2099-12-27 18:51:00",
+     "item": "Heart Rate: 85 bpm"
+    },
+    {
+     "rid": "nurse:1926625143",
+     "time": "2099-12-27 20:00:00",
+     "item": "Heart Rate: 84 bpm"
+    },
+    {
+     "rid": "nurse:1933502295",
+     "time": "2099-12-28 00:51:00",
+     "item": "Heart Rate: 72 bpm"
+    },
+    {
+     "rid": "nurse:1933434337",
+     "time": "2099-12-28 04:00:00",
+     "item": "Heart Rate: 79 bpm"
+    },
+    {
+     "rid": "nurse:1938087827",
+     "time": "2099-12-28 12:40:00",
+     "item": "Heart Rate: 95 bpm"
+    },
+    {
+     "rid": "nurse:1950466424",
+     "time": "2099-12-28 12:50:00",
+     "item": "Heart Rate: 75 bpm"
+    },
+    {
+     "rid": "nurse:1947238721",
+     "time": "2099-12-28 20:30:00",
+     "item": "Heart Rate: 81 bpm"
+    },
+    {
+     "rid": "nurse:1930281779",
+     "time": "2099-12-29 01:31:00",
+     "item": "Heart Rate: 87 bpm"
+    },
+    {
+     "rid": "nurse:1936896876",
+     "time": "2099-12-29 04:00:00",
+     "item": "Heart Rate: 95 bpm"
+    },
+    {
+     "rid": "nurse:1948929751",
+     "time": "2099-12-29 08:22:00",
+     "item": "Heart Rate: 76 bpm"
+    },
+    {
+     "rid": "nurse:1932537645",
+     "time": "2099-12-29 11:46:00",
+     "item": "Heart Rate: 82 bpm"
+    },
+    {
+     "rid": "nurse:1941722571",
+     "time": "2099-12-29 12:20:00",
+     "item": "Heart Rate: 80 bpm"
+    },
+    {
+     "rid": "nurse:1925507248",
+     "time": "2099-12-29 14:52:00",
+     "item": "Heart Rate: 78 bpm"
+    },
+    {
+     "rid": "nurse:1933673534",
+     "time": "2099-12-29 16:00:00",
+     "item": "Heart Rate: 82 bpm"
+    },
+    {
+     "rid": "nurse:1932521982",
+     "time": "2099-12-29 18:16:00",
+     "item": "Heart Rate: 83 bpm"
+    },
+    {
+     "rid": "nurse:1949982196",
+     "time": "2099-12-29 20:09:00",
+     "item": "Heart Rate: 90 bpm"
+    },
+    {
+     "rid": "nurse:1927051595",
+     "time": "2099-12-29 22:16:00",
+     "item": "Heart Rate: 89 bpm"
+    },
+    {
+     "rid": "nurse:1947547375",
+     "time": "2099-12-30 00:10:00",
+     "item": "Heart Rate: 67 bpm"
+    },
+    {
+     "rid": "nurse:1948990391",
+     "time": "2099-12-30 01:18:00",
+     "item": "Heart Rate: 94 bpm"
+    },
+    {
+     "rid": "nurse:1926311338",
+     "time": "2099-12-30 03:50:00",
+     "item": "Heart Rate: 75 bpm"
+    },
+    {
+     "rid": "nurse:1941776014",
+     "time": "2099-12-30 05:06:00",
+     "item": "Heart Rate: 84 bpm"
+    },
+    {
+     "rid": "nurse:1932342476",
+     "time": "2099-12-30 08:58:00",
+     "item": "Heart Rate: 87 bpm"
+    },
+    {
+     "rid": "nurse:1952829649",
+     "time": "2099-12-30 12:40:00",
+     "item": "Heart Rate: 81 bpm"
+    },
+    {
+     "rid": "nurse:1927151024",
+     "time": "2099-12-30 16:15:00",
+     "item": "Heart Rate: 86 bpm"
+    },
+    {
+     "rid": "nurse:1943836870",
+     "time": "2099-12-30 16:49:00",
+     "item": "Heart Rate: 62 bpm"
+    },
+    {
+     "rid": "nurse:1926407230",
+     "time": "2099-12-30 18:06:00",
+     "item": "Heart Rate: 102 bpm"
+    },
+    {
+     "rid": "nurse:1952819651",
+     "time": "2099-12-30 20:20:00",
+     "item": "Heart Rate: 125 bpm"
+    },
+    {
+     "rid": "nurse:1943907651",
+     "time": "2099-12-30 20:58:00",
+     "item": "Heart Rate: 116 bpm"
+    },
+    {
+     "rid": "nurse:1937443655",
+     "time": "2099-12-31 00:20:00",
+     "item": "Heart Rate: 102 bpm"
+    },
+    {
+     "rid": "nurse:1931809909",
+     "time": "2099-12-31 01:29:00",
+     "item": "Heart Rate: 112 bpm"
+    },
+    {
+     "rid": "nurse:1945215862",
+     "time": "2099-12-31 04:10:00",
+     "item": "Heart Rate: 88 bpm"
+    },
+    {
+     "rid": "nurse:1952754925",
+     "time": "2099-12-31 05:22:00",
+     "item": "Heart Rate: 83 bpm"
+    },
+    {
+     "rid": "nurse:1950451379",
+     "time": "2099-12-31 09:28:00",
+     "item": "Heart Rate: 58 bpm"
+    },
+    {
+     "rid": "nurse:1950449895",
+     "time": "2099-12-31 12:56:00",
+     "item": "Heart Rate: 93 bpm"
+    },
+    {
+     "rid": "nurse:1944922460",
+     "time": "2099-12-31 13:34:00",
+     "item": "Heart Rate: 83 bpm"
+    },
+    {
+     "rid": "nurse:1929197055",
+     "time": "2099-12-31 16:19:00",
+     "item": "Heart Rate: 85 bpm"
+    },
+    {
+     "rid": "nurse:1950738111",
+     "time": "2099-12-31 17:27:00",
+     "item": "Heart Rate: 91 bpm"
+    },
+    {
+     "rid": "nurse:1940127948",
+     "time": "2099-12-31 20:15:00",
+     "item": "Heart Rate: 84 bpm"
+    },
+    {
+     "rid": "nurse:1940463100",
+     "time": "2099-12-31 21:08:00",
+     "item": "Heart Rate: 93 bpm"
+    },
+    {
+     "rid": "nurse:1936213112",
+     "time": "2100-01-01 00:43:00",
+     "item": "Heart Rate: 104 bpm"
+    },
+    {
+     "rid": "nurse:1942967705",
+     "time": "2100-01-01 00:48:00",
+     "item": "Heart Rate: 95 bpm"
+    },
+    {
+     "rid": "nurse:1934303670",
+     "time": "2100-01-01 04:00:00",
+     "item": "Heart Rate: 99 bpm"
+    },
+    {
+     "rid": "nurse:1928861323",
+     "time": "2100-01-01 05:16:00",
+     "item": "Heart Rate: 98 bpm"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3001552A2::05",
+   "claim_id": "E3001552A2",
+   "claim_text": "Continue non-invasive ventilation to maintain adequate oxygenation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_addressed",
+   "reason": "No record of this treatment. (Panel verdict: supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    },
+    "panel_label": "supported"
+   },
+   "evidence": [
+    {
+     "rid": "treat:69280834",
+     "time": "2100-01-01 10:16:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:67704766",
+     "time": "2100-01-01 10:37:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:69393669",
+     "time": "2100-01-01 10:44:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:68091934",
+     "time": "2100-01-01 14:02:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3001552A3::07",
+   "claim_id": "E3001552A3",
+   "claim_text": "Administer IV furosemide to manage fluid overload and ventricular dysfunction.",
+   "kind": "fact",
+   "text": "Fluid overload is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show ongoing administration of intravenous sodium chloride infusions (R43, R46, R48), which can contribute to fluid overload, but they do not contain any direct documentation, diagnosis, or clinical findings (such as edema, weight gain, or elevated BNP) that state or directly demonstrate fluid overload.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:97036606",
+     "time": "2100-01-01 20:30:00",
+     "item": "Medication sodium chloride infusion 0.9% IV Continuous (2100-01-01 20:30:00 to 2100-01-02 02:21:00)"
+    },
+    {
+     "rid": "med:97546407",
+     "time": "2100-01-02 02:21:00",
+     "item": "Medication sodium chloride infusion 0.9% IV Continuous (2100-01-02 02:21:00 to 2100-01-02 06:42:00)"
+    },
+    {
+     "rid": "med:96456265",
+     "time": "2100-01-02 06:42:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 06:42:00): Medication sodium chloride infusion 0.9% IV Continuous"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3001552A3::08",
+   "claim_id": "E3001552A3",
+   "claim_text": "Administer IV furosemide to manage fluid overload and ventricular dysfunction.",
+   "kind": "fact",
+   "text": "Ventricular dysfunction is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The treatment documentation record R31 explicitly states 'ventricular dysfunction' as a documented condition, directly supporting the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:69580769",
+     "time": "2100-01-01 10:37:00",
+     "item": "Treatment documented: ventricular dysfunction | intravenous diuretic | IV furosemide"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3001552A1::01",
+   "claim_id": "E3001552A1",
+   "claim_text": "Monitor heart rate and blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1950613500",
+     "time": "2100-01-02 13:00:00",
+     "item": "heart rate",
+     "value": "79.0 bpm"
+    },
+    {
+     "rid": "nurse:1952544841",
+     "time": "2100-01-02 13:14:00",
+     "item": "heart rate",
+     "value": "80.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3001552A1::02",
+   "claim_id": "E3001552A1",
+   "claim_text": "Monitor heart rate and blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1927570279",
+     "time": "2100-01-02 13:00:00",
+     "item": "systolic BP",
+     "value": "120.0 mmHg"
+    },
+    {
+     "rid": "nurse:1950056934",
+     "time": "2100-01-02 17:00:00",
+     "item": "systolic BP",
+     "value": "112.0 mmHg"
+    },
+    {
+     "rid": "nurse:1927570281",
+     "time": "2100-01-02 13:00:00",
+     "item": "mean arterial pressure",
+     "value": "79.0 mmHg"
+    },
+    {
+     "rid": "nurse:1950056936",
+     "time": "2100-01-02 17:00:00",
+     "item": "mean arterial pressure",
+     "value": "99.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x4, mean arterial pressure x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3001552A2::04",
+   "claim_id": "E3001552A2",
+   "claim_text": "Continue non-invasive ventilation to maintain adequate oxygenation.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (4 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:198706879",
+     "time": "2100-01-02 09:51:00",
+     "item": "ventilator setting",
+     "value": "35.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:198772324",
+     "time": "2100-01-02 13:00:00",
+     "item": "ventilator setting",
+     "value": "35.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:200902487",
+     "time": "2100-01-02 21:25:00",
+     "item": "ventilator setting",
+     "value": "30.0 %",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3001552A3::06",
+   "claim_id": "E3001552A3",
+   "claim_text": "Administer IV furosemide to manage fluid overload and ventricular dysfunction.",
+   "kind": "action",
+   "text": "Administer IV furosemide.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No diuretics action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.25,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Heart rate and blood pressure have been fluctuating. -- The records contain only heart rate measurements and no blood pressure readings. While the heart rate values do fluctuate, the statement about blood pressure fluctuation cannot be assessed because blood pressure is not mentioned in any of the supplied records.",
+    "Fluid overload is present. -- The records show ongoing administration of intravenous sodium chloride infusions (R43, R46, R48), which can contribute to fluid overload, but they do not contain any direct documentation, diagnosis, or clinical findings (such as edema, weight gain, or elevated BNP) that state or directly demonstrate fluid overload."
+   ],
+   "not_addressed": [
+    "The patient is currently on non-invasive ventilation. -- No record of this treatment. (Panel verdict: supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

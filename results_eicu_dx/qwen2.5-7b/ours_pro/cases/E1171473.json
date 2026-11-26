@@ -1,0 +1,300 @@
+{
+ "case_id": "E1171473",
+ "decision_point": "2100-01-02 15:48:00",
+ "claims": [
+  "Monitor electrolyte levels closely, especially potassium and calcium.",
+  "Continue intravenous fluid administration with normal saline.",
+  "Assess for signs of respiratory distress and adjust mechanical ventilation parameters as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1171473A1::01",
+   "claim_id": "E1171473A1",
+   "claim_text": "Monitor electrolyte levels closely, especially potassium and calcium.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1171473A1::02",
+   "claim_id": "E1171473A1",
+   "claim_text": "Monitor electrolyte levels closely, especially potassium and calcium.",
+   "kind": "action",
+   "text": "Monitor calcium.",
+   "concept": "calcium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "calcium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1171473A2::03",
+   "claim_id": "E1171473A2",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration with normal saline.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1171473A2::04",
+   "claim_id": "E1171473A2",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "fact",
+   "text": "Intravenous fluid administration with normal saline is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1171473A3::05",
+   "claim_id": "E1171473A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust mechanical ventilation parameters as needed.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1171473A3::06",
+   "claim_id": "E1171473A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust mechanical ventilation parameters as needed.",
+   "kind": "action",
+   "text": "Adjust mechanical ventilation parameters as needed.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "mechanical ventilation",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1171473A3::07",
+   "claim_id": "E1171473A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust mechanical ventilation parameters as needed.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1171473A2::04",
+   "claim_id": "E1171473A2",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "fact",
+   "text": "Intravenous fluid administration with normal saline is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records document normal saline administration at 00:50, 00:51, and 12:53, but none within 24 hours before the decision time of 2100-01-02 15:48. The most recent administration is over 2 hours prior, so the statement that it is 'currently being given' is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:31963626",
+     "time": "2100-01-02 00:50:00",
+     "item": "Treatment documented: cardiovascular | intravenous fluid | normal saline administration"
+    },
+    {
+     "rid": "treat:31766066",
+     "time": "2100-01-02 00:51:00",
+     "item": "Treatment documented: cardiovascular | intravenous fluid | normal saline administration"
+    },
+    {
+     "rid": "treat:32002194",
+     "time": "2100-01-02 12:53:00",
+     "item": "Treatment documented: cardiovascular | intravenous fluid | normal saline administration"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1171473A3::07",
+   "claim_id": "E1171473A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust mechanical ventilation parameters as needed.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "resp:77113606",
+     "time": "2100-01-02 09:00:00",
+     "item": "Tidal Volume (set): 500 mL"
+    }
+   ],
+   "reason": "The last ventilator/intubation record ('Tidal Volume (set): 500 mL') was 6.8 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1171473A1::01",
+   "claim_id": "E1171473A1",
+   "claim_text": "Monitor electrolyte levels closely, especially potassium and calcium.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 6.7 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1171473A1::02",
+   "claim_id": "E1171473A1",
+   "claim_text": "Monitor electrolyte levels closely, especially potassium and calcium.",
+   "kind": "action",
+   "text": "Monitor calcium.",
+   "concept": "calcium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "calcium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No calcium measurement in the 6.7 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1171473A2::03",
+   "claim_id": "E1171473A2",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration with normal saline.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 6.7 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1171473A3::05",
+   "claim_id": "E1171473A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust mechanical ventilation parameters as needed.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1171473A3::06",
+   "claim_id": "E1171473A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust mechanical ventilation parameters as needed.",
+   "kind": "action",
+   "text": "Adjust mechanical ventilation parameters as needed.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "mechanical ventilation",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 6.7 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 6.7,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous fluid administration with normal saline is currently being given. -- The records document normal saline administration at 00:50, 00:51, and 12:53, but none within 24 hours before the decision time of 2100-01-02 15:48. The most recent administration is over 2 hours prior, so the statement that it is 'currently being given' is not supported.",
+    "The patient is currently on mechanical ventilation. -- The last ventilator/intubation record ('Tidal Volume (set): 500 mL') was 6.8 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

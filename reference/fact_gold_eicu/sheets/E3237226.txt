@@ -1,0 +1,160 @@
+# E3237226   T = 2100-01-02 02:57:00   records before T: 900
+ICU stay 3237226 (Med-Surg ICU; Female, age 63; admission diagnosis: ARDS-adult respiratory distress syndrome, non-cardiogenic pulmonary edema).
+
+## Atoms
+deepseek-v4.1-flash|E3237226A1::02 [presupposition] Supplemental oxygen therapy via nasal cannula is currently being given.   <- Continue supplemental oxygen therapy via nasal cannula at 3 L/min to maintain oxygen saturation.
+deepseek-v4.1-flash|E3237226A2::06 [observed] Tachypnea is present.   <- Monitor respiratory rate and oxygen saturation closely given persistent tachypnea.
+deepseek-v4.1-flash|E3237226A3::08 [presupposition] Hypomagnesemia is present.   <- Administer magnesium sulfate IV as ordered for hypomagnesemia.
+gpt-oss-120b|E3237226A1::02 [presupposition] The patient is currently on non-invasive ventilation.   <- Continue non‑invasive ventilation with current settings and reassess need for escalation.
+gpt-oss-120b|E3237226A3::08 [judgment] ARDS is present.   <- Consider prone positioning for ARDS to improve oxygenation.
+qwen2.5-7b|E3237226A2::04 [presupposition] The patient is currently on non-invasive ventilation.   <- Continue non-invasive ventilation as needed.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2099-12-22 11:30:00): Medication LEVOTHYROXINE SODIUM PO QAM
+  Running at decision time (scheduled order started 2099-12-22 14:00:00): Medication FOLIC ACID PO DAILY
+  Running at decision time (scheduled order started 2099-12-22 14:00:00): Medication THIAMINE HCL PO DAILY
+  Running at decision time (scheduled order started 2100-01-02 02:30:00): Medication MAGNESIUM SULFATE IV
+
+## PRN orders
+  12-21 22:30 Order: LORAZEPAM PO Q1H PRN (stopped 2099-12-24 12:49:00)
+  12-21 22:30 Order: LORAZEPAM IV Q4H PRN (active at decision time)
+  12-21 22:30 Order: LORAZEPAM IV OT PRN (active at decision time)
+  12-21 23:30 Order: IBUPROFEN PO TID PRN (stopped 2099-12-22 00:25:00)
+  12-22 01:00 Order: SODIUM CHLORIDE FLUSH IV ASDIRECT PRN (active at decision time)
+  12-22 01:00 Order: SODIUM CHLORIDE IV ASDIRECT PRN (active at decision time)
+  12-22 01:00 Order: SODIUM CHLORIDE IV SEEINSTR PRN (active at decision time)
+  12-22 02:00 Order: ACETAMINOPHEN PO Q4HP PRN (stopped 2099-12-24 12:49:00)
+  12-22 02:00 Order: ONDANSETRON HCL IV Q6HP PRN (active at decision time)
+  12-22 12:30 Order: HYDROMORPHONE HCL IV Q4HP PRN (stopped 2099-12-28 18:00:00)
+  12-25 16:00 Order: TRAMADOL HCL PO Q4H PRN (active at decision time)
+  12-25 18:00 Order: NITROGLYCERIN SL Q5M PRN (active at decision time)
+  12-25 18:00 Order: MORPHINE SULFATE IV OT PRN (stopped 2099-12-28 20:33:00)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication THIAMINE HCL IV (2099-12-21 22:30:00 to 2099-12-22 00:26:00)
+  Medication CLONIDINE HCL PO Q6H (2099-12-21 22:30:00 to 2099-12-24 12:49:00)
+  Medication THIAMINE HCL IV (2099-12-22 00:00:00 to 2099-12-22 10:06:00)
+  Medication FOLIC ACID IV (2099-12-22 00:00:00 to 2099-12-22 10:06:00)
+  Medication MAGNESIUM SULFATE IV (2099-12-22 15:00:00 to 2099-12-22 16:01:00)
+  Medication POTASSIUM CHLORIDE PO (2099-12-22 17:00:00 to 2099-12-28 20:50:00)
+  Medication MAGNESIUM SULFATE IV (2099-12-23 20:00:00 to 2099-12-23 21:01:00)
+
+## Laboratory (newest first, up to 5)
+  -bands: 12-30 16:10 5 %; 12-29 23:00 9 %; 12-28 10:50 9 %; 12-23 10:36 8 %; 12-22 11:10 12 %
+  -basos: 12-29 23:00 2 %; 12-28 10:50 0.4 %; 12-21 18:10 0.2 %
+  -eos: 12-29 23:00 6 %; 12-28 10:50 7 %; 12-23 10:36 2 %; 12-22 11:10 3 %; 12-21 18:10 1 %
+  -lymphs: 12-30 16:10 29 %; 12-29 23:00 29 %; 12-28 10:50 16 %; 12-23 10:36 11 %; 12-22 11:10 22 %   [+1 earlier]
+  -monos: 12-30 16:10 2 %; 12-29 23:00 2 %; 12-28 10:50 1 %; 12-23 10:36 9 %; 12-22 11:10 7 %   [+1 earlier]
+  Alanine Aminotransferase (ALT): 12-25 10:10 80 Units/L; 12-23 10:36 82 Units/L; 12-22 11:10 75 Units/L; 12-21 18:10 80 Units/L
+  Albumin: 12-25 10:10 1.8 gm/dl; 12-23 10:36 2 gm/dl; 12-22 11:10 1.7 gm/dl; 12-21 18:10 2.3 gm/dl
+  Alkaline Phosphatase: 12-25 10:10 149 Units/L; 12-23 10:36 186 Units/L; 12-22 11:10 180 Units/L; 12-21 18:10 150 Units/L
+  Asparate Aminotransferase (AST): 12-25 10:10 79 Units/L; 12-23 10:36 70 Units/L; 12-22 11:10 69 Units/L; 12-21 18:10 94 Units/L
+  Base Excess: 01-01 03:30 -9 mmol/L; 01-01 01:30 -8.3 mmol/L
+  Bicarbonate: 12-28 10:50 23 mmole/L; 12-27 10:15 21 mmole/L; 12-26 02:10 23 mmole/L; 12-25 10:10 22 mmole/L; 12-23 10:36 20 mmole/L   [+2 earlier]
+  Bicarbonate (blood gas HCO3): 01-01 03:30 14 mmol/L; 01-01 01:30 14 mmol/L
+  Bilirubin, Total: 12-25 10:10 1.8 mg/dl; 12-23 10:36 1.8 mg/dl; 12-22 11:10 1.9 mg/dl; 12-21 18:10 3.2 mg/dl
+  CPK: 12-26 02:10 108 Units/L; 12-25 17:50 139 Units/L; 12-23 10:36 257 Units/L; 12-21 18:10 592 Units/L
+  CPK-MB: 12-23 10:36 5.3 ng/ml; 12-21 18:10 16.6 ng/ml
+  CPK-MB INDEX: 12-21 18:10 3
+  Calcium, Total: 12-28 10:50 7.3 mg/dl; 12-27 10:15 6.7 mg/dl; 12-26 02:10 7.8 mg/dl; 12-25 10:10 7.4 mg/dl; 12-23 10:36 7.3 mg/dl   [+3 earlier]
+  Carboxyhemoglobin: 01-01 03:30 0.5 %; 01-01 01:30 0.7 %
+  Chloride: 12-28 10:50 111 mEq/L; 12-27 10:15 110 mEq/L; 12-26 02:10 109 mEq/L; 12-25 10:10 110 mEq/L; 12-23 10:36 106 mEq/L   [+3 earlier]
+  Creatinine: 12-28 10:50 0.5 mg/dl; 12-27 10:15 0.42 mg/dl; 12-26 02:10 0.53 mg/dl; 12-25 10:10 0.5 mg/dl; 12-23 10:36 0.53 mg/dl   [+2 earlier]
+  FiO2: 01-01 03:30 35%
+  Glucose: 12-28 10:50 102 mg/dl; 12-27 10:15 370 mg/dl; 12-26 02:10 98 mg/dl; 12-25 10:10 84 mg/dl; 12-23 10:36 99 mg/dl   [+3 earlier]
+  HDL: 12-25 17:50 29 mg/dl
+  Hematocrit: 12-30 16:10 29.8 %; 12-29 23:00 24.5 %; 12-28 10:50 28.9 %; 12-25 10:10 26 %; 12-23 10:36 27.7 %   [+2 earlier]
+  Hemoglobin: 12-30 16:10 9.3 g/dL; 12-29 23:00 8 g/dL; 12-28 10:50 9.1 g/dL; 12-25 10:10 8.6 g/dL; 12-23 10:36 9.1 g/dL   [+2 earlier]
+  INR(PT): 12-22 11:10 1.3
+  LDL: 12-25 17:50 109 mg/dl
+  MCH: 12-30 16:10 36.4 pg; 12-29 23:00 37.1 pg; 12-28 10:50 36.6 pg; 12-25 10:10 36.3 pg; 12-23 10:36 36.1 pg   [+2 earlier]
+  MCHC: 12-30 16:10 31.3 %; 12-29 23:00 32.5 %; 12-28 10:50 31.4 %; 12-25 10:10 33 %; 12-23 10:36 32.8 %   [+2 earlier]
+  MCV: 12-30 16:10 116 fL; 12-29 23:00 114 fL; 12-28 10:50 116 fL; 12-25 10:10 110 fL; 12-23 10:36 110 fL   [+2 earlier]
+  MPV: 12-28 10:50 8.3 fL; 12-21 18:10 8.7 fL
+  Magnesium: 01-02 01:30 1.3 mg/dl; 12-26 02:10 1.5 mg/dl; 12-25 10:10 1.5 mg/dl; 12-23 10:36 1.5 mg/dl; 12-21 18:10 1.5 mg/dl
+  Oxygen Saturation: 01-01 03:30 94.6 %; 01-01 01:30 94.2 %
+  PT: 12-22 11:10 13.8 sec
+  Platelet Count: 12-30 16:10 288 Thou/cmm; 12-29 23:00 268 Thou/cmm; 12-28 10:50 290 Thou/cmm; 12-25 10:10 334 Thou/cmm; 12-23 10:36 358 Thou/cmm   [+2 earlier]
+  Potassium: 12-28 10:50 4.2 mEq/L; 12-27 10:15 4.4 mEq/L; 12-26 02:10 4.1 mEq/L; 12-25 10:10 3.8 mEq/L; 12-23 10:36 3.6 mEq/L   [+3 earlier]
+  RBC: 12-30 16:10 2.57 Mill/cmm; 12-29 23:00 2.14 Mill/cmm; 12-28 10:50 2.49 Mill/cmm; 12-25 10:10 2.36 Mill/cmm; 12-23 10:36 2.52 Mill/cmm   [+2 earlier]
+  RDW: 12-28 10:50 18.1 fL; 12-21 18:10 17 fL
+  Sodium: 12-28 10:50 133 mEq/L; 12-27 10:15 128 mEq/L; 12-26 02:10 133 mEq/L; 12-25 10:10 132 mEq/L; 12-23 10:36 130 mEq/L   [+3 earlier]
+  TSH: 12-21 18:10 22.34 uIU/ml
+  Urea Nitrogen: 12-22 11:10 3 mg/dl; 12-21 18:10 4 mg/dl
+  Vitamin B12: 12-21 18:10 1775 pg/ml
+  White Blood Cells: 12-30 16:10 5.12 Thou/cmm; 12-29 23:00 4.87 Thou/cmm; 12-28 10:50 6.64 Thou/cmm; 12-25 10:10 8.44 Thou/cmm; 12-23 10:36 7.99 Thou/cmm   [+2 earlier]
+  folate: 12-21 18:10 15.2 ng/ml
+  pCO2: 01-01 03:30 22 mmHg; 01-01 01:30 20 mmHg
+  pH: 01-01 03:30 7.42; 01-01 01:30 7.46
+  pO2: 01-01 03:30 69 mmHg; 01-01 01:30 64 mmHg
+  total cholesterol: 12-25 17:50 161 mg/dl
+  total protein: 12-25 10:10 3.9 gm/dl; 12-23 10:36 4.2 gm/dl; 12-22 11:10 3.8 gm/dl; 12-21 18:10 4.8 gm/dl
+  triglycerides: 12-25 17:50 113 mg/dl
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Arterial Blood Pressure diastolic: 56 mmHg @01-02 01:00   24h 54-79 (n=11)
+  Arterial Blood Pressure mean: 73 mmHg @01-02 01:00   24h 70-84 (n=5)
+  Arterial Blood Pressure systolic: 93 mmHg @01-02 01:00   24h 82-119 (n=11)
+  Glasgow coma score Eyes: 4 @01-02 01:00
+  Glasgow coma score GCS Total: 14 @01-02 01:00
+  Glasgow coma score Motor: 6 @01-02 01:00
+  Glasgow coma score Verbal: 4 @01-02 01:00
+  Heart Rate: 104 bpm @01-02 01:00   24h 96-122 (n=15)
+  Inspired O2 Fraction: 35 % @01-01 03:34
+  Non Invasive Blood Pressure diastolic: 56 mmHg @01-02 01:00   24h 54-74 (n=3)
+  Non Invasive Blood Pressure mean: 73 mmHg @01-02 01:00   24h 72-83 (n=3)
+  Non Invasive Blood Pressure systolic: 93 mmHg @01-02 01:00   24h 93-105 (n=3)
+  O2 Flow: 3 L/min @01-02 01:15   24h 3-4 (n=10)
+  O2 L/%: 32 @01-02 01:00   24h 32-35 (n=5)
+  O2 saturation pulseoxymetry: 96 % @01-02 01:00   24h 93-100 (n=9)
+  Pain Level: 10 @12-30 23:10   earlier: 8 @12-27 21:46; 7 @12-26 21:06; 9 @12-25 23:40
+  Pain Present: No @01-02 01:00   earlier: Asleep @01-01 17:00; Nonverbal @01-01 09:20; Yes @12-31 18:15
+  Respiratory Rate: 28 insp/min @01-02 01:00   24h 21-44 (n=14)
+  Respiratory Rate (spontaneous): 32 insp/min @01-02 01:15   24h 21-42 (n=5)
+  SaO2: 94 @01-01 12:54   24h 94-100 (n=3)
+  Temperature Fahrenheit: 96.6 F @01-02 01:00   24h 96.6-98.8 (n=7)
+  Temperature Location: Temporal Artery Scan @01-02 01:00   earlier: Oral @12-31 17:00; Axillary @12-31 13:00
+
+## Treatments documented
+  01-01 03:41 general | support services | physical therapy consult
+  01-01 03:41 pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)
+  01-01 03:41 general | support services | social work consult
+  01-01 03:41 pulmonary | ventilation and oxygenation | non-invasive ventilation
+  01-01 03:41 radiologic procedures / bronchoscopy | CT scan | with contrast
+  01-01 03:41 general | support services | occupational therapy consult
+  01-01 03:41 infectious diseases | medications | therapeutic antibacterials
+  01-01 04:04 radiologic procedures / bronchoscopy | CT scan | with contrast
+  01-01 04:04 pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)
+  01-01 04:04 pulmonary | ventilation and oxygenation | non-invasive ventilation
+  01-01 04:04 infectious diseases | medications | therapeutic antibacterials
+  01-01 04:04 general | support services | physical therapy consult
+  01-01 04:04 general | support services | occupational therapy consult
+  01-01 04:04 general | support services | social work consult
+  01-01 04:13 general | support services | social work consult
+  01-01 04:13 general | support services | physical therapy consult
+  01-01 04:13 pulmonary | ventilation and oxygenation | non-invasive ventilation
+  01-01 04:13 radiologic procedures / bronchoscopy | CT scan | with contrast
+  01-01 04:13 pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)
+  01-01 04:13 general | support services | occupational therapy consult
+  01-01 04:13 infectious diseases | medications | therapeutic antibacterials
+  01-01 12:56 general | support services | social work consult
+  01-01 12:56 radiologic procedures / bronchoscopy | CT scan | with contrast
+  01-01 12:56 infectious diseases | medications | therapeutic antibacterials
+  01-01 12:56 pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)
+  01-01 12:56 neurologic | pain / agitation / altered mentation | analgesics
+  01-01 12:56 general | support services | physical therapy consult
+  01-01 12:56 general | support services | occupational therapy consult
+  01-01 12:56 pain / agitation / altered mentation | sedative agent | lorazepam
+  01-02 01:16 general | support services | social work consult
+  01-02 01:16 infectious diseases | medications | therapeutic antibacterials
+  01-02 01:16 radiologic procedures / bronchoscopy | CT scan | with contrast
+  01-02 01:16 general | support services | physical therapy consult
+  01-02 01:16 non-operative procedures | diagnostic ultrasound of heart | transthoracic echocardiography
+  01-02 01:16 pain / agitation / altered mentation | sedative agent | lorazepam
+  01-02 01:16 neurologic | pain / agitation / altered mentation | analgesics
+  01-02 01:16 pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)
+  01-02 01:16 general | support services | occupational therapy consult
+
+## Microbiology

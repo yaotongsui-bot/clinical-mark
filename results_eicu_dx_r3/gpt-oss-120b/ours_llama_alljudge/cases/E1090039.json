@@ -1,0 +1,316 @@
+{
+ "case_id": "E1090039",
+ "decision_point": "2100-01-02 23:43:00",
+ "claims": [
+  "Continue propofol infusion to maintain target RASS of -5 for deep sedation.",
+  "Increase norepinephrine infusion to support mean arterial pressure >65 mmHg.",
+  "Obtain arterial blood gas to assess ventilation and acid‑base status while on mechanical ventilation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1090039A1::01",
+   "claim_id": "E1090039A1",
+   "claim_text": "Continue propofol infusion to maintain target RASS of -5 for deep sedation.",
+   "kind": "action",
+   "text": "Continue propofol infusion.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "propofol",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1090039A1::02",
+   "claim_id": "E1090039A1",
+   "claim_text": "Continue propofol infusion to maintain target RASS of -5 for deep sedation.",
+   "kind": "fact",
+   "text": "Propofol infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1090039A1::03",
+   "claim_id": "E1090039A1",
+   "claim_text": "Continue propofol infusion to maintain target RASS of -5 for deep sedation.",
+   "kind": "goal",
+   "text": "Maintain target RASS of -5 for deep sedation.",
+   "concept": "sedation",
+   "notes": []
+  },
+  {
+   "atom_id": "E1090039A2::04",
+   "claim_id": "E1090039A2",
+   "claim_text": "Increase norepinephrine infusion to support mean arterial pressure >65 mmHg.",
+   "kind": "action",
+   "text": "Increase norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1090039A2::05",
+   "claim_id": "E1090039A2",
+   "claim_text": "Increase norepinephrine infusion to support mean arterial pressure >65 mmHg.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1090039A2::06",
+   "claim_id": "E1090039A2",
+   "claim_text": "Increase norepinephrine infusion to support mean arterial pressure >65 mmHg.",
+   "kind": "goal",
+   "text": "Mean arterial pressure is greater than 65 mmHg.",
+   "concept": "map",
+   "notes": []
+  },
+  {
+   "atom_id": "E1090039A3::07",
+   "claim_id": "E1090039A3",
+   "claim_text": "Obtain arterial blood gas to assess ventilation and acid‑base status while on mechanical ventilation.",
+   "kind": "action",
+   "text": "Obtain arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1090039A3::08",
+   "claim_id": "E1090039A3",
+   "claim_text": "Obtain arterial blood gas to assess ventilation and acid‑base status while on mechanical ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1090039A1::02",
+   "claim_id": "E1090039A1",
+   "claim_text": "Continue propofol infusion to maintain target RASS of -5 for deep sedation.",
+   "kind": "fact",
+   "text": "Propofol infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that propofol infusion was ordered and running at decision time (R1), and the sedation score was -5 at decision time (R50).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:39513805",
+     "time": "2100-01-01 20:45:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 20:45:00): Medication propofol 1% inj IV CONTINUOUS"
+    },
+    {
+     "rid": "nurse:685448539",
+     "time": "2100-01-02 23:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -5"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1090039A2::05",
+   "claim_id": "E1090039A2",
+   "claim_text": "Increase norepinephrine infusion to support mean arterial pressure >65 mmHg.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that norepinephrine infusion was ordered at 11:15 on January 2, but there is no record of it being administered in the 24 hours before the decision time. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:40751570",
+     "time": "2100-01-02 11:15:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 11:15:00): Medication NOREPINEPHRINE BITARTRATE 1 MG/ML IJ SOLN CENTRAL IV CONTINUOUS"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1090039A3::08",
+   "claim_id": "E1090039A3",
+   "claim_text": "Obtain arterial blood gas to assess ventilation and acid‑base status while on mechanical ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient is on mechanical ventilation, but the most recent relevant rows (R49 and R50) show a non-invasive blood pressure of 121 mmHg and 98 mmHg, respectively, which is lower than the typical values for a patient on mechanical ventilation. Therefore, the statement is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:30952287",
+     "time": "2100-01-02 18:39:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    },
+    {
+     "rid": "treat:31511381",
+     "time": "2100-01-02 21:34:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1090039A1::01",
+   "claim_id": "E1090039A1",
+   "claim_text": "Continue propofol infusion to maintain target RASS of -5 for deep sedation.",
+   "kind": "action",
+   "text": "Continue propofol infusion.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "propofol",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1090039A2::04",
+   "claim_id": "E1090039A2",
+   "claim_text": "Increase norepinephrine infusion to support mean arterial pressure >65 mmHg.",
+   "kind": "action",
+   "text": "Increase norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1090039A3::07",
+   "claim_id": "E1090039A3",
+   "claim_text": "Obtain arterial blood gas to assess ventilation and acid‑base status while on mechanical ventilation.",
+   "kind": "action",
+   "text": "Obtain arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Norepinephrine infusion is currently being given. -- The records show that norepinephrine infusion was ordered at 11:15 on January 2, but there is no record of it being administered in the 24 hours before the decision time. The statement is not supported by the records.",
+    "The patient is currently on mechanical ventilation. -- The records show that the patient is on mechanical ventilation, but the most recent relevant rows (R49 and R50) show a non-invasive blood pressure of 121 mmHg and 98 mmHg, respectively, which is lower than the typical values for a patient on mechanical ventilation. Therefore, the statement is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

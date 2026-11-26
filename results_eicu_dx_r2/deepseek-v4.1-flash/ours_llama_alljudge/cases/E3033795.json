@@ -1,0 +1,280 @@
+{
+ "case_id": "E3033795",
+ "decision_point": "2100-01-02 17:29:00",
+ "claims": [
+  "Continue insulin infusion for glycemic control, with ongoing titration based on fingerstick glucose.",
+  "Continue diltiazem infusion for arrhythmia prophylaxis/control.",
+  "Monitor blood glucose via fingerstick checks to guide insulin titration."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3033795A1::01",
+   "claim_id": "E3033795A1",
+   "claim_text": "Continue insulin infusion for glycemic control, with ongoing titration based on fingerstick glucose.",
+   "kind": "action",
+   "text": "Continue insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3033795A1::02",
+   "claim_id": "E3033795A1",
+   "claim_text": "Continue insulin infusion for glycemic control, with ongoing titration based on fingerstick glucose.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3033795A1::03",
+   "claim_id": "E3033795A1",
+   "claim_text": "Continue insulin infusion for glycemic control, with ongoing titration based on fingerstick glucose.",
+   "kind": "action",
+   "text": "Titrate insulin infusion based on fingerstick glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3033795A2::04",
+   "claim_id": "E3033795A2",
+   "claim_text": "Continue diltiazem infusion for arrhythmia prophylaxis/control.",
+   "kind": "action",
+   "text": "Continue diltiazem infusion.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "diltiazem infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3033795A2::05",
+   "claim_id": "E3033795A2",
+   "claim_text": "Continue diltiazem infusion for arrhythmia prophylaxis/control.",
+   "kind": "fact",
+   "text": "Diltiazem infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3033795A3::06",
+   "claim_id": "E3033795A3",
+   "claim_text": "Monitor blood glucose via fingerstick checks to guide insulin titration.",
+   "kind": "action",
+   "text": "Monitor blood glucose via fingerstick checks.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3033795A1::02",
+   "claim_id": "E3033795A1",
+   "claim_text": "Continue insulin infusion for glycemic control, with ongoing titration based on fingerstick glucose.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that insulin infusion was running at decision time (R11), and the most recent administration record shows that insulin infusion was running at 3.8 ml/hour (R50).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:96753625",
+     "time": "2100-01-01 19:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 19:00:00): Medication 3 ML VIAL : INSULIN REGULAR HUMAN 100 UNIT/ML IJ SOLN IV Continuous"
+    },
+    {
+     "rid": "inf:Insulin (ml/hr):1411",
+     "time": "2100-01-02 17:00:00",
+     "item": "Running at decision time (started 2100-01-02 17:00:00): Infusion/input Insulin at 3.8 ml/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3033795A2::05",
+   "claim_id": "E3033795A2",
+   "claim_text": "Continue diltiazem infusion for arrhythmia prophylaxis/control.",
+   "kind": "fact",
+   "text": "Diltiazem infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The statement 'Diltiazem infusion is currently being given' is supported by record R47, which shows that Diltiazem infusion is running at decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Diltiazem (ml/hr):1321",
+     "time": "2100-01-02 15:30:00",
+     "item": "Running at decision time (started 2100-01-02 15:30:00): Infusion/input Diltiazem at 5 ml/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3033795A1::01",
+   "claim_id": "E3033795A1",
+   "claim_text": "Continue insulin infusion for glycemic control, with ongoing titration based on fingerstick glucose.",
+   "kind": "action",
+   "text": "Continue insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 1.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3033795A1::03",
+   "claim_id": "E3033795A1",
+   "claim_text": "Continue insulin infusion for glycemic control, with ongoing titration based on fingerstick glucose.",
+   "kind": "action",
+   "text": "Titrate insulin infusion based on fingerstick glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 1.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3033795A2::04",
+   "claim_id": "E3033795A2",
+   "claim_text": "Continue diltiazem infusion for arrhythmia prophylaxis/control.",
+   "kind": "action",
+   "text": "Continue diltiazem infusion.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "diltiazem infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 1.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3033795A3::06",
+   "claim_id": "E3033795A3",
+   "claim_text": "Monitor blood glucose via fingerstick checks to guide insulin titration.",
+   "kind": "action",
+   "text": "Monitor blood glucose via fingerstick checks.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:735966072",
+     "time": "2100-01-02 18:00:00",
+     "item": "glucose",
+     "value": "199.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 1.2 h observation window after the decision (24 h or until ICU discharge): glucose x1.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 1.2,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

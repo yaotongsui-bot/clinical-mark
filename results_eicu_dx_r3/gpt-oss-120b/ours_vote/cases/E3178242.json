@@ -1,0 +1,352 @@
+{
+ "case_id": "E3178242",
+ "decision_point": "2100-01-02 07:26:00",
+ "claims": [
+  "Increase norepinephrine infusion rate to target a mean arterial pressure ≥65 mmHg.",
+  "Obtain a repeat complete blood count and basic metabolic panel in 6 hours to monitor for evolving anemia or electrolyte abnormalities.",
+  "Continue current mechanical ventilation settings and reassess readiness for spontaneous breathing trial in 12 hours."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3178242A1::01",
+   "claim_id": "E3178242A1",
+   "claim_text": "Increase norepinephrine infusion rate to target a mean arterial pressure ≥65 mmHg.",
+   "kind": "action",
+   "text": "Increase norepinephrine infusion rate.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3178242A1::02",
+   "claim_id": "E3178242A1",
+   "claim_text": "Increase norepinephrine infusion rate to target a mean arterial pressure ≥65 mmHg.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3178242A1::03",
+   "claim_id": "E3178242A1",
+   "claim_text": "Increase norepinephrine infusion rate to target a mean arterial pressure ≥65 mmHg.",
+   "kind": "goal",
+   "text": "Maintain mean arterial pressure ≥65 mmHg.",
+   "concept": "map",
+   "notes": []
+  },
+  {
+   "atom_id": "E3178242A2::04",
+   "claim_id": "E3178242A2",
+   "claim_text": "Obtain a repeat complete blood count and basic metabolic panel in 6 hours to monitor for evolving anemia or electrolyte abnormalities.",
+   "kind": "action",
+   "text": "Obtain a repeat complete blood count in 6 hours.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "complete blood count",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3178242A2::05",
+   "claim_id": "E3178242A2",
+   "claim_text": "Obtain a repeat complete blood count and basic metabolic panel in 6 hours to monitor for evolving anemia or electrolyte abnormalities.",
+   "kind": "action",
+   "text": "Obtain a repeat basic metabolic panel in 6 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "basic metabolic panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3178242A3::08",
+   "claim_id": "E3178242A3",
+   "claim_text": "Continue current mechanical ventilation settings and reassess readiness for spontaneous breathing trial in 12 hours.",
+   "kind": "action",
+   "text": "Continue current mechanical ventilation settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3178242A3::09",
+   "claim_id": "E3178242A3",
+   "claim_text": "Continue current mechanical ventilation settings and reassess readiness for spontaneous breathing trial in 12 hours.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3178242A3::10",
+   "claim_id": "E3178242A3",
+   "claim_text": "Continue current mechanical ventilation settings and reassess readiness for spontaneous breathing trial in 12 hours.",
+   "kind": "action",
+   "text": "Reassess readiness for spontaneous breathing trial in 12 hours.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "readiness for spontaneous breathing trial",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3178242A1::02",
+   "claim_id": "E3178242A1",
+   "claim_text": "Increase norepinephrine infusion rate to target a mean arterial pressure ≥65 mmHg.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Norepinephrine bitartrate was documented as running at the decision time, with the titrated infusion started on 2100-01-01 at 08:00.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:105614559",
+     "time": "2100-01-01 08:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 08:00:00): Medication NOREPINEPHRINE BITARTRATE 1 MG/ML IV SOLN IV Titrated"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3178242A3::09",
+   "claim_id": "E3178242A3",
+   "claim_text": "Continue current mechanical ventilation settings and reassess readiness for spontaneous breathing trial in 12 hours.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "resp:233939099",
+     "time": "2100-01-02 00:00:00",
+     "item": "PEEP set: 5 cmH2O"
+    }
+   ],
+   "reason": "The last ventilator/intubation record ('PEEP set: 5 cmH2O') was 7.4 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3178242A1::01",
+   "claim_id": "E3178242A1",
+   "claim_text": "Increase norepinephrine infusion rate to target a mean arterial pressure ≥65 mmHg.",
+   "kind": "action",
+   "text": "Increase norepinephrine infusion rate.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3178242A2::04",
+   "claim_id": "E3178242A2",
+   "claim_text": "Obtain a repeat complete blood count and basic metabolic panel in 6 hours to monitor for evolving anemia or electrolyte abnormalities.",
+   "kind": "action",
+   "text": "Obtain a repeat complete blood count in 6 hours.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "complete blood count",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:782332964",
+     "time": "2100-01-03 06:34:00",
+     "item": "WBC",
+     "value": "33.9 TH/cmm"
+    },
+    {
+     "rid": "lab:782332963",
+     "time": "2100-01-03 06:34:00",
+     "item": "hemoglobin",
+     "value": "9.3 g/dL"
+    },
+    {
+     "rid": "lab:782332968",
+     "time": "2100-01-03 06:34:00",
+     "item": "platelets",
+     "value": "225.0 TH/cmm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): WBC x1, hemoglobin x1, platelets x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3178242A2::05",
+   "claim_id": "E3178242A2",
+   "claim_text": "Obtain a repeat complete blood count and basic metabolic panel in 6 hours to monitor for evolving anemia or electrolyte abnormalities.",
+   "kind": "action",
+   "text": "Obtain a repeat basic metabolic panel in 6 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "basic metabolic panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3178242A3::08",
+   "claim_id": "E3178242A3",
+   "claim_text": "Continue current mechanical ventilation settings and reassess readiness for spontaneous breathing trial in 12 hours.",
+   "kind": "action",
+   "text": "Continue current mechanical ventilation settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3178242A3::10",
+   "claim_id": "E3178242A3",
+   "claim_text": "Continue current mechanical ventilation settings and reassess readiness for spontaneous breathing trial in 12 hours.",
+   "kind": "action",
+   "text": "Reassess readiness for spontaneous breathing trial in 12 hours.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "readiness for spontaneous breathing trial",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2171673678",
+     "time": "2100-01-02 08:00:00",
+     "item": "respiratory rate",
+     "value": "24.0 insp/min"
+    },
+    {
+     "rid": "nurse:2167613911",
+     "time": "2100-01-02 09:00:00",
+     "item": "respiratory rate",
+     "value": "22.0 insp/min"
+    },
+    {
+     "rid": "nurse:2170250312",
+     "time": "2100-01-02 08:00:00",
+     "item": "SpO2",
+     "value": "93.0 %"
+    },
+    {
+     "rid": "nurse:2194611305",
+     "time": "2100-01-02 08:22:00",
+     "item": "SpO2",
+     "value": "96.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x29, SpO2 x30.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The last ventilator/intubation record ('PEEP set: 5 cmH2O') was 7.4 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

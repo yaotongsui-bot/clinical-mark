@@ -1,0 +1,346 @@
+{
+ "case_id": "E297175",
+ "decision_point": "2100-01-02 01:21:00",
+ "claims": [
+  "Monitor patient's respiratory status closely due to ongoing respiratory distress.",
+  "Continue administration of bronchodilators as ordered.",
+  "Assess patient for signs of pain and manage accordingly."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E297175A1::01",
+   "claim_id": "E297175A1",
+   "claim_text": "Monitor patient's respiratory status closely due to ongoing respiratory distress.",
+   "kind": "action",
+   "text": "Monitor respiratory status closely.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E297175A1::02",
+   "claim_id": "E297175A1",
+   "claim_text": "Monitor patient's respiratory status closely due to ongoing respiratory distress.",
+   "kind": "fact",
+   "text": "Respiratory distress is ongoing.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "persistent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E297175A2::03",
+   "claim_id": "E297175A2",
+   "claim_text": "Continue administration of bronchodilators as ordered.",
+   "kind": "action",
+   "text": "Continue administration of bronchodilators.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "continue",
+   "target": "bronchodilators",
+   "conditional": false,
+   "treatment_class": "bronchodilator",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E297175A2::04",
+   "claim_id": "E297175A2",
+   "claim_text": "Continue administration of bronchodilators as ordered.",
+   "kind": "fact",
+   "text": "Bronchodilators are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E297175A3::05",
+   "claim_id": "E297175A3",
+   "claim_text": "Assess patient for signs of pain and manage accordingly.",
+   "kind": "action",
+   "text": "Assess patient for signs of pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "E297175A3::06",
+   "claim_id": "E297175A3",
+   "claim_text": "Assess patient for signs of pain and manage accordingly.",
+   "kind": "action",
+   "text": "Manage pain accordingly.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E297175A1::02",
+   "claim_id": "E297175A1",
+   "claim_text": "Monitor patient's respiratory status closely due to ongoing respiratory distress.",
+   "kind": "fact",
+   "text": "Respiratory distress is ongoing.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "persistent",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The most recent respiratory rate before the decision time is 23 insp/min (R50), which is within normal limits and does not indicate ongoing respiratory distress. Earlier rates fluctuated between 15 and 26, but the latest value does not support the claim of ongoing distress.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:312218337",
+     "time": "2100-01-01 21:00:00",
+     "item": "Respiratory Rate: 23 insp/min"
+    },
+    {
+     "rid": "nurse:307324571",
+     "time": "2100-01-01 17:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "nurse:311172273",
+     "time": "2100-01-01 13:00:00",
+     "item": "Respiratory Rate: 15 insp/min"
+    },
+    {
+     "rid": "nurse:313545694",
+     "time": "2100-01-01 12:00:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:305007187",
+     "time": "2100-01-01 09:00:00",
+     "item": "Respiratory Rate: 26 insp/min"
+    },
+    {
+     "rid": "nurse:313111342",
+     "time": "2100-01-01 05:00:00",
+     "item": "Respiratory Rate: 24 insp/min"
+    },
+    {
+     "rid": "nurse:309414053",
+     "time": "2100-01-01 02:00:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "med:13419600",
+     "time": "2100-01-01 00:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 00:30:00): Medication ALBUTEROL/IPRATROPIUM NEB 3ML NEB"
+    }
+   ]
+  },
+  {
+   "atom_id": "E297175A2::04",
+   "claim_id": "E297175A2",
+   "claim_text": "Continue administration of bronchodilators as ordered.",
+   "kind": "fact",
+   "text": "Bronchodilators are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Records R1 and R2 show albuterol/ipratropium nebulizer administrations running at the decision time, which are bronchodilators.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:13419600",
+     "time": "2100-01-01 00:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 00:30:00): Medication ALBUTEROL/IPRATROPIUM NEB 3ML NEB"
+    },
+    {
+     "rid": "med:12011651",
+     "time": "2100-01-01 00:54:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 00:54:00): Medication ALBUTEROL/IPRATROPIUM NEB 3ML .ROUTE .STK-MED"
+    },
+    {
+     "rid": "treat:10012594",
+     "time": "2100-01-01 15:28:00",
+     "item": "Treatment documented: medications | bronchodilator | nebulized"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E297175A1::01",
+   "claim_id": "E297175A1",
+   "claim_text": "Monitor patient's respiratory status closely due to ongoing respiratory distress.",
+   "kind": "action",
+   "text": "Monitor respiratory status closely.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:313733229",
+     "time": "2100-01-02 05:00:00",
+     "item": "respiratory rate",
+     "value": "24.0 insp/min"
+    },
+    {
+     "rid": "nurse:305228969",
+     "time": "2100-01-02 09:00:00",
+     "item": "respiratory rate",
+     "value": "13.0 insp/min"
+    },
+    {
+     "rid": "nurse:310677270",
+     "time": "2100-01-02 05:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:306476252",
+     "time": "2100-01-02 09:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "resp:6224157",
+     "time": "2100-01-02 01:30:00",
+     "item": "ventilator settings",
+     "value": "36.0 %"
+    }
+   ],
+   "reason": "Measured in the 15.6 h observation window after the decision (24 h or until ICU discharge): respiratory rate x4, SpO2 x4, ventilator settings x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E297175A2::03",
+   "claim_id": "E297175A2",
+   "claim_text": "Continue administration of bronchodilators as ordered.",
+   "kind": "action",
+   "text": "Continue administration of bronchodilators.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "continue",
+   "target": "bronchodilators",
+   "conditional": false,
+   "treatment_class": "bronchodilator",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No bronchodilators / inhaled therapy action recorded in the 15.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E297175A3::05",
+   "claim_id": "E297175A3",
+   "claim_text": "Assess patient for signs of pain and manage accordingly.",
+   "kind": "action",
+   "text": "Assess patient for signs of pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E297175A3::06",
+   "claim_id": "E297175A3",
+   "claim_text": "Assess patient for signs of pain and manage accordingly.",
+   "kind": "action",
+   "text": "Manage pain accordingly.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 15.6 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 15.6,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Respiratory distress is ongoing. -- The most recent respiratory rate before the decision time is 23 insp/min (R50), which is within normal limits and does not indicate ongoing respiratory distress. Earlier rates fluctuated between 15 and 26, but the latest value does not support the claim of ongoing distress."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,102 @@
+# E1790816   T = 2100-01-02 20:23:00   records before T: 114
+ICU stay 1790816 (Med-Surg ICU; Male, age 77; admission diagnosis: Angina, unstable (angina interferes w/quality of life or meds are tolerated poorly)).
+
+## Atoms
+deepseek-v4.1-flash|E1790816A1::03 [presupposition] Aspirin is currently being given.   <- Continue scheduled antiplatelet therapy with aspirin and clopidogrel.
+deepseek-v4.1-flash|E1790816A1::04 [presupposition] Clopidogrel is currently being given.   <- Continue scheduled antiplatelet therapy with aspirin and clopidogrel.
+deepseek-v4.1-flash|E1790816A2::08 [presupposition] Metoprolol is currently being given.   <- Continue scheduled antihypertensive and antianginal medications (metoprolol, isosorbide mononitrate, amlodipine).
+deepseek-v4.1-flash|E1790816A2::09 [presupposition] Isosorbide mononitrate is currently being given.   <- Continue scheduled antihypertensive and antianginal medications (metoprolol, isosorbide mononitrate, amlodipine).
+deepseek-v4.1-flash|E1790816A2::10 [presupposition] Amlodipine is currently being given.   <- Continue scheduled antihypertensive and antianginal medications (metoprolol, isosorbide mononitrate, amlodipine).
+deepseek-v4.1-flash|E1790816A3::13 [observed] Systolic hypertension is persistent.   <- Monitor blood pressure and heart rate given persistent systolic hypertension.
+gpt-oss-120b|E1790816A1::01 [presupposition] Intravenous heparin infusion is currently being given.   <- Continue intravenous heparin infusion per current dosing and monitor activated partial thromboplastin time (aPTT) q6h.
+gpt-oss-120b|E1790816A3::05 [presupposition] Isosorbide mononitrate is currently being given.   <- Adjust antihypertensive regimen by titrating isosorbide mononitrate and adding a short‑acting IV antihypertensive if systolic BP remains >160 mmHg.
+qwen2.5-7b|E1790816A2::03 [presupposition] Nitroglycerin infusion is currently being given.   <- Continue nitroglycerin infusion.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 22:30:00): Medication 1 ML VIAL: HEPARIN SODIUM (PORCINE) 5000 UNIT/ML IJ SOLN SC Q8H SCH
+  Running at decision time (scheduled order started 2100-01-01 23:00:00): Medication ATORVASTATIN CALCIUM 20 MG PO TABS PO Daily
+  Running at decision time (scheduled order started 2100-01-02 01:00:00): Medication 1000 ML FLEX CONT: SODIUM CHLORIDE 0.9 % IV SOLN IV Continuous
+  Running at decision time (scheduled order started 2100-01-02 12:30:00): Medication PANTOPRAZOLE SODIUM 40 MG PO TBEC PO QAM AC
+  Running at decision time (scheduled order started 2100-01-02 14:00:00): Medication ASPIRIN 81 MG PO CHEW PO 2 times daily
+  Running at decision time (scheduled order started 2100-01-02 15:00:00): Medication CLOPIDOGREL BISULFATE 75 MG PO TABS PO Daily
+  Running at decision time (scheduled order started 2100-01-02 15:00:00): Medication METOPROLOL TARTRATE 50 MG PO TABS PO BID M/E
+  Running at decision time (scheduled order started 2100-01-02 15:00:00): Medication ISOSORBIDE MONONITRATE ER 30 MG PO TB24 PO Daily
+  Running at decision time (scheduled order started 2100-01-02 15:00:00): Medication AMLODIPINE BESYLATE 5 MG PO TABS PO Daily
+
+## PRN orders
+  01-01 21:58 Order: ALPRAZOLAM 0.25 MG PO TABS PO TID PRN (active at decision time)
+  01-01 21:58 Order: ACETAMINOPHEN 325 MG PO TABS PO Q6H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Nitroglycerin at 20 mcg/min (2100-01-01 20:53:00 to 2100-01-02 15:12:00)
+  Infusion/input ivf at 75 ml/hour (2100-01-02 06:36:00 to 2100-01-02 15:12:00)
+
+## Medications given once or ended before T
+  Given once: 1 ML VIAL: DIPHENHYDRAMINE HCL 50 MG/ML IJ SOLN IV Once X1 (2100-01-01 18:15:00)
+  Given once: 2 ML VIAL: FENTANYL CITRATE 0.05 MG/ML IJ SOLN IV Once X1 (2100-01-01 19:15:00)
+  Given once: ASPIRIN 81 MG PO CHEW PO Once X1 (2100-01-01 19:15:00)
+  Given once: 2 ML VIAL: MIDAZOLAM HCL 2 MG/2ML IJ SOLN IV Once X1 (2100-01-01 19:15:00)
+  Given once: 2 ML VIAL: FENTANYL CITRATE 0.05 MG/ML IJ SOLN IV Once X1 (2100-01-01 19:30:00)
+  Given once: ZOLPIDEM TARTRATE 5 MG PO TABS PO Once X1 (2100-01-02 06:15:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-02 11:00 0.2 %
+  -eos: 01-02 11:00 4.4 %
+  -lymphs: 01-02 11:00 8.6 %
+  -monos: 01-02 11:00 5.2 %
+  Alanine Aminotransferase (ALT): 01-02 11:00 17 IU/L
+  Albumin: 01-02 11:00 4 g/dL
+  Alkaline Phosphatase: 01-02 11:00 110 IU/L
+  Anion Gap: 01-02 11:00 10 mmol/L
+  Asparate Aminotransferase (AST): 01-02 11:00 15 IU/L
+  Bilirubin, Total: 01-02 11:00 1 mg/dL
+  Calcium, Total: 01-02 11:00 9 mg/dL
+  Chloride: 01-02 11:00 104 mmol/L
+  Creatinine: 01-02 11:00 0.56 mg/dL
+  Glucose: 01-02 11:00 126 mg/dL
+  Glucose finger stick: 01-01 20:23 110 mg/dL
+  Hematocrit: 01-02 11:00 42.6 %
+  Hemoglobin: 01-02 11:00 14.4 g/dL
+  MCH: 01-02 11:00 30.8 pg
+  MCHC: 01-02 11:00 33.8 %
+  MCV: 01-02 11:00 91.2 fL
+  MPV: 01-02 11:00 7.9 fL
+  Magnesium: 01-02 11:00 2.3 mg/dL
+  Platelet Count: 01-02 11:00 254 k/mm cu
+  Potassium: 01-02 11:00 3.5 mmol/L
+  RBC: 01-02 11:00 4.68 m/mm cu
+  RDW: 01-02 11:00 13.3 %
+  Sodium: 01-02 11:00 137 mmol/L
+  Total CO2: 01-02 11:00 27 mmol/L
+  Urea Nitrogen: 01-02 11:00 7 mg/dL
+  White Blood Cells: 01-02 11:00 9.1 k/mm cu
+  total protein: 01-02 11:00 6.5 g/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-02 18:44   24h 4-4 (n=4)
+  Glasgow coma score GCS Total: 15 @01-02 18:44   24h 15-15 (n=4)
+  Glasgow coma score Motor: 6 @01-02 18:44   24h 6-6 (n=4)
+  Glasgow coma score Verbal: 5 @01-02 18:44   24h 5-5 (n=4)
+  Heart Rate: 70 bpm @01-02 18:44   24h 68-78 (n=4)
+  Inspired O2 Fraction: 21 % @01-02 18:46   24h 21-32 (n=3)
+  Non Invasive Blood Pressure diastolic: 76 mmHg @01-02 18:44   24h 70-76 (n=4)
+  Non Invasive Blood Pressure mean: 104 mmHg @01-02 18:44   24h 104-116 (n=4)
+  Non Invasive Blood Pressure systolic: 167 mmHg @01-02 18:44   24h 156-167 (n=4)
+  O2 Delivery Device(s): None (charted: RA) @01-02 18:44   earlier: None (charted: ra) @01-02 06:36; None (charted: room air) @01-01 20:53
+  O2 Flow: 21 L/min @01-02 06:36   24h 3-21 (n=2)
+  O2 L/%: 21 @01-02 06:36
+  O2 saturation pulseoxymetry: 97 % @01-02 18:44   24h 97-98 (n=4)
+  PEEP set: 0 cmH2O @01-01 20:53
+  Respiratory Rate: 30 insp/min @01-02 18:44   24h 22-30 (n=4)
+  Respiratory Rate (spontaneous): 22 insp/min @01-02 15:14   24h 22-30 (n=3)
+  SaO2: 98 @01-02 15:14   24h 97-98 (n=3)
+  Temperature Fahrenheit: 97.1 F @01-01 21:00   24h 97.1-97.2 (n=2)
+  Temperature Location: tympanic @01-01 20:53
+
+## Treatments documented
+  01-01 21:03 cardiac angiography | with stent placement | drug-eluting
+  01-01 21:03 myocardial ischemia / infarction | antiplatelet agent | aspirin
+  01-01 21:03 ventricular dysfunction | nitroglycerin | intravenous
+  01-01 21:03 antiplatelet agent | aggregation inhibitors | clopidogrel
+
+## Microbiology

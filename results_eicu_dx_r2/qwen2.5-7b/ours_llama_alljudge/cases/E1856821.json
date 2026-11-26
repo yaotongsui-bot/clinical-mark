@@ -1,0 +1,285 @@
+{
+ "case_id": "E1856821",
+ "decision_point": "2100-01-02 18:36:00",
+ "claims": [
+  "Monitor blood glucose levels closely due to elevated levels.",
+  "Continue norepinephrine infusion to maintain hemodynamic stability.",
+  "Assess for signs of sepsis and adjust antibiotic therapy if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1856821A1::01",
+   "claim_id": "E1856821A1",
+   "claim_text": "Monitor blood glucose levels closely due to elevated levels.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1856821A1::02",
+   "claim_id": "E1856821A1",
+   "claim_text": "Monitor blood glucose levels closely due to elevated levels.",
+   "kind": "fact",
+   "text": "Blood glucose levels are elevated.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1856821A2::03",
+   "claim_id": "E1856821A2",
+   "claim_text": "Continue norepinephrine infusion to maintain hemodynamic stability.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1856821A2::04",
+   "claim_id": "E1856821A2",
+   "claim_text": "Continue norepinephrine infusion to maintain hemodynamic stability.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1856821A3::05",
+   "claim_id": "E1856821A3",
+   "claim_text": "Assess for signs of sepsis and adjust antibiotic therapy if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of sepsis",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1856821A3::06",
+   "claim_id": "E1856821A3",
+   "claim_text": "Assess for signs of sepsis and adjust antibiotic therapy if necessary.",
+   "kind": "action",
+   "text": "Adjust antibiotic therapy if necessary.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1856821A1::02",
+   "claim_id": "E1856821A1",
+   "claim_text": "Monitor blood glucose levels closely due to elevated levels.",
+   "kind": "fact",
+   "text": "Blood glucose levels are elevated.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement 'Blood glucose levels are elevated' is not supported by the records. The most recent glucose measurement (R41) shows a level of 229 mg/dL, which is elevated. However, the records also show that the patient has been receiving insulin (R2 and R3), which suggests that the elevated glucose levels may be due to the medication. Therefore, the statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:420977954",
+     "time": "2100-01-02 11:00:00",
+     "item": "Glucose: 229 mg/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1856821A2::04",
+   "claim_id": "E1856821A2",
+   "claim_text": "Continue norepinephrine infusion to maintain hemodynamic stability.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that norepinephrine infusion was started at 19:51 on 2100-01-01 and continued until 23:34 on 2100-01-01, and then restarted at 09:51 on 2100-01-02 and continued until 13:16 on 2100-01-02. This supports the statement that norepinephrine infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Norepinephrine (mcg/min):75",
+     "time": "2100-01-01 19:51:00",
+     "item": "Infusion/input Norepinephrine at 13.01 mcg/min (2100-01-01 19:51:00 to 2100-01-01 23:34:00)"
+    },
+    {
+     "rid": "inf:Norepinephrine (mcg/min):298",
+     "time": "2100-01-01 23:34:00",
+     "item": "Infusion/input Norepinephrine at 21.01 mcg/min (2100-01-01 23:34:00 to 2100-01-02 09:51:00)"
+    },
+    {
+     "rid": "inf:Norepinephrine (mcg/min):915",
+     "time": "2100-01-02 09:51:00",
+     "item": "Infusion/input Norepinephrine at 16 mcg/min (2100-01-02 09:51:00 to 2100-01-02 13:16:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1856821A1::01",
+   "claim_id": "E1856821A1",
+   "claim_text": "Monitor blood glucose levels closely due to elevated levels.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:443681738",
+     "time": "2100-01-02 22:59:00",
+     "item": "glucose",
+     "value": "315.0 mg/dL"
+    },
+    {
+     "rid": "lab:443463255",
+     "time": "2100-01-03 05:27:00",
+     "item": "glucose",
+     "value": "287.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1856821A2::03",
+   "claim_id": "E1856821A2",
+   "claim_text": "Continue norepinephrine infusion to maintain hemodynamic stability.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1856821A3::05",
+   "claim_id": "E1856821A3",
+   "claim_text": "Assess for signs of sepsis and adjust antibiotic therapy if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of sepsis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1856821A3::06",
+   "claim_id": "E1856821A3",
+   "claim_text": "Assess for signs of sepsis and adjust antibiotic therapy if necessary.",
+   "kind": "action",
+   "text": "Adjust antibiotic therapy if necessary.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Blood glucose levels are elevated. -- The statement 'Blood glucose levels are elevated' is not supported by the records. The most recent glucose measurement (R41) shows a level of 229 mg/dL, which is elevated. However, the records also show that the patient has been receiving insulin (R2 and R3), which suggests that the elevated glucose levels may be due to the medication. Therefore, the statement is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

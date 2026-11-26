@@ -1,0 +1,354 @@
+{
+ "case_id": "E1781359",
+ "decision_point": "2100-01-02 19:47:00",
+ "claims": [
+  "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+  "Obtain a repeat complete blood count in 6 hours to reassess anemia.",
+  "Consider red blood cell transfusion if hemoglobin remains <7 g/dL after repeat CBC."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1781359A1::01",
+   "claim_id": "E1781359A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1781359A1::02",
+   "claim_id": "E1781359A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1781359A1::03",
+   "claim_id": "E1781359A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1781359A2::04",
+   "claim_id": "E1781359A2",
+   "claim_text": "Obtain a repeat complete blood count in 6 hours to reassess anemia.",
+   "kind": "action",
+   "text": "Obtain a repeat complete blood count in 6 hours.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "complete blood count",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1781359A2::05",
+   "claim_id": "E1781359A2",
+   "claim_text": "Obtain a repeat complete blood count in 6 hours to reassess anemia.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1781359A3::06",
+   "claim_id": "E1781359A3",
+   "claim_text": "Consider red blood cell transfusion if hemoglobin remains <7 g/dL after repeat CBC.",
+   "kind": "action",
+   "text": "Consider red blood cell transfusion if hemoglobin remains <7 g/dL after repeat CBC.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "administer",
+   "target": "red blood cell transfusion",
+   "conditional": true,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1781359A1::01",
+   "claim_id": "E1781359A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The patient is currently on mechanical ventilation as stated in R8, and the O2 Delivery Device(s) is an endotracheal tube (charted: ventilator/trach) as stated in R13. Additionally, the PEEP set is 5 cmH2O as stated in R39, which is consistent with mechanical ventilation.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:49491070",
+     "time": "2100-01-01 19:41:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    },
+    {
+     "rid": "nurse:1294615466",
+     "time": "2100-01-01 19:49:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator/trach)"
+    },
+    {
+     "rid": "resp:127218388",
+     "time": "2100-01-02 04:54:00",
+     "item": "PEEP set: 5 cmH2O"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1781359A2::05",
+   "claim_id": "E1781359A2",
+   "claim_text": "Obtain a repeat complete blood count in 6 hours to reassess anemia.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The patient's hemoglobin level is 7.6 g/dL, which is below the normal range. However, the statement 'Anemia is present' is not supported by the records because the patient's hemoglobin level is not the only factor that determines anemia. The records also show that the patient has been receiving medication and treatment, which may be contributing to the patient's condition. Therefore, the statement",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:436808646",
+     "time": "2100-01-02 11:59:00",
+     "item": "Hemoglobin: 7.6 g/dL"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1781359A1::02",
+   "claim_id": "E1781359A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (4 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:130558276",
+     "time": "2100-01-03 05:53:00",
+     "item": "ventilator setting",
+     "value": "40.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:130558278",
+     "time": "2100-01-03 05:53:00",
+     "item": "ventilator setting",
+     "value": "5.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:129304501",
+     "time": "2100-01-03 14:48:00",
+     "item": "ventilator setting",
+     "value": "40.0 %",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1781359A1::03",
+   "claim_id": "E1781359A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor respiratory parameters.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1278253541",
+     "time": "2100-01-03 05:52:00",
+     "item": "respiratory rate",
+     "value": "37.0 insp/min"
+    },
+    {
+     "rid": "nurse:1298014785",
+     "time": "2100-01-03 14:47:00",
+     "item": "respiratory rate",
+     "value": "24.0 insp/min"
+    },
+    {
+     "rid": "nurse:1284000047",
+     "time": "2100-01-03 05:52:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    },
+    {
+     "rid": "nurse:1269098425",
+     "time": "2100-01-03 14:47:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    },
+    {
+     "rid": "resp:130558276",
+     "time": "2100-01-03 05:53:00",
+     "item": "ventilator settings",
+     "value": "40.0 %"
+    },
+    {
+     "rid": "resp:130558278",
+     "time": "2100-01-03 05:53:00",
+     "item": "ventilator settings",
+     "value": "5.0 cmH2O"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x2, SpO2 x2, ventilator settings x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1781359A2::04",
+   "claim_id": "E1781359A2",
+   "claim_text": "Obtain a repeat complete blood count in 6 hours to reassess anemia.",
+   "kind": "action",
+   "text": "Obtain a repeat complete blood count in 6 hours.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "complete blood count",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:431218141",
+     "time": "2100-01-03 11:36:00",
+     "item": "WBC",
+     "value": "10.2 k/mm cu"
+    },
+    {
+     "rid": "lab:431218140",
+     "time": "2100-01-03 11:36:00",
+     "item": "hemoglobin",
+     "value": "7.7 g/dL"
+    },
+    {
+     "rid": "lab:431218146",
+     "time": "2100-01-03 11:36:00",
+     "item": "platelets",
+     "value": "265.0 k/mm cu"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): WBC x1, hemoglobin x1, platelets x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1781359A3::06",
+   "claim_id": "E1781359A3",
+   "claim_text": "Consider red blood cell transfusion if hemoglobin remains <7 g/dL after repeat CBC.",
+   "kind": "action",
+   "text": "Consider red blood cell transfusion if hemoglobin remains <7 g/dL after repeat CBC.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "administer",
+   "target": "red blood cell transfusion",
+   "conditional": true,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Anemia is present. -- The patient's hemoglobin level is 7.6 g/dL, which is below the normal range. However, the statement 'Anemia is present' is not supported by the records because the patient's hemoglobin level is not the only factor that determines anemia. The records also show that the patient has been receiving medication and treatment, which may be contributing to the patient's condition. Therefore, the statement"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

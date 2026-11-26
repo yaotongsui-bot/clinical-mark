@@ -1,0 +1,257 @@
+{
+ "case_id": "E1173453",
+ "decision_point": "2100-01-02 13:06:00",
+ "claims": [
+  "Obtain repeat serum lactate and basic metabolic panel to assess for ongoing perfusion deficits and renal function.",
+  "Order an abdominal CT scan with contrast to evaluate for postoperative complications such as anastomotic leak or intra‑abdominal abscess.",
+  "Continue current broad‑spectrum antibiotic regimen and reassess culture results for potential de‑escalation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1173453A1::01",
+   "claim_id": "E1173453A1",
+   "claim_text": "Obtain repeat serum lactate and basic metabolic panel to assess for ongoing perfusion deficits and renal function.",
+   "kind": "action",
+   "text": "Obtain repeat serum lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1173453A1::02",
+   "claim_id": "E1173453A1",
+   "claim_text": "Obtain repeat serum lactate and basic metabolic panel to assess for ongoing perfusion deficits and renal function.",
+   "kind": "action",
+   "text": "Obtain basic metabolic panel.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "basic metabolic panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1173453A2::03",
+   "claim_id": "E1173453A2",
+   "claim_text": "Order an abdominal CT scan with contrast to evaluate for postoperative complications such as anastomotic leak or intra‑abdominal abscess.",
+   "kind": "action",
+   "text": "Order an abdominal CT scan with contrast.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "abdominal CT scan with contrast",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1173453A3::04",
+   "claim_id": "E1173453A3",
+   "claim_text": "Continue current broad‑spectrum antibiotic regimen and reassess culture results for potential de‑escalation.",
+   "kind": "action",
+   "text": "Continue current broad-spectrum antibiotic regimen.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "broad-spectrum antibiotics",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1173453A3::05",
+   "claim_id": "E1173453A3",
+   "claim_text": "Continue current broad‑spectrum antibiotic regimen and reassess culture results for potential de‑escalation.",
+   "kind": "fact",
+   "text": "Broad-spectrum antibiotics are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1173453A3::06",
+   "claim_id": "E1173453A3",
+   "claim_text": "Continue current broad‑spectrum antibiotic regimen and reassess culture results for potential de‑escalation.",
+   "kind": "action",
+   "text": "Reassess culture results for potential de-escalation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "culture results",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1173453A3::05",
+   "claim_id": "E1173453A3",
+   "claim_text": "Continue current broad‑spectrum antibiotic regimen and reassess culture results for potential de‑escalation.",
+   "kind": "fact",
+   "text": "Broad-spectrum antibiotics are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement says that broad-spectrum antibiotics are currently being given, but the records show that vancomycin was ordered (R17), but there is no record of administration in the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:31681954",
+     "time": "2100-01-01 13:12:00",
+     "item": "Treatment documented: medications | antibiotics | vancomycin"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1173453A1::01",
+   "claim_id": "E1173453A1",
+   "claim_text": "Obtain repeat serum lactate and basic metabolic panel to assess for ongoing perfusion deficits and renal function.",
+   "kind": "action",
+   "text": "Obtain repeat serum lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 4.5 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1173453A1::02",
+   "claim_id": "E1173453A1",
+   "claim_text": "Obtain repeat serum lactate and basic metabolic panel to assess for ongoing perfusion deficits and renal function.",
+   "kind": "action",
+   "text": "Obtain basic metabolic panel.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "basic metabolic panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1173453A2::03",
+   "claim_id": "E1173453A2",
+   "claim_text": "Order an abdominal CT scan with contrast to evaluate for postoperative complications such as anastomotic leak or intra‑abdominal abscess.",
+   "kind": "action",
+   "text": "Order an abdominal CT scan with contrast.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "abdominal CT scan with contrast",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 4.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1173453A3::04",
+   "claim_id": "E1173453A3",
+   "claim_text": "Continue current broad‑spectrum antibiotic regimen and reassess culture results for potential de‑escalation.",
+   "kind": "action",
+   "text": "Continue current broad-spectrum antibiotic regimen.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "broad-spectrum antibiotics",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 4.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1173453A3::06",
+   "claim_id": "E1173453A3",
+   "claim_text": "Continue current broad‑spectrum antibiotic regimen and reassess culture results for potential de‑escalation.",
+   "kind": "action",
+   "text": "Reassess culture results for potential de-escalation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "culture results",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 4.5,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Broad-spectrum antibiotics are currently being given. -- The statement says that broad-spectrum antibiotics are currently being given, but the records show that vancomycin was ordered (R17), but there is no record of administration in the 24 hours before the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

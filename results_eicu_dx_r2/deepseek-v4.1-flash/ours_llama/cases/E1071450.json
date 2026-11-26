@@ -1,0 +1,516 @@
+{
+ "case_id": "E1071450",
+ "decision_point": "2100-01-02 02:03:00",
+ "claims": [
+  "Continue monitoring hemodynamic status, including pulmonary artery pressures and cardiac output, given recent elevated PA mean and heart rate.",
+  "Monitor blood glucose and administer corrective insulin as ordered for persistent hyperglycemia.",
+  "Assess and manage pain as needed, given reported pain level of 1 at 01:00."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1071450A1::01",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring hemodynamic status, including pulmonary artery pressures and cardiac output, given recent elevated PA mean and heart rate.",
+   "kind": "action",
+   "text": "Continue monitoring hemodynamic status.",
+   "concept": "cardiac",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "hemodynamic status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1071450A1::02",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring hemodynamic status, including pulmonary artery pressures and cardiac output, given recent elevated PA mean and heart rate.",
+   "kind": "action",
+   "text": "Monitor pulmonary artery pressures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pulmonary artery pressures",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1071450A1::03",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring hemodynamic status, including pulmonary artery pressures and cardiac output, given recent elevated PA mean and heart rate.",
+   "kind": "action",
+   "text": "Monitor cardiac output.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "cardiac output",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1071450A1::04",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring hemodynamic status, including pulmonary artery pressures and cardiac output, given recent elevated PA mean and heart rate.",
+   "kind": "fact",
+   "text": "PA mean is elevated.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1071450A1::05",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring hemodynamic status, including pulmonary artery pressures and cardiac output, given recent elevated PA mean and heart rate.",
+   "kind": "fact",
+   "text": "Heart rate is elevated.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1071450A2::06",
+   "claim_id": "E1071450A2",
+   "claim_text": "Monitor blood glucose and administer corrective insulin as ordered for persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1071450A2::07",
+   "claim_id": "E1071450A2",
+   "claim_text": "Monitor blood glucose and administer corrective insulin as ordered for persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Administer corrective insulin as ordered.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "corrective insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1071450A2::08",
+   "claim_id": "E1071450A2",
+   "claim_text": "Monitor blood glucose and administer corrective insulin as ordered for persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is persistent.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1071450A3::09",
+   "claim_id": "E1071450A3",
+   "claim_text": "Assess and manage pain as needed, given reported pain level of 1 at 01:00.",
+   "kind": "action",
+   "text": "Assess pain as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": true
+  },
+  {
+   "atom_id": "E1071450A3::10",
+   "claim_id": "E1071450A3",
+   "claim_text": "Assess and manage pain as needed, given reported pain level of 1 at 01:00.",
+   "kind": "action",
+   "text": "Manage pain as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E1071450A3::11",
+   "claim_id": "E1071450A3",
+   "claim_text": "Assess and manage pain as needed, given reported pain level of 1 at 01:00.",
+   "kind": "fact",
+   "text": "Pain level is 1 at 01:00.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1071450A1::04",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring hemodynamic status, including pulmonary artery pressures and cardiac output, given recent elevated PA mean and heart rate.",
+   "kind": "fact",
+   "text": "PA mean is elevated.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The most recent measurement of PA mean is 31, which is elevated.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:665348613",
+     "time": "2100-01-01 02:00:00",
+     "item": "PA Mean: 31"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1071450A1::05",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring hemodynamic status, including pulmonary artery pressures and cardiac output, given recent elevated PA mean and heart rate.",
+   "kind": "fact",
+   "text": "Heart rate is elevated.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:667941355",
+     "time": "2100-01-01 23:14:00",
+     "item": "Heart Rate",
+     "value": 110.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "nurse:657856844",
+     "time": "2100-01-02 01:00:00",
+     "item": "Heart Rate",
+     "value": 102.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "nurse:655606281",
+     "time": "2100-01-02 02:00:00",
+     "item": "Heart Rate",
+     "value": 107.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "8 of 18 heart rate values in the 24 h before the decision were high.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1071450A2::08",
+   "claim_id": "E1071450A2",
+   "claim_text": "Monitor blood glucose and administer corrective insulin as ordered for persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is persistent.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:252431163",
+     "time": "2100-01-01 08:01:00",
+     "item": "Glucose",
+     "value": 271.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 271 mg/dL (reference 70 to 100); 1 of 1 values in the 24 h before the decision were high.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1071450A3::11",
+   "claim_id": "E1071450A3",
+   "claim_text": "Assess and manage pain as needed, given reported pain level of 1 at 01:00.",
+   "kind": "fact",
+   "text": "Pain level is 1 at 01:00.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The record R47 shows that the patient's pain level was 1 at 01:00, which supports the AI statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:654426932",
+     "time": "2100-01-02 01:00:00",
+     "item": "Pain Level: 1"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1071450A1::01",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring hemodynamic status, including pulmonary artery pressures and cardiac output, given recent elevated PA mean and heart rate.",
+   "kind": "action",
+   "text": "Continue monitoring hemodynamic status.",
+   "concept": "cardiac",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "hemodynamic status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:652986549",
+     "time": "2100-01-02 03:05:00",
+     "item": "heart rate",
+     "value": "97.0 bpm"
+    },
+    {
+     "rid": "nurse:663875415",
+     "time": "2100-01-02 04:00:00",
+     "item": "heart rate",
+     "value": "94.0 bpm"
+    },
+    {
+     "rid": "nurse:665861517",
+     "time": "2100-01-02 03:05:00",
+     "item": "systolic BP",
+     "value": "136.0 mmHg"
+    },
+    {
+     "rid": "nurse:658295796",
+     "time": "2100-01-02 04:00:00",
+     "item": "systolic BP",
+     "value": "134.0 mmHg"
+    },
+    {
+     "rid": "nurse:665861519",
+     "time": "2100-01-02 03:05:00",
+     "item": "mean arterial pressure",
+     "value": "83.0 mmHg"
+    },
+    {
+     "rid": "nurse:658295798",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "85.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x24, systolic BP x19, mean arterial pressure x19.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071450A1::02",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring hemodynamic status, including pulmonary artery pressures and cardiac output, given recent elevated PA mean and heart rate.",
+   "kind": "action",
+   "text": "Monitor pulmonary artery pressures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pulmonary artery pressures",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071450A1::03",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring hemodynamic status, including pulmonary artery pressures and cardiac output, given recent elevated PA mean and heart rate.",
+   "kind": "action",
+   "text": "Monitor cardiac output.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "cardiac output",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071450A2::06",
+   "claim_id": "E1071450A2",
+   "claim_text": "Monitor blood glucose and administer corrective insulin as ordered for persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:255854677",
+     "time": "2100-01-02 03:52:00",
+     "item": "glucose",
+     "value": "198.0 mg/dL"
+    },
+    {
+     "rid": "nurse:656147351",
+     "time": "2100-01-02 03:52:00",
+     "item": "glucose",
+     "value": "198.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x14.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071450A2::07",
+   "claim_id": "E1071450A2",
+   "claim_text": "Monitor blood glucose and administer corrective insulin as ordered for persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Administer corrective insulin as ordered.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "corrective insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1071450A3::09",
+   "claim_id": "E1071450A3",
+   "claim_text": "Assess and manage pain as needed, given reported pain level of 1 at 01:00.",
+   "kind": "action",
+   "text": "Assess pain as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": true,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:652117267",
+     "time": "2100-01-02 04:01:00",
+     "item": "pain score",
+     "value": "1.0"
+    },
+    {
+     "rid": "nurse:658456674",
+     "time": "2100-01-02 13:00:00",
+     "item": "pain score",
+     "value": "1.0"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071450A3::10",
+   "claim_id": "E1071450A3",
+   "claim_text": "Assess and manage pain as needed, given reported pain level of 1 at 01:00.",
+   "kind": "action",
+   "text": "Manage pain as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 4,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

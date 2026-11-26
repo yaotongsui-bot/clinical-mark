@@ -1,0 +1,420 @@
+{
+ "case_id": "E1824650",
+ "decision_point": "2100-01-02 17:48:00",
+ "claims": [
+  "Continue ventilator weaning and transition to spontaneous breathing trials.",
+  "Monitor capillary glucose every 4 hours and adjust insulin dosing as needed.",
+  "Obtain a chest radiograph to assess lung fields after recent extubation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1824650A1::01",
+   "claim_id": "E1824650A1",
+   "claim_text": "Continue ventilator weaning and transition to spontaneous breathing trials.",
+   "kind": "action",
+   "text": "Continue ventilator weaning.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "ventilator weaning",
+   "conditional": false,
+   "treatment_class": "ventilation",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E1824650A1::02",
+   "claim_id": "E1824650A1",
+   "claim_text": "Continue ventilator weaning and transition to spontaneous breathing trials.",
+   "kind": "action",
+   "text": "Transition to spontaneous breathing trials.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "spontaneous breathing trials",
+   "conditional": false,
+   "treatment_class": "extubation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1824650A1::03",
+   "claim_id": "E1824650A1",
+   "claim_text": "Continue ventilator weaning and transition to spontaneous breathing trials.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1824650A2::04",
+   "claim_id": "E1824650A2",
+   "claim_text": "Monitor capillary glucose every 4 hours and adjust insulin dosing as needed.",
+   "kind": "action",
+   "text": "Monitor capillary glucose every 4 hours.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "capillary glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1824650A2::05",
+   "claim_id": "E1824650A2",
+   "claim_text": "Monitor capillary glucose every 4 hours and adjust insulin dosing as needed.",
+   "kind": "action",
+   "text": "Adjust insulin dosing as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin dosing",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1824650A2::06",
+   "claim_id": "E1824650A2",
+   "claim_text": "Monitor capillary glucose every 4 hours and adjust insulin dosing as needed.",
+   "kind": "fact",
+   "text": "Insulin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1824650A3::07",
+   "claim_id": "E1824650A3",
+   "claim_text": "Obtain a chest radiograph to assess lung fields after recent extubation.",
+   "kind": "action",
+   "text": "Obtain a chest radiograph.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "chest radiograph",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1824650A3::08",
+   "claim_id": "E1824650A3",
+   "claim_text": "Obtain a chest radiograph to assess lung fields after recent extubation.",
+   "kind": "action",
+   "text": "Assess lung fields.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "lung fields",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1824650A3::09",
+   "claim_id": "E1824650A3",
+   "claim_text": "Obtain a chest radiograph to assess lung fields after recent extubation.",
+   "kind": "fact",
+   "text": "The patient was recently extubated.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1824650A1::03",
+   "claim_id": "E1824650A1",
+   "claim_text": "Continue ventilator weaning and transition to spontaneous breathing trials.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The patient is currently on mechanical ventilation. The records show that the patient was on mechanical ventilation (R18, R30), but there is no record of the patient being weaned off the ventilator or switched to spontaneous breathing trials. Additionally, the PEEP setting was changed to 0 cmH2O (R38), which suggests that the patient was no longer on mechanical ventilation. Therefore, the records,",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:49457174",
+     "time": "2100-01-01 18:14:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    },
+    {
+     "rid": "treat:53316503",
+     "time": "2100-01-02 04:49:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | ventilator weaning"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1824650A2::06",
+   "claim_id": "E1824650A2",
+   "claim_text": "Monitor capillary glucose every 4 hours and adjust insulin dosing as needed.",
+   "kind": "fact",
+   "text": "Insulin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The statement 'Insulin is currently being given' is not supported by the records. Although there is an order for insulin (R6), the administration record for insulin (R21) shows that it was given from 19:00 to 14:30 on 2100-01-02, which is not the current time. Therefore, the statement is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:66732859",
+     "time": "2100-01-01 19:00:00",
+     "item": "Medication INSULIN HUMAN REGULAR IV (2100-01-01 19:00:00 to 2100-01-02 14:30:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1824650A3::09",
+   "claim_id": "E1824650A3",
+   "claim_text": "Obtain a chest radiograph to assess lung fields after recent extubation.",
+   "kind": "fact",
+   "text": "The patient was recently extubated.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The patient was extubated, as indicated by the endotracheal tube being charted as a ventilator in R24. However, the statement that the patient was recently extubated is not supported by the records, as there is no record of extubation in the 24 hours before the decision time. The statement is also not supported by the fact that the patient is currently receiving oxygen therapy and ventilator wean,",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1300354900",
+     "time": "2100-01-01 18:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1824650A1::01",
+   "claim_id": "E1824650A1",
+   "claim_text": "Continue ventilator weaning and transition to spontaneous breathing trials.",
+   "kind": "action",
+   "text": "Continue ventilator weaning.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "ventilator weaning",
+   "conditional": false,
+   "treatment_class": "ventilation",
+   "class_level": "group",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (3 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:128537878",
+     "time": "2100-01-03 02:32:00",
+     "item": "ventilator setting",
+     "value": "28.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:130134395",
+     "time": "2100-01-03 05:55:00",
+     "item": "ventilator setting",
+     "value": "28.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:130134398",
+     "time": "2100-01-03 05:55:00",
+     "item": "ventilator setting",
+     "value": "0.0 cmH2O",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1824650A1::02",
+   "claim_id": "E1824650A1",
+   "claim_text": "Continue ventilator weaning and transition to spontaneous breathing trials.",
+   "kind": "action",
+   "text": "Transition to spontaneous breathing trials.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "spontaneous breathing trials",
+   "conditional": false,
+   "treatment_class": "extubation",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "Ventilator settings were charted after the decision but did not change.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1824650A2::04",
+   "claim_id": "E1824650A2",
+   "claim_text": "Monitor capillary glucose every 4 hours and adjust insulin dosing as needed.",
+   "kind": "action",
+   "text": "Monitor capillary glucose every 4 hours.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "capillary glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:445339238",
+     "time": "2100-01-02 22:08:00",
+     "item": "glucose",
+     "value": "100.0 mg/dL"
+    },
+    {
+     "rid": "lab:445688758",
+     "time": "2100-01-03 02:32:00",
+     "item": "glucose",
+     "value": "168.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1824650A2::05",
+   "claim_id": "E1824650A2",
+   "claim_text": "Monitor capillary glucose every 4 hours and adjust insulin dosing as needed.",
+   "kind": "action",
+   "text": "Adjust insulin dosing as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin dosing",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1824650A3::07",
+   "claim_id": "E1824650A3",
+   "claim_text": "Obtain a chest radiograph to assess lung fields after recent extubation.",
+   "kind": "action",
+   "text": "Obtain a chest radiograph.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "chest radiograph",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1824650A3::08",
+   "claim_id": "E1824650A3",
+   "claim_text": "Obtain a chest radiograph to assess lung fields after recent extubation.",
+   "kind": "action",
+   "text": "Assess lung fields.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "lung fields",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The patient is currently on mechanical ventilation. The records show that the patient was on mechanical ventilation (R18, R30), but there is no record of the patient being weaned off the ventilator or switched to spontaneous breathing trials. Additionally, the PEEP setting was changed to 0 cmH2O (R38), which suggests that the patient was no longer on mechanical ventilation. Therefore, the records,",
+    "Insulin is currently being given. -- The statement 'Insulin is currently being given' is not supported by the records. Although there is an order for insulin (R6), the administration record for insulin (R21) shows that it was given from 19:00 to 14:30 on 2100-01-02, which is not the current time. Therefore, the statement is not supported.",
+    "The patient was recently extubated. -- The patient was extubated, as indicated by the endotracheal tube being charted as a ventilator in R24. However, the statement that the patient was recently extubated is not supported by the records, as there is no record of extubation in the 24 hours before the decision time. The statement is also not supported by the fact that the patient is currently receiving oxygen therapy and ventilator wean,"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 3,
+  "treatment_precision": 0.333,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

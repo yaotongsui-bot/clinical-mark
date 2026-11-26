@@ -1,0 +1,101 @@
+# E899746   T = 2100-01-02 01:45:00   records before T: 340
+ICU stay 899746 (Med-Surg ICU; Male, age 69; admission diagnosis: Spinal/multiple trauma).
+
+## Atoms
+deepseek-v4.1-flash|E899746A1::03 [observed] Oxygen flow has escalated to 8-10 L/min.   <- Continue supplemental oxygen and monitor oxygen saturation, as oxygen flow has escalated to 8-10 L/min with saturations 92-94%.
+deepseek-v4.1-flash|E899746A1::04 [observed] Oxygen saturation is 92-94%.   <- Continue supplemental oxygen and monitor oxygen saturation, as oxygen flow has escalated to 8-10 L/min with saturations 92-94%.
+deepseek-v4.1-flash|E899746A2::07 [observed] Mean arterial pressure is 61-63 mmHg.   <- Assess and manage hypotension, with mean arterial pressures 61-63 mmHg and recent fluid boluses documented.
+deepseek-v4.1-flash|E899746A2::08 [observed] Recent fluid boluses were documented.   <- Assess and manage hypotension, with mean arterial pressures 61-63 mmHg and recent fluid boluses documented.
+deepseek-v4.1-flash|E899746A2::R01 [presupposition] Hypotension is present.   <- Assess and manage hypotension, with mean arterial pressures 61-63 mmHg and recent fluid boluses documented.
+deepseek-v4.1-flash|E899746A3::10 [observed] PRN morphine is available.   <- Monitor for opioid-related respiratory depression given PRN morphine and naloxone availability, with respiratory rate 13-19/min.
+deepseek-v4.1-flash|E899746A3::11 [observed] Naloxone is available.   <- Monitor for opioid-related respiratory depression given PRN morphine and naloxone availability, with respiratory rate 13-19/min.
+deepseek-v4.1-flash|E899746A3::12 [observed] Respiratory rate is 13-19/min.   <- Monitor for opioid-related respiratory depression given PRN morphine and naloxone availability, with respiratory rate 13-19/min.
+gpt-oss-120b|E899746A1::02 [observed] Hemoglobin is 8.6 g/dL.   <- Transfuse packed red blood cells to address hemoglobin of 8.6 g/dL.
+gpt-oss-120b|E899746A2::04 [observed] Platelet count is 82 K/MM³.   <- Administer platelet transfusion for platelet count of 82 K/MM³.
+qwen2.5-7b|E899746A2::04 [presupposition] Intravenous fluid administration with normal saline is currently being given.   <- Continue intravenous fluid administration with normal saline.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2099-12-31 22:46:00): Medication SODIUM CHLORIDE 0.9% 1000 ML LVP IV
+  Running at decision time (scheduled order started 2100-01-01 03:00:00): Medication FAMOTIDINE 20 MG/2 ML SDV INJ IV Push Q12H
+
+## PRN orders
+  12-31 22:46 Order: ONDANSETRON 2 MG/1 ML 2ML SDV INJ IV Push Q6H PRN (active at decision time)
+  12-31 22:47 Order: DUONEB 3 MG-0.5 MG/3 ML UD INH SOLN SVN RSPQ4H PRN (active at decision time)
+  12-31 22:59 Order: acetaMINOPHEN 325 MG TAB PO Q4H PRN (active at decision time)
+  12-31 22:59 Order: MORPHINE 2 MG/1 ML 1 ML SYR IV Push Q2H PRN (active at decision time)
+  01-01 08:40 Order: PERCOCET 5/325 TAB PO Q4H PRN (active at decision time)
+  01-01 14:53 Order: SENOKOT-S TAB PO BID PRN (active at decision time)
+  01-01 14:53 Order: NALOXONE 0.4 MG/1 ML SDV INJ IV ONCALL X10 PRN (active at decision time)
+  01-01 15:31 Order: POLYETHYLENE GLYCOL 3350 UDPWD PO DAILY PRN (active at decision time)
+  01-01 15:32 Order: DOCUSATE SODIUM 100 MG CAP PO BID PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication SODIUM CHLORIDE 0.9% 250 ML LVP IV (2099-12-31 22:23:00 to 2100-01-01 14:54:00)
+  Medication LORazepam 2 MG/1 ML 1 ML SYR IV QHS (2100-01-01 03:00:00 to 2100-01-01 15:31:00)
+  Medication MAGNESIUM SULFATE 2 GM/50 ML IVPB IVPB 1XONLY (2100-01-01 04:58:00 to 2100-01-01 05:09:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 10:25 0 %; 12-31 19:25 0 %
+  -eos: 01-01 10:25 0 %; 12-31 19:25 1 %
+  -lymphs: 01-01 10:25 16 %; 12-31 19:25 20 %
+  -monos: 01-01 10:25 10 %; 12-31 19:25 8 %
+  -polys: 01-01 10:25 73 %; 12-31 19:25 70 %
+  Alanine Aminotransferase (ALT): 01-01 10:25 30 U/L; 12-31 19:25 25 U/L
+  Albumin: 01-01 10:25 3.2 g/dL; 12-31 19:25 3.3 g/dL
+  Alkaline Phosphatase: 01-01 10:25 83 U/L; 12-31 19:25 90 U/L
+  Anion Gap: 01-01 10:25 4; 12-31 19:25 7
+  Asparate Aminotransferase (AST): 01-01 10:25 59 U/L; 12-31 19:25 31 U/L
+  Bicarbonate: 01-01 10:25 24 mmol/L; 12-31 19:25 21 mmol/L
+  Bilirubin, Total: 01-01 10:25 0.8 mg/dL; 12-31 19:25 0.6 mg/dL
+  Calcium, Total: 01-01 10:25 7.9 mg/dL; 12-31 19:25 8.2 mg/dL
+  Chloride: 01-01 10:25 110 mmol/L; 12-31 19:25 110 mmol/L
+  Creatinine: 01-01 10:25 0.9 mg/dL; 12-31 19:25 0.9 mg/dL
+  FiO2: 01-01 02:23 38 %
+  Glucose: 01-01 10:25 138 mg/dL; 12-31 19:25 134 mg/dL
+  Glucose finger stick: 01-01 00:16 128 mg/dL
+  Hematocrit: 01-01 10:25 26 %; 12-31 19:25 37.4 %
+  Hemoglobin: 01-01 10:25 8.6 g/dL; 12-31 19:25 12.6 g/dL
+  INR(PT): 01-01 10:25 2.3; 01-01 00:30 2.1; 12-31 19:25 3
+  MCH: 01-01 10:25 32.8 pg; 12-31 19:25 33.3 pg
+  MCHC: 01-01 10:25 33 g/dL; 12-31 19:25 34 g/dL
+  MCV: 01-01 10:25 99 fL; 12-31 19:25 99 fL
+  MPV: 01-01 10:25 9.7 fL; 12-31 19:25 9.7 fL
+  Magnesium: 01-01 10:25 2.1 mg/dL; 01-01 00:15 1.7 mg/dL
+  PT: 01-01 10:25 24.6 second(s); 01-01 00:30 22.9 second(s); 12-31 19:25 30.8 second(s)
+  Phosphate: 01-01 00:15 2.9 mg/dL
+  Platelet Count: 01-01 10:25 82 K/MM3; 12-31 19:25 106 K/MM3
+  Potassium: 01-01 10:25 4.2 mmol/L; 01-01 00:15 4.2 mmol/L; 12-31 19:25 3.9 mmol/L
+  RBC: 01-01 10:25 2.62 M/MM3; 12-31 19:25 3.78 M/MM3
+  Sodium: 01-01 10:25 138 mmol/L; 12-31 19:25 138 mmol/L
+  Urea Nitrogen: 01-01 10:25 13 mg/dL; 12-31 19:25 13 mg/dL
+  White Blood Cells: 01-01 10:25 5.2 K/MM3; 12-31 19:25 9.4 K/MM3
+  ethanol: 12-31 19:25 <10
+  lipase: 12-31 19:25 104 U/L
+  total protein: 01-01 10:25 6 g/dL; 12-31 19:25 6.5 g/dL
+  troponin - I: 12-31 19:25 <0.015
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-02 00:00   24h 4-4 (n=4)
+  Glasgow coma score GCS Total: 15 @01-02 00:00   24h 15-15 (n=4)
+  Glasgow coma score Motor: 6 @01-02 00:00   24h 6-6 (n=4)
+  Glasgow coma score Verbal: 5 @01-02 00:00   24h 5-5 (n=4)
+  Glucose finger stick: 128 mg/dL @01-01 00:16
+  Heart Rate: 81 bpm @01-02 00:00   24h 71-88 (n=23)
+  Non Invasive Blood Pressure diastolic: 50 mmHg @01-02 00:00   24h 48-131 (n=22)
+  Non Invasive Blood Pressure mean: 62 mmHg @01-02 00:00   24h 61-138 (n=22)
+  Non Invasive Blood Pressure systolic: 104 mmHg @01-02 00:00   24h 103-161 (n=22)
+  O2 Flow: 8 L/min @01-02 00:00   24h 2-10 (n=13)
+  O2 saturation pulseoxymetry: 93 % @01-02 00:00   24h 92-98 (n=10)
+  Respiratory Rate: 13 insp/min @01-02 00:00   24h 11-23 (n=23)
+  Respiratory Rate (spontaneous): 13 insp/min @01-02 00:00   24h 11-23 (n=23)
+  Temperature Fahrenheit: 97.5 F @01-01 22:40   24h 95.4-99.3 (n=6)
+  Temperature Location: Tympanic @01-01 22:40
+
+## Treatments documented
+  01-01 02:23 intravenous fluid | normal saline administration | fluid bolus (250-1000mls)
+  01-01 20:46 intravenous fluid | normal saline administration | fluid bolus (250-1000mls)
+  01-01 23:46 intravenous fluid | normal saline administration | fluid bolus (250-1000mls)
+
+## Microbiology

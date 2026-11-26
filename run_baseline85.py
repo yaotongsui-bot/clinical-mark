@@ -29,7 +29,7 @@ import time
 from pathlib import Path
 
 from cm import baseline, records
-from cm.llm import LLM
+from cm.llm import LLM, REPEAT
 from cm.panel import Panel, Request
 from cm.retrieve import Embedder
 from run_bhc import VERIFACT_ATTEMPTS, VERIFACT_SAMPLING, VERIFACT_SCHEMA, parse_verifact
@@ -40,6 +40,15 @@ FAR_FUTURE = "2300-01-01 00:00:00"
 
 
 def fact_atoms(path: Path) -> list[dict]:
+    """Fact atoms from a split CSV (reference/split_standard.csv) or from a run.py output folder
+    (cases/*.json, the atoms after the safety nets), so the baseline judges the same atoms."""
+    if path.is_dir():
+        out = []
+        for case in sorted((path / "cases").glob("*.json")):
+            for f in json.loads(case.read_text(encoding="utf-8"))["facts"]:
+                out.append({"atom_id": f["atom_id"], "case_id": case.stem, "fact_kind": f.get("fact_kind", ""),
+                            "text": f["text"], "kind": "fact"})
+        return out
     with path.open(encoding="utf-8", newline="") as handle:
         return [r for r in csv.DictReader(handle) if r["kind"] == "fact"]
 
@@ -48,7 +57,8 @@ def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--triples", type=Path, default=ROOT / "input" / "mimic_triples_deepseek.json")
     p.add_argument("--atoms", type=Path, default=ROOT / "reference" / "split_standard.csv")
-    p.add_argument("--mimic-root", type=Path, default=ROOT / "data" / "mimic-iv-demo")
+    p.add_argument("--source", choices=["mimic", "eicu"], default="mimic")
+    p.add_argument("--mimic-root", type=Path, default=None, help="data root (default by --source)")
     p.add_argument("--out-dir", type=Path, default=ROOT / "results_baseline85" / "run")
     p.add_argument("--time-cut", choices=["before", "none"], default="none")
     p.add_argument("--retrieval-method", choices=["dense", "hybrid", "rerank"], default="hybrid")
@@ -73,10 +83,20 @@ def main() -> None:
     if missing:
         raise SystemExit(f"cases not in {args.triples.name}: {missing[:5]}")
     chosen = [triples[c] for c in cases]
-    if args.time_cut == "none":
-        chosen = [{**t, "decision_point": FAR_FUTURE} for t in chosen]
     print(f"{len(atoms)} fact atoms in {len(cases)} cases; loading records (time cut: {args.time_cut}) ...", flush=True)
-    rows_by_case = records.load_admission_rows(args.mimic_root.resolve(), chosen)
+    if args.source == "eicu":
+        from cm import records_eicu
+        root = (args.mimic_root or ROOT / "data" / "eicu-demo").resolve()
+        if args.time_cut == "none":  # the whole stay, including records after T
+            clocks, stays = records_eicu._clocks_for(root, chosen)
+            rows = records_eicu.stay_rows(root, set(stays), None, float("inf"), clocks)
+            rows_by_case = {case: rows.get(stay, []) for stay, ids in stays.items() for case in ids}
+        else:
+            rows_by_case = records_eicu.load_admission_rows(root, chosen)
+    else:
+        if args.time_cut == "none":
+            chosen = [{**t, "decision_point": FAR_FUTURE} for t in chosen]
+        rows_by_case = records.load_admission_rows((args.mimic_root or ROOT / "data" / "mimic-iv-demo").resolve(), chosen)
 
     embedder = Embedder(args.embeddings_dir.resolve())
     reranker = baseline.Reranker() if args.retrieval_method == "rerank" else None
@@ -113,7 +133,7 @@ def main() -> None:
         writer.writeheader()
         writer.writerows(meta_rows)
     meta = {k: (str(v) if isinstance(v, Path) else v) for k, v in vars(args).items()}
-    meta.update(n=len(meta_rows), llm_calls=llm.calls, cache_hits=llm.cache_hits, seconds=round(time.time() - started),
+    meta.update(repeat=REPEAT, n=len(meta_rows), llm_calls=llm.calls, cache_hits=llm.cache_hits, seconds=round(time.time() - started),
                 method="VeriFact baseline: one judge, VeriFact prompt, no code checks")
     (out / "run.json").write_text(json.dumps(meta, indent=1) + "\n", encoding="utf-8")
     print(f"wrote {out / 'verdicts.csv'} ({len(meta_rows)} atoms, {llm.calls} model calls)", flush=True)

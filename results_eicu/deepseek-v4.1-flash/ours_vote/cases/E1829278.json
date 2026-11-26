@@ -1,0 +1,482 @@
+{
+ "case_id": "E1829278",
+ "decision_point": "2100-01-02 08:43:00",
+ "claims": [
+  "Continue nicardipine infusion for blood pressure control, as it was running at 7.5 mg/hour at the decision point.",
+  "Monitor blood pressure closely given recent systolic readings of 149 mmHg and diastolic 103 mmHg.",
+  "Monitor neurological status with Glasgow Coma Scale, which was 9 at 03:00 and improved from 11 earlier."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1829278A1::01",
+   "claim_id": "E1829278A1",
+   "claim_text": "Continue nicardipine infusion for blood pressure control, as it was running at 7.5 mg/hour at the decision point.",
+   "kind": "action",
+   "text": "Continue nicardipine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nicardipine",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1829278A1::02",
+   "claim_id": "E1829278A1",
+   "claim_text": "Continue nicardipine infusion for blood pressure control, as it was running at 7.5 mg/hour at the decision point.",
+   "kind": "fact",
+   "text": "Nicardipine infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1829278A1::03",
+   "claim_id": "E1829278A1",
+   "claim_text": "Continue nicardipine infusion for blood pressure control, as it was running at 7.5 mg/hour at the decision point.",
+   "kind": "fact",
+   "text": "Nicardipine infusion was running at 7.5 mg/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1829278A2::04",
+   "claim_id": "E1829278A2",
+   "claim_text": "Monitor blood pressure closely given recent systolic readings of 149 mmHg and diastolic 103 mmHg.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1829278A2::05",
+   "claim_id": "E1829278A2",
+   "claim_text": "Monitor blood pressure closely given recent systolic readings of 149 mmHg and diastolic 103 mmHg.",
+   "kind": "fact",
+   "text": "Recent systolic blood pressure is 149 mmHg.",
+   "concept": "sbp",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1829278A2::06",
+   "claim_id": "E1829278A2",
+   "claim_text": "Monitor blood pressure closely given recent systolic readings of 149 mmHg and diastolic 103 mmHg.",
+   "kind": "fact",
+   "text": "Recent diastolic blood pressure is 103 mmHg.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1829278A3::07",
+   "claim_id": "E1829278A3",
+   "claim_text": "Monitor neurological status with Glasgow Coma Scale, which was 9 at 03:00 and improved from 11 earlier.",
+   "kind": "action",
+   "text": "Monitor neurological status with Glasgow Coma Scale.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "Glasgow Coma Scale",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1829278A3::08",
+   "claim_id": "E1829278A3",
+   "claim_text": "Monitor neurological status with Glasgow Coma Scale, which was 9 at 03:00 and improved from 11 earlier.",
+   "kind": "fact",
+   "text": "Glasgow Coma Scale was 9 at 03:00.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1829278A3::09",
+   "claim_id": "E1829278A3",
+   "claim_text": "Monitor neurological status with Glasgow Coma Scale, which was 9 at 03:00 and improved from 11 earlier.",
+   "kind": "fact",
+   "text": "Glasgow Coma Scale improved from 11 earlier.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1829278A1::02",
+   "claim_id": "E1829278A1",
+   "claim_text": "Continue nicardipine infusion for blood pressure control, as it was running at 7.5 mg/hour at the decision point.",
+   "kind": "fact",
+   "text": "Nicardipine infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show a Nicardipine infusion at 7.5 mg/hour that ended at 08:24 on 2100-01-02, but no administration is documented in the 24 hours before the decision time of 2100-01-02 21:00. Therefore, the statement that the patient is currently receiving Nicardipine is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Nicardipine (mg/hr):1097",
+     "time": "2100-01-02 03:00:00",
+     "item": "Infusion/input Nicardipine at 7.5 mg/hour (2100-01-02 03:00:00 to 2100-01-02 08:24:00)"
+    },
+    {
+     "rid": "treat:45443071",
+     "time": "2100-01-02 03:07:00",
+     "item": "Treatment documented: ICH/ cerebral infarct | antihypertensives | nicardipine"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1829278A1::03",
+   "claim_id": "E1829278A1",
+   "claim_text": "Continue nicardipine infusion for blood pressure control, as it was running at 7.5 mg/hour at the decision point.",
+   "kind": "fact",
+   "text": "Nicardipine infusion was running at 7.5 mg/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show a Nicardipine infusion at 7.5 mg/hour from 03:00 to 08:24 on 2100-01-02, but no administration record within 24 hours before the decision time (2100-01-02 21:00) indicates it was running at the decision time. The infusion ended at 08:24, so the statement that it is currently running is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Nicardipine (mg/hr):1097",
+     "time": "2100-01-02 03:00:00",
+     "item": "Infusion/input Nicardipine at 7.5 mg/hour (2100-01-02 03:00:00 to 2100-01-02 08:24:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1829278A2::05",
+   "claim_id": "E1829278A2",
+   "claim_text": "Monitor blood pressure closely given recent systolic readings of 149 mmHg and diastolic 103 mmHg.",
+   "kind": "fact",
+   "text": "Recent systolic blood pressure is 149 mmHg.",
+   "concept": "sbp",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1310994953",
+     "time": "2100-01-02 08:24:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 149.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "The stated systolic BP (149) matches recorded values before the decision (149 at 2100-01-02 08:24:00).",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1829278A2::06",
+   "claim_id": "E1829278A2",
+   "claim_text": "Monitor blood pressure closely given recent systolic readings of 149 mmHg and diastolic 103 mmHg.",
+   "kind": "fact",
+   "text": "Recent diastolic blood pressure is 103 mmHg.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1310994953",
+     "time": "2100-01-02 08:24:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 149.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "'blood pressure high' holds when any component is high. systolic BP: yes; mean arterial pressure: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1829278A3::08",
+   "claim_id": "E1829278A3",
+   "claim_text": "Monitor neurological status with Glasgow Coma Scale, which was 9 at 03:00 and improved from 11 earlier.",
+   "kind": "fact",
+   "text": "Glasgow Coma Scale was 9 at 03:00.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "At 2100-01-02 03:00 the charted Glasgow Coma Score components are Eyes 4, Motor 4, Verbal 1, with GCS Total 9.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1295254222",
+     "time": "2100-01-02 03:00:00",
+     "item": "Glasgow coma score Eyes: 4"
+    },
+    {
+     "rid": "nurse:1295254223",
+     "time": "2100-01-02 03:00:00",
+     "item": "Glasgow coma score Motor: 4"
+    },
+    {
+     "rid": "nurse:1295254221",
+     "time": "2100-01-02 03:00:00",
+     "item": "Glasgow coma score Verbal: 1"
+    },
+    {
+     "rid": "nurse:1295254220",
+     "time": "2100-01-02 03:00:00",
+     "item": "Glasgow coma score GCS Total: 9"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1829278A3::09",
+   "claim_id": "E1829278A3",
+   "claim_text": "Monitor neurological status with Glasgow Coma Scale, which was 9 at 03:00 and improved from 11 earlier.",
+   "kind": "fact",
+   "text": "Glasgow Coma Scale improved from 11 earlier.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement claims the Glasgow Coma Scale was 9 at 03:00 and improved from 11 earlier. The records show GCS Total of 9 at 03:00 (R42), but the earlier value at 15:27 was 11 (R32), so the statement that it improved from 11 is contradicted; it actually decreased from 11 to 9.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1295254222",
+     "time": "2100-01-02 03:00:00",
+     "item": "Glasgow coma score Eyes: 4"
+    },
+    {
+     "rid": "nurse:1295254220",
+     "time": "2100-01-02 03:00:00",
+     "item": "Glasgow coma score GCS Total: 9"
+    },
+    {
+     "rid": "nurse:1295254221",
+     "time": "2100-01-02 03:00:00",
+     "item": "Glasgow coma score Verbal: 1"
+    },
+    {
+     "rid": "nurse:1295254223",
+     "time": "2100-01-02 03:00:00",
+     "item": "Glasgow coma score Motor: 4"
+    },
+    {
+     "rid": "nurse:1301265405",
+     "time": "2100-01-01 15:27:00",
+     "item": "Glasgow coma score GCS Total: 11"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1829278A1::01",
+   "claim_id": "E1829278A1",
+   "claim_text": "Continue nicardipine infusion for blood pressure control, as it was running at 7.5 mg/hour at the decision point.",
+   "kind": "action",
+   "text": "Continue nicardipine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nicardipine",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1829278A2::04",
+   "claim_id": "E1829278A2",
+   "claim_text": "Monitor blood pressure closely given recent systolic readings of 149 mmHg and diastolic 103 mmHg.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1307170980",
+     "time": "2100-01-02 10:38:00",
+     "item": "systolic BP",
+     "value": "160.0 mmHg"
+    },
+    {
+     "rid": "nurse:1309337088",
+     "time": "2100-01-02 20:02:00",
+     "item": "systolic BP",
+     "value": "156.0 mmHg"
+    },
+    {
+     "rid": "nurse:1307170982",
+     "time": "2100-01-02 10:38:00",
+     "item": "mean arterial pressure",
+     "value": "146.0 mmHg"
+    },
+    {
+     "rid": "nurse:1309337090",
+     "time": "2100-01-02 20:02:00",
+     "item": "mean arterial pressure",
+     "value": "115.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x3, mean arterial pressure x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1829278A3::07",
+   "claim_id": "E1829278A3",
+   "claim_text": "Monitor neurological status with Glasgow Coma Scale, which was 9 at 03:00 and improved from 11 earlier.",
+   "kind": "action",
+   "text": "Monitor neurological status with Glasgow Coma Scale.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "Glasgow Coma Scale",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No GCS / mental status measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 6,
+  "supported": 3,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Nicardipine infusion is currently running. -- The records show a Nicardipine infusion at 7.5 mg/hour that ended at 08:24 on 2100-01-02, but no administration is documented in the 24 hours before the decision time of 2100-01-02 21:00. Therefore, the statement that the patient is currently receiving Nicardipine is not supported.",
+    "Nicardipine infusion was running at 7.5 mg/hour. -- The records show a Nicardipine infusion at 7.5 mg/hour from 03:00 to 08:24 on 2100-01-02, but no administration record within 24 hours before the decision time (2100-01-02 21:00) indicates it was running at the decision time. The infusion ended at 08:24, so the statement that it is currently running is not supported.",
+    "Glasgow Coma Scale improved from 11 earlier. -- The statement claims the Glasgow Coma Scale was 9 at 03:00 and improved from 11 earlier. The records show GCS Total of 9 at 03:00 (R42), but the earlier value at 15:27 was 11 (R32), so the statement that it improved from 11 is contradicted; it actually decreased from 11 to 9."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

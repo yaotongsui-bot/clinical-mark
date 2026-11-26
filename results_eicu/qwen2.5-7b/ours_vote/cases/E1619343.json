@@ -1,0 +1,270 @@
+{
+ "case_id": "E1619343",
+ "decision_point": "2100-01-02 03:30:00",
+ "claims": [
+  "Monitor blood glucose levels closely.",
+  "Administer intravenous vancomycin for suspected infection.",
+  "Continue intravenous fluid administration with normal saline."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1619343A1::01",
+   "claim_id": "E1619343A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1619343A2::02",
+   "claim_id": "E1619343A2",
+   "claim_text": "Administer intravenous vancomycin for suspected infection.",
+   "kind": "action",
+   "text": "Administer intravenous vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1619343A2::03",
+   "claim_id": "E1619343A2",
+   "claim_text": "Administer intravenous vancomycin for suspected infection.",
+   "kind": "fact",
+   "text": "Infection is suspected.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1619343A3::04",
+   "claim_id": "E1619343A3",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration with normal saline.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "normal saline",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1619343A3::05",
+   "claim_id": "E1619343A3",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "fact",
+   "text": "Intravenous normal saline is currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1619343A2::03",
+   "claim_id": "E1619343A2",
+   "claim_text": "Administer intravenous vancomycin for suspected infection.",
+   "kind": "fact",
+   "text": "Infection is suspected.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The patient had a recent axillary temperature of 100.9°F and was receiving IV vancomycin, supporting clinical suspicion of infection.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:62097752",
+     "time": "2100-01-01 15:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 15:30:00): Medication VANCOMYCIN HCL IV"
+    },
+    {
+     "rid": "nurse:1176327682",
+     "time": "2100-01-02 02:34:00",
+     "item": "Temperature Fahrenheit: 100.9 F"
+    },
+    {
+     "rid": "nurse:1245832545",
+     "time": "2100-01-02 02:46:00",
+     "item": "Temperature Fahrenheit: 100.9 F"
+    },
+    {
+     "rid": "lab:408469118",
+     "time": "2100-01-01 05:20:00",
+     "item": "WBC's in urine: 14 /HPF"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1619343A3::05",
+   "claim_id": "E1619343A3",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "fact",
+   "text": "Intravenous normal saline is currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The most recent documented normal saline administration ran from 03:00 to 05:00 on January 1 and was not running at the January 2 03:30 decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:58066088",
+     "time": "2100-01-01 03:00:00",
+     "item": "Medication NORMAL SALINE 0.9% IV Q1H (2100-01-01 03:00:00 to 2100-01-01 05:00:00)"
+    },
+    {
+     "rid": "med:60097161",
+     "time": "2100-01-01 01:45:00",
+     "item": "Medication NORMAL SALINE 0.9% IV (2100-01-01 01:45:00 to 2100-01-01 08:02:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1619343A1::01",
+   "claim_id": "E1619343A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:409915083",
+     "time": "2100-01-02 08:18:00",
+     "item": "glucose",
+     "value": "210.0 mg/dL"
+    },
+    {
+     "rid": "lab:394938426",
+     "time": "2100-01-02 08:37:00",
+     "item": "glucose",
+     "value": "202.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 10.4 h observation window after the decision (24 h or until ICU discharge): glucose x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1619343A2::02",
+   "claim_id": "E1619343A2",
+   "claim_text": "Administer intravenous vancomycin for suspected infection.",
+   "kind": "action",
+   "text": "Administer intravenous vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 10.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1619343A3::04",
+   "claim_id": "E1619343A3",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration with normal saline.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "normal saline",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 10.4 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 10.4,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous normal saline is currently being administered. -- The most recent documented normal saline administration ran from 03:00 to 05:00 on January 1 and was not running at the January 2 03:30 decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

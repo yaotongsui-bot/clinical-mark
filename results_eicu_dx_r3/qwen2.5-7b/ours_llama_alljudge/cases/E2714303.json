@@ -1,0 +1,219 @@
+{
+ "case_id": "E2714303",
+ "decision_point": "2100-01-02 06:02:00",
+ "claims": [
+  "Continue monitoring electrolyte levels, particularly potassium.",
+  "Adjust respiratory settings to ensure adequate ventilation.",
+  "Evaluate the patient's Glasgow Coma Scale for any changes."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2714303A1::01",
+   "claim_id": "E2714303A1",
+   "claim_text": "Continue monitoring electrolyte levels, particularly potassium.",
+   "kind": "action",
+   "text": "Continue monitoring electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2714303A1::02",
+   "claim_id": "E2714303A1",
+   "claim_text": "Continue monitoring electrolyte levels, particularly potassium.",
+   "kind": "action",
+   "text": "Continue monitoring potassium.",
+   "concept": "potassium",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2714303A2::03",
+   "claim_id": "E2714303A2",
+   "claim_text": "Adjust respiratory settings to ensure adequate ventilation.",
+   "kind": "action",
+   "text": "Adjust respiratory settings to ensure adequate ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "respiratory settings",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E2714303A3::04",
+   "claim_id": "E2714303A3",
+   "claim_text": "Evaluate the patient's Glasgow Coma Scale for any changes.",
+   "kind": "action",
+   "text": "Evaluate the patient's Glasgow Coma Scale for any changes.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "Glasgow Coma Scale",
+   "conditional": false
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "E2714303A1::01",
+   "claim_id": "E2714303A1",
+   "claim_text": "Continue monitoring electrolyte levels, particularly potassium.",
+   "kind": "action",
+   "text": "Continue monitoring electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:634639380",
+     "time": "2100-01-02 12:15:00",
+     "item": "sodium",
+     "value": "138.0 mmol/L"
+    },
+    {
+     "rid": "lab:634639377",
+     "time": "2100-01-02 12:15:00",
+     "item": "potassium",
+     "value": "3.6 mmol/L"
+    },
+    {
+     "rid": "lab:634639384",
+     "time": "2100-01-02 12:15:00",
+     "item": "chloride",
+     "value": "103.0 mmol/L"
+    },
+    {
+     "rid": "lab:634639381",
+     "time": "2100-01-02 12:15:00",
+     "item": "bicarbonate",
+     "value": "25.0 mmol/L"
+    },
+    {
+     "rid": "lab:642771085",
+     "time": "2100-01-02 12:15:00",
+     "item": "magnesium",
+     "value": "2.1 mg/dL"
+    },
+    {
+     "rid": "lab:634639382",
+     "time": "2100-01-02 12:15:00",
+     "item": "calcium",
+     "value": "8.4 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x1, potassium x1, chloride x1, bicarbonate x1, magnesium x1, calcium x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2714303A1::02",
+   "claim_id": "E2714303A1",
+   "claim_text": "Continue monitoring electrolyte levels, particularly potassium.",
+   "kind": "action",
+   "text": "Continue monitoring potassium.",
+   "concept": "potassium",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:634639377",
+     "time": "2100-01-02 12:15:00",
+     "item": "potassium",
+     "value": "3.6 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2714303A2::03",
+   "claim_id": "E2714303A2",
+   "claim_text": "Adjust respiratory settings to ensure adequate ventilation.",
+   "kind": "action",
+   "text": "Adjust respiratory settings to ensure adequate ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "respiratory settings",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2714303A3::04",
+   "claim_id": "E2714303A3",
+   "claim_text": "Evaluate the patient's Glasgow Coma Scale for any changes.",
+   "kind": "action",
+   "text": "Evaluate the patient's Glasgow Coma Scale for any changes.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "Glasgow Coma Scale",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

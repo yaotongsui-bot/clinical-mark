@@ -1,0 +1,365 @@
+{
+ "case_id": "E3237226",
+ "decision_point": "2100-01-02 02:57:00",
+ "claims": [
+  "Continue supplemental oxygen therapy via nasal cannula at 3 L/min to maintain oxygen saturation.",
+  "Monitor respiratory rate and oxygen saturation closely given persistent tachypnea.",
+  "Administer magnesium sulfate IV as ordered for hypomagnesemia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3237226A1::01",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue supplemental oxygen therapy via nasal cannula at 3 L/min to maintain oxygen saturation.",
+   "kind": "action",
+   "text": "Continue supplemental oxygen therapy via nasal cannula at 3 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen therapy",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3237226A1::02",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue supplemental oxygen therapy via nasal cannula at 3 L/min to maintain oxygen saturation.",
+   "kind": "fact",
+   "text": "Supplemental oxygen therapy via nasal cannula is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3237226A1::03",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue supplemental oxygen therapy via nasal cannula at 3 L/min to maintain oxygen saturation.",
+   "kind": "goal",
+   "text": "Maintain oxygen saturation.",
+   "concept": "spo2",
+   "notes": []
+  },
+  {
+   "atom_id": "E3237226A2::04",
+   "claim_id": "E3237226A2",
+   "claim_text": "Monitor respiratory rate and oxygen saturation closely given persistent tachypnea.",
+   "kind": "action",
+   "text": "Monitor respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3237226A2::05",
+   "claim_id": "E3237226A2",
+   "claim_text": "Monitor respiratory rate and oxygen saturation closely given persistent tachypnea.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3237226A2::06",
+   "claim_id": "E3237226A2",
+   "claim_text": "Monitor respiratory rate and oxygen saturation closely given persistent tachypnea.",
+   "kind": "fact",
+   "text": "Tachypnea is present.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3237226A3::07",
+   "claim_id": "E3237226A3",
+   "claim_text": "Administer magnesium sulfate IV as ordered for hypomagnesemia.",
+   "kind": "action",
+   "text": "Administer magnesium sulfate IV.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "magnesium sulfate",
+   "conditional": false,
+   "treatment_class": "magnesium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3237226A3::08",
+   "claim_id": "E3237226A3",
+   "claim_text": "Administer magnesium sulfate IV as ordered for hypomagnesemia.",
+   "kind": "fact",
+   "text": "Hypomagnesemia is present.",
+   "concept": "magnesium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3237226A1::02",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue supplemental oxygen therapy via nasal cannula at 3 L/min to maintain oxygen saturation.",
+   "kind": "fact",
+   "text": "Supplemental oxygen therapy via nasal cannula is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show that supplemental oxygen therapy via nasal cannula was ordered and administered at various times, with the most recent records indicating that it was still being given at the decision time. The oxygen flow rate was also measured and recorded at various times, with the most recent measurement showing a flow rate of 3 L/min.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:79197043",
+     "time": "2100-01-01 03:41:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)"
+    },
+    {
+     "rid": "treat:79820093",
+     "time": "2100-01-01 04:04:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)"
+    },
+    {
+     "rid": "treat:79597005",
+     "time": "2100-01-01 04:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)"
+    },
+    {
+     "rid": "treat:80184330",
+     "time": "2100-01-01 12:56:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)"
+    },
+    {
+     "rid": "treat:79274330",
+     "time": "2100-01-02 01:16:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3237226A2::06",
+   "claim_id": "E3237226A2",
+   "claim_text": "Monitor respiratory rate and oxygen saturation closely given persistent tachypnea.",
+   "kind": "fact",
+   "text": "Tachypnea is present.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The statement 'Tachypnea is present' is not supported by the records. The most recent relevant row (R31) shows 'Pain Present: Yes', but it does not mention tachypnea. The statement is about the decision time (2100-01-02 02:57:00), and the records do not show any recent administration of a medication that would cause tachypnea. Therefore, the statement is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2223540359",
+     "time": "2099-12-24 03:25:00",
+     "item": "Pain Present: Yes"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3237226A3::08",
+   "claim_id": "E3237226A3",
+   "claim_text": "Administer magnesium sulfate IV as ordered for hypomagnesemia.",
+   "kind": "fact",
+   "text": "Hypomagnesemia is present.",
+   "concept": "magnesium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that magnesium sulfate IV was administered on 12/22 and 12/23, but the statement says that hypomagnesemia is present. The administration of magnesium sulfate IV does not directly support the presence of hypomagnesemia.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:106505787",
+     "time": "2099-12-22 15:00:00",
+     "item": "Medication MAGNESIUM SULFATE IV (2099-12-22 15:00:00 to 2099-12-22 16:01:00)"
+    },
+    {
+     "rid": "med:107266426",
+     "time": "2099-12-23 20:00:00",
+     "item": "Medication MAGNESIUM SULFATE IV (2099-12-23 20:00:00 to 2099-12-23 21:01:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3237226A1::01",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue supplemental oxygen therapy via nasal cannula at 3 L/min to maintain oxygen saturation.",
+   "kind": "action",
+   "text": "Continue supplemental oxygen therapy via nasal cannula at 3 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen therapy",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3237226A2::04",
+   "claim_id": "E3237226A2",
+   "claim_text": "Monitor respiratory rate and oxygen saturation closely given persistent tachypnea.",
+   "kind": "action",
+   "text": "Monitor respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2265674521",
+     "time": "2100-01-02 03:00:00",
+     "item": "respiratory rate",
+     "value": "26.0 insp/min"
+    },
+    {
+     "rid": "nurse:2272716818",
+     "time": "2100-01-02 05:00:00",
+     "item": "respiratory rate",
+     "value": "26.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x18.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3237226A2::05",
+   "claim_id": "E3237226A2",
+   "claim_text": "Monitor respiratory rate and oxygen saturation closely given persistent tachypnea.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2255806432",
+     "time": "2100-01-02 07:52:00",
+     "item": "SpO2",
+     "value": "99.0 %"
+    },
+    {
+     "rid": "nurse:2253370550",
+     "time": "2100-01-02 09:00:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x8.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3237226A3::07",
+   "claim_id": "E3237226A3",
+   "claim_text": "Administer magnesium sulfate IV as ordered for hypomagnesemia.",
+   "kind": "action",
+   "text": "Administer magnesium sulfate IV.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "magnesium sulfate",
+   "conditional": false,
+   "treatment_class": "magnesium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No magnesium replacement action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Tachypnea is present. -- The statement 'Tachypnea is present' is not supported by the records. The most recent relevant row (R31) shows 'Pain Present: Yes', but it does not mention tachypnea. The statement is about the decision time (2100-01-02 02:57:00), and the records do not show any recent administration of a medication that would cause tachypnea. Therefore, the statement is not supported.",
+    "Hypomagnesemia is present. -- The records show that magnesium sulfate IV was administered on 12/22 and 12/23, but the statement says that hypomagnesemia is present. The administration of magnesium sulfate IV does not directly support the presence of hypomagnesemia."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

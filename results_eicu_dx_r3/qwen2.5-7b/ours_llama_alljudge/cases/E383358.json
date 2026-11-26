@@ -1,0 +1,286 @@
+{
+ "case_id": "E383358",
+ "decision_point": "2100-01-02 00:50:00",
+ "claims": [
+  "Monitor blood glucose levels closely.",
+  "Continue weaning from mechanical ventilation.",
+  "Administer subcutaneous insulin as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E383358A1::01",
+   "claim_id": "E383358A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E383358A2::02",
+   "claim_id": "E383358A2",
+   "claim_text": "Continue weaning from mechanical ventilation.",
+   "kind": "action",
+   "text": "Continue weaning from mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "weaning from mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E383358A2::03",
+   "claim_id": "E383358A2",
+   "claim_text": "Continue weaning from mechanical ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E383358A3::04",
+   "claim_id": "E383358A3",
+   "claim_text": "Administer subcutaneous insulin as needed.",
+   "kind": "action",
+   "text": "Administer subcutaneous insulin as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "subcutaneous insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E383358A2::03",
+   "claim_id": "E383358A2",
+   "claim_text": "Continue weaning from mechanical ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The patient is currently on mechanical ventilation. The records show that the patient was weaned from mechanical ventilation (R5), and there are multiple treatment documents indicating ventilation and oxygenation (R7, R8, R9, R10, R11), but none of these directly support the statement that the patient is currently on mechanical ventilation. The PEEP set values (R16, R17, R47) do not support the 24",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:383358:dx",
+     "time": "2100-01-01 00:50:00",
+     "item": "Admission diagnosis (APACHE): Weaning from mechanical ventilation (transfer from other unit or hospital only)"
+    },
+    {
+     "rid": "treat:15053604",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | ventilator weaning"
+    },
+    {
+     "rid": "treat:12658220",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | CPAP/PEEP therapy"
+    },
+    {
+     "rid": "treat:15812220",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | tracheal suctioning"
+    },
+    {
+     "rid": "treat:14311802",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (40% to 60%) | 40-50%"
+    },
+    {
+     "rid": "treat:14574946",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (40% to 60%) | reduce FIO2 as tolerated"
+    },
+    {
+     "rid": "treat:16218293",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: bronchodilator | beta-agonist | albuterol (Proventil, Ventolin)"
+    },
+    {
+     "rid": "treat:11456442",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: pulmonary | consultations | Pulmonary/CCM consultation"
+    },
+    {
+     "rid": "treat:10915420",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: procedures | vascular catheter placement | central venous"
+    },
+    {
+     "rid": "treat:15543884",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | sedative agent | haloperidol"
+    },
+    {
+     "rid": "resp:8826306",
+     "time": "2100-01-01 02:20:00",
+     "item": "Respiratory Rate (Set): 10 insp/min"
+    },
+    {
+     "rid": "resp:8826310",
+     "time": "2100-01-01 02:20:00",
+     "item": "PEEP set: 7 cmH2O"
+    },
+    {
+     "rid": "resp:7968373",
+     "time": "2100-01-01 21:44:00",
+     "item": "PEEP set: 5 cmH2O"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E383358A1::01",
+   "claim_id": "E383358A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:96734282",
+     "time": "2100-01-02 13:27:00",
+     "item": "glucose",
+     "value": "79.0 mg/dl"
+    },
+    {
+     "rid": "nurse:341987544",
+     "time": "2100-01-02 13:27:00",
+     "item": "glucose",
+     "value": "79.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E383358A2::02",
+   "claim_id": "E383358A2",
+   "claim_text": "Continue weaning from mechanical ventilation.",
+   "kind": "action",
+   "text": "Continue weaning from mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "weaning from mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation",
+   "class_level": "group",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (15 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:9517736",
+     "time": "2100-01-02 01:19:00",
+     "item": "ventilator setting",
+     "value": "45.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:9517738",
+     "time": "2100-01-02 01:19:00",
+     "item": "ventilator setting",
+     "value": "5.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:8491038",
+     "time": "2100-01-02 05:13:00",
+     "item": "ventilator setting",
+     "value": "45.0 %",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E383358A3::04",
+   "claim_id": "E383358A3",
+   "claim_text": "Administer subcutaneous insulin as needed.",
+   "kind": "action",
+   "text": "Administer subcutaneous insulin as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "subcutaneous insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The patient is currently on mechanical ventilation. The records show that the patient was weaned from mechanical ventilation (R5), and there are multiple treatment documents indicating ventilation and oxygenation (R7, R8, R9, R10, R11), but none of these directly support the statement that the patient is currently on mechanical ventilation. The PEEP set values (R16, R17, R47) do not support the 24"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

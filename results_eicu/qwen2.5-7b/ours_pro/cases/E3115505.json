@@ -1,0 +1,274 @@
+{
+ "case_id": "E3115505",
+ "decision_point": "2100-01-02 03:00:00",
+ "claims": [
+  "Continue monitoring blood glucose levels.",
+  "Continue administration of albuterol inhalation as per protocol.",
+  "Continue administration of intravenous methylprednisolone."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3115505A1::01",
+   "claim_id": "E3115505A1",
+   "claim_text": "Continue monitoring blood glucose levels.",
+   "kind": "action",
+   "text": "Continue monitoring blood glucose levels.",
+   "concept": "glucose",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "blood glucose monitoring",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3115505A2::02",
+   "claim_id": "E3115505A2",
+   "claim_text": "Continue administration of albuterol inhalation as per protocol.",
+   "kind": "action",
+   "text": "Continue administration of albuterol inhalation as per protocol.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "albuterol inhalation",
+   "conditional": false,
+   "treatment_class": "bronchodilator",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3115505A2::03",
+   "claim_id": "E3115505A2",
+   "claim_text": "Continue administration of albuterol inhalation as per protocol.",
+   "kind": "fact",
+   "text": "Albuterol inhalation is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3115505A3::04",
+   "claim_id": "E3115505A3",
+   "claim_text": "Continue administration of intravenous methylprednisolone.",
+   "kind": "action",
+   "text": "Continue administration of intravenous methylprednisolone.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous methylprednisolone",
+   "conditional": false,
+   "treatment_class": "steroid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3115505A3::05",
+   "claim_id": "E3115505A3",
+   "claim_text": "Continue administration of intravenous methylprednisolone.",
+   "kind": "fact",
+   "text": "Intravenous methylprednisolone is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3115505A2::03",
+   "claim_id": "E3115505A2",
+   "claim_text": "Continue administration of albuterol inhalation as per protocol.",
+   "kind": "fact",
+   "text": "Albuterol inhalation is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Multiple medication administration records show albuterol inhalation running at the decision time, including 'ALBUTEROL 90 MCG INHALATION PER PROTOCOL' and 'ALBUTEROL CONCENTRATED 0.5% INHALATION PER PROTOCOL'.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:102828057",
+     "time": "2100-01-01 01:18:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 01:18:00): Medication ALBUTEROL CONCENTRATED 0.5% ZPYXVEND ZPYXISVEND"
+    },
+    {
+     "rid": "med:102828059",
+     "time": "2100-01-01 01:27:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 01:27:00): Medication ALBUTEROL CONCENTRATED 0.5% ZPYXVEND ZPYXISVEND"
+    },
+    {
+     "rid": "med:102828262",
+     "time": "2100-01-01 04:13:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 04:13:00): Medication ALBUTEROL 90 MCG INHALATION PER PROTOCOL"
+    },
+    {
+     "rid": "med:102828261",
+     "time": "2100-01-01 04:13:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 04:13:00): Medication ALBUTEROL CONCENTRATED 0.5% INHALATION PER PROTOCOL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3115505A3::05",
+   "claim_id": "E3115505A3",
+   "claim_text": "Continue administration of intravenous methylprednisolone.",
+   "kind": "fact",
+   "text": "Intravenous methylprednisolone is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show an intravenous methylprednisolone order that ended at 17:10 on 2100-01-01 (R11) and a new Q24HR order started at 16:51 (R43), but no administration record within 24 hours before the decision time of 2100-01-02 03:00. Therefore, the statement that it is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:102828264",
+     "time": "2100-01-01 04:14:00",
+     "item": "Medication methylPREDNISolone sod suc(PF) INTRAVENOU Q8HR (2100-01-01 04:14:00 to 2100-01-01 17:10:00)"
+    },
+    {
+     "rid": "med:102829192",
+     "time": "2100-01-01 16:51:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 16:51:00): Medication methylPREDNISolone sod suc(PF) INTRAVENOU Q24HR"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3115505A1::01",
+   "claim_id": "E3115505A1",
+   "claim_text": "Continue monitoring blood glucose levels.",
+   "kind": "action",
+   "text": "Continue monitoring blood glucose levels.",
+   "concept": "glucose",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "blood glucose monitoring",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:761456563",
+     "time": "2100-01-02 04:03:00",
+     "item": "glucose",
+     "value": "114.0 mg/dL"
+    },
+    {
+     "rid": "lab:746079142",
+     "time": "2100-01-02 08:22:00",
+     "item": "glucose",
+     "value": "94.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 16.3 h observation window after the decision (24 h or until ICU discharge): glucose x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3115505A2::02",
+   "claim_id": "E3115505A2",
+   "claim_text": "Continue administration of albuterol inhalation as per protocol.",
+   "kind": "action",
+   "text": "Continue administration of albuterol inhalation as per protocol.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "albuterol inhalation",
+   "conditional": false,
+   "treatment_class": "bronchodilator",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No bronchodilators / inhaled therapy action recorded in the 16.3 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3115505A3::04",
+   "claim_id": "E3115505A3",
+   "claim_text": "Continue administration of intravenous methylprednisolone.",
+   "kind": "action",
+   "text": "Continue administration of intravenous methylprednisolone.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous methylprednisolone",
+   "conditional": false,
+   "treatment_class": "steroid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No corticosteroids action recorded in the 16.3 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 16.3,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous methylprednisolone is currently being given. -- The records show an intravenous methylprednisolone order that ended at 17:10 on 2100-01-01 (R11) and a new Q24HR order started at 16:51 (R43), but no administration record within 24 hours before the decision time of 2100-01-02 03:00. Therefore, the statement that it is currently being given is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

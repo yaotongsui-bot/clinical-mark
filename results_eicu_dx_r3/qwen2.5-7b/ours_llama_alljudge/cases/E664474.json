@@ -1,0 +1,259 @@
+{
+ "case_id": "E664474",
+ "decision_point": "2100-01-02 00:05:00",
+ "claims": [
+  "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+  "Continue non-invasive ventilation to maintain adequate oxygenation and ventilation.",
+  "Assess for signs of airway obstruction or respiratory distress."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E664474A1::01",
+   "claim_id": "E664474A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E664474A1::02",
+   "claim_id": "E664474A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is persistent.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E664474A2::03",
+   "claim_id": "E664474A2",
+   "claim_text": "Continue non-invasive ventilation to maintain adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E664474A2::04",
+   "claim_id": "E664474A2",
+   "claim_text": "Continue non-invasive ventilation to maintain adequate oxygenation and ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E664474A3::05",
+   "claim_id": "E664474A3",
+   "claim_text": "Assess for signs of airway obstruction or respiratory distress.",
+   "kind": "action",
+   "text": "Assess for signs of airway obstruction.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "airway obstruction",
+   "conditional": false
+  },
+  {
+   "atom_id": "E664474A3::06",
+   "claim_id": "E664474A3",
+   "claim_text": "Assess for signs of airway obstruction or respiratory distress.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory distress",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E664474A1::02",
+   "claim_id": "E664474A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is persistent.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement 'Hyperglycemia is persistent' is not supported by the records. The glucose level was 137 mg/dL at 10:08, which is not high. However, the statement is not addressed by the records either, as there is no mention of hyperglycemia or any treatment for it. The evidence cited is R32, which shows a glucose level of 137 mg/dL, but this is not high enough to support the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:161840188",
+     "time": "2100-01-01 10:08:00",
+     "item": "Glucose: 137 mg/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E664474A2::04",
+   "claim_id": "E664474A2",
+   "claim_text": "Continue non-invasive ventilation to maintain adequate oxygenation and ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient is on non-invasive ventilation, but the most recent relevant rows (R30) do not support the statement that the patient is currently on non-invasive ventilation. The statement is not supported because the records show that the patient was on non-invasive ventilation at some point, but the current status is not explicitly stated.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:24167359",
+     "time": "2100-01-01 10:32:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E664474A1::01",
+   "claim_id": "E664474A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No glucose measurement in the 2.6 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E664474A2::03",
+   "claim_id": "E664474A2",
+   "claim_text": "Continue non-invasive ventilation to maintain adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-invasive ventilation action recorded in the 2.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E664474A3::05",
+   "claim_id": "E664474A3",
+   "claim_text": "Assess for signs of airway obstruction or respiratory distress.",
+   "kind": "action",
+   "text": "Assess for signs of airway obstruction.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "airway obstruction",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E664474A3::06",
+   "claim_id": "E664474A3",
+   "claim_text": "Assess for signs of airway obstruction or respiratory distress.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 2.6,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hyperglycemia is persistent. -- The statement 'Hyperglycemia is persistent' is not supported by the records. The glucose level was 137 mg/dL at 10:08, which is not high. However, the statement is not addressed by the records either, as there is no mention of hyperglycemia or any treatment for it. The evidence cited is R32, which shows a glucose level of 137 mg/dL, but this is not high enough to support the statement.",
+    "The patient is currently on non-invasive ventilation. -- The records show that the patient is on non-invasive ventilation, but the most recent relevant rows (R30) do not support the statement that the patient is currently on non-invasive ventilation. The statement is not supported because the records show that the patient was on non-invasive ventilation at some point, but the current status is not explicitly stated."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

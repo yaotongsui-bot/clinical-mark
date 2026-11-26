@@ -1,0 +1,341 @@
+{
+ "case_id": "E1057910",
+ "decision_point": "2100-01-02 05:25:00",
+ "claims": [
+  "Continue norepinephrine infusion and titrate to maintain MAP ≥65 mmHg.",
+  "Monitor serum lactate q4h until it trends down to <2 mmol/L.",
+  "Obtain repeat arterial blood gas to reassess acid‑base status and oxygenation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1057910A1::01",
+   "claim_id": "E1057910A1",
+   "claim_text": "Continue norepinephrine infusion and titrate to maintain MAP ≥65 mmHg.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1057910A1::02",
+   "claim_id": "E1057910A1",
+   "claim_text": "Continue norepinephrine infusion and titrate to maintain MAP ≥65 mmHg.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E1057910A1::03",
+   "claim_id": "E1057910A1",
+   "claim_text": "Continue norepinephrine infusion and titrate to maintain MAP ≥65 mmHg.",
+   "kind": "action",
+   "text": "Titrate norepinephrine to maintain MAP ≥65 mmHg.",
+   "concept": "map",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1057910A1::04",
+   "claim_id": "E1057910A1",
+   "claim_text": "Continue norepinephrine infusion and titrate to maintain MAP ≥65 mmHg.",
+   "kind": "goal",
+   "text": "Maintain MAP ≥65 mmHg.",
+   "concept": "map",
+   "notes": []
+  },
+  {
+   "atom_id": "E1057910A2::05",
+   "claim_id": "E1057910A2",
+   "claim_text": "Monitor serum lactate q4h until it trends down to <2 mmol/L.",
+   "kind": "action",
+   "text": "Monitor serum lactate q4h until it trends down to <2 mmol/L.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1057910A3::06",
+   "claim_id": "E1057910A3",
+   "claim_text": "Obtain repeat arterial blood gas to reassess acid‑base status and oxygenation.",
+   "kind": "action",
+   "text": "Obtain repeat arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1057910A3::07",
+   "claim_id": "E1057910A3",
+   "claim_text": "Obtain repeat arterial blood gas to reassess acid‑base status and oxygenation.",
+   "kind": "action",
+   "text": "Reassess acid-base status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "acid-base status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1057910A3::08",
+   "claim_id": "E1057910A3",
+   "claim_text": "Obtain repeat arterial blood gas to reassess acid‑base status and oxygenation.",
+   "kind": "action",
+   "text": "Reassess oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygenation",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1057910A1::02",
+   "claim_id": "E1057910A1",
+   "claim_text": "Continue norepinephrine infusion and titrate to maintain MAP ≥65 mmHg.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "The records show a norepinephrine infusion that ended on 2100-01-01 at 15:32 (R1) and a treatment note from 07:10 (R26), but no administration or 'Running at decision time' record for norepinephrine within 24 hours before the decision time of 2100-01-02 05:25. Therefore, the statement that it is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:37197706",
+     "time": "2100-01-01 03:47:00",
+     "item": "Medication PRMX NOREPInephrine 4 mg/250 mL NS Drip IV (2100-01-01 03:47:00 to 2100-01-01 15:32:00)"
+    },
+    {
+     "rid": "treat:30711564",
+     "time": "2100-01-01 07:10:00",
+     "item": "Treatment documented: shock | vasopressors | norepinephrine <= 0.1 micrograms/kg/min"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1057910A1::01",
+   "claim_id": "E1057910A1",
+   "claim_text": "Continue norepinephrine infusion and titrate to maintain MAP ≥65 mmHg.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1057910A1::03",
+   "claim_id": "E1057910A1",
+   "claim_text": "Continue norepinephrine infusion and titrate to maintain MAP ≥65 mmHg.",
+   "kind": "action",
+   "text": "Titrate norepinephrine to maintain MAP ≥65 mmHg.",
+   "concept": "map",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1057910A2::05",
+   "claim_id": "E1057910A2",
+   "claim_text": "Monitor serum lactate q4h until it trends down to <2 mmol/L.",
+   "kind": "action",
+   "text": "Monitor serum lactate q4h until it trends down to <2 mmol/L.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:251507089",
+     "time": "2100-01-02 08:23:00",
+     "item": "lactate",
+     "value": "8.0 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): lactate x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1057910A3::06",
+   "claim_id": "E1057910A3",
+   "claim_text": "Obtain repeat arterial blood gas to reassess acid‑base status and oxygenation.",
+   "kind": "action",
+   "text": "Obtain repeat arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:258222995",
+     "time": "2100-01-02 09:31:00",
+     "item": "pH",
+     "value": "7.55"
+    },
+    {
+     "rid": "lab:258222997",
+     "time": "2100-01-02 09:31:00",
+     "item": "PaCO2",
+     "value": "28.1 mmHg"
+    },
+    {
+     "rid": "lab:258222992",
+     "time": "2100-01-02 09:31:00",
+     "item": "PaO2",
+     "value": "149.2 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pH x1, PaCO2 x1, PaO2 x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1057910A3::07",
+   "claim_id": "E1057910A3",
+   "claim_text": "Obtain repeat arterial blood gas to reassess acid‑base status and oxygenation.",
+   "kind": "action",
+   "text": "Reassess acid-base status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "acid-base status",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1057910A3::08",
+   "claim_id": "E1057910A3",
+   "claim_text": "Obtain repeat arterial blood gas to reassess acid‑base status and oxygenation.",
+   "kind": "action",
+   "text": "Reassess oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygenation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:664676150",
+     "time": "2100-01-02 05:50:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    },
+    {
+     "rid": "nurse:656096039",
+     "time": "2100-01-02 06:00:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    },
+    {
+     "rid": "lab:258222992",
+     "time": "2100-01-02 09:31:00",
+     "item": "PaO2",
+     "value": "149.2 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x47, PaO2 x1.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Norepinephrine infusion is currently being given. -- The records show a norepinephrine infusion that ended on 2100-01-01 at 15:32 (R1) and a treatment note from 07:10 (R26), but no administration or 'Running at decision time' record for norepinephrine within 24 hours before the decision time of 2100-01-02 05:25. Therefore, the statement that it is currently being given is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

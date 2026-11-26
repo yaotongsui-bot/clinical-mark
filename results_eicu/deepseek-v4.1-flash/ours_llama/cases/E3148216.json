@@ -1,0 +1,642 @@
+{
+ "case_id": "E3148216",
+ "decision_point": "2100-01-02 01:47:00",
+ "claims": [
+  "Monitor oxygen saturation and respiratory status closely given declining SpO2 and increased oxygen requirement.",
+  "Assess for possible infection or other cause of fever and respiratory changes.",
+  "Consider adjusting oxygen therapy to maintain adequate oxygenation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3148216A1::01",
+   "claim_id": "E3148216A1",
+   "claim_text": "Monitor oxygen saturation and respiratory status closely given declining SpO2 and increased oxygen requirement.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3148216A1::02",
+   "claim_id": "E3148216A1",
+   "claim_text": "Monitor oxygen saturation and respiratory status closely given declining SpO2 and increased oxygen requirement.",
+   "kind": "action",
+   "text": "Monitor respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3148216A1::03",
+   "claim_id": "E3148216A1",
+   "claim_text": "Monitor oxygen saturation and respiratory status closely given declining SpO2 and increased oxygen requirement.",
+   "kind": "fact",
+   "text": "SpO2 is declining.",
+   "concept": "spo2",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3148216A1::04",
+   "claim_id": "E3148216A1",
+   "claim_text": "Monitor oxygen saturation and respiratory status closely given declining SpO2 and increased oxygen requirement.",
+   "kind": "fact",
+   "text": "Oxygen requirement is increased.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3148216A2::05",
+   "claim_id": "E3148216A2",
+   "claim_text": "Assess for possible infection or other cause of fever and respiratory changes.",
+   "kind": "action",
+   "text": "Assess for possible infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3148216A2::06",
+   "claim_id": "E3148216A2",
+   "claim_text": "Assess for possible infection or other cause of fever and respiratory changes.",
+   "kind": "action",
+   "text": "Assess for other cause of fever.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "cause of fever",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3148216A2::07",
+   "claim_id": "E3148216A2",
+   "claim_text": "Assess for possible infection or other cause of fever and respiratory changes.",
+   "kind": "action",
+   "text": "Assess for other cause of respiratory changes.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "cause of respiratory changes",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3148216A2::08",
+   "claim_id": "E3148216A2",
+   "claim_text": "Assess for possible infection or other cause of fever and respiratory changes.",
+   "kind": "fact",
+   "text": "Fever is present.",
+   "concept": "temperature",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3148216A2::09",
+   "claim_id": "E3148216A2",
+   "claim_text": "Assess for possible infection or other cause of fever and respiratory changes.",
+   "kind": "fact",
+   "text": "Respiratory changes are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3148216A3::10",
+   "claim_id": "E3148216A3",
+   "claim_text": "Consider adjusting oxygen therapy to maintain adequate oxygenation.",
+   "kind": "action",
+   "text": "Consider adjusting oxygen therapy to maintain adequate oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3148216A1::03",
+   "claim_id": "E3148216A1",
+   "claim_text": "Monitor oxygen saturation and respiratory status closely given declining SpO2 and increased oxygen requirement.",
+   "kind": "fact",
+   "text": "SpO2 is declining.",
+   "concept": "spo2",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "other",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "nurse:2139010876",
+     "time": "2100-01-01 23:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 96.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "nurse:2135716216",
+     "time": "2100-01-02 00:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 95.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "nurse:2138863522",
+     "time": "2100-01-02 01:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 94.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "0 of 23 SpO2 values in the 24 h before the decision were low.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E3148216A1::04",
+   "claim_id": "E3148216A1",
+   "claim_text": "Monitor oxygen saturation and respiratory status closely given declining SpO2 and increased oxygen requirement.",
+   "kind": "fact",
+   "text": "Oxygen requirement is increased.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The statement says the oxygen requirement is increased, but R35 shows that the oxygen requirement is decreased (O2 L/%: 2).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2145106609",
+     "time": "2100-01-01 12:18:00",
+     "item": "O2 L/%: 2"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3148216A2::08",
+   "claim_id": "E3148216A2",
+   "claim_text": "Assess for possible infection or other cause of fever and respiratory changes.",
+   "kind": "fact",
+   "text": "Fever is present.",
+   "concept": "temperature",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "nurse:2140329062",
+     "time": "2100-01-01 20:00:00",
+     "item": "Temperature Fahrenheit",
+     "value": 99.9,
+     "unit": "F",
+     "bounds": "96.8 to 100.4",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "Median temperature over the 6 h before the decision: 99.9 F (1 readings), normal by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "computed": {
+    "median": 99.9,
+    "status": "normal",
+    "n": 1
+   },
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E3148216A2::09",
+   "claim_id": "E3148216A2",
+   "claim_text": "Assess for possible infection or other cause of fever and respiratory changes.",
+   "kind": "fact",
+   "text": "Respiratory changes are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The patient's respiratory rate has been fluctuating throughout the day, with some readings indicating a rate of 12-14 breaths per minute and others indicating a rate of 16-25 breaths per minute. This suggests that respiratory changes are present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2148526849",
+     "time": "2099-12-31 22:30:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:2140506228",
+     "time": "2099-12-31 22:39:00",
+     "item": "Respiratory Rate: 12 insp/min"
+    },
+    {
+     "rid": "nurse:2147948428",
+     "time": "2099-12-31 22:47:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "nurse:2138765001",
+     "time": "2099-12-31 23:00:00",
+     "item": "Respiratory Rate: 14 insp/min"
+    },
+    {
+     "rid": "nurse:2138567598",
+     "time": "2099-12-31 23:15:00",
+     "item": "Respiratory Rate: 12 insp/min"
+    },
+    {
+     "rid": "nurse:2149048888",
+     "time": "2099-12-31 23:30:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:2136536881",
+     "time": "2099-12-31 23:45:00",
+     "item": "Respiratory Rate: 14 insp/min"
+    },
+    {
+     "rid": "nurse:2135884124",
+     "time": "2100-01-01 00:00:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "nurse:2146559812",
+     "time": "2100-01-01 00:15:00",
+     "item": "Respiratory Rate: 14 insp/min"
+    },
+    {
+     "rid": "nurse:2147107533",
+     "time": "2100-01-01 00:30:00",
+     "item": "Respiratory Rate: 20 insp/min"
+    },
+    {
+     "rid": "nurse:2139609121",
+     "time": "2100-01-01 00:45:00",
+     "item": "Respiratory Rate: 11 insp/min"
+    },
+    {
+     "rid": "nurse:2142086194",
+     "time": "2100-01-01 01:00:00",
+     "item": "Respiratory Rate: 20 insp/min"
+    },
+    {
+     "rid": "nurse:2137068790",
+     "time": "2100-01-01 01:15:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:2134235006",
+     "time": "2100-01-01 01:58:00",
+     "item": "Respiratory Rate: 12 insp/min"
+    },
+    {
+     "rid": "nurse:2139529466",
+     "time": "2100-01-01 03:00:00",
+     "item": "Respiratory Rate: 11 insp/min"
+    },
+    {
+     "rid": "nurse:2146311886",
+     "time": "2100-01-01 04:11:00",
+     "item": "Respiratory Rate: 20 insp/min"
+    },
+    {
+     "rid": "nurse:2137437191",
+     "time": "2100-01-01 05:04:00",
+     "item": "Respiratory Rate: 14 insp/min"
+    },
+    {
+     "rid": "nurse:2137440943",
+     "time": "2100-01-01 06:00:00",
+     "item": "Respiratory Rate: 14 insp/min"
+    },
+    {
+     "rid": "nurse:2141862328",
+     "time": "2100-01-01 07:00:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:2151430473",
+     "time": "2100-01-01 08:00:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:2149700098",
+     "time": "2100-01-01 09:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "nurse:2153385443",
+     "time": "2100-01-01 10:00:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:2149380309",
+     "time": "2100-01-01 11:00:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:2148791583",
+     "time": "2100-01-01 12:45:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:2150306549",
+     "time": "2100-01-01 13:00:00",
+     "item": "Respiratory Rate: 22 insp/min"
+    },
+    {
+     "rid": "nurse:2149950673",
+     "time": "2100-01-01 14:00:00",
+     "item": "Respiratory Rate: 22 insp/min"
+    },
+    {
+     "rid": "nurse:2146168664",
+     "time": "2100-01-01 16:00:00",
+     "item": "Respiratory Rate: 20 insp/min"
+    },
+    {
+     "rid": "nurse:2153015825",
+     "time": "2100-01-01 17:00:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:2134328307",
+     "time": "2100-01-01 18:00:00",
+     "item": "Respiratory Rate: 21 insp/min"
+    },
+    {
+     "rid": "nurse:2150003101",
+     "time": "2100-01-01 19:00:00",
+     "item": "Respiratory Rate: 21 insp/min"
+    },
+    {
+     "rid": "nurse:2148583833",
+     "time": "2100-01-01 20:00:00",
+     "item": "Respiratory Rate: 22 insp/min"
+    },
+    {
+     "rid": "nurse:2143065165",
+     "time": "2100-01-01 21:00:00",
+     "item": "Respiratory Rate: 25 insp/min"
+    },
+    {
+     "rid": "nurse:2140572235",
+     "time": "2100-01-01 22:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "nurse:2141276597",
+     "time": "2100-01-01 23:00:00",
+     "item": "Respiratory Rate: 14 insp/min"
+    },
+    {
+     "rid": "nurse:2145681191",
+     "time": "2100-01-02 00:00:00",
+     "item": "Respiratory Rate: 21 insp/min"
+    },
+    {
+     "rid": "nurse:2146180616",
+     "time": "2100-01-02 01:00:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3148216A1::01",
+   "claim_id": "E3148216A1",
+   "claim_text": "Monitor oxygen saturation and respiratory status closely given declining SpO2 and increased oxygen requirement.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2151730794",
+     "time": "2100-01-02 02:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:2137263026",
+     "time": "2100-01-02 03:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    }
+   ],
+   "reason": "Measured in the 19.8 h observation window after the decision (24 h or until ICU discharge): SpO2 x16.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3148216A1::02",
+   "claim_id": "E3148216A1",
+   "claim_text": "Monitor oxygen saturation and respiratory status closely given declining SpO2 and increased oxygen requirement.",
+   "kind": "action",
+   "text": "Monitor respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2139647953",
+     "time": "2100-01-02 02:00:00",
+     "item": "respiratory rate",
+     "value": "27.0 insp/min"
+    },
+    {
+     "rid": "nurse:2150135234",
+     "time": "2100-01-02 03:00:00",
+     "item": "respiratory rate",
+     "value": "22.0 insp/min"
+    },
+    {
+     "rid": "nurse:2151730794",
+     "time": "2100-01-02 02:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:2137263026",
+     "time": "2100-01-02 03:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    }
+   ],
+   "reason": "Measured in the 19.8 h observation window after the decision (24 h or until ICU discharge): respiratory rate x17, SpO2 x16.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3148216A2::05",
+   "claim_id": "E3148216A2",
+   "claim_text": "Assess for possible infection or other cause of fever and respiratory changes.",
+   "kind": "action",
+   "text": "Assess for possible infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3148216A2::06",
+   "claim_id": "E3148216A2",
+   "claim_text": "Assess for possible infection or other cause of fever and respiratory changes.",
+   "kind": "action",
+   "text": "Assess for other cause of fever.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "cause of fever",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3148216A2::07",
+   "claim_id": "E3148216A2",
+   "claim_text": "Assess for possible infection or other cause of fever and respiratory changes.",
+   "kind": "action",
+   "text": "Assess for other cause of respiratory changes.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "cause of respiratory changes",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3148216A3::10",
+   "claim_id": "E3148216A3",
+   "claim_text": "Consider adjusting oxygen therapy to maintain adequate oxygenation.",
+   "kind": "action",
+   "text": "Consider adjusting oxygen therapy to maintain adequate oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 19.8,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.75,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "SpO2 is declining. -- 0 of 23 SpO2 values in the 24 h before the decision were low.",
+    "Oxygen requirement is increased. -- The statement says the oxygen requirement is increased, but R35 shows that the oxygen requirement is decreased (O2 L/%: 2).",
+    "Fever is present. -- Median temperature over the 6 h before the decision: 99.9 F (1 readings), normal by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.25,
+  "not_supported": 3,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

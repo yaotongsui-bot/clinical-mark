@@ -1,0 +1,289 @@
+{
+ "case_id": "E1823356",
+ "decision_point": "2100-01-02 03:18:00",
+ "claims": [
+  "Continue insulin lispro sliding scale as ordered for glycemic control.",
+  "Monitor blood glucose closely to assess response to subcutaneous insulin regimen.",
+  "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1823356A1::01",
+   "claim_id": "E1823356A1",
+   "claim_text": "Continue insulin lispro sliding scale as ordered for glycemic control.",
+   "kind": "action",
+   "text": "Continue insulin lispro sliding scale as ordered.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin lispro sliding scale",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1823356A1::02",
+   "claim_id": "E1823356A1",
+   "claim_text": "Continue insulin lispro sliding scale as ordered for glycemic control.",
+   "kind": "fact",
+   "text": "Insulin lispro sliding scale is currently ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1823356A2::03",
+   "claim_id": "E1823356A2",
+   "claim_text": "Monitor blood glucose closely to assess response to subcutaneous insulin regimen.",
+   "kind": "action",
+   "text": "Monitor blood glucose closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823356A3::04",
+   "claim_id": "E1823356A3",
+   "claim_text": "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs.",
+   "kind": "action",
+   "text": "Assess readiness for ICU discharge.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "ICU discharge readiness",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823356A3::05",
+   "claim_id": "E1823356A3",
+   "claim_text": "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs.",
+   "kind": "fact",
+   "text": "Anion gap acidosis is resolved.",
+   "concept": "ph",
+   "notes": [
+    "concept set by the rule files: anion_gap -> ph"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1823356A3::06",
+   "claim_id": "E1823356A3",
+   "claim_text": "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs.",
+   "kind": "fact",
+   "text": "Vital signs are stable.",
+   "concept": "vital_signs",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1823356A1::02",
+   "claim_id": "E1823356A1",
+   "claim_text": "Continue insulin lispro sliding scale as ordered for glycemic control.",
+   "kind": "fact",
+   "text": "Insulin lispro sliding scale is currently ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The statement that insulin lispro sliding scale is currently ordered is supported by the record R47, which shows that insulin lispro is running at decision time with a scheduled order started at 22:30:00.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:65306875",
+     "time": "2100-01-01 22:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 22:30:00): Medication 3 ML VIAL : INSULIN LISPRO (HUMAN) 100 UNIT/ML SC SOLN SC TID WC"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823356A3::05",
+   "claim_id": "E1823356A3",
+   "claim_text": "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs.",
+   "kind": "fact",
+   "text": "Anion gap acidosis is resolved.",
+   "concept": "ph",
+   "notes": [
+    "concept set by the rule files: anion_gap -> ph"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that the anion gap has decreased to 12 mmol/L, which is a sign of resolution of anion gap acidosis. However, the statement is not fully supported because the records do not mention the resolution of anion gap acidosis explicitly. The anion gap has decreased, but the records do not provide enough information to confirm that the acidosis is fully resolved.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:424325592",
+     "time": "2100-01-01 23:25:00",
+     "item": "Anion Gap: 12 mmol/L"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823356A3::06",
+   "claim_id": "E1823356A3",
+   "claim_text": "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs.",
+   "kind": "fact",
+   "text": "Vital signs are stable.",
+   "concept": "vital_signs",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement that vital signs are stable is not supported by the records. The records show that the patient's respiratory rate is 18 inspirations per minute, which is higher than the normal range. Additionally, the patient's oxygen saturation is 76%, which is lower than the normal range. Therefore, the statement that vital signs are stable is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:65306875",
+     "time": "2100-01-01 22:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 22:30:00): Medication 3 ML VIAL : INSULIN LISPRO (HUMAN) 100 UNIT/ML SC SOLN SC TID WC"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1823356A1::01",
+   "claim_id": "E1823356A1",
+   "claim_text": "Continue insulin lispro sliding scale as ordered for glycemic control.",
+   "kind": "action",
+   "text": "Continue insulin lispro sliding scale as ordered.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin lispro sliding scale",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 14.8 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1823356A2::03",
+   "claim_id": "E1823356A2",
+   "claim_text": "Monitor blood glucose closely to assess response to subcutaneous insulin regimen.",
+   "kind": "action",
+   "text": "Monitor blood glucose closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:443007004",
+     "time": "2100-01-02 04:41:00",
+     "item": "glucose",
+     "value": "239.0 mg/dL"
+    },
+    {
+     "rid": "lab:424798036",
+     "time": "2100-01-02 10:05:00",
+     "item": "glucose",
+     "value": "149.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 14.8 h observation window after the decision (24 h or until ICU discharge): glucose x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1823356A3::04",
+   "claim_id": "E1823356A3",
+   "claim_text": "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs.",
+   "kind": "action",
+   "text": "Assess readiness for ICU discharge.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "ICU discharge readiness",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 14.8,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Anion gap acidosis is resolved. -- The records show that the anion gap has decreased to 12 mmol/L, which is a sign of resolution of anion gap acidosis. However, the statement is not fully supported because the records do not mention the resolution of anion gap acidosis explicitly. The anion gap has decreased, but the records do not provide enough information to confirm that the acidosis is fully resolved.",
+    "Vital signs are stable. -- The statement that vital signs are stable is not supported by the records. The records show that the patient's respiratory rate is 18 inspirations per minute, which is higher than the normal range. Additionally, the patient's oxygen saturation is 76%, which is lower than the normal range. Therefore, the statement that vital signs are stable is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

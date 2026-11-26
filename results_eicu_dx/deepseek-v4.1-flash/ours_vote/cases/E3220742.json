@@ -1,0 +1,453 @@
+{
+ "case_id": "E3220742",
+ "decision_point": "2100-01-02 02:33:00",
+ "claims": [
+  "Continue levetiracetam for seizure prophylaxis/therapy as ordered.",
+  "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+  "Monitor oxygen saturation and respiratory status given recent desaturation to 87%."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3220742A1::01",
+   "claim_id": "E3220742A1",
+   "claim_text": "Continue levetiracetam for seizure prophylaxis/therapy as ordered.",
+   "kind": "action",
+   "text": "Continue levetiracetam.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "levetiracetam",
+   "conditional": false,
+   "treatment_class": "antiepileptic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3220742A1::02",
+   "claim_id": "E3220742A1",
+   "claim_text": "Continue levetiracetam for seizure prophylaxis/therapy as ordered.",
+   "kind": "fact",
+   "text": "Levetiracetam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3220742A2::03",
+   "claim_id": "E3220742A2",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3220742A2::04",
+   "claim_id": "E3220742A2",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+   "kind": "fact",
+   "text": "Intermittent hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3220742A2::05",
+   "claim_id": "E3220742A2",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+   "kind": "fact",
+   "text": "PRN antihypertensive orders are active.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3220742A3::06",
+   "claim_id": "E3220742A3",
+   "claim_text": "Monitor oxygen saturation and respiratory status given recent desaturation to 87%.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3220742A3::07",
+   "claim_id": "E3220742A3",
+   "claim_text": "Monitor oxygen saturation and respiratory status given recent desaturation to 87%.",
+   "kind": "action",
+   "text": "Monitor respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3220742A3::08",
+   "claim_id": "E3220742A3",
+   "claim_text": "Monitor oxygen saturation and respiratory status given recent desaturation to 87%.",
+   "kind": "fact",
+   "text": "Recent desaturation to 87% occurred.",
+   "concept": "oxygenation",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3220742A1::02",
+   "claim_id": "E3220742A1",
+   "claim_text": "Continue levetiracetam for seizure prophylaxis/therapy as ordered.",
+   "kind": "fact",
+   "text": "Levetiracetam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show a levetiracetam administration from 05:00 to 11:47 on 2100-01-01, but no administration within 24 hours before the decision time of 2100-01-01 02:33. Treatment documentation mentions levetiracetam, but this does not confirm it is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:106139556",
+     "time": "2100-01-01 05:00:00",
+     "item": "Medication LEVETIRACETAM 500 MG PO TABS Oral bida,0800,2200 INDEF (2100-01-01 05:00:00 to 2100-01-01 11:47:00)"
+    },
+    {
+     "rid": "treat:80143187",
+     "time": "2100-01-01 02:44:00",
+     "item": "Treatment documented: seizure therapy | anticonvulsant | levetiracetam"
+    },
+    {
+     "rid": "treat:79179985",
+     "time": "2100-01-01 16:31:00",
+     "item": "Treatment documented: seizure therapy | anticonvulsant | levetiracetam"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3220742A2::04",
+   "claim_id": "E3220742A2",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+   "kind": "fact",
+   "text": "Intermittent hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:2234877865",
+     "time": "2100-01-01 12:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 85.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "low"
+    },
+    {
+     "rid": "nurse:2234877867",
+     "time": "2100-01-01 12:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 62.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E3220742A2::05",
+   "claim_id": "E3220742A2",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+   "kind": "fact",
+   "text": "PRN antihypertensive orders are active.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Active PRN orders for IV labetalol, hydralazine, and metoprolol are explicitly documented as active at the decision time, supporting the presence of active PRN antihypertensive orders.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:106162626",
+     "time": "2100-01-01 03:05:00",
+     "item": "Order: LABETALOL HCL 5 MG/ML IV SOLN (RANGE) PRN Intravenous prn1 INDEF PRN (active at decision time)"
+    },
+    {
+     "rid": "med:108140794",
+     "time": "2100-01-01 03:05:00",
+     "item": "Order: HYDRALAZINE HCL 20 MG/ML INJ SOLN (RANGE) PRN Intravenous prn2 INDEF PRN (active at decision time)"
+    },
+    {
+     "rid": "med:106075373",
+     "time": "2100-01-01 03:11:00",
+     "item": "Order: METOPROLOL TARTRATE 1 MG/ML IV SOLN Intravenous prn4 INDEF PRN (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3220742A3::08",
+   "claim_id": "E3220742A3",
+   "claim_text": "Monitor oxygen saturation and respiratory status given recent desaturation to 87%.",
+   "kind": "fact",
+   "text": "Recent desaturation to 87% occurred.",
+   "concept": "oxygenation",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:2234169382",
+     "time": "2100-01-02 01:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 87.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'oxygenation low' holds when any component is low. SpO2: yes.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3220742A1::01",
+   "claim_id": "E3220742A1",
+   "claim_text": "Continue levetiracetam for seizure prophylaxis/therapy as ordered.",
+   "kind": "action",
+   "text": "Continue levetiracetam.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "levetiracetam",
+   "conditional": false,
+   "treatment_class": "antiepileptic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antiepileptics action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3220742A2::03",
+   "claim_id": "E3220742A2",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2235743207",
+     "time": "2100-01-02 04:45:00",
+     "item": "systolic BP",
+     "value": "133.0 mmHg"
+    },
+    {
+     "rid": "nurse:2209142786",
+     "time": "2100-01-02 06:00:00",
+     "item": "systolic BP",
+     "value": "125.0 mmHg"
+    },
+    {
+     "rid": "nurse:2235743209",
+     "time": "2100-01-02 04:45:00",
+     "item": "mean arterial pressure",
+     "value": "92.0 mmHg"
+    },
+    {
+     "rid": "nurse:2209142788",
+     "time": "2100-01-02 06:00:00",
+     "item": "mean arterial pressure",
+     "value": "84.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x12, mean arterial pressure x12.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3220742A3::06",
+   "claim_id": "E3220742A3",
+   "claim_text": "Monitor oxygen saturation and respiratory status given recent desaturation to 87%.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2276083400",
+     "time": "2100-01-02 09:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:2247407525",
+     "time": "2100-01-02 12:55:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3220742A3::07",
+   "claim_id": "E3220742A3",
+   "claim_text": "Monitor oxygen saturation and respiratory status given recent desaturation to 87%.",
+   "kind": "action",
+   "text": "Monitor respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2226769323",
+     "time": "2100-01-02 04:45:00",
+     "item": "respiratory rate",
+     "value": "23.0 insp/min"
+    },
+    {
+     "rid": "nurse:2263500249",
+     "time": "2100-01-02 06:00:00",
+     "item": "respiratory rate",
+     "value": "26.0 insp/min"
+    },
+    {
+     "rid": "nurse:2276083400",
+     "time": "2100-01-02 09:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:2247407525",
+     "time": "2100-01-02 12:55:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    },
+    {
+     "rid": "resp:244888231",
+     "time": "2100-01-02 14:00:00",
+     "item": "ventilator settings",
+     "value": "21.0 %"
+    },
+    {
+     "rid": "resp:240571712",
+     "time": "2100-01-02 23:12:00",
+     "item": "ventilator settings",
+     "value": "21.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x14, SpO2 x6, ventilator settings x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 3,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.75,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Levetiracetam is currently being given. -- The records show a levetiracetam administration from 05:00 to 11:47 on 2100-01-01, but no administration within 24 hours before the decision time of 2100-01-01 02:33. Treatment documentation mentions levetiracetam, but this does not confirm it is currently being given."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.75,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

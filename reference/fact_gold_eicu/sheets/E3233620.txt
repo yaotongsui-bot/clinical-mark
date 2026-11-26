@@ -1,0 +1,144 @@
+# E3233620   T = 2100-01-02 13:57:00   records before T: 362
+ICU stay 3233620 (Med-Surg ICU; Male, age 77; admission diagnosis: GI perforation/rupture, surgery for).
+
+## Atoms
+deepseek-v4.1-flash|E3233620A1::02 [presupposition] Nasal cannula oxygen therapy is currently being given.   <- Continue nasal cannula oxygen therapy at 3-4 L/min to maintain SaO2 ≥ 95%.
+deepseek-v4.1-flash|E3233620A2::05 [presupposition] Scheduled esomeprazole is currently being given.   <- Continue scheduled esomeprazole for stress ulcer prophylaxis.
+deepseek-v4.1-flash|E3233620A3::08 [observed] Breath sounds are diminished.   <- Monitor vital signs and oxygen saturation closely given diminished breath sounds and borderline oxygenation.
+deepseek-v4.1-flash|E3233620A3::09 [observed] Oxygenation is borderline.   <- Monitor vital signs and oxygen saturation closely given diminished breath sounds and borderline oxygenation.
+gpt-oss-120b|E3233620A1::02 [observed] Breath sounds are diminished.   <- Obtain a chest radiograph to assess for postoperative pulmonary complications given diminished breath sounds and persistent cough.
+gpt-oss-120b|E3233620A1::03 [observed] Cough is persistent.   <- Obtain a chest radiograph to assess for postoperative pulmonary complications given diminished breath sounds and persistent cough.
+gpt-oss-120b|E3233620A2::05 [presupposition] Broad-spectrum intravenous antibiotics are currently being given.   <- Continue broad‑spectrum intravenous antibiotics and obtain repeat blood cultures to monitor for ongoing infection indicated by leukocytosis.
+gpt-oss-120b|E3233620A2::07 [observed] Leukocytosis is present.   <- Continue broad‑spectrum intravenous antibiotics and obtain repeat blood cultures to monitor for ongoing infection indicated by leukocytosis.
+gpt-oss-120b|E3233620A3::09 [presupposition] An analgesic regimen is currently being given.   <- Maintain current analgesic regimen and reassess pain score in 1 hour; if pain remains ≥4, consider titrating morphine IV push per PRN order.
+qwen2.5-7b|E3233620A2::04 [presupposition] Low molecular weight heparin is currently being given.   <- Continue low molecular weight heparin for VTE prophylaxis.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 08:30:00): Medication LACTATED RINGERS IV
+  Running at decision time (scheduled order started 2100-01-01 15:00:00): Medication ESOMEPRAZOLE INJ IV
+  Running at decision time (scheduled order started 2100-01-01 17:30:00): Medication ALBUTEROL 0.5% NEB INH/NEB AS DIRECTED
+  Running at decision time (scheduled order started 2100-01-02 13:00:00): Medication ENOXAPARIN INJ SUBQ QAM
+
+## PRN orders
+  01-01 08:30 Order: MORPHINE INJ IV PUSH Q4H PRN (active at decision time)
+  01-01 08:30 Order: ONDANSETRON HCL INJ IV PUSH Q6H PRN (stopped 2100-01-01 14:10:00)
+  01-01 11:30 Order: ONDANSETRON HCL INJ IV PUSH PRN (stopped 2100-01-01 13:43:00)
+  01-01 12:30 Order: ONDANSETRON HCL INJ IV PUSH Q6H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication MORPHINE INJ IV PUSH ONETIME (2100-01-01 07:18:00 to 2100-01-01 07:19:00)
+  Medication LACTATED RINGERS IV (2100-01-01 11:30:00 to 2100-01-01 13:43:00)
+  Medication ALBUTEROL 0.5% NEB INH/NEB AS DIRECTED (2100-01-01 17:00:00 to 2100-01-01 17:08:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 23:41 0.3 %; 01-01 07:26 0.2 %
+  -eos: 01-01 23:41 0.2 %; 01-01 07:26 0.4 %
+  -lymphs: 01-01 23:41 3.7 %; 01-01 07:26 3 %
+  -monos: 01-01 23:41 6.6 %; 01-01 07:26 5.4 %
+  -polys: 01-01 23:41 89.2 %; 01-01 07:26 91 %
+  Alanine Aminotransferase (ALT): 01-02 09:07 14 IU/L; 01-01 23:41 13 IU/L; 01-01 07:26 14 IU/L
+  Albumin: 01-02 09:07 2.5 g/dL; 01-01 23:41 2.7 g/dL; 01-01 07:26 3.5 g/dL
+  Alkaline Phosphatase: 01-02 09:07 46 IU/L; 01-01 23:41 47 IU/L; 01-01 07:26 55 IU/L
+  Anion Gap: 01-02 09:07 9; 01-01 23:41 11; 01-01 07:26 14
+  Asparate Aminotransferase (AST): 01-02 09:07 17 IU/L; 01-01 23:41 15 IU/L; 01-01 07:26 16 IU/L
+  Bicarbonate: 01-02 09:07 26 mmol/L; 01-01 23:41 25 mmol/L; 01-01 07:26 24 mmol/L
+  Bilirubin, Total: 01-02 09:07 0.7 mg/dL; 01-01 23:41 0.9 mg/dL; 01-01 07:26 0.5 mg/dL
+  Calcium, Total: 01-02 09:07 8.4 mg/dL; 01-01 23:41 8.4 mg/dL; 01-01 07:26 9.2 mg/dL
+  Chloride: 01-02 09:07 103 mmol/L; 01-01 23:41 105 mmol/L; 01-01 07:26 104 mmol/L
+  Creatinine: 01-02 09:07 1.09 mg/dL; 01-01 23:41 1.02 mg/dL; 01-01 07:26 1.12 mg/dL
+  Glucose: 01-02 09:07 133 mg/dL; 01-01 23:41 133 mg/dL; 01-01 07:26 114 mg/dL
+  Glucose finger stick: 01-02 02:43 105 mg/dl
+  Hematocrit: 01-02 09:07 37.3 %; 01-01 23:41 37.7 %; 01-01 07:26 40.7 %
+  Hemoglobin: 01-02 09:07 12.5 g/dL; 01-01 23:41 12.7 g/dL; 01-01 07:26 13.5 g/dL
+  MCH: 01-02 09:07 41.7 pg; 01-01 23:41 41.6 pg; 01-01 07:26 41.2 pg
+  MCHC: 01-02 09:07 33.5 g/dL; 01-01 23:41 33.7 g/dL; 01-01 07:26 33.3 g/dL
+  MCV: 01-02 09:07 124.3 fL; 01-01 23:41 123.6 fL; 01-01 07:26 123.9 fL
+  MPV: 01-02 09:07 8.1 fl; 01-01 23:41 7.9 fl; 01-01 07:26 7.9 fl
+  Platelet Count: 01-02 09:07 149 k/uL; 01-01 23:41 164 k/uL; 01-01 07:26 186 k/uL
+  Potassium: 01-02 09:07 4.4 mmol/L; 01-01 23:41 4.7 mmol/L; 01-01 07:26 4.5 mmol/L
+  RBC: 01-02 09:07 3 m/uL; 01-01 23:41 3.05 m/uL; 01-01 07:26 3.29 m/uL
+  RDW: 01-02 09:07 14.9 %; 01-01 23:41 14.8 %; 01-01 07:26 14.8 %
+  Sodium: 01-02 09:07 134 mmol/L; 01-01 23:41 136 mmol/L; 01-01 07:26 137 mmol/L
+  Urea Nitrogen: 01-02 09:07 16 mg/dL; 01-01 23:41 16 mg/dL; 01-01 07:26 18 mg/dL
+  White Blood Cells: 01-02 09:07 23 k/uL; 01-01 23:41 21.1 k/uL; 01-01 07:26 27 k/uL
+  total protein: 01-02 09:07 4.8 g/dL; 01-01 23:41 4.8 g/dL; 01-01 07:26 5.7 g/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Arterial Blood Pressure diastolic: 93 mmHg @01-02 13:00   24h 69-93 (n=7)
+  Arterial Blood Pressure mean: 100 mmHg @01-02 13:00   24h 83-101 (n=7)
+  Arterial Blood Pressure systolic: 146 mmHg @01-02 13:00   24h 102-147 (n=7)
+  Bipap Delivery Mode: Facial BiPAP mask @01-01 12:15
+  Breath Sounds: Diminished @01-02 13:21
+  Cough Description: Loose non-productive @01-02 13:21   earlier: No cough @01-02 05:06; Strong non-productive @01-01 20:40
+  End Tidal CO2: 25 @01-02 03:00   24h 15-30 (n=5)
+  End Tidal CO2 Status: Maintained @01-02 13:00
+  Exhaled MV: 17.2 @01-01 12:15
+  Glasgow coma score Eyes: 4 @01-02 00:35
+  Glasgow coma score GCS Total: 15 @01-02 00:35
+  Glasgow coma score Motor: 6 @01-02 00:35
+  Glasgow coma score Verbal: 5 @01-02 00:35
+  Heart Rate: 101 bpm @01-02 13:06   24h 92-104 (n=15)
+  Inspired O2 Fraction: 40 % @01-01 12:15
+  Lung Sound Location: Throughout @01-02 13:21
+  Lung Sound Location Modifier: Anterior @01-02 13:21   earlier: Posterior @01-01 20:40
+  Mechanical Ventilator High Tidal Volume Alarm: 1200 @01-01 12:15
+  Non Invasive Blood Pressure diastolic: 104 mmHg @01-02 13:06   24h 71-104 (n=4)
+  Non Invasive Blood Pressure mean: 110 mmHg @01-02 13:06   24h 83-110 (n=4)
+  Non Invasive Blood Pressure systolic: 137 mmHg @01-02 13:06   24h 102-141 (n=4)
+  Non-invasive Ventilation Mode: Nasal cannula @01-02 13:21   earlier: S/T @01-01 12:15
+  O2 Flow: 3 L/min @01-02 13:21   24h 2-5 (n=16)
+  O2 saturation pulseoxymetry: 97 % @01-02 13:06   24h 92-97 (n=5)
+  PEEP set: 7 cmH2O @01-01 12:15
+  PSV Level: 14 cmH2O @01-01 12:15
+  Pain Level: 1 @01-02 13:00   24h 1-5 (n=8)
+  Pain Present: Yes @01-02 13:00   earlier: No @01-02 01:30
+  Pain Score/Goal Pain Goal: 5 @01-02 13:00   24h 4-5 (n=10)
+  Patient Leak: 56 @01-01 12:15
+  Peak Insp. Pressure: 16 cmH2O @01-01 12:15
+  Respiratory Device: 2 @01-02 00:35   24h 2-2 (n=3)
+  Respiratory Phase: Inspiratory & expiratory @01-02 13:21
+  Respiratory Rate: 18 insp/min @01-02 13:06   24h 14-19 (n=15)
+  Respiratory Rate (Set): 4 insp/min @01-01 12:15
+  Respiratory Rate (spontaneous): 18 insp/min @01-02 13:07   24h 15-19 (n=5)
+  Rise: 2 @01-01 12:15
+  SaO2: 96 @01-02 13:21   24h 91-97 (n=17)
+  Sputum Amount:  @01-02 05:06
+  Temperature Fahrenheit: 99.5 F @01-02 13:06   24h 99-99.5 (n=7)
+  Temperature Location: Core urinary catheter @01-02 13:06
+  Tidal Volume (observed): 694 mL @01-01 12:15
+  Type of Treatment: Standard @01-02 00:35
+  V60 Mask Leak Value: 1 @01-01 12:15
+
+## Treatments documented
+  01-01 14:20 neurologic | pain / agitation / altered mentation | analgesics
+  01-01 14:20 medications | stress ulcer treatment | esomeprazole
+  01-01 14:20 gastrointestinal | medications | antiemetic
+  01-01 14:20 gastrointestinal | medications | antibiotics
+  01-01 14:20 ventilation and oxygenation | oxygen therapy (< 40%) | nasal cannula
+  01-01 14:20 gastrointestinal | exploratory surgery | exploratory laparotomy
+  01-01 14:20 gastrointestinal | intravenous fluid administration | Lactated Ringer's administration
+  01-02 01:23 gastrointestinal | intravenous fluid administration | Lactated Ringer's administration
+  01-02 01:23 medications | stress ulcer treatment | esomeprazole
+  01-02 01:23 gastrointestinal | medications | antibiotics
+  01-02 01:23 infectious diseases | medications | therapeutic antibacterials
+  01-02 01:23 ventilation and oxygenation | oxygen therapy (< 40%) | nasal cannula
+  01-02 01:23 infectious diseases | cultures / immuno-assays | cultures
+  01-02 01:23 neurologic | pain / agitation / altered mentation | analgesics
+  01-02 01:23 gastrointestinal | medications | antiemetic
+  01-02 01:23 vascular disorders | VTE prophylaxis | compression stockings
+  01-02 01:23 gastrointestinal | exploratory surgery | exploratory laparotomy
+  01-02 13:10 gastrointestinal | exploratory surgery | exploratory laparotomy
+  01-02 13:10 infectious diseases | cultures / immuno-assays | cultures
+  01-02 13:10 neurologic | pain / agitation / altered mentation | analgesics
+  01-02 13:10 infectious diseases | medications | therapeutic antibacterials
+  01-02 13:10 gastrointestinal | medications | antiemetic
+  01-02 13:10 vascular disorders | VTE prophylaxis | compression stockings
+  01-02 13:10 gastrointestinal | intravenous fluid administration | Lactated Ringer's administration
+  01-02 13:10 vascular disorders | VTE prophylaxis | low molecular weight heparin
+  01-02 13:10 gastrointestinal | medications | antibiotics
+  01-02 13:10 ventilation and oxygenation | oxygen therapy (< 40%) | nasal cannula
+  01-02 13:10 medications | stress ulcer treatment | esomeprazole
+
+## Microbiology

@@ -1,0 +1,127 @@
+# E490454   T = 2100-01-02 23:35:00   records before T: 363
+ICU stay 490454 (Med-Surg ICU; Male, age 89; admission diagnosis: Emphysema/bronchitis).
+
+## Atoms
+deepseek-v4.1-flash|E490454A1::02 [presupposition] The patient is currently on non-invasive ventilation with BiPAP mask.   <- Continue non-invasive ventilation with BiPAP mask given recurrent hypoxemia (SpO2 91% at 23:20) after weaning to nasal cannula.
+deepseek-v4.1-flash|E490454A1::03 [observed] Recurrent hypoxemia is present.   <- Continue non-invasive ventilation with BiPAP mask given recurrent hypoxemia (SpO2 91% at 23:20) after weaning to nasal cannula.
+deepseek-v4.1-flash|E490454A1::04 [observed] SpO2 is 91% at 23:20.   <- Continue non-invasive ventilation with BiPAP mask given recurrent hypoxemia (SpO2 91% at 23:20) after weaning to nasal cannula.
+deepseek-v4.1-flash|E490454A1::05 [observed] The patient was weaned to nasal cannula.   <- Continue non-invasive ventilation with BiPAP mask given recurrent hypoxemia (SpO2 91% at 23:20) after weaning to nasal cannula.
+deepseek-v4.1-flash|E490454A2::08 [presupposition] The patient is currently on BiPAP.   <- Monitor oxygen saturation and respiratory rate closely on BiPAP to assess response and need for further respiratory support.
+deepseek-v4.1-flash|E490454A3::10 [presupposition] Worsening hypoxemia is present.   <- Assess for possible causes of worsening hypoxemia, including bronchospasm, fluid overload, or mucus plugging, and consider need for bronchodilator therapy or diuresis.
+gpt-oss-120b|E490454A1::02 [presupposition] The patient is currently on non-invasive ventilation with BiPAP.   <- Continue non‑invasive ventilation with BiPAP and titrate FiO₂ to maintain SpO₂ ≥ 92 % while monitoring for respiratory fatigue.
+qwen2.5-7b|E490454A1::02 [presupposition] The patient is currently on non-invasive ventilation with a BiPAP/CPAP mask.   <- Continue non-invasive ventilation with a BiPAP/CPAP mask.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 23:58:00): Medication PROTONIX PO
+  Running at decision time (scheduled order started 2100-01-01 23:59:00): Medication VENTOLIN 2.5MG/0.5ML INH
+  Running at decision time (scheduled order started 2100-01-01 23:59:00): Medication ATROVENT INH
+  Running at decision time (scheduled order started 2100-01-02 00:00:00): Medication NORVASC PO DAILY
+  Running at decision time (scheduled order started 2100-01-02 00:01:00): Medication FLOMAX PO HS
+  Running at decision time (scheduled order started 2100-01-02 01:38:00): Medication PULMICORT RESPULE INH
+  Running at decision time (scheduled order started 2100-01-02 01:39:00): Medication ATROVENT INH RQ6
+  Running at decision time (scheduled order started 2100-01-02 02:37:00): Medication LASIX IV Q12H
+
+## PRN orders
+  01-01 23:58 Order: RESTORIL PO HSPRN PRN (active at decision time)
+  01-01 23:59 Order: VENTOLIN 2.5MG/0.5ML INH Q2HPRN PRN (active at decision time)
+  01-02 00:20 Order: XANAX PO Q8HPRN PRN (stopped 2100-01-02 02:19:00)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication Solu-MEDROL (PF) IV Q12H (2100-01-01 23:58:00 to 2100-01-02 17:24:00)
+  Medication LASIX PO DAILY (2100-01-02 00:00:00 to 2100-01-02 02:36:00)
+  Medication PROTONIX PO DAILYACB (2100-01-02 01:40:00 to 2100-01-02 01:42:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-02 09:00 0 %; 01-01 16:40 1 %
+  -eos: 01-02 09:00 0 %; 01-01 16:40 2 %
+  -lymphs: 01-02 09:00 3 %; 01-01 16:40 10 %
+  -monos: 01-02 09:00 1 %; 01-01 16:40 8 %
+  -polys: 01-02 09:00 96 %; 01-01 16:40 79 %
+  Anion Gap: 01-02 09:00 13; 01-01 16:40 19
+  Base Excess: 01-02 10:10 1.9 mmol/L; 01-01 23:02 0.2 mmol/L; 01-01 16:43 -0.3 mmol/L
+  Bicarbonate: 01-02 09:00 26 mmol/L; 01-01 16:40 24 mmol/L
+  Bicarbonate (blood gas HCO3): 01-02 10:10 28.3 mmol/L; 01-01 23:02 25.8 mmol/L; 01-01 16:43 23.7 mmol/L
+  Calcium, Total: 01-02 09:00 9.1 mg/dL
+  Carboxyhemoglobin: 01-02 10:10 1.5 %; 01-01 23:02 1.6 %; 01-01 16:43 1.8 %
+  Chloride: 01-02 09:00 105 mmol/L; 01-01 16:40 106 mmol/L
+  Creatinine: 01-02 09:00 2.3 mg/dL; 01-01 16:40 2.4 mg/dL
+  FiO2: 01-02 10:10 80 %; 01-01 23:02 100 %; 01-01 16:43 21 %
+  Glucose: 01-02 09:00 109 mg/dL; 01-01 16:40 142 mg/dL
+  Glucose finger stick: 01-01 23:29 107 mg/dL
+  Hematocrit: 01-02 09:00 39.9 %; 01-01 16:40 41.3 %
+  Hemoglobin: 01-02 09:00 13.2 g/dL; 01-01 16:40 13.9 g/dL
+  MCH: 01-02 09:00 29 pg; 01-01 16:40 29 pg
+  MCHC: 01-02 09:00 33 g/dL; 01-01 16:40 34 g/dL
+  MCV: 01-02 09:00 88 fL; 01-01 16:40 87 fL
+  MPV: 01-02 09:00 11.3 fL; 01-01 16:40 10.9 fL
+  Methemoglobin: 01-02 10:10 0.3 %; 01-01 23:02 0 %; 01-01 16:43 0.1 %
+  O2 Content: 01-02 10:10 17.7 mL/dL; 01-01 23:02 18.4 mL/dL; 01-01 16:43 14.3 mL/dL
+  Oxygen Saturation: 01-02 10:10 95.4 %; 01-01 23:02 97.5 %; 01-01 16:43 75.9 %
+  Platelet Count: 01-02 09:00 188 K/uL; 01-01 16:40 210 K/uL
+  Potassium: 01-02 09:00 4.4 mmol/L; 01-01 16:40 4.6 mmol/L
+  RBC: 01-02 09:00 4.56 M/uL; 01-01 16:40 4.73 M/uL
+  RDW: 01-02 09:00 15.4 %; 01-01 16:40 15.4 %
+  Sodium: 01-02 09:00 144 mmol/L; 01-01 16:40 149 mmol/L
+  Urea Nitrogen: 01-02 09:00 40 mg/dL; 01-01 16:40 42 mg/dL
+  White Blood Cells: 01-02 09:00 9.7 K/uL; 01-01 16:40 10.2 K/uL
+  pCO2: 01-02 10:10 51.4 mmHg; 01-01 23:02 45.7 mmHg; 01-01 16:43 36.6 mmHg
+  pH: 01-02 10:10 7.358; 01-01 23:02 7.37; 01-01 16:43 7.429
+  pO2: 01-02 10:10 77.6 mmHg; 01-01 23:02 96.1 mmHg; 01-01 16:43 41.6 mmHg
+  troponin - I: 01-01 16:40 0.02 ng/mL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Delirium Scale/Score Delirium Scale: CAM-ICU @01-02 14:00
+  Delirium Scale/Score Delirium Score: No @01-02 14:00
+  Glasgow coma score Eyes: 4 @01-02 21:00   24h 4-4 (n=6)
+  Glasgow coma score GCS Total: 15 @01-02 21:00   24h 15-15 (n=6)
+  Glasgow coma score Motor: 6 @01-02 21:00   24h 6-6 (n=6)
+  Glasgow coma score Verbal: 5 @01-02 21:00   24h 5-5 (n=6)
+  Glucose finger stick: 107 mg/dL @01-01 23:30
+  Head of Bed Elevation: Yes @01-02 13:30
+  Heart Rate: 66 bpm @01-02 23:20   24h 61-89 (n=22)
+  Inspired O2 Fraction: 80 % @01-02 13:30   24h 80-100 (n=3)
+  Non Invasive Blood Pressure diastolic: 63 mmHg @01-02 23:20   24h 52-77 (n=22)
+  Non Invasive Blood Pressure mean: 80 mmHg @01-02 23:20   24h 70-93 (n=22)
+  Non Invasive Blood Pressure systolic: 128 mmHg @01-02 23:20   24h 123-152 (n=22)
+  O2 Delivery Device(s): Bipap mask (charted: BiPAP/CPAP) @01-02 23:20   earlier: Nasal cannula (charted: nasal cannula) @01-02 23:00; Venti mask (charted: venturi mask) @01-02 18:00
+  O2 L/%: 80 @01-02 11:00   24h 80-100 (n=9)
+  O2 saturation pulseoxymetry: 91 % @01-02 23:20   24h 91-100 (n=22)
+  Pain Level: 0 @01-02 21:00   24h 0-0 (n=5)
+  Pain Score/Goal Pain Goal: 0 @01-02 21:00   24h 0-0 (n=5)
+  Respiratory Rate: 18 insp/min @01-02 23:20   24h 16-26 (n=22)
+  Respiratory Rate (spontaneous): 24 insp/min @01-02 13:30   24h 19-24 (n=3)
+  SaO2: 100 @01-02 13:30   24h 97-100 (n=3)
+  Temperature Fahrenheit: 97.7 F @01-02 21:00   24h 97.7-98.4 (n=6)
+  Temperature Location: oral @01-02 21:00   earlier: axillary @01-02 09:00
+
+## Treatments documented
+  01-02 03:18 medications | glucocorticoid administration | parenteral
+  01-02 03:18 bronchodilator | beta-agonist | albuterol (Proventil, Ventolin)
+  01-02 03:18 cardiovascular | arrhythmias | anticoagulant administration
+  01-02 03:18 medications | bronchodilator | ipratropium
+  01-02 03:18 medications | bronchodilator | nebulized
+  01-02 03:18 medications | stress ulcer prophylaxis | pantoprazole
+  01-02 03:18 pulmonary | ventilation and oxygenation | oxygen therapy (40% to 60%)
+  01-02 03:18 medications | glucocorticoid administration | inhaled
+  01-02 03:18 ventricular dysfunction | intravenous diuretic | IV furosemide
+  01-02 03:18 cardiovascular | hypertension | calcium channel blocker
+  01-02 03:18 vascular disorders | VTE prophylaxis | compression stockings
+  01-02 03:18 ventilation and oxygenation | non-invasive ventilation | face mask
+  01-02 03:18 pulmonary | consultations | Pulmonary medicine consultation
+  01-02 13:08 cardiovascular | arrhythmias | anticoagulant administration
+  01-02 13:08 vascular disorders | VTE prophylaxis | compression stockings
+  01-02 13:08 medications | glucocorticoid administration | inhaled
+  01-02 13:08 ventilation and oxygenation | non-invasive ventilation | face mask
+  01-02 13:08 medications | glucocorticoid administration | parenteral
+  01-02 13:08 bronchodilator | beta-agonist | albuterol (Proventil, Ventolin)
+  01-02 13:08 cardiovascular | hypertension | calcium channel blocker
+  01-02 13:08 pulmonary | consultations | Pulmonary medicine consultation
+  01-02 13:08 medications | stress ulcer prophylaxis | pantoprazole
+  01-02 13:08 medications | bronchodilator | ipratropium
+  01-02 13:08 ventricular dysfunction | intravenous diuretic | IV furosemide
+  01-02 13:08 pulmonary | ventilation and oxygenation | oxygen therapy (40% to 60%)
+  01-02 13:08 medications | bronchodilator | nebulized
+
+## Microbiology

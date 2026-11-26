@@ -1,0 +1,221 @@
+{
+ "case_id": "E2230341",
+ "decision_point": "2100-01-02 14:38:00",
+ "claims": [
+  "Monitor vital signs and oxygen saturation closely.",
+  "Continue Eptifibatide infusion at 20.6 ml/hour.",
+  "Assess patient for signs of neurological changes."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2230341A1::01",
+   "claim_id": "E2230341A1",
+   "claim_text": "Monitor vital signs and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor vital signs closely.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2230341A1::02",
+   "claim_id": "E2230341A1",
+   "claim_text": "Monitor vital signs and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation closely.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2230341A2::03",
+   "claim_id": "E2230341A2",
+   "claim_text": "Continue Eptifibatide infusion at 20.6 ml/hour.",
+   "kind": "action",
+   "text": "Continue Eptifibatide infusion at 20.6 ml/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Eptifibatide infusion",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E2230341A2::04",
+   "claim_id": "E2230341A2",
+   "claim_text": "Continue Eptifibatide infusion at 20.6 ml/hour.",
+   "kind": "fact",
+   "text": "Eptifibatide infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2230341A3::05",
+   "claim_id": "E2230341A3",
+   "claim_text": "Assess patient for signs of neurological changes.",
+   "kind": "action",
+   "text": "Assess patient for signs of neurological changes.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "neurological changes",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2230341A2::04",
+   "claim_id": "E2230341A2",
+   "claim_text": "Continue Eptifibatide infusion at 20.6 ml/hour.",
+   "kind": "fact",
+   "text": "Eptifibatide infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that Eptifibatide infusion was started at 17:58 on 2100-01-01 and was still running at decision time. However, the current rate of 20.6 ml/hour was only set at 05:00 on 2100-01-02, which is after the decision time. Therefore, the statement that Eptifibatide infusion is currently being given at 20.6 ml/hour is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Eptifibatide ():200",
+     "time": "2100-01-01 17:58:00",
+     "item": "Infusion/input Eptifibatide at 100 (2100-01-01 17:58:00 to 2100-01-02 00:24:00)"
+    },
+    {
+     "rid": "inf:Eptifibatide (ml/hr):862",
+     "time": "2100-01-02 05:00:00",
+     "item": "Infusion/input Eptifibatide at 20.6 ml/hour (2100-01-02 05:00:00 to 2100-01-02 05:00:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2230341A1::01",
+   "claim_id": "E2230341A1",
+   "claim_text": "Monitor vital signs and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor vital signs closely.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No vital signs measurement in the 1.7 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2230341A1::02",
+   "claim_id": "E2230341A1",
+   "claim_text": "Monitor vital signs and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation closely.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No SpO2 measurement in the 1.7 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2230341A2::03",
+   "claim_id": "E2230341A2",
+   "claim_text": "Continue Eptifibatide infusion at 20.6 ml/hour.",
+   "kind": "action",
+   "text": "Continue Eptifibatide infusion at 20.6 ml/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Eptifibatide infusion",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2230341A3::05",
+   "claim_id": "E2230341A3",
+   "claim_text": "Assess patient for signs of neurological changes.",
+   "kind": "action",
+   "text": "Assess patient for signs of neurological changes.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "neurological changes",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 1.7,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Eptifibatide infusion is currently being given. -- The records show that Eptifibatide infusion was started at 17:58 on 2100-01-01 and was still running at decision time. However, the current rate of 20.6 ml/hour was only set at 05:00 on 2100-01-02, which is after the decision time. Therefore, the statement that Eptifibatide infusion is currently being given at 20.6 ml/hour is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

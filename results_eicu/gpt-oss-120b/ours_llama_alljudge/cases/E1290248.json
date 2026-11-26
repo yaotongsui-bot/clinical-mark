@@ -1,0 +1,339 @@
+{
+ "case_id": "E1290248",
+ "decision_point": "2100-01-02 14:06:00",
+ "claims": [
+  "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+  "Continue intravenous pantoprazole infusion for ulcer prophylaxis and bleeding control.",
+  "Schedule repeat hemoglobin and hematocrit measurement in 6 hours to monitor response to therapy."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1290248A1::01",
+   "claim_id": "E1290248A1",
+   "claim_text": "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1290248A1::02",
+   "claim_id": "E1290248A1",
+   "claim_text": "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1290248A1::03",
+   "claim_id": "E1290248A1",
+   "claim_text": "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+   "kind": "fact",
+   "text": "Hemoglobin is 7.1 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1290248A2::04",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous pantoprazole infusion for ulcer prophylaxis and bleeding control.",
+   "kind": "action",
+   "text": "Continue intravenous pantoprazole infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pantoprazole",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1290248A2::05",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous pantoprazole infusion for ulcer prophylaxis and bleeding control.",
+   "kind": "fact",
+   "text": "Intravenous pantoprazole infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1290248A3::06",
+   "claim_id": "E1290248A3",
+   "claim_text": "Schedule repeat hemoglobin and hematocrit measurement in 6 hours to monitor response to therapy.",
+   "kind": "action",
+   "text": "Schedule repeat hemoglobin measurement in 6 hours.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "hemoglobin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1290248A3::07",
+   "claim_id": "E1290248A3",
+   "claim_text": "Schedule repeat hemoglobin and hematocrit measurement in 6 hours to monitor response to therapy.",
+   "kind": "action",
+   "text": "Schedule repeat hematocrit measurement in 6 hours.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "hematocrit",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1290248A1::02",
+   "claim_id": "E1290248A1",
+   "claim_text": "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records state that blood product administration is in progress, but there is no record of anemia being present or a packed red blood cell transfusion being ordered. The hemoglobin level is 7.1 g/dL, which is below the normal range, but this is not sufficient to support the statement that anemia is present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:32792431",
+     "time": "2100-01-01 20:58:00",
+     "item": "Treatment documented: gastrointestinal | intravenous fluid administration | blood product administration"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1290248A1::03",
+   "claim_id": "E1290248A1",
+   "claim_text": "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+   "kind": "fact",
+   "text": "Hemoglobin is 7.1 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement says Hemoglobin is 7.1 g/dL, but the most recent relevant record (R46) shows Hemoglobin: 7.1 g/dL, which supports the statement. However, there is also a record (R33) that shows Hemoglobin: 7.9 g/dL, which contradicts the statement. Therefore, the statement is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:309263315",
+     "time": "2100-01-02 09:04:00",
+     "item": "Hemoglobin: 7.1 g/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1290248A2::05",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous pantoprazole infusion for ulcer prophylaxis and bleeding control.",
+   "kind": "fact",
+   "text": "Intravenous pantoprazole infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The record R1 shows that the medication pantoprazole sodium 40 mg iv solr IV Continuous is running at decision time, which supports the statement that intravenous pantoprazole infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:44578624",
+     "time": "2100-01-01 12:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 12:00:00): Medication pantoprazole sodium 40 mg iv solr IV Continuous"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1290248A1::01",
+   "claim_id": "E1290248A1",
+   "claim_text": "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1290248A2::04",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous pantoprazole infusion for ulcer prophylaxis and bleeding control.",
+   "kind": "action",
+   "text": "Continue intravenous pantoprazole infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pantoprazole",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No stress ulcer prophylaxis action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1290248A3::06",
+   "claim_id": "E1290248A3",
+   "claim_text": "Schedule repeat hemoglobin and hematocrit measurement in 6 hours to monitor response to therapy.",
+   "kind": "action",
+   "text": "Schedule repeat hemoglobin measurement in 6 hours.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "hemoglobin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:304933917",
+     "time": "2100-01-02 22:04:00",
+     "item": "hemoglobin",
+     "value": "9.5 g/dL"
+    },
+    {
+     "rid": "lab:308138356",
+     "time": "2100-01-03 08:31:00",
+     "item": "hemoglobin",
+     "value": "10.5 g/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): hemoglobin x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1290248A3::07",
+   "claim_id": "E1290248A3",
+   "claim_text": "Schedule repeat hemoglobin and hematocrit measurement in 6 hours to monitor response to therapy.",
+   "kind": "action",
+   "text": "Schedule repeat hematocrit measurement in 6 hours.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "hematocrit",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:304933915",
+     "time": "2100-01-02 22:04:00",
+     "item": "hematocrit",
+     "value": "28.9 %"
+    },
+    {
+     "rid": "lab:308138354",
+     "time": "2100-01-03 08:31:00",
+     "item": "hematocrit",
+     "value": "32.1 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): hematocrit x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Anemia is present. -- The records state that blood product administration is in progress, but there is no record of anemia being present or a packed red blood cell transfusion being ordered. The hemoglobin level is 7.1 g/dL, which is below the normal range, but this is not sufficient to support the statement that anemia is present.",
+    "Hemoglobin is 7.1 g/dL. -- The statement says Hemoglobin is 7.1 g/dL, but the most recent relevant record (R46) shows Hemoglobin: 7.1 g/dL, which supports the statement. However, there is also a record (R33) that shows Hemoglobin: 7.9 g/dL, which contradicts the statement. Therefore, the statement is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

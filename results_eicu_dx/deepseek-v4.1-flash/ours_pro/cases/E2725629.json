@@ -1,0 +1,402 @@
+{
+ "case_id": "E2725629",
+ "decision_point": "2100-01-02 20:35:00",
+ "claims": [
+  "Continue the currently running amiodarone infusion at 68 units as ordered for rhythm control.",
+  "Monitor heart rate and blood pressure closely given the history of tachyarrhythmia and hypotension.",
+  "Assess for signs of bleeding or worsening anemia given hemoglobin of 8.3 g/dL."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2725629A1::01",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the currently running amiodarone infusion at 68 units as ordered for rhythm control.",
+   "kind": "action",
+   "text": "Continue amiodarone infusion at 68 units.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "amiodarone infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2725629A1::02",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the currently running amiodarone infusion at 68 units as ordered for rhythm control.",
+   "kind": "fact",
+   "text": "Amiodarone infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2725629A2::03",
+   "claim_id": "E2725629A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given the history of tachyarrhythmia and hypotension.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2725629A2::04",
+   "claim_id": "E2725629A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given the history of tachyarrhythmia and hypotension.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2725629A2::05",
+   "claim_id": "E2725629A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given the history of tachyarrhythmia and hypotension.",
+   "kind": "fact",
+   "text": "There is a history of tachyarrhythmia.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2725629A2::06",
+   "claim_id": "E2725629A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given the history of tachyarrhythmia and hypotension.",
+   "kind": "fact",
+   "text": "There is a history of hypotension.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2725629A3::07",
+   "claim_id": "E2725629A3",
+   "claim_text": "Assess for signs of bleeding or worsening anemia given hemoglobin of 8.3 g/dL.",
+   "kind": "action",
+   "text": "Assess for signs of bleeding.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "bleeding",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2725629A3::08",
+   "claim_id": "E2725629A3",
+   "claim_text": "Assess for signs of bleeding or worsening anemia given hemoglobin of 8.3 g/dL.",
+   "kind": "action",
+   "text": "Assess for worsening anemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "anemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2725629A3::09",
+   "claim_id": "E2725629A3",
+   "claim_text": "Assess for signs of bleeding or worsening anemia given hemoglobin of 8.3 g/dL.",
+   "kind": "fact",
+   "text": "Hemoglobin is 8.3 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2725629A1::02",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the currently running amiodarone infusion at 68 units as ordered for rhythm control.",
+   "kind": "fact",
+   "text": "Amiodarone infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R49 shows an amiodarone infusion running at decision time at 68 units, which directly supports the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Amiodarone ():1277",
+     "time": "2100-01-02 17:52:00",
+     "item": "Running at decision time (started 2100-01-02 17:52:00): Infusion/input Amiodarone at 68"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2725629A2::05",
+   "claim_id": "E2725629A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given the history of tachyarrhythmia and hypotension.",
+   "kind": "fact",
+   "text": "There is a history of tachyarrhythmia.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The admission diagnosis record explicitly states 'Rhythm disturbance (atrial, supraventricular)', which directly supports a history of tachyarrhythmia.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:2725629:dx",
+     "time": "2100-01-01 20:35:00",
+     "item": "Admission diagnosis (APACHE): Rhythm disturbance (atrial, supraventricular)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2725629A2::06",
+   "claim_id": "E2725629A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given the history of tachyarrhythmia and hypotension.",
+   "kind": "fact",
+   "text": "There is a history of hypotension.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "The supplied records contain no blood pressure measurements or any mention of hypotension. Therefore, the statement about a history of hypotension is not addressed by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "E2725629A3::09",
+   "claim_id": "E2725629A3",
+   "claim_text": "Assess for signs of bleeding or worsening anemia given hemoglobin of 8.3 g/dL.",
+   "kind": "fact",
+   "text": "Hemoglobin is 8.3 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:664860329",
+     "time": "2100-01-02 10:50:00",
+     "item": "Hemoglobin",
+     "value": 8.3,
+     "unit": "g/dL",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "The stated hemoglobin (8.3) matches recorded values before the decision (8.3 at 2100-01-02 10:50:00).",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2725629A1::01",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the currently running amiodarone infusion at 68 units as ordered for rhythm control.",
+   "kind": "action",
+   "text": "Continue amiodarone infusion at 68 units.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "amiodarone infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 23.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2725629A2::03",
+   "claim_id": "E2725629A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given the history of tachyarrhythmia and hypotension.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1860831099",
+     "time": "2100-01-02 20:45:00",
+     "item": "heart rate",
+     "value": "74.0 bpm"
+    },
+    {
+     "rid": "nurse:1778313104",
+     "time": "2100-01-02 21:00:00",
+     "item": "heart rate",
+     "value": "75.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 23.9 h observation window after the decision (24 h or until ICU discharge): heart rate x67.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2725629A2::04",
+   "claim_id": "E2725629A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given the history of tachyarrhythmia and hypotension.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1818325889",
+     "time": "2100-01-02 20:45:00",
+     "item": "systolic BP",
+     "value": "123.0 mmHg"
+    },
+    {
+     "rid": "nurse:1883368095",
+     "time": "2100-01-02 21:00:00",
+     "item": "systolic BP",
+     "value": "126.0 mmHg"
+    },
+    {
+     "rid": "nurse:1883368097",
+     "time": "2100-01-02 21:00:00",
+     "item": "mean arterial pressure",
+     "value": "69.0 mmHg"
+    },
+    {
+     "rid": "nurse:1873774287",
+     "time": "2100-01-02 21:30:00",
+     "item": "mean arterial pressure",
+     "value": "78.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 23.9 h observation window after the decision (24 h or until ICU discharge): systolic BP x28, mean arterial pressure x25.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2725629A3::07",
+   "claim_id": "E2725629A3",
+   "claim_text": "Assess for signs of bleeding or worsening anemia given hemoglobin of 8.3 g/dL.",
+   "kind": "action",
+   "text": "Assess for signs of bleeding.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "bleeding",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2725629A3::08",
+   "claim_id": "E2725629A3",
+   "claim_text": "Assess for signs of bleeding or worsening anemia given hemoglobin of 8.3 g/dL.",
+   "kind": "action",
+   "text": "Assess for worsening anemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "anemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 23.9,
+ "scoresheet": {
+  "n": 4,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.75,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.25,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "There is a history of hypotension. -- The supplied records contain no blood pressure measurements or any mention of hypotension. Therefore, the statement about a history of hypotension is not addressed by the records."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

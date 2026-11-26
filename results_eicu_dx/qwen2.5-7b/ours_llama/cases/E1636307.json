@@ -1,0 +1,417 @@
+{
+ "case_id": "E1636307",
+ "decision_point": "2100-01-02 00:42:00",
+ "claims": [
+  "Monitor blood glucose levels closely and adjust insulin therapy as needed.",
+  "Continue intravenous sedation and analgesia to maintain patient comfort.",
+  "Assess patient for signs of respiratory distress and adjust mechanical ventilation settings if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1636307A1::01",
+   "claim_id": "E1636307A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1636307A1::02",
+   "claim_id": "E1636307A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Adjust insulin therapy as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1636307A2::03",
+   "claim_id": "E1636307A2",
+   "claim_text": "Continue intravenous sedation and analgesia to maintain patient comfort.",
+   "kind": "action",
+   "text": "Continue intravenous sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous sedation",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1636307A2::04",
+   "claim_id": "E1636307A2",
+   "claim_text": "Continue intravenous sedation and analgesia to maintain patient comfort.",
+   "kind": "fact",
+   "text": "Intravenous sedation is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1636307A2::05",
+   "claim_id": "E1636307A2",
+   "claim_text": "Continue intravenous sedation and analgesia to maintain patient comfort.",
+   "kind": "action",
+   "text": "Continue intravenous analgesia.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous analgesia",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E1636307A2::06",
+   "claim_id": "E1636307A2",
+   "claim_text": "Continue intravenous sedation and analgesia to maintain patient comfort.",
+   "kind": "fact",
+   "text": "Intravenous analgesia is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1636307A3::07",
+   "claim_id": "E1636307A3",
+   "claim_text": "Assess patient for signs of respiratory distress and adjust mechanical ventilation settings if necessary.",
+   "kind": "action",
+   "text": "Assess patient for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1636307A3::08",
+   "claim_id": "E1636307A3",
+   "claim_text": "Assess patient for signs of respiratory distress and adjust mechanical ventilation settings if necessary.",
+   "kind": "action",
+   "text": "Adjust mechanical ventilation settings if necessary.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "mechanical ventilation settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1636307A3::09",
+   "claim_id": "E1636307A3",
+   "claim_text": "Assess patient for signs of respiratory distress and adjust mechanical ventilation settings if necessary.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1636307A2::04",
+   "claim_id": "E1636307A2",
+   "claim_text": "Continue intravenous sedation and analgesia to maintain patient comfort.",
+   "kind": "fact",
+   "text": "Intravenous sedation is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient is receiving intravenous sedation, but the most recent administration record is from 02:15, which is more than 24 hours before the decision time. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:61714100",
+     "time": "2100-01-01 00:57:00",
+     "item": "Order: HYDROmorphone Intravenous Every 3 hours PRN (active at decision time)"
+    },
+    {
+     "rid": "med:59751021",
+     "time": "2100-01-01 00:57:00",
+     "item": "Order: nalOXone Intravenous As needed PRN (active at decision time)"
+    },
+    {
+     "rid": "med:57874229",
+     "time": "2100-01-01 01:23:00",
+     "item": "Order: fentaNYL Intravenous Every 5 min PRN (active at decision time)"
+    },
+    {
+     "rid": "med:58579859",
+     "time": "2100-01-01 01:45:00",
+     "item": "Medication sodium chloride 0.9 % Intravenous Continuous (2100-01-01 01:45:00 to 2100-01-01 17:08:00)"
+    },
+    {
+     "rid": "med:58048555",
+     "time": "2100-01-01 02:15:00",
+     "item": "Medication propofol Intravenous Continuous (2100-01-01 02:15:00 to 2100-01-01 17:08:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1636307A2::06",
+   "claim_id": "E1636307A2",
+   "claim_text": "Continue intravenous sedation and analgesia to maintain patient comfort.",
+   "kind": "fact",
+   "text": "Intravenous analgesia is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that nalOXone and HYDROmorphone were ordered and active at decision time, but there is no record of intravenous analgesia being administered. The treatment documentation mentions analgesics, but it does not specify intravenous analgesia.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:59751021",
+     "time": "2100-01-01 00:57:00",
+     "item": "Order: nalOXone Intravenous As needed PRN (active at decision time)"
+    },
+    {
+     "rid": "med:61714100",
+     "time": "2100-01-01 00:57:00",
+     "item": "Order: HYDROmorphone Intravenous Every 3 hours PRN (active at decision time)"
+    },
+    {
+     "rid": "treat:45346420",
+     "time": "2100-01-01 01:06:00",
+     "item": "Treatment documented: analgesics /sedatives/ nmbs | analgesics | narcotic analgesic"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1636307A3::09",
+   "claim_id": "E1636307A3",
+   "claim_text": "Assess patient for signs of respiratory distress and adjust mechanical ventilation settings if necessary.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "resp:121440193",
+     "time": "2100-01-01 15:00:00",
+     "item": "PEEP set: 5 cmH2O"
+    }
+   ],
+   "reason": "The last ventilator/intubation record ('PEEP set: 5 cmH2O') was 9.7 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1636307A1::01",
+   "claim_id": "E1636307A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:409383829",
+     "time": "2100-01-02 03:56:00",
+     "item": "glucose",
+     "value": "130.0 mg/dL"
+    },
+    {
+     "rid": "nurse:1209923361",
+     "time": "2100-01-02 04:00:00",
+     "item": "glucose",
+     "value": "130.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 9.6 h observation window after the decision (24 h or until ICU discharge): glucose x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1636307A1::02",
+   "claim_id": "E1636307A1",
+   "claim_text": "Monitor blood glucose levels closely and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Adjust insulin therapy as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 9.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1636307A2::03",
+   "claim_id": "E1636307A2",
+   "claim_text": "Continue intravenous sedation and analgesia to maintain patient comfort.",
+   "kind": "action",
+   "text": "Continue intravenous sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous sedation",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 9.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1636307A2::05",
+   "claim_id": "E1636307A2",
+   "claim_text": "Continue intravenous sedation and analgesia to maintain patient comfort.",
+   "kind": "action",
+   "text": "Continue intravenous analgesia.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous analgesia",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 9.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1636307A3::07",
+   "claim_id": "E1636307A3",
+   "claim_text": "Assess patient for signs of respiratory distress and adjust mechanical ventilation settings if necessary.",
+   "kind": "action",
+   "text": "Assess patient for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1636307A3::08",
+   "claim_id": "E1636307A3",
+   "claim_text": "Assess patient for signs of respiratory distress and adjust mechanical ventilation settings if necessary.",
+   "kind": "action",
+   "text": "Adjust mechanical ventilation settings if necessary.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "mechanical ventilation settings",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 9.6 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 9.6,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous sedation is currently being given. -- The records show that the patient is receiving intravenous sedation, but the most recent administration record is from 02:15, which is more than 24 hours before the decision time. The statement is not supported by the records.",
+    "Intravenous analgesia is currently being given. -- The records show that nalOXone and HYDROmorphone were ordered and active at decision time, but there is no record of intravenous analgesia being administered. The treatment documentation mentions analgesics, but it does not specify intravenous analgesia.",
+    "The patient is currently on mechanical ventilation. -- The last ventilator/intubation record ('PEEP set: 5 cmH2O') was 9.7 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

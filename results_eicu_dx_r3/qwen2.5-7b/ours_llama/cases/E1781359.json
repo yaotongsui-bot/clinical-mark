@@ -1,0 +1,240 @@
+{
+ "case_id": "E1781359",
+ "decision_point": "2100-01-02 19:47:00",
+ "claims": [
+  "Monitor respiratory rate and oxygen saturation.",
+  "Continue intravenous fluid administration.",
+  "Assess Glasgow Coma Scale regularly."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1781359A1::01",
+   "claim_id": "E1781359A1",
+   "claim_text": "Monitor respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1781359A1::02",
+   "claim_id": "E1781359A1",
+   "claim_text": "Monitor respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1781359A2::03",
+   "claim_id": "E1781359A2",
+   "claim_text": "Continue intravenous fluid administration.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1781359A2::04",
+   "claim_id": "E1781359A2",
+   "claim_text": "Continue intravenous fluid administration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1781359A3::05",
+   "claim_id": "E1781359A3",
+   "claim_text": "Assess Glasgow Coma Scale regularly.",
+   "kind": "action",
+   "text": "Assess Glasgow Coma Scale regularly.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "Glasgow Coma Scale",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1781359A2::04",
+   "claim_id": "E1781359A2",
+   "claim_text": "Continue intravenous fluid administration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The statement 'Intravenous fluids are currently being administered' is supported by record R13, which shows that 'Medication 1000 ML FLEX CONT: SODIUM CHLORIDE 0.9 % IV SOLN IV Continuous' is running at decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:65742252",
+     "time": "2100-01-01 19:45:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 19:45:00): Medication 1000 ML FLEX CONT: SODIUM CHLORIDE 0.9 % IV SOLN IV Continuous"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1781359A1::01",
+   "claim_id": "E1781359A1",
+   "claim_text": "Monitor respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1278253541",
+     "time": "2100-01-03 05:52:00",
+     "item": "respiratory rate",
+     "value": "37.0 insp/min"
+    },
+    {
+     "rid": "nurse:1298014785",
+     "time": "2100-01-03 14:47:00",
+     "item": "respiratory rate",
+     "value": "24.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1781359A1::02",
+   "claim_id": "E1781359A1",
+   "claim_text": "Monitor respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1284000047",
+     "time": "2100-01-03 05:52:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    },
+    {
+     "rid": "nurse:1269098425",
+     "time": "2100-01-03 14:47:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1781359A2::03",
+   "claim_id": "E1781359A2",
+   "claim_text": "Continue intravenous fluid administration.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1781359A3::05",
+   "claim_id": "E1781359A3",
+   "claim_text": "Assess Glasgow Coma Scale regularly.",
+   "kind": "action",
+   "text": "Assess Glasgow Coma Scale regularly.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "Glasgow Coma Scale",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

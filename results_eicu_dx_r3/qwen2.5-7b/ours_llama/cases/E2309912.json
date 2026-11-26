@@ -1,0 +1,251 @@
+{
+ "case_id": "E2309912",
+ "decision_point": "2100-01-02 11:55:00",
+ "claims": [
+  "Monitor patient for signs of respiratory distress and adjust oxygen therapy as needed.",
+  "Continue intravenous potassium chloride to maintain electrolyte balance.",
+  "Assess patient for pain and adjust analgesic regimen if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2309912A1::01",
+   "claim_id": "E2309912A1",
+   "claim_text": "Monitor patient for signs of respiratory distress and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Monitor patient for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2309912A1::02",
+   "claim_id": "E2309912A1",
+   "claim_text": "Monitor patient for signs of respiratory distress and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2309912A2::03",
+   "claim_id": "E2309912A2",
+   "claim_text": "Continue intravenous potassium chloride to maintain electrolyte balance.",
+   "kind": "action",
+   "text": "Continue intravenous potassium chloride.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "potassium chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2309912A2::04",
+   "claim_id": "E2309912A2",
+   "claim_text": "Continue intravenous potassium chloride to maintain electrolyte balance.",
+   "kind": "fact",
+   "text": "Intravenous potassium chloride is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: potassium -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E2309912A3::05",
+   "claim_id": "E2309912A3",
+   "claim_text": "Assess patient for pain and adjust analgesic regimen if necessary.",
+   "kind": "action",
+   "text": "Assess patient for pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2309912A3::06",
+   "claim_id": "E2309912A3",
+   "claim_text": "Assess patient for pain and adjust analgesic regimen if necessary.",
+   "kind": "action",
+   "text": "Adjust analgesic regimen if necessary.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "analgesic regimen",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2309912A2::04",
+   "claim_id": "E2309912A2",
+   "claim_text": "Continue intravenous potassium chloride to maintain electrolyte balance.",
+   "kind": "fact",
+   "text": "Intravenous potassium chloride is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: potassium -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show that potassium chloride was being administered intravenously at the decision time, as indicated by the 'Running at decision time' record for 'Medication POTASSIUM CHLORIDE 2 MEQ/ML IV SOLN : 20 ML VIAL IV Continuous' (R40).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:84571319",
+     "time": "2100-01-01 12:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 12:30:00): Medication POTASSIUM CHLORIDE 2 MEQ/ML IV SOLN : 20 ML VIAL IV Continuous"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2309912A1::01",
+   "claim_id": "E2309912A1",
+   "claim_text": "Monitor patient for signs of respiratory distress and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Monitor patient for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2309912A1::02",
+   "claim_id": "E2309912A1",
+   "claim_text": "Monitor patient for signs of respiratory distress and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2309912A2::03",
+   "claim_id": "E2309912A2",
+   "claim_text": "Continue intravenous potassium chloride to maintain electrolyte balance.",
+   "kind": "action",
+   "text": "Continue intravenous potassium chloride.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "potassium chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No potassium replacement action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2309912A3::05",
+   "claim_id": "E2309912A3",
+   "claim_text": "Assess patient for pain and adjust analgesic regimen if necessary.",
+   "kind": "action",
+   "text": "Assess patient for pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No pain score measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2309912A3::06",
+   "claim_id": "E2309912A3",
+   "claim_text": "Assess patient for pain and adjust analgesic regimen if necessary.",
+   "kind": "action",
+   "text": "Adjust analgesic regimen if necessary.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "analgesic regimen",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

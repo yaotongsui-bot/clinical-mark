@@ -1,0 +1,94 @@
+# E850469   T = 2100-01-02 13:47:00   records before T: 341
+ICU stay 850469 (Med-Surg ICU; Male, age 79; admission diagnosis: Sepsis, pulmonary).
+
+## Atoms
+deepseek-v4.1-flash|E850469A1::03 [presupposition] ZOSYN is currently being given.   <- Continue scheduled broad-spectrum antibiotics (ZOSYN and VANCOMYCIN) for sepsis.
+deepseek-v4.1-flash|E850469A1::04 [presupposition] VANCOMYCIN is currently being given.   <- Continue scheduled broad-spectrum antibiotics (ZOSYN and VANCOMYCIN) for sepsis.
+deepseek-v4.1-flash|E850469A1::05 [judgment] Sepsis is present.   <- Continue scheduled broad-spectrum antibiotics (ZOSYN and VANCOMYCIN) for sepsis.
+deepseek-v4.1-flash|E850469A2::07 [observed] Potassium is 2.8 mmol/L.   <- Replete electrolytes: potassium 2.8 mmol/L, magnesium 1.4 mg/dL, and total calcium 6.6 mg/dL.
+deepseek-v4.1-flash|E850469A2::09 [observed] Magnesium is 1.4 mg/dL.   <- Replete electrolytes: potassium 2.8 mmol/L, magnesium 1.4 mg/dL, and total calcium 6.6 mg/dL.
+deepseek-v4.1-flash|E850469A2::11 [observed] Total calcium is 6.6 mg/dL.   <- Replete electrolytes: potassium 2.8 mmol/L, magnesium 1.4 mg/dL, and total calcium 6.6 mg/dL.
+gpt-oss-120b|E850469A1::02 [presupposition] Bacteremia is present.   <- Obtain repeat blood cultures to assess ongoing bacteremia.
+gpt-oss-120b|E850469A2::05 [presupposition] Piperacillin-tazobactam is currently being given.   <- Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.
+gpt-oss-120b|E850469A2::06 [presupposition] Vancomycin is currently being given.   <- Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.
+qwen2.5-7b|E850469A1::03 [observed] Potassium levels are low.   <- Monitor patient's electrolyte levels closely, particularly potassium, as levels are low.
+qwen2.5-7b|E850469A2::05 [presupposition] Aggressive fluid resuscitation is currently being given.   <- Continue aggressive fluid resuscitation to maintain adequate perfusion.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 14:32:00): Medication ENOXAPARIN 40 MG/0.4 ML SYR SubQ Q24H
+  Running at decision time (scheduled order started 2100-01-01 14:33:00): Medication ZOSYN 3.375 GRAM INJ IVPB Q8H
+  Running at decision time (scheduled order started 2100-01-01 15:30:00): Medication VANCOmycin 1 GM in NS 250 mL IVPB IVPB Q24H
+
+## PRN orders
+  01-01 14:28 Order: acetaMINOPHEN 325 MG TAB PO Q4H PRN (active at decision time)
+  01-01 14:28 Order: acetaMINOPHEN 650MG RECT SUPP PR Q4H PRN (active at decision time)
+  01-01 14:28 Order: ONDANSETRON 2 MG/1 ML 2ML SDV INJ IV Push Q6H PRN (active at decision time)
+  01-01 14:31 Order: GLUCAGON 1 MG (1 UNIT) INJ SubQ ONCALL PRN (active at decision time)
+  01-01 14:31 Order: INSULIN-LISPRO (rDNA) *UNIT* INJ SubQ QIDACHS PRN (active at decision time)
+  01-01 14:31 Order: GLUCOSE 15 GRAM/60 ML BQ LIQ PO ONCALL PRN (active at decision time)
+  01-01 14:31 Order: DEXTROSE 50% 25 GRAM/50 ML SYR IV Push ONCALL PRN (active at decision time)
+  01-01 14:31 Order: GLUCOSE 15 GRAM/60 ML BQ LIQ PO ONCALL PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication SODIUM CHLORIDE 0.9% 1000 ML PB IV 1XONLY (2100-01-01 12:27:00 to 2100-01-01 12:35:00)
+  Medication VANCOmycin 1 GM in NS 250 mL IVPB IVPB Q24H (2100-01-01 14:33:00 to 2100-01-01 15:18:00)
+  Medication FUROSEMIDE 10 MG/1 ML 2ML SDV INJ IV Push 1XONLY (2100-01-01 14:47:00 to 2100-01-01 15:50:00)
+  Medication ALBUMIN 25% 100 ML INJ IVPB 1XONLY (2100-01-01 14:48:00 to 2100-01-01 15:50:00)
+
+## Laboratory (newest first, up to 5)
+  Alanine Aminotransferase (ALT): 01-01 11:50 11 IU/L
+  Albumin: 01-01 11:50 2.5 g/dL
+  Alkaline Phosphatase: 01-01 11:50 103 IU/L
+  Anion Gap: 01-02 10:45 9; 01-01 11:50 11
+  Asparate Aminotransferase (AST): 01-01 11:50 23 IU/L
+  BNP: 01-01 11:50 897 pg/mL
+  Bicarbonate: 01-02 10:45 21 mmol/L; 01-01 11:50 23 mmol/L
+  Bilirubin, Total: 01-01 11:50 1.2 mg/dL
+  Calcium, Total: 01-02 10:45 6.6 mg/dL; 01-01 11:50 7.9 mg/dL
+  Chloride: 01-02 10:45 115 mmol/L; 01-01 11:50 104 mmol/L
+  Creatinine: 01-02 10:45 0.8 mg/dL; 01-01 11:50 1.03 mg/dL
+  FiO2: 01-01 14:21 29 %
+  Glucose: 01-02 10:45 97 mg/dL; 01-01 11:50 179 mg/dL
+  Glucose finger stick: 01-02 04:21 147 mg/dL; 01-01 23:10 125 mg/dL; 01-01 18:57 147 mg/dL; 01-01 15:54 138 mg/dL
+  Hematocrit: 01-01 11:50 34.7 %
+  Hemoglobin: 01-01 11:50 11.6 g/dL
+  Lactate: 01-01 19:25 3.9 mmol/L; 01-01 15:45 3.8 mmol/L
+  MCH: 01-01 11:50 29.6 pg
+  MCHC: 01-01 11:50 33.4 g/dL
+  MCV: 01-01 11:50 88 fL
+  MPV: 01-01 11:50 10.2 fL
+  Magnesium: 01-02 10:45 1.4 mg/dL
+  Platelet Count: 01-01 11:50 120 K/MM3
+  Potassium: 01-02 10:45 2.8 mmol/L; 01-01 11:50 4.3 mmol/L
+  RBC: 01-01 11:50 3.92 M/MM3
+  RDW: 01-01 11:50 17 %
+  Respiratory Rate: 01-01 14:21 25 /min
+  Sodium: 01-02 10:45 145 mmol/L; 01-01 11:50 138 mmol/L
+  TSH: 01-01 15:45 5.68 mIU/L
+  Urea Nitrogen: 01-02 10:45 16 mg/dL; 01-01 11:50 22 mg/dL
+  White Blood Cells: 01-01 11:50 7.9 K/MM3
+  total protein: 01-01 11:50 8.9 g/dL
+  troponin - I: 01-01 11:50 <0.02
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-02 11:00   24h 4-4 (n=7)
+  Glasgow coma score GCS Total: 15 @01-02 11:00   24h 15-15 (n=7)
+  Glasgow coma score Motor: 6 @01-02 11:00   24h 6-6 (n=7)
+  Glasgow coma score Verbal: 5 @01-02 11:00   24h 5-5 (n=7)
+  Heart Rate: 84 bpm @01-02 11:00   24h 72-113 (n=32)
+  Non Invasive Blood Pressure diastolic: 40 mmHg @01-02 11:00   24h 38-51 (n=28)
+  Non Invasive Blood Pressure mean: 54 mmHg @01-02 11:00   24h 52-66 (n=28)
+  Non Invasive Blood Pressure systolic: 100 mmHg @01-02 11:00   24h 79-120 (n=28)
+  O2 Flow: 2 L/min @01-02 11:00   24h 2-2 (n=14)
+  O2 saturation pulseoxymetry: 95 % @01-02 11:00   24h 90-100 (n=32)
+  Respiratory Rate: 23 insp/min @01-02 11:00   24h 15-29 (n=32)
+  Respiratory Rate (spontaneous): 23 insp/min @01-02 11:00   24h 15-29 (n=31)
+  Temperature Fahrenheit: 99.3 F @01-02 11:00   24h 96.8-99.5 (n=8)
+  Temperature Location: Bladder @01-02 11:00   earlier: Oral @01-01 14:21
+
+## Treatments documented
+  01-01 14:20 intravenous fluid | normal saline administration | aggressive volume resuscitation (>250 mls/hr)
+
+## Microbiology

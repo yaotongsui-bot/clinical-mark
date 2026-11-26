@@ -1,0 +1,393 @@
+{
+ "case_id": "E1065859",
+ "decision_point": "2100-01-02 20:54:00",
+ "claims": [
+  "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+  "Continue intravenous fluid administration to maintain adequate blood pressure and volume status.",
+  "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1065859A1::01",
+   "claim_id": "E1065859A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1065859A1::02",
+   "claim_id": "E1065859A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1065859A2::03",
+   "claim_id": "E1065859A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate blood pressure and volume status.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1065859A2::04",
+   "claim_id": "E1065859A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate blood pressure and volume status.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1065859A3::05",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "hypovolemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1065859A3::06",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "sepsis",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1065859A3::07",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1065859A3::08",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "fact",
+   "text": "Altered mental status is present.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1065859A1::02",
+   "claim_id": "E1065859A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:253319435",
+     "time": "2100-01-02 14:02:00",
+     "item": "Glucose",
+     "value": 105.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:251886328",
+     "time": "2100-01-02 19:40:00",
+     "item": "Glucose",
+     "value": 100.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:252096255",
+     "time": "2100-01-02 19:40:00",
+     "item": "Glucose",
+     "value": 96.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest glucose 96 mg/dL at 2100-01-02 19:40:00 (reference 70 to 100) is normal, not consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1065859A2::04",
+   "claim_id": "E1065859A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate blood pressure and volume status.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show IV normal saline was administered from 2100-01-01 21:06 to 2100-01-02 00:28, but there is no administration record within 24 hours before the decision time (2100-01-02 20:54) or a 'Running at decision time' record for IV fluids. The most recent IV fluid administration ended over 20 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:37633020",
+     "time": "2100-01-01 16:25:00",
+     "item": "Medication NS 1,000 mL IV (2100-01-01 16:25:00 to 2100-01-01 23:22:00)"
+    },
+    {
+     "rid": "med:37519213",
+     "time": "2100-01-01 21:06:00",
+     "item": "Medication NS 1,000 mL IV (2100-01-01 21:06:00 to 2100-01-02 00:28:00)"
+    },
+    {
+     "rid": "treat:30789180",
+     "time": "2100-01-01 21:19:00",
+     "item": "Treatment documented: intravenous fluid | normal saline administration | fluid bolus (250-1000mls)"
+    },
+    {
+     "rid": "treat:30744076",
+     "time": "2100-01-01 21:19:00",
+     "item": "Treatment documented: intravenous fluid | normal saline administration | aggressive volume resuscitation (>250 mls/hr)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1065859A3::07",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:655813100",
+     "time": "2100-01-02 20:30:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 57.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1065859A3::08",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "fact",
+   "text": "Altered mental status is present.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The record R16 documents 'Best Verbal Response: Confused' at 01:00 on 2100-01-02, which directly indicates altered mental status.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:665107388",
+     "time": "2100-01-02 01:00:00",
+     "item": "Best Verbal Response: Confused"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1065859A1::01",
+   "claim_id": "E1065859A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:255941258",
+     "time": "2100-01-02 23:30:00",
+     "item": "glucose",
+     "value": "111.0 mg/dL"
+    },
+    {
+     "rid": "nurse:653843712",
+     "time": "2100-01-02 23:30:00",
+     "item": "glucose",
+     "value": "111.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x12.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1065859A2::03",
+   "claim_id": "E1065859A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate blood pressure and volume status.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1065859A3::05",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "hypovolemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1065859A3::06",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "sepsis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 2,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hyperglycemia is present. -- Latest glucose 96 mg/dL at 2100-01-02 19:40:00 (reference 70 to 100) is normal, not consistent with 'high'.",
+    "Intravenous fluids are currently being given. -- The records show IV normal saline was administered from 2100-01-01 21:06 to 2100-01-02 00:28, but there is no administration record within 24 hours before the decision time (2100-01-02 20:54) or a 'Running at decision time' record for IV fluids. The most recent IV fluid administration ended over 20 hours before the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

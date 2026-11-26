@@ -1,0 +1,297 @@
+{
+ "case_id": "E1592666",
+ "decision_point": "2100-01-02 23:07:00",
+ "claims": [
+  "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+  "Administer IV vancomycin for suspected infection.",
+  "Continue monitoring respiratory status and adjust oxygen therapy as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1592666A1::01",
+   "claim_id": "E1592666A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1592666A1::02",
+   "claim_id": "E1592666A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is persistent.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1592666A2::03",
+   "claim_id": "E1592666A2",
+   "claim_text": "Administer IV vancomycin for suspected infection.",
+   "kind": "action",
+   "text": "Administer IV vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1592666A2::04",
+   "claim_id": "E1592666A2",
+   "claim_text": "Administer IV vancomycin for suspected infection.",
+   "kind": "fact",
+   "text": "Infection is suspected.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1592666A3::05",
+   "claim_id": "E1592666A3",
+   "claim_text": "Continue monitoring respiratory status and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1592666A3::06",
+   "claim_id": "E1592666A3",
+   "claim_text": "Continue monitoring respiratory status and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1592666A1::02",
+   "claim_id": "E1592666A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is persistent.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:376542470",
+     "time": "2100-01-02 10:26:00",
+     "item": "Glucose",
+     "value": 206.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 206 mg/dL (reference 70 to 100); 1 of 1 values in the 24 h before the decision were high.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1592666A2::04",
+   "claim_id": "E1592666A2",
+   "claim_text": "Administer IV vancomycin for suspected infection.",
+   "kind": "fact",
+   "text": "Infection is suspected.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show multiple normal temperature readings (97.2-97.9 F) and no elevated white blood cell count, positive cultures, or other documented signs of infection. The statement 'Infection is suspected' is not supported by the provided data.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1150506903",
+     "time": "2100-01-01 14:29:00",
+     "item": "Temperature Fahrenheit: 97.7 F"
+    },
+    {
+     "rid": "nurse:1108920026",
+     "time": "2100-01-01 21:05:00",
+     "item": "Temperature Fahrenheit: 97.7 F"
+    },
+    {
+     "rid": "nurse:1067706725",
+     "time": "2100-01-01 23:20:00",
+     "item": "Temperature Fahrenheit: 97.5 F"
+    },
+    {
+     "rid": "nurse:1109367373",
+     "time": "2100-01-02 01:49:00",
+     "item": "Temperature Fahrenheit: 97.3 F"
+    },
+    {
+     "rid": "nurse:1129971664",
+     "time": "2100-01-02 05:49:00",
+     "item": "Temperature Fahrenheit: 97.9 F"
+    },
+    {
+     "rid": "nurse:1047192395",
+     "time": "2100-01-02 09:39:00",
+     "item": "Temperature Fahrenheit: 97.7 F"
+    },
+    {
+     "rid": "nurse:1046900304",
+     "time": "2100-01-02 13:38:00",
+     "item": "Temperature Fahrenheit: 97.2 F"
+    },
+    {
+     "rid": "nurse:1047138553",
+     "time": "2100-01-02 17:30:00",
+     "item": "Temperature Fahrenheit: 97.3 F"
+    },
+    {
+     "rid": "nurse:1088505016",
+     "time": "2100-01-02 21:00:00",
+     "item": "Temperature Fahrenheit: 97.5 F"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1592666A1::01",
+   "claim_id": "E1592666A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No glucose measurement in the 2.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1592666A2::03",
+   "claim_id": "E1592666A2",
+   "claim_text": "Administer IV vancomycin for suspected infection.",
+   "kind": "action",
+   "text": "Administer IV vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 2.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1592666A3::05",
+   "claim_id": "E1592666A3",
+   "claim_text": "Continue monitoring respiratory status and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No respiratory status measurement in the 2.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1592666A3::06",
+   "claim_id": "E1592666A3",
+   "claim_text": "Continue monitoring respiratory status and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 2.4,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Infection is suspected. -- The records show multiple normal temperature readings (97.2-97.9 F) and no elevated white blood cell count, positive cultures, or other documented signs of infection. The statement 'Infection is suspected' is not supported by the provided data."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

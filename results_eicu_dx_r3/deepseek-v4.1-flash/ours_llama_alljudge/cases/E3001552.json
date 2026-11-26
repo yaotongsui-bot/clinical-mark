@@ -1,0 +1,545 @@
+{
+ "case_id": "E3001552",
+ "decision_point": "2100-01-02 09:39:00",
+ "claims": [
+  "Continue amiodarone infusion at the currently running rate.",
+  "Monitor telemetry and vital signs given recent tachycardia and borderline blood pressure.",
+  "Reassess oxygenation and respiratory status on current oxygen support."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3001552A1::01",
+   "claim_id": "E3001552A1",
+   "claim_text": "Continue amiodarone infusion at the currently running rate.",
+   "kind": "action",
+   "text": "Continue amiodarone infusion at the currently running rate.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "amiodarone infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3001552A1::02",
+   "claim_id": "E3001552A1",
+   "claim_text": "Continue amiodarone infusion at the currently running rate.",
+   "kind": "fact",
+   "text": "Amiodarone infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3001552A2::03",
+   "claim_id": "E3001552A2",
+   "claim_text": "Monitor telemetry and vital signs given recent tachycardia and borderline blood pressure.",
+   "kind": "action",
+   "text": "Monitor telemetry.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "telemetry",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3001552A2::04",
+   "claim_id": "E3001552A2",
+   "claim_text": "Monitor telemetry and vital signs given recent tachycardia and borderline blood pressure.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3001552A2::05",
+   "claim_id": "E3001552A2",
+   "claim_text": "Monitor telemetry and vital signs given recent tachycardia and borderline blood pressure.",
+   "kind": "fact",
+   "text": "Tachycardia is recent.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3001552A2::06",
+   "claim_id": "E3001552A2",
+   "claim_text": "Monitor telemetry and vital signs given recent tachycardia and borderline blood pressure.",
+   "kind": "fact",
+   "text": "Blood pressure is borderline.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3001552A3::07",
+   "claim_id": "E3001552A3",
+   "claim_text": "Reassess oxygenation and respiratory status on current oxygen support.",
+   "kind": "action",
+   "text": "Reassess oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygenation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3001552A3::08",
+   "claim_id": "E3001552A3",
+   "claim_text": "Reassess oxygenation and respiratory status on current oxygen support.",
+   "kind": "action",
+   "text": "Reassess respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3001552A3::09",
+   "claim_id": "E3001552A3",
+   "claim_text": "Reassess oxygenation and respiratory status on current oxygen support.",
+   "kind": "fact",
+   "text": "The patient is currently on oxygen support.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3001552A1::02",
+   "claim_id": "E3001552A1",
+   "claim_text": "Continue amiodarone infusion at the currently running rate.",
+   "kind": "fact",
+   "text": "Amiodarone infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The statement 'Amiodarone infusion is currently running' is supported by record R49, which shows that the Amiodarone infusion is running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Amiodarone (ml/hr):1101",
+     "time": "2100-01-02 04:00:00",
+     "item": "Running at decision time (started 2100-01-02 04:00:00): Infusion/input Amiodarone at 16.7 ml/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3001552A2::05",
+   "claim_id": "E3001552A2",
+   "claim_text": "Monitor telemetry and vital signs given recent tachycardia and borderline blood pressure.",
+   "kind": "fact",
+   "text": "Tachycardia is recent.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement 'Tachycardia is recent' is not supported by the records. The most recent relevant row is R48, which shows a heart rate of 95 bpm. This is not a recent tachycardia, as the heart rate is not significantly elevated. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1942967705",
+     "time": "2100-01-01 00:48:00",
+     "item": "Heart Rate: 95 bpm"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3001552A2::06",
+   "claim_id": "E3001552A2",
+   "claim_text": "Monitor telemetry and vital signs given recent tachycardia and borderline blood pressure.",
+   "kind": "fact",
+   "text": "Blood pressure is borderline.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement says blood pressure is borderline, but the most recent blood pressure measurement (R35) is 76 mmHg, which is not borderline. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1949319068",
+     "time": "2100-01-01 09:56:00",
+     "item": "Non Invasive Blood Pressure mean: 76 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3001552A3::09",
+   "claim_id": "E3001552A3",
+   "claim_text": "Reassess oxygenation and respiratory status on current oxygen support.",
+   "kind": "fact",
+   "text": "The patient is currently on oxygen support.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The patient is currently on oxygen support. The records show that the patient is receiving oxygen therapy with an inspired O2 fraction of 100% and 35% at different times, but do not show that the patient is currently on oxygen support. The records also show that the patient is receiving ventilation and oxygenation, but this does not necessarily mean that the patient is currently on oxygen support.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "resp:199130284",
+     "time": "2100-01-01 10:15:00",
+     "item": "Inspired O2 Fraction: 100 %"
+    },
+    {
+     "rid": "resp:198926794",
+     "time": "2100-01-01 10:41:00",
+     "item": "Inspired O2 Fraction: 100 %"
+    },
+    {
+     "rid": "treat:67615664",
+     "time": "2100-01-01 10:44:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (> 60%) | >90%"
+    },
+    {
+     "rid": "lab:738168373",
+     "time": "2100-01-01 11:43:00",
+     "item": "Oxygen Saturation: 100 %"
+    },
+    {
+     "rid": "treat:68101186",
+     "time": "2100-01-01 14:02:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (> 60%) | >90%"
+    },
+    {
+     "rid": "resp:201677758",
+     "time": "2100-01-01 14:29:00",
+     "item": "O2 Flow: 7 L/min"
+    },
+    {
+     "rid": "resp:201677757",
+     "time": "2100-01-01 14:29:00",
+     "item": "Inspired O2 Fraction: 35 %"
+    },
+    {
+     "rid": "resp:201820302",
+     "time": "2100-01-01 21:38:00",
+     "item": "O2 Flow: 10 L/min"
+    },
+    {
+     "rid": "resp:200417097",
+     "time": "2100-01-02 01:15:00",
+     "item": "O2 Flow: 7 L/min"
+    },
+    {
+     "rid": "resp:200417096",
+     "time": "2100-01-02 01:15:00",
+     "item": "Inspired O2 Fraction: 35 %"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3001552A1::01",
+   "claim_id": "E3001552A1",
+   "claim_text": "Continue amiodarone infusion at the currently running rate.",
+   "kind": "action",
+   "text": "Continue amiodarone infusion at the currently running rate.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "amiodarone infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3001552A2::03",
+   "claim_id": "E3001552A2",
+   "claim_text": "Monitor telemetry and vital signs given recent tachycardia and borderline blood pressure.",
+   "kind": "action",
+   "text": "Monitor telemetry.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "telemetry",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No heart rhythm measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3001552A2::04",
+   "claim_id": "E3001552A2",
+   "claim_text": "Monitor telemetry and vital signs given recent tachycardia and borderline blood pressure.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1950613500",
+     "time": "2100-01-02 13:00:00",
+     "item": "heart rate",
+     "value": "79.0 bpm"
+    },
+    {
+     "rid": "nurse:1952544841",
+     "time": "2100-01-02 13:14:00",
+     "item": "heart rate",
+     "value": "80.0 bpm"
+    },
+    {
+     "rid": "nurse:1927570279",
+     "time": "2100-01-02 13:00:00",
+     "item": "systolic BP",
+     "value": "120.0 mmHg"
+    },
+    {
+     "rid": "nurse:1950056934",
+     "time": "2100-01-02 17:00:00",
+     "item": "systolic BP",
+     "value": "112.0 mmHg"
+    },
+    {
+     "rid": "nurse:1927570281",
+     "time": "2100-01-02 13:00:00",
+     "item": "mean arterial pressure",
+     "value": "79.0 mmHg"
+    },
+    {
+     "rid": "nurse:1950056936",
+     "time": "2100-01-02 17:00:00",
+     "item": "mean arterial pressure",
+     "value": "99.0 mmHg"
+    },
+    {
+     "rid": "nurse:1927299882",
+     "time": "2100-01-02 13:14:00",
+     "item": "respiratory rate",
+     "value": "26.0 insp/min"
+    },
+    {
+     "rid": "nurse:1942272998",
+     "time": "2100-01-02 14:00:00",
+     "item": "respiratory rate",
+     "value": "20.0 insp/min"
+    },
+    {
+     "rid": "nurse:1941684430",
+     "time": "2100-01-02 13:00:00",
+     "item": "SpO2",
+     "value": "94.0 %"
+    },
+    {
+     "rid": "nurse:1925574907",
+     "time": "2100-01-02 14:00:00",
+     "item": "SpO2",
+     "value": "92.0 %"
+    },
+    {
+     "rid": "nurse:1939570189",
+     "time": "2100-01-02 13:00:00",
+     "item": "temperature",
+     "value": "98.1 F"
+    },
+    {
+     "rid": "nurse:1938769312",
+     "time": "2100-01-02 17:00:00",
+     "item": "temperature",
+     "value": "97.9 F"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x7, systolic BP x4, mean arterial pressure x4, respiratory rate x3, SpO2 x7, temperature x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3001552A3::07",
+   "claim_id": "E3001552A3",
+   "claim_text": "Reassess oxygenation and respiratory status on current oxygen support.",
+   "kind": "action",
+   "text": "Reassess oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygenation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1941684430",
+     "time": "2100-01-02 13:00:00",
+     "item": "SpO2",
+     "value": "94.0 %"
+    },
+    {
+     "rid": "nurse:1925574907",
+     "time": "2100-01-02 14:00:00",
+     "item": "SpO2",
+     "value": "92.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3001552A3::08",
+   "claim_id": "E3001552A3",
+   "claim_text": "Reassess oxygenation and respiratory status on current oxygen support.",
+   "kind": "action",
+   "text": "Reassess respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1927299882",
+     "time": "2100-01-02 13:14:00",
+     "item": "respiratory rate",
+     "value": "26.0 insp/min"
+    },
+    {
+     "rid": "nurse:1942272998",
+     "time": "2100-01-02 14:00:00",
+     "item": "respiratory rate",
+     "value": "20.0 insp/min"
+    },
+    {
+     "rid": "nurse:1941684430",
+     "time": "2100-01-02 13:00:00",
+     "item": "SpO2",
+     "value": "94.0 %"
+    },
+    {
+     "rid": "nurse:1925574907",
+     "time": "2100-01-02 14:00:00",
+     "item": "SpO2",
+     "value": "92.0 %"
+    },
+    {
+     "rid": "resp:198706879",
+     "time": "2100-01-02 09:51:00",
+     "item": "ventilator settings",
+     "value": "35.0 %"
+    },
+    {
+     "rid": "resp:198772324",
+     "time": "2100-01-02 13:00:00",
+     "item": "ventilator settings",
+     "value": "35.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x3, SpO2 x7, ventilator settings x4.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.75,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Tachycardia is recent. -- The statement 'Tachycardia is recent' is not supported by the records. The most recent relevant row is R48, which shows a heart rate of 95 bpm. This is not a recent tachycardia, as the heart rate is not significantly elevated. The statement is not supported by the records.",
+    "Blood pressure is borderline. -- The statement says blood pressure is borderline, but the most recent blood pressure measurement (R35) is 76 mmHg, which is not borderline. The statement is not supported by the records.",
+    "The patient is currently on oxygen support. -- The patient is currently on oxygen support. The records show that the patient is receiving oxygen therapy with an inspired O2 fraction of 100% and 35% at different times, but do not show that the patient is currently on oxygen support. The records also show that the patient is receiving ventilation and oxygenation, but this does not necessarily mean that the patient is currently on oxygen support."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.25,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

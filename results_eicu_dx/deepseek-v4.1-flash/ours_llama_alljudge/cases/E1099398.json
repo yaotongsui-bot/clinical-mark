@@ -1,0 +1,431 @@
+{
+ "case_id": "E1099398",
+ "decision_point": "2100-01-02 05:47:00",
+ "claims": [
+  "Continue monitoring vital signs and oxygen saturation in the ICU.",
+  "Assess and manage elevated blood pressure.",
+  "Monitor renal function given elevated creatinine."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1099398A1::01",
+   "claim_id": "E1099398A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation in the ICU.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1099398A1::02",
+   "claim_id": "E1099398A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation in the ICU.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1099398A2::03",
+   "claim_id": "E1099398A2",
+   "claim_text": "Assess and manage elevated blood pressure.",
+   "kind": "action",
+   "text": "Assess elevated blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "assess",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1099398A2::04",
+   "claim_id": "E1099398A2",
+   "claim_text": "Assess and manage elevated blood pressure.",
+   "kind": "action",
+   "text": "Manage elevated blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "other",
+   "target": "blood pressure",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1099398A2::05",
+   "claim_id": "E1099398A2",
+   "claim_text": "Assess and manage elevated blood pressure.",
+   "kind": "fact",
+   "text": "Blood pressure is elevated.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1099398A3::06",
+   "claim_id": "E1099398A3",
+   "claim_text": "Monitor renal function given elevated creatinine.",
+   "kind": "action",
+   "text": "Monitor renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "renal function",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1099398A3::07",
+   "claim_id": "E1099398A3",
+   "claim_text": "Monitor renal function given elevated creatinine.",
+   "kind": "fact",
+   "text": "Creatinine is elevated.",
+   "concept": "creatinine",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1099398A2::05",
+   "claim_id": "E1099398A2",
+   "claim_text": "Assess and manage elevated blood pressure.",
+   "kind": "fact",
+   "text": "Blood pressure is elevated.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The patient's blood pressure is elevated, as indicated by multiple measurements of high systolic and diastolic blood pressure values throughout the day.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:705136479",
+     "time": "2100-01-01 08:27:00",
+     "item": "Non Invasive Blood Pressure systolic: 174 mmHg"
+    },
+    {
+     "rid": "nurse:705136480",
+     "time": "2100-01-01 08:27:00",
+     "item": "Non Invasive Blood Pressure diastolic: 91 mmHg"
+    },
+    {
+     "rid": "nurse:705136481",
+     "time": "2100-01-01 08:27:00",
+     "item": "Non Invasive Blood Pressure mean: 121 mmHg"
+    },
+    {
+     "rid": "nurse:706380965",
+     "time": "2100-01-01 12:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 169 mmHg"
+    },
+    {
+     "rid": "nurse:706380966",
+     "time": "2100-01-01 12:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 60 mmHg"
+    },
+    {
+     "rid": "nurse:670407480",
+     "time": "2100-01-01 15:38:00",
+     "item": "Non Invasive Blood Pressure systolic: 202 mmHg"
+    },
+    {
+     "rid": "nurse:670407481",
+     "time": "2100-01-01 15:38:00",
+     "item": "Non Invasive Blood Pressure diastolic: 91 mmHg"
+    },
+    {
+     "rid": "nurse:670407482",
+     "time": "2100-01-01 15:38:00",
+     "item": "Non Invasive Blood Pressure mean: 132 mmHg"
+    },
+    {
+     "rid": "nurse:716955218",
+     "time": "2100-01-01 19:21:00",
+     "item": "Non Invasive Blood Pressure systolic: 191 mmHg"
+    },
+    {
+     "rid": "nurse:716955219",
+     "time": "2100-01-01 19:21:00",
+     "item": "Non Invasive Blood Pressure diastolic: 82 mmHg"
+    },
+    {
+     "rid": "nurse:716955220",
+     "time": "2100-01-01 19:21:00",
+     "item": "Non Invasive Blood Pressure mean: 120 mmHg"
+    },
+    {
+     "rid": "nurse:683055946",
+     "time": "2100-01-01 23:09:00",
+     "item": "Non Invasive Blood Pressure systolic: 195 mmHg"
+    },
+    {
+     "rid": "nurse:683055947",
+     "time": "2100-01-01 23:09:00",
+     "item": "Non Invasive Blood Pressure diastolic: 98 mmHg"
+    },
+    {
+     "rid": "nurse:683055948",
+     "time": "2100-01-01 23:09:00",
+     "item": "Non Invasive Blood Pressure mean: 134 mmHg"
+    },
+    {
+     "rid": "nurse:674378219",
+     "time": "2100-01-02 04:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 161 mmHg"
+    },
+    {
+     "rid": "nurse:674378220",
+     "time": "2100-01-02 04:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 67 mmHg"
+    },
+    {
+     "rid": "nurse:674378221",
+     "time": "2100-01-02 04:00:00",
+     "item": "Non Invasive Blood Pressure mean: 102 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1099398A3::07",
+   "claim_id": "E1099398A3",
+   "claim_text": "Monitor renal function given elevated creatinine.",
+   "kind": "fact",
+   "text": "Creatinine is elevated.",
+   "concept": "creatinine",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The creatinine level of 1.84 mg/dL in record R15 is elevated.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:263853032",
+     "time": "2100-01-01 08:26:00",
+     "item": "Creatinine: 1.84 mg/dL"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1099398A1::01",
+   "claim_id": "E1099398A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation in the ICU.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:704516149",
+     "time": "2100-01-02 08:16:00",
+     "item": "heart rate",
+     "value": "57.0 bpm"
+    },
+    {
+     "rid": "nurse:697530991",
+     "time": "2100-01-02 08:16:00",
+     "item": "systolic BP",
+     "value": "224.0 mmHg"
+    },
+    {
+     "rid": "nurse:697530993",
+     "time": "2100-01-02 08:16:00",
+     "item": "mean arterial pressure",
+     "value": "135.0 mmHg"
+    },
+    {
+     "rid": "nurse:720026577",
+     "time": "2100-01-02 08:16:00",
+     "item": "respiratory rate",
+     "value": "18.0 insp/min"
+    },
+    {
+     "rid": "nurse:671833061",
+     "time": "2100-01-02 08:16:00",
+     "item": "SpO2",
+     "value": "96.0 %"
+    },
+    {
+     "rid": "nurse:714700403",
+     "time": "2100-01-02 08:16:00",
+     "item": "temperature",
+     "value": "98.8 F"
+    }
+   ],
+   "reason": "Measured in the 8.8 h observation window after the decision (24 h or until ICU discharge): heart rate x1, systolic BP x1, mean arterial pressure x1, respiratory rate x1, SpO2 x1, temperature x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1099398A1::02",
+   "claim_id": "E1099398A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation in the ICU.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:671833061",
+     "time": "2100-01-02 08:16:00",
+     "item": "SpO2",
+     "value": "96.0 %"
+    }
+   ],
+   "reason": "Measured in the 8.8 h observation window after the decision (24 h or until ICU discharge): SpO2 x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1099398A2::03",
+   "claim_id": "E1099398A2",
+   "claim_text": "Assess and manage elevated blood pressure.",
+   "kind": "action",
+   "text": "Assess elevated blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "assess",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:697530991",
+     "time": "2100-01-02 08:16:00",
+     "item": "systolic BP",
+     "value": "224.0 mmHg"
+    },
+    {
+     "rid": "nurse:697530993",
+     "time": "2100-01-02 08:16:00",
+     "item": "mean arterial pressure",
+     "value": "135.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 8.8 h observation window after the decision (24 h or until ICU discharge): systolic BP x1, mean arterial pressure x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1099398A2::04",
+   "claim_id": "E1099398A2",
+   "claim_text": "Assess and manage elevated blood pressure.",
+   "kind": "action",
+   "text": "Manage elevated blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "other",
+   "target": "blood pressure",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1099398A3::06",
+   "claim_id": "E1099398A3",
+   "claim_text": "Monitor renal function given elevated creatinine.",
+   "kind": "action",
+   "text": "Monitor renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "renal function",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:263085391",
+     "time": "2100-01-02 08:30:00",
+     "item": "creatinine",
+     "value": "2.09 mg/dL"
+    },
+    {
+     "rid": "lab:263085403",
+     "time": "2100-01-02 08:30:00",
+     "item": "BUN",
+     "value": "45.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 8.8 h observation window after the decision (24 h or until ICU discharge): creatinine x1, BUN x1.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 8.8,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

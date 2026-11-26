@@ -1,0 +1,300 @@
+{
+ "case_id": "E850469",
+ "decision_point": "2100-01-02 13:47:00",
+ "claims": [
+  "Monitor patient's electrolyte levels closely, particularly potassium, as levels are low.",
+  "Continue aggressive fluid resuscitation to maintain adequate perfusion.",
+  "Assess for signs of sepsis and adjust antibiotic therapy if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E850469A1::01",
+   "claim_id": "E850469A1",
+   "claim_text": "Monitor patient's electrolyte levels closely, particularly potassium, as levels are low.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolytes",
+   "conditional": false
+  },
+  {
+   "atom_id": "E850469A1::02",
+   "claim_id": "E850469A1",
+   "claim_text": "Monitor patient's electrolyte levels closely, particularly potassium, as levels are low.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E850469A1::03",
+   "claim_id": "E850469A1",
+   "claim_text": "Monitor patient's electrolyte levels closely, particularly potassium, as levels are low.",
+   "kind": "fact",
+   "text": "Potassium levels are low.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E850469A2::04",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue aggressive fluid resuscitation to maintain adequate perfusion.",
+   "kind": "action",
+   "text": "Continue aggressive fluid resuscitation.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "fluid resuscitation",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E850469A2::05",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue aggressive fluid resuscitation to maintain adequate perfusion.",
+   "kind": "fact",
+   "text": "Aggressive fluid resuscitation is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E850469A3::06",
+   "claim_id": "E850469A3",
+   "claim_text": "Assess for signs of sepsis and adjust antibiotic therapy if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of sepsis",
+   "conditional": false
+  },
+  {
+   "atom_id": "E850469A3::07",
+   "claim_id": "E850469A3",
+   "claim_text": "Assess for signs of sepsis and adjust antibiotic therapy if necessary.",
+   "kind": "action",
+   "text": "Adjust antibiotic therapy if necessary.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E850469A1::03",
+   "claim_id": "E850469A1",
+   "claim_text": "Monitor patient's electrolyte levels closely, particularly potassium, as levels are low.",
+   "kind": "fact",
+   "text": "Potassium levels are low.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:154870478",
+     "time": "2100-01-01 11:50:00",
+     "item": "Potassium",
+     "value": 4.3,
+     "unit": "mmol/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:145231242",
+     "time": "2100-01-02 10:45:00",
+     "item": "Potassium",
+     "value": 2.8,
+     "unit": "mmol/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest potassium 2.8 mmol/L at 2100-01-02 10:45:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E850469A2::05",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue aggressive fluid resuscitation to maintain adequate perfusion.",
+   "kind": "fact",
+   "text": "Aggressive fluid resuscitation is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records state that aggressive volume resuscitation is being given, but there is no administration record of it in the 24 hours before the decision time, and no 'Running at decision time' record. The statement is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:23711724",
+     "time": "2100-01-01 14:20:00",
+     "item": "Treatment documented: intravenous fluid | normal saline administration | aggressive volume resuscitation (>250 mls/hr)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E850469A1::01",
+   "claim_id": "E850469A1",
+   "claim_text": "Monitor patient's electrolyte levels closely, particularly potassium, as levels are low.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolytes",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 3.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E850469A1::02",
+   "claim_id": "E850469A1",
+   "claim_text": "Monitor patient's electrolyte levels closely, particularly potassium, as levels are low.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 3.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E850469A2::04",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue aggressive fluid resuscitation to maintain adequate perfusion.",
+   "kind": "action",
+   "text": "Continue aggressive fluid resuscitation.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "fluid resuscitation",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 3.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E850469A3::06",
+   "claim_id": "E850469A3",
+   "claim_text": "Assess for signs of sepsis and adjust antibiotic therapy if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of sepsis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E850469A3::07",
+   "claim_id": "E850469A3",
+   "claim_text": "Assess for signs of sepsis and adjust antibiotic therapy if necessary.",
+   "kind": "action",
+   "text": "Adjust antibiotic therapy if necessary.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 3.2 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 3.2,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Aggressive fluid resuscitation is currently being given. -- The records state that aggressive volume resuscitation is being given, but there is no administration record of it in the 24 hours before the decision time, and no 'Running at decision time' record. The statement is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

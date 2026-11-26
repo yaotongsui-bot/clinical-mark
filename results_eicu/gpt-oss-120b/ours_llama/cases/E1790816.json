@@ -1,0 +1,304 @@
+{
+ "case_id": "E1790816",
+ "decision_point": "2100-01-02 20:23:00",
+ "claims": [
+  "Continue intravenous heparin infusion per current dosing and monitor activated partial thromboplastin time (aPTT) q6h.",
+  "Obtain a repeat cardiac troponin level to assess for ongoing myocardial injury.",
+  "Adjust antihypertensive regimen by titrating isosorbide mononitrate and adding a short‑acting IV antihypertensive if systolic BP remains >160 mmHg."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1790816A1::01",
+   "claim_id": "E1790816A1",
+   "claim_text": "Continue intravenous heparin infusion per current dosing and monitor activated partial thromboplastin time (aPTT) q6h.",
+   "kind": "fact",
+   "text": "Intravenous heparin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1790816A1::02",
+   "claim_id": "E1790816A1",
+   "claim_text": "Continue intravenous heparin infusion per current dosing and monitor activated partial thromboplastin time (aPTT) q6h.",
+   "kind": "action",
+   "text": "Continue intravenous heparin infusion per current dosing.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1790816A1::03",
+   "claim_id": "E1790816A1",
+   "claim_text": "Continue intravenous heparin infusion per current dosing and monitor activated partial thromboplastin time (aPTT) q6h.",
+   "kind": "action",
+   "text": "Monitor activated partial thromboplastin time (aPTT) q6h.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "aPTT",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1790816A2::04",
+   "claim_id": "E1790816A2",
+   "claim_text": "Obtain a repeat cardiac troponin level to assess for ongoing myocardial injury.",
+   "kind": "action",
+   "text": "Obtain a repeat cardiac troponin level.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "cardiac troponin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1790816A3::05",
+   "claim_id": "E1790816A3",
+   "claim_text": "Adjust antihypertensive regimen by titrating isosorbide mononitrate and adding a short‑acting IV antihypertensive if systolic BP remains >160 mmHg.",
+   "kind": "fact",
+   "text": "Isosorbide mononitrate is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1790816A3::06",
+   "claim_id": "E1790816A3",
+   "claim_text": "Adjust antihypertensive regimen by titrating isosorbide mononitrate and adding a short‑acting IV antihypertensive if systolic BP remains >160 mmHg.",
+   "kind": "action",
+   "text": "Titrate isosorbide mononitrate.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "isosorbide mononitrate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1790816A3::07",
+   "claim_id": "E1790816A3",
+   "claim_text": "Adjust antihypertensive regimen by titrating isosorbide mononitrate and adding a short‑acting IV antihypertensive if systolic BP remains >160 mmHg.",
+   "kind": "action",
+   "text": "Add a short-acting IV antihypertensive if systolic BP remains >160 mmHg.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "short-acting IV antihypertensive",
+   "conditional": true,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1790816A1::01",
+   "claim_id": "E1790816A1",
+   "claim_text": "Continue intravenous heparin infusion per current dosing and monitor activated partial thromboplastin time (aPTT) q6h.",
+   "kind": "fact",
+   "text": "Intravenous heparin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement says that intravenous heparin infusion is currently being given, but the records show that it is only scheduled to be given, not that it is currently being administered. The record R22 shows that the heparin infusion is 'Running at decision time', but this means it was started before the decision time, not that it is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:64894409",
+     "time": "2100-01-01 22:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 22:30:00): Medication 1 ML VIAL: HEPARIN SODIUM (PORCINE) 5000 UNIT/ML IJ SOLN SC Q8H SCH"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1790816A3::05",
+   "claim_id": "E1790816A3",
+   "claim_text": "Adjust antihypertensive regimen by titrating isosorbide mononitrate and adding a short‑acting IV antihypertensive if systolic BP remains >160 mmHg.",
+   "kind": "fact",
+   "text": "Isosorbide mononitrate is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement 'Isosorbide mononitrate is currently being given' is not supported by the records. Although there is a medication order for Isosorbide mononitrate ER 30 MG PO TB24 PO Daily (R39), it is a scheduled order and not an administration record. The administration record for Isosorbide mononitrate is not present in the records within the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:67531242",
+     "time": "2100-01-02 15:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 15:00:00): Medication ISOSORBIDE MONONITRATE ER 30 MG PO TB24 PO Daily"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1790816A1::02",
+   "claim_id": "E1790816A1",
+   "claim_text": "Continue intravenous heparin infusion per current dosing and monitor activated partial thromboplastin time (aPTT) q6h.",
+   "kind": "action",
+   "text": "Continue intravenous heparin infusion per current dosing.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (therapeutic) action recorded in the 1.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1790816A1::03",
+   "claim_id": "E1790816A1",
+   "claim_text": "Continue intravenous heparin infusion per current dosing and monitor activated partial thromboplastin time (aPTT) q6h.",
+   "kind": "action",
+   "text": "Monitor activated partial thromboplastin time (aPTT) q6h.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "aPTT",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1790816A2::04",
+   "claim_id": "E1790816A2",
+   "claim_text": "Obtain a repeat cardiac troponin level to assess for ongoing myocardial injury.",
+   "kind": "action",
+   "text": "Obtain a repeat cardiac troponin level.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "cardiac troponin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1790816A3::06",
+   "claim_id": "E1790816A3",
+   "claim_text": "Adjust antihypertensive regimen by titrating isosorbide mononitrate and adding a short‑acting IV antihypertensive if systolic BP remains >160 mmHg.",
+   "kind": "action",
+   "text": "Titrate isosorbide mononitrate.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "isosorbide mononitrate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1790816A3::07",
+   "claim_id": "E1790816A3",
+   "claim_text": "Adjust antihypertensive regimen by titrating isosorbide mononitrate and adding a short‑acting IV antihypertensive if systolic BP remains >160 mmHg.",
+   "kind": "action",
+   "text": "Add a short-acting IV antihypertensive if systolic BP remains >160 mmHg.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "short-acting IV antihypertensive",
+   "conditional": true,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 1.4 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 1.4,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous heparin infusion is currently being given. -- The statement says that intravenous heparin infusion is currently being given, but the records show that it is only scheduled to be given, not that it is currently being administered. The record R22 shows that the heparin infusion is 'Running at decision time', but this means it was started before the decision time, not that it is currently being given.",
+    "Isosorbide mononitrate is currently being given. -- The statement 'Isosorbide mononitrate is currently being given' is not supported by the records. Although there is a medication order for Isosorbide mononitrate ER 30 MG PO TB24 PO Daily (R39), it is a scheduled order and not an administration record. The administration record for Isosorbide mononitrate is not present in the records within the 24 hours before the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

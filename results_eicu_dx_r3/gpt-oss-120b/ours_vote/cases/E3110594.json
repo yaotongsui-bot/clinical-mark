@@ -1,0 +1,441 @@
+{
+ "case_id": "E3110594",
+ "decision_point": "2100-01-02 01:02:00",
+ "claims": [
+  "Gradually wean norepinephrine infusion while closely monitoring mean arterial pressure.",
+  "Obtain a repeat serum lactate level to assess ongoing tissue perfusion.",
+  "Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3110594A1::01",
+   "claim_id": "E3110594A1",
+   "claim_text": "Gradually wean norepinephrine infusion while closely monitoring mean arterial pressure.",
+   "kind": "action",
+   "text": "Gradually wean norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3110594A1::02",
+   "claim_id": "E3110594A1",
+   "claim_text": "Gradually wean norepinephrine infusion while closely monitoring mean arterial pressure.",
+   "kind": "action",
+   "text": "Closely monitor mean arterial pressure.",
+   "concept": "map",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "mean arterial pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3110594A1::03",
+   "claim_id": "E3110594A1",
+   "claim_text": "Gradually wean norepinephrine infusion while closely monitoring mean arterial pressure.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3110594A2::04",
+   "claim_id": "E3110594A2",
+   "claim_text": "Obtain a repeat serum lactate level to assess ongoing tissue perfusion.",
+   "kind": "action",
+   "text": "Obtain a repeat serum lactate level.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3110594A3::05",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.",
+   "kind": "action",
+   "text": "Continue daily furosemide as ordered.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3110594A3::06",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.",
+   "kind": "action",
+   "text": "Continue daily lisinopril as ordered.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "lisinopril",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3110594A3::07",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.",
+   "kind": "action",
+   "text": "Monitor daily weight.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "daily weight",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3110594A3::08",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.",
+   "kind": "action",
+   "text": "Monitor input/output.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "input/output",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3110594A3::09",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.",
+   "kind": "fact",
+   "text": "Furosemide is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3110594A3::10",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.",
+   "kind": "fact",
+   "text": "Lisinopril is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3110594A1::03",
+   "claim_id": "E3110594A1",
+   "claim_text": "Gradually wean norepinephrine infusion while closely monitoring mean arterial pressure.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show norepinephrine infusions on 2100-01-01 from 00:00 to 04:00, but no administration is recorded in the 24 hours before the decision time of 2100-01-02 01:02. Therefore, the statement that it is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Norepinephrine (mcg/min):-62",
+     "time": "2100-01-01 00:00:00",
+     "item": "Infusion/input Norepinephrine at 3 mcg/min (2100-01-01 00:00:00 to 2100-01-01 03:00:00)"
+    },
+    {
+     "rid": "inf:Norepinephrine (mcg/min):118",
+     "time": "2100-01-01 03:00:00",
+     "item": "Infusion/input Norepinephrine at 2 mcg/min (2100-01-01 03:00:00 to 2100-01-01 04:00:00)"
+    },
+    {
+     "rid": "inf:Norepinephrine (mcg/min):178",
+     "time": "2100-01-01 04:00:00",
+     "item": "Infusion/input Norepinephrine at 1 mcg/min (2100-01-01 04:00:00 to 2100-01-01 04:00:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3110594A3::09",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.",
+   "kind": "fact",
+   "text": "Furosemide is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show furosemide as a running medication at the decision time, indicating it is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:103128921",
+     "time": "2100-01-01 13:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication FUROSEMIDE PO"
+    },
+    {
+     "rid": "med:103128920",
+     "time": "2100-01-01 13:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication FUROSEMIDE PO DAILY"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3110594A3::10",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.",
+   "kind": "fact",
+   "text": "Lisinopril is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R30 shows a scheduled lisinopril order running at decision time, indicating the medication is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:103128923",
+     "time": "2100-01-01 13:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication LISINOPRIL PO DAILY"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3110594A1::01",
+   "claim_id": "E3110594A1",
+   "claim_text": "Gradually wean norepinephrine infusion while closely monitoring mean arterial pressure.",
+   "kind": "action",
+   "text": "Gradually wean norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3110594A1::02",
+   "claim_id": "E3110594A1",
+   "claim_text": "Gradually wean norepinephrine infusion while closely monitoring mean arterial pressure.",
+   "kind": "action",
+   "text": "Closely monitor mean arterial pressure.",
+   "concept": "map",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "mean arterial pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2027506293",
+     "time": "2100-01-02 02:00:00",
+     "item": "mean arterial pressure",
+     "value": "80.0 mmHg"
+    },
+    {
+     "rid": "nurse:2063848228",
+     "time": "2100-01-02 03:00:00",
+     "item": "mean arterial pressure",
+     "value": "65.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): mean arterial pressure x11.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3110594A2::04",
+   "claim_id": "E3110594A2",
+   "claim_text": "Obtain a repeat serum lactate level to assess ongoing tissue perfusion.",
+   "kind": "action",
+   "text": "Obtain a repeat serum lactate level.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3110594A3::05",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.",
+   "kind": "action",
+   "text": "Continue daily furosemide as ordered.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No diuretics action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3110594A3::06",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.",
+   "kind": "action",
+   "text": "Continue daily lisinopril as ordered.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "lisinopril",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3110594A3::07",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.",
+   "kind": "action",
+   "text": "Monitor daily weight.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "daily weight",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3110594A3::08",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.",
+   "kind": "action",
+   "text": "Monitor input/output.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "input/output",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Norepinephrine infusion is currently being given. -- The records show norepinephrine infusions on 2100-01-01 from 00:00 to 04:00, but no administration is recorded in the 24 hours before the decision time of 2100-01-02 01:02. Therefore, the statement that it is currently being given is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

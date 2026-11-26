@@ -21,6 +21,19 @@ ENDPOINT = os.environ.get("CLINICAL_MARK_OLLAMA_ENDPOINT", "http://127.0.0.1:114
 CLOUD_ENDPOINT = "https://ollama.com"
 SEED = 20261011
 MAX_CLOUD_PREDICT = 32768
+# Repeat runs (PAPER_PLAN.md: three repeats of each sampled judge). Repeat r > 1 shifts every request's
+# seed by 1000 * (r - 1); the seed then enters the cache key, so each request is sent again. Temperature
+# is unchanged: a judge at temperature 0 repeats only the variation of the serving itself.
+REPEAT = int(os.environ.get("CLINICAL_MARK_REPEAT", "1"))
+
+
+def repeat_sampling(sampling: dict | None, repeat: int | None = None) -> dict | None:
+    r = REPEAT if repeat is None else repeat
+    if r <= 1:
+        return sampling
+    out = dict(sampling or {})
+    out["seed"] = out.get("seed", SEED) + 1000 * (r - 1)
+    return out
 
 
 def _is_cloud(model: str) -> bool:
@@ -114,6 +127,7 @@ class LLM:
         reasoning judges agree better with clinicians). The reasoning text is logged, not returned.
         sampling overrides temperature / top_p / seed (VeriFact's judge uses temperature 0.1 and
         retries with new samples); when given it is part of the cache key."""
+        sampling = repeat_sampling(sampling)
         parts = [model, system, user, schema] + (["think"] if think else []) + ([sampling] if sampling else [])
         key = json.dumps(parts, ensure_ascii=False)
         if key in self.cache:
@@ -149,7 +163,8 @@ class LLM:
                 self.calls += 1
             record = {"stage": stage, "case_id": case_id, "elapsed_seconds": round(time.time() - started, 2),
                       "request": parts, "reasoning": body.get("message", {}).get("thinking"),
-                      "done_reason": body.get("done_reason"), "raw_response": raw}
+                      "done_reason": body.get("done_reason"), "prompt_tokens": body.get("prompt_eval_count"),
+                      "raw_response": raw}
             try:
                 response = _first_json_object(raw) if cloud else json.loads(raw)
                 if not isinstance(response, dict):

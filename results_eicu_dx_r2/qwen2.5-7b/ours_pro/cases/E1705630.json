@@ -1,0 +1,331 @@
+{
+ "case_id": "E1705630",
+ "decision_point": "2100-01-02 22:19:00",
+ "claims": [
+  "Continue monitoring vital signs and oxygen saturation.",
+  "Administer potassium chloride intravenous as needed.",
+  "Continue sedation at a reduced level."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1705630A1::01",
+   "claim_id": "E1705630A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1705630A1::02",
+   "claim_id": "E1705630A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1705630A2::03",
+   "claim_id": "E1705630A2",
+   "claim_text": "Administer potassium chloride intravenous as needed.",
+   "kind": "action",
+   "text": "Administer potassium chloride intravenous as needed.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium chloride",
+   "conditional": true,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1705630A3::04",
+   "claim_id": "E1705630A3",
+   "claim_text": "Continue sedation at a reduced level.",
+   "kind": "action",
+   "text": "Continue sedation at a reduced level.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1705630A3::05",
+   "claim_id": "E1705630A3",
+   "claim_text": "Continue sedation at a reduced level.",
+   "kind": "fact",
+   "text": "Sedation is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1705630A3::05",
+   "claim_id": "E1705630A3",
+   "claim_text": "Continue sedation at a reduced level.",
+   "kind": "fact",
+   "text": "Sedation is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records mention sedative agents (lorazepam orders, diazepam and haloperidol treatment documentation), but there is no administration record of any sedative in the 24 hours before the decision time. The lorazepam orders are PRN and were stopped or are active without documented administration, so the statement that sedation is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:62006674",
+     "time": "2100-01-01 18:00:00",
+     "item": "Order: LORazepam Oral Every 1 hour prn (stopped 2100-01-01 19:23:00)"
+    },
+    {
+     "rid": "med:58113941",
+     "time": "2100-01-01 18:00:00",
+     "item": "Order: LORazepam Intramuscular Every 1 hour prn (stopped 2100-01-01 19:23:00)"
+    },
+    {
+     "rid": "med:60249640",
+     "time": "2100-01-01 18:00:00",
+     "item": "Order: LORazepam Intravenous Every 1 hour prn (stopped 2100-01-01 19:23:00)"
+    },
+    {
+     "rid": "med:60294456",
+     "time": "2100-01-01 19:23:00",
+     "item": "Order: LORazepam Intravenous Every 4 hours PRN (active at decision time)"
+    },
+    {
+     "rid": "treat:45079288",
+     "time": "2100-01-01 23:12:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | sedative agent | diazepam"
+    },
+    {
+     "rid": "treat:45132780",
+     "time": "2100-01-01 23:12:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | sedative agent | haloperidol"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1705630A1::01",
+   "claim_id": "E1705630A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1211813077",
+     "time": "2100-01-02 23:00:00",
+     "item": "heart rate",
+     "value": "82.0 bpm"
+    },
+    {
+     "rid": "nurse:1195369515",
+     "time": "2100-01-02 23:50:00",
+     "item": "heart rate",
+     "value": "72.0 bpm"
+    },
+    {
+     "rid": "nurse:1257644128",
+     "time": "2100-01-02 23:00:00",
+     "item": "systolic BP",
+     "value": "159.0 mmHg"
+    },
+    {
+     "rid": "nurse:1237924098",
+     "time": "2100-01-02 23:50:00",
+     "item": "systolic BP",
+     "value": "163.0 mmHg"
+    },
+    {
+     "rid": "nurse:1257644130",
+     "time": "2100-01-02 23:00:00",
+     "item": "mean arterial pressure",
+     "value": "109.0 mmHg"
+    },
+    {
+     "rid": "nurse:1237924100",
+     "time": "2100-01-02 23:50:00",
+     "item": "mean arterial pressure",
+     "value": "118.0 mmHg"
+    },
+    {
+     "rid": "nurse:1204380131",
+     "time": "2100-01-02 23:00:00",
+     "item": "respiratory rate",
+     "value": "17.0 insp/min"
+    },
+    {
+     "rid": "nurse:1225186760",
+     "time": "2100-01-02 23:50:00",
+     "item": "respiratory rate",
+     "value": "13.0 insp/min"
+    },
+    {
+     "rid": "nurse:1259468448",
+     "time": "2100-01-02 23:00:00",
+     "item": "SpO2",
+     "value": "94.0 %"
+    },
+    {
+     "rid": "nurse:1206862212",
+     "time": "2100-01-03 00:00:00",
+     "item": "SpO2",
+     "value": "96.0 %"
+    },
+    {
+     "rid": "nurse:1186900515",
+     "time": "2100-01-02 23:50:00",
+     "item": "temperature",
+     "value": "98.1 F"
+    },
+    {
+     "rid": "nurse:1234300840",
+     "time": "2100-01-03 00:05:00",
+     "item": "temperature",
+     "value": "98.6 F"
+    }
+   ],
+   "reason": "Measured in the 16.6 h observation window after the decision (24 h or until ICU discharge): heart rate x19, systolic BP x19, mean arterial pressure x20, respiratory rate x19, SpO2 x16, temperature x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1705630A1::02",
+   "claim_id": "E1705630A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1259468448",
+     "time": "2100-01-02 23:00:00",
+     "item": "SpO2",
+     "value": "94.0 %"
+    },
+    {
+     "rid": "nurse:1206862212",
+     "time": "2100-01-03 00:00:00",
+     "item": "SpO2",
+     "value": "96.0 %"
+    }
+   ],
+   "reason": "Measured in the 16.6 h observation window after the decision (24 h or until ICU discharge): SpO2 x16.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1705630A2::03",
+   "claim_id": "E1705630A2",
+   "claim_text": "Administer potassium chloride intravenous as needed.",
+   "kind": "action",
+   "text": "Administer potassium chloride intravenous as needed.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium chloride",
+   "conditional": true,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No potassium replacement action recorded in the 16.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1705630A3::04",
+   "claim_id": "E1705630A3",
+   "claim_text": "Continue sedation at a reduced level.",
+   "kind": "action",
+   "text": "Continue sedation at a reduced level.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 16.6 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 16.6,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Sedation is currently being given. -- The records mention sedative agents (lorazepam orders, diazepam and haloperidol treatment documentation), but there is no administration record of any sedative in the 24 hours before the decision time. The lorazepam orders are PRN and were stopped or are active without documented administration, so the statement that sedation is currently being given is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

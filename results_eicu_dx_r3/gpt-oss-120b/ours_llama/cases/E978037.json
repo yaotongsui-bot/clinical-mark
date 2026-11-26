@@ -1,0 +1,432 @@
+{
+ "case_id": "E978037",
+ "decision_point": "2100-01-02 04:37:00",
+ "claims": [
+  "Increase norepinephrine infusion to maintain MAP ≥65 mmHg",
+  "Obtain repeat hemoglobin and hematocrit in 2 hours to assess ongoing bleeding",
+  "Continue close hemodynamic monitoring with arterial line and repeat lactate in 4 hours"
+ ],
+ "atoms": [
+  {
+   "atom_id": "E978037A1::01",
+   "claim_id": "E978037A1",
+   "claim_text": "Increase norepinephrine infusion to maintain MAP ≥65 mmHg",
+   "kind": "action",
+   "text": "Increase norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E978037A1::02",
+   "claim_id": "E978037A1",
+   "claim_text": "Increase norepinephrine infusion to maintain MAP ≥65 mmHg",
+   "kind": "goal",
+   "text": "Maintain MAP ≥65 mmHg.",
+   "concept": "map",
+   "notes": []
+  },
+  {
+   "atom_id": "E978037A1::03",
+   "claim_id": "E978037A1",
+   "claim_text": "Increase norepinephrine infusion to maintain MAP ≥65 mmHg",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E978037A2::04",
+   "claim_id": "E978037A2",
+   "claim_text": "Obtain repeat hemoglobin and hematocrit in 2 hours to assess ongoing bleeding",
+   "kind": "action",
+   "text": "Obtain repeat hemoglobin in 2 hours.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "hemoglobin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E978037A2::05",
+   "claim_id": "E978037A2",
+   "claim_text": "Obtain repeat hemoglobin and hematocrit in 2 hours to assess ongoing bleeding",
+   "kind": "action",
+   "text": "Obtain repeat hematocrit in 2 hours.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "hematocrit",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E978037A2::06",
+   "claim_id": "E978037A2",
+   "claim_text": "Obtain repeat hemoglobin and hematocrit in 2 hours to assess ongoing bleeding",
+   "kind": "fact",
+   "text": "Ongoing bleeding is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: hemoglobin -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E978037A3::07",
+   "claim_id": "E978037A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line and repeat lactate in 4 hours",
+   "kind": "action",
+   "text": "Continue close hemodynamic monitoring with arterial line.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamics",
+   "conditional": false
+  },
+  {
+   "atom_id": "E978037A3::08",
+   "claim_id": "E978037A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line and repeat lactate in 4 hours",
+   "kind": "fact",
+   "text": "Arterial line is currently in place.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E978037A3::09",
+   "claim_id": "E978037A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line and repeat lactate in 4 hours",
+   "kind": "action",
+   "text": "Repeat lactate in 4 hours.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E978037A1::03",
+   "claim_id": "E978037A1",
+   "claim_text": "Increase norepinephrine infusion to maintain MAP ≥65 mmHg",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that norepinephrine infusion was running at decision time (R30) and that it was administered as an infusion/input (R32).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:36586376",
+     "time": "2100-01-01 09:43:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 09:43:00): Medication <<norepinephrine 4 mg/4 mL Inj IV"
+    },
+    {
+     "rid": "inf:Norepinephrine (mcg/min):322",
+     "time": "2100-01-01 09:59:00",
+     "item": "Infusion/input Norepinephrine at 10 mcg/min (2100-01-01 09:59:00 to 2100-01-01 16:00:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E978037A2::06",
+   "claim_id": "E978037A2",
+   "claim_text": "Obtain repeat hemoglobin and hematocrit in 2 hours to assess ongoing bleeding",
+   "kind": "fact",
+   "text": "Ongoing bleeding is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: hemoglobin -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The admission diagnosis mentions bleeding, lower GI, but there is no record of ongoing bleeding in the recent measurements or administration records. The recent measurements show a pain level of 0, which does not indicate ongoing bleeding.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:978037:dx",
+     "time": "2100-01-01 04:37:00",
+     "item": "Admission diagnosis (APACHE): Bleeding, lower GI"
+    }
+   ]
+  },
+  {
+   "atom_id": "E978037A3::08",
+   "claim_id": "E978037A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line and repeat lactate in 4 hours",
+   "kind": "fact",
+   "text": "Arterial line is currently in place.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement 'Arterial line is currently in place' is not supported by the records. Although there is a medication order for an arterial line (R3), it is not clear if it has been administered. Additionally, there is a medication administration record for norepinephrine (R28), but it does not mention an arterial line.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:36000257",
+     "time": "2100-01-01 03:17:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 03:17:00): Medication Sodium Chloride 0.9% 1,000 mL IV"
+    },
+    {
+     "rid": "med:36586376",
+     "time": "2100-01-01 09:43:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 09:43:00): Medication <<norepinephrine 4 mg/4 mL Inj IV"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E978037A1::01",
+   "claim_id": "E978037A1",
+   "claim_text": "Increase norepinephrine infusion to maintain MAP ≥65 mmHg",
+   "kind": "action",
+   "text": "Increase norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 17.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E978037A2::04",
+   "claim_id": "E978037A2",
+   "claim_text": "Obtain repeat hemoglobin and hematocrit in 2 hours to assess ongoing bleeding",
+   "kind": "action",
+   "text": "Obtain repeat hemoglobin in 2 hours.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "hemoglobin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:229559838",
+     "time": "2100-01-02 10:00:00",
+     "item": "hemoglobin",
+     "value": "9.4 g/dL"
+    },
+    {
+     "rid": "lab:229625824",
+     "time": "2100-01-02 15:55:00",
+     "item": "hemoglobin",
+     "value": "9.6 g/dL"
+    }
+   ],
+   "reason": "Measured in the 17.9 h observation window after the decision (24 h or until ICU discharge): hemoglobin x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E978037A2::05",
+   "claim_id": "E978037A2",
+   "claim_text": "Obtain repeat hemoglobin and hematocrit in 2 hours to assess ongoing bleeding",
+   "kind": "action",
+   "text": "Obtain repeat hematocrit in 2 hours.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "hematocrit",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:229559836",
+     "time": "2100-01-02 10:00:00",
+     "item": "hematocrit",
+     "value": "28.6 %"
+    },
+    {
+     "rid": "lab:229625823",
+     "time": "2100-01-02 15:55:00",
+     "item": "hematocrit",
+     "value": "29.6 %"
+    }
+   ],
+   "reason": "Measured in the 17.9 h observation window after the decision (24 h or until ICU discharge): hematocrit x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E978037A3::07",
+   "claim_id": "E978037A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line and repeat lactate in 4 hours",
+   "kind": "action",
+   "text": "Continue close hemodynamic monitoring with arterial line.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamics",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:580214479",
+     "time": "2100-01-02 05:00:00",
+     "item": "heart rate",
+     "value": "98.0 bpm"
+    },
+    {
+     "rid": "nurse:569108372",
+     "time": "2100-01-02 06:00:00",
+     "item": "heart rate",
+     "value": "99.0 bpm"
+    },
+    {
+     "rid": "nurse:576077405",
+     "time": "2100-01-02 05:00:00",
+     "item": "systolic BP",
+     "value": "92.0 mmHg"
+    },
+    {
+     "rid": "nurse:568113758",
+     "time": "2100-01-02 06:00:00",
+     "item": "systolic BP",
+     "value": "105.0 mmHg"
+    },
+    {
+     "rid": "nurse:576077404",
+     "time": "2100-01-02 05:00:00",
+     "item": "mean arterial pressure",
+     "value": "75.0 mmHg"
+    },
+    {
+     "rid": "nurse:568113757",
+     "time": "2100-01-02 06:00:00",
+     "item": "mean arterial pressure",
+     "value": "87.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 17.9 h observation window after the decision (24 h or until ICU discharge): heart rate x28, systolic BP x29, mean arterial pressure x28.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E978037A3::09",
+   "claim_id": "E978037A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line and repeat lactate in 4 hours",
+   "kind": "action",
+   "text": "Repeat lactate in 4 hours.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 17.9 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 17.9,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Ongoing bleeding is present. -- The admission diagnosis mentions bleeding, lower GI, but there is no record of ongoing bleeding in the recent measurements or administration records. The recent measurements show a pain level of 0, which does not indicate ongoing bleeding.",
+    "Arterial line is currently in place. -- The statement 'Arterial line is currently in place' is not supported by the records. Although there is a medication order for an arterial line (R3), it is not clear if it has been administered. Additionally, there is a medication administration record for norepinephrine (R28), but it does not mention an arterial line."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

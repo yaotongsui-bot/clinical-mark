@@ -1,0 +1,334 @@
+{
+ "case_id": "E405746",
+ "decision_point": "2100-01-02 01:27:00",
+ "claims": [
+  "Monitor blood pressure and oxygen saturation.",
+  "Continue labetalol for hypertension management.",
+  "Order a complete blood count (CBC) to assess hematological status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E405746A1::01",
+   "claim_id": "E405746A1",
+   "claim_text": "Monitor blood pressure and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E405746A1::02",
+   "claim_id": "E405746A1",
+   "claim_text": "Monitor blood pressure and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E405746A2::03",
+   "claim_id": "E405746A2",
+   "claim_text": "Continue labetalol for hypertension management.",
+   "kind": "action",
+   "text": "Continue labetalol.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "labetalol",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E405746A2::04",
+   "claim_id": "E405746A2",
+   "claim_text": "Continue labetalol for hypertension management.",
+   "kind": "fact",
+   "text": "Labetalol is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E405746A2::05",
+   "claim_id": "E405746A2",
+   "claim_text": "Continue labetalol for hypertension management.",
+   "kind": "fact",
+   "text": "Hypertension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E405746A3::06",
+   "claim_id": "E405746A3",
+   "claim_text": "Order a complete blood count (CBC) to assess hematological status.",
+   "kind": "action",
+   "text": "Order a complete blood count (CBC).",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "complete blood count",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E405746A2::04",
+   "claim_id": "E405746A2",
+   "claim_text": "Continue labetalol for hypertension management.",
+   "kind": "fact",
+   "text": "Labetalol is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records contain an active order for labetalol (R11) and a treatment documentation note (R34), but there is no administration record showing labetalol was given in the 24 hours before the decision time. Therefore, the statement that it is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:17624751",
+     "time": "2099-12-31 15:59:00",
+     "item": "Order: LABETALOL 5 MG/ML IV 20 ML VIAL IV PRN (active at decision time)"
+    },
+    {
+     "rid": "treat:15439329",
+     "time": "2100-01-01 05:30:00",
+     "item": "Treatment documented: hypertension | alpha/beta blocker | labetalol"
+    }
+   ]
+  },
+  {
+   "atom_id": "E405746A2::05",
+   "claim_id": "E405746A2",
+   "claim_text": "Continue labetalol for hypertension management.",
+   "kind": "fact",
+   "text": "Hypertension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "nurse:351350352",
+     "time": "2100-01-02 01:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 128.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "nurse:351350350",
+     "time": "2100-01-02 01:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 81.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'blood pressure high' holds when any component is high. systolic BP: no; mean arterial pressure: no.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E405746A1::01",
+   "claim_id": "E405746A1",
+   "claim_text": "Monitor blood pressure and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:358937239",
+     "time": "2100-01-02 03:00:00",
+     "item": "systolic BP",
+     "value": "108.0 mmHg"
+    },
+    {
+     "rid": "nurse:324329007",
+     "time": "2100-01-02 08:00:00",
+     "item": "systolic BP",
+     "value": "118.0 mmHg"
+    },
+    {
+     "rid": "nurse:358937237",
+     "time": "2100-01-02 03:00:00",
+     "item": "mean arterial pressure",
+     "value": "69.0 mmHg"
+    },
+    {
+     "rid": "nurse:324329009",
+     "time": "2100-01-02 08:00:00",
+     "item": "mean arterial pressure",
+     "value": "72.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x8, mean arterial pressure x8.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E405746A1::02",
+   "claim_id": "E405746A1",
+   "claim_text": "Monitor blood pressure and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:330670735",
+     "time": "2100-01-02 03:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:375210816",
+     "time": "2100-01-02 08:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x8.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E405746A2::03",
+   "claim_id": "E405746A2",
+   "claim_text": "Continue labetalol for hypertension management.",
+   "kind": "action",
+   "text": "Continue labetalol.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "labetalol",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E405746A3::06",
+   "claim_id": "E405746A3",
+   "claim_text": "Order a complete blood count (CBC) to assess hematological status.",
+   "kind": "action",
+   "text": "Order a complete blood count (CBC).",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "complete blood count",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:94274133",
+     "time": "2100-01-02 11:00:00",
+     "item": "WBC",
+     "value": "8.1 K/cmm"
+    },
+    {
+     "rid": "lab:94274132",
+     "time": "2100-01-02 11:00:00",
+     "item": "hemoglobin",
+     "value": "8.0 g/dl"
+    },
+    {
+     "rid": "lab:94274137",
+     "time": "2100-01-02 11:00:00",
+     "item": "platelets",
+     "value": "275.0 K/cmm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): WBC x1, hemoglobin x1, platelets x1.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Labetalol is currently being given. -- The records contain an active order for labetalol (R11) and a treatment documentation note (R34), but there is no administration record showing labetalol was given in the 24 hours before the decision time. Therefore, the statement that it is currently being given is not supported.",
+    "Hypertension is present. -- 'blood pressure high' holds when any component is high. systolic BP: no; mean arterial pressure: no."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

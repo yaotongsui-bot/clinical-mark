@@ -1,0 +1,407 @@
+{
+ "case_id": "E733082",
+ "decision_point": "2100-01-02 06:09:00",
+ "claims": [
+  "Obtain repeat blood cultures to assess ongoing bacteremia and guide antimicrobial therapy.",
+  "Administer a 500 mL crystalloid bolus to support borderline mean arterial pressure and improve tissue perfusion.",
+  "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) and add levofloxacin as scheduled for extended Gram‑negative coverage."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E733082A1::01",
+   "claim_id": "E733082A1",
+   "claim_text": "Obtain repeat blood cultures to assess ongoing bacteremia and guide antimicrobial therapy.",
+   "kind": "action",
+   "text": "Obtain repeat blood cultures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": false,
+   "treatment_class": "cultures",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E733082A1::02",
+   "claim_id": "E733082A1",
+   "claim_text": "Obtain repeat blood cultures to assess ongoing bacteremia and guide antimicrobial therapy.",
+   "kind": "fact",
+   "text": "Bacteremia is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E733082A2::03",
+   "claim_id": "E733082A2",
+   "claim_text": "Administer a 500 mL crystalloid bolus to support borderline mean arterial pressure and improve tissue perfusion.",
+   "kind": "action",
+   "text": "Administer a 500 mL crystalloid bolus.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "crystalloid bolus",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E733082A2::04",
+   "claim_id": "E733082A2",
+   "claim_text": "Administer a 500 mL crystalloid bolus to support borderline mean arterial pressure and improve tissue perfusion.",
+   "kind": "fact",
+   "text": "Mean arterial pressure is borderline.",
+   "concept": "map",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E733082A3::05",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) and add levofloxacin as scheduled for extended Gram‑negative coverage.",
+   "kind": "action",
+   "text": "Continue piperacillin-tazobactam.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "piperacillin-tazobactam",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E733082A3::06",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) and add levofloxacin as scheduled for extended Gram‑negative coverage.",
+   "kind": "fact",
+   "text": "Piperacillin-tazobactam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E733082A3::07",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) and add levofloxacin as scheduled for extended Gram‑negative coverage.",
+   "kind": "action",
+   "text": "Continue vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E733082A3::08",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) and add levofloxacin as scheduled for extended Gram‑negative coverage.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E733082A3::09",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) and add levofloxacin as scheduled for extended Gram‑negative coverage.",
+   "kind": "action",
+   "text": "Add levofloxacin as scheduled.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "start",
+   "target": "levofloxacin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E733082A1::02",
+   "claim_id": "E733082A1",
+   "claim_text": "Obtain repeat blood cultures to assess ongoing bacteremia and guide antimicrobial therapy.",
+   "kind": "fact",
+   "text": "Bacteremia is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_addressed",
+   "reason": "The records contain no blood culture results, no mention of bacteremia, and no direct evidence of bloodstream infection. While elevated white blood cell counts and antibiotic administration are present, they do not directly state or confirm bacteremia.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "E733082A2::04",
+   "claim_id": "E733082A2",
+   "claim_text": "Administer a 500 mL crystalloid bolus to support borderline mean arterial pressure and improve tissue perfusion.",
+   "kind": "fact",
+   "text": "Mean arterial pressure is borderline.",
+   "concept": "map",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The most recent mean arterial pressures before the decision time are 75, 78, and 82 mmHg, which are within normal range, not borderline low. The statement that MAP is borderline is not supported by the latest recorded values.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:465559941",
+     "time": "2100-01-02 00:23:00",
+     "item": "Non Invasive Blood Pressure mean: 75 mmHg"
+    },
+    {
+     "rid": "nurse:460700743",
+     "time": "2100-01-02 01:01:00",
+     "item": "Non Invasive Blood Pressure mean: 78 mmHg"
+    },
+    {
+     "rid": "nurse:512749462",
+     "time": "2100-01-02 02:10:00",
+     "item": "Non Invasive Blood Pressure mean: 82 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E733082A3::06",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) and add levofloxacin as scheduled for extended Gram‑negative coverage.",
+   "kind": "fact",
+   "text": "Piperacillin-tazobactam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "No record of this treatment. (Panel verdict: supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    },
+    "panel_label": "supported"
+   },
+   "evidence": [
+    {
+     "rid": "med:25096445",
+     "time": "2099-12-31 21:00:00",
+     "item": "Running at decision time (scheduled order started 2099-12-31 21:00:00): Medication ZOSYN 3.375 GRAM in NS 100 mL IVPB IVPB Q8H"
+    }
+   ]
+  },
+  {
+   "atom_id": "E733082A3::08",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) and add levofloxacin as scheduled for extended Gram‑negative coverage.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R22 shows a vancomycin infusion running at the decision time, which directly supports the statement that vancomycin is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:27154572",
+     "time": "2100-01-01 06:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 06:00:00): Medication VANCOmycin 1.25 GM in NS 500ML IVPB IVPB Q48H"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E733082A1::01",
+   "claim_id": "E733082A1",
+   "claim_text": "Obtain repeat blood cultures to assess ongoing bacteremia and guide antimicrobial therapy.",
+   "kind": "action",
+   "text": "Obtain repeat blood cultures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": false,
+   "treatment_class": "cultures",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No cultures action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E733082A2::03",
+   "claim_id": "E733082A2",
+   "claim_text": "Administer a 500 mL crystalloid bolus to support borderline mean arterial pressure and improve tissue perfusion.",
+   "kind": "action",
+   "text": "Administer a 500 mL crystalloid bolus.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "crystalloid bolus",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E733082A3::05",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) and add levofloxacin as scheduled for extended Gram‑negative coverage.",
+   "kind": "action",
+   "text": "Continue piperacillin-tazobactam.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "piperacillin-tazobactam",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E733082A3::07",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) and add levofloxacin as scheduled for extended Gram‑negative coverage.",
+   "kind": "action",
+   "text": "Continue vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E733082A3::09",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) and add levofloxacin as scheduled for extended Gram‑negative coverage.",
+   "kind": "action",
+   "text": "Add levofloxacin as scheduled.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "start",
+   "target": "levofloxacin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 2,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Mean arterial pressure is borderline. -- The most recent mean arterial pressures before the decision time are 75, 78, and 82 mmHg, which are within normal range, not borderline low. The statement that MAP is borderline is not supported by the latest recorded values."
+   ],
+   "not_addressed": [
+    "Bacteremia is present. -- The records contain no blood culture results, no mention of bacteremia, and no direct evidence of bloodstream infection. While elevated white blood cell counts and antibiotic administration are present, they do not directly state or confirm bacteremia.",
+    "Piperacillin-tazobactam is currently being given. -- No record of this treatment. (Panel verdict: supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

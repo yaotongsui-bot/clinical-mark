@@ -1,0 +1,300 @@
+{
+ "case_id": "E899746",
+ "decision_point": "2100-01-02 01:45:00",
+ "claims": [
+  "Monitor patient's blood pressure and respiratory rate closely.",
+  "Continue intravenous fluid administration with normal saline.",
+  "Assess patient for signs of pain and manage accordingly."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E899746A1::01",
+   "claim_id": "E899746A1",
+   "claim_text": "Monitor patient's blood pressure and respiratory rate closely.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E899746A1::02",
+   "claim_id": "E899746A1",
+   "claim_text": "Monitor patient's blood pressure and respiratory rate closely.",
+   "kind": "action",
+   "text": "Monitor respiratory rate closely.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E899746A2::03",
+   "claim_id": "E899746A2",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration with normal saline.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E899746A2::04",
+   "claim_id": "E899746A2",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "fact",
+   "text": "Intravenous fluid administration with normal saline is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E899746A3::05",
+   "claim_id": "E899746A3",
+   "claim_text": "Assess patient for signs of pain and manage accordingly.",
+   "kind": "action",
+   "text": "Assess patient for signs of pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "E899746A3::06",
+   "claim_id": "E899746A3",
+   "claim_text": "Assess patient for signs of pain and manage accordingly.",
+   "kind": "action",
+   "text": "Manage pain accordingly.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E899746A2::04",
+   "claim_id": "E899746A2",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "fact",
+   "text": "Intravenous fluid administration with normal saline is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show a normal saline infusion running at decision time (R10) and multiple documented normal saline fluid bolus administrations (R20, R46, R49), supporting the statement that intravenous normal saline is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:31165149",
+     "time": "2099-12-31 22:46:00",
+     "item": "Running at decision time (scheduled order started 2099-12-31 22:46:00): Medication SODIUM CHLORIDE 0.9% 1000 ML LVP IV"
+    },
+    {
+     "rid": "treat:25566817",
+     "time": "2100-01-01 02:23:00",
+     "item": "Treatment documented: intravenous fluid | normal saline administration | fluid bolus (250-1000mls)"
+    },
+    {
+     "rid": "treat:23883514",
+     "time": "2100-01-01 20:46:00",
+     "item": "Treatment documented: intravenous fluid | normal saline administration | fluid bolus (250-1000mls)"
+    },
+    {
+     "rid": "treat:24490981",
+     "time": "2100-01-01 23:46:00",
+     "item": "Treatment documented: intravenous fluid | normal saline administration | fluid bolus (250-1000mls)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E899746A1::01",
+   "claim_id": "E899746A1",
+   "claim_text": "Monitor patient's blood pressure and respiratory rate closely.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:465454841",
+     "time": "2100-01-02 02:00:00",
+     "item": "systolic BP",
+     "value": "107.0 mmHg"
+    },
+    {
+     "rid": "nurse:527337339",
+     "time": "2100-01-02 03:00:00",
+     "item": "systolic BP",
+     "value": "123.0 mmHg"
+    },
+    {
+     "rid": "nurse:465454840",
+     "time": "2100-01-02 02:00:00",
+     "item": "mean arterial pressure",
+     "value": "81.0 mmHg"
+    },
+    {
+     "rid": "nurse:527337338",
+     "time": "2100-01-02 03:00:00",
+     "item": "mean arterial pressure",
+     "value": "68.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x23, mean arterial pressure x23.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E899746A1::02",
+   "claim_id": "E899746A1",
+   "claim_text": "Monitor patient's blood pressure and respiratory rate closely.",
+   "kind": "action",
+   "text": "Monitor respiratory rate closely.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:556257427",
+     "time": "2100-01-02 02:00:00",
+     "item": "respiratory rate",
+     "value": "14.0 insp/min"
+    },
+    {
+     "rid": "nurse:504227149",
+     "time": "2100-01-02 03:00:00",
+     "item": "respiratory rate",
+     "value": "22.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x25.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E899746A2::03",
+   "claim_id": "E899746A2",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration with normal saline.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E899746A3::05",
+   "claim_id": "E899746A3",
+   "claim_text": "Assess patient for signs of pain and manage accordingly.",
+   "kind": "action",
+   "text": "Assess patient for signs of pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E899746A3::06",
+   "claim_id": "E899746A3",
+   "claim_text": "Assess patient for signs of pain and manage accordingly.",
+   "kind": "action",
+   "text": "Manage pain accordingly.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

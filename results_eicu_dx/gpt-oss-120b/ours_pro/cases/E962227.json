@@ -1,0 +1,282 @@
+{
+ "case_id": "E962227",
+ "decision_point": "2100-01-02 21:10:00",
+ "claims": [
+  "Obtain a repeat troponin I level to assess for ongoing myocardial injury.",
+  "Adjust insulin therapy by increasing the aspart insulin dose per sliding scale to target glucose <180 mg/dL.",
+  "Continue daily hemodialysis and monitor serum electrolytes (potassium, bicarbonate) each shift."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E962227A1::01",
+   "claim_id": "E962227A1",
+   "claim_text": "Obtain a repeat troponin I level to assess for ongoing myocardial injury.",
+   "kind": "action",
+   "text": "Obtain a repeat troponin I level.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "troponin I",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E962227A2::02",
+   "claim_id": "E962227A2",
+   "claim_text": "Adjust insulin therapy by increasing the aspart insulin dose per sliding scale to target glucose <180 mg/dL.",
+   "kind": "action",
+   "text": "Increase the aspart insulin dose per sliding scale.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "aspart insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E962227A2::03",
+   "claim_id": "E962227A2",
+   "claim_text": "Adjust insulin therapy by increasing the aspart insulin dose per sliding scale to target glucose <180 mg/dL.",
+   "kind": "goal",
+   "text": "Target glucose <180 mg/dL.",
+   "concept": "glucose",
+   "notes": []
+  },
+  {
+   "atom_id": "E962227A3::04",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue daily hemodialysis and monitor serum electrolytes (potassium, bicarbonate) each shift.",
+   "kind": "action",
+   "text": "Continue daily hemodialysis.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "continue",
+   "target": "hemodialysis",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E962227A3::05",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue daily hemodialysis and monitor serum electrolytes (potassium, bicarbonate) each shift.",
+   "kind": "fact",
+   "text": "The patient is currently on hemodialysis.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E962227A3::06",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue daily hemodialysis and monitor serum electrolytes (potassium, bicarbonate) each shift.",
+   "kind": "action",
+   "text": "Monitor serum potassium each shift.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E962227A3::07",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue daily hemodialysis and monitor serum electrolytes (potassium, bicarbonate) each shift.",
+   "kind": "action",
+   "text": "Monitor serum bicarbonate each shift.",
+   "concept": "bicarbonate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "bicarbonate",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E962227A3::05",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue daily hemodialysis and monitor serum electrolytes (potassium, bicarbonate) each shift.",
+   "kind": "fact",
+   "text": "The patient is currently on hemodialysis.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records document a hemodialysis treatment at 22:06 on 2100-01-01, but there is no administration record or 'Running at decision time' entry for hemodialysis within the 24 hours before the decision time of 2100-01-01 21:10. The treatment documentation alone does not confirm the patient is currently on hemodialysis.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:27904055",
+     "time": "2100-01-01 22:06:00",
+     "item": "Treatment documented: renal | dialysis | hemodialysis"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E962227A1::01",
+   "claim_id": "E962227A1",
+   "claim_text": "Obtain a repeat troponin I level to assess for ongoing myocardial injury.",
+   "kind": "action",
+   "text": "Obtain a repeat troponin I level.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "troponin I",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E962227A2::02",
+   "claim_id": "E962227A2",
+   "claim_text": "Adjust insulin therapy by increasing the aspart insulin dose per sliding scale to target glucose <180 mg/dL.",
+   "kind": "action",
+   "text": "Increase the aspart insulin dose per sliding scale.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "aspart insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E962227A3::04",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue daily hemodialysis and monitor serum electrolytes (potassium, bicarbonate) each shift.",
+   "kind": "action",
+   "text": "Continue daily hemodialysis.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "continue",
+   "target": "hemodialysis",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No renal replacement therapy action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E962227A3::06",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue daily hemodialysis and monitor serum electrolytes (potassium, bicarbonate) each shift.",
+   "kind": "action",
+   "text": "Monitor serum potassium each shift.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:228892695",
+     "time": "2100-01-03 11:31:00",
+     "item": "potassium",
+     "value": "4.1 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E962227A3::07",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue daily hemodialysis and monitor serum electrolytes (potassium, bicarbonate) each shift.",
+   "kind": "action",
+   "text": "Monitor serum bicarbonate each shift.",
+   "concept": "bicarbonate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "bicarbonate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:232361673",
+     "time": "2100-01-03 09:39:00",
+     "item": "bicarbonate",
+     "value": "20.0 mmol/L"
+    },
+    {
+     "rid": "lab:228892701",
+     "time": "2100-01-03 11:31:00",
+     "item": "bicarbonate",
+     "value": "21.0 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): bicarbonate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on hemodialysis. -- The records document a hemodialysis treatment at 22:06 on 2100-01-01, but there is no administration record or 'Running at decision time' entry for hemodialysis within the 24 hours before the decision time of 2100-01-01 21:10. The treatment documentation alone does not confirm the patient is currently on hemodialysis."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,419 @@
+{
+ "case_id": "E2757707",
+ "decision_point": "2100-01-02 23:07:00",
+ "claims": [
+  "Continue phenylephrine infusion for hemodynamic support, as it is running at the decision point.",
+  "Continue insulin infusion for glycemic control, as it is running at the decision point.",
+  "Monitor blood glucose closely given insulin infusion and recent glucose values."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2757707A1::01",
+   "claim_id": "E2757707A1",
+   "claim_text": "Continue phenylephrine infusion for hemodynamic support, as it is running at the decision point.",
+   "kind": "action",
+   "text": "Continue phenylephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "phenylephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2757707A1::02",
+   "claim_id": "E2757707A1",
+   "claim_text": "Continue phenylephrine infusion for hemodynamic support, as it is running at the decision point.",
+   "kind": "fact",
+   "text": "Phenylephrine infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2757707A2::03",
+   "claim_id": "E2757707A2",
+   "claim_text": "Continue insulin infusion for glycemic control, as it is running at the decision point.",
+   "kind": "action",
+   "text": "Continue insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2757707A2::04",
+   "claim_id": "E2757707A2",
+   "claim_text": "Continue insulin infusion for glycemic control, as it is running at the decision point.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2757707A3::05",
+   "claim_id": "E2757707A3",
+   "claim_text": "Monitor blood glucose closely given insulin infusion and recent glucose values.",
+   "kind": "action",
+   "text": "Monitor blood glucose closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2757707A3::06",
+   "claim_id": "E2757707A3",
+   "claim_text": "Monitor blood glucose closely given insulin infusion and recent glucose values.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2757707A3::07",
+   "claim_id": "E2757707A3",
+   "claim_text": "Monitor blood glucose closely given insulin infusion and recent glucose values.",
+   "kind": "fact",
+   "text": "Recent glucose values are available.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "recent",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2757707A1::02",
+   "claim_id": "E2757707A1",
+   "claim_text": "Continue phenylephrine infusion for hemodynamic support, as it is running at the decision point.",
+   "kind": "fact",
+   "text": "Phenylephrine infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R50 shows a phenylephrine infusion running at the decision time, which directly supports the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Volume (ml) Phenylephrine ():1328",
+     "time": "2100-01-02 21:15:00",
+     "item": "Running at decision time (started 2100-01-02 21:15:00): Infusion/input Volume (ml) Phenylephrine at 42"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2757707A2::04",
+   "claim_id": "E2757707A2",
+   "claim_text": "Continue insulin infusion for glycemic control, as it is running at the decision point.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R48 shows an insulin infusion running at the decision time, which directly supports the statement that the insulin infusion is currently running.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Insulin ():1328",
+     "time": "2100-01-02 21:15:00",
+     "item": "Running at decision time (started 2100-01-02 21:15:00): Infusion/input Insulin at 9.6"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2757707A3::06",
+   "claim_id": "E2757707A3",
+   "claim_text": "Monitor blood glucose closely given insulin infusion and recent glucose values.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently running.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R48 shows an insulin infusion running at the decision time, which directly supports the statement that an insulin infusion is currently running.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Insulin ():1328",
+     "time": "2100-01-02 21:15:00",
+     "item": "Running at decision time (started 2100-01-02 21:15:00): Infusion/input Insulin at 9.6"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2757707A3::07",
+   "claim_id": "E2757707A3",
+   "claim_text": "Monitor blood glucose closely given insulin infusion and recent glucose values.",
+   "kind": "fact",
+   "text": "Recent glucose values are available.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "Multiple glucose measurements are recorded in the hours before the decision time, including finger stick and laboratory values, confirming that recent glucose values are available.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:672336032",
+     "time": "2100-01-01 20:40:00",
+     "item": "Glucose finger stick: 95 mg/dL"
+    },
+    {
+     "rid": "lab:672102745",
+     "time": "2100-01-01 21:25:00",
+     "item": "Glucose finger stick: 149 mg/dL"
+    },
+    {
+     "rid": "lab:672199819",
+     "time": "2100-01-01 21:47:00",
+     "item": "Glucose finger stick: 128 mg/dL"
+    },
+    {
+     "rid": "lab:673976328",
+     "time": "2100-01-01 22:28:00",
+     "item": "Glucose finger stick: 120 mg/dL"
+    },
+    {
+     "rid": "lab:646614124",
+     "time": "2100-01-01 23:25:00",
+     "item": "Glucose: 137 mg/dL"
+    },
+    {
+     "rid": "lab:646614107",
+     "time": "2100-01-02 05:25:00",
+     "item": "Glucose: 193 mg/dL"
+    },
+    {
+     "rid": "lab:671055590",
+     "time": "2100-01-02 08:02:00",
+     "item": "Glucose finger stick: 173 mg/dL"
+    },
+    {
+     "rid": "lab:672682575",
+     "time": "2100-01-02 10:02:00",
+     "item": "Glucose finger stick: 154 mg/dL"
+    },
+    {
+     "rid": "lab:646614116",
+     "time": "2100-01-02 10:10:00",
+     "item": "Glucose: 176 mg/dL"
+    },
+    {
+     "rid": "lab:673446089",
+     "time": "2100-01-02 11:04:00",
+     "item": "Glucose finger stick: 157 mg/dL"
+    },
+    {
+     "rid": "lab:671265954",
+     "time": "2100-01-02 12:13:00",
+     "item": "Glucose finger stick: 153 mg/dL"
+    },
+    {
+     "rid": "lab:673539442",
+     "time": "2100-01-02 14:17:00",
+     "item": "Glucose finger stick: 134 mg/dL"
+    },
+    {
+     "rid": "lab:673603508",
+     "time": "2100-01-02 17:02:00",
+     "item": "Glucose finger stick: 166 mg/dL"
+    },
+    {
+     "rid": "lab:671905989",
+     "time": "2100-01-02 19:02:00",
+     "item": "Glucose finger stick: 124 mg/dL"
+    },
+    {
+     "rid": "lab:673445069",
+     "time": "2100-01-02 21:37:00",
+     "item": "Glucose finger stick: 131 mg/dL"
+    },
+    {
+     "rid": "inf:Insulin ():1328",
+     "time": "2100-01-02 21:15:00",
+     "item": "Running at decision time (started 2100-01-02 21:15:00): Infusion/input Insulin at 9.6"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2757707A1::01",
+   "claim_id": "E2757707A1",
+   "claim_text": "Continue phenylephrine infusion for hemodynamic support, as it is running at the decision point.",
+   "kind": "action",
+   "text": "Continue phenylephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "phenylephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 21.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2757707A2::03",
+   "claim_id": "E2757707A2",
+   "claim_text": "Continue insulin infusion for glycemic control, as it is running at the decision point.",
+   "kind": "action",
+   "text": "Continue insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 21.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2757707A3::05",
+   "claim_id": "E2757707A3",
+   "claim_text": "Monitor blood glucose closely given insulin infusion and recent glucose values.",
+   "kind": "action",
+   "text": "Monitor blood glucose closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:672929924",
+     "time": "2100-01-03 00:24:00",
+     "item": "glucose",
+     "value": "111.0 mg/dL"
+    },
+    {
+     "rid": "lab:672730276",
+     "time": "2100-01-03 03:27:00",
+     "item": "glucose",
+     "value": "112.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 21.6 h observation window after the decision (24 h or until ICU discharge): glucose x4.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 21.6,
+ "scoresheet": {
+  "n": 4,
+  "supported": 4,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

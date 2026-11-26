@@ -1,0 +1,545 @@
+{
+ "case_id": "E1682105",
+ "decision_point": "2100-01-02 13:56:00",
+ "claims": [
+  "Initiate emergent continuous renal replacement therapy (CRRT) to address severe hyperkalemia (K+ 7.5‑7.7 mmol/L) and refractory acute kidney injury (creatinine >9 mg/dL).",
+  "Administer intravenous insulin with dextrose and consider calcium gluconate bolus to temporize hyperkalemia while CRRT is being arranged.",
+  "Titrate intravenous labetalol or add a short‑acting vasodilator to maintain mean arterial pressure >65 mmHg given fluctuating hypotension and hypertension."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1682105A1::01",
+   "claim_id": "E1682105A1",
+   "claim_text": "Initiate emergent continuous renal replacement therapy (CRRT) to address severe hyperkalemia (K+ 7.5‑7.7 mmol/L) and refractory acute kidney injury (creatinine >9 mg/dL).",
+   "kind": "action",
+   "text": "Initiate emergent continuous renal replacement therapy (CRRT).",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "start",
+   "target": "CRRT",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1682105A1::02",
+   "claim_id": "E1682105A1",
+   "claim_text": "Initiate emergent continuous renal replacement therapy (CRRT) to address severe hyperkalemia (K+ 7.5‑7.7 mmol/L) and refractory acute kidney injury (creatinine >9 mg/dL).",
+   "kind": "fact",
+   "text": "Potassium is 7.5-7.7 mmol/L.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1682105A1::03",
+   "claim_id": "E1682105A1",
+   "claim_text": "Initiate emergent continuous renal replacement therapy (CRRT) to address severe hyperkalemia (K+ 7.5‑7.7 mmol/L) and refractory acute kidney injury (creatinine >9 mg/dL).",
+   "kind": "fact",
+   "text": "Creatinine is >9 mg/dL.",
+   "concept": "creatinine",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1682105A1::04",
+   "claim_id": "E1682105A1",
+   "claim_text": "Initiate emergent continuous renal replacement therapy (CRRT) to address severe hyperkalemia (K+ 7.5‑7.7 mmol/L) and refractory acute kidney injury (creatinine >9 mg/dL).",
+   "kind": "fact",
+   "text": "Acute kidney injury is refractory.",
+   "concept": "creatinine",
+   "notes": [
+    "concept set by the rule files: renal_function -> creatinine"
+   ],
+   "fact_kind": "judgment",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1682105A2::05",
+   "claim_id": "E1682105A2",
+   "claim_text": "Administer intravenous insulin with dextrose and consider calcium gluconate bolus to temporize hyperkalemia while CRRT is being arranged.",
+   "kind": "action",
+   "text": "Administer intravenous insulin with dextrose.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin with dextrose",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1682105A2::06",
+   "claim_id": "E1682105A2",
+   "claim_text": "Administer intravenous insulin with dextrose and consider calcium gluconate bolus to temporize hyperkalemia while CRRT is being arranged.",
+   "kind": "action",
+   "text": "Consider calcium gluconate bolus.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "calcium gluconate",
+   "conditional": true,
+   "treatment_class": "calcium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1682105A2::07",
+   "claim_id": "E1682105A2",
+   "claim_text": "Administer intravenous insulin with dextrose and consider calcium gluconate bolus to temporize hyperkalemia while CRRT is being arranged.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1682105A3::08",
+   "claim_id": "E1682105A3",
+   "claim_text": "Titrate intravenous labetalol or add a short‑acting vasodilator to maintain mean arterial pressure >65 mmHg given fluctuating hypotension and hypertension.",
+   "kind": "action",
+   "text": "Titrate intravenous labetalol.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "labetalol",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1682105A3::09",
+   "claim_id": "E1682105A3",
+   "claim_text": "Titrate intravenous labetalol or add a short‑acting vasodilator to maintain mean arterial pressure >65 mmHg given fluctuating hypotension and hypertension.",
+   "kind": "action",
+   "text": "Add a short-acting vasodilator.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "short-acting vasodilator",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1682105A3::10",
+   "claim_id": "E1682105A3",
+   "claim_text": "Titrate intravenous labetalol or add a short‑acting vasodilator to maintain mean arterial pressure >65 mmHg given fluctuating hypotension and hypertension.",
+   "kind": "goal",
+   "text": "Maintain mean arterial pressure >65 mmHg.",
+   "concept": "map",
+   "notes": []
+  },
+  {
+   "atom_id": "E1682105A3::11",
+   "claim_id": "E1682105A3",
+   "claim_text": "Titrate intravenous labetalol or add a short‑acting vasodilator to maintain mean arterial pressure >65 mmHg given fluctuating hypotension and hypertension.",
+   "kind": "fact",
+   "text": "Hypotension is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1682105A3::12",
+   "claim_id": "E1682105A3",
+   "claim_text": "Titrate intravenous labetalol or add a short‑acting vasodilator to maintain mean arterial pressure >65 mmHg given fluctuating hypotension and hypertension.",
+   "kind": "fact",
+   "text": "Hypertension is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1682105A1::02",
+   "claim_id": "E1682105A1",
+   "claim_text": "Initiate emergent continuous renal replacement therapy (CRRT) to address severe hyperkalemia (K+ 7.5‑7.7 mmol/L) and refractory acute kidney injury (creatinine >9 mg/dL).",
+   "kind": "fact",
+   "text": "Potassium is 7.5-7.7 mmol/L.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that the patient's potassium level was 7.5 mmol/L at 12:19, but this is not within the range of 7.5-7.7 mmol/L stated in the AI statement. The AI statement is not supported by the records, as the patient's potassium level was not within the stated range at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:393910441",
+     "time": "2100-01-02 12:19:00",
+     "item": "Potassium: 7.5 mmol/L"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1682105A1::03",
+   "claim_id": "E1682105A1",
+   "claim_text": "Initiate emergent continuous renal replacement therapy (CRRT) to address severe hyperkalemia (K+ 7.5‑7.7 mmol/L) and refractory acute kidney injury (creatinine >9 mg/dL).",
+   "kind": "fact",
+   "text": "Creatinine is >9 mg/dL.",
+   "concept": "creatinine",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that the creatinine level was >9 mg/dL at 23:30 on 2100-01-01 and again at 05:57 on 2100-01-02, but the statement is about the decision time, which is 13:56 on 2100-01-02. The records do not show the creatinine level at the decision time, so the statement is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:391505788",
+     "time": "2100-01-01 23:30:00",
+     "item": "Creatinine: 9.09 mg/dL"
+    },
+    {
+     "rid": "lab:392258564",
+     "time": "2100-01-02 05:57:00",
+     "item": "Creatinine: 9.02 mg/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1682105A1::04",
+   "claim_id": "E1682105A1",
+   "claim_text": "Initiate emergent continuous renal replacement therapy (CRRT) to address severe hyperkalemia (K+ 7.5‑7.7 mmol/L) and refractory acute kidney injury (creatinine >9 mg/dL).",
+   "kind": "fact",
+   "text": "Acute kidney injury is refractory.",
+   "concept": "creatinine",
+   "notes": [
+    "concept set by the rule files: renal_function -> creatinine"
+   ],
+   "fact_kind": "judgment",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records mention acute kidney injury, but show no administration of CRRT. The patient's admission diagnosis is cardiac arrest, not acute kidney injury. The records do not support the statement that the acute kidney injury is refractory.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:1682105:dx",
+     "time": "2100-01-01 13:56:00",
+     "item": "Admission diagnosis (APACHE): Cardiac arrest (with or without respiratory arrest; for respiratory arrest see Respiratory System)"
+    },
+    {
+     "rid": "pat:1682105:patient",
+     "time": "2100-01-01 13:56:00",
+     "item": "Patient: Female, age 53"
+    },
+    {
+     "rid": "pat:1682105:unit",
+     "time": "2100-01-01 13:56:00",
+     "item": "ICU unit: Cardiac ICU"
+    },
+    {
+     "rid": "nurse:1211523372",
+     "time": "2100-01-01 14:20:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -5"
+    },
+    {
+     "rid": "med:59285186",
+     "time": "2100-01-01 14:24:00",
+     "item": "Order: ondansetron Intravenous Every 6 hours PRN (active at decision time)"
+    },
+    {
+     "rid": "treat:45020294",
+     "time": "2100-01-01 15:17:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    },
+    {
+     "rid": "med:58629656",
+     "time": "2100-01-01 17:00:00",
+     "item": "Order: fentaNYL Intravenous Every 5 min PRN (active at decision time)"
+    },
+    {
+     "rid": "med:59528464",
+     "time": "2100-01-01 18:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 18:00:00): Medication methylPREDNISolone sod suc(PF) Intravenous Every 8 hours"
+    },
+    {
+     "rid": "med:61867184",
+     "time": "2100-01-01 18:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 18:00:00): Medication methylPREDNISolone sod suc(PF) Intravenous Every 8 hours"
+    },
+    {
+     "rid": "med:59749717",
+     "time": "2100-01-02 12:15:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 12:15:00): Medication sodium chloride 0.9 % Hemodialysis Continuous"
+    },
+    {
+     "rid": "med:59137092",
+     "time": "2100-01-02 13:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 13:00:00): Medication famotidine Intravenous Daily"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1682105A2::07",
+   "claim_id": "E1682105A2",
+   "claim_text": "Administer intravenous insulin with dextrose and consider calcium gluconate bolus to temporize hyperkalemia while CRRT is being arranged.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement 'Hyperkalemia is present' is not supported by the records. The most recent relevant row (R33) shows a peak inspiratory pressure of 28 cmH2O, but there is no indication of hyperkalemia. The records do mention hyperkalemia in R4, but it is not supported by the current measurement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "resp:125545963",
+     "time": "2100-01-02 02:02:00",
+     "item": "Peak Insp. Pressure: 28 cmH2O"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1682105A3::11",
+   "claim_id": "E1682105A3",
+   "claim_text": "Titrate intravenous labetalol or add a short‑acting vasodilator to maintain mean arterial pressure >65 mmHg given fluctuating hypotension and hypertension.",
+   "kind": "fact",
+   "text": "Hypotension is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show fluctuating mean airway pressure and peak inspiratory pressure, but the statement is about hypotension, not airway pressure.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "resp:122807571",
+     "time": "2100-01-01 20:12:00",
+     "item": "Mean Airway Pressure: 9.2 cmH2O"
+    },
+    {
+     "rid": "resp:122807568",
+     "time": "2100-01-01 20:12:00",
+     "item": "Peak Insp. Pressure: 21 cmH2O"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1682105A3::12",
+   "claim_id": "E1682105A3",
+   "claim_text": "Titrate intravenous labetalol or add a short‑acting vasodilator to maintain mean arterial pressure >65 mmHg given fluctuating hypotension and hypertension.",
+   "kind": "fact",
+   "text": "Hypertension is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show fluctuating temperature readings, but the most recent relevant row (R49) shows a temperature of 91.4 F, which does not support the statement that hypertension is fluctuating.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1254213676",
+     "time": "2100-01-02 12:00:00",
+     "item": "Temperature Fahrenheit: 91.4 F"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1682105A1::01",
+   "claim_id": "E1682105A1",
+   "claim_text": "Initiate emergent continuous renal replacement therapy (CRRT) to address severe hyperkalemia (K+ 7.5‑7.7 mmol/L) and refractory acute kidney injury (creatinine >9 mg/dL).",
+   "kind": "action",
+   "text": "Initiate emergent continuous renal replacement therapy (CRRT).",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "start",
+   "target": "CRRT",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No renal replacement therapy action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1682105A2::05",
+   "claim_id": "E1682105A2",
+   "claim_text": "Administer intravenous insulin with dextrose and consider calcium gluconate bolus to temporize hyperkalemia while CRRT is being arranged.",
+   "kind": "action",
+   "text": "Administer intravenous insulin with dextrose.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin with dextrose",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1682105A2::06",
+   "claim_id": "E1682105A2",
+   "claim_text": "Administer intravenous insulin with dextrose and consider calcium gluconate bolus to temporize hyperkalemia while CRRT is being arranged.",
+   "kind": "action",
+   "text": "Consider calcium gluconate bolus.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "calcium gluconate",
+   "conditional": true,
+   "treatment_class": "calcium_replacement",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No calcium replacement action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1682105A3::08",
+   "claim_id": "E1682105A3",
+   "claim_text": "Titrate intravenous labetalol or add a short‑acting vasodilator to maintain mean arterial pressure >65 mmHg given fluctuating hypotension and hypertension.",
+   "kind": "action",
+   "text": "Titrate intravenous labetalol.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "labetalol",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1682105A3::09",
+   "claim_id": "E1682105A3",
+   "claim_text": "Titrate intravenous labetalol or add a short‑acting vasodilator to maintain mean arterial pressure >65 mmHg given fluctuating hypotension and hypertension.",
+   "kind": "action",
+   "text": "Add a short-acting vasodilator.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "short-acting vasodilator",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 6,
+  "supported": 0,
+  "not_supported": 6,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Potassium is 7.5-7.7 mmol/L. -- The records show that the patient's potassium level was 7.5 mmol/L at 12:19, but this is not within the range of 7.5-7.7 mmol/L stated in the AI statement. The AI statement is not supported by the records, as the patient's potassium level was not within the stated range at the decision time.",
+    "Creatinine is >9 mg/dL. -- The records show that the creatinine level was >9 mg/dL at 23:30 on 2100-01-01 and again at 05:57 on 2100-01-02, but the statement is about the decision time, which is 13:56 on 2100-01-02. The records do not show the creatinine level at the decision time, so the statement is not supported.",
+    "Acute kidney injury is refractory. -- The records mention acute kidney injury, but show no administration of CRRT. The patient's admission diagnosis is cardiac arrest, not acute kidney injury. The records do not support the statement that the acute kidney injury is refractory.",
+    "Hyperkalemia is present. -- The statement 'Hyperkalemia is present' is not supported by the records. The most recent relevant row (R33) shows a peak inspiratory pressure of 28 cmH2O, but there is no indication of hyperkalemia. The records do mention hyperkalemia in R4, but it is not supported by the current measurement.",
+    "Hypotension is fluctuating. -- The records show fluctuating mean airway pressure and peak inspiratory pressure, but the statement is about hypotension, not airway pressure.",
+    "Hypertension is fluctuating. -- The records show fluctuating temperature readings, but the most recent relevant row (R49) shows a temperature of 91.4 F, which does not support the statement that hypertension is fluctuating."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 6,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,392 @@
+{
+ "case_id": "E3112232",
+ "decision_point": "2100-01-02 02:39:00",
+ "claims": [
+  "Continue monitoring vital signs, including blood pressure and heart rate, given intermittent hypotension and bradycardia.",
+  "Assess for signs of alcohol withdrawal and administer lorazepam as needed per PRN order.",
+  "Administer thiamine, folic acid, and pantoprazole as scheduled for nutritional support and gastrointestinal protection."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3112232A1::01",
+   "claim_id": "E3112232A1",
+   "claim_text": "Continue monitoring vital signs, including blood pressure and heart rate, given intermittent hypotension and bradycardia.",
+   "kind": "action",
+   "text": "Continue monitoring blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3112232A1::02",
+   "claim_id": "E3112232A1",
+   "claim_text": "Continue monitoring vital signs, including blood pressure and heart rate, given intermittent hypotension and bradycardia.",
+   "kind": "action",
+   "text": "Continue monitoring heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3112232A1::03",
+   "claim_id": "E3112232A1",
+   "claim_text": "Continue monitoring vital signs, including blood pressure and heart rate, given intermittent hypotension and bradycardia.",
+   "kind": "fact",
+   "text": "Intermittent hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3112232A1::04",
+   "claim_id": "E3112232A1",
+   "claim_text": "Continue monitoring vital signs, including blood pressure and heart rate, given intermittent hypotension and bradycardia.",
+   "kind": "fact",
+   "text": "Intermittent bradycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3112232A2::05",
+   "claim_id": "E3112232A2",
+   "claim_text": "Assess for signs of alcohol withdrawal and administer lorazepam as needed per PRN order.",
+   "kind": "action",
+   "text": "Assess for signs of alcohol withdrawal.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of alcohol withdrawal",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3112232A2::06",
+   "claim_id": "E3112232A2",
+   "claim_text": "Assess for signs of alcohol withdrawal and administer lorazepam as needed per PRN order.",
+   "kind": "action",
+   "text": "Administer lorazepam as needed per PRN order.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3112232A3::07",
+   "claim_id": "E3112232A3",
+   "claim_text": "Administer thiamine, folic acid, and pantoprazole as scheduled for nutritional support and gastrointestinal protection.",
+   "kind": "action",
+   "text": "Administer thiamine as scheduled.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "thiamine",
+   "conditional": false,
+   "treatment_class": "chronic_home_med",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3112232A3::08",
+   "claim_id": "E3112232A3",
+   "claim_text": "Administer thiamine, folic acid, and pantoprazole as scheduled for nutritional support and gastrointestinal protection.",
+   "kind": "action",
+   "text": "Administer folic acid as scheduled.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "folic acid",
+   "conditional": false,
+   "treatment_class": "chronic_home_med",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3112232A3::09",
+   "claim_id": "E3112232A3",
+   "claim_text": "Administer thiamine, folic acid, and pantoprazole as scheduled for nutritional support and gastrointestinal protection.",
+   "kind": "action",
+   "text": "Administer pantoprazole as scheduled.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pantoprazole",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3112232A1::03",
+   "claim_id": "E3112232A1",
+   "claim_text": "Continue monitoring vital signs, including blood pressure and heart rate, given intermittent hypotension and bradycardia.",
+   "kind": "fact",
+   "text": "Intermittent hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The most recent respiratory rate measurement is 17 insp/min, which is lower than the normal range. However, the statement claims that intermittent hypotension is present, which is not supported by the records. The records do not mention hypotension at all.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2031095775",
+     "time": "2100-01-02 00:00:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3112232A1::04",
+   "claim_id": "E3112232A1",
+   "claim_text": "Continue monitoring vital signs, including blood pressure and heart rate, given intermittent hypotension and bradycardia.",
+   "kind": "fact",
+   "text": "Intermittent bradycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The statement 'Intermittent bradycardia is present' is not supported by the records. The most recent heart rate measurement (69 bpm) is above the normal range, but there is no indication of intermittent bradycardia. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2103796267",
+     "time": "2100-01-02 00:00:00",
+     "item": "Heart Rate: 69 bpm"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3112232A1::01",
+   "claim_id": "E3112232A1",
+   "claim_text": "Continue monitoring vital signs, including blood pressure and heart rate, given intermittent hypotension and bradycardia.",
+   "kind": "action",
+   "text": "Continue monitoring blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2108633098",
+     "time": "2100-01-02 03:00:00",
+     "item": "systolic BP",
+     "value": "116.0 mmHg"
+    },
+    {
+     "rid": "nurse:1965881860",
+     "time": "2100-01-02 04:00:00",
+     "item": "systolic BP",
+     "value": "119.0 mmHg"
+    },
+    {
+     "rid": "nurse:2108633100",
+     "time": "2100-01-02 03:00:00",
+     "item": "mean arterial pressure",
+     "value": "96.0 mmHg"
+    },
+    {
+     "rid": "nurse:1965881862",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "95.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 6.5 h observation window after the decision (24 h or until ICU discharge): systolic BP x7, mean arterial pressure x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3112232A1::02",
+   "claim_id": "E3112232A1",
+   "claim_text": "Continue monitoring vital signs, including blood pressure and heart rate, given intermittent hypotension and bradycardia.",
+   "kind": "action",
+   "text": "Continue monitoring heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2035856041",
+     "time": "2100-01-02 03:00:00",
+     "item": "heart rate",
+     "value": "53.0 bpm"
+    },
+    {
+     "rid": "nurse:2040427718",
+     "time": "2100-01-02 04:00:00",
+     "item": "heart rate",
+     "value": "56.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 6.5 h observation window after the decision (24 h or until ICU discharge): heart rate x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3112232A2::05",
+   "claim_id": "E3112232A2",
+   "claim_text": "Assess for signs of alcohol withdrawal and administer lorazepam as needed per PRN order.",
+   "kind": "action",
+   "text": "Assess for signs of alcohol withdrawal.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of alcohol withdrawal",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3112232A2::06",
+   "claim_id": "E3112232A2",
+   "claim_text": "Assess for signs of alcohol withdrawal and administer lorazepam as needed per PRN order.",
+   "kind": "action",
+   "text": "Administer lorazepam as needed per PRN order.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 6.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3112232A3::07",
+   "claim_id": "E3112232A3",
+   "claim_text": "Administer thiamine, folic acid, and pantoprazole as scheduled for nutritional support and gastrointestinal protection.",
+   "kind": "action",
+   "text": "Administer thiamine as scheduled.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "thiamine",
+   "conditional": false,
+   "treatment_class": "chronic_home_med",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No chronic / home medications action recorded in the 6.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3112232A3::08",
+   "claim_id": "E3112232A3",
+   "claim_text": "Administer thiamine, folic acid, and pantoprazole as scheduled for nutritional support and gastrointestinal protection.",
+   "kind": "action",
+   "text": "Administer folic acid as scheduled.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "folic acid",
+   "conditional": false,
+   "treatment_class": "chronic_home_med",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No chronic / home medications action recorded in the 6.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3112232A3::09",
+   "claim_id": "E3112232A3",
+   "claim_text": "Administer thiamine, folic acid, and pantoprazole as scheduled for nutritional support and gastrointestinal protection.",
+   "kind": "action",
+   "text": "Administer pantoprazole as scheduled.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pantoprazole",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No stress ulcer prophylaxis action recorded in the 6.5 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 6.5,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intermittent hypotension is present. -- The most recent respiratory rate measurement is 17 insp/min, which is lower than the normal range. However, the statement claims that intermittent hypotension is present, which is not supported by the records. The records do not mention hypotension at all.",
+    "Intermittent bradycardia is present. -- The statement 'Intermittent bradycardia is present' is not supported by the records. The most recent heart rate measurement (69 bpm) is above the normal range, but there is no indication of intermittent bradycardia. The statement is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

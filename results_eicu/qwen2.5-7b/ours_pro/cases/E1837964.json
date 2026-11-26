@@ -1,0 +1,358 @@
+{
+ "case_id": "E1837964",
+ "decision_point": "2100-01-02 16:59:00",
+ "claims": [
+  "Continue monitoring vital signs and oxygenation parameters.",
+  "Administer insulin detemir subcutaneously as ordered.",
+  "Continue antihypertensive therapy with metoprolol."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1837964A1::01",
+   "claim_id": "E1837964A1",
+   "claim_text": "Continue monitoring vital signs and oxygenation parameters.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "vital signs monitoring",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1837964A1::02",
+   "claim_id": "E1837964A1",
+   "claim_text": "Continue monitoring vital signs and oxygenation parameters.",
+   "kind": "action",
+   "text": "Continue monitoring oxygenation parameters.",
+   "concept": "oxygenation",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "oxygenation parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1837964A2::03",
+   "claim_id": "E1837964A2",
+   "claim_text": "Administer insulin detemir subcutaneously as ordered.",
+   "kind": "action",
+   "text": "Administer insulin detemir subcutaneously as ordered.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin detemir",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1837964A2::04",
+   "claim_id": "E1837964A2",
+   "claim_text": "Administer insulin detemir subcutaneously as ordered.",
+   "kind": "fact",
+   "text": "Insulin detemir is ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1837964A3::05",
+   "claim_id": "E1837964A3",
+   "claim_text": "Continue antihypertensive therapy with metoprolol.",
+   "kind": "action",
+   "text": "Continue antihypertensive therapy with metoprolol.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "metoprolol",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1837964A3::06",
+   "claim_id": "E1837964A3",
+   "claim_text": "Continue antihypertensive therapy with metoprolol.",
+   "kind": "fact",
+   "text": "Metoprolol is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1837964A2::04",
+   "claim_id": "E1837964A2",
+   "claim_text": "Administer insulin detemir subcutaneously as ordered.",
+   "kind": "fact",
+   "text": "Insulin detemir is ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R49 shows a scheduled order for Insulin Detemir SUBCUT BID that is running at the decision time, confirming that insulin detemir is ordered.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:65493344",
+     "time": "2100-01-02 16:20:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 16:20:00): Medication INSULIN DETEMIR SUBCUT BID"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1837964A3::06",
+   "claim_id": "E1837964A3",
+   "claim_text": "Continue antihypertensive therapy with metoprolol.",
+   "kind": "fact",
+   "text": "Metoprolol is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R45 shows metoprolol succinate PO daily running at decision time, which supports that metoprolol is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:67563397",
+     "time": "2100-01-02 14:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 14:00:00): Medication METOPROLOL SUCCINATE PO DAILY"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1837964A1::01",
+   "claim_id": "E1837964A1",
+   "claim_text": "Continue monitoring vital signs and oxygenation parameters.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "vital signs monitoring",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1273491823",
+     "time": "2100-01-02 23:41:00",
+     "item": "heart rate",
+     "value": "61.0 bpm"
+    },
+    {
+     "rid": "nurse:1275583481",
+     "time": "2100-01-03 06:16:00",
+     "item": "heart rate",
+     "value": "55.0 bpm"
+    },
+    {
+     "rid": "nurse:1292260127",
+     "time": "2100-01-02 23:41:00",
+     "item": "systolic BP",
+     "value": "107.0 mmHg"
+    },
+    {
+     "rid": "nurse:1303149532",
+     "time": "2100-01-03 06:16:00",
+     "item": "systolic BP",
+     "value": "116.0 mmHg"
+    },
+    {
+     "rid": "nurse:1292260129",
+     "time": "2100-01-02 23:41:00",
+     "item": "mean arterial pressure",
+     "value": "82.0 mmHg"
+    },
+    {
+     "rid": "nurse:1303149534",
+     "time": "2100-01-03 06:16:00",
+     "item": "mean arterial pressure",
+     "value": "84.0 mmHg"
+    },
+    {
+     "rid": "nurse:1269838609",
+     "time": "2100-01-02 23:41:00",
+     "item": "respiratory rate",
+     "value": "20.0 insp/min"
+    },
+    {
+     "rid": "nurse:1279731394",
+     "time": "2100-01-03 06:16:00",
+     "item": "respiratory rate",
+     "value": "23.0 insp/min"
+    },
+    {
+     "rid": "nurse:1289384117",
+     "time": "2100-01-02 23:41:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:1286454283",
+     "time": "2100-01-03 06:16:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:1282245626",
+     "time": "2100-01-02 21:16:00",
+     "item": "temperature",
+     "value": "98.0 F"
+    },
+    {
+     "rid": "nurse:1304251566",
+     "time": "2100-01-03 05:00:00",
+     "item": "temperature",
+     "value": "96.0 F"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x3, systolic BP x3, mean arterial pressure x3, respiratory rate x3, SpO2 x3, temperature x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1837964A1::02",
+   "claim_id": "E1837964A1",
+   "claim_text": "Continue monitoring vital signs and oxygenation parameters.",
+   "kind": "action",
+   "text": "Continue monitoring oxygenation parameters.",
+   "concept": "oxygenation",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "oxygenation parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1289384117",
+     "time": "2100-01-02 23:41:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:1286454283",
+     "time": "2100-01-03 06:16:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1837964A2::03",
+   "claim_id": "E1837964A2",
+   "claim_text": "Administer insulin detemir subcutaneously as ordered.",
+   "kind": "action",
+   "text": "Administer insulin detemir subcutaneously as ordered.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin detemir",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1837964A3::05",
+   "claim_id": "E1837964A3",
+   "claim_text": "Continue antihypertensive therapy with metoprolol.",
+   "kind": "action",
+   "text": "Continue antihypertensive therapy with metoprolol.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "metoprolol",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

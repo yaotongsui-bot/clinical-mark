@@ -1,0 +1,388 @@
+{
+ "case_id": "E1497157",
+ "decision_point": "2100-01-02 19:30:00",
+ "claims": [
+  "Continue intravenous magnesium infusion as ordered.",
+  "Monitor platelet count and coagulation parameters q6h; consider platelet transfusion if count falls <50,000/µL or bleeding occurs.",
+  "Obtain a bedside abdominal ultrasound to assess for hepatic or biliary pathology given elevated AST/ALT."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1497157A1::01",
+   "claim_id": "E1497157A1",
+   "claim_text": "Continue intravenous magnesium infusion as ordered.",
+   "kind": "action",
+   "text": "Continue intravenous magnesium infusion.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous magnesium infusion",
+   "conditional": false,
+   "treatment_class": "magnesium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1497157A1::02",
+   "claim_id": "E1497157A1",
+   "claim_text": "Continue intravenous magnesium infusion as ordered.",
+   "kind": "fact",
+   "text": "Intravenous magnesium infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: magnesium -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1497157A2::03",
+   "claim_id": "E1497157A2",
+   "claim_text": "Monitor platelet count and coagulation parameters q6h; consider platelet transfusion if count falls <50,000/µL or bleeding occurs.",
+   "kind": "action",
+   "text": "Monitor platelet count q6h.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "platelet count",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1497157A2::04",
+   "claim_id": "E1497157A2",
+   "claim_text": "Monitor platelet count and coagulation parameters q6h; consider platelet transfusion if count falls <50,000/µL or bleeding occurs.",
+   "kind": "action",
+   "text": "Monitor coagulation parameters q6h.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "coagulation parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1497157A2::05",
+   "claim_id": "E1497157A2",
+   "claim_text": "Monitor platelet count and coagulation parameters q6h; consider platelet transfusion if count falls <50,000/µL or bleeding occurs.",
+   "kind": "action",
+   "text": "Consider platelet transfusion if count falls <50,000/µL or bleeding occurs.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "administer",
+   "target": "platelet transfusion",
+   "conditional": true,
+   "treatment_class": "transfusion_other",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1497157A3::06",
+   "claim_id": "E1497157A3",
+   "claim_text": "Obtain a bedside abdominal ultrasound to assess for hepatic or biliary pathology given elevated AST/ALT.",
+   "kind": "action",
+   "text": "Obtain a bedside abdominal ultrasound.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "bedside abdominal ultrasound",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1497157A3::07",
+   "claim_id": "E1497157A3",
+   "claim_text": "Obtain a bedside abdominal ultrasound to assess for hepatic or biliary pathology given elevated AST/ALT.",
+   "kind": "fact",
+   "text": "AST is elevated.",
+   "concept": "ast",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1497157A3::08",
+   "claim_id": "E1497157A3",
+   "claim_text": "Obtain a bedside abdominal ultrasound to assess for hepatic or biliary pathology given elevated AST/ALT.",
+   "kind": "fact",
+   "text": "ALT is elevated.",
+   "concept": "alt",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1497157A1::02",
+   "claim_id": "E1497157A1",
+   "claim_text": "Continue intravenous magnesium infusion as ordered.",
+   "kind": "fact",
+   "text": "Intravenous magnesium infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: magnesium -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that magnesium infusion was started at 20:00 on 2100-01-01 and continued at various rates until 10:00 on 2100-01-02. However, the statement says that the infusion is currently being given, which is not supported by the records. The most recent relevant record is R47, which shows that the infusion was started at 10:00 on 2100-01-02, but it does not indicate that it is currently in ",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Volume (mL) Magnesium  (ml/hr):30",
+     "time": "2100-01-01 20:00:00",
+     "item": "Infusion/input Volume (mL) Magnesium at 154.17 ml/hour (2100-01-01 20:00:00 to 2100-01-01 23:00:00)"
+    },
+    {
+     "rid": "inf:Volume (mL) Magnesium  (ml/hr):210",
+     "time": "2100-01-01 23:00:00",
+     "item": "Infusion/input Volume (mL) Magnesium at 75 ml/hour (2100-01-01 23:00:00 to 2100-01-02 00:00:00)"
+    },
+    {
+     "rid": "inf:Volume (mL) Magnesium  (ml/hr):270",
+     "time": "2100-01-02 00:00:00",
+     "item": "Infusion/input Volume (mL) Magnesium at 25 ml/hour (2100-01-02 00:00:00 to 2100-01-02 03:00:00)"
+    },
+    {
+     "rid": "inf:Volume (mL) Magnesium  (ml/hr):450",
+     "time": "2100-01-02 03:00:00",
+     "item": "Infusion/input Volume (mL) Magnesium at 50 ml/hour (2100-01-02 03:00:00 to 2100-01-02 10:00:00)"
+    },
+    {
+     "rid": "inf:Volume (mL) Magnesium  (ml/hr):870",
+     "time": "2100-01-02 10:00:00",
+     "item": "Running at decision time (started 2100-01-02 10:00:00): Infusion/input Volume (mL) Magnesium at 25 ml/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1497157A3::07",
+   "claim_id": "E1497157A3",
+   "claim_text": "Obtain a bedside abdominal ultrasound to assess for hepatic or biliary pathology given elevated AST/ALT.",
+   "kind": "fact",
+   "text": "AST is elevated.",
+   "concept": "ast",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:355552844",
+     "time": "2100-01-01 15:10:00",
+     "item": "Asparate Aminotransferase (AST)",
+     "value": 132.0,
+     "unit": "U/L",
+     "bounds": "0 to 40",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:357488366",
+     "time": "2100-01-02 10:20:00",
+     "item": "Asparate Aminotransferase (AST)",
+     "value": 201.0,
+     "unit": "U/L",
+     "bounds": "0 to 40",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest AST 201 U/L at 2100-01-02 10:20:00 (reference 0 to 40) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1497157A3::08",
+   "claim_id": "E1497157A3",
+   "claim_text": "Obtain a bedside abdominal ultrasound to assess for hepatic or biliary pathology given elevated AST/ALT.",
+   "kind": "fact",
+   "text": "ALT is elevated.",
+   "concept": "alt",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:355552850",
+     "time": "2100-01-01 15:10:00",
+     "item": "Alanine Aminotransferase (ALT)",
+     "value": 128.0,
+     "unit": "U/L",
+     "bounds": "0 to 40",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:357488372",
+     "time": "2100-01-02 10:20:00",
+     "item": "Alanine Aminotransferase (ALT)",
+     "value": 208.0,
+     "unit": "U/L",
+     "bounds": "0 to 40",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest ALT 208 U/L at 2100-01-02 10:20:00 (reference 0 to 40) is high, consistent with 'high'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1497157A1::01",
+   "claim_id": "E1497157A1",
+   "claim_text": "Continue intravenous magnesium infusion as ordered.",
+   "kind": "action",
+   "text": "Continue intravenous magnesium infusion.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous magnesium infusion",
+   "conditional": false,
+   "treatment_class": "magnesium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No magnesium replacement action recorded in the 22.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1497157A2::03",
+   "claim_id": "E1497157A2",
+   "claim_text": "Monitor platelet count and coagulation parameters q6h; consider platelet transfusion if count falls <50,000/µL or bleeding occurs.",
+   "kind": "action",
+   "text": "Monitor platelet count q6h.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "platelet count",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:365039830",
+     "time": "2100-01-02 22:55:00",
+     "item": "platelets",
+     "value": "76.0 K/uL"
+    },
+    {
+     "rid": "lab:361017851",
+     "time": "2100-01-03 10:05:00",
+     "item": "platelets",
+     "value": "87.0 K/uL"
+    }
+   ],
+   "reason": "Measured in the 22.2 h observation window after the decision (24 h or until ICU discharge): platelets x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1497157A2::04",
+   "claim_id": "E1497157A2",
+   "claim_text": "Monitor platelet count and coagulation parameters q6h; consider platelet transfusion if count falls <50,000/µL or bleeding occurs.",
+   "kind": "action",
+   "text": "Monitor coagulation parameters q6h.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "coagulation parameters",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No coagulation measurement in the 22.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1497157A2::05",
+   "claim_id": "E1497157A2",
+   "claim_text": "Monitor platelet count and coagulation parameters q6h; consider platelet transfusion if count falls <50,000/µL or bleeding occurs.",
+   "kind": "action",
+   "text": "Consider platelet transfusion if count falls <50,000/µL or bleeding occurs.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "administer",
+   "target": "platelet transfusion",
+   "conditional": true,
+   "treatment_class": "transfusion_other",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No platelet / plasma transfusion action recorded in the 22.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1497157A3::06",
+   "claim_id": "E1497157A3",
+   "claim_text": "Obtain a bedside abdominal ultrasound to assess for hepatic or biliary pathology given elevated AST/ALT.",
+   "kind": "action",
+   "text": "Obtain a bedside abdominal ultrasound.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "bedside abdominal ultrasound",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 22.2 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 22.2,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous magnesium infusion is currently being given. -- The records show that magnesium infusion was started at 20:00 on 2100-01-01 and continued at various rates until 10:00 on 2100-01-02. However, the statement says that the infusion is currently being given, which is not supported by the records. The most recent relevant record is R47, which shows that the infusion was started at 10:00 on 2100-01-02, but it does not indicate that it is currently in "
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

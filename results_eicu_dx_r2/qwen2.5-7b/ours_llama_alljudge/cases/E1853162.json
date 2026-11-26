@@ -1,0 +1,279 @@
+{
+ "case_id": "E1853162",
+ "decision_point": "2100-01-02 13:51:00",
+ "claims": [
+  "Increase oxygen flow to 4 L/min due to elevated systolic blood pressure and respiratory rate.",
+  "Administer 1 mg IV morphine as needed for pain or anxiety.",
+  "Monitor blood glucose levels and adjust insulin therapy if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1853162A1::01",
+   "claim_id": "E1853162A1",
+   "claim_text": "Increase oxygen flow to 4 L/min due to elevated systolic blood pressure and respiratory rate.",
+   "kind": "action",
+   "text": "Increase oxygen flow to 4 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1853162A1::02",
+   "claim_id": "E1853162A1",
+   "claim_text": "Increase oxygen flow to 4 L/min due to elevated systolic blood pressure and respiratory rate.",
+   "kind": "fact",
+   "text": "Systolic blood pressure is elevated.",
+   "concept": "sbp",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1853162A1::03",
+   "claim_id": "E1853162A1",
+   "claim_text": "Increase oxygen flow to 4 L/min due to elevated systolic blood pressure and respiratory rate.",
+   "kind": "fact",
+   "text": "Respiratory rate is elevated.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1853162A2::04",
+   "claim_id": "E1853162A2",
+   "claim_text": "Administer 1 mg IV morphine as needed for pain or anxiety.",
+   "kind": "action",
+   "text": "Administer 1 mg IV morphine as needed for pain or anxiety.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "morphine",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1853162A3::05",
+   "claim_id": "E1853162A3",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy if necessary.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1853162A3::06",
+   "claim_id": "E1853162A3",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy if necessary.",
+   "kind": "action",
+   "text": "Adjust insulin therapy if necessary.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1853162A1::02",
+   "claim_id": "E1853162A1",
+   "claim_text": "Increase oxygen flow to 4 L/min due to elevated systolic blood pressure and respiratory rate.",
+   "kind": "fact",
+   "text": "Systolic blood pressure is elevated.",
+   "concept": "sbp",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show that the patient's systolic blood pressure was 177 mmHg at 13:59, which is elevated. This supports the AI statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1291131412",
+     "time": "2100-01-01 13:59:00",
+     "item": "Non Invasive Blood Pressure systolic: 177 mmHg"
+    },
+    {
+     "rid": "nurse:1291131413",
+     "time": "2100-01-01 13:59:00",
+     "item": "Non Invasive Blood Pressure diastolic: 75 mmHg"
+    },
+    {
+     "rid": "nurse:1291131414",
+     "time": "2100-01-01 13:59:00",
+     "item": "Non Invasive Blood Pressure mean: 125 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1853162A1::03",
+   "claim_id": "E1853162A1",
+   "claim_text": "Increase oxygen flow to 4 L/min due to elevated systolic blood pressure and respiratory rate.",
+   "kind": "fact",
+   "text": "Respiratory rate is elevated.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The statement that the respiratory rate is elevated is not supported by the records. The most recent measurement of respiratory rate is 15 insp/min, which is not elevated. However, there is a later measurement (R41) that shows a respiratory rate of 20 insp/min, which is elevated. Therefore, the statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1294149436",
+     "time": "2100-01-01 18:55:00",
+     "item": "Respiratory Rate: 15 insp/min"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1853162A1::01",
+   "claim_id": "E1853162A1",
+   "claim_text": "Increase oxygen flow to 4 L/min due to elevated systolic blood pressure and respiratory rate.",
+   "kind": "action",
+   "text": "Increase oxygen flow to 4 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1853162A2::04",
+   "claim_id": "E1853162A2",
+   "claim_text": "Administer 1 mg IV morphine as needed for pain or anxiety.",
+   "kind": "action",
+   "text": "Administer 1 mg IV morphine as needed for pain or anxiety.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "morphine",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia action recorded in the 10.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1853162A3::05",
+   "claim_id": "E1853162A3",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy if necessary.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:443023745",
+     "time": "2100-01-02 22:06:00",
+     "item": "glucose",
+     "value": "88.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 10.0 h observation window after the decision (24 h or until ICU discharge): glucose x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1853162A3::06",
+   "claim_id": "E1853162A3",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy if necessary.",
+   "kind": "action",
+   "text": "Adjust insulin therapy if necessary.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 10.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 10.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Respiratory rate is elevated. -- The statement that the respiratory rate is elevated is not supported by the records. The most recent measurement of respiratory rate is 15 insp/min, which is not elevated. However, there is a later measurement (R41) that shows a respiratory rate of 20 insp/min, which is elevated. Therefore, the statement is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,110 @@
+# E1674875   T = 2100-01-02 20:48:00   records before T: 346
+ICU stay 1674875 (Med-Surg ICU; Female, age 78; admission diagnosis: ARDS-adult respiratory distress syndrome, non-cardiogenic pulmonary edema).
+
+## Atoms
+deepseek-v4.1-flash|E1674875A1::03 [observed] Hypoxemia is present.   <- Continue monitoring oxygenation and respiratory status given persistent hypoxemia and hypercapnia on supplemental oxygen.
+deepseek-v4.1-flash|E1674875A1::04 [observed] Hypercapnia is present.   <- Continue monitoring oxygenation and respiratory status given persistent hypoxemia and hypercapnia on supplemental oxygen.
+deepseek-v4.1-flash|E1674875A1::05 [observed] The patient is on supplemental oxygen.   <- Continue monitoring oxygenation and respiratory status given persistent hypoxemia and hypercapnia on supplemental oxygen.
+deepseek-v4.1-flash|E1674875A2::08 [observed] Mean arterial pressure is in the 40s-70s mmHg range.   <- Assess and manage hypotension with mean arterial pressure in the 40s-70s mmHg range.
+deepseek-v4.1-flash|E1674875A2::R01 [presupposition] Hypotension is present.   <- Assess and manage hypotension with mean arterial pressure in the 40s-70s mmHg range.
+deepseek-v4.1-flash|E1674875A3::11 [presupposition] Bronchodilator therapy is currently scheduled.   <- Continue scheduled bronchodilator and corticosteroid therapy for ARDS management.
+deepseek-v4.1-flash|E1674875A3::12 [presupposition] Corticosteroid therapy is currently scheduled.   <- Continue scheduled bronchodilator and corticosteroid therapy for ARDS management.
+deepseek-v4.1-flash|E1674875A3::13 [judgment] ARDS is present.   <- Continue scheduled bronchodilator and corticosteroid therapy for ARDS management.
+gpt-oss-120b|E1674875A1::02 [presupposition] Mean arterial pressure is low.   <- Initiate norepinephrine infusion to support mean arterial pressure.
+gpt-oss-120b|E1674875A3::07 [presupposition] The patient is currently on low tidal volume ventilation.   <- Continue low tidal volume ventilation strategy for ARDS.
+gpt-oss-120b|E1674875A3::08 [judgment] ARDS is present.   <- Continue low tidal volume ventilation strategy for ARDS.
+qwen2.5-7b|E1674875A2::04 [presupposition] Intravenous sodium chloride is currently being given.   <- Continue intravenous sodium chloride to maintain fluid balance.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 23:00:00): Medication PANTOPRAZOLE ORAL DAILY
+  Running at decision time (scheduled order started 2100-01-02 01:00:00): Medication METHYLPREDNISOLONE IV
+  Running at decision time (scheduled order started 2100-01-02 06:00:00): Medication IPRATROPIUM 0.02% INHL
+  Running at decision time (scheduled order started 2100-01-02 12:00:00): Medication ENOXAPARIN SQ
+
+## PRN orders
+  01-01 21:00 Order: ALBUTEROL 0.083% INHL PRN (stopped 2100-01-02 05:54:00)
+  01-01 23:00 Order: ACETAMINOPHEN ORAL Q4HP PRN (active at decision time)
+  01-01 23:00 Order: BISACODYL RTL QDP PRN (active at decision time)
+  01-01 23:00 Order: MAGNESIUM HYDROXIDE ORAL QDP PRN (active at decision time)
+  01-01 23:00 Order: ALBUTEROL 0.083% INHL PRN (stopped 2100-01-02 05:54:00)
+  01-01 23:00 Order: TRAZODONE ORAL QHSMRP PRN (active at decision time)
+  01-01 23:00 Order: ALPRAZOLAM ORAL TIDP PRN (active at decision time)
+  01-01 23:00 Order: ONDANSETRON (PF) IV Q6HP PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication SODIUM CHLORIDE 0.9% IV CONT CoNtInUos (2100-01-01 21:00:00 to 2100-01-01 22:11:00)
+  Medication IPRATROPIUM-ALBUTEROL INHL (2100-01-02 01:00:00 to 2100-01-02 05:29:00)
+  Medication SODIUM CHLORIDE 0.9% IV CONT (2100-01-02 19:00:00 to 2100-01-02 19:01:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 16:30 0.1 %
+  -eos: 01-01 16:30 0.3 %
+  -lymphs: 01-01 16:30 4.1 %
+  -monos: 01-01 16:30 3.5 %
+  -polys: 01-01 16:30 92 %
+  Anion Gap: 01-02 09:34 9; 01-01 16:30 8
+  Base Excess: 01-02 08:56 6.7 mmol/L; 01-01 17:53 6.4 mmol/L
+  Bicarbonate: 01-02 09:34 35 mmol/L; 01-01 16:30 36 mmol/L
+  Bicarbonate (blood gas HCO3): 01-02 08:56 36 mmol/L; 01-01 17:53 34.2 mmol/L
+  CPK: 01-01 18:34 547 U/L; 01-01 16:30 628 U/L
+  CPK-MB: 01-01 18:34 36.4 ng/mL; 01-01 16:30 41.6 ng/mL
+  CPK-MB INDEX: 01-01 18:34 6.7; 01-01 16:30 6.6
+  Calcium, Total: 01-02 09:34 9 mg/dL; 01-01 16:30 9 mg/dL
+  Carboxyhemoglobin: 01-02 08:56 0.3 % of total; 01-01 17:53 0.6 % of total
+  Chloride: 01-02 09:34 89 mmol/L; 01-01 16:30 87 mmol/L
+  Creatinine: 01-02 09:34 0.7 mg/dL; 01-01 16:30 0.72 mg/dL
+  Glucose: 01-02 09:34 128 mg/dL; 01-01 16:30 198 mg/dL
+  Hematocrit: 01-02 09:34 35.9 %; 01-01 16:30 40.3 %
+  Hemoglobin: 01-02 09:34 11.5 g/dL; 01-02 08:56 11.1 g/dL; 01-01 17:53 11.7 g/dL; 01-01 16:30 12.7 g/dL
+  Lactate: 01-01 16:30 2.1 mmol/L
+  MCH: 01-02 09:34 29.6 PG; 01-01 16:30 29.7 PG
+  MCHC: 01-02 09:34 32 g/dL; 01-01 16:30 31.5 g/dL
+  MCV: 01-02 09:34 92.5 fL; 01-01 16:30 94.2 fL
+  MPV: 01-02 09:34 9.2 fL; 01-01 16:30 10.5 fL
+  Methemoglobin: 01-02 08:56 0.8 %; 01-01 17:53 0.7 %
+  Oxygen Saturation: 01-02 08:56 91.6 %; 01-01 17:53 97.1 %
+  Platelet Count: 01-02 09:34 277 K/mcL; 01-01 16:30 334 K/mcL
+  Potassium: 01-02 09:34 4.6 mmol/L; 01-01 16:30 5.1 mmol/L
+  RBC: 01-02 09:34 3.88 M/mcL; 01-01 16:30 4.28 M/mcL
+  RDW: 01-02 09:34 14.1 %; 01-01 16:30 14.2 %
+  Sodium: 01-02 09:34 128 mmol/L; 01-01 16:30 126 mmol/L
+  Total CO2: 01-02 08:56 38.6 mmol/L; 01-01 17:53 36.3 mmol/L
+  Urea Nitrogen: 01-02 09:34 25 mg/dL; 01-01 16:30 20 mg/dL
+  WBC's in urine: 01-01 22:45 1 /hpf
+  White Blood Cells: 01-02 09:34 9.35 K/mcL; 01-01 16:30 9.76 K/mcL
+  pCO2: 01-02 08:56 85 mm Hg; 01-01 17:53 70 mm Hg
+  pH: 01-02 08:56 7.25; 01-01 17:53 7.31
+  pO2: 01-02 08:56 61 mm Hg; 01-01 17:53 74 mm Hg
+  troponin - I: 01-02 09:34 0.06 ng/mL; 01-02 04:29 <0.04; 01-01 22:17 0.08 ng/mL; 01-01 18:34 0.08 ng/mL; 01-01 16:30 0.05 ng/mL
+  urinary osmolality: 01-02 18:50 743 mOsm/kg
+  urinary sodium: 01-02 18:50 12 mmol/L
+  urinary specific gravity: 01-01 22:45 >1.050
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Delirium Scale/Score Delirium Scale: CAM-ICU @01-02 20:45
+  Delirium Scale/Score Delirium Score:  @01-02 20:45   earlier: No @01-02 00:29
+  Glasgow coma score Eyes: 3 @01-02 12:45   24h 3-4 (n=3)
+  Glasgow coma score GCS Total: 14 @01-02 12:45   24h 14-15 (n=3)
+  Glasgow coma score Motor: 6 @01-02 12:45   24h 6-6 (n=3)
+  Glasgow coma score Verbal: 5 @01-02 12:45   24h 5-5 (n=3)
+  Heart Rate: 67 bpm @01-02 20:00   24h 66-129 (n=27)
+  Non Invasive Blood Pressure diastolic: 66 mmHg @01-02 20:00   24h 39-131 (n=22)
+  Non Invasive Blood Pressure mean: 71 mmHg @01-02 20:00   24h 44-135 (n=22)
+  Non Invasive Blood Pressure systolic: 84 mmHg @01-02 20:00   24h 84-165 (n=22)
+  O2 L/%: 40 @01-02 20:45   24h 4-40 (n=20)
+  O2 saturation pulseoxymetry: 97 % @01-02 20:00   24h 88-100 (n=27)
+  Pain Present: No @01-02 20:45
+  Respiratory Rate: 18 insp/min @01-02 20:00   24h 18-28 (n=26)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-02 20:45
+  Sedation Scale/Score/Goal Sedation Score: -1 @01-02 20:45   24h -2-2 (n=18)
+  Temperature Fahrenheit: 97.4 F @01-02 19:19   24h 97.4-97.8 (n=4)
+  Temperature Location: Axilla @01-02 19:19
+
+## Treatments documented
+  01-01 22:13 pulmonary | ventilation and oxygenation | CPAP/PEEP therapy
+  01-01 22:13 pulmonary | radiologic procedures / bronchoscopy | chest x-ray
+  01-01 22:13 pulmonary | consultations | Pulmonary medicine consultation
+
+## Microbiology

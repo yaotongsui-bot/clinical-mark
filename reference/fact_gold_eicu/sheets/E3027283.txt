@@ -1,0 +1,73 @@
+# E3027283   T = 2100-01-02 05:43:00   records before T: 109
+ICU stay 3027283 (Med-Surg ICU; Male, age 74; admission diagnosis: CHF, congestive heart failure).
+
+## Atoms
+deepseek-v4.1-flash|E3027283A1::02 [presupposition] The patient is currently on non-invasive ventilation with face mask.   <- Continue non-invasive ventilation with face mask and supplemental oxygen, titrating to maintain SaO2 ≥ 92%.
+deepseek-v4.1-flash|E3027283A1::04 [presupposition] The patient is currently receiving supplemental oxygen.   <- Continue non-invasive ventilation with face mask and supplemental oxygen, titrating to maintain SaO2 ≥ 92%.
+deepseek-v4.1-flash|E3027283A2::09 [observed] Severe hyponatremia is present.   <- Monitor serum sodium closely and reassess diuretic strategy given severe hyponatremia (Na 120 mmol/L) and hypervolemic heart failure.
+deepseek-v4.1-flash|E3027283A2::10 [observed] Sodium is 120 mmol/L.   <- Monitor serum sodium closely and reassess diuretic strategy given severe hyponatremia (Na 120 mmol/L) and hypervolemic heart failure.
+deepseek-v4.1-flash|E3027283A2::11 [observed] Hypervolemic heart failure is present.   <- Monitor serum sodium closely and reassess diuretic strategy given severe hyponatremia (Na 120 mmol/L) and hypervolemic heart failure.
+gpt-oss-120b|E3027283A1::02 [presupposition] Intravenous chlorothiazide diuretic therapy is currently being given.   <- Continue intravenous chlorothiazide diuretic therapy as ordered.
+qwen2.5-7b|E3027283A1::02 [presupposition] The patient is currently on non-invasive ventilation with face mask.   <- Continue non-invasive ventilation with face mask.
+qwen2.5-7b|E3027283A2::05 [presupposition] Ondansetron is currently being given.   <- Monitor pain levels and adjust ondansetron as needed.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 23:00:00): Medication 0.9%  NaCl infusion IV Continuous
+
+## PRN orders
+  01-01 05:53 Order: ondansetron HCl (PF) (ZOFRAN) injection 4 mg IV Every 6 Hours PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+
+## Laboratory (newest first, up to 5)
+  Alanine Aminotransferase (ALT): 01-01 22:32 26 U/L
+  Albumin: 01-01 22:32 3.2 GM/DL
+  Alkaline Phosphatase: 01-01 22:32 72 U/L
+  Asparate Aminotransferase (AST): 01-01 22:32 65 U/L
+  Bicarbonate: 01-01 22:32 38 MMOL/L
+  Bilirubin, Total: 01-01 22:32 2.06 MG/DL
+  CPK: 01-01 19:52 603 U/L; 01-01 11:56 312 U/L
+  CPK-MB: 01-01 19:52 13.6 NG/ML; 01-01 11:56 11.2 NG/ML
+  Calcium, Total: 01-01 22:32 9.1 MG/DL
+  Chloride: 01-01 22:32 70 MMOL/L
+  Creatinine: 01-01 22:32 1.4 MG/DL
+  Glucose: 01-01 22:32 134 MG/DL
+  INR(PT): 01-01 11:56 1.16
+  PT: 01-01 11:56 12.3 SEC
+  PTT: 01-01 11:56 32.2 SEC
+  Potassium: 01-01 22:32 4.1 MMOL/L
+  Sodium: 01-01 22:32 120 MMOL/L
+  Urea Nitrogen: 01-01 22:32 25 MG/DL
+  total protein: 01-01 22:32 7.1 GM/DL
+  troponin - I: 01-01 19:52 0.04 NG/ML; 01-01 11:56 0.03 NG/ML
+  urinary sodium: 01-01 23:55 <10
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Heart Rate: 94 bpm @01-02 05:05   24h 84-94 (n=7)
+  Inspired O2 Fraction: 25 % @01-02 03:31   24h 25-30 (n=6)
+  Non Invasive Blood Pressure diastolic: 69 mmHg @01-01 21:00   24h 68-80 (n=3)
+  Non Invasive Blood Pressure mean: 78 mmHg @01-01 21:00   24h 77-88 (n=3)
+  Non Invasive Blood Pressure systolic: 107 mmHg @01-01 21:00   24h 107-125 (n=3)
+  O2 Flow: 2 L/min @01-02 03:31   24h 2-3 (n=4)
+  O2 L/%: 3 @01-02 05:00   24h 2-3 (n=9)
+  O2 saturation pulseoxymetry: 99 % @01-02 05:00   24h 93-100 (n=5)
+  Pain Level: 0 @01-02 05:00   24h 0-9 (n=13)
+  Pulse: 83 @01-01 08:05
+  Respiratory Rate: 22 insp/min @01-02 00:00   24h 15-22 (n=4)
+  Respiratory Rate (spontaneous): 20 insp/min @01-02 03:31   24h 15-20 (n=5)
+  SaO2: 97 @01-02 03:31   24h 96-100 (n=5)
+  Temperature Fahrenheit: 96.5 F @01-02 05:00   24h 96.3-97.8 (n=7)
+
+## Treatments documented
+  01-01 06:02 medications | intravenous diuretic | chlorothiazide
+  01-01 06:02 ventilation and oxygenation | non-invasive ventilation | face mask
+  01-02 04:01 medications | intravenous diuretic | chlorothiazide
+  01-02 04:01 ventilation and oxygenation | non-invasive ventilation | face mask
+  01-02 04:19 medications | intravenous diuretic | chlorothiazide
+  01-02 04:19 ventilation and oxygenation | non-invasive ventilation | face mask
+  01-02 04:20 ventilation and oxygenation | non-invasive ventilation | face mask
+  01-02 04:20 medications | intravenous diuretic | chlorothiazide
+
+## Microbiology

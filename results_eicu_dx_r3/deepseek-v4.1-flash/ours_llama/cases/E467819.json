@@ -1,0 +1,293 @@
+{
+ "case_id": "E467819",
+ "decision_point": "2100-01-02 01:43:00",
+ "claims": [
+  "Continue nicardipine infusion for blood pressure control in intracranial hemorrhage.",
+  "Monitor blood pressure closely to maintain systolic blood pressure within target range.",
+  "Monitor neurological status with serial Glasgow Coma Scale assessments."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E467819A1::01",
+   "claim_id": "E467819A1",
+   "claim_text": "Continue nicardipine infusion for blood pressure control in intracranial hemorrhage.",
+   "kind": "action",
+   "text": "Continue nicardipine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nicardipine infusion",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E467819A1::02",
+   "claim_id": "E467819A1",
+   "claim_text": "Continue nicardipine infusion for blood pressure control in intracranial hemorrhage.",
+   "kind": "fact",
+   "text": "Nicardipine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E467819A1::03",
+   "claim_id": "E467819A1",
+   "claim_text": "Continue nicardipine infusion for blood pressure control in intracranial hemorrhage.",
+   "kind": "fact",
+   "text": "Intracranial hemorrhage is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E467819A2::04",
+   "claim_id": "E467819A2",
+   "claim_text": "Monitor blood pressure closely to maintain systolic blood pressure within target range.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E467819A2::05",
+   "claim_id": "E467819A2",
+   "claim_text": "Monitor blood pressure closely to maintain systolic blood pressure within target range.",
+   "kind": "goal",
+   "text": "Maintain systolic blood pressure within target range.",
+   "concept": "sbp",
+   "notes": []
+  },
+  {
+   "atom_id": "E467819A3::06",
+   "claim_id": "E467819A3",
+   "claim_text": "Monitor neurological status with serial Glasgow Coma Scale assessments.",
+   "kind": "action",
+   "text": "Monitor neurological status with serial Glasgow Coma Scale assessments.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "neurological status",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E467819A1::02",
+   "claim_id": "E467819A1",
+   "claim_text": "Continue nicardipine infusion for blood pressure control in intracranial hemorrhage.",
+   "kind": "fact",
+   "text": "Nicardipine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that nicardipine infusion was administered at various times, including 07:00, 08:00, 10:00, 11:00, 14:00, 17:00, and 23:00. This supports the statement that nicardipine infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Nicardipine (mg/hr):317",
+     "time": "2100-01-01 07:00:00",
+     "item": "Infusion/input Nicardipine at 10 mg/hour (2100-01-01 07:00:00 to 2100-01-01 08:00:00)"
+    },
+    {
+     "rid": "inf:Nicardipine (mg/hr):377",
+     "time": "2100-01-01 08:00:00",
+     "item": "Infusion/input Nicardipine at 2.5 mg/hour (2100-01-01 08:00:00 to 2100-01-01 10:00:00)"
+    },
+    {
+     "rid": "inf:Nicardipine (mg/hr):497",
+     "time": "2100-01-01 10:00:00",
+     "item": "Infusion/input Nicardipine at 2.9 mg/hour (2100-01-01 10:00:00 to 2100-01-01 11:00:00)"
+    },
+    {
+     "rid": "inf:Nicardipine (mg/hr):557",
+     "time": "2100-01-01 11:00:00",
+     "item": "Infusion/input Nicardipine at 2.5 mg/hour (2100-01-01 11:00:00 to 2100-01-01 14:00:00)"
+    },
+    {
+     "rid": "inf:Nicardipine (mg/hr):737",
+     "time": "2100-01-01 14:00:00",
+     "item": "Infusion/input Nicardipine at 1 mg/hour (2100-01-01 14:00:00 to 2100-01-01 15:00:00)"
+    },
+    {
+     "rid": "inf:Nicardipine (mg/hr):917",
+     "time": "2100-01-01 17:00:00",
+     "item": "Infusion/input Nicardipine at 1 mg/hour (2100-01-01 17:00:00 to 2100-01-01 19:00:00)"
+    },
+    {
+     "rid": "inf:Nicardipine (mg/hr):1277",
+     "time": "2100-01-01 23:00:00",
+     "item": "Infusion/input Nicardipine at 1 mg/hour (2100-01-01 23:00:00 to 2100-01-02 00:00:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E467819A1::03",
+   "claim_id": "E467819A1",
+   "claim_text": "Continue nicardipine infusion for blood pressure control in intracranial hemorrhage.",
+   "kind": "fact",
+   "text": "Intracranial hemorrhage is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The admission diagnosis mentions intracranial hemorrhage, but there is no record of the patient currently receiving nicardipine infusion for blood pressure control.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:467819:dx",
+     "time": "2100-01-01 01:43:00",
+     "item": "Admission diagnosis (APACHE): Hemorrhage/hematoma, intracranial"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E467819A1::01",
+   "claim_id": "E467819A1",
+   "claim_text": "Continue nicardipine infusion for blood pressure control in intracranial hemorrhage.",
+   "kind": "action",
+   "text": "Continue nicardipine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nicardipine infusion",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E467819A2::04",
+   "claim_id": "E467819A2",
+   "claim_text": "Monitor blood pressure closely to maintain systolic blood pressure within target range.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:391988738",
+     "time": "2100-01-02 02:00:00",
+     "item": "systolic BP",
+     "value": "120.0 mmHg"
+    },
+    {
+     "rid": "nurse:397305011",
+     "time": "2100-01-02 03:00:00",
+     "item": "systolic BP",
+     "value": "122.0 mmHg"
+    },
+    {
+     "rid": "nurse:391988740",
+     "time": "2100-01-02 02:00:00",
+     "item": "mean arterial pressure",
+     "value": "65.0 mmHg"
+    },
+    {
+     "rid": "nurse:397305013",
+     "time": "2100-01-02 03:00:00",
+     "item": "mean arterial pressure",
+     "value": "78.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x23, mean arterial pressure x23.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E467819A3::06",
+   "claim_id": "E467819A3",
+   "claim_text": "Monitor neurological status with serial Glasgow Coma Scale assessments.",
+   "kind": "action",
+   "text": "Monitor neurological status with serial Glasgow Coma Scale assessments.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "neurological status",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No GCS / mental status measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intracranial hemorrhage is present. -- The admission diagnosis mentions intracranial hemorrhage, but there is no record of the patient currently receiving nicardipine infusion for blood pressure control."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

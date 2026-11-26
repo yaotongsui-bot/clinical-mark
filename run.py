@@ -26,7 +26,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from cm import atomize, concord, ground, records, report, rules
-from cm.llm import LLM
+from cm.llm import LLM, REPEAT
 from cm.panel import Panel
 from cm.retrieve import Embedder, Retriever
 
@@ -44,7 +44,10 @@ def write_json(path: Path, value) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--triples", type=Path, default=ROOT / "input" / "mimic_triples_fixed.json")
-    parser.add_argument("--mimic-root", type=Path, default=ROOT / "data" / "mimic-iv-demo")
+    parser.add_argument("--source", choices=["mimic", "eicu"], default="mimic",
+                        help="record source: MIMIC-IV (cm/records.py) or the eICU demo (cm/records_eicu.py)")
+    parser.add_argument("--mimic-root", type=Path, default=None,
+                        help="data root (default data/mimic-iv-demo, or data/eicu-demo with --source eicu)")
     parser.add_argument("--out-dir", type=Path, default=ROOT / "results")
     parser.add_argument("--case", action="append", help="evaluate only these case ids")
     parser.add_argument("--limit", type=int)
@@ -104,9 +107,14 @@ def main() -> None:
         atoms_by_case[t["triple_id"]] = atomize.safety_nets(atoms_by_case[t["triple_id"]], claims)
 
     # Stages 2-3: code decides what it can; everything else is queued for the judge panel.
-    print("loading MIMIC: admission records before the decision, observations after it ...", flush=True)
-    observations = records.load_post_observations(args.mimic_root.resolve(), triples)
-    admission = records.load_admission_rows(args.mimic_root.resolve(), triples)
+    if args.source == "eicu":
+        from cm import records_eicu as source
+        data_root = args.mimic_root or ROOT / "data" / "eicu-demo"
+    else:
+        source, data_root = records, args.mimic_root or ROOT / "data" / "mimic-iv-demo"
+    print(f"loading {args.source}: admission records before the decision, observations after it ...", flush=True)
+    observations = source.load_post_observations(data_root.resolve(), triples)
+    admission = source.load_admission_rows(data_root.resolve(), triples)
     embedder = Embedder(args.embeddings_dir.resolve()) if args.retrieval != "bm25" else None
     retriever = Retriever(embedder, args.retrieval, args.top_n)
     fact_prompt = prompt("fact_judge_vf" if args.labels == "verifact" else "fact_judge")
@@ -177,8 +185,8 @@ def main() -> None:
     summary = report.summarize(cases)
     if embedder:
         embedder.save()
-    meta = {"triples": args.triples.name, "ai_model": args.ai_model, "judge_models": judges,
-            "facts_all_judge": args.facts_all_judge, "labels": args.labels,
+    meta = {"triples": args.triples.name, "source": args.source, "ai_model": args.ai_model, "judge_models": judges,
+            "facts_all_judge": args.facts_all_judge, "labels": args.labels, "repeat": REPEAT,
             "judge_think": sorted(think), "retrieval": args.retrieval, "top_n": args.top_n,
             "llm_calls": llm.calls, "cache_hits": llm.cache_hits}
     write_json(out / "summary.json", {**summary, "run": meta})

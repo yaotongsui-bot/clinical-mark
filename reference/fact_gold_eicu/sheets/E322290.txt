@@ -1,0 +1,104 @@
+# E322290   T = 2100-01-02 13:27:00   records before T: 174
+ICU stay 322290 (Med-Surg ICU; Male, age 63; admission diagnosis: Embolus, pulmonary).
+
+## Atoms
+deepseek-v4.1-flash|E322290A1::02 [presupposition] Warfarin is currently being given.   <- Continue warfarin 5 mg oral daily for anticoagulation of pulmonary embolism, with INR monitoring.
+deepseek-v4.1-flash|E322290A1::03 [judgment] Pulmonary embolism is present.   <- Continue warfarin 5 mg oral daily for anticoagulation of pulmonary embolism, with INR monitoring.
+deepseek-v4.1-flash|E322290A2::07 [observed] Systolic blood pressure is 91 mmHg.   <- Monitor blood pressure and heart rate closely given recent systolic blood pressure of 91 mmHg and tachycardia.
+deepseek-v4.1-flash|E322290A2::08 [observed] Tachycardia is present.   <- Monitor blood pressure and heart rate closely given recent systolic blood pressure of 91 mmHg and tachycardia.
+deepseek-v4.1-flash|E322290A3::12 [observed] INR is 1.0.   <- Assess for signs of bleeding or thrombosis and consider repeat INR given subtherapeutic INR of 1.0.
+gpt-oss-120b|E322290A1::02 [presupposition] Warfarin is currently being given.   <- Obtain a repeat INR measurement to assess warfarin anticoagulation effectiveness.
+gpt-oss-120b|E322290A2::04 [judgment] Therapeutic INR range is needed for pulmonary embolism.   <- Adjust warfarin dose based on the repeat INR result to achieve therapeutic range for pulmonary embolism.
+gpt-oss-120b|E322290A3::06 [presupposition] Low molecular weight heparin (enoxaparin) is currently being given.   <- Continue low molecular weight heparin (enoxaparin) as a bridge until therapeutic INR is confirmed.
+qwen2.5-7b|E322290A2::04 [presupposition] Warfarin is currently being given.   <- Continue anticoagulant therapy with warfarin.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 01:00:00): Medication SODIUM CHLORIDE 0.9 % IV 1000 ML BAG IV
+  Running at decision time (scheduled order started 2100-01-01 02:30:00): Medication PANTOPRAZOLE 40 MG TABLET,DELAYED RELEASE Oral
+  Running at decision time (scheduled order started 2100-01-01 14:00:00): Medication METOPROLOL TARTRATE 25 MG TABLET Oral
+  Running at decision time (scheduled order started 2100-01-01 22:00:00): Medication WARFARIN 5 MG TABLET Oral
+
+## PRN orders
+  01-01 00:42 Order: ONDANSETRON HCL (PF) 4 MG/2 ML INJECTION 2 ML VIAL IV PRN (active at decision time)
+  01-01 12:43 Order: HYDROCODONE 5 MG-ACETAMINOPHEN 325 MG TABLET Oral PRN (stopped 2100-01-01 12:47:00)
+  01-01 12:43 Order: ZOLPIDEM 5 MG TABLET Oral PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 12:43 0
+  -eos: 01-01 12:43 0 %
+  -lymphs: 01-01 12:43 6 %
+  -monos: 01-01 12:43 8 %
+  -polys: 01-01 12:43 86 %
+  Alanine Aminotransferase (ALT): 01-01 12:43 98 IU/L
+  Albumin: 01-01 12:43 2.7 g/dl
+  Alkaline Phosphatase: 01-01 12:43 420 IU/L
+  Asparate Aminotransferase (AST): 01-01 12:43 65 IU/L
+  BNP: 01-01 12:43 568.3 pg/mL
+  Bicarbonate: 01-01 12:43 17.4 meq/L
+  Bilirubin, Total: 01-01 12:43 0.8 mg/dl
+  Calcium, Total: 01-01 12:43 8.2 mg/dl
+  Chloride: 01-01 12:43 105 meq/L
+  Creatinine: 01-01 12:43 0.64 mg/dl
+  FiO2: 01-01 16:30 21 %
+  Glucose: 01-01 12:43 126 mg/dl
+  HDL: 01-01 09:30 32 mg/dl
+  Hematocrit: 01-01 12:43 31 %
+  Hemoglobin: 01-01 12:43 9.9 g/dl
+  INR(PT): 01-02 09:40 1; 01-01 14:01 1; 01-01 09:30 1
+  LDL: 01-01 09:30 77 mg/dl
+  MCH: 01-01 12:43 28 uug
+  MCHC: 01-01 12:43 32 g/dl
+  MCV: 01-01 12:43 86 fl
+  PT: 01-02 09:40 11.2 sec; 01-01 14:01 10.9 sec; 01-01 09:30 11.4 sec
+  Platelet Count: 01-01 12:43 126 K/cmm
+  Potassium: 01-01 12:43 4.5 meq/L
+  RBC: 01-01 12:43 3.61 M/cmm
+  RDW: 01-01 12:43 17.9 %
+  Sodium: 01-01 12:43 139 meq/L
+  Urea Nitrogen: 01-01 12:43 31 mg/dl
+  White Blood Cells: 01-01 12:43 10.7 K/cmm
+  total cholesterol: 01-01 09:30 121 mg/dL
+  total protein: 01-01 12:43 5.4 g/dL
+  triglycerides: 01-01 09:30 58 mg/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-01 01:05
+  Glasgow coma score GCS Total: 15 @01-01 01:05
+  Glasgow coma score Motor: 6 @01-01 01:05
+  Glasgow coma score Verbal: 5 @01-01 01:05
+  Heart Rate: 91 bpm @01-02 12:30   24h 83-98 (n=16)
+  Non Invasive Blood Pressure diastolic: 83 mmHg @01-02 12:30   24h 63-99 (n=6)
+  Non Invasive Blood Pressure systolic: 111 mmHg @01-02 12:30   24h 91-158 (n=6)
+  O2 saturation pulseoxymetry: 97 % @01-02 12:30   24h 92-100 (n=16)
+  P.O.: 120 @01-02 05:00   24h 120-120 (n=2)
+  Respiratory Rate: 21 insp/min @01-02 12:30   24h 15-25 (n=16)
+  Temperature Fahrenheit: 98 F @01-02 12:30   24h 96.4-98.1 (n=6)
+  Temperature Location: Skin Sensor @01-02 12:30   earlier: Tympanic @01-02 09:30
+
+## Treatments documented
+  01-01 16:27 oncology | consultations | oncology consultation
+  01-01 16:27 pain / agitation / altered mentation | analgesics | narcotic analgesic
+  01-01 16:27 medications | anticoagulant administration | coumadin
+  01-01 16:27 medications | stress ulcer prophylaxis | pantoprazole
+  01-01 16:27 anticoagulant administration | low molecular weight heparin | enoxaparin
+  01-01 16:27 nutrition | enteral feeds | tube feeding
+  01-01 16:27 cardiovascular | vascular disorders | non-invasive testing for DVT
+  01-01 16:27 hypertension | beta blocker | metoprolol
+  01-01 16:27 cardiovascular | intravenous fluid | normal saline administration
+  01-01 16:27 anti-protozoal therapy | for malaria | doxycycline
+  01-01 16:47 medications | anticoagulant administration | coumadin
+  01-01 16:47 oncology | consultations | oncology consultation
+  01-01 16:47 cardiovascular | intravenous fluid | normal saline administration
+  01-01 16:47 cardiovascular | vascular disorders | non-invasive testing for DVT
+  01-01 16:47 medications | stress ulcer prophylaxis | pantoprazole
+  01-01 16:47 nutrition | enteral feeds | tube feeding
+  01-01 16:47 pain / agitation / altered mentation | analgesics | narcotic analgesic
+  01-01 16:47 hypertension | beta blocker | metoprolol
+  01-01 16:47 anti-protozoal therapy | for malaria | doxycycline
+  01-01 16:47 anticoagulant administration | low molecular weight heparin | enoxaparin
+
+## Microbiology

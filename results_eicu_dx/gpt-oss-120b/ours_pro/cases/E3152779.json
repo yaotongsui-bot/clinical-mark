@@ -1,0 +1,419 @@
+{
+ "case_id": "E3152779",
+ "decision_point": "2100-01-02 00:45:00",
+ "claims": [
+  "Assess readiness for spontaneous breathing trial to evaluate potential weaning from mechanical ventilation.",
+  "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given fluctuating cardiac index and low systemic vascular resistance.",
+  "Continue invasive arterial blood pressure monitoring and record mean arterial pressure every hour to guide vasopressor titration."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3152779A1::01",
+   "claim_id": "E3152779A1",
+   "claim_text": "Assess readiness for spontaneous breathing trial to evaluate potential weaning from mechanical ventilation.",
+   "kind": "action",
+   "text": "Assess readiness for spontaneous breathing trial.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "spontaneous breathing trial readiness",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3152779A1::02",
+   "claim_id": "E3152779A1",
+   "claim_text": "Assess readiness for spontaneous breathing trial to evaluate potential weaning from mechanical ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3152779A2::03",
+   "claim_id": "E3152779A2",
+   "claim_text": "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given fluctuating cardiac index and low systemic vascular resistance.",
+   "kind": "action",
+   "text": "Obtain a bedside transthoracic echocardiogram.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "bedside transthoracic echocardiogram",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3152779A2::04",
+   "claim_id": "E3152779A2",
+   "claim_text": "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given fluctuating cardiac index and low systemic vascular resistance.",
+   "kind": "fact",
+   "text": "Cardiac index is fluctuating.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3152779A2::05",
+   "claim_id": "E3152779A2",
+   "claim_text": "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given fluctuating cardiac index and low systemic vascular resistance.",
+   "kind": "fact",
+   "text": "Systemic vascular resistance is low.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3152779A3::06",
+   "claim_id": "E3152779A3",
+   "claim_text": "Continue invasive arterial blood pressure monitoring and record mean arterial pressure every hour to guide vasopressor titration.",
+   "kind": "action",
+   "text": "Continue invasive arterial blood pressure monitoring.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "invasive arterial blood pressure monitoring",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3152779A3::07",
+   "claim_id": "E3152779A3",
+   "claim_text": "Continue invasive arterial blood pressure monitoring and record mean arterial pressure every hour to guide vasopressor titration.",
+   "kind": "fact",
+   "text": "Invasive arterial blood pressure monitoring is currently being performed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3152779A3::08",
+   "claim_id": "E3152779A3",
+   "claim_text": "Continue invasive arterial blood pressure monitoring and record mean arterial pressure every hour to guide vasopressor titration.",
+   "kind": "action",
+   "text": "Record mean arterial pressure every hour.",
+   "concept": "map",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "mean arterial pressure",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3152779A1::02",
+   "claim_id": "E3152779A1",
+   "claim_text": "Assess readiness for spontaneous breathing trial to evaluate potential weaning from mechanical ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_addressed",
+   "evidence": [],
+   "reason": "No ventilator or intubation record before the decision time.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E3152779A2::04",
+   "claim_id": "E3152779A2",
+   "claim_text": "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given fluctuating cardiac index and low systemic vascular resistance.",
+   "kind": "fact",
+   "text": "Cardiac index is fluctuating.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show heart rate values ranging from 58 to 107 bpm, with the latest value at 96 bpm. The statement 'fluctuating' is not supported because the most recent values are relatively stable around 80 bpm, and the highest value (107) is not the latest.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2135179809",
+     "time": "2100-01-01 00:45:00",
+     "item": "Heart Rate: 80 bpm"
+    },
+    {
+     "rid": "nurse:2152813298",
+     "time": "2100-01-01 01:00:00",
+     "item": "Heart Rate: 96 bpm"
+    },
+    {
+     "rid": "nurse:2152973191",
+     "time": "2100-01-01 01:15:00",
+     "item": "Heart Rate: 103 bpm"
+    },
+    {
+     "rid": "nurse:2149193343",
+     "time": "2100-01-01 13:00:00",
+     "item": "Heart Rate: 107 bpm"
+    },
+    {
+     "rid": "nurse:2143927626",
+     "time": "2100-01-02 00:00:00",
+     "item": "Heart Rate: 96 bpm"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3152779A2::05",
+   "claim_id": "E3152779A2",
+   "claim_text": "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given fluctuating cardiac index and low systemic vascular resistance.",
+   "kind": "fact",
+   "text": "Systemic vascular resistance is low.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The statement claims the patient is currently receiving mechanical ventilation, but the records show only respiratory rate measurements and no ventilator settings, device orders, or administration records. The most recent respiratory rates are elevated but do not directly indicate mechanical ventilation.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2144735714",
+     "time": "2100-01-01 14:00:00",
+     "item": "Respiratory Rate: 28 insp/min"
+    },
+    {
+     "rid": "nurse:2134268627",
+     "time": "2100-01-01 18:00:00",
+     "item": "Respiratory Rate: 23 insp/min"
+    },
+    {
+     "rid": "nurse:2143348423",
+     "time": "2100-01-01 19:00:00",
+     "item": "Respiratory Rate: 24 insp/min"
+    },
+    {
+     "rid": "nurse:2137697350",
+     "time": "2100-01-01 20:00:00",
+     "item": "Respiratory Rate: 26 insp/min"
+    },
+    {
+     "rid": "nurse:2143322228",
+     "time": "2100-01-01 21:00:00",
+     "item": "Respiratory Rate: 23 insp/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3152779A3::07",
+   "claim_id": "E3152779A3",
+   "claim_text": "Continue invasive arterial blood pressure monitoring and record mean arterial pressure every hour to guide vasopressor titration.",
+   "kind": "fact",
+   "text": "Invasive arterial blood pressure monitoring is currently being performed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The most recent record before the decision time (2100-01-02 00:00) shows an Arterial Blood Pressure mean measurement, indicating invasive arterial blood pressure monitoring is currently being performed.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2137776461",
+     "time": "2100-01-02 00:00:00",
+     "item": "Arterial Blood Pressure mean: 73 mmHg"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3152779A1::01",
+   "claim_id": "E3152779A1",
+   "claim_text": "Assess readiness for spontaneous breathing trial to evaluate potential weaning from mechanical ventilation.",
+   "kind": "action",
+   "text": "Assess readiness for spontaneous breathing trial.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "spontaneous breathing trial readiness",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2134486092",
+     "time": "2100-01-02 01:00:00",
+     "item": "respiratory rate",
+     "value": "26.0 insp/min"
+    },
+    {
+     "rid": "nurse:2151866133",
+     "time": "2100-01-02 02:00:00",
+     "item": "respiratory rate",
+     "value": "22.0 insp/min"
+    },
+    {
+     "rid": "nurse:2152535848",
+     "time": "2100-01-02 01:00:00",
+     "item": "SpO2",
+     "value": "90.0 %"
+    },
+    {
+     "rid": "nurse:2140466297",
+     "time": "2100-01-02 02:00:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    }
+   ],
+   "reason": "Measured in the 17.2 h observation window after the decision (24 h or until ICU discharge): respiratory rate x23, SpO2 x22.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3152779A2::03",
+   "claim_id": "E3152779A2",
+   "claim_text": "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given fluctuating cardiac index and low systemic vascular resistance.",
+   "kind": "action",
+   "text": "Obtain a bedside transthoracic echocardiogram.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "bedside transthoracic echocardiogram",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 17.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3152779A3::06",
+   "claim_id": "E3152779A3",
+   "claim_text": "Continue invasive arterial blood pressure monitoring and record mean arterial pressure every hour to guide vasopressor titration.",
+   "kind": "action",
+   "text": "Continue invasive arterial blood pressure monitoring.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "invasive arterial blood pressure monitoring",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3152779A3::08",
+   "claim_id": "E3152779A3",
+   "claim_text": "Continue invasive arterial blood pressure monitoring and record mean arterial pressure every hour to guide vasopressor titration.",
+   "kind": "action",
+   "text": "Record mean arterial pressure every hour.",
+   "concept": "map",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "mean arterial pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2141712581",
+     "time": "2100-01-02 01:00:00",
+     "item": "mean arterial pressure",
+     "value": "67.0 mmHg"
+    },
+    {
+     "rid": "nurse:2149135963",
+     "time": "2100-01-02 02:00:00",
+     "item": "mean arterial pressure",
+     "value": "67.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 17.2 h observation window after the decision (24 h or until ICU discharge): mean arterial pressure x24.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 17.2,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.25,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Cardiac index is fluctuating. -- The records show heart rate values ranging from 58 to 107 bpm, with the latest value at 96 bpm. The statement 'fluctuating' is not supported because the most recent values are relatively stable around 80 bpm, and the highest value (107) is not the latest.",
+    "Systemic vascular resistance is low. -- The statement claims the patient is currently receiving mechanical ventilation, but the records show only respiratory rate measurements and no ventilator settings, device orders, or administration records. The most recent respiratory rates are elevated but do not directly indicate mechanical ventilation."
+   ],
+   "not_addressed": [
+    "The patient is currently on mechanical ventilation. -- No ventilator or intubation record before the decision time."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

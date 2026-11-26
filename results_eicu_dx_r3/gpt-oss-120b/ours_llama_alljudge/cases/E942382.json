@@ -1,0 +1,305 @@
+{
+ "case_id": "E942382",
+ "decision_point": "2100-01-02 15:23:00",
+ "claims": [
+  "Continue the IV diltiazem infusion to maintain rate control of atrial arrhythmia.",
+  "Monitor blood pressure and heart rate q15 min while on diltiazem.",
+  "Obtain a repeat ECG to assess rhythm response to antiarrhythmic therapy."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E942382A1::01",
+   "claim_id": "E942382A1",
+   "claim_text": "Continue the IV diltiazem infusion to maintain rate control of atrial arrhythmia.",
+   "kind": "action",
+   "text": "Continue the IV diltiazem infusion.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV diltiazem infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E942382A1::02",
+   "claim_id": "E942382A1",
+   "claim_text": "Continue the IV diltiazem infusion to maintain rate control of atrial arrhythmia.",
+   "kind": "fact",
+   "text": "IV diltiazem infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E942382A1::03",
+   "claim_id": "E942382A1",
+   "claim_text": "Continue the IV diltiazem infusion to maintain rate control of atrial arrhythmia.",
+   "kind": "fact",
+   "text": "Atrial arrhythmia is present.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E942382A2::04",
+   "claim_id": "E942382A2",
+   "claim_text": "Monitor blood pressure and heart rate q15 min while on diltiazem.",
+   "kind": "action",
+   "text": "Monitor blood pressure every 15 minutes while on diltiazem.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E942382A2::05",
+   "claim_id": "E942382A2",
+   "claim_text": "Monitor blood pressure and heart rate q15 min while on diltiazem.",
+   "kind": "action",
+   "text": "Monitor heart rate every 15 minutes while on diltiazem.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E942382A3::06",
+   "claim_id": "E942382A3",
+   "claim_text": "Obtain a repeat ECG to assess rhythm response to antiarrhythmic therapy.",
+   "kind": "action",
+   "text": "Obtain a repeat ECG.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "ECG",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E942382A1::02",
+   "claim_id": "E942382A1",
+   "claim_text": "Continue the IV diltiazem infusion to maintain rate control of atrial arrhythmia.",
+   "kind": "fact",
+   "text": "IV diltiazem infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that the IV diltiazem infusion was started at 17:04 on 2100-01-01 and is still running at decision time. This supports the statement that the IV diltiazem infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Diltiazem (ml/hr):101",
+     "time": "2100-01-01 17:04:00",
+     "item": "Infusion/input Diltiazem at 7.25 ml/hour (2100-01-01 17:04:00 to 2100-01-01 17:04:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E942382A1::03",
+   "claim_id": "E942382A1",
+   "claim_text": "Continue the IV diltiazem infusion to maintain rate control of atrial arrhythmia.",
+   "kind": "fact",
+   "text": "Atrial arrhythmia is present.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records state that the patient has a rhythm disturbance (atrial, supraventricular), and that they are receiving antiarrhythmics (class IV antiarrhythmic, diltiazem). However, the statement that an atrial arrhythmia is present is not supported by the records, as the records do not directly show the presence of an atrial arrhythmia. The records do show that the patient is receiving diltiazem, an",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:942382:dx",
+     "time": "2100-01-01 15:23:00",
+     "item": "Admission diagnosis (APACHE): Rhythm disturbance (atrial, supraventricular)"
+    },
+    {
+     "rid": "treat:25033406",
+     "time": "2100-01-01 16:20:00",
+     "item": "Treatment documented: antiarrhythmics | class IV antiarrhythmic | diltiazem"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E942382A1::01",
+   "claim_id": "E942382A1",
+   "claim_text": "Continue the IV diltiazem infusion to maintain rate control of atrial arrhythmia.",
+   "kind": "action",
+   "text": "Continue the IV diltiazem infusion.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV diltiazem infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 3.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E942382A2::04",
+   "claim_id": "E942382A2",
+   "claim_text": "Monitor blood pressure and heart rate q15 min while on diltiazem.",
+   "kind": "action",
+   "text": "Monitor blood pressure every 15 minutes while on diltiazem.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:466047096",
+     "time": "2100-01-02 16:00:00",
+     "item": "systolic BP",
+     "value": "101.0 mmHg"
+    },
+    {
+     "rid": "nurse:487129162",
+     "time": "2100-01-02 17:00:00",
+     "item": "systolic BP",
+     "value": "112.0 mmHg"
+    },
+    {
+     "rid": "nurse:466047095",
+     "time": "2100-01-02 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "85.0 mmHg"
+    },
+    {
+     "rid": "nurse:487129161",
+     "time": "2100-01-02 17:00:00",
+     "item": "mean arterial pressure",
+     "value": "81.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 3.5 h observation window after the decision (24 h or until ICU discharge): systolic BP x2, mean arterial pressure x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E942382A2::05",
+   "claim_id": "E942382A2",
+   "claim_text": "Monitor blood pressure and heart rate q15 min while on diltiazem.",
+   "kind": "action",
+   "text": "Monitor heart rate every 15 minutes while on diltiazem.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:471800932",
+     "time": "2100-01-02 16:00:00",
+     "item": "heart rate",
+     "value": "61.0 bpm"
+    },
+    {
+     "rid": "nurse:460532348",
+     "time": "2100-01-02 17:00:00",
+     "item": "heart rate",
+     "value": "57.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 3.5 h observation window after the decision (24 h or until ICU discharge): heart rate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E942382A3::06",
+   "claim_id": "E942382A3",
+   "claim_text": "Obtain a repeat ECG to assess rhythm response to antiarrhythmic therapy.",
+   "kind": "action",
+   "text": "Obtain a repeat ECG.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "ECG",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No heart rhythm measurement in the 3.5 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 3.5,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Atrial arrhythmia is present. -- The records state that the patient has a rhythm disturbance (atrial, supraventricular), and that they are receiving antiarrhythmics (class IV antiarrhythmic, diltiazem). However, the statement that an atrial arrhythmia is present is not supported by the records, as the records do not directly show the presence of an atrial arrhythmia. The records do show that the patient is receiving diltiazem, an"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,264 @@
+{
+ "case_id": "E1674875",
+ "decision_point": "2100-01-02 20:48:00",
+ "claims": [
+  "Monitor patient's oxygen saturation and adjust oxygen therapy as needed.",
+  "Continue intravenous sodium chloride to maintain fluid balance.",
+  "Assess for signs of delirium and adjust sedation accordingly."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1674875A1::01",
+   "claim_id": "E1674875A1",
+   "claim_text": "Monitor patient's oxygen saturation and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1674875A1::02",
+   "claim_id": "E1674875A1",
+   "claim_text": "Monitor patient's oxygen saturation and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1674875A2::03",
+   "claim_id": "E1674875A2",
+   "claim_text": "Continue intravenous sodium chloride to maintain fluid balance.",
+   "kind": "action",
+   "text": "Continue intravenous sodium chloride.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous sodium chloride",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1674875A2::04",
+   "claim_id": "E1674875A2",
+   "claim_text": "Continue intravenous sodium chloride to maintain fluid balance.",
+   "kind": "fact",
+   "text": "Intravenous sodium chloride is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1674875A3::05",
+   "claim_id": "E1674875A3",
+   "claim_text": "Assess for signs of delirium and adjust sedation accordingly.",
+   "kind": "action",
+   "text": "Assess for signs of delirium.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of delirium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1674875A3::06",
+   "claim_id": "E1674875A3",
+   "claim_text": "Assess for signs of delirium and adjust sedation accordingly.",
+   "kind": "action",
+   "text": "Adjust sedation accordingly.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1674875A2::04",
+   "claim_id": "E1674875A2",
+   "claim_text": "Continue intravenous sodium chloride to maintain fluid balance.",
+   "kind": "fact",
+   "text": "Intravenous sodium chloride is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The medication administration record R7 shows that sodium chloride was administered intravenously at 21:00 on 2100-01-01, which is within the 24 hours before the decision time of 2100-01-02 20:48:00. This supports the statement that intravenous sodium chloride is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:62411650",
+     "time": "2100-01-01 21:00:00",
+     "item": "Medication SODIUM CHLORIDE 0.9% IV CONT CoNtInUos (2100-01-01 21:00:00 to 2100-01-01 22:11:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1674875A1::01",
+   "claim_id": "E1674875A1",
+   "claim_text": "Monitor patient's oxygen saturation and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1267478701",
+     "time": "2100-01-02 21:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:1182581167",
+     "time": "2100-01-02 22:00:00",
+     "item": "SpO2",
+     "value": "94.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x24.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1674875A1::02",
+   "claim_id": "E1674875A1",
+   "claim_text": "Monitor patient's oxygen saturation and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1674875A2::03",
+   "claim_id": "E1674875A2",
+   "claim_text": "Continue intravenous sodium chloride to maintain fluid balance.",
+   "kind": "action",
+   "text": "Continue intravenous sodium chloride.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous sodium chloride",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1674875A3::05",
+   "claim_id": "E1674875A3",
+   "claim_text": "Assess for signs of delirium and adjust sedation accordingly.",
+   "kind": "action",
+   "text": "Assess for signs of delirium.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of delirium",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1674875A3::06",
+   "claim_id": "E1674875A3",
+   "claim_text": "Assess for signs of delirium and adjust sedation accordingly.",
+   "kind": "action",
+   "text": "Adjust sedation accordingly.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

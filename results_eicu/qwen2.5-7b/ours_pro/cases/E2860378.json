@@ -1,0 +1,601 @@
+{
+ "case_id": "E2860378",
+ "decision_point": "2100-01-02 14:07:00",
+ "claims": [
+  "Continue insulin infusion to manage hyperglycemia.",
+  "Monitor blood pressure closely due to fluctuations.",
+  "Assess for signs of hypovolemia given low blood pressure readings."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2860378A1::01",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue insulin infusion to manage hyperglycemia.",
+   "kind": "action",
+   "text": "Continue insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2860378A1::02",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue insulin infusion to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2860378A1::03",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue insulin infusion to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E2860378A2::04",
+   "claim_id": "E2860378A2",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2860378A2::05",
+   "claim_id": "E2860378A2",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2860378A3::06",
+   "claim_id": "E2860378A3",
+   "claim_text": "Assess for signs of hypovolemia given low blood pressure readings.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypovolemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2860378A3::07",
+   "claim_id": "E2860378A3",
+   "claim_text": "Assess for signs of hypovolemia given low blood pressure readings.",
+   "kind": "fact",
+   "text": "Blood pressure is low.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2860378A1::02",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue insulin infusion to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The most recent insulin administration record (R46) shows an infusion that ended at 02:30 on 2100-01-02, over 11 hours before the decision time of 14:07. There is no record of insulin being administered within the 24 hours prior to the decision time, so the statement that it is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Insulin ():743",
+     "time": "2100-01-02 02:30:00",
+     "item": "Infusion/input Insulin at 4.5 (2100-01-02 02:30:00 to 2100-01-02 02:30:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2860378A1::03",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue insulin infusion to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:639347697",
+     "time": "2100-01-01 16:25:00",
+     "item": "Glucose",
+     "value": 254.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:637279586",
+     "time": "2100-01-01 20:25:00",
+     "item": "Glucose",
+     "value": 255.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:634889927",
+     "time": "2100-01-01 23:55:00",
+     "item": "Glucose",
+     "value": 267.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 267 mg/dL at 2100-01-01 23:55:00 (reference 70 to 100) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E2860378A2::05",
+   "claim_id": "E2860378A2",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The systolic blood pressure measurements show significant variation over time, ranging from 80 to 189 mmHg, which directly supports the statement that blood pressure is fluctuating.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1874263690",
+     "time": "2100-01-01 12:20:00",
+     "item": "Non Invasive Blood Pressure systolic: 185 mmHg"
+    },
+    {
+     "rid": "nurse:1825503430",
+     "time": "2100-01-01 13:28:00",
+     "item": "Non Invasive Blood Pressure systolic: 189 mmHg"
+    },
+    {
+     "rid": "nurse:1837914601",
+     "time": "2100-01-01 14:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 179 mmHg"
+    },
+    {
+     "rid": "nurse:1779639619",
+     "time": "2100-01-01 14:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 185 mmHg"
+    },
+    {
+     "rid": "nurse:1795381307",
+     "time": "2100-01-01 14:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 187 mmHg"
+    },
+    {
+     "rid": "nurse:1837436441",
+     "time": "2100-01-01 15:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 159 mmHg"
+    },
+    {
+     "rid": "nurse:1859674146",
+     "time": "2100-01-01 15:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 156 mmHg"
+    },
+    {
+     "rid": "nurse:1869830905",
+     "time": "2100-01-01 16:13:00",
+     "item": "Non Invasive Blood Pressure systolic: 142 mmHg"
+    },
+    {
+     "rid": "nurse:1781324027",
+     "time": "2100-01-01 16:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 139 mmHg"
+    },
+    {
+     "rid": "nurse:1831178591",
+     "time": "2100-01-01 16:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 144 mmHg"
+    },
+    {
+     "rid": "nurse:1818745740",
+     "time": "2100-01-01 16:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 140 mmHg"
+    },
+    {
+     "rid": "nurse:1873975359",
+     "time": "2100-01-01 17:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 151 mmHg"
+    },
+    {
+     "rid": "nurse:1774848260",
+     "time": "2100-01-01 17:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 146 mmHg"
+    },
+    {
+     "rid": "nurse:1781992277",
+     "time": "2100-01-01 17:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 153 mmHg"
+    },
+    {
+     "rid": "nurse:1855448960",
+     "time": "2100-01-01 18:05:00",
+     "item": "Non Invasive Blood Pressure systolic: 119 mmHg"
+    },
+    {
+     "rid": "nurse:1882425305",
+     "time": "2100-01-01 18:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 110 mmHg"
+    },
+    {
+     "rid": "nurse:1865065429",
+     "time": "2100-01-01 18:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 101 mmHg"
+    },
+    {
+     "rid": "nurse:1861053563",
+     "time": "2100-01-01 18:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 85 mmHg"
+    },
+    {
+     "rid": "nurse:1802615492",
+     "time": "2100-01-01 20:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 80 mmHg"
+    },
+    {
+     "rid": "nurse:1871870753",
+     "time": "2100-01-01 21:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 83 mmHg"
+    },
+    {
+     "rid": "nurse:1800545216",
+     "time": "2100-01-01 21:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 84 mmHg"
+    },
+    {
+     "rid": "nurse:1832782633",
+     "time": "2100-01-01 21:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 96 mmHg"
+    },
+    {
+     "rid": "nurse:1834815800",
+     "time": "2100-01-01 21:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 101 mmHg"
+    },
+    {
+     "rid": "nurse:1824096741",
+     "time": "2100-01-01 22:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 87 mmHg"
+    },
+    {
+     "rid": "nurse:1816877352",
+     "time": "2100-01-01 22:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 89 mmHg"
+    },
+    {
+     "rid": "nurse:1821996784",
+     "time": "2100-01-01 22:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 82 mmHg"
+    },
+    {
+     "rid": "nurse:1841296064",
+     "time": "2100-01-01 23:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 87 mmHg"
+    },
+    {
+     "rid": "nurse:1882839544",
+     "time": "2100-01-01 23:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 91 mmHg"
+    },
+    {
+     "rid": "nurse:1779037016",
+     "time": "2100-01-01 23:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 84 mmHg"
+    },
+    {
+     "rid": "nurse:1776219912",
+     "time": "2100-01-01 23:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 106 mmHg"
+    },
+    {
+     "rid": "nurse:1792037302",
+     "time": "2100-01-02 00:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 102 mmHg"
+    },
+    {
+     "rid": "nurse:1857343051",
+     "time": "2100-01-02 00:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 109 mmHg"
+    },
+    {
+     "rid": "nurse:1822759962",
+     "time": "2100-01-02 00:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 107 mmHg"
+    },
+    {
+     "rid": "nurse:1846840487",
+     "time": "2100-01-02 00:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 102 mmHg"
+    },
+    {
+     "rid": "nurse:1860624749",
+     "time": "2100-01-02 01:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 92 mmHg"
+    },
+    {
+     "rid": "nurse:1833210817",
+     "time": "2100-01-02 01:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 110 mmHg"
+    },
+    {
+     "rid": "nurse:1850716539",
+     "time": "2100-01-02 01:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 101 mmHg"
+    },
+    {
+     "rid": "nurse:1797274069",
+     "time": "2100-01-02 01:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 132 mmHg"
+    },
+    {
+     "rid": "nurse:1775475829",
+     "time": "2100-01-02 02:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 108 mmHg"
+    },
+    {
+     "rid": "nurse:1779995856",
+     "time": "2100-01-02 02:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 98 mmHg"
+    },
+    {
+     "rid": "nurse:1874282855",
+     "time": "2100-01-02 02:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 104 mmHg"
+    },
+    {
+     "rid": "nurse:1817170784",
+     "time": "2100-01-02 02:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 99 mmHg"
+    },
+    {
+     "rid": "nurse:1801302201",
+     "time": "2100-01-02 03:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 108 mmHg"
+    },
+    {
+     "rid": "nurse:1816339144",
+     "time": "2100-01-02 03:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 121 mmHg"
+    },
+    {
+     "rid": "nurse:1793996412",
+     "time": "2100-01-02 03:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 104 mmHg"
+    },
+    {
+     "rid": "nurse:1842895159",
+     "time": "2100-01-02 03:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 104 mmHg"
+    },
+    {
+     "rid": "nurse:1780621362",
+     "time": "2100-01-02 04:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 107 mmHg"
+    },
+    {
+     "rid": "nurse:1818567652",
+     "time": "2100-01-02 04:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 122 mmHg"
+    },
+    {
+     "rid": "nurse:1848560772",
+     "time": "2100-01-02 04:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 135 mmHg"
+    },
+    {
+     "rid": "nurse:1858259949",
+     "time": "2100-01-02 04:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 126 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2860378A3::07",
+   "claim_id": "E2860378A3",
+   "claim_text": "Assess for signs of hypovolemia given low blood pressure readings.",
+   "kind": "fact",
+   "text": "Blood pressure is low.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1875437309",
+     "time": "2100-01-02 14:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 64.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2860378A1::01",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue insulin infusion to manage hyperglycemia.",
+   "kind": "action",
+   "text": "Continue insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 7.8 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2860378A2::04",
+   "claim_id": "E2860378A2",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1872031514",
+     "time": "2100-01-02 15:00:00",
+     "item": "systolic BP",
+     "value": "94.0 mmHg"
+    },
+    {
+     "rid": "nurse:1815389811",
+     "time": "2100-01-02 16:00:00",
+     "item": "systolic BP",
+     "value": "94.0 mmHg"
+    },
+    {
+     "rid": "nurse:1872031516",
+     "time": "2100-01-02 15:00:00",
+     "item": "mean arterial pressure",
+     "value": "62.0 mmHg"
+    },
+    {
+     "rid": "nurse:1815389813",
+     "time": "2100-01-02 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "66.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 7.8 h observation window after the decision (24 h or until ICU discharge): systolic BP x5, mean arterial pressure x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2860378A3::06",
+   "claim_id": "E2860378A3",
+   "claim_text": "Assess for signs of hypovolemia given low blood pressure readings.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypovolemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 7.8,
+ "scoresheet": {
+  "n": 4,
+  "supported": 3,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.75,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Insulin infusion is currently being given. -- The most recent insulin administration record (R46) shows an infusion that ended at 02:30 on 2100-01-02, over 11 hours before the decision time of 14:07. There is no record of insulin being administered within the 24 hours prior to the decision time, so the statement that it is currently being given is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.75,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

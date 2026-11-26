@@ -1,0 +1,276 @@
+{
+ "case_id": "E2558122",
+ "decision_point": "2100-01-02 15:39:00",
+ "claims": [
+  "Monitor patient's blood pressure and adjust oxygen therapy as needed.",
+  "Continue pain management with PCA Dilaudid infusion.",
+  "Assess patient's neurological status and adjust sedation if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2558122A1::01",
+   "claim_id": "E2558122A1",
+   "claim_text": "Monitor patient's blood pressure and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2558122A1::02",
+   "claim_id": "E2558122A1",
+   "claim_text": "Monitor patient's blood pressure and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2558122A2::03",
+   "claim_id": "E2558122A2",
+   "claim_text": "Continue pain management with PCA Dilaudid infusion.",
+   "kind": "action",
+   "text": "Continue pain management with PCA Dilaudid infusion.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "PCA Dilaudid infusion",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2558122A2::04",
+   "claim_id": "E2558122A2",
+   "claim_text": "Continue pain management with PCA Dilaudid infusion.",
+   "kind": "fact",
+   "text": "PCA Dilaudid infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E2558122A3::05",
+   "claim_id": "E2558122A3",
+   "claim_text": "Assess patient's neurological status and adjust sedation if necessary.",
+   "kind": "action",
+   "text": "Assess neurological status.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "neurological status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2558122A3::06",
+   "claim_id": "E2558122A3",
+   "claim_text": "Assess patient's neurological status and adjust sedation if necessary.",
+   "kind": "action",
+   "text": "Adjust sedation if necessary.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2558122A2::04",
+   "claim_id": "E2558122A2",
+   "claim_text": "Continue pain management with PCA Dilaudid infusion.",
+   "kind": "fact",
+   "text": "PCA Dilaudid infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R36 shows a Dilaudid PCA infusion running at decision time, which directly supports the statement that PCA Dilaudid infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Dilaudid PCA -Infusion (ml/hr):621",
+     "time": "2100-01-02 02:00:00",
+     "item": "Running at decision time (started 2100-01-02 02:00:00): Infusion/input Dilaudid PCA -Infusion at 1 ml/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2558122A1::01",
+   "claim_id": "E2558122A1",
+   "claim_text": "Monitor patient's blood pressure and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1743588362",
+     "time": "2100-01-02 16:00:00",
+     "item": "systolic BP",
+     "value": "155.0 mmHg"
+    },
+    {
+     "rid": "nurse:1750535948",
+     "time": "2100-01-02 17:00:00",
+     "item": "systolic BP",
+     "value": "159.0 mmHg"
+    },
+    {
+     "rid": "nurse:1743588364",
+     "time": "2100-01-02 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "112.0 mmHg"
+    },
+    {
+     "rid": "nurse:1750535950",
+     "time": "2100-01-02 17:00:00",
+     "item": "mean arterial pressure",
+     "value": "106.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x23, mean arterial pressure x23.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2558122A1::02",
+   "claim_id": "E2558122A1",
+   "claim_text": "Monitor patient's blood pressure and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2558122A2::03",
+   "claim_id": "E2558122A2",
+   "claim_text": "Continue pain management with PCA Dilaudid infusion.",
+   "kind": "action",
+   "text": "Continue pain management with PCA Dilaudid infusion.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "PCA Dilaudid infusion",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2558122A3::05",
+   "claim_id": "E2558122A3",
+   "claim_text": "Assess patient's neurological status and adjust sedation if necessary.",
+   "kind": "action",
+   "text": "Assess neurological status.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "neurological status",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No GCS / mental status measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2558122A3::06",
+   "claim_id": "E2558122A3",
+   "claim_text": "Assess patient's neurological status and adjust sedation if necessary.",
+   "kind": "action",
+   "text": "Adjust sedation if necessary.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

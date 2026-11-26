@@ -1,0 +1,420 @@
+{
+ "case_id": "E1682105",
+ "decision_point": "2100-01-02 13:56:00",
+ "claims": [
+  "Continue hemodialysis for severe renal failure and hyperkalemia.",
+  "Monitor serum potassium and renal function closely.",
+  "Assess and manage hypotension with intravenous fluids as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1682105A1::01",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue hemodialysis for severe renal failure and hyperkalemia.",
+   "kind": "action",
+   "text": "Continue hemodialysis.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "continue",
+   "target": "hemodialysis",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1682105A1::02",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue hemodialysis for severe renal failure and hyperkalemia.",
+   "kind": "fact",
+   "text": "Hemodialysis is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1682105A1::03",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue hemodialysis for severe renal failure and hyperkalemia.",
+   "kind": "fact",
+   "text": "Severe renal failure is present.",
+   "concept": "creatinine",
+   "notes": [
+    "concept set by the rule files: renal_function -> creatinine"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1682105A1::04",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue hemodialysis for severe renal failure and hyperkalemia.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1682105A2::05",
+   "claim_id": "E1682105A2",
+   "claim_text": "Monitor serum potassium and renal function closely.",
+   "kind": "action",
+   "text": "Monitor serum potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1682105A2::06",
+   "claim_id": "E1682105A2",
+   "claim_text": "Monitor serum potassium and renal function closely.",
+   "kind": "action",
+   "text": "Monitor renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "renal function",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1682105A3::07",
+   "claim_id": "E1682105A3",
+   "claim_text": "Assess and manage hypotension with intravenous fluids as needed.",
+   "kind": "action",
+   "text": "Assess hypotension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "hypotension",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1682105A3::08",
+   "claim_id": "E1682105A3",
+   "claim_text": "Assess and manage hypotension with intravenous fluids as needed.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1682105A3::09",
+   "claim_id": "E1682105A3",
+   "claim_text": "Assess and manage hypotension with intravenous fluids as needed.",
+   "kind": "action",
+   "text": "Manage hypotension with intravenous fluids as needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1682105A1::02",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue hemodialysis for severe renal failure and hyperkalemia.",
+   "kind": "fact",
+   "text": "Hemodialysis is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that hemodialysis was started at 12:15 on 2100-01-02, but the statement says it is currently being given. The records do not show that hemodialysis was given at the decision time of 2100-01-02 13:56:00.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:59749717",
+     "time": "2100-01-02 12:15:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 12:15:00): Medication sodium chloride 0.9 % Hemodialysis Continuous"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1682105A1::03",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue hemodialysis for severe renal failure and hyperkalemia.",
+   "kind": "fact",
+   "text": "Severe renal failure is present.",
+   "concept": "creatinine",
+   "notes": [
+    "concept set by the rule files: renal_function -> creatinine"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement 'Severe renal failure is present' is not supported by the records. The medication 'sodium chloride 0.9 % Hemodialysis Continuous' is being administered at the decision time, but this does not directly indicate the presence of severe renal failure. The records do mention 'hyperkalemia' in the admission diagnosis, but this is not directly related to the statement about severe renal 'f'",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:59749717",
+     "time": "2100-01-02 12:15:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 12:15:00): Medication sodium chloride 0.9 % Hemodialysis Continuous"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1682105A1::04",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue hemodialysis for severe renal failure and hyperkalemia.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement 'Hyperkalemia is present' is not supported by the records. The most recent relevant row (R33) shows a peak inspiratory pressure of 28 cmH2O, but there is no indication of hyperkalemia. The records do mention hyperkalemia in R4, but it is not supported by the current measurement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "resp:125545963",
+     "time": "2100-01-02 02:02:00",
+     "item": "Peak Insp. Pressure: 28 cmH2O"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1682105A3::08",
+   "claim_id": "E1682105A3",
+   "claim_text": "Assess and manage hypotension with intravenous fluids as needed.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The statement 'Hypotension is present' is not supported by the records. The most recent relevant row (R29) shows a Peak Insp. Pressure of 25 cmH2O, which is within the normal range. There is no evidence of hypotension in the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "resp:116730391",
+     "time": "2100-01-02 00:00:00",
+     "item": "Peak Insp. Pressure: 25 cmH2O"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1682105A1::01",
+   "claim_id": "E1682105A1",
+   "claim_text": "Continue hemodialysis for severe renal failure and hyperkalemia.",
+   "kind": "action",
+   "text": "Continue hemodialysis.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "continue",
+   "target": "hemodialysis",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No renal replacement therapy action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1682105A2::05",
+   "claim_id": "E1682105A2",
+   "claim_text": "Monitor serum potassium and renal function closely.",
+   "kind": "action",
+   "text": "Monitor serum potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:387664516",
+     "time": "2100-01-02 19:05:00",
+     "item": "potassium",
+     "value": "4.3 mmol/L"
+    },
+    {
+     "rid": "lab:389801924",
+     "time": "2100-01-03 01:05:00",
+     "item": "potassium",
+     "value": "4.7 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1682105A2::06",
+   "claim_id": "E1682105A2",
+   "claim_text": "Monitor serum potassium and renal function closely.",
+   "kind": "action",
+   "text": "Monitor renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "renal function",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:387664517",
+     "time": "2100-01-02 19:05:00",
+     "item": "creatinine",
+     "value": "5.12 mg/dL"
+    },
+    {
+     "rid": "lab:389801925",
+     "time": "2100-01-03 01:05:00",
+     "item": "creatinine",
+     "value": "5.52 mg/dL"
+    },
+    {
+     "rid": "lab:387664525",
+     "time": "2100-01-02 19:05:00",
+     "item": "BUN",
+     "value": "37.0 mg/dL"
+    },
+    {
+     "rid": "lab:389801932",
+     "time": "2100-01-03 01:05:00",
+     "item": "BUN",
+     "value": "42.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): creatinine x3, BUN x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1682105A3::07",
+   "claim_id": "E1682105A3",
+   "claim_text": "Assess and manage hypotension with intravenous fluids as needed.",
+   "kind": "action",
+   "text": "Assess hypotension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "hypotension",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1682105A3::09",
+   "claim_id": "E1682105A3",
+   "claim_text": "Assess and manage hypotension with intravenous fluids as needed.",
+   "kind": "action",
+   "text": "Manage hypotension with intravenous fluids as needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 0,
+  "not_supported": 4,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hemodialysis is currently being given. -- The records show that hemodialysis was started at 12:15 on 2100-01-02, but the statement says it is currently being given. The records do not show that hemodialysis was given at the decision time of 2100-01-02 13:56:00.",
+    "Severe renal failure is present. -- The statement 'Severe renal failure is present' is not supported by the records. The medication 'sodium chloride 0.9 % Hemodialysis Continuous' is being administered at the decision time, but this does not directly indicate the presence of severe renal failure. The records do mention 'hyperkalemia' in the admission diagnosis, but this is not directly related to the statement about severe renal 'f'",
+    "Hyperkalemia is present. -- The statement 'Hyperkalemia is present' is not supported by the records. The most recent relevant row (R33) shows a peak inspiratory pressure of 28 cmH2O, but there is no indication of hyperkalemia. The records do mention hyperkalemia in R4, but it is not supported by the current measurement.",
+    "Hypotension is present. -- The statement 'Hypotension is present' is not supported by the records. The most recent relevant row (R29) shows a Peak Insp. Pressure of 25 cmH2O, which is within the normal range. There is no evidence of hypotension in the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 4,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

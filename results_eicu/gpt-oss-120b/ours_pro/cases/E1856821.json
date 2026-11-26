@@ -1,0 +1,355 @@
+{
+ "case_id": "E1856821",
+ "decision_point": "2100-01-02 18:36:00",
+ "claims": [
+  "Add vasopressin infusion to the current norepinephrine regimen to achieve target MAP ≥65 mmHg.",
+  "Obtain repeat blood cultures and a serum lactate level to assess ongoing sepsis and guide antimicrobial therapy.",
+  "Start stress‑dose hydrocortisone 50 mg IV q6h for possible refractory septic shock."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1856821A1::01",
+   "claim_id": "E1856821A1",
+   "claim_text": "Add vasopressin infusion to the current norepinephrine regimen to achieve target MAP ≥65 mmHg.",
+   "kind": "action",
+   "text": "Add vasopressin infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "vasopressin",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1856821A1::02",
+   "claim_id": "E1856821A1",
+   "claim_text": "Add vasopressin infusion to the current norepinephrine regimen to achieve target MAP ≥65 mmHg.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1856821A1::03",
+   "claim_id": "E1856821A1",
+   "claim_text": "Add vasopressin infusion to the current norepinephrine regimen to achieve target MAP ≥65 mmHg.",
+   "kind": "goal",
+   "text": "Maintain MAP at least 65 mmHg.",
+   "concept": "map",
+   "notes": []
+  },
+  {
+   "atom_id": "E1856821A2::04",
+   "claim_id": "E1856821A2",
+   "claim_text": "Obtain repeat blood cultures and a serum lactate level to assess ongoing sepsis and guide antimicrobial therapy.",
+   "kind": "action",
+   "text": "Obtain repeat blood cultures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": false,
+   "treatment_class": "cultures",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1856821A2::05",
+   "claim_id": "E1856821A2",
+   "claim_text": "Obtain repeat blood cultures and a serum lactate level to assess ongoing sepsis and guide antimicrobial therapy.",
+   "kind": "action",
+   "text": "Obtain serum lactate level.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1856821A2::06",
+   "claim_id": "E1856821A2",
+   "claim_text": "Obtain repeat blood cultures and a serum lactate level to assess ongoing sepsis and guide antimicrobial therapy.",
+   "kind": "fact",
+   "text": "Sepsis is ongoing.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1856821A3::07",
+   "claim_id": "E1856821A3",
+   "claim_text": "Start stress‑dose hydrocortisone 50 mg IV q6h for possible refractory septic shock.",
+   "kind": "action",
+   "text": "Start stress-dose hydrocortisone 50 mg IV q6h.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "hydrocortisone",
+   "conditional": false,
+   "treatment_class": "steroid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1856821A3::08",
+   "claim_id": "E1856821A3",
+   "claim_text": "Start stress‑dose hydrocortisone 50 mg IV q6h for possible refractory septic shock.",
+   "kind": "fact",
+   "text": "Refractory septic shock is possible.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1856821A1::02",
+   "claim_id": "E1856821A1",
+   "claim_text": "Add vasopressin infusion to the current norepinephrine regimen to achieve target MAP ≥65 mmHg.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show continuous norepinephrine infusions from 2100-01-01 19:51 through 2100-01-02 14:11, including at the decision time of 2100-01-02 21:00, supporting the statement that the patient is currently receiving norepinephrine.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Norepinephrine (mcg/min):75",
+     "time": "2100-01-01 19:51:00",
+     "item": "Infusion/input Norepinephrine at 13.01 mcg/min (2100-01-01 19:51:00 to 2100-01-01 23:34:00)"
+    },
+    {
+     "rid": "inf:Norepinephrine (mcg/min):298",
+     "time": "2100-01-01 23:34:00",
+     "item": "Infusion/input Norepinephrine at 21.01 mcg/min (2100-01-01 23:34:00 to 2100-01-02 09:51:00)"
+    },
+    {
+     "rid": "inf:Norepinephrine (mcg/min):915",
+     "time": "2100-01-02 09:51:00",
+     "item": "Infusion/input Norepinephrine at 16 mcg/min (2100-01-02 09:51:00 to 2100-01-02 13:16:00)"
+    },
+    {
+     "rid": "inf:Norepinephrine (mcg/min):1120",
+     "time": "2100-01-02 13:16:00",
+     "item": "Infusion/input Norepinephrine at 18.03 mcg/min (2100-01-02 13:16:00 to 2100-01-02 14:11:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1856821A2::06",
+   "claim_id": "E1856821A2",
+   "claim_text": "Obtain repeat blood cultures and a serum lactate level to assess ongoing sepsis and guide antimicrobial therapy.",
+   "kind": "fact",
+   "text": "Sepsis is ongoing.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show norepinephrine infusions at 21.01 mcg/min and 16 mcg/min, but the statement claims a rate of 18 mcg/min, which is not documented.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Norepinephrine (mcg/min):298",
+     "time": "2100-01-01 23:34:00",
+     "item": "Infusion/input Norepinephrine at 21.01 mcg/min (2100-01-01 23:34:00 to 2100-01-02 09:51:00)"
+    },
+    {
+     "rid": "inf:Norepinephrine (mcg/min):915",
+     "time": "2100-01-02 09:51:00",
+     "item": "Infusion/input Norepinephrine at 16 mcg/min (2100-01-02 09:51:00 to 2100-01-02 13:16:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1856821A3::08",
+   "claim_id": "E1856821A3",
+   "claim_text": "Start stress‑dose hydrocortisone 50 mg IV q6h for possible refractory septic shock.",
+   "kind": "fact",
+   "text": "Refractory septic shock is possible.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records document shock requiring inotropic support with norepinephrine >0.1 mcg/kg/min (R21), and show ongoing norepinephrine infusions at 16 and 18.03 mcg/min (R35, R44), supporting the statement of refractory septic shock.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:50363183",
+     "time": "2100-01-01 20:28:00",
+     "item": "Treatment documented: shock | inotropic agent | norepinephrine > 0.1 micrograms/kg/min"
+    },
+    {
+     "rid": "inf:Norepinephrine (mcg/min):915",
+     "time": "2100-01-02 09:51:00",
+     "item": "Infusion/input Norepinephrine at 16 mcg/min (2100-01-02 09:51:00 to 2100-01-02 13:16:00)"
+    },
+    {
+     "rid": "inf:Norepinephrine (mcg/min):1120",
+     "time": "2100-01-02 13:16:00",
+     "item": "Infusion/input Norepinephrine at 18.03 mcg/min (2100-01-02 13:16:00 to 2100-01-02 14:11:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1856821A1::01",
+   "claim_id": "E1856821A1",
+   "claim_text": "Add vasopressin infusion to the current norepinephrine regimen to achieve target MAP ≥65 mmHg.",
+   "kind": "action",
+   "text": "Add vasopressin infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "vasopressin",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1856821A2::04",
+   "claim_id": "E1856821A2",
+   "claim_text": "Obtain repeat blood cultures and a serum lactate level to assess ongoing sepsis and guide antimicrobial therapy.",
+   "kind": "action",
+   "text": "Obtain repeat blood cultures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": false,
+   "treatment_class": "cultures",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No cultures action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1856821A2::05",
+   "claim_id": "E1856821A2",
+   "claim_text": "Obtain repeat blood cultures and a serum lactate level to assess ongoing sepsis and guide antimicrobial therapy.",
+   "kind": "action",
+   "text": "Obtain serum lactate level.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1856821A3::07",
+   "claim_id": "E1856821A3",
+   "claim_text": "Start stress‑dose hydrocortisone 50 mg IV q6h for possible refractory septic shock.",
+   "kind": "action",
+   "text": "Start stress-dose hydrocortisone 50 mg IV q6h.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "hydrocortisone",
+   "conditional": false,
+   "treatment_class": "steroid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No corticosteroids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Sepsis is ongoing. -- The records show norepinephrine infusions at 21.01 mcg/min and 16 mcg/min, but the statement claims a rate of 18 mcg/min, which is not documented."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

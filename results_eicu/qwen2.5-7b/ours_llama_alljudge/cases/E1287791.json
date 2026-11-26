@@ -1,0 +1,512 @@
+{
+ "case_id": "E1287791",
+ "decision_point": "2100-01-02 19:17:00",
+ "claims": [
+  "Monitor blood pressure and adjust antihypertensive therapy as needed.",
+  "Continue sedation at -1 RASS score.",
+  "Assess Glasgow Coma Scale daily to monitor neurological status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1287791A1::01",
+   "claim_id": "E1287791A1",
+   "claim_text": "Monitor blood pressure and adjust antihypertensive therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1287791A1::02",
+   "claim_id": "E1287791A1",
+   "claim_text": "Monitor blood pressure and adjust antihypertensive therapy as needed.",
+   "kind": "action",
+   "text": "Adjust antihypertensive therapy as needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antihypertensive therapy",
+   "conditional": true,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1287791A2::03",
+   "claim_id": "E1287791A2",
+   "claim_text": "Continue sedation at -1 RASS score.",
+   "kind": "action",
+   "text": "Continue sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "sedation",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1287791A2::04",
+   "claim_id": "E1287791A2",
+   "claim_text": "Continue sedation at -1 RASS score.",
+   "kind": "fact",
+   "text": "RASS score is -1.",
+   "concept": "sedation",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1287791A3::05",
+   "claim_id": "E1287791A3",
+   "claim_text": "Assess Glasgow Coma Scale daily to monitor neurological status.",
+   "kind": "action",
+   "text": "Assess Glasgow Coma Scale daily.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "Glasgow Coma Scale",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1287791A2::P01",
+   "claim_id": "E1287791A2",
+   "claim_text": "Continue sedation at -1 RASS score.",
+   "kind": "fact",
+   "text": "The patient is currently receiving sedation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1287791A2::04",
+   "claim_id": "E1287791A2",
+   "claim_text": "Continue sedation at -1 RASS score.",
+   "kind": "fact",
+   "text": "RASS score is -1.",
+   "concept": "sedation",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The RASS score is -1 at the decision time according to multiple measurements.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:751242573",
+     "time": "2100-01-02 01:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:748157740",
+     "time": "2100-01-02 04:15:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:746553336",
+     "time": "2100-01-02 05:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:779839890",
+     "time": "2100-01-02 09:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:800553970",
+     "time": "2100-01-02 13:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1287791A2::P01",
+   "claim_id": "E1287791A2",
+   "claim_text": "Continue sedation at -1 RASS score.",
+   "kind": "fact",
+   "text": "The patient is currently receiving sedation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_supported",
+   "reason": "The patient is currently receiving sedation. The records show that the patient has been receiving sedation, but the most recent measurement (R50) shows a sedation score of 1, which indicates that the patient is no longer receiving sedation. Therefore, the statement is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:752794701",
+     "time": "2100-01-01 19:10:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -4"
+    },
+    {
+     "rid": "nurse:752794702",
+     "time": "2100-01-01 19:10:00",
+     "item": "Sedation Scale/Score/Goal Sedation Scale: RASS"
+    },
+    {
+     "rid": "nurse:754595088",
+     "time": "2100-01-01 19:10:00",
+     "item": "Respiratory Rate: 31 insp/min"
+    },
+    {
+     "rid": "nurse:802022194",
+     "time": "2100-01-01 19:50:00",
+     "item": "Respiratory Rate: 24 insp/min"
+    },
+    {
+     "rid": "nurse:750017878",
+     "time": "2100-01-01 20:20:00",
+     "item": "Respiratory Rate: 30 insp/min"
+    },
+    {
+     "rid": "nurse:754512863",
+     "time": "2100-01-01 20:50:00",
+     "item": "Respiratory Rate: 32 insp/min"
+    },
+    {
+     "rid": "nurse:768485361",
+     "time": "2100-01-01 21:00:00",
+     "item": "Respiratory Rate: 31 insp/min"
+    },
+    {
+     "rid": "nurse:768596424",
+     "time": "2100-01-01 22:00:00",
+     "item": "Respiratory Rate: 25 insp/min"
+    },
+    {
+     "rid": "nurse:762360321",
+     "time": "2100-01-01 23:00:00",
+     "item": "Respiratory Rate: 27 insp/min"
+    },
+    {
+     "rid": "nurse:768969089",
+     "time": "2100-01-02 00:00:00",
+     "item": "Respiratory Rate: 33 insp/min"
+    },
+    {
+     "rid": "nurse:751242573",
+     "time": "2100-01-02 01:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:751242574",
+     "time": "2100-01-02 01:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Scale: RASS"
+    },
+    {
+     "rid": "nurse:769791252",
+     "time": "2100-01-02 01:00:00",
+     "item": "Temperature Fahrenheit: 98.8 F"
+    },
+    {
+     "rid": "nurse:813075679",
+     "time": "2100-01-02 01:00:00",
+     "item": "Respiratory Rate: 32 insp/min"
+    },
+    {
+     "rid": "nurse:797857946",
+     "time": "2100-01-02 02:15:00",
+     "item": "Respiratory Rate: 31 insp/min"
+    },
+    {
+     "rid": "nurse:803556568",
+     "time": "2100-01-02 03:15:00",
+     "item": "Respiratory Rate: 28 insp/min"
+    },
+    {
+     "rid": "nurse:748157740",
+     "time": "2100-01-02 04:15:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:748157741",
+     "time": "2100-01-02 04:15:00",
+     "item": "Sedation Scale/Score/Goal Sedation Scale: RASS"
+    },
+    {
+     "rid": "nurse:769761724",
+     "time": "2100-01-02 04:15:00",
+     "item": "Temperature Fahrenheit: 98.6 F"
+    },
+    {
+     "rid": "nurse:762023416",
+     "time": "2100-01-02 04:15:00",
+     "item": "Respiratory Rate: 33 insp/min"
+    },
+    {
+     "rid": "nurse:746553336",
+     "time": "2100-01-02 05:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:746553337",
+     "time": "2100-01-02 05:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Scale: RASS"
+    },
+    {
+     "rid": "nurse:786432752",
+     "time": "2100-01-02 05:15:00",
+     "item": "Respiratory Rate: 30 insp/min"
+    },
+    {
+     "rid": "nurse:805475829",
+     "time": "2100-01-02 06:15:00",
+     "item": "Respiratory Rate: 29 insp/min"
+    },
+    {
+     "rid": "nurse:796157322",
+     "time": "2100-01-02 07:15:00",
+     "item": "Respiratory Rate: 31 insp/min"
+    },
+    {
+     "rid": "nurse:749283241",
+     "time": "2100-01-02 08:15:00",
+     "item": "Respiratory Rate: 26 insp/min"
+    },
+    {
+     "rid": "nurse:779839890",
+     "time": "2100-01-02 09:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:779839891",
+     "time": "2100-01-02 09:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Scale: RASS"
+    },
+    {
+     "rid": "nurse:794625330",
+     "time": "2100-01-02 09:15:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:794625331",
+     "time": "2100-01-02 09:15:00",
+     "item": "Sedation Scale/Score/Goal Sedation Scale: RASS"
+    },
+    {
+     "rid": "nurse:775727404",
+     "time": "2100-01-02 09:15:00",
+     "item": "Temperature Fahrenheit: 98.6 F"
+    },
+    {
+     "rid": "nurse:765474786",
+     "time": "2100-01-02 09:15:00",
+     "item": "Respiratory Rate: 27 insp/min"
+    },
+    {
+     "rid": "nurse:763092160",
+     "time": "2100-01-02 10:15:00",
+     "item": "Respiratory Rate: 28 insp/min"
+    },
+    {
+     "rid": "nurse:788289069",
+     "time": "2100-01-02 11:15:00",
+     "item": "Respiratory Rate: 30 insp/min"
+    },
+    {
+     "rid": "nurse:800553970",
+     "time": "2100-01-02 13:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:800553971",
+     "time": "2100-01-02 13:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Scale: RASS"
+    },
+    {
+     "rid": "nurse:812408454",
+     "time": "2100-01-02 14:00:00",
+     "item": "Temperature Fahrenheit: 100.8 F"
+    },
+    {
+     "rid": "nurse:744990111",
+     "time": "2100-01-02 15:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: 1"
+    },
+    {
+     "rid": "nurse:744990112",
+     "time": "2100-01-02 15:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Scale: RASS"
+    },
+    {
+     "rid": "nurse:778266099",
+     "time": "2100-01-02 17:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:778266100",
+     "time": "2100-01-02 17:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Scale: RASS"
+    },
+    {
+     "rid": "nurse:809735790",
+     "time": "2100-01-02 17:00:00",
+     "item": "Temperature Fahrenheit: 100 F"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1287791A1::01",
+   "claim_id": "E1287791A1",
+   "claim_text": "Monitor blood pressure and adjust antihypertensive therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:749101305",
+     "time": "2100-01-02 20:00:00",
+     "item": "systolic BP",
+     "value": "142.0 mmHg"
+    },
+    {
+     "rid": "nurse:802447502",
+     "time": "2100-01-02 21:00:00",
+     "item": "systolic BP",
+     "value": "128.0 mmHg"
+    },
+    {
+     "rid": "nurse:749101307",
+     "time": "2100-01-02 20:00:00",
+     "item": "mean arterial pressure",
+     "value": "95.0 mmHg"
+    },
+    {
+     "rid": "nurse:802447504",
+     "time": "2100-01-02 21:00:00",
+     "item": "mean arterial pressure",
+     "value": "103.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x23, mean arterial pressure x22.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1287791A1::02",
+   "claim_id": "E1287791A1",
+   "claim_text": "Monitor blood pressure and adjust antihypertensive therapy as needed.",
+   "kind": "action",
+   "text": "Adjust antihypertensive therapy as needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antihypertensive therapy",
+   "conditional": true,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1287791A2::03",
+   "claim_id": "E1287791A2",
+   "claim_text": "Continue sedation at -1 RASS score.",
+   "kind": "action",
+   "text": "Continue sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "sedation",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1287791A3::05",
+   "claim_id": "E1287791A3",
+   "claim_text": "Assess Glasgow Coma Scale daily to monitor neurological status.",
+   "kind": "action",
+   "text": "Assess Glasgow Coma Scale daily.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "Glasgow Coma Scale",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently receiving sedation. -- The patient is currently receiving sedation. The records show that the patient has been receiving sedation, but the most recent measurement (R50) shows a sedation score of 1, which indicates that the patient is no longer receiving sedation. Therefore, the statement is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

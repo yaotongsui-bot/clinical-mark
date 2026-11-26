@@ -1,0 +1,443 @@
+{
+ "case_id": "E1121034",
+ "decision_point": "2100-01-02 15:27:00",
+ "claims": [
+  "Titrate norepinephrine infusion to maintain mean arterial pressure ≥65 mmHg.",
+  "Obtain blood cultures and a repeat lactate level to assess ongoing sepsis.",
+  "Assess readiness for spontaneous breathing trial and consider weaning from mechanical ventilation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1121034A1::01",
+   "claim_id": "E1121034A1",
+   "claim_text": "Titrate norepinephrine infusion to maintain mean arterial pressure ≥65 mmHg.",
+   "kind": "action",
+   "text": "Titrate norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1121034A1::02",
+   "claim_id": "E1121034A1",
+   "claim_text": "Titrate norepinephrine infusion to maintain mean arterial pressure ≥65 mmHg.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1121034A1::03",
+   "claim_id": "E1121034A1",
+   "claim_text": "Titrate norepinephrine infusion to maintain mean arterial pressure ≥65 mmHg.",
+   "kind": "goal",
+   "text": "Maintain mean arterial pressure ≥65 mmHg.",
+   "concept": "map",
+   "notes": []
+  },
+  {
+   "atom_id": "E1121034A2::04",
+   "claim_id": "E1121034A2",
+   "claim_text": "Obtain blood cultures and a repeat lactate level to assess ongoing sepsis.",
+   "kind": "action",
+   "text": "Obtain blood cultures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": false,
+   "treatment_class": "cultures",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1121034A2::05",
+   "claim_id": "E1121034A2",
+   "claim_text": "Obtain blood cultures and a repeat lactate level to assess ongoing sepsis.",
+   "kind": "action",
+   "text": "Obtain a repeat lactate level.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1121034A2::06",
+   "claim_id": "E1121034A2",
+   "claim_text": "Obtain blood cultures and a repeat lactate level to assess ongoing sepsis.",
+   "kind": "fact",
+   "text": "Ongoing sepsis is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1121034A3::07",
+   "claim_id": "E1121034A3",
+   "claim_text": "Assess readiness for spontaneous breathing trial and consider weaning from mechanical ventilation.",
+   "kind": "action",
+   "text": "Assess readiness for spontaneous breathing trial.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "spontaneous breathing trial readiness",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1121034A3::08",
+   "claim_id": "E1121034A3",
+   "claim_text": "Assess readiness for spontaneous breathing trial and consider weaning from mechanical ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1121034A3::09",
+   "claim_id": "E1121034A3",
+   "claim_text": "Assess readiness for spontaneous breathing trial and consider weaning from mechanical ventilation.",
+   "kind": "action",
+   "text": "Consider weaning from mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "mechanical ventilation",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1121034A1::02",
+   "claim_id": "E1121034A1",
+   "claim_text": "Titrate norepinephrine infusion to maintain mean arterial pressure ≥65 mmHg.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that norepinephrine infusion was started at 22:30 on 2100-01-01 and continued at various rates until 14:00 on 2100-01-02, which supports the statement that it is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Norepinephrine (ml/hr):423",
+     "time": "2100-01-01 22:30:00",
+     "item": "Infusion/input Norepinephrine at 18.8 ml/hour (2100-01-01 22:30:00 to 2100-01-02 01:00:00)"
+    },
+    {
+     "rid": "inf:Norepinephrine (ml/hr):573",
+     "time": "2100-01-02 01:00:00",
+     "item": "Infusion/input Norepinephrine at 56.3 ml/hour (2100-01-02 01:00:00 to 2100-01-02 02:00:00)"
+    },
+    {
+     "rid": "inf:Norepinephrine (ml/hr):633",
+     "time": "2100-01-02 02:00:00",
+     "item": "Infusion/input Norepinephrine at 37.5 ml/hour (2100-01-02 02:00:00 to 2100-01-02 03:00:00)"
+    },
+    {
+     "rid": "inf:Norepinephrine (ml/hr):693",
+     "time": "2100-01-02 03:00:00",
+     "item": "Infusion/input Norepinephrine at 18.8 ml/hour (2100-01-02 03:00:00 to 2100-01-02 04:00:00)"
+    },
+    {
+     "rid": "inf:Norepinephrine (ml/hr):873",
+     "time": "2100-01-02 06:00:00",
+     "item": "Infusion/input Norepinephrine at 3.8 ml/hour (2100-01-02 06:00:00 to 2100-01-02 09:00:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1121034A2::06",
+   "claim_id": "E1121034A2",
+   "claim_text": "Obtain blood cultures and a repeat lactate level to assess ongoing sepsis.",
+   "kind": "fact",
+   "text": "Ongoing sepsis is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement 'Ongoing sepsis is present' is not supported by the records. The records show that the patient is on mechanical ventilation (R7, R8) and has a sedative agent (propofol) administered (R9), but there is no evidence of ongoing sepsis. The administration of propofol (R6) is ongoing at the decision time, but this does not support the statement of ongoing sepsis.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:37840421",
+     "time": "2100-01-01 15:15:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 15:15:00): Medication propofol 1% inj IV CONTINUOUS"
+    },
+    {
+     "rid": "treat:31536791",
+     "time": "2100-01-01 15:18:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    },
+    {
+     "rid": "treat:31369969",
+     "time": "2100-01-01 15:18:00",
+     "item": "Treatment documented: radiologic procedures / bronchoscopy | endotracheal tube | insertion"
+    },
+    {
+     "rid": "treat:31313981",
+     "time": "2100-01-01 15:18:00",
+     "item": "Treatment documented: hypertension | sedative agent | propofol"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1121034A3::08",
+   "claim_id": "E1121034A3",
+   "claim_text": "Assess readiness for spontaneous breathing trial and consider weaning from mechanical ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "resp:71277546",
+     "time": "2100-01-02 12:15:00",
+     "item": "Tidal Volume (observed): 221 mL"
+    }
+   ],
+   "reason": "Ventilator charting 3.2 h before the decision ('Tidal Volume (observed): 221 mL').",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1121034A1::01",
+   "claim_id": "E1121034A1",
+   "claim_text": "Titrate norepinephrine infusion to maintain mean arterial pressure ≥65 mmHg.",
+   "kind": "action",
+   "text": "Titrate norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1121034A2::04",
+   "claim_id": "E1121034A2",
+   "claim_text": "Obtain blood cultures and a repeat lactate level to assess ongoing sepsis.",
+   "kind": "action",
+   "text": "Obtain blood cultures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": false,
+   "treatment_class": "cultures",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No cultures action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1121034A2::05",
+   "claim_id": "E1121034A2",
+   "claim_text": "Obtain blood cultures and a repeat lactate level to assess ongoing sepsis.",
+   "kind": "action",
+   "text": "Obtain a repeat lactate level.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:260032959",
+     "time": "2100-01-02 18:21:00",
+     "item": "lactate",
+     "value": "2.6 mmol/L"
+    },
+    {
+     "rid": "lab:262659900",
+     "time": "2100-01-02 21:40:00",
+     "item": "lactate",
+     "value": "2.0 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): lactate x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1121034A3::07",
+   "claim_id": "E1121034A3",
+   "claim_text": "Assess readiness for spontaneous breathing trial and consider weaning from mechanical ventilation.",
+   "kind": "action",
+   "text": "Assess readiness for spontaneous breathing trial.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "spontaneous breathing trial readiness",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:695497118",
+     "time": "2100-01-02 15:30:00",
+     "item": "respiratory rate",
+     "value": "30.0 insp/min"
+    },
+    {
+     "rid": "nurse:704563060",
+     "time": "2100-01-02 16:00:00",
+     "item": "respiratory rate",
+     "value": "22.0 insp/min"
+    },
+    {
+     "rid": "resp:73318355",
+     "time": "2100-01-02 16:00:00",
+     "item": "ventilator settings",
+     "value": "170.0 mL"
+    },
+    {
+     "rid": "resp:73318356",
+     "time": "2100-01-02 16:00:00",
+     "item": "ventilator settings",
+     "value": "7.0 cmH2O"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x26, ventilator settings x59.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1121034A3::09",
+   "claim_id": "E1121034A3",
+   "claim_text": "Assess readiness for spontaneous breathing trial and consider weaning from mechanical ventilation.",
+   "kind": "action",
+   "text": "Consider weaning from mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "mechanical ventilation",
+   "conditional": true,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings changed after the decision (1 settings took different values).",
+   "evidence": [
+    {
+     "rid": "resp:73318355",
+     "time": "2100-01-02 16:00:00",
+     "item": "ventilator setting",
+     "value": "170.0 mL",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:75103223",
+     "time": "2100-01-02 19:37:00",
+     "item": "ventilator setting",
+     "value": "424.0 mL",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:70985075",
+     "time": "2100-01-03 00:15:00",
+     "item": "ventilator setting",
+     "value": "431.0 mL",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Ongoing sepsis is present. -- The statement 'Ongoing sepsis is present' is not supported by the records. The records show that the patient is on mechanical ventilation (R7, R8) and has a sedative agent (propofol) administered (R9), but there is no evidence of ongoing sepsis. The administration of propofol (R6) is ongoing at the decision time, but this does not support the statement of ongoing sepsis."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.333,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

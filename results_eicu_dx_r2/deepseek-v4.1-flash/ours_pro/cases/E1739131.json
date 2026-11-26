@@ -1,0 +1,433 @@
+{
+ "case_id": "E1739131",
+ "decision_point": "2100-01-02 09:51:00",
+ "claims": [
+  "Continue monitoring vital signs and oxygen saturation on room air, given stable GCS and hemodynamics.",
+  "Continue hydromorphone IV PRN for pain management as ordered.",
+  "Maintain current IV fluid infusion at 100 mL/hour."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1739131A1::01",
+   "claim_id": "E1739131A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation on room air, given stable GCS and hemodynamics.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1739131A1::02",
+   "claim_id": "E1739131A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation on room air, given stable GCS and hemodynamics.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1739131A1::03",
+   "claim_id": "E1739131A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation on room air, given stable GCS and hemodynamics.",
+   "kind": "fact",
+   "text": "GCS is stable.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1739131A1::04",
+   "claim_id": "E1739131A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation on room air, given stable GCS and hemodynamics.",
+   "kind": "fact",
+   "text": "Hemodynamics are stable.",
+   "concept": "cardiac",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1739131A2::05",
+   "claim_id": "E1739131A2",
+   "claim_text": "Continue hydromorphone IV PRN for pain management as ordered.",
+   "kind": "action",
+   "text": "Continue hydromorphone IV PRN for pain management.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "hydromorphone",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1739131A2::06",
+   "claim_id": "E1739131A2",
+   "claim_text": "Continue hydromorphone IV PRN for pain management as ordered.",
+   "kind": "fact",
+   "text": "Hydromorphone IV is currently ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1739131A3::07",
+   "claim_id": "E1739131A3",
+   "claim_text": "Maintain current IV fluid infusion at 100 mL/hour.",
+   "kind": "action",
+   "text": "Maintain current IV fluid infusion at 100 mL/hour.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1739131A3::08",
+   "claim_id": "E1739131A3",
+   "claim_text": "Maintain current IV fluid infusion at 100 mL/hour.",
+   "kind": "fact",
+   "text": "IV fluid infusion is currently running at 100 mL/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1739131A1::03",
+   "claim_id": "E1739131A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation on room air, given stable GCS and hemodynamics.",
+   "kind": "fact",
+   "text": "GCS is stable.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The Glasgow Coma Scale (GCS) total score is recorded as 15 at three separate times (10:06, 21:20, and 08:50), showing no change and thus supporting the statement that GCS is stable.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1280913535",
+     "time": "2100-01-01 10:06:00",
+     "item": "Glasgow coma score GCS Total: 15"
+    },
+    {
+     "rid": "nurse:1299704226",
+     "time": "2100-01-01 21:20:00",
+     "item": "Glasgow coma score GCS Total: 15"
+    },
+    {
+     "rid": "nurse:1281610832",
+     "time": "2100-01-02 08:50:00",
+     "item": "Glasgow coma score GCS Total: 15"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1739131A1::04",
+   "claim_id": "E1739131A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation on room air, given stable GCS and hemodynamics.",
+   "kind": "fact",
+   "text": "Hemodynamics are stable.",
+   "concept": "cardiac",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "nurse:1307139857",
+     "time": "2100-01-02 08:50:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 153.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "'cardiovascular status normal' holds when any component is normal. heart rate: yes; systolic BP: no; mean arterial pressure: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1739131A2::06",
+   "claim_id": "E1739131A2",
+   "claim_text": "Continue hydromorphone IV PRN for pain management as ordered.",
+   "kind": "fact",
+   "text": "Hydromorphone IV is currently ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records contain active medication orders for Hydromorphone HCL IV Q2H PRN at the decision time, which directly supports the statement that it is currently ordered.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:64852347",
+     "time": "2100-01-01 07:55:00",
+     "item": "Order: HYDROMORPHONE HCL IV Q2H PRN (active at decision time)"
+    },
+    {
+     "rid": "med:65284233",
+     "time": "2100-01-01 07:55:00",
+     "item": "Order: HYDROMORPHONE HCL IV Q2H PRN (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1739131A3::08",
+   "claim_id": "E1739131A3",
+   "claim_text": "Maintain current IV fluid infusion at 100 mL/hour.",
+   "kind": "fact",
+   "text": "IV fluid infusion is currently running at 100 mL/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The most recent relevant record, R19, shows an IV fluid infusion running at 100 ml/hour, but it started at 10:06 on 2100-01-01, which is over 23 hours before the decision time of 09:51 on 2100-01-02. There is no administration record within the 24 hours prior to the decision time to confirm the infusion is currently running.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:IVF (ml/hr):15",
+     "time": "2100-01-01 10:06:00",
+     "item": "Running at decision time (started 2100-01-01 10:06:00): Infusion/input IVF at 100 ml/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1739131A1::01",
+   "claim_id": "E1739131A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation on room air, given stable GCS and hemodynamics.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1273430046",
+     "time": "2100-01-02 21:30:00",
+     "item": "heart rate",
+     "value": "88.0 bpm"
+    },
+    {
+     "rid": "nurse:1274723179",
+     "time": "2100-01-03 06:46:00",
+     "item": "heart rate",
+     "value": "92.0 bpm"
+    },
+    {
+     "rid": "nurse:1273285819",
+     "time": "2100-01-02 21:30:00",
+     "item": "systolic BP",
+     "value": "140.0 mmHg"
+    },
+    {
+     "rid": "nurse:1307124307",
+     "time": "2100-01-03 06:46:00",
+     "item": "systolic BP",
+     "value": "139.0 mmHg"
+    },
+    {
+     "rid": "nurse:1273285821",
+     "time": "2100-01-02 21:30:00",
+     "item": "mean arterial pressure",
+     "value": "86.0 mmHg"
+    },
+    {
+     "rid": "nurse:1307124309",
+     "time": "2100-01-03 06:46:00",
+     "item": "mean arterial pressure",
+     "value": "101.0 mmHg"
+    },
+    {
+     "rid": "nurse:1274681211",
+     "time": "2100-01-02 21:30:00",
+     "item": "respiratory rate",
+     "value": "16.0 insp/min"
+    },
+    {
+     "rid": "nurse:1309416694",
+     "time": "2100-01-03 06:46:00",
+     "item": "respiratory rate",
+     "value": "25.0 insp/min"
+    },
+    {
+     "rid": "nurse:1288493682",
+     "time": "2100-01-03 06:46:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:1293531504",
+     "time": "2100-01-02 11:00:00",
+     "item": "temperature",
+     "value": "98.0 F"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x2, systolic BP x2, mean arterial pressure x2, respiratory rate x2, SpO2 x1, temperature x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1739131A1::02",
+   "claim_id": "E1739131A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation on room air, given stable GCS and hemodynamics.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1288493682",
+     "time": "2100-01-03 06:46:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1739131A2::05",
+   "claim_id": "E1739131A2",
+   "claim_text": "Continue hydromorphone IV PRN for pain management as ordered.",
+   "kind": "action",
+   "text": "Continue hydromorphone IV PRN for pain management.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "hydromorphone",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1739131A3::07",
+   "claim_id": "E1739131A3",
+   "claim_text": "Maintain current IV fluid infusion at 100 mL/hour.",
+   "kind": "action",
+   "text": "Maintain current IV fluid infusion at 100 mL/hour.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 2,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hemodynamics are stable. -- 'cardiovascular status normal' holds when any component is normal. heart rate: yes; systolic BP: no; mean arterial pressure: yes.",
+    "IV fluid infusion is currently running at 100 mL/hour. -- The most recent relevant record, R19, shows an IV fluid infusion running at 100 ml/hour, but it started at 10:06 on 2100-01-01, which is over 23 hours before the decision time of 09:51 on 2100-01-02. There is no administration record within the 24 hours prior to the decision time to confirm the infusion is currently running."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

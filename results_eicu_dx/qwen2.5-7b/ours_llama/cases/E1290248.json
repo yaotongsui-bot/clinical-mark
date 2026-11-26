@@ -1,0 +1,307 @@
+{
+ "case_id": "E1290248",
+ "decision_point": "2100-01-02 14:06:00",
+ "claims": [
+  "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+  "Continue intravenous fluid administration to maintain hydration.",
+  "Assess for signs of anemia and consider further diagnostic workup."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1290248A1::01",
+   "claim_id": "E1290248A1",
+   "claim_text": "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+   "kind": "action",
+   "text": "Monitor vital signs closely.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1290248A1::02",
+   "claim_id": "E1290248A1",
+   "claim_text": "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+   "kind": "fact",
+   "text": "SpO2 is fluctuating.",
+   "concept": "spo2",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1290248A1::03",
+   "claim_id": "E1290248A1",
+   "claim_text": "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+   "kind": "fact",
+   "text": "Pulse is fluctuating.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1290248A2::04",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous fluid administration to maintain hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1290248A2::05",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous fluid administration to maintain hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1290248A3::06",
+   "claim_id": "E1290248A3",
+   "claim_text": "Assess for signs of anemia and consider further diagnostic workup.",
+   "kind": "action",
+   "text": "Assess for signs of anemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of anemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1290248A3::07",
+   "claim_id": "E1290248A3",
+   "claim_text": "Assess for signs of anemia and consider further diagnostic workup.",
+   "kind": "action",
+   "text": "Consider further diagnostic workup.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "diagnostic workup",
+   "conditional": true,
+   "treatment_class": "diagnostics",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1290248A1::02",
+   "claim_id": "E1290248A1",
+   "claim_text": "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+   "kind": "fact",
+   "text": "SpO2 is fluctuating.",
+   "concept": "spo2",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The statement says SpO2 is fluctuating, but the most recent measurement (R50) shows a value of 94, which is not fluctuating. The previous measurements (R49 and R48) show values of 100, which is also not fluctuating. Therefore, the statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:791268760",
+     "time": "2100-01-02 14:00:00",
+     "item": "SpO2: 94"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1290248A1::03",
+   "claim_id": "E1290248A1",
+   "claim_text": "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+   "kind": "fact",
+   "text": "Pulse is fluctuating.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The pulse is fluctuating because the values are changing rapidly, but the records show a consistent decrease in pulse rate over the past 24 hours, with the most recent value being 67. This does not support the statement that the pulse is fluctuating.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:792707897",
+     "time": "2100-01-02 00:00:00",
+     "item": "Pulse: 67"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1290248A2::05",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous fluid administration to maintain hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records mention this treatment but show no administration in the 24 h before the decision. (Panel verdict: supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    },
+    "panel_label": "supported"
+   },
+   "evidence": [
+    {
+     "rid": "med:44578624",
+     "time": "2100-01-01 12:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 12:00:00): Medication pantoprazole sodium 40 mg iv solr IV Continuous"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1290248A1::01",
+   "claim_id": "E1290248A1",
+   "claim_text": "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+   "kind": "action",
+   "text": "Monitor vital signs closely.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No vital signs measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1290248A2::04",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous fluid administration to maintain hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1290248A3::06",
+   "claim_id": "E1290248A3",
+   "claim_text": "Assess for signs of anemia and consider further diagnostic workup.",
+   "kind": "action",
+   "text": "Assess for signs of anemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of anemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1290248A3::07",
+   "claim_id": "E1290248A3",
+   "claim_text": "Assess for signs of anemia and consider further diagnostic workup.",
+   "kind": "action",
+   "text": "Consider further diagnostic workup.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "diagnostic workup",
+   "conditional": true,
+   "treatment_class": "diagnostics",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG / cultures action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "SpO2 is fluctuating. -- The statement says SpO2 is fluctuating, but the most recent measurement (R50) shows a value of 94, which is not fluctuating. The previous measurements (R49 and R48) show values of 100, which is also not fluctuating. Therefore, the statement is not supported by the records.",
+    "Pulse is fluctuating. -- The pulse is fluctuating because the values are changing rapidly, but the records show a consistent decrease in pulse rate over the past 24 hours, with the most recent value being 67. This does not support the statement that the pulse is fluctuating.",
+    "Intravenous fluids are currently being administered. -- The records mention this treatment but show no administration in the 24 h before the decision. (Panel verdict: supported.)"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

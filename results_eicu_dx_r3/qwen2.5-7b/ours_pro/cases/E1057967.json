@@ -1,0 +1,474 @@
+{
+ "case_id": "E1057967",
+ "decision_point": "2100-01-02 21:51:00",
+ "claims": [
+  "Monitor blood glucose levels closely given the patient's fluctuating readings and risk of sepsis.",
+  "Continue pain management with PRN orders for Dilaudid IV, oxyCODONE PO, and Tylenol PO as needed.",
+  "Assess for signs of sepsis and adjust fluid management to maintain adequate perfusion."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1057967A1::01",
+   "claim_id": "E1057967A1",
+   "claim_text": "Monitor blood glucose levels closely given the patient's fluctuating readings and risk of sepsis.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1057967A1::02",
+   "claim_id": "E1057967A1",
+   "claim_text": "Monitor blood glucose levels closely given the patient's fluctuating readings and risk of sepsis.",
+   "kind": "fact",
+   "text": "Blood glucose readings are fluctuating.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1057967A1::03",
+   "claim_id": "E1057967A1",
+   "claim_text": "Monitor blood glucose levels closely given the patient's fluctuating readings and risk of sepsis.",
+   "kind": "fact",
+   "text": "The patient is at risk of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1057967A2::04",
+   "claim_id": "E1057967A2",
+   "claim_text": "Continue pain management with PRN orders for Dilaudid IV, oxyCODONE PO, and Tylenol PO as needed.",
+   "kind": "action",
+   "text": "Continue pain management with PRN Dilaudid IV.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Dilaudid IV",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1057967A2::05",
+   "claim_id": "E1057967A2",
+   "claim_text": "Continue pain management with PRN orders for Dilaudid IV, oxyCODONE PO, and Tylenol PO as needed.",
+   "kind": "action",
+   "text": "Continue pain management with PRN oxyCODONE PO.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oxyCODONE PO",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1057967A2::06",
+   "claim_id": "E1057967A2",
+   "claim_text": "Continue pain management with PRN orders for Dilaudid IV, oxyCODONE PO, and Tylenol PO as needed.",
+   "kind": "action",
+   "text": "Continue pain management with PRN Tylenol PO.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Tylenol PO",
+   "conditional": true,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1057967A2::07",
+   "claim_id": "E1057967A2",
+   "claim_text": "Continue pain management with PRN orders for Dilaudid IV, oxyCODONE PO, and Tylenol PO as needed.",
+   "kind": "fact",
+   "text": "Pain management is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1057967A3::08",
+   "claim_id": "E1057967A3",
+   "claim_text": "Assess for signs of sepsis and adjust fluid management to maintain adequate perfusion.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of sepsis",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1057967A3::09",
+   "claim_id": "E1057967A3",
+   "claim_text": "Assess for signs of sepsis and adjust fluid management to maintain adequate perfusion.",
+   "kind": "action",
+   "text": "Adjust fluid management to maintain adequate perfusion.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "fluid management",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1057967A1::02",
+   "claim_id": "E1057967A1",
+   "claim_text": "Monitor blood glucose levels closely given the patient's fluctuating readings and risk of sepsis.",
+   "kind": "fact",
+   "text": "Blood glucose readings are fluctuating.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The glucose readings before the decision time range from 116 to 133 mg/dL, showing only mild variation, not marked fluctuation. The statement 'fluctuating' is not supported by these relatively stable values.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:255632185",
+     "time": "2099-12-31 12:10:00",
+     "item": "Glucose finger stick: 116 mg/dL"
+    },
+    {
+     "rid": "lab:255798510",
+     "time": "2099-12-31 16:06:00",
+     "item": "Glucose finger stick: 133 mg/dL"
+    },
+    {
+     "rid": "lab:255573377",
+     "time": "2099-12-31 20:47:00",
+     "item": "Glucose finger stick: 128 mg/dL"
+    },
+    {
+     "rid": "lab:255459542",
+     "time": "2100-01-01 01:18:00",
+     "item": "Glucose finger stick: 126 mg/dL"
+    },
+    {
+     "rid": "lab:252790601",
+     "time": "2100-01-01 08:39:00",
+     "item": "Glucose: 126 mg/dL"
+    },
+    {
+     "rid": "lab:255677333",
+     "time": "2100-01-01 11:20:00",
+     "item": "Glucose finger stick: 117 mg/dL"
+    },
+    {
+     "rid": "lab:255795427",
+     "time": "2100-01-01 15:32:00",
+     "item": "Glucose finger stick: 126 mg/dL"
+    },
+    {
+     "rid": "lab:255446938",
+     "time": "2100-01-01 20:35:00",
+     "item": "Glucose finger stick: 117 mg/dL"
+    },
+    {
+     "rid": "lab:255879865",
+     "time": "2100-01-02 02:02:00",
+     "item": "Glucose finger stick: 113 mg/dL"
+    },
+    {
+     "rid": "lab:253063706",
+     "time": "2100-01-02 07:40:00",
+     "item": "Glucose: 112 mg/dL"
+    },
+    {
+     "rid": "lab:255798523",
+     "time": "2100-01-02 10:06:00",
+     "item": "Glucose finger stick: 105 mg/dL"
+    },
+    {
+     "rid": "lab:255526069",
+     "time": "2100-01-02 11:33:00",
+     "item": "Glucose finger stick: 112 mg/dL"
+    },
+    {
+     "rid": "lab:255772982",
+     "time": "2100-01-02 15:32:00",
+     "item": "Glucose finger stick: 133 mg/dL"
+    },
+    {
+     "rid": "lab:255482502",
+     "time": "2100-01-02 20:27:00",
+     "item": "Glucose finger stick: 144 mg/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1057967A1::03",
+   "claim_id": "E1057967A1",
+   "claim_text": "Monitor blood glucose levels closely given the patient's fluctuating readings and risk of sepsis.",
+   "kind": "fact",
+   "text": "The patient is at risk of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The admission diagnosis explicitly states 'Sepsis, other', which directly supports the statement that the patient is at risk of sepsis.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:1057967:dx",
+     "time": "2100-01-01 21:51:00",
+     "item": "Admission diagnosis (APACHE): Sepsis, other"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1057967A2::07",
+   "claim_id": "E1057967A2",
+   "claim_text": "Continue pain management with PRN orders for Dilaudid IV, oxyCODONE PO, and Tylenol PO as needed.",
+   "kind": "fact",
+   "text": "Pain management is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show PRN orders for Dilaudid, oxyCODONE, and Tylenol, and a single administration of tramadol at 20:00 on 2100-01-01, but no administration of any pain medication within 24 hours before the decision time of 2100-01-01 21:51. The most recent pain medication administration was Dilaudid on 2100-01-02 08:34, which is after the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:37120892",
+     "time": "2100-01-01 20:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 20:00:00): Medication traMADol PO"
+    },
+    {
+     "rid": "med:37329478",
+     "time": "2100-01-02 08:34:00",
+     "item": "Given once: Dilaudid IV Once (2100-01-02 08:34:00)"
+    },
+    {
+     "rid": "med:37643099",
+     "time": "2100-01-02 15:28:00",
+     "item": "Given once: acetaminophen PO Once (2100-01-02 15:28:00)"
+    },
+    {
+     "rid": "med:37752656",
+     "time": "2100-01-02 16:29:00",
+     "item": "Order: Tylenol PO q6hr PRN (active at decision time)"
+    },
+    {
+     "rid": "med:37656997",
+     "time": "2100-01-02 16:30:00",
+     "item": "Order: oxyCODONE PO q4hr PRN (active at decision time)"
+    },
+    {
+     "rid": "med:37414954",
+     "time": "2100-01-02 16:34:00",
+     "item": "Order: Dilaudid IV q2hr PRN (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1057967A1::01",
+   "claim_id": "E1057967A1",
+   "claim_text": "Monitor blood glucose levels closely given the patient's fluctuating readings and risk of sepsis.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:255454071",
+     "time": "2100-01-03 01:38:00",
+     "item": "glucose",
+     "value": "102.0 mg/dL"
+    },
+    {
+     "rid": "lab:252665885",
+     "time": "2100-01-03 05:38:00",
+     "item": "glucose",
+     "value": "103.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 19.7 h observation window after the decision (24 h or until ICU discharge): glucose x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1057967A2::04",
+   "claim_id": "E1057967A2",
+   "claim_text": "Continue pain management with PRN orders for Dilaudid IV, oxyCODONE PO, and Tylenol PO as needed.",
+   "kind": "action",
+   "text": "Continue pain management with PRN Dilaudid IV.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Dilaudid IV",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia action recorded in the 19.7 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1057967A2::05",
+   "claim_id": "E1057967A2",
+   "claim_text": "Continue pain management with PRN orders for Dilaudid IV, oxyCODONE PO, and Tylenol PO as needed.",
+   "kind": "action",
+   "text": "Continue pain management with PRN oxyCODONE PO.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oxyCODONE PO",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia action recorded in the 19.7 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1057967A2::06",
+   "claim_id": "E1057967A2",
+   "claim_text": "Continue pain management with PRN orders for Dilaudid IV, oxyCODONE PO, and Tylenol PO as needed.",
+   "kind": "action",
+   "text": "Continue pain management with PRN Tylenol PO.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Tylenol PO",
+   "conditional": true,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-opioid analgesia action recorded in the 19.7 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1057967A3::08",
+   "claim_id": "E1057967A3",
+   "claim_text": "Assess for signs of sepsis and adjust fluid management to maintain adequate perfusion.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of sepsis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1057967A3::09",
+   "claim_id": "E1057967A3",
+   "claim_text": "Assess for signs of sepsis and adjust fluid management to maintain adequate perfusion.",
+   "kind": "action",
+   "text": "Adjust fluid management to maintain adequate perfusion.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "fluid management",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 19.7 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 19.7,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Blood glucose readings are fluctuating. -- The glucose readings before the decision time range from 116 to 133 mg/dL, showing only mild variation, not marked fluctuation. The statement 'fluctuating' is not supported by these relatively stable values.",
+    "Pain management is currently being given. -- The records show PRN orders for Dilaudid, oxyCODONE, and Tylenol, and a single administration of tramadol at 20:00 on 2100-01-01, but no administration of any pain medication within 24 hours before the decision time of 2100-01-01 21:51. The most recent pain medication administration was Dilaudid on 2100-01-02 08:34, which is after the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -200,6 +200,45 @@ python score_baseline85.py REFERENCE results_baseline85/vf_hybrid_nocut results_
   installed yet). Admission start and end in the context are the earliest record and T (or the
   latest record without the time cut), since the demo data has no admissions table.
 
+## eICU test set
+
+The test set for the paper (`PAPER_PLAN.md`): 100 unit stays from the eICU Collaborative Research
+Database Demo v2.0.1 (open access, ODbL; `data/eicu-demo/`), with answers from three generators given
+time-stamped records. The system is frozen at tag `v1.0-dev85`; only the data adapter and item mapping
+were added.
+
+```bash
+python make_eicu_cases.py                     # select cases (seed 20261117), write input/eicu_triples.json
+python generate_answers.py --source input/eicu_triples.json --out input/eicu_triples_gpt-oss-120b.json --model gpt-oss:120b:cloud
+python run.py --source eicu --triples input/eicu_triples_gpt-oss-120b.json --out-dir results_eicu/gpt-oss --labels verifact
+python run_baseline85.py --source eicu --triples input/eicu_triples_gpt-oss-120b.json --atoms results_eicu/gpt-oss --time-cut before --out-dir results_eicu/vf_gpt-oss
+bash run_eicu_all.sh cloud gpt-oss-120b deepseek-v4.1-flash qwen2.5-7b   # all systems, cloud judges
+bash run_eicu_all.sh local gpt-oss-120b deepseek-v4.1-flash qwen2.5-7b   # all systems, llama3.1:8b
+RESULTS=results_eicu_dx ATOMS_FROM=results_eicu bash run_eicu_all.sh factehr gpt-oss-120b deepseek-v4.1-flash   # FactEHR baseline
+python score_factehr.py                       # FactEHR vs the vote, the evaluator and VeriFact -> results_eicu_dx/FACTEHR.md
+```
+
+`run_eicu_all.sh` writes `results_eicu/<generator>/`: `ours_vote` (the evaluator's split and the
+three-model vote), `ours_pro` and `vf_pro_cut` (deepseek-v4-pro), `ours_llama`, `ours_llama_alljudge`,
+`vf_llama_cut` and `vf_llama_nocut` (llama3.1:8b). All judge the atoms of `ours_vote`.
+
+| Path | Content |
+|---|---|
+| `rules/eicu_items.json` | eICU labs, nurse and respiratory charting mapped to canonical (MIMIC-IV) item ids; free-text oxygen devices mapped to the device vocabulary of `rules/measures.json`; infusion and medication rules |
+| `cm/records_eicu.py` | eICU rows in the evaluator's row format; synthetic clock (2100-01-01 at the unit admission time of day); rows known before T = unit admission + 24 h by event and entry offsets |
+| `make_eicu_cases.py` | First unit stay, direct admission, still in the unit at T, labs and at least 24 charted rows before T; 100 by seed; the prompt lists every record of the 24 h before T with its time |
+| `tests/test_records_eicu.py` | Synthetic eICU tables: time window, mapping, devices, ventilation status, infusion intervals, orders |
+| `run_factehr.py` | Second published baseline: FactEHR's binary entailment prompt (verbatim, `prompts/factehr_entailment_binary6.txt`) and settings; premise = every record row before T, no retrieval; one judge (deepseek-v4-pro); two labels |
+| `score_factehr.py` | FactEHR next to the vote, the evaluator and VeriFact on the same answer sets; three-label and binary scoring; `results_eicu_dx/FACTEHR.md` |
+
+Dataset-specific rules, decided from the schema before any verdict:
+
+- Infusions are charted about hourly with the current rate; consecutive equal rates form one
+  interval, a rate of 0 ends it, and the last interval runs at T if charted within 4 h before T.
+- eICU has no medication administration record: a scheduled order active at T counts as running, a
+  one-time order as given at its start, a PRN order as an order only. The coded dosage field is not shown.
+- Clinician actions after T are not built: the test set is for fact verification only.
+
 ## VeriFact-BHC track (MIMIC-III)
 
 Scores fact judging against the clinician ground truth of MIMIC-III-Ext-VeriFact-BHC v1.1.0

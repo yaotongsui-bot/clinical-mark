@@ -1,0 +1,154 @@
+{
+ "cases_evaluated": 100,
+ "claims_per_case": 2.99,
+ "ai_atoms": {
+  "action": 426,
+  "fact": 173,
+  "goal": 2
+ },
+ "unscored_share": 0.28,
+ "facts": {
+  "n": 173,
+  "labels": {
+   "supported": 102,
+   "not_supported": 58,
+   "not_addressed": 13
+  },
+  "accuracy": 0.637,
+  "cases_with_not_supported": 43,
+  "by_fact_kind": {
+   "observed": {
+    "n": 51,
+    "labels": {
+     "supported": 41,
+     "not_supported": 10
+    },
+    "accuracy": 0.804
+   },
+   "presupposition": {
+    "n": 110,
+    "labels": {
+     "supported": 55,
+     "not_supported": 44,
+     "not_addressed": 11
+    },
+    "accuracy": 0.556
+   },
+   "judgment": {
+    "n": 12,
+    "labels": {
+     "supported": 6,
+     "not_supported": 4,
+     "not_addressed": 2
+    },
+    "accuracy": 0.6
+   },
+   "underspecified": {
+    "n": 0,
+    "labels": {},
+    "accuracy": null
+   }
+  }
+ },
+ "treatment_actions": {
+  "n": 217,
+  "labels": {
+   "not_done": 100,
+   "condition_not_met": 69,
+   "vague_target": 18,
+   "match": 16,
+   "unobservable": 14
+  },
+  "precision_strict": 0.138,
+  "precision_lenient": 0.138
+ },
+ "monitoring_actions": {
+  "n": 209,
+  "labels": {
+   "performed": 124,
+   "not_performed": 31,
+   "unobservable": 54
+  },
+  "performed_rate": 0.8
+ },
+ "goals_excluded": 2,
+ "coverage": {
+  "vital": {
+   "covered": 0,
+   "total": 0,
+   "micro": null,
+   "macro": null
+  },
+  "okay": {
+   "covered": 0,
+   "total": 0,
+   "micro": null,
+   "macro": null
+  },
+  "all": {
+   "covered": 0,
+   "total": 0,
+   "micro": null,
+   "macro": null
+  },
+  "vital_at3": {
+   "covered": 0,
+   "total": 0,
+   "micro": null,
+   "macro": null
+  },
+  "okay_at3": {
+   "covered": 0,
+   "total": 0,
+   "micro": null,
+   "macro": null
+  },
+  "all_at3": {
+   "covered": 0,
+   "total": 0,
+   "micro": null,
+   "macro": null
+  },
+  "problem_linked": 0,
+  "problem_linked_missed": 0,
+  "most_missed_vital": []
+ },
+ "omissions": {
+  "facts": {
+   "findings": 0,
+   "omitted": 0
+  },
+  "treatments": {
+   "doctor_items": 0,
+   "omitted": 0,
+   "vital": 0,
+   "vital_omitted": 0
+  }
+ },
+ "judge_panel": {
+  "items": 131,
+  "agreement": {
+   "3/3": 103,
+   "2/3": 28
+  }
+ },
+ "gold_standard": "patient records (pre-decision records for facts; post-decision clinician actions for actions)",
+ "run": {
+  "triples": "eicu_triples_qwen2.5-7b.json",
+  "source": "eicu",
+  "ai_model": "deepseek-v4-pro:0813:cloud",
+  "judge_models": [
+   "deepseek-v4-pro:0813:cloud",
+   "minimax-m3.1-flash:cloud",
+   "glm-5.3:cloud"
+  ],
+  "facts_all_judge": false,
+  "labels": "verifact",
+  "repeat": 3,
+  "judge_think": [],
+  "retrieval": "hybrid",
+  "top_n": 50,
+  "llm_calls": 394,
+  "cache_hits": 0
+ }
+}

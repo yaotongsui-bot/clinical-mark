@@ -1,0 +1,121 @@
+# E1071224   T = 2100-01-02 16:46:00   records before T: 855
+ICU stay 1071224 (MICU; Female, age 63; admission diagnosis: Thrombus, arterial).
+
+## Atoms
+deepseek-v4.1-flash|E1071224A1::02 [presupposition] Heparin infusion is currently running.   <- Continue heparin infusion at 1300 units/hour, as it is running at the decision point.
+deepseek-v4.1-flash|E1071224A2::04 [observed] Recent PTT is 51.2 seconds.   <- Monitor PTT to assess anticoagulation response, given recent PTT of 51.2 seconds.
+deepseek-v4.1-flash|E1071224A3::07 [observed] Pain scores have been elevated up to 10.   <- Assess and manage pain, as pain scores have been elevated (up to 10) with PRN morphine ordered.
+deepseek-v4.1-flash|E1071224A3::08 [observed] PRN morphine is ordered.   <- Assess and manage pain, as pain scores have been elevated (up to 10) with PRN morphine ordered.
+gpt-oss-120b|E1071224A1::03 [presupposition] Anemia is present.   <- Obtain repeat complete blood count and coagulation panel to reassess anemia and anticoagulation effect.
+gpt-oss-120b|E1071224A1::04 [presupposition] Anticoagulation effect is present.   <- Obtain repeat complete blood count and coagulation panel to reassess anemia and anticoagulation effect.
+gpt-oss-120b|E1071224A2::06 [presupposition] Heparin infusion is currently being given.   <- Adjust heparin infusion to a lower rate pending repeat PTT and consider holding if bleeding risk increases.
+qwen2.5-7b|E1071224A2::04 [presupposition] Heparin is currently being given at 1300 units/hour.   <- Continue the administration of heparin at 1300 units/hour to prevent thrombus formation.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 02:00:00): Medication LABETALOL ORAL TID
+  Running at decision time (scheduled order started 2100-01-01 14:00:00): Medication HYDROCHLOROTHIAZIDE ORAL DAILY
+  Running at decision time (scheduled order started 2100-01-01 14:00:00): Medication AMLODIPINE ORAL DAILY
+  Running at decision time (scheduled order started 2100-01-01 14:00:00): Medication POTASSIUM CHLORIDE ORAL DAILY
+  Running at decision time (scheduled order started 2100-01-01 14:30:00): Medication CLOPIDOGREL ORAL QDAY
+  Running at decision time (scheduled order started 2100-01-01 15:00:00): Medication ASPIRIN EC ORAL DAILY
+  Running at decision time (started 2100-01-02 11:00:00): Infusion/input NS at 100 ml/hour
+  Running at decision time (started 2100-01-02 12:00:00): Infusion/input Heparin at 1300 units/hour
+  Running at decision time (scheduled order started 2100-01-02 16:00:00): Medication FUROSEMIDE IV
+
+## PRN orders
+  12-31 19:50 Order: ACETAMINOPHEN ORAL PRN (active at decision time)
+  12-31 19:50 Order: MORPHINE IV PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Heparin at 1000 units/hour (2099-12-30 16:30:00 to 2100-01-01 23:00:00)
+  Infusion/input NS at 33 ml/hour (2099-12-30 16:30:00 to 2099-12-31 11:30:00)
+  Infusion/input TPA at 15.6 ml/hour (2099-12-30 16:30:00 to 2099-12-31 17:30:00)
+  Infusion/input NS at 35 ml/hour (2099-12-31 11:30:00 to 2100-01-01 12:01:00)
+  Infusion/input NS at 100 ml/hour (2100-01-01 12:01:00 to 2100-01-01 19:45:00)
+  Infusion/input NS at 10 ml/hour (2100-01-01 19:45:00 to 2100-01-02 00:00:00)
+  Infusion/input Heparin at 22 units/hour (2100-01-01 23:00:00 to 2100-01-02 12:00:00)
+  Infusion/input NS at 100 ml/hour (2100-01-02 00:00:00 to 2100-01-02 08:00:00)
+  Infusion/input NS at 150 ml/hour (2100-01-02 08:00:00 to 2100-01-02 11:00:00)
+
+## Medications given once or ended before T
+  Medication FUROSEMIDE IV (2100-01-01 14:30:00 to 2100-01-02 02:29:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-02 11:00 0.2 %; 01-01 08:30 0.1 %; 12-31 09:03 0.3 %; 12-31 02:55 0.3 %; 12-30 20:49 0.5 %
+  -eos: 01-02 11:00 1.5 %; 01-01 08:30 0.1 %; 12-31 09:03 1.9 %; 12-31 02:55 1.3 %; 12-30 20:49 1.2 %
+  -lymphs: 01-02 11:00 25.2 %; 01-01 08:30 20.6 %; 12-31 09:03 35.3 %; 12-31 02:55 23.6 %; 12-30 20:49 21.3 %
+  -monos: 01-02 11:00 7.1 %; 01-01 08:30 5.9 %; 12-31 09:03 6.6 %; 12-31 02:55 6.1 %; 12-30 20:49 4.7 %
+  -polys: 01-02 11:00 66 %; 01-01 08:30 73.3 %; 12-31 09:03 55.9 %; 12-31 02:55 68.7 %; 12-30 20:49 72.3 %
+  Alanine Aminotransferase (ALT): 01-02 11:00 64 IU/L
+  Albumin: 01-02 11:00 3 g/dl
+  Alkaline Phosphatase: 01-02 11:00 41 IU/l
+  Anion Gap: 01-02 11:00 5; 01-01 08:30 8; 12-30 11:55 9
+  Asparate Aminotransferase (AST): 01-02 11:00 96 IU/l
+  Bicarbonate: 01-02 11:00 27 meq/l; 01-01 08:30 26 meq/l; 12-30 11:55 28 meq/l
+  Bilirubin, Total: 01-02 11:00 0.4 mg/dl
+  Calcium, Total: 01-02 11:00 8 mg/dl; 01-01 08:30 8.6 mg/dl; 12-30 11:55 9.5 mg/dl
+  Chloride: 01-02 11:00 103 meq/l; 01-01 08:30 101 meq/l; 12-30 11:55 101 meq/l
+  Creatinine: 01-02 11:00 1.1 mg/dl; 01-01 08:30 2.2 mg/dl; 12-30 11:55 1 mg/dl
+  Ferritin: 01-01 00:30 79 ng/ml
+  Glucose: 01-02 11:00 128 mg/dl; 01-01 08:30 167 mg/dl; 12-30 11:55 126 mg/dl
+  Hematocrit: 01-02 11:00 23.5 %; 01-02 04:39 24.9 %; 01-01 08:30 23.4 %; 12-31 09:03 30.6 %; 12-31 02:55 32.4 %   [+2 earlier]
+  Hemoglobin: 01-02 11:00 8 g/dl; 01-02 04:39 8.2 g/dl; 01-01 08:30 7.7 g/dl; 12-31 09:03 10.2 g/dl; 12-31 02:55 10.5 g/dl   [+2 earlier]
+  INR(PT): 01-01 08:30 1.05; 12-30 11:55 1
+  LDH: 01-02 04:39 238 IU/l
+  MCH: 01-02 11:00 28.9 pg; 01-01 08:30 27.9 pg; 12-31 09:03 27.8 pg; 12-31 02:55 27.4 pg; 12-30 20:49 27.2 pg   [+1 earlier]
+  MCHC: 01-02 11:00 34 g/dl; 01-01 08:30 33 g/dl; 12-31 09:03 33.2 g/dl; 12-31 02:55 32.5 g/dl; 12-30 20:49 32.4 g/dl   [+1 earlier]
+  MCV: 01-02 11:00 85.1 fl; 01-01 08:30 84.6 fl; 12-31 09:03 84 fl; 12-31 02:55 84.2 fl; 12-30 20:49 83.9 fl   [+1 earlier]
+  MPV: 01-02 11:00 9.6 fl; 01-01 08:30 9.9 fl; 12-31 09:03 9.4 fl; 12-31 02:55 9.5 fl; 12-30 20:49 9.3 fl   [+1 earlier]
+  PT: 01-01 08:30 11.7 sec; 12-30 11:55 11.1 sec
+  PTT: 01-02 11:00 51.2 sec; 01-02 04:39 35.5 sec; 01-01 19:19 44.9 sec; 01-01 08:30 38.9 sec; 12-31 02:55 36.1 sec   [+2 earlier]
+  Platelet Count: 01-02 11:00 101 thou/cmm; 01-01 08:30 119 thou/cmm; 12-31 09:03 135 thou/cmm; 12-31 02:55 129 thou/cmm; 12-30 20:49 139 thou/cmm   [+1 earlier]
+  Potassium: 01-02 11:00 3.9 meq/l; 01-01 08:30 4.2 meq/l; 12-30 11:55 3.9 meq/l
+  RBC: 01-02 11:00 2.77 mill/cmm; 01-01 08:30 2.77 mill/cmm; 12-31 09:03 3.65 mill/cmm; 12-31 02:55 3.85 mill/cmm; 12-30 20:49 4.02 mill/cmm   [+1 earlier]
+  RDW: 01-02 11:00 16 %; 01-01 08:30 16.6 %; 12-31 09:03 16.7 %; 12-31 02:55 16.8 %; 12-30 20:49 16.7 %   [+1 earlier]
+  Sodium: 01-02 11:00 135 meq/l; 01-01 08:30 135 meq/l; 12-30 11:55 138 meq/l
+  TSH: 01-01 00:30 3.47 uIU/ml
+  Urea Nitrogen: 01-02 11:00 21 mg/dl; 01-01 08:30 21 mg/dl; 12-30 11:55 18 mg/dl
+  Vitamin B12: 01-01 00:30 274 pg/mL
+  White Blood Cells: 01-02 11:00 11.4 thou/cmm; 01-01 08:30 11.1 thou/cmm; 12-31 09:03 5.9 thou/cmm; 12-31 02:55 6.9 thou/cmm; 12-30 20:49 7.6 thou/cmm   [+1 earlier]
+  fibrinogen: 01-01 08:30 302 mg/dl; 12-31 02:55 245 mg/dl; 12-30 20:49 273 mg/dl
+  folate: 01-01 00:30 8.5 ng/ml
+  reticulocyte count: 01-01 00:30 1.5 %
+  total protein: 01-02 11:00 5.9 g/dl
+  transferrin: 01-01 00:30 264 mg/dl
+  urinary creatinine: 01-02 05:30 104 mg/dl
+  urinary sodium: 01-02 05:30 110 meq/L/24hr
+  urinary specific gravity: 01-01 18:30 1.02; 12-30 16:26 1.01
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Delirium Scale/Score Delirium Scale: CAM-ICU @01-02 12:00
+  Delirium Scale/Score Delirium Score: No @01-02 12:00   earlier: Yes @01-02 08:00
+  Glasgow coma score Eyes: 4 @01-02 12:00
+  Glasgow coma score GCS Total: 15 @01-02 12:00
+  Glasgow coma score Motor: 6 @01-02 12:00
+  Glasgow coma score Verbal: 5 @01-02 12:00
+  Heart Rate: 82 bpm @01-02 16:00   24h 76-104 (n=26)
+  Non Invasive Blood Pressure diastolic: 60 mmHg @01-02 16:00   24h 49-87 (n=26)
+  Non Invasive Blood Pressure mean: 80 mmHg @01-02 16:00   24h 64-110 (n=26)
+  Non Invasive Blood Pressure systolic: 142 mmHg @01-02 16:00   24h 84-175 (n=26)
+  O2 Delivery Device(s): Nasal cannula (charted: nasal cannula) @12-30 22:00
+  O2 L/%: 3 @12-30 22:00
+  O2 saturation pulseoxymetry: 98 % @01-02 16:00   24h 85-98 (n=24)
+  Pain Level: 4 @01-02 16:00   24h 0-10 (n=10)
+  Pain Score/Goal Pain Goal: 2 @01-02 10:00   24h 0-2 (n=6)
+  Respiratory Rate: 13 insp/min @01-02 16:00   24h 13-19 (n=26)
+  Sedation Scale/Score/Goal Sedation Goal: 0 @01-02 08:00   24h 0-0 (n=5)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-02 16:00
+  Sedation Scale/Score/Goal Sedation Score: -1 @01-02 16:00   24h -1-0 (n=11)
+  Temperature Fahrenheit: 97.7 F @01-02 16:00   24h 97.7-99.7 (n=5)
+  Temperature Location: temporal @01-02 16:00   earlier: oral @01-01 23:00
+
+## Treatments documented
+  12-31 08:33 ventilation and oxygenation | oxygen therapy (< 40%) | nasal cannula
+  12-31 08:33 pulmonary | medications | bronchodilator
+  12-31 08:33 infectious diseases | cultures / immuno-assays | cultures
+  12-31 08:33 endocrine | glucose metabolism | insulin
+  12-31 08:33 pulmonary | radiologic procedures / bronchoscopy | chest x-ray
+  12-31 08:33 endocrine | electrolyte correction | administration of electrolytes
+  12-31 08:33 surgery | analgesics /sedatives/ nmbs | analgesics
+
+## Microbiology
