@@ -1,0 +1,468 @@
+{
+ "case_id": "E3001552",
+ "decision_point": "2100-01-02 09:39:00",
+ "claims": [
+  "Transition from non‑invasive ventilation to high‑flow nasal cannula and monitor respiratory status.",
+  "Obtain a repeat chest radiograph to assess for resolution of aspiration pneumonia and possible pulmonary edema.",
+  "Continue current broad‑spectrum antibacterial therapy and reassess culture results in 48 hours."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3001552A1::01",
+   "claim_id": "E3001552A1",
+   "claim_text": "Transition from non‑invasive ventilation to high‑flow nasal cannula and monitor respiratory status.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3001552A1::02",
+   "claim_id": "E3001552A1",
+   "claim_text": "Transition from non‑invasive ventilation to high‑flow nasal cannula and monitor respiratory status.",
+   "kind": "action",
+   "text": "Transition from non-invasive ventilation to high-flow nasal cannula.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "high-flow nasal cannula",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3001552A1::03",
+   "claim_id": "E3001552A1",
+   "claim_text": "Transition from non‑invasive ventilation to high‑flow nasal cannula and monitor respiratory status.",
+   "kind": "action",
+   "text": "Monitor respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3001552A2::04",
+   "claim_id": "E3001552A2",
+   "claim_text": "Obtain a repeat chest radiograph to assess for resolution of aspiration pneumonia and possible pulmonary edema.",
+   "kind": "action",
+   "text": "Obtain a repeat chest radiograph.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "chest radiograph",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3001552A2::05",
+   "claim_id": "E3001552A2",
+   "claim_text": "Obtain a repeat chest radiograph to assess for resolution of aspiration pneumonia and possible pulmonary edema.",
+   "kind": "fact",
+   "text": "Aspiration pneumonia is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3001552A2::06",
+   "claim_id": "E3001552A2",
+   "claim_text": "Obtain a repeat chest radiograph to assess for resolution of aspiration pneumonia and possible pulmonary edema.",
+   "kind": "fact",
+   "text": "Pulmonary edema may be present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "unspecified",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3001552A3::07",
+   "claim_id": "E3001552A3",
+   "claim_text": "Continue current broad‑spectrum antibacterial therapy and reassess culture results in 48 hours.",
+   "kind": "fact",
+   "text": "Broad-spectrum antibacterial therapy is currently being given.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3001552A3::08",
+   "claim_id": "E3001552A3",
+   "claim_text": "Continue current broad‑spectrum antibacterial therapy and reassess culture results in 48 hours.",
+   "kind": "action",
+   "text": "Continue current broad-spectrum antibacterial therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "broad-spectrum antibacterial therapy",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3001552A3::09",
+   "claim_id": "E3001552A3",
+   "claim_text": "Continue current broad‑spectrum antibacterial therapy and reassess culture results in 48 hours.",
+   "kind": "action",
+   "text": "Reassess culture results in 48 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "culture results",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3001552A1::01",
+   "claim_id": "E3001552A1",
+   "claim_text": "Transition from non‑invasive ventilation to high‑flow nasal cannula and monitor respiratory status.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records document non-invasive ventilation as a treatment, but the most recent relevant rows (R38, R45, R49) show oxygen flow rates without any ventilator settings or device confirmation at the decision time. The statement that the patient is currently on non-invasive ventilation is therefore not supported by the latest records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:69280834",
+     "time": "2100-01-01 10:16:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:67704766",
+     "time": "2100-01-01 10:37:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:69393669",
+     "time": "2100-01-01 10:44:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:68091934",
+     "time": "2100-01-01 14:02:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3001552A2::05",
+   "claim_id": "E3001552A2",
+   "claim_text": "Obtain a repeat chest radiograph to assess for resolution of aspiration pneumonia and possible pulmonary edema.",
+   "kind": "fact",
+   "text": "Aspiration pneumonia is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The admission diagnosis explicitly states 'Pneumonia, aspiration', which directly supports the statement that aspiration pneumonia is present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:3001552:dx",
+     "time": "2100-01-01 09:39:00",
+     "item": "Admission diagnosis (APACHE): Pneumonia, aspiration"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3001552A2::06",
+   "claim_id": "E3001552A2",
+   "claim_text": "Obtain a repeat chest radiograph to assess for resolution of aspiration pneumonia and possible pulmonary edema.",
+   "kind": "fact",
+   "text": "Pulmonary edema may be present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "unspecified",
+   "specimen": "other",
+   "label": "not_addressed",
+   "reason": "The supplied records do not mention pulmonary edema or any findings (e.g., chest radiograph results) that would indicate its presence. The records only contain temperature measurements, an aspiration pneumonia diagnosis, and treatment documentation for pneumonia and ventilation.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "E3001552A3::07",
+   "claim_id": "E3001552A3",
+   "claim_text": "Continue current broad‑spectrum antibacterial therapy and reassess culture results in 48 hours.",
+   "kind": "fact",
+   "text": "Broad-spectrum antibacterial therapy is currently being given.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records document 'antibacterials' as a treatment category, but there is no medication administration record for any specific antibacterial drug in the 24 hours before the decision time. Therefore, the statement that broad-spectrum antibacterial therapy is currently being given is not supported by evidence of actual administration.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:68437705",
+     "time": "2100-01-01 10:37:00",
+     "item": "Treatment documented: pulmonary | medications | antibacterials"
+    },
+    {
+     "rid": "treat:68650680",
+     "time": "2100-01-01 10:44:00",
+     "item": "Treatment documented: pulmonary | medications | antibacterials"
+    },
+    {
+     "rid": "treat:68508024",
+     "time": "2100-01-01 14:02:00",
+     "item": "Treatment documented: pulmonary | medications | antibacterials"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3001552A1::02",
+   "claim_id": "E3001552A1",
+   "claim_text": "Transition from non‑invasive ventilation to high‑flow nasal cannula and monitor respiratory status.",
+   "kind": "action",
+   "text": "Transition from non-invasive ventilation to high-flow nasal cannula.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "high-flow nasal cannula",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings changed after the decision (1 settings took different values).",
+   "evidence": [
+    {
+     "rid": "resp:198706879",
+     "time": "2100-01-02 09:51:00",
+     "item": "ventilator setting",
+     "value": "35.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:198772324",
+     "time": "2100-01-02 13:00:00",
+     "item": "ventilator setting",
+     "value": "35.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:200902487",
+     "time": "2100-01-02 21:25:00",
+     "item": "ventilator setting",
+     "value": "30.0 %",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3001552A1::03",
+   "claim_id": "E3001552A1",
+   "claim_text": "Transition from non‑invasive ventilation to high‑flow nasal cannula and monitor respiratory status.",
+   "kind": "action",
+   "text": "Monitor respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1927299882",
+     "time": "2100-01-02 13:14:00",
+     "item": "respiratory rate",
+     "value": "26.0 insp/min"
+    },
+    {
+     "rid": "nurse:1942272998",
+     "time": "2100-01-02 14:00:00",
+     "item": "respiratory rate",
+     "value": "20.0 insp/min"
+    },
+    {
+     "rid": "nurse:1941684430",
+     "time": "2100-01-02 13:00:00",
+     "item": "SpO2",
+     "value": "94.0 %"
+    },
+    {
+     "rid": "nurse:1925574907",
+     "time": "2100-01-02 14:00:00",
+     "item": "SpO2",
+     "value": "92.0 %"
+    },
+    {
+     "rid": "resp:198706879",
+     "time": "2100-01-02 09:51:00",
+     "item": "ventilator settings",
+     "value": "35.0 %"
+    },
+    {
+     "rid": "resp:198772324",
+     "time": "2100-01-02 13:00:00",
+     "item": "ventilator settings",
+     "value": "35.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x3, SpO2 x7, ventilator settings x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3001552A2::04",
+   "claim_id": "E3001552A2",
+   "claim_text": "Obtain a repeat chest radiograph to assess for resolution of aspiration pneumonia and possible pulmonary edema.",
+   "kind": "action",
+   "text": "Obtain a repeat chest radiograph.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "chest radiograph",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3001552A3::08",
+   "claim_id": "E3001552A3",
+   "claim_text": "Continue current broad‑spectrum antibacterial therapy and reassess culture results in 48 hours.",
+   "kind": "action",
+   "text": "Continue current broad-spectrum antibacterial therapy.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "continue",
+   "target": "broad-spectrum antibacterial therapy",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3001552A3::09",
+   "claim_id": "E3001552A3",
+   "claim_text": "Continue current broad‑spectrum antibacterial therapy and reassess culture results in 48 hours.",
+   "kind": "action",
+   "text": "Reassess culture results in 48 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "culture results",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.25,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on non-invasive ventilation. -- The records document non-invasive ventilation as a treatment, but the most recent relevant rows (R38, R45, R49) show oxygen flow rates without any ventilator settings or device confirmation at the decision time. The statement that the patient is currently on non-invasive ventilation is therefore not supported by the latest records.",
+    "Broad-spectrum antibacterial therapy is currently being given. -- The records document 'antibacterials' as a treatment category, but there is no medication administration record for any specific antibacterial drug in the 24 hours before the decision time. Therefore, the statement that broad-spectrum antibacterial therapy is currently being given is not supported by evidence of actual administration."
+   ],
+   "not_addressed": [
+    "Pulmonary edema may be present. -- The supplied records do not mention pulmonary edema or any findings (e.g., chest radiograph results) that would indicate its presence. The records only contain temperature measurements, an aspiration pneumonia diagnosis, and treatment documentation for pneumonia and ventilation."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

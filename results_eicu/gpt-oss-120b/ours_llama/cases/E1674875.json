@@ -1,0 +1,495 @@
+{
+ "case_id": "E1674875",
+ "decision_point": "2100-01-02 20:48:00",
+ "claims": [
+  "Initiate norepinephrine infusion to support mean arterial pressure.",
+  "Obtain repeat arterial blood gas to assess oxygenation and ventilation status.",
+  "Continue low tidal volume ventilation strategy for ARDS."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1674875A1::01",
+   "claim_id": "E1674875A1",
+   "claim_text": "Initiate norepinephrine infusion to support mean arterial pressure.",
+   "kind": "action",
+   "text": "Initiate norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1674875A1::02",
+   "claim_id": "E1674875A1",
+   "claim_text": "Initiate norepinephrine infusion to support mean arterial pressure.",
+   "kind": "fact",
+   "text": "Mean arterial pressure is low.",
+   "concept": "map",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E1674875A2::03",
+   "claim_id": "E1674875A2",
+   "claim_text": "Obtain repeat arterial blood gas to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Obtain repeat arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1674875A2::04",
+   "claim_id": "E1674875A2",
+   "claim_text": "Obtain repeat arterial blood gas to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Assess oxygenation status.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygenation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1674875A2::05",
+   "claim_id": "E1674875A2",
+   "claim_text": "Obtain repeat arterial blood gas to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Assess ventilation status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "ventilation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1674875A3::06",
+   "claim_id": "E1674875A3",
+   "claim_text": "Continue low tidal volume ventilation strategy for ARDS.",
+   "kind": "action",
+   "text": "Continue low tidal volume ventilation strategy.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "low tidal volume ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E1674875A3::07",
+   "claim_id": "E1674875A3",
+   "claim_text": "Continue low tidal volume ventilation strategy for ARDS.",
+   "kind": "fact",
+   "text": "The patient is currently on low tidal volume ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E1674875A3::08",
+   "claim_id": "E1674875A3",
+   "claim_text": "Continue low tidal volume ventilation strategy for ARDS.",
+   "kind": "fact",
+   "text": "ARDS is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1674875A1::02",
+   "claim_id": "E1674875A1",
+   "claim_text": "Initiate norepinephrine infusion to support mean arterial pressure.",
+   "kind": "fact",
+   "text": "Mean arterial pressure is low.",
+   "concept": "map",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "nurse:1247368456",
+     "time": "2100-01-02 17:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 83.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "nurse:1244677672",
+     "time": "2100-01-02 18:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 72.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "nurse:1196674028",
+     "time": "2100-01-02 18:55:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 44.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    },
+    {
+     "rid": "nurse:1183049434",
+     "time": "2100-01-02 20:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 71.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "Median mean arterial pressure over the 6 h before the decision: 65 mmHg (6 readings), normal by the rule 'hypotension MAP < 65'.",
+   "computed": {
+    "median": 65.0,
+    "status": "normal",
+    "n": 6
+   },
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1674875A3::07",
+   "claim_id": "E1674875A3",
+   "claim_text": "Continue low tidal volume ventilation strategy for ARDS.",
+   "kind": "fact",
+   "text": "The patient is currently on low tidal volume ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "The records show that the patient is on CPAP/PEEP therapy, but there is no record of the tidal volume being set to low. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:45342957",
+     "time": "2100-01-01 22:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | CPAP/PEEP therapy"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1674875A3::08",
+   "claim_id": "E1674875A3",
+   "claim_text": "Continue low tidal volume ventilation strategy for ARDS.",
+   "kind": "fact",
+   "text": "ARDS is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "The records show that the patient's respiratory rate has been fluctuating between 18 and 28 inspirations per minute, but there is no evidence that ARDS is present. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1245770742",
+     "time": "2100-01-01 21:00:00",
+     "item": "Respiratory Rate: 28 insp/min"
+    },
+    {
+     "rid": "nurse:1222625924",
+     "time": "2100-01-01 22:00:00",
+     "item": "Respiratory Rate: 20 insp/min"
+    },
+    {
+     "rid": "nurse:1246207783",
+     "time": "2100-01-02 00:00:00",
+     "item": "Respiratory Rate: 26 insp/min"
+    },
+    {
+     "rid": "nurse:1195639548",
+     "time": "2100-01-02 02:00:00",
+     "item": "Respiratory Rate: 28 insp/min"
+    },
+    {
+     "rid": "nurse:1189124107",
+     "time": "2100-01-02 03:00:00",
+     "item": "Respiratory Rate: 27 insp/min"
+    },
+    {
+     "rid": "nurse:1266752623",
+     "time": "2100-01-02 04:00:00",
+     "item": "Respiratory Rate: 26 insp/min"
+    },
+    {
+     "rid": "nurse:1256209947",
+     "time": "2100-01-02 05:00:00",
+     "item": "Respiratory Rate: 23 insp/min"
+    },
+    {
+     "rid": "nurse:1199722097",
+     "time": "2100-01-02 06:00:00",
+     "item": "Respiratory Rate: 21 insp/min"
+    },
+    {
+     "rid": "nurse:1220438377",
+     "time": "2100-01-02 07:00:00",
+     "item": "Respiratory Rate: 26 insp/min"
+    },
+    {
+     "rid": "nurse:1212887088",
+     "time": "2100-01-02 08:00:00",
+     "item": "Respiratory Rate: 21 insp/min"
+    },
+    {
+     "rid": "nurse:1261790795",
+     "time": "2100-01-02 12:00:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:1211008985",
+     "time": "2100-01-02 13:00:00",
+     "item": "Respiratory Rate: 24 insp/min"
+    },
+    {
+     "rid": "nurse:1213143114",
+     "time": "2100-01-02 13:44:00",
+     "item": "Respiratory Rate: 20 insp/min"
+    },
+    {
+     "rid": "nurse:1262404536",
+     "time": "2100-01-02 15:00:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:1203822267",
+     "time": "2100-01-02 16:00:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:1179176758",
+     "time": "2100-01-02 16:15:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:1214069636",
+     "time": "2100-01-02 16:45:00",
+     "item": "Respiratory Rate: 23 insp/min"
+    },
+    {
+     "rid": "nurse:1216979517",
+     "time": "2100-01-02 17:00:00",
+     "item": "Respiratory Rate: 24 insp/min"
+    },
+    {
+     "rid": "nurse:1202787482",
+     "time": "2100-01-02 17:30:00",
+     "item": "Respiratory Rate: 21 insp/min"
+    },
+    {
+     "rid": "nurse:1228222493",
+     "time": "2100-01-02 18:00:00",
+     "item": "Respiratory Rate: 21 insp/min"
+    },
+    {
+     "rid": "nurse:1249123986",
+     "time": "2100-01-02 18:55:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:1233081030",
+     "time": "2100-01-02 20:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1674875A1::01",
+   "claim_id": "E1674875A1",
+   "claim_text": "Initiate norepinephrine infusion to support mean arterial pressure.",
+   "kind": "action",
+   "text": "Initiate norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1674875A2::03",
+   "claim_id": "E1674875A2",
+   "claim_text": "Obtain repeat arterial blood gas to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Obtain repeat arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1674875A2::04",
+   "claim_id": "E1674875A2",
+   "claim_text": "Obtain repeat arterial blood gas to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Assess oxygenation status.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygenation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1267478701",
+     "time": "2100-01-02 21:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:1182581167",
+     "time": "2100-01-02 22:00:00",
+     "item": "SpO2",
+     "value": "94.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x24.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1674875A2::05",
+   "claim_id": "E1674875A2",
+   "claim_text": "Obtain repeat arterial blood gas to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Assess ventilation status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "ventilation",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1674875A3::06",
+   "claim_id": "E1674875A3",
+   "claim_text": "Continue low tidal volume ventilation strategy for ARDS.",
+   "kind": "action",
+   "text": "Continue low tidal volume ventilation strategy.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "low tidal volume ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation",
+   "class_level": "group",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-invasive ventilation / invasive mechanical ventilation / extubation / weaning action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Mean arterial pressure is low. -- Median mean arterial pressure over the 6 h before the decision: 65 mmHg (6 readings), normal by the rule 'hypotension MAP < 65'.",
+    "The patient is currently on low tidal volume ventilation. -- The records show that the patient is on CPAP/PEEP therapy, but there is no record of the tidal volume being set to low. The statement is not supported by the records.",
+    "ARDS is present. -- The records show that the patient's respiratory rate has been fluctuating between 18 and 28 inspirations per minute, but there is no evidence that ARDS is present. The statement is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

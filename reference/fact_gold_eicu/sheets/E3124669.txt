@@ -1,0 +1,118 @@
+# E3124669   T = 2100-01-02 03:21:00   records before T: 512
+ICU stay 3124669 (Med-Surg ICU; Male, age 54; admission diagnosis: Overdose, analgesic (aspirin, acetaminophen)).
+
+## Atoms
+deepseek-v4.1-flash|E3124669A1::02 [observed] The last salicylate level was 7 mg/dL at 20:00 on 2100-01-01.   <- Continue monitoring salicylate levels to confirm ongoing clearance, as the last level was 7 mg/dL at 20:00 on 2100-01-01.
+deepseek-v4.1-flash|E3124669A2::05 [observed] Hypokalemia is present.   <- Monitor serum potassium and replete as needed, given persistent hypokalemia (3.3 mmol/L at 20:00 on 2100-01-01).
+deepseek-v4.1-flash|E3124669A2::06 [observed] Potassium is 3.3 mmol/L at 20:00 on 2100-01-01.   <- Monitor serum potassium and replete as needed, given persistent hypokalemia (3.3 mmol/L at 20:00 on 2100-01-01).
+deepseek-v4.1-flash|E3124669A3::09 [observed] The patient reported pain levels of 4-10.   <- Assess and manage pain, as the patient reported pain levels of 4-10 despite a goal of 0.
+gpt-oss-120b|E3124669A1::02 [presupposition] Intravenous sodium bicarbonate infusion is currently being given.   <- Continue intravenous sodium bicarbonate infusion to enhance salicylate alkalinization.
+qwen2.5-7b|E3124669A3::04 [presupposition] Pain management with oral medications is currently being given.   <- Continue pain management with oral medications as needed.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 10:30:00): Medication methylPREDNISolone IV
+  Running at decision time (scheduled order started 2100-01-01 15:00:00): Medication clonazePAM PO BID,TWICE A DAY
+  Running at decision time (scheduled order started 2100-01-01 22:00:00): Medication Heparin FLUSH
+  Running at decision time (scheduled order started 2100-01-02 02:00:00): Medication traZODone PO
+  Running at decision time (scheduled order started 2100-01-02 02:00:00): Medication traZODone PO
+
+## PRN orders
+  01-01 13:30 Order: Sodium Chloride 0.9% BOTH NOSTR PRN (active at decision time)
+  01-01 19:30 Order: Heparin FLUSH PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication methylPREDNISolone .ROUTE .STK-MED (2099-12-31 20:21:00 to 2099-12-31 20:24:00)
+  Medication clonazePAM .ROUTE .STK-MED (2100-01-01 00:27:00 to 2100-01-01 00:30:00)
+  Given once: LORazepam INJ IVP ONE (2100-01-01 19:00:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 10:00 0.1 %; 12-31 20:17 0.4 %
+  -eos: 01-01 10:00 0 %; 12-31 20:17 0.4 %
+  -lymphs: 01-01 10:00 12.3 %; 12-31 20:17 13.4 %
+  -monos: 01-01 10:00 8.2 %; 12-31 20:17 7.1 %
+  -polys: 01-01 10:00 79 %; 12-31 20:17 78 %
+  Acetaminophen: 12-31 20:17 47.3 mcg/mL
+  Alanine Aminotransferase (ALT): 01-01 20:00 27 U/L; 01-01 14:42 25 U/L; 01-01 09:20 24 U/L; 01-01 05:52 23 U/L; 01-01 03:52 24 U/L   [+1 earlier]
+  Albumin: 01-01 20:00 4 g/dL; 01-01 14:42 3.8 g/dL; 01-01 09:20 3.8 g/dL; 01-01 05:52 4.1 g/dL; 01-01 03:52 4.4 g/dL   [+1 earlier]
+  Alkaline Phosphatase: 01-01 20:00 48 U/L; 01-01 14:42 50 U/L; 01-01 09:20 52 U/L; 01-01 05:52 61 U/L; 01-01 03:52 67 U/L   [+1 earlier]
+  Anion Gap: 01-01 20:00 16 mmol/L; 01-01 14:42 19 mmol/L; 01-01 09:20 14 mmol/L; 01-01 05:52 16 mmol/L; 01-01 03:52 17 mmol/L   [+1 earlier]
+  Asparate Aminotransferase (AST): 01-01 20:00 55 U/L; 01-01 14:42 56 U/L; 01-01 09:20 59 U/L; 01-01 05:52 50 U/L; 01-01 03:52 46 U/L   [+1 earlier]
+  Base Excess: 12-31 21:29 -6 mmol/L
+  Bicarbonate: 01-01 20:00 27 mmol/L; 01-01 14:42 24 mmol/L; 01-01 09:20 23 mmol/L; 01-01 05:52 20 mmol/L; 01-01 03:52 18 mmol/L   [+1 earlier]
+  Bicarbonate (blood gas HCO3): 12-31 21:29 18.8 mmol/L
+  Bilirubin, Total: 01-01 20:00 0.1 mg/dL
+  CPK: 01-01 09:20 3197 U/L; 01-01 03:52 2424 U/L; 12-31 20:17 2038 U/L
+  CPK-MB: 01-01 09:20 19 ng/mL; 01-01 03:52 16 ng/mL; 12-31 20:17 15 ng/mL
+  CPK-MB INDEX: 01-01 09:20 1 %; 01-01 03:52 1 %; 12-31 20:17 1 %
+  Calcium, Total: 01-01 20:00 7.7 mg/dL; 01-01 14:42 7.3 mg/dL; 01-01 09:20 7.5 mg/dL; 01-01 05:52 7.7 mg/dL; 01-01 03:52 7.8 mg/dL   [+1 earlier]
+  Chloride: 01-01 20:00 94 mmol/L; 01-01 14:42 97 mmol/L; 01-01 09:20 99 mmol/L; 01-01 05:52 100 mmol/L; 01-01 03:52 102 mmol/L   [+1 earlier]
+  Creatinine: 01-01 20:00 1.1 mg/dL; 01-01 14:42 1 mg/dL; 01-01 09:20 1.1 mg/dL; 01-01 05:52 1.3 mg/dL; 01-01 03:52 1.5 mg/dL   [+1 earlier]
+  FiO2: 12-31 21:29 3
+  Glucose: 01-01 20:00 284 mg/dL; 01-01 14:42 222 mg/dL; 01-01 09:20 201 mg/dL; 01-01 05:52 235 mg/dL; 01-01 03:52 275 mg/dL   [+1 earlier]
+  Glucose finger stick: 01-01 22:00 260 mg/dL; 01-01 15:01 241 mg/dL; 01-01 04:33 261 mg/dL
+  Hematocrit: 01-01 10:00 32.7 %; 12-31 20:17 37.1 %
+  Hemoglobin: 01-01 10:00 10.6 g/dL; 12-31 20:17 11.7 g/dL
+  INR(PT): 01-01 10:00 1.5; 01-01 03:52 1.4; 12-31 20:00 1.1
+  LDL: 01-01 09:20 56 mg/dL
+  Lactate: 01-01 08:00 1.5 mmol/L; 01-01 03:52 3.5 mmol/L
+  MCH: 01-01 10:00 28.3 pg; 12-31 20:17 28 pg
+  MCHC: 01-01 10:00 32.4 g/dL; 12-31 20:17 31.5 g/dL
+  MCV: 01-01 10:00 87.2 fL; 12-31 20:17 88.8 fL
+  MPV: 01-01 10:00 12.5 fL; 12-31 20:17 12 fL
+  Magnesium: 01-01 09:20 2 mg/dL; 01-01 03:52 2 mg/dL; 12-31 20:17 2.1 mg/dL
+  Oxygen Saturation: 12-31 21:29 98 %
+  PT: 01-01 10:00 15.5 SEC; 01-01 03:52 14 SEC; 12-31 20:00 11.1 SEC
+  PTT: 01-01 03:52 33 SEC; 12-31 20:00 29 SEC
+  Phosphate: 01-01 09:20 1.9 mg/dL; 01-01 03:52 2.4 mg/dL
+  Platelet Count: 01-01 10:00 170 K/uL; 12-31 20:17 164 K/uL
+  Potassium: 01-01 20:00 3.3 mmol/L; 01-01 14:42 3.5 mmol/L; 01-01 09:20 3.5 mmol/L; 01-01 05:52 4.2 mmol/L; 01-01 03:52 4.6 mmol/L   [+1 earlier]
+  RBC: 01-01 10:00 3.8 M/uL; 12-31 20:17 4.2 M/uL
+  Sodium: 01-01 20:00 137 mmol/L; 01-01 14:42 140 mmol/L; 01-01 09:20 136 mmol/L; 01-01 05:52 136 mmol/L; 01-01 03:52 137 mmol/L   [+1 earlier]
+  TSH: 01-01 09:20 0.15 uIU/mL
+  Urea Nitrogen: 01-01 20:00 11 mg/dL; 01-01 14:42 11 mg/dL; 01-01 09:20 13 mg/dL; 01-01 05:52 13 mg/dL; 01-01 03:52 13 mg/dL   [+1 earlier]
+  White Blood Cells: 01-01 10:00 13.9 K/uL; 12-31 20:17 13.5 K/uL
+  free T4: 01-01 09:20 0.7 ng/dL
+  pCO2: 12-31 21:29 29 mmHg
+  pH: 12-31 21:29 7.419
+  pO2: 12-31 21:29 102 mmHg
+  salicylate: 01-01 20:00 7 mg/dL; 01-01 14:42 20.8 mg/dL; 01-01 09:20 35 mg/dL; 01-01 05:52 43.8 mg/dL; 01-01 03:52 47.8 mg/dL   [+2 earlier]
+  total cholesterol: 01-01 09:20 119 mg/dL
+  total protein: 01-01 20:00 6.2 g/dL; 01-01 14:42 6 g/dL; 01-01 09:20 6 g/dL; 01-01 05:52 6.2 g/dL; 01-01 03:52 6.5 g/dL   [+1 earlier]
+  urinary specific gravity: 01-02 03:07 1.006; 01-02 02:09 1.009; 01-01 22:56 1.01; 01-01 20:00 1.009; 01-01 17:52 1.015   [+5 earlier]
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-02 02:00   24h 4-4 (n=23)
+  Glasgow coma score GCS Total: 15 @01-02 02:00   24h 15-15 (n=23)
+  Glasgow coma score Motor: 6 @01-02 02:00   24h 6-6 (n=23)
+  Glasgow coma score Verbal: 5 @01-02 02:00   24h 5-5 (n=23)
+  Heart Rate: 112 bpm @01-02 02:00   24h 97-120 (n=23)
+  Non Invasive Blood Pressure diastolic: 55 mmHg @01-02 02:00   24h 49-105 (n=23)
+  Non Invasive Blood Pressure mean: 73 mmHg @01-02 02:00   24h 63-112 (n=23)
+  Non Invasive Blood Pressure systolic: 134 mmHg @01-02 02:00   24h 103-155 (n=23)
+  O2 Delivery Device(s): Nasal cannula (charted: nasal cannula) @01-02 02:00
+  O2 saturation pulseoxymetry: 95 % @01-02 00:00   24h 94-99 (n=21)
+  Pain Level: 4 @01-02 02:00   24h 4-10 (n=22)
+  Pain Score/Goal Pain Goal: 0 @01-02 02:00   24h 0-0 (n=23)
+  Respiratory Rate: 22 insp/min @01-02 02:00   24h 14-25 (n=23)
+  Temperature Fahrenheit: 97.6 F @01-02 00:00   24h 97.6-98.4 (n=4)
+  Temperature Location: oral @01-02 00:00
+
+## Treatments documented
+  01-01 08:35 agent specific therapy | salicylate overdose/toxicity | sodium bicarbonate
+  01-01 08:35 renal | consultations | Nephrology consultation
+  01-01 08:35 pulmonary | medications | antibacterials
+  01-01 08:35 pulmonary | medications | bronchodilator
+  01-01 08:35 neurologic | procedures / diagnostics | head CT scan
+  01-01 08:35 drug overdose | drug levels | serum drug levels
+  01-01 08:35 pulmonary | medications | glucocorticoid administration
+  01-01 21:56 pulmonary | medications | bronchodilator
+  01-01 21:56 agent specific therapy | salicylate overdose/toxicity | sodium bicarbonate
+  01-01 21:56 renal | consultations | Nephrology consultation
+  01-01 21:56 neurologic | procedures / diagnostics | head CT scan
+  01-01 21:56 drug overdose | drug levels | serum drug levels
+  01-01 21:56 pulmonary | medications | antibacterials
+  01-01 21:56 pulmonary | medications | glucocorticoid administration
+
+## Microbiology

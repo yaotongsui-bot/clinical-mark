@@ -1,0 +1,85 @@
+# E3110594   T = 2100-01-02 01:02:00   records before T: 274
+ICU stay 3110594 (Med-Surg ICU; Male, age > 89; admission diagnosis: Sepsis, pulmonary).
+
+## Atoms
+deepseek-v4.1-flash|E3110594A1::02 [observed] Intermittent hypotension is present.   <- Monitor blood pressure closely given intermittent hypotension and recent diuretic and ACE inhibitor administration.
+deepseek-v4.1-flash|E3110594A1::03 [observed] Diuretic was recently administered.   <- Monitor blood pressure closely given intermittent hypotension and recent diuretic and ACE inhibitor administration.
+deepseek-v4.1-flash|E3110594A1::04 [observed] ACE inhibitor was recently administered.   <- Monitor blood pressure closely given intermittent hypotension and recent diuretic and ACE inhibitor administration.
+deepseek-v4.1-flash|E3110594A2::07 [presupposition] Diuretic therapy is ongoing.   <- Assess volume status and renal function to guide ongoing diuretic therapy.
+deepseek-v4.1-flash|E3110594A3::09 [presupposition] The patient is currently on oxygen therapy via nasal cannula.   <- Continue current oxygen therapy via nasal cannula to maintain oxygen saturation.
+gpt-oss-120b|E3110594A1::03 [presupposition] Norepinephrine infusion is currently being given.   <- Gradually wean norepinephrine infusion while closely monitoring mean arterial pressure.
+gpt-oss-120b|E3110594A3::09 [presupposition] Furosemide is currently being given.   <- Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.
+gpt-oss-120b|E3110594A3::10 [presupposition] Lisinopril is currently being given.   <- Continue daily furosemide and lisinopril as ordered, with daily weight and input/output monitoring.
+qwen2.5-7b|E3110594A1::02 [observed] Blood pressure has fluctuated significantly.   <- Monitor patient's blood pressure closely, as it has fluctuated significantly.
+qwen2.5-7b|E3110594A2::04 [presupposition] Furosemide is currently being given.   <- Continue administration of furosemide to manage fluid status.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication FUROSEMIDE PO
+  Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication FUROSEMIDE PO DAILY
+  Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication LISINOPRIL PO DAILY
+
+## PRN orders
+  01-01 01:15 Order: ACETAMINOPHEN PO Q6HP PRN (active at decision time)
+  01-01 01:15 Order: SALINE FLUSH FLUSH PER PROTOCOL PRN (active at decision time)
+  01-01 01:15 Order: ONDANSETRON IV Q6HP PRN (active at decision time)
+  01-01 01:15 Order: SALINE FLUSH FLUSH Q8HP PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Norepinephrine at 3 mcg/min (2100-01-01 00:00:00 to 2100-01-01 03:00:00)
+  Infusion/input Norepinephrine at 2 mcg/min (2100-01-01 03:00:00 to 2100-01-01 04:00:00)
+  Infusion/input Norepinephrine at 1 mcg/min (2100-01-01 04:00:00 to 2100-01-01 04:00:00)
+
+## Medications given once or ended before T
+
+## Laboratory (newest first, up to 5)
+  -bands: 01-01 14:20 1 %
+  -lymphs: 01-01 14:20 20 %
+  -polys: 01-01 14:20 68 %
+  Alanine Aminotransferase (ALT): 01-01 14:20 11 U/L; 01-01 01:43 10 U/L
+  Albumin: 01-01 14:20 2.8 g/dL; 01-01 01:43 3.4 g/dL
+  Alkaline Phosphatase: 01-01 14:20 43 U/L; 01-01 01:43 47 U/L
+  Anion Gap: 01-01 14:20 16 MMOL/L; 01-01 01:43 16 MMOL/L
+  Asparate Aminotransferase (AST): 01-01 14:20 30 U/L; 01-01 01:43 25 U/L
+  Bicarbonate: 01-01 14:20 21.8 mmol/L; 01-01 01:43 24.2 mmol/L
+  Bilirubin, Total: 01-01 01:43 0.3 mg/dL
+  Calcium, Total: 01-01 14:20 7.8 mg/dL; 01-01 01:43 8.2 mg/dL
+  Chloride: 01-01 14:20 113 mmol/L; 01-01 01:43 107 mmol/L
+  Creatinine: 01-01 14:20 0.86 mg/dL; 01-01 01:43 1.05 mg/dL
+  Glucose: 01-01 14:20 74 mg/dL; 01-01 01:43 96 mg/dL
+  Hematocrit: 01-01 14:20 32.8 %; 01-01 01:43 32.7 %
+  Hemoglobin: 01-01 14:20 10.1 g/dL; 01-01 01:43 10.1 g/dL
+  Lactate: 01-01 01:43 1.4 mmol/L
+  MCH: 01-01 14:20 32.2 pg; 01-01 01:43 32.5 pg
+  MCHC: 01-01 14:20 30.8 g/dL; 01-01 01:43 30.9 g/dL
+  MCV: 01-01 14:20 104.5 fL; 01-01 01:43 105.1 fL
+  Magnesium: 01-01 14:20 1.9 mg/dL
+  Platelet Count: 01-01 14:20 164 10*9/l; 01-01 01:43 191 10*9/l
+  Potassium: 01-01 14:20 4.4 mmol/L; 01-01 01:43 4.1 mmol/L
+  RBC: 01-01 14:20 3.14; 01-01 01:43 3.11
+  RDW: 01-01 14:20 13.7 %; 01-01 01:43 13.6 %
+  Sodium: 01-01 14:20 147 mmol/L; 01-01 01:43 143 mmol/L
+  Urea Nitrogen: 01-01 14:20 27 mg/dL; 01-01 01:43 36 mg/dL
+  White Blood Cells: 01-01 14:20 6.5 10*9/l; 01-01 01:43 8.8 10*9/l
+  total protein: 01-01 14:20 4.6 g/dL; 01-01 01:43 5.7 g/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-01 23:00   24h 4-4 (n=12)
+  Glasgow coma score GCS Total: 15 @01-01 23:00   24h 15-15 (n=12)
+  Glasgow coma score Motor: 6 @01-01 23:00   24h 6-6 (n=12)
+  Glasgow coma score Verbal: 5 @01-01 23:00   24h 5-5 (n=12)
+  Heart Rate: 78 bpm @01-01 23:00   24h 73-96 (n=21)
+  Non Invasive Blood Pressure diastolic: 53 mmHg @01-01 23:00   24h 40-65 (n=21)
+  Non Invasive Blood Pressure mean: 63 mmHg @01-01 23:00   24h 47-74 (n=21)
+  Non Invasive Blood Pressure systolic: 90 mmHg @01-01 23:00   24h 72-125 (n=21)
+  O2 Delivery Device(s): Nasal cannula (charted: nasal cannula) @01-01 06:00
+  O2 L/%: 2 @01-01 06:00   24h 2-2 (n=5)
+  O2 saturation pulseoxymetry: 98 % @01-01 23:00   24h 96-100 (n=21)
+  Pain Level: 0 @01-01 07:00
+  Pain Score/Goal Pain Goal: 3 @01-01 07:00
+  Respiratory Rate: 20 insp/min @01-01 23:00   24h 14-22 (n=21)
+  Temperature Fahrenheit: 98.5 F @01-01 21:00   24h 98.3-98.5 (n=4)
+  Temperature Location: oral @01-01 21:00   earlier: tympanic @01-01 07:00
+
+## Treatments documented
+
+## Microbiology

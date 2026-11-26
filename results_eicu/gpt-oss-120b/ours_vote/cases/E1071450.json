@@ -1,0 +1,345 @@
+{
+ "case_id": "E1071450",
+ "decision_point": "2100-01-02 02:03:00",
+ "claims": [
+  "Continue milrinone infusion for inotropic support.",
+  "Obtain an arterial blood gas to assess acid‑base status and lactate.",
+  "Monitor capillary glucose q4h and adjust insulin aspart dosing per protocol."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1071450A1::01",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue milrinone infusion for inotropic support.",
+   "kind": "action",
+   "text": "Continue milrinone infusion.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "continue",
+   "target": "milrinone",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1071450A1::02",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue milrinone infusion for inotropic support.",
+   "kind": "fact",
+   "text": "Milrinone infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1071450A2::03",
+   "claim_id": "E1071450A2",
+   "claim_text": "Obtain an arterial blood gas to assess acid‑base status and lactate.",
+   "kind": "action",
+   "text": "Obtain an arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1071450A2::04",
+   "claim_id": "E1071450A2",
+   "claim_text": "Obtain an arterial blood gas to assess acid‑base status and lactate.",
+   "kind": "action",
+   "text": "Assess acid-base status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "acid-base status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1071450A2::05",
+   "claim_id": "E1071450A2",
+   "claim_text": "Obtain an arterial blood gas to assess acid‑base status and lactate.",
+   "kind": "action",
+   "text": "Assess lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "assess",
+   "target": "lactate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1071450A3::06",
+   "claim_id": "E1071450A3",
+   "claim_text": "Monitor capillary glucose q4h and adjust insulin aspart dosing per protocol.",
+   "kind": "action",
+   "text": "Monitor capillary glucose every 4 hours.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "capillary glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1071450A3::07",
+   "claim_id": "E1071450A3",
+   "claim_text": "Monitor capillary glucose q4h and adjust insulin aspart dosing per protocol.",
+   "kind": "action",
+   "text": "Adjust insulin aspart dosing per protocol.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin aspart",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1071450A3::08",
+   "claim_id": "E1071450A3",
+   "claim_text": "Monitor capillary glucose q4h and adjust insulin aspart dosing per protocol.",
+   "kind": "fact",
+   "text": "Insulin aspart is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1071450A1::02",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue milrinone infusion for inotropic support.",
+   "kind": "fact",
+   "text": "Milrinone infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records document milrinone as a treatment for shock (R28), but there is no administration record of milrinone in the 24 hours before the decision time, so the statement that the patient is currently receiving it is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:30735876",
+     "time": "2100-01-01 03:34:00",
+     "item": "Treatment documented: shock | inotropic agent | milrinone"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1071450A3::08",
+   "claim_id": "E1071450A3",
+   "claim_text": "Monitor capillary glucose q4h and adjust insulin aspart dosing per protocol.",
+   "kind": "fact",
+   "text": "Insulin aspart is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R29 shows a 'Running at decision time' administration record for insulin aspart corrective dosing, which directly supports the statement that insulin aspart is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:37275226",
+     "time": "2099-12-31 21:30:00",
+     "item": "Running at decision time (scheduled order started 2099-12-31 21:30:00): Medication insulin aspart Corrective dosing Subcutan AC+HS"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1071450A1::01",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue milrinone infusion for inotropic support.",
+   "kind": "action",
+   "text": "Continue milrinone infusion.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "continue",
+   "target": "milrinone",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1071450A2::03",
+   "claim_id": "E1071450A2",
+   "claim_text": "Obtain an arterial blood gas to assess acid‑base status and lactate.",
+   "kind": "action",
+   "text": "Obtain an arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071450A2::04",
+   "claim_id": "E1071450A2",
+   "claim_text": "Obtain an arterial blood gas to assess acid‑base status and lactate.",
+   "kind": "action",
+   "text": "Assess acid-base status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "acid-base status",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071450A2::05",
+   "claim_id": "E1071450A2",
+   "claim_text": "Obtain an arterial blood gas to assess acid‑base status and lactate.",
+   "kind": "action",
+   "text": "Assess lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "assess",
+   "target": "lactate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071450A3::06",
+   "claim_id": "E1071450A3",
+   "claim_text": "Monitor capillary glucose q4h and adjust insulin aspart dosing per protocol.",
+   "kind": "action",
+   "text": "Monitor capillary glucose every 4 hours.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "capillary glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:255854677",
+     "time": "2100-01-02 03:52:00",
+     "item": "glucose",
+     "value": "198.0 mg/dL"
+    },
+    {
+     "rid": "nurse:656147351",
+     "time": "2100-01-02 03:52:00",
+     "item": "glucose",
+     "value": "198.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x14.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071450A3::07",
+   "claim_id": "E1071450A3",
+   "claim_text": "Monitor capillary glucose q4h and adjust insulin aspart dosing per protocol.",
+   "kind": "action",
+   "text": "Adjust insulin aspart dosing per protocol.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin aspart",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Milrinone infusion is currently being given. -- The records document milrinone as a treatment for shock (R28), but there is no administration record of milrinone in the 24 hours before the decision time, so the statement that the patient is currently receiving it is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

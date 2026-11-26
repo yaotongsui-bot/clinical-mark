@@ -1,0 +1,273 @@
+{
+ "case_id": "E1636307",
+ "decision_point": "2100-01-02 00:42:00",
+ "claims": [
+  "Begin a spontaneous breathing trial to assess readiness for extubation.",
+  "Titrate the inspired oxygen fraction down to 30% while maintaining SpO2 ≥ 94% and monitor pulse oximetry.",
+  "Continue subcutaneous enoxaparin 2 times daily for VTE prophylaxis."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1636307A1::01",
+   "claim_id": "E1636307A1",
+   "claim_text": "Begin a spontaneous breathing trial to assess readiness for extubation.",
+   "kind": "action",
+   "text": "Begin a spontaneous breathing trial.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "spontaneous breathing trial",
+   "conditional": false,
+   "treatment_class": "extubation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1636307A1::02",
+   "claim_id": "E1636307A1",
+   "claim_text": "Begin a spontaneous breathing trial to assess readiness for extubation.",
+   "kind": "action",
+   "text": "Assess readiness for extubation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "readiness for extubation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1636307A2::03",
+   "claim_id": "E1636307A2",
+   "claim_text": "Titrate the inspired oxygen fraction down to 30% while maintaining SpO2 ≥ 94% and monitor pulse oximetry.",
+   "kind": "action",
+   "text": "Titrate the inspired oxygen fraction down to 30%.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "inspired oxygen fraction",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1636307A2::04",
+   "claim_id": "E1636307A2",
+   "claim_text": "Titrate the inspired oxygen fraction down to 30% while maintaining SpO2 ≥ 94% and monitor pulse oximetry.",
+   "kind": "goal",
+   "text": "Maintain SpO2 at or above 94%.",
+   "concept": "spo2",
+   "notes": []
+  },
+  {
+   "atom_id": "E1636307A2::05",
+   "claim_id": "E1636307A2",
+   "claim_text": "Titrate the inspired oxygen fraction down to 30% while maintaining SpO2 ≥ 94% and monitor pulse oximetry.",
+   "kind": "action",
+   "text": "Monitor pulse oximetry.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pulse oximetry",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1636307A3::06",
+   "claim_id": "E1636307A3",
+   "claim_text": "Continue subcutaneous enoxaparin 2 times daily for VTE prophylaxis.",
+   "kind": "action",
+   "text": "Continue subcutaneous enoxaparin 2 times daily.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "enoxaparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1636307A3::07",
+   "claim_id": "E1636307A3",
+   "claim_text": "Continue subcutaneous enoxaparin 2 times daily for VTE prophylaxis.",
+   "kind": "fact",
+   "text": "Subcutaneous enoxaparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1636307A3::07",
+   "claim_id": "E1636307A3",
+   "claim_text": "Continue subcutaneous enoxaparin 2 times daily for VTE prophylaxis.",
+   "kind": "fact",
+   "text": "Subcutaneous enoxaparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R50 shows enoxaparin subcutaneous running at decision time, which directly supports the statement that subcutaneous enoxaparin is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:62366007",
+     "time": "2100-01-02 00:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 00:00:00): Medication enoxaparin Subcutaneous 2 times daily"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1636307A1::01",
+   "claim_id": "E1636307A1",
+   "claim_text": "Begin a spontaneous breathing trial to assess readiness for extubation.",
+   "kind": "action",
+   "text": "Begin a spontaneous breathing trial.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "spontaneous breathing trial",
+   "conditional": false,
+   "treatment_class": "extubation",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No extubation / weaning action recorded in the 9.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1636307A1::02",
+   "claim_id": "E1636307A1",
+   "claim_text": "Begin a spontaneous breathing trial to assess readiness for extubation.",
+   "kind": "action",
+   "text": "Assess readiness for extubation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "readiness for extubation",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1636307A2::03",
+   "claim_id": "E1636307A2",
+   "claim_text": "Titrate the inspired oxygen fraction down to 30% while maintaining SpO2 ≥ 94% and monitor pulse oximetry.",
+   "kind": "action",
+   "text": "Titrate the inspired oxygen fraction down to 30%.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "inspired oxygen fraction",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1636307A2::05",
+   "claim_id": "E1636307A2",
+   "claim_text": "Titrate the inspired oxygen fraction down to 30% while maintaining SpO2 ≥ 94% and monitor pulse oximetry.",
+   "kind": "action",
+   "text": "Monitor pulse oximetry.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pulse oximetry",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1265847234",
+     "time": "2100-01-02 01:00:00",
+     "item": "heart rate",
+     "value": "108.0 bpm"
+    },
+    {
+     "rid": "nurse:1245637862",
+     "time": "2100-01-02 02:00:00",
+     "item": "heart rate",
+     "value": "108.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 9.6 h observation window after the decision (24 h or until ICU discharge): heart rate x10.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1636307A3::06",
+   "claim_id": "E1636307A3",
+   "claim_text": "Continue subcutaneous enoxaparin 2 times daily for VTE prophylaxis.",
+   "kind": "action",
+   "text": "Continue subcutaneous enoxaparin 2 times daily.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "enoxaparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (prophylactic) action recorded in the 9.6 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 9.6,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

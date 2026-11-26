@@ -1,0 +1,330 @@
+{
+ "case_id": "E1497157",
+ "decision_point": "2100-01-02 19:30:00",
+ "claims": [
+  "Monitor electrolyte levels and adjust magnesium infusion as needed.",
+  "Administer acetaminophen as needed for pain control.",
+  "Continue intravenous fluids to maintain hydration."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1497157A1::01",
+   "claim_id": "E1497157A1",
+   "claim_text": "Monitor electrolyte levels and adjust magnesium infusion as needed.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1497157A1::02",
+   "claim_id": "E1497157A1",
+   "claim_text": "Monitor electrolyte levels and adjust magnesium infusion as needed.",
+   "kind": "action",
+   "text": "Adjust magnesium infusion as needed.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "magnesium infusion",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1497157A1::03",
+   "claim_id": "E1497157A1",
+   "claim_text": "Monitor electrolyte levels and adjust magnesium infusion as needed.",
+   "kind": "fact",
+   "text": "Magnesium infusion is currently being given.",
+   "concept": "magnesium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1497157A2::04",
+   "claim_id": "E1497157A2",
+   "claim_text": "Administer acetaminophen as needed for pain control.",
+   "kind": "action",
+   "text": "Administer acetaminophen as needed for pain control.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "acetaminophen",
+   "conditional": true,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1497157A3::05",
+   "claim_id": "E1497157A3",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1497157A3::06",
+   "claim_id": "E1497157A3",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1497157A1::03",
+   "claim_id": "E1497157A1",
+   "claim_text": "Monitor electrolyte levels and adjust magnesium infusion as needed.",
+   "kind": "fact",
+   "text": "Magnesium infusion is currently being given.",
+   "concept": "magnesium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R46 shows a magnesium infusion running at the decision time, which directly supports the statement that magnesium infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Volume (mL) Magnesium  (ml/hr):870",
+     "time": "2100-01-02 10:00:00",
+     "item": "Running at decision time (started 2100-01-02 10:00:00): Infusion/input Volume (mL) Magnesium at 25 ml/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1497157A3::06",
+   "claim_id": "E1497157A3",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show Lactated Ringers IV running at decision time (R22) and another continuous Lactated Ringers infusion started at 06:28 (R44), indicating intravenous fluids are currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:53012736",
+     "time": "2100-01-01 19:15:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 19:15:00): Medication 1000 ML : LACTATED RINGERS IV SOLN IV Continuous"
+    },
+    {
+     "rid": "med:54086770",
+     "time": "2100-01-02 06:28:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 06:28:00): Medication 1000 ML : LACTATED RINGERS IV SOLN IV Continuous"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1497157A1::01",
+   "claim_id": "E1497157A1",
+   "claim_text": "Monitor electrolyte levels and adjust magnesium infusion as needed.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:354364984",
+     "time": "2100-01-02 22:55:00",
+     "item": "sodium",
+     "value": "137.0 mEq/L"
+    },
+    {
+     "rid": "lab:360404147",
+     "time": "2100-01-03 10:05:00",
+     "item": "sodium",
+     "value": "136.0 mEq/L"
+    },
+    {
+     "rid": "lab:354364980",
+     "time": "2100-01-02 22:55:00",
+     "item": "potassium",
+     "value": "3.9 mEq/L"
+    },
+    {
+     "rid": "lab:360404143",
+     "time": "2100-01-03 10:05:00",
+     "item": "potassium",
+     "value": "4.0 mEq/L"
+    },
+    {
+     "rid": "lab:354364991",
+     "time": "2100-01-02 22:55:00",
+     "item": "chloride",
+     "value": "101.0 mEq/L"
+    },
+    {
+     "rid": "lab:357895652",
+     "time": "2100-01-03 10:05:00",
+     "item": "chloride",
+     "value": "100.0 mEq/L"
+    },
+    {
+     "rid": "lab:354364986",
+     "time": "2100-01-02 22:55:00",
+     "item": "bicarbonate",
+     "value": "24.0 mEq/L"
+    },
+    {
+     "rid": "lab:357895647",
+     "time": "2100-01-03 10:05:00",
+     "item": "bicarbonate",
+     "value": "25.0 mEq/L"
+    },
+    {
+     "rid": "lab:354364988",
+     "time": "2100-01-02 22:55:00",
+     "item": "calcium",
+     "value": "8.0 mg/dL"
+    },
+    {
+     "rid": "lab:357895649",
+     "time": "2100-01-03 10:05:00",
+     "item": "calcium",
+     "value": "8.3 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 22.2 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, calcium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1497157A1::02",
+   "claim_id": "E1497157A1",
+   "claim_text": "Monitor electrolyte levels and adjust magnesium infusion as needed.",
+   "kind": "action",
+   "text": "Adjust magnesium infusion as needed.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "magnesium infusion",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1497157A2::04",
+   "claim_id": "E1497157A2",
+   "claim_text": "Administer acetaminophen as needed for pain control.",
+   "kind": "action",
+   "text": "Administer acetaminophen as needed for pain control.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "acetaminophen",
+   "conditional": true,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-opioid analgesia action recorded in the 22.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1497157A3::05",
+   "claim_id": "E1497157A3",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 22.2 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 22.2,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

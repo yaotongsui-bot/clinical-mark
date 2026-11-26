@@ -1,0 +1,451 @@
+{
+ "case_id": "E3170528",
+ "decision_point": "2100-01-02 03:39:00",
+ "claims": [
+  "Continue frequent neurologic monitoring with Glasgow Coma Scale and vital signs in the Neuro ICU.",
+  "Maintain blood pressure control for intracranial hemorrhage using the ordered PRN hydralazine as needed for hypertension.",
+  "Continue stress ulcer prophylaxis with pantoprazole as ordered."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3170528A1::01",
+   "claim_id": "E3170528A1",
+   "claim_text": "Continue frequent neurologic monitoring with Glasgow Coma Scale and vital signs in the Neuro ICU.",
+   "kind": "action",
+   "text": "Continue frequent neurologic monitoring with Glasgow Coma Scale.",
+   "concept": "neuro",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "Glasgow Coma Scale",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3170528A1::02",
+   "claim_id": "E3170528A1",
+   "claim_text": "Continue frequent neurologic monitoring with Glasgow Coma Scale and vital signs in the Neuro ICU.",
+   "kind": "action",
+   "text": "Continue frequent vital signs monitoring.",
+   "concept": "vital_signs",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3170528A1::03",
+   "claim_id": "E3170528A1",
+   "claim_text": "Continue frequent neurologic monitoring with Glasgow Coma Scale and vital signs in the Neuro ICU.",
+   "kind": "fact",
+   "text": "The patient is currently in the Neuro ICU.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3170528A2::04",
+   "claim_id": "E3170528A2",
+   "claim_text": "Maintain blood pressure control for intracranial hemorrhage using the ordered PRN hydralazine as needed for hypertension.",
+   "kind": "goal",
+   "text": "Maintain blood pressure control for intracranial hemorrhage.",
+   "concept": "blood_pressure",
+   "notes": []
+  },
+  {
+   "atom_id": "E3170528A2::05",
+   "claim_id": "E3170528A2",
+   "claim_text": "Maintain blood pressure control for intracranial hemorrhage using the ordered PRN hydralazine as needed for hypertension.",
+   "kind": "fact",
+   "text": "Intracranial hemorrhage is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3170528A2::06",
+   "claim_id": "E3170528A2",
+   "claim_text": "Maintain blood pressure control for intracranial hemorrhage using the ordered PRN hydralazine as needed for hypertension.",
+   "kind": "fact",
+   "text": "PRN hydralazine is ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3170528A2::07",
+   "claim_id": "E3170528A2",
+   "claim_text": "Maintain blood pressure control for intracranial hemorrhage using the ordered PRN hydralazine as needed for hypertension.",
+   "kind": "action",
+   "text": "Administer hydralazine as needed for hypertension.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "administer",
+   "target": "hydralazine",
+   "conditional": true,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3170528A3::08",
+   "claim_id": "E3170528A3",
+   "claim_text": "Continue stress ulcer prophylaxis with pantoprazole as ordered.",
+   "kind": "action",
+   "text": "Continue stress ulcer prophylaxis with pantoprazole.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pantoprazole",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3170528A3::09",
+   "claim_id": "E3170528A3",
+   "claim_text": "Continue stress ulcer prophylaxis with pantoprazole as ordered.",
+   "kind": "fact",
+   "text": "Pantoprazole is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3170528A1::03",
+   "claim_id": "E3170528A1",
+   "claim_text": "Continue frequent neurologic monitoring with Glasgow Coma Scale and vital signs in the Neuro ICU.",
+   "kind": "fact",
+   "text": "The patient is currently in the Neuro ICU.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The admission record explicitly states the patient is in the Neuro ICU, which directly supports the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:3170528:unit",
+     "time": "2100-01-01 03:39:00",
+     "item": "ICU unit: Neuro ICU"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3170528A2::05",
+   "claim_id": "E3170528A2",
+   "claim_text": "Maintain blood pressure control for intracranial hemorrhage using the ordered PRN hydralazine as needed for hypertension.",
+   "kind": "fact",
+   "text": "Intracranial hemorrhage is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The admission diagnosis explicitly states 'Hemorrhage/hematoma, intracranial', which directly supports the presence of intracranial hemorrhage.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:3170528:dx",
+     "time": "2100-01-01 03:39:00",
+     "item": "Admission diagnosis (APACHE): Hemorrhage/hematoma, intracranial"
+    },
+    {
+     "rid": "treat:77874592",
+     "time": "2100-01-01 03:53:00",
+     "item": "Treatment documented: ICH/ cerebral infarct | antihypertensives | nicardipine"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3170528A2::06",
+   "claim_id": "E3170528A2",
+   "claim_text": "Maintain blood pressure control for intracranial hemorrhage using the ordered PRN hydralazine as needed for hypertension.",
+   "kind": "fact",
+   "text": "PRN hydralazine is ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The medication order R1 shows an active PRN order for hydralazine at the decision time, which directly supports the statement that PRN hydralazine is ordered.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:105608451",
+     "time": "2100-01-01 03:27:00",
+     "item": "Order: HYDRALAZINE HCL 20 MG/ML IJ SOLN IV Q2H PRN (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3170528A3::09",
+   "claim_id": "E3170528A3",
+   "claim_text": "Continue stress ulcer prophylaxis with pantoprazole as ordered.",
+   "kind": "fact",
+   "text": "Pantoprazole is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R40 shows a pantoprazole administration record that is 'Running at decision time', which directly supports the statement that pantoprazole is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:104904399",
+     "time": "2100-01-01 14:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 14:00:00): Medication PANTOPRAZOLE SODIUM 40 MG PO TBEC PO QAM"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3170528A1::01",
+   "claim_id": "E3170528A1",
+   "claim_text": "Continue frequent neurologic monitoring with Glasgow Coma Scale and vital signs in the Neuro ICU.",
+   "kind": "action",
+   "text": "Continue frequent neurologic monitoring with Glasgow Coma Scale.",
+   "concept": "neuro",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "Glasgow Coma Scale",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No GCS / mental status measurement in the 7.5 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3170528A1::02",
+   "claim_id": "E3170528A1",
+   "claim_text": "Continue frequent neurologic monitoring with Glasgow Coma Scale and vital signs in the Neuro ICU.",
+   "kind": "action",
+   "text": "Continue frequent vital signs monitoring.",
+   "concept": "vital_signs",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2185297714",
+     "time": "2100-01-02 04:00:00",
+     "item": "heart rate",
+     "value": "96.0 bpm"
+    },
+    {
+     "rid": "nurse:2197916513",
+     "time": "2100-01-02 05:00:00",
+     "item": "heart rate",
+     "value": "99.0 bpm"
+    },
+    {
+     "rid": "nurse:2206252703",
+     "time": "2100-01-02 04:00:00",
+     "item": "systolic BP",
+     "value": "133.0 mmHg"
+    },
+    {
+     "rid": "nurse:2199211918",
+     "time": "2100-01-02 04:00:00",
+     "item": "systolic BP",
+     "value": "148.0 mmHg"
+    },
+    {
+     "rid": "nurse:2206252702",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "88.0 mmHg"
+    },
+    {
+     "rid": "nurse:2199211919",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "93.0 mmHg"
+    },
+    {
+     "rid": "nurse:2158696199",
+     "time": "2100-01-02 04:00:00",
+     "item": "respiratory rate",
+     "value": "19.0 insp/min"
+    },
+    {
+     "rid": "nurse:2199695660",
+     "time": "2100-01-02 05:00:00",
+     "item": "respiratory rate",
+     "value": "17.0 insp/min"
+    },
+    {
+     "rid": "nurse:2163952662",
+     "time": "2100-01-02 04:00:00",
+     "item": "SpO2",
+     "value": "94.0 %"
+    },
+    {
+     "rid": "nurse:2206976774",
+     "time": "2100-01-02 05:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:2155531132",
+     "time": "2100-01-02 05:00:00",
+     "item": "temperature",
+     "value": "98.1 F"
+    },
+    {
+     "rid": "nurse:2192259022",
+     "time": "2100-01-02 09:00:00",
+     "item": "temperature",
+     "value": "97.9 F"
+    }
+   ],
+   "reason": "Measured in the 7.5 h observation window after the decision (24 h or until ICU discharge): heart rate x8, systolic BP x11, mean arterial pressure x11, respiratory rate x8, SpO2 x8, temperature x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3170528A2::07",
+   "claim_id": "E3170528A2",
+   "claim_text": "Maintain blood pressure control for intracranial hemorrhage using the ordered PRN hydralazine as needed for hypertension.",
+   "kind": "action",
+   "text": "Administer hydralazine as needed for hypertension.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "administer",
+   "target": "hydralazine",
+   "conditional": true,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 7.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3170528A3::08",
+   "claim_id": "E3170528A3",
+   "claim_text": "Continue stress ulcer prophylaxis with pantoprazole as ordered.",
+   "kind": "action",
+   "text": "Continue stress ulcer prophylaxis with pantoprazole.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pantoprazole",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No stress ulcer prophylaxis action recorded in the 7.5 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 7.5,
+ "scoresheet": {
+  "n": 4,
+  "supported": 4,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

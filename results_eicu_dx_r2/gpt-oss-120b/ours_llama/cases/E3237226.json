@@ -1,0 +1,346 @@
+{
+ "case_id": "E3237226",
+ "decision_point": "2100-01-02 02:57:00",
+ "claims": [
+  "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+  "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+  "Consider prone positioning for ARDS to improve oxygenation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3237226A1::01",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3237226A1::02",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3237226A1::03",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+   "kind": "action",
+   "text": "Reassess need for escalation of respiratory support.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "need for escalation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3237226A2::04",
+   "claim_id": "E3237226A2",
+   "claim_text": "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Obtain arterial blood gas analysis.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3237226A2::05",
+   "claim_id": "E3237226A2",
+   "claim_text": "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygenation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3237226A2::06",
+   "claim_id": "E3237226A2",
+   "claim_text": "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor ventilation status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilation status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3237226A3::07",
+   "claim_id": "E3237226A3",
+   "claim_text": "Consider prone positioning for ARDS to improve oxygenation.",
+   "kind": "action",
+   "text": "Consider prone positioning.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "prone positioning",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3237226A3::08",
+   "claim_id": "E3237226A3",
+   "claim_text": "Consider prone positioning for ARDS to improve oxygenation.",
+   "kind": "fact",
+   "text": "ARDS is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3237226A1::02",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient is on non-invasive ventilation, but the most recent relevant rows (R46, R47, R48) contradict the statement. The earlier rows (R37, R40) agree with the statement, but the most recent rows take precedence.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:79471997",
+     "time": "2100-01-01 03:41:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:78657626",
+     "time": "2100-01-01 04:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3237226A3::08",
+   "claim_id": "E3237226A3",
+   "claim_text": "Consider prone positioning for ARDS to improve oxygenation.",
+   "kind": "fact",
+   "text": "ARDS is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The admission diagnosis states that the patient has ARDS-adult respiratory distress syndrome, which supports the statement that ARDS is present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:3237226:dx",
+     "time": "2100-01-01 02:57:00",
+     "item": "Admission diagnosis (APACHE): ARDS-adult respiratory distress syndrome, non-cardiogenic pulmonary edema"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3237226A1::01",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-invasive ventilation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3237226A1::03",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+   "kind": "action",
+   "text": "Reassess need for escalation of respiratory support.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "need for escalation",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3237226A2::04",
+   "claim_id": "E3237226A2",
+   "claim_text": "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Obtain arterial blood gas analysis.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3237226A2::05",
+   "claim_id": "E3237226A2",
+   "claim_text": "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygenation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2255806432",
+     "time": "2100-01-02 07:52:00",
+     "item": "SpO2",
+     "value": "99.0 %"
+    },
+    {
+     "rid": "nurse:2253370550",
+     "time": "2100-01-02 09:00:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x8.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3237226A2::06",
+   "claim_id": "E3237226A2",
+   "claim_text": "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor ventilation status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilation status",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3237226A3::07",
+   "claim_id": "E3237226A3",
+   "claim_text": "Consider prone positioning for ARDS to improve oxygenation.",
+   "kind": "action",
+   "text": "Consider prone positioning.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "prone positioning",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on non-invasive ventilation. -- The records show that the patient is on non-invasive ventilation, but the most recent relevant rows (R46, R47, R48) contradict the statement. The earlier rows (R37, R40) agree with the statement, but the most recent rows take precedence."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

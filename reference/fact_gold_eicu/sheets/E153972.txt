@@ -1,0 +1,98 @@
+# E153972   T = 2100-01-02 17:19:00   records before T: 430
+ICU stay 153972 (Med-Surg ICU; Male, age 63; admission diagnosis: Bleeding, lower GI).
+
+## Atoms
+deepseek-v4.1-flash|E153972A1::02 [presupposition] Pantoprazole is currently being given.   <- Continue pantoprazole 40 mg IV continuous infusion for GI bleeding prophylaxis.
+gpt-oss-120b|E153972A1::02 [presupposition] Hemoglobin is low.   <- Order packed red blood cell transfusion to raise hemoglobin.
+gpt-oss-120b|E153972A2::04 [presupposition] Pantoprazole infusion is currently being given.   <- Continue pantoprazole infusion for ulcer prophylaxis.
+qwen2.5-7b|E153972A1::02 [observed] Blood pressure readings are fluctuating.   <- Monitor patient's hemodynamic stability closely given the fluctuating blood pressure readings.
+qwen2.5-7b|E153972A2::04 [presupposition] PANTOPRAZOLE SODIUM IV infusion is currently being given.   <- Continue PANTOPRAZOLE SODIUM IV infusion to manage potential acid-related complications.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 14:47:00): Medication PANTOPRAZOLE SODIUM 40 MG IV SOLR IV Continuous
+
+## PRN orders
+  01-01 15:46 Order: 1000 ML  -  SODIUM CHLORIDE 0.9 % IV SOLN IV Continuous PRN (active at decision time)
+  01-01 19:20 Order: 1000 ML  -  SODIUM CHLORIDE 0.9 % IV SOLN IV Continuous PRN (active at decision time)
+  01-01 19:21 Order: ACETAMINOPHEN 650 MG RE SUPP RE PRN (active at decision time)
+  01-01 19:21 Order: ACETAMINOPHEN 325 MG PO TABS PO PRN (stopped 2100-01-02 14:41:00)
+  01-02 14:22 Order: 1000 ML  -  SODIUM CHLORIDE 0.9 % IV SOLN IV Continuous PRN (active at decision time)
+  01-02 14:23 Order: ACETAMINOPHEN 325 MG PO TABS PO PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Given once: PANTOPRAZOLE SODIUM 40 MG IV SOLR IV Once (2100-01-01 14:47:00)
+  Given once: 500 ML  -  SODIUM CHLORIDE 0.9 % IV SOLN IV Once (2100-01-01 14:47:00)
+  Given once: BISACODYL 5 MG PO TBEC PO Once (2100-01-01 23:15:00)
+  Medication POLYETHYLENE GLYCOL 3350 PO PACK PO (2100-01-02 01:00:00 to 2100-01-02 02:19:00)
+  Given once: .5 ML VIAL : PNEUMOCOCCAL VAC POLYVALENT 25 MCG/0.5ML IJ INJ IM Once (2100-01-02 11:00:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-02 09:35 0 %; 01-01 14:00 1 %
+  -eos: 01-02 09:35 5 %; 01-01 14:00 3 %
+  -lymphs: 01-02 09:35 12 %; 01-01 14:00 10 %
+  -monos: 01-02 09:35 11 %; 01-01 14:00 11 %
+  -polys: 01-02 09:35 72 %; 01-01 14:00 75 %
+  Alanine Aminotransferase (ALT): 01-01 14:00 33 Units/L
+  Albumin: 01-01 14:00 2.9 g/dL
+  Alkaline Phosphatase: 01-01 14:00 67 Units/L
+  Anion Gap: 01-02 09:35 13 mmol/L; 01-01 14:00 14 mmol/L
+  Asparate Aminotransferase (AST): 01-01 14:00 21 Units/L
+  Bicarbonate: 01-02 09:35 27 mmol/L; 01-01 14:00 27 mmol/L
+  Bilirubin, Total: 01-01 14:00 0.5 mg/dL
+  Calcium, Total: 01-02 09:35 8.8 mg/dL; 01-01 14:00 9.5 mg/dL
+  Chloride: 01-02 09:35 102 mmol/L; 01-01 14:00 100 mmol/L
+  Creatinine: 01-02 09:35 0.93 mg/dL; 01-01 14:00 1.31 mg/dL
+  Glucose: 01-02 09:35 109 mg/dL; 01-01 14:00 165 mg/dL
+  Hematocrit: 01-02 14:56 27.3 %; 01-02 09:35 26.7 %; 01-02 03:10 26.1 %; 01-01 17:04 23.7 %; 01-01 14:00 22.6 %
+  Hemoglobin: 01-02 14:56 8.6 g/dL; 01-02 09:35 8.5 g/dL; 01-02 03:10 8.4 g/dL; 01-01 17:04 7.6 g/dL; 01-01 14:00 7.2 g/dL
+  INR(PT): 01-02 09:35 2; 01-01 14:00 2.3
+  MCH: 01-02 09:35 30.6 pg; 01-01 14:00 31.7 pg
+  MCHC: 01-02 09:35 31.8 g/dL; 01-01 14:00 31.9 g/dL
+  MCV: 01-02 09:35 96 fl; 01-01 14:00 99.6 fl
+  Magnesium: 01-02 09:35 1.6 mg/dL
+  PT: 01-02 09:35 21.3 sec; 01-01 14:00 24.3 sec
+  Platelet Count: 01-02 09:35 227 K/mcL; 01-01 14:00 238 K/mcL
+  Potassium: 01-02 09:35 4.2 mmol/L; 01-01 14:00 4.1 mmol/L
+  RBC: 01-02 09:35 2.78 mil/mcL; 01-01 14:00 2.27 mil/mcL
+  RDW: 01-02 09:35 15.7 %; 01-01 14:00 13.6 %
+  Sodium: 01-02 09:35 138 mmol/L; 01-01 14:00 137 mmol/L
+  Urea Nitrogen: 01-02 09:35 20 mg/dL; 01-01 14:00 38 mg/dL
+  White Blood Cells: 01-02 09:35 8.1 K/mcL; 01-01 14:00 8.6 K/mcL
+  total protein: 01-01 14:00 6.7 g/dL
+  troponin - I: 01-01 14:00 <0.02
+  urinary specific gravity: 01-01 13:35 >1.030
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  CV/ PV Assessment: X @01-02 13:00   earlier: .X @01-01 13:56
+  Eye Opening: 4 @01-02 00:31
+  Eye, Ear, Nose, Throat Assessment: WDL @01-02 13:00
+  Gastrointestinal Assessment: X @01-02 13:00
+  Genitourinary Assessment: WDL @01-02 13:00
+  Glasgow coma score GCS Total: 15 @01-02 00:31
+  Heart Rate: 76 bpm @01-02 17:12   24h 70-86 (n=35)
+  Integumentary Assessment: WDL @01-02 13:00
+  Level of Assistance: Independent @01-02 03:00
+  MAP (mmHg): 91 @01-02 17:00   24h 76-97 (n=11)
+  Mental Status Assessment: WDL @01-02 13:00
+  Motor Response: 6 @01-02 00:31
+  Musculoskeletal Assessment: WDL @01-02 13:00
+  Neurological Assessment: WDL @01-02 13:00
+  Non Invasive Blood Pressure diastolic: 66 mmHg @01-02 17:12   24h 55-98 (n=36)
+  Non Invasive Blood Pressure systolic: 136 mmHg @01-02 17:12   24h 111-149 (n=36)
+  O2 L/%: 21 @01-01 17:25
+  O2 saturation pulseoxymetry: 93 % @01-02 17:00   24h 91-100 (n=20)
+  Pain Assessment: WDL @01-02 13:00
+  Pain Level: 0 @01-02 15:25   24h 0-0 (n=5)
+  Patient s Comfort/Function (Pain) GOAL At Rest: 0 @01-02 15:25   24h 0-0 (n=5)
+  Pulse Ox  Mode: Continuous @01-02 15:25   earlier: Intermittent @01-02 13:00
+  Respiratory Assessment: X @01-02 13:00
+  Respiratory Rate: 18 insp/min @01-02 15:25   24h 12-20 (n=11)
+  Temperature Fahrenheit: 99 F @01-02 15:25   24h 97.3-99 (n=14)
+  Temperature Location: TEMPORAL ARTERY @01-02 15:25   earlier: ORAL @01-01 17:25
+  Verbal Response: 5 @01-02 00:31
+
+## Treatments documented
+
+## Microbiology

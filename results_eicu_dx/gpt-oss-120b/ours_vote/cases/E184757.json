@@ -1,0 +1,500 @@
+{
+ "case_id": "E184757",
+ "decision_point": "2100-01-02 23:48:00",
+ "claims": [
+  "Order packed red blood cell transfusion to treat anemia (Hb 7.7‑8.9 g/dL).",
+  "Start intravenous labetalol infusion for persistent hypertension (SBP 148‑184 mmHg).",
+  "Continue close hemodynamic monitoring with arterial line MAP and frequent blood pressure checks."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E184757A1::01",
+   "claim_id": "E184757A1",
+   "claim_text": "Order packed red blood cell transfusion to treat anemia (Hb 7.7‑8.9 g/dL).",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E184757A1::02",
+   "claim_id": "E184757A1",
+   "claim_text": "Order packed red blood cell transfusion to treat anemia (Hb 7.7‑8.9 g/dL).",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E184757A1::03",
+   "claim_id": "E184757A1",
+   "claim_text": "Order packed red blood cell transfusion to treat anemia (Hb 7.7‑8.9 g/dL).",
+   "kind": "fact",
+   "text": "Hemoglobin is 7.7-8.9 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E184757A2::04",
+   "claim_id": "E184757A2",
+   "claim_text": "Start intravenous labetalol infusion for persistent hypertension (SBP 148‑184 mmHg).",
+   "kind": "action",
+   "text": "Start intravenous labetalol infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "labetalol",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E184757A2::05",
+   "claim_id": "E184757A2",
+   "claim_text": "Start intravenous labetalol infusion for persistent hypertension (SBP 148‑184 mmHg).",
+   "kind": "fact",
+   "text": "Hypertension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E184757A2::06",
+   "claim_id": "E184757A2",
+   "claim_text": "Start intravenous labetalol infusion for persistent hypertension (SBP 148‑184 mmHg).",
+   "kind": "fact",
+   "text": "SBP is 148-184 mmHg.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sbp -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E184757A3::07",
+   "claim_id": "E184757A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line MAP and frequent blood pressure checks.",
+   "kind": "action",
+   "text": "Continue close hemodynamic monitoring.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamics",
+   "conditional": false
+  },
+  {
+   "atom_id": "E184757A3::08",
+   "claim_id": "E184757A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line MAP and frequent blood pressure checks.",
+   "kind": "action",
+   "text": "Monitor arterial line MAP.",
+   "concept": "map",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial line MAP",
+   "conditional": false
+  },
+  {
+   "atom_id": "E184757A3::09",
+   "claim_id": "E184757A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line MAP and frequent blood pressure checks.",
+   "kind": "action",
+   "text": "Monitor blood pressure frequently.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E184757A3::10",
+   "claim_id": "E184757A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line MAP and frequent blood pressure checks.",
+   "kind": "fact",
+   "text": "Arterial line is in place.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E184757A1::02",
+   "claim_id": "E184757A1",
+   "claim_text": "Order packed red blood cell transfusion to treat anemia (Hb 7.7‑8.9 g/dL).",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:51572983",
+     "time": "2100-01-02 07:15:00",
+     "item": "Hemoglobin",
+     "value": 7.7,
+     "unit": "g/dL",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:50181957",
+     "time": "2100-01-02 14:30:00",
+     "item": "Hemoglobin",
+     "value": 7.9,
+     "unit": "g/dL",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:53528741",
+     "time": "2100-01-02 22:10:00",
+     "item": "Hemoglobin",
+     "value": 8.9,
+     "unit": "g/dL",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 8.9 g/dL at 2100-01-02 22:10:00 (reference 12 to 16) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E184757A1::03",
+   "claim_id": "E184757A1",
+   "claim_text": "Order packed red blood cell transfusion to treat anemia (Hb 7.7‑8.9 g/dL).",
+   "kind": "fact",
+   "text": "Hemoglobin is 7.7-8.9 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:53528741",
+     "time": "2100-01-02 22:10:00",
+     "item": "Hemoglobin",
+     "value": 8.9,
+     "unit": "g/dL",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "The stated hemoglobin (7.7-8.9) matches recorded values before the decision (8.9 at 2100-01-02 22:10:00).",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E184757A2::05",
+   "claim_id": "E184757A2",
+   "claim_text": "Start intravenous labetalol infusion for persistent hypertension (SBP 148‑184 mmHg).",
+   "kind": "fact",
+   "text": "Hypertension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:145197199",
+     "time": "2100-01-02 23:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 129.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'blood pressure high' holds when any component is high. systolic BP: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E184757A2::06",
+   "claim_id": "E184757A2",
+   "claim_text": "Start intravenous labetalol infusion for persistent hypertension (SBP 148‑184 mmHg).",
+   "kind": "fact",
+   "text": "SBP is 148-184 mmHg.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sbp -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records report MAP values, not systolic blood pressure (SBP), so they do not support an SBP range of 148–184 mmHg.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:147082840",
+     "time": "2100-01-02 10:00:00",
+     "item": "MAP (mmHg): 76"
+    },
+    {
+     "rid": "nurse:147082846",
+     "time": "2100-01-02 11:00:00",
+     "item": "MAP (mmHg): 86"
+    },
+    {
+     "rid": "nurse:291284611",
+     "time": "2100-01-02 12:00:00",
+     "item": "MAP (mmHg): 85"
+    },
+    {
+     "rid": "nurse:219297608",
+     "time": "2100-01-02 13:00:00",
+     "item": "MAP (mmHg): 91"
+    }
+   ]
+  },
+  {
+   "atom_id": "E184757A3::10",
+   "claim_id": "E184757A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line MAP and frequent blood pressure checks.",
+   "kind": "fact",
+   "text": "Arterial line is in place.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The most recent monitoring record at 12:00 on 2100-01-02 shows an 'Arterial Line MAP' measurement, which directly indicates that an arterial line was in place and functioning at that time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:183539324",
+     "time": "2100-01-02 12:00:00",
+     "item": "Arterial Line MAP (mmHg): 108"
+    },
+    {
+     "rid": "nurse:237700135",
+     "time": "2100-01-01 19:12:00",
+     "item": "Arterial Line MAP (mmHg): 110"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E184757A1::01",
+   "claim_id": "E184757A1",
+   "claim_text": "Order packed red blood cell transfusion to treat anemia (Hb 7.7‑8.9 g/dL).",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E184757A2::04",
+   "claim_id": "E184757A2",
+   "claim_text": "Start intravenous labetalol infusion for persistent hypertension (SBP 148‑184 mmHg).",
+   "kind": "action",
+   "text": "Start intravenous labetalol infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "labetalol",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E184757A3::07",
+   "claim_id": "E184757A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line MAP and frequent blood pressure checks.",
+   "kind": "action",
+   "text": "Continue close hemodynamic monitoring.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamics",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:109985751",
+     "time": "2100-01-03 00:00:00",
+     "item": "heart rate",
+     "value": "88.0 bpm"
+    },
+    {
+     "rid": "nurse:128177858",
+     "time": "2100-01-03 00:30:00",
+     "item": "heart rate",
+     "value": "90.0 bpm"
+    },
+    {
+     "rid": "nurse:216788483",
+     "time": "2100-01-03 00:00:00",
+     "item": "systolic BP",
+     "value": "149.0 mmHg"
+    },
+    {
+     "rid": "nurse:198521523",
+     "time": "2100-01-03 00:30:00",
+     "item": "systolic BP",
+     "value": "154.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x32, systolic BP x27.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E184757A3::08",
+   "claim_id": "E184757A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line MAP and frequent blood pressure checks.",
+   "kind": "action",
+   "text": "Monitor arterial line MAP.",
+   "concept": "map",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial line MAP",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No mean arterial pressure measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E184757A3::09",
+   "claim_id": "E184757A3",
+   "claim_text": "Continue close hemodynamic monitoring with arterial line MAP and frequent blood pressure checks.",
+   "kind": "action",
+   "text": "Monitor blood pressure frequently.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:216788483",
+     "time": "2100-01-03 00:00:00",
+     "item": "systolic BP",
+     "value": "149.0 mmHg"
+    },
+    {
+     "rid": "nurse:198521523",
+     "time": "2100-01-03 00:30:00",
+     "item": "systolic BP",
+     "value": "154.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x27.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 5,
+  "supported": 4,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.8,
+  "not_supported_share": 0.2,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "SBP is 148-184 mmHg. -- The records report MAP values, not systolic blood pressure (SBP), so they do not support an SBP range of 148–184 mmHg."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.8,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

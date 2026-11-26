@@ -1,0 +1,535 @@
+{
+ "case_id": "M35009126-D30",
+ "decision_point": "2186-11-13 19:55:00",
+ "claims": [
+  "Continue furosemide with current settings, ensuring adequate oxygenation and ventilation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35009126-D30A1::01",
+   "claim_id": "M35009126-D30A1",
+   "claim_text": "Continue furosemide with current settings, ensuring adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Continue furosemide with current settings.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35009126-D30A1::02",
+   "claim_id": "M35009126-D30A1",
+   "claim_text": "Continue furosemide with current settings, ensuring adequate oxygenation and ventilation.",
+   "kind": "fact",
+   "text": "Furosemide is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M35009126-D30A1::03",
+   "claim_id": "M35009126-D30A1",
+   "claim_text": "Continue furosemide with current settings, ensuring adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Ensure adequate oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygenation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35009126-D30A1::04",
+   "claim_id": "M35009126-D30A1",
+   "claim_text": "Continue furosemide with current settings, ensuring adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Ensure adequate ventilation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilation",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35009126-D30A1::02",
+   "claim_id": "M35009126-D30A1",
+   "claim_text": "Continue furosemide with current settings, ensuring adequate oxygenation and ventilation.",
+   "kind": "fact",
+   "text": "Furosemide is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "The records contain no order or administration record for furosemide, so they do not address whether it is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35009126-D30A1::01",
+   "claim_id": "M35009126-D30A1",
+   "claim_text": "Continue furosemide with current settings, ensuring adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Continue furosemide with current settings.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No diuretics action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35009126-D30A1::03",
+   "claim_id": "M35009126-D30A1",
+   "claim_text": "Continue furosemide with current settings, ensuring adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Ensure adequate oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygenation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220277:2186-11-13 20:00:00:274554",
+     "time": "2186-11-13 20:00:00",
+     "item": "SpO2",
+     "value": "97 %"
+    },
+    {
+     "rid": "chart:220277:2186-11-13 21:00:00:274651",
+     "time": "2186-11-13 21:00:00",
+     "item": "SpO2",
+     "value": "95 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x24.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35009126-D30A1::04",
+   "claim_id": "M35009126-D30A1",
+   "claim_text": "Continue furosemide with current settings, ensuring adequate oxygenation and ventilation.",
+   "kind": "action",
+   "text": "Ensure adequate ventilation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilation",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 16 K/uL at 2186-11-13 14:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 16 K/uL at 2186-11-13 14:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CefTAZidime",
+    "CefTRIAXone",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "MetroNIDAZOLE",
+    "Vancomycin"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 16 K/uL at 2186-11-13 14:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 16 K/uL at 2186-11-13 14:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Blood Cultured",
+    "Sputum Culture"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Valproic Acid"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 29,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 16 K/uL at 2186-11-13 14:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 16 K/uL at 2186-11-13 14:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CefTAZidime",
+    "CefTRIAXone",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "MetroNIDAZOLE",
+    "Vancomycin"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 16 K/uL at 2186-11-13 14:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 16 K/uL at 2186-11-13 14:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Blood Cultured",
+    "Sputum Culture"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Valproic Acid"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 29,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 16 K/uL at 2186-11-13 14:29:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials",
+    "cultures"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 102,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 1.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Furosemide is currently being given. -- The records contain no order or administration record for furosemide, so they do not address whether it is currently being given."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 1,
+  "treatments_omitted": 10,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

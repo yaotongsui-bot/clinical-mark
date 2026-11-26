@@ -1,0 +1,832 @@
+{
+ "case_id": "M38197705",
+ "decision_point": "2116-12-04 01:02:00",
+ "claims": [
+  "Continue mechanical ventilation with the current controlled mode and PEEP settings.",
+  "Continue the midazolam infusion for sedation.",
+  "Monitor arterial blood gases and lactate to assess acid-base status and perfusion."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M38197705A1::01",
+   "claim_id": "M38197705A1",
+   "claim_text": "Continue mechanical ventilation with the current controlled mode and PEEP settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38197705A1::02",
+   "claim_id": "M38197705A1",
+   "claim_text": "Continue mechanical ventilation with the current controlled mode and PEEP settings.",
+   "kind": "action",
+   "text": "Maintain the current controlled mode and PEEP settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "ventilator mode and PEEP settings",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38197705A1::03",
+   "claim_id": "M38197705A1",
+   "claim_text": "Continue mechanical ventilation with the current controlled mode and PEEP settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M38197705A2::04",
+   "claim_id": "M38197705A2",
+   "claim_text": "Continue the midazolam infusion for sedation.",
+   "kind": "action",
+   "text": "Continue the midazolam infusion for sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "midazolam infusion",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38197705A2::05",
+   "claim_id": "M38197705A2",
+   "claim_text": "Continue the midazolam infusion for sedation.",
+   "kind": "fact",
+   "text": "A midazolam infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M38197705A3::06",
+   "claim_id": "M38197705A3",
+   "claim_text": "Monitor arterial blood gases and lactate to assess acid-base status and perfusion.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38197705A3::07",
+   "claim_id": "M38197705A3",
+   "claim_text": "Monitor arterial blood gases and lactate to assess acid-base status and perfusion.",
+   "kind": "action",
+   "text": "Monitor lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M38197705A1::03",
+   "claim_id": "M38197705A1",
+   "claim_text": "Continue mechanical ventilation with the current controlled mode and PEEP settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:4684498:225792:2116-12-03 00:25:00",
+     "time": "2116-12-03 00:25:00",
+     "item": "Running at decision time (started 2116-12-03 00:25:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M38197705A2::05",
+   "claim_id": "M38197705A2",
+   "claim_text": "Continue the midazolam infusion for sedation.",
+   "kind": "fact",
+   "text": "A midazolam infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R44 shows a Midazolam (Versed) infusion running at decision time (started 2116-12-03 22:47:00) at ~2 mg/hour, confirming a midazolam infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:2070669:221668:2116-12-03 22:47:00",
+     "time": "2116-12-03 22:47:00",
+     "item": "Running at decision time (started 2116-12-03 22:47:00): Infusion/input Midazolam (Versed) at 1.9999942779541016 mg/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M38197705A1::01",
+   "claim_id": "M38197705A1",
+   "claim_text": "Continue mechanical ventilation with the current controlled mode and PEEP settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2116-12-03 00:25:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38197705A1::02",
+   "claim_id": "M38197705A1",
+   "claim_text": "Continue mechanical ventilation with the current controlled mode and PEEP settings.",
+   "kind": "action",
+   "text": "Maintain the current controlled mode and PEEP settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "ventilator mode and PEEP settings",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2116-12-03 00:25:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38197705A2::04",
+   "claim_id": "M38197705A2",
+   "claim_text": "Continue the midazolam infusion for sedation.",
+   "kind": "action",
+   "text": "Continue the midazolam infusion for sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "midazolam infusion",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN221668",
+     "time": "2116-12-03 22:47:00",
+     "item": "Midazolam (Versed) infusion continuing at 1.9999942779541016 mg/hour",
+     "class": "sedation"
+    },
+    {
+     "rid": "IN221668#2",
+     "time": "2116-12-04 01:49:00",
+     "item": "Midazolam (Versed) infusion started at",
+     "class": "sedation"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded sedation after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38197705A3::06",
+   "claim_id": "M38197705A3",
+   "claim_text": "Monitor arterial blood gases and lactate to assess acid-base status and perfusion.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223830:2116-12-04 02:04:00:527479",
+     "time": "2116-12-04 02:04:00",
+     "item": "pH",
+     "value": "7.23 units"
+    },
+    {
+     "rid": "chart:223830:2116-12-04 22:21:00:531848",
+     "time": "2116-12-04 22:21:00",
+     "item": "pH",
+     "value": "7.34 units"
+    },
+    {
+     "rid": "chart:220235:2116-12-04 02:04:00:527474",
+     "time": "2116-12-04 02:04:00",
+     "item": "PaCO2",
+     "value": "46 mmHg"
+    },
+    {
+     "rid": "chart:220235:2116-12-04 22:21:00:531850",
+     "time": "2116-12-04 22:21:00",
+     "item": "PaCO2",
+     "value": "41 mmHg"
+    },
+    {
+     "rid": "chart:220224:2116-12-04 02:04:00:527480",
+     "time": "2116-12-04 02:04:00",
+     "item": "PaO2",
+     "value": "198 mmHg"
+    },
+    {
+     "rid": "chart:220224:2116-12-04 22:21:00:531851",
+     "time": "2116-12-04 22:21:00",
+     "item": "PaO2",
+     "value": "98 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pH x12, PaCO2 x12, PaO2 x12.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38197705A3::07",
+   "claim_id": "M38197705A3",
+   "claim_text": "Monitor arterial blood gases and lactate to assess acid-base status and perfusion.",
+   "kind": "action",
+   "text": "Monitor lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225668:2116-12-04 02:04:00:527476",
+     "time": "2116-12-04 02:04:00",
+     "item": "lactate",
+     "value": "2.7 mmol/L"
+    },
+    {
+     "rid": "chart:225668:2116-12-04 22:21:00:531853",
+     "time": "2116-12-04 22:21:00",
+     "item": "lactate",
+     "value": "3.1 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): lactate x12.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest albumin 3.4 g/dL at 2116-12-03 12:13:00 (reference 3.5 to 5.2) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "albumin",
+     "direction": "low",
+     "reason": "Latest albumin 3.4 g/dL at 2116-12-03 12:13:00 (reference 3.5 to 5.2) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.01 mmol/L at 2116-12-04 00:25:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 1.01 mmol/L at 2116-12-04 00:25:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.1 mmol/L at 2116-12-04 00:25:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 3.1 mmol/L at 2116-12-04 00:25:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "NaCl 0.9%",
+    "PlasmaLyte"
+   ],
+   "doctor_rows": 22,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38197705A1::01",
+    "M38197705A1::02"
+   ]
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "glucose_rescue",
+   "name": "hypoglycemia treatment",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 50%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M38197705A2::04"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest albumin 3.4 g/dL at 2116-12-03 12:13:00 (reference 3.5 to 5.2) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "albumin",
+     "direction": "low",
+     "reason": "Latest albumin 3.4 g/dL at 2116-12-03 12:13:00 (reference 3.5 to 5.2) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.01 mmol/L at 2116-12-04 00:25:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 1.01 mmol/L at 2116-12-04 00:25:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.1 mmol/L at 2116-12-04 00:25:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 3.1 mmol/L at 2116-12-04 00:25:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "NaCl 0.9%",
+    "PlasmaLyte"
+   ],
+   "doctor_rows": 22,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38197705A1::01",
+    "M38197705A1::02"
+   ]
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "glucose_rescue",
+   "name": "hypoglycemia treatment",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 50%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M38197705A2::04"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "albumin",
+   "direction": "low",
+   "reason": "Latest albumin 3.4 g/dL at 2116-12-03 12:13:00 (reference 3.5 to 5.2) is low, consistent with 'low'.",
+   "name": "albumin",
+   "treated_by": [
+    "albumin / colloid"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "calcium",
+   "direction": "low",
+   "reason": "Latest calcium 1.01 mmol/L at 2116-12-04 00:25:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "name": "calcium",
+   "treated_by": [
+    "calcium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 3.1 mmol/L at 2116-12-04 00:25:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 89,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 3,
+  "treatments_omitted": 11,
+  "recall_vital": 0.2,
+  "recall_okay": 0.125,
+  "recall_all": 0.154,
+  "recall_vital_at3": 0.2,
+  "recall_okay_at3": 0.125,
+  "recall_all_at3": 0.154
+ }
+}

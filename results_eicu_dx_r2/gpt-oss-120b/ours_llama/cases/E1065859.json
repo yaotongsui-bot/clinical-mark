@@ -1,0 +1,252 @@
+{
+ "case_id": "E1065859",
+ "decision_point": "2100-01-02 20:54:00",
+ "claims": [
+  "Start a low‑dose norepinephrine infusion to maintain mean arterial pressure ≥65 mmHg.",
+  "Continue subcutaneous heparin q12h for VTE prophylaxis.",
+  "Monitor invasive arterial blood pressure and lactate q2h."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1065859A1::01",
+   "claim_id": "E1065859A1",
+   "claim_text": "Start a low‑dose norepinephrine infusion to maintain mean arterial pressure ≥65 mmHg.",
+   "kind": "action",
+   "text": "Start a low-dose norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1065859A1::02",
+   "claim_id": "E1065859A1",
+   "claim_text": "Start a low‑dose norepinephrine infusion to maintain mean arterial pressure ≥65 mmHg.",
+   "kind": "goal",
+   "text": "Maintain mean arterial pressure ≥65 mmHg.",
+   "concept": "map",
+   "notes": []
+  },
+  {
+   "atom_id": "E1065859A2::03",
+   "claim_id": "E1065859A2",
+   "claim_text": "Continue subcutaneous heparin q12h for VTE prophylaxis.",
+   "kind": "action",
+   "text": "Continue subcutaneous heparin q12h.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1065859A2::04",
+   "claim_id": "E1065859A2",
+   "claim_text": "Continue subcutaneous heparin q12h for VTE prophylaxis.",
+   "kind": "fact",
+   "text": "Subcutaneous heparin q12h is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1065859A3::05",
+   "claim_id": "E1065859A3",
+   "claim_text": "Monitor invasive arterial blood pressure and lactate q2h.",
+   "kind": "action",
+   "text": "Monitor invasive arterial blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "invasive arterial blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1065859A3::06",
+   "claim_id": "E1065859A3",
+   "claim_text": "Monitor invasive arterial blood pressure and lactate q2h.",
+   "kind": "action",
+   "text": "Monitor lactate q2h.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1065859A2::04",
+   "claim_id": "E1065859A2",
+   "claim_text": "Continue subcutaneous heparin q12h for VTE prophylaxis.",
+   "kind": "fact",
+   "text": "Subcutaneous heparin q12h is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The record R24 shows that subcutaneous heparin q12h is currently being given, which supports the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:37025696",
+     "time": "2100-01-02 02:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 02:00:00): Medication hePARIN subcutaneous Subcutan q12hr"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1065859A1::01",
+   "claim_id": "E1065859A1",
+   "claim_text": "Start a low‑dose norepinephrine infusion to maintain mean arterial pressure ≥65 mmHg.",
+   "kind": "action",
+   "text": "Start a low-dose norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1065859A2::03",
+   "claim_id": "E1065859A2",
+   "claim_text": "Continue subcutaneous heparin q12h for VTE prophylaxis.",
+   "kind": "action",
+   "text": "Continue subcutaneous heparin q12h.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (prophylactic) action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1065859A3::05",
+   "claim_id": "E1065859A3",
+   "claim_text": "Monitor invasive arterial blood pressure and lactate q2h.",
+   "kind": "action",
+   "text": "Monitor invasive arterial blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "invasive arterial blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:656919999",
+     "time": "2100-01-02 21:00:00",
+     "item": "systolic BP",
+     "value": "101.0 mmHg"
+    },
+    {
+     "rid": "nurse:653608149",
+     "time": "2100-01-02 23:00:00",
+     "item": "systolic BP",
+     "value": "101.0 mmHg"
+    },
+    {
+     "rid": "nurse:656919998",
+     "time": "2100-01-02 21:00:00",
+     "item": "mean arterial pressure",
+     "value": "82.0 mmHg"
+    },
+    {
+     "rid": "nurse:653608148",
+     "time": "2100-01-02 23:00:00",
+     "item": "mean arterial pressure",
+     "value": "53.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x26, mean arterial pressure x26.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1065859A3::06",
+   "claim_id": "E1065859A3",
+   "claim_text": "Monitor invasive arterial blood pressure and lactate q2h.",
+   "kind": "action",
+   "text": "Monitor lactate q2h.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

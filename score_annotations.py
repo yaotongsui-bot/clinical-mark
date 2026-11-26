@@ -12,13 +12,17 @@ Reported (VeriFact, Chung et al., NEJM AI 2026):
   - strata by item type (fact / treatment / monitoring) and by how the machine decided
     (deterministic code, rule, judge panel).
 
-Machine labels are mapped onto the annotators' three labels:
-  fact:       supported, not_supported, not_addressed (unverifiable -> not_addressed)
-  treatment:  match -> supported, partial_match -> not_supported, everything else -> not_addressed
-  monitoring: performed -> supported, everything else -> not_addressed
+Annotator labels differ by row type; for the statistics each is placed on one three-class scale
+(positive / negative / undetermined), and so is the machine verdict:
+  fact:        supported | not_supported | unverifiable   (machine not_addressed -> unverifiable)
+  treatment:   agrees | disagrees | undetermined          (match, partial_match -> agrees; not_done -> disagrees;
+                                                           vague_target, unobservable, condition_not_met -> undetermined)
+  monitoring:  agrees | disagrees | undetermined          (performed / not_performed / unobservable)
+  finding:     mentioned | omitted                        (the fact-omission check; omitted is the negative class)
 
 Usage
-  python score_annotations.py results_fixed annotation_set/annotations.csv --out annotation_set/validation_report.md
+  python score_annotations.py annotation_set/annotations.csv --run base,results_deepseek_cloud \
+      --run s1,results_open_deepseek_s1_cloud --out annotation_set/validation_report.md
 """
 
 from __future__ import annotations
@@ -32,18 +36,25 @@ from collections import Counter, defaultdict
 from itertools import combinations
 from pathlib import Path
 
-CLASSES = ("supported", "not_supported", "not_addressed")
-TO_TRIAD = {
-    "fact": {"supported": "supported", "not_supported": "not_supported"},
-    "treatment": {"match": "supported", "partial_match": "not_supported"},
-    "monitoring": {"performed": "supported"},
+CLASSES = ("positive", "negative", "undetermined")
+SCALE = {
+    "fact": {"supported": "positive", "not_supported": "negative", "unverifiable": "undetermined"},
+    "treatment": {"agrees": "positive", "disagrees": "negative", "undetermined": "undetermined"},
+    "monitoring": {"agrees": "positive", "disagrees": "negative", "undetermined": "undetermined"},
+    "finding": {"mentioned": "positive", "omitted": "negative"},
+}
+MACHINE = {
+    "fact": {"supported": "positive", "not_supported": "negative"},
+    "treatment": {"match": "positive", "partial_match": "positive", "not_done": "negative"},
+    "monitoring": {"performed": "positive", "not_performed": "negative"},
+    "finding": {"mentioned": "positive", "omitted": "negative"},
 }
 B = 1000
 SEED = 20261012
 
 
 def machine_triad(item_type: str, label: str) -> str:
-    return TO_TRIAD[item_type].get(label, "not_addressed")
+    return MACHINE[item_type].get(label, "undetermined")
 
 
 def gwet_ac1(ratings: list[list[str]], classes=CLASSES) -> float | None:
@@ -119,32 +130,46 @@ def fmt(value, ci=None, percent=False) -> str:
     return text
 
 
+def machine_labels(run_dir: Path, tag: str) -> dict[str, tuple[str, str, str]]:
+    out = {}
+    for path in sorted((run_dir / "cases").glob("*.json")):
+        case = json.loads(path.read_text(encoding="utf-8"))
+        cid = case["case_id"]
+        for x in case["facts"]:
+            out[f"{tag}|{cid}|{x['atom_id']}"] = ("fact", x["label"], x.get("method", "rule"))
+        for x in case["actions"]:
+            out[f"{tag}|{cid}|{x['atom_id']}"] = (x["track"], x["label"], x.get("method", "rule"))
+        for f in case["fact_omissions"]:
+            out[f"{tag}|{cid}|finding:{f['concept']}:{f['direction']}"] = (
+                "finding", "mentioned" if f["mentioned"] else "omitted", "rule")
+    return out
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("run", type=Path)
     parser.add_argument("annotations", type=Path)
+    parser.add_argument("--run", action="append", required=True, help="tag,results_dir as used to build the sheet")
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
 
     machine = {}
-    for path in sorted((args.run / "cases").glob("*.json")):
-        case = json.loads(path.read_text(encoding="utf-8"))
-        for x in case["facts"]:
-            machine[f"{case['case_id']}|{x['atom_id']}"] = ("fact", x["label"], x.get("method", "rule"))
-        for x in case["actions"]:
-            machine[f"{case['case_id']}|{x['atom_id']}"] = (x["track"], x["label"], x.get("method", "rule"))
+    for spec in args.run:
+        tag, run_dir = spec.split(",")
+        machine.update(machine_labels(Path(run_dir), tag))
 
     with args.annotations.open(encoding="utf-8-sig", newline="") as handle:
         rows = list(csv.DictReader(handle))
     items, unresolved, raters = [], [], []
     for row in rows:
-        labels = [row[c].strip() for c in ("annotator_1", "annotator_2", "annotator_3") if row.get(c, "").strip()]
-        bad = [lab for lab in labels + [row.get("adjudicated", "").strip()] if lab and lab not in CLASSES]
+        vocab = SCALE[row["item_type"]]
+        given = [row[c].strip() for c in ("annotator_1", "annotator_2", "annotator_3") if row.get(c, "").strip()]
+        bad = [lab for lab in given + [row.get("adjudicated", "").strip()] if lab and lab not in vocab]
         if bad:
-            raise ValueError(f"{row['item_id']}: unknown label(s) {bad}; use one of {CLASSES}")
+            raise ValueError(f"{row['item_id']}: unknown label(s) {bad}; use one of {sorted(vocab)}")
+        labels = [vocab[lab] for lab in given]
         if len(labels) >= 2:
             raters.append(labels)
-        truth = row.get("adjudicated", "").strip()
+        truth = vocab.get(row.get("adjudicated", "").strip(), "")
         if not truth and labels:
             label, n = Counter(labels).most_common(1)[0]
             truth = label if n >= 2 else ""
@@ -154,10 +179,11 @@ def main() -> None:
             continue
         item_type, label, method = machine[row["item_id"]]
         items.append({"case_id": row["case_id"], "item_type": item_type, "method": method, "truth": truth,
-                      "pred": machine_triad(item_type, label), "machine_label": label})
+                      "pred": machine_triad(item_type, label), "machine_label": label,
+                      "answer_set": row.get("answer_set", "")})
 
     lines = ["# Evaluator validation against clinician annotations", "",
-             f"- Run: `{args.run}`; annotations: `{args.annotations}`",
+             f"- Runs: {', '.join(f'`{r}`' for r in args.run)}; annotations: `{args.annotations}`",
              f"- Items with a ground-truth label: {len(items)}; awaiting adjudication: {len(unresolved)}; "
              f"cases: {len({i['case_id'] for i in items})}",
              f"- Confidence intervals: {B} bootstrap resamples of cases.", ""]
@@ -176,14 +202,14 @@ def main() -> None:
         return agreement_stats([(i["truth"], i["pred"]) for i in sample])
 
     def binary(sample):
-        pairs = [(i["truth"] == "supported", i["pred"] == "supported") for i in sample]
-        return agreement_stats([("supported" if t else "other", "supported" if p else "other") for t, p in pairs],
-                               ("supported", "other"))
+        pairs = [(i["truth"] == "positive", i["pred"] == "positive") for i in sample]
+        return agreement_stats([("positive" if t else "other", "positive" if p else "other") for t, p in pairs],
+                               ("positive", "other"))
 
     lines += ["## Evaluator vs ground truth", "",
               "| Stratum | n | Percent agreement | Gwet's AC1 | MCC |", "|---|---|---|---|---|"]
-    strata = [("all items (3 labels)", items, three), ("all items (supported vs not)", items, binary)]
-    for key in ("item_type", "method"):
+    strata = [("all items (3 labels)", items, three), ("all items (positive vs not)", items, binary)]
+    for key in ("item_type", "method", "answer_set"):
         for value in sorted({i[key] for i in items}):
             strata.append((f"{key} = {value}", [i for i in items if i[key] == value], three))
     for name, sample, fn in strata:

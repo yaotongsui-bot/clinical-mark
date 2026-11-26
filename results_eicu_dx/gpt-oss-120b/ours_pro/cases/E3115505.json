@@ -1,0 +1,333 @@
+{
+ "case_id": "E3115505",
+ "decision_point": "2100-01-02 03:00:00",
+ "claims": [
+  "Continue scheduled inhaled albuterol therapy via nebulizer as ordered.",
+  "Obtain a chest radiograph to assess for possible asthma exacerbation or other pulmonary pathology.",
+  "Monitor respiratory status q1h, including respiratory rate, SpO₂, and need for supplemental oxygen."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3115505A1::01",
+   "claim_id": "E3115505A1",
+   "claim_text": "Continue scheduled inhaled albuterol therapy via nebulizer as ordered.",
+   "kind": "action",
+   "text": "Continue scheduled inhaled albuterol therapy via nebulizer.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "continue",
+   "target": "inhaled albuterol",
+   "conditional": false,
+   "treatment_class": "bronchodilator",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3115505A1::02",
+   "claim_id": "E3115505A1",
+   "claim_text": "Continue scheduled inhaled albuterol therapy via nebulizer as ordered.",
+   "kind": "fact",
+   "text": "Scheduled inhaled albuterol therapy via nebulizer is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3115505A2::03",
+   "claim_id": "E3115505A2",
+   "claim_text": "Obtain a chest radiograph to assess for possible asthma exacerbation or other pulmonary pathology.",
+   "kind": "action",
+   "text": "Obtain a chest radiograph.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "chest radiograph",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3115505A2::04",
+   "claim_id": "E3115505A2",
+   "claim_text": "Obtain a chest radiograph to assess for possible asthma exacerbation or other pulmonary pathology.",
+   "kind": "action",
+   "text": "Assess for possible asthma exacerbation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "asthma exacerbation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3115505A2::05",
+   "claim_id": "E3115505A2",
+   "claim_text": "Obtain a chest radiograph to assess for possible asthma exacerbation or other pulmonary pathology.",
+   "kind": "action",
+   "text": "Assess for other pulmonary pathology.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pulmonary pathology",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3115505A3::06",
+   "claim_id": "E3115505A3",
+   "claim_text": "Monitor respiratory status q1h, including respiratory rate, SpO₂, and need for supplemental oxygen.",
+   "kind": "action",
+   "text": "Monitor respiratory rate every hour.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3115505A3::07",
+   "claim_id": "E3115505A3",
+   "claim_text": "Monitor respiratory status q1h, including respiratory rate, SpO₂, and need for supplemental oxygen.",
+   "kind": "action",
+   "text": "Monitor SpO₂ every hour.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "SpO₂",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3115505A3::08",
+   "claim_id": "E3115505A3",
+   "claim_text": "Monitor respiratory status q1h, including respiratory rate, SpO₂, and need for supplemental oxygen.",
+   "kind": "action",
+   "text": "Monitor need for supplemental oxygen every hour.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "supplemental oxygen",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3115505A1::02",
+   "claim_id": "E3115505A1",
+   "claim_text": "Continue scheduled inhaled albuterol therapy via nebulizer as ordered.",
+   "kind": "fact",
+   "text": "Scheduled inhaled albuterol therapy via nebulizer is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Multiple records show albuterol administration running at decision time, including concentrated 0.5% and inhalation per protocol, supporting that scheduled inhaled albuterol therapy is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:102828057",
+     "time": "2100-01-01 01:18:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 01:18:00): Medication ALBUTEROL CONCENTRATED 0.5% ZPYXVEND ZPYXISVEND"
+    },
+    {
+     "rid": "med:102828059",
+     "time": "2100-01-01 01:27:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 01:27:00): Medication ALBUTEROL CONCENTRATED 0.5% ZPYXVEND ZPYXISVEND"
+    },
+    {
+     "rid": "med:102828262",
+     "time": "2100-01-01 04:13:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 04:13:00): Medication ALBUTEROL 90 MCG INHALATION PER PROTOCOL"
+    },
+    {
+     "rid": "med:102828261",
+     "time": "2100-01-01 04:13:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 04:13:00): Medication ALBUTEROL CONCENTRATED 0.5% INHALATION PER PROTOCOL"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3115505A1::01",
+   "claim_id": "E3115505A1",
+   "claim_text": "Continue scheduled inhaled albuterol therapy via nebulizer as ordered.",
+   "kind": "action",
+   "text": "Continue scheduled inhaled albuterol therapy via nebulizer.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "continue",
+   "target": "inhaled albuterol",
+   "conditional": false,
+   "treatment_class": "bronchodilator",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No bronchodilators / inhaled therapy action recorded in the 16.3 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3115505A2::03",
+   "claim_id": "E3115505A2",
+   "claim_text": "Obtain a chest radiograph to assess for possible asthma exacerbation or other pulmonary pathology.",
+   "kind": "action",
+   "text": "Obtain a chest radiograph.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "chest radiograph",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 16.3 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3115505A2::04",
+   "claim_id": "E3115505A2",
+   "claim_text": "Obtain a chest radiograph to assess for possible asthma exacerbation or other pulmonary pathology.",
+   "kind": "action",
+   "text": "Assess for possible asthma exacerbation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "asthma exacerbation",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3115505A2::05",
+   "claim_id": "E3115505A2",
+   "claim_text": "Obtain a chest radiograph to assess for possible asthma exacerbation or other pulmonary pathology.",
+   "kind": "action",
+   "text": "Assess for other pulmonary pathology.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pulmonary pathology",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3115505A3::06",
+   "claim_id": "E3115505A3",
+   "claim_text": "Monitor respiratory status q1h, including respiratory rate, SpO₂, and need for supplemental oxygen.",
+   "kind": "action",
+   "text": "Monitor respiratory rate every hour.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2084685080",
+     "time": "2100-01-02 04:00:00",
+     "item": "respiratory rate",
+     "value": "24.0 insp/min"
+    },
+    {
+     "rid": "nurse:1982230361",
+     "time": "2100-01-02 05:00:00",
+     "item": "respiratory rate",
+     "value": "22.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 16.3 h observation window after the decision (24 h or until ICU discharge): respiratory rate x13.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3115505A3::07",
+   "claim_id": "E3115505A3",
+   "claim_text": "Monitor respiratory status q1h, including respiratory rate, SpO₂, and need for supplemental oxygen.",
+   "kind": "action",
+   "text": "Monitor SpO₂ every hour.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "SpO₂",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3115505A3::08",
+   "claim_id": "E3115505A3",
+   "claim_text": "Monitor respiratory status q1h, including respiratory rate, SpO₂, and need for supplemental oxygen.",
+   "kind": "action",
+   "text": "Monitor need for supplemental oxygen every hour.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 16.3,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

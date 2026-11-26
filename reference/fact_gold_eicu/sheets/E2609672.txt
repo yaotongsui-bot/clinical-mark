@@ -1,0 +1,107 @@
+# E2609672   T = 2100-01-02 15:13:00   records before T: 251
+ICU stay 2609672 (Med-Surg ICU; Female, age > 89; admission diagnosis: Sepsis, renal/UTI (including bladder)).
+
+## Atoms
+deepseek-v4.1-flash|E2609672A1::02 [presupposition] Metoprolol tartrate is currently being given.   <- Continue scheduled oral metoprolol tartrate 25 mg twice daily.
+deepseek-v4.1-flash|E2609672A2::04 [presupposition] Heparin is currently being given.   <- Continue scheduled subcutaneous heparin 5,000 units every 8 hours for VTE prophylaxis.
+deepseek-v4.1-flash|E2609672A3::06 [observed] Recent hypoglycemia is present.   <- Monitor blood glucose with finger-stick checks given recent hypoglycemia and glucose variability.
+deepseek-v4.1-flash|E2609672A3::07 [observed] Glucose variability is present.   <- Monitor blood glucose with finger-stick checks given recent hypoglycemia and glucose variability.
+gpt-oss-120b|E2609672A3::08 [presupposition] Subcutaneous heparin is currently being given.   <- Continue subcutaneous heparin for venous thromboembolism prophylaxis per existing order.
+qwen2.5-7b|E2609672A1::02 [observed] Hyperglycemia is present.   <- Monitor blood glucose levels closely due to hyperglycemia.
+qwen2.5-7b|E2609672A2::04 [presupposition] Pantoprazole is currently being given.   <- Continue stress ulcer prophylaxis with pantoprazole.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 03:45:00): Medication METOPROLOL TARTRATE 25 MG TABLET Oral 2 times daily
+  Running at decision time (scheduled order started 2100-01-01 03:45:00): Medication POLYETHYLENE GLYCOL 3350 17 GRAM ORAL POWDER PACKET Oral 2 times daily
+  Running at decision time (scheduled order started 2100-01-01 03:45:00): Medication DOCUSATE SODIUM 100 MG CAPSULE Oral 2 times daily
+  Running at decision time (scheduled order started 2100-01-01 04:00:00): Medication 1 ML VIAL : HEPARIN (PORCINE) 5,000 UNIT/ML INJ SOLN SubQ Every 8 hours
+  Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication PANTOPRAZOLE 40 MG TABLET,DELAYED RELEASE Oral Every morning before breakfast
+  Running at decision time (scheduled order started 2100-01-01 15:00:00): Medication ASPIRIN 325 MG TABLET Oral Daily
+
+## PRN orders
+  01-01 03:20 Order: ACETAMINOPHEN 325 MG TABLET Oral Every 6 hours PRN (active at decision time)
+  01-01 03:20 Order: GLUCAGON (HUMAN RECOMBINANT) 1 MG/ML SOLUTION FOR INJECTION IM As needed PRN (active at decision time)
+  01-01 03:20 Order: GLUCAGON (HUMAN RECOMBINANT) 1 MG/ML SOLUTION FOR INJECTION SubQ As needed PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Given once: 1000 ML : SODIUM CHLORIDE 0.9 % 0.9 % IV SOLP IV Once X1 (2100-01-01 01:02:00)
+  Given once: 500 ML : SODIUM CHLORIDE 0.9 % 0.9 % IV SOLP IV Once X1 (2100-01-01 01:05:00)
+
+## Laboratory (newest first, up to 5)
+  -eos: 01-01 12:24 1 %; 01-01 00:17 0 %
+  -lymphs: 01-01 12:24 11 %; 01-01 00:17 8 %
+  -monos: 01-01 12:24 11 %; 01-01 00:17 6 %
+  -polys: 01-01 12:24 77 %; 01-01 00:17 85 %
+  Alanine Aminotransferase (ALT): 01-01 17:10 25 IU/L; 01-01 00:17 28 IU/L
+  Albumin: 01-02 11:50 2.9 g/dL; 01-01 17:10 3 g/dL; 01-01 00:17 3.8 g/dL
+  Alkaline Phosphatase: 01-01 17:10 140 IU/L; 01-01 00:17 180 IU/L
+  Anion Gap: 01-02 11:50 5; 01-01 17:10 5; 01-01 09:16 8; 01-01 03:42 7; 01-01 00:17 10
+  Asparate Aminotransferase (AST): 01-01 17:10 33 IU/L; 01-01 00:17 38 IU/L
+  Base Excess: 01-01 00:45 3.3 MEQ/L
+  Bicarbonate: 01-02 11:50 27 MEQ/L; 01-01 17:10 29 MEQ/L; 01-01 09:16 27 MEQ/L; 01-01 03:42 29 MEQ/L; 01-01 00:17 31 MEQ/L
+  Bicarbonate (blood gas HCO3): 01-01 00:45 28.5 MEQ/L
+  Bilirubin, Total: 01-01 17:10 0.4 mg/dL; 01-01 00:17 0.3 mg/dL
+  Calcium, Total: 01-02 11:50 9 mg/dL; 01-01 17:10 8.6 mg/dL; 01-01 09:16 8.6 mg/dL; 01-01 03:42 8.4 mg/dL; 01-01 00:17 8.8 mg/dL
+  Carboxyhemoglobin: 01-01 00:45 1.7 % THB
+  Chloride: 01-02 11:50 98 MEQ/L; 01-01 17:10 98 MEQ/L; 01-01 09:16 100 MEQ/L; 01-01 03:42 101 MEQ/L; 01-01 00:17 96 MEQ/L
+  Creatinine: 01-02 11:50 1.3 mg/dL; 01-01 17:10 1.2 mg/dL; 01-01 09:16 1.2 mg/dL; 01-01 03:42 1.2 mg/dL; 01-01 00:17 1.3 mg/dL
+  Free Calcium: 01-01 00:45 4.7 mg/dL
+  Glucose: 01-02 11:50 119 mg/dL; 01-01 17:10 70 mg/dL; 01-01 09:16 22 mg/dL; 01-01 03:42 39 mg/dL; 01-01 00:17 274 mg/dL
+  Glucose finger stick: 01-02 13:26 114 mg/dL; 01-02 12:16 135 mg/dL; 01-02 11:30 126 mg/dL; 01-02 10:26 143 mg/dL; 01-02 08:59 148 mg/dL   [+30 earlier]
+  Hematocrit: 01-01 12:24 29 %; 01-01 00:17 33 %
+  Hemoglobin: 01-01 12:24 9.5 g/dL; 01-01 00:17 10.6 g/dL
+  LPM O2: 01-01 00:45 5 L/min
+  MCH: 01-01 12:24 29 pg; 01-01 00:17 29 pg
+  MCHC: 01-01 12:24 33 %; 01-01 00:17 32 %
+  MCV: 01-01 12:24 87 fL; 01-01 00:17 90 fL
+  MPV: 01-01 12:24 10 fL; 01-01 00:17 10.5 fL
+  Magnesium: 01-01 09:16 2.1 mg/dL
+  Methemoglobin: 01-01 00:45 0.7 % THB
+  O2 Content: 01-01 00:45 15.3 mL/dL
+  Oxyhemoglobin: 01-01 00:45 98 % THB
+  Phosphate: 01-02 11:50 4.3 mg/dL
+  Platelet Count: 01-01 12:24 268 TH/uL; 01-01 00:17 344 TH/uL
+  Potassium: 01-02 11:50 5.4 MEQ/L; 01-01 17:10 5.4 MEQ/L; 01-01 09:16 5.6 MEQ/L; 01-01 03:42 4.9 MEQ/L; 01-01 00:17 5.1 MEQ/L
+  RBC: 01-01 12:24 3.28 MIL/uL; 01-01 00:17 3.62 MIL/uL
+  RDW: 01-01 12:24 14.4 %; 01-01 00:17 14.7 %
+  Sodium: 01-02 11:50 130 MEQ/L; 01-01 17:10 132 MEQ/L; 01-01 09:16 135 MEQ/L; 01-01 03:42 137 MEQ/L; 01-01 00:17 137 MEQ/L
+  TSH: 01-01 09:16 1.58 uIU/mL; 01-01 09:16 1.6 uIU/mL
+  Urea Nitrogen: 01-02 11:50 34 mg/dL; 01-01 17:10 33 mg/dL; 01-01 09:16 39 mg/dL; 01-01 03:42 41 mg/dL; 01-01 00:17 43 mg/dL
+  White Blood Cells: 01-01 12:24 10.75 TH/uL; 01-01 00:17 15.12 TH/uL
+  cortisol: 01-01 17:10 39.1 ug/dL; 01-01 16:40 32.9 ug/dL; 01-01 15:17 13.6 ug/dL
+  free T4: 01-01 09:16 1.1 ng/dL
+  pCO2: 01-01 00:45 45 mm Hg
+  pH: 01-01 00:45 7.41 units
+  pO2: 01-01 00:45 135 mm Hg
+  total protein: 01-01 17:10 5.8 g/dL; 01-01 00:17 7.1 g/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Delirium Scale/Score Delirium Scale: CAM-ICU @01-02 14:00
+  Delirium Scale/Score Delirium Score: No @01-02 14:00
+  Glasgow coma score Eyes: 4 @01-02 14:00   24h 4-4 (n=6)
+  Glasgow coma score GCS Total: 15 @01-02 14:00   24h 15-15 (n=6)
+  Glasgow coma score Motor: 6 @01-02 14:00   24h 6-6 (n=6)
+  Glasgow coma score Verbal: 5 @01-02 14:00   24h 5-5 (n=6)
+  Glucose finger stick: 114 mg/dL @01-02 13:26   24h 68-169 (n=15)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-01 22:00
+  Sedation Scale/Score/Goal Sedation Score: 0 @01-01 22:00   24h 0-0 (n=2)
+  Temperature Fahrenheit: 99 F @01-02 00:00   24h 97.9-99 (n=2)
+
+## Treatments documented
+  01-01 18:09 glucose metabolism | glucose | D10W
+  01-01 18:09 medications | stress ulcer prophylaxis | pantoprazole
+  01-01 18:09 medications | therapeutic antibacterials | quinolone
+  01-01 18:09 adrenal disorders | glucocorticoids | dexamethasone
+  01-01 18:09 adrenal disorders | glucocorticoids | hydrocortisone
+  01-01 18:09 cultures / immuno-assays | cultures | urine
+  01-01 18:09 ventricular dysfunction | intravenous diuretic | IV furosemide
+  01-01 18:09 myocardial ischemia / infarction | antiplatelet agent | aspirin
+  01-01 18:09 vascular disorders | VTE prophylaxis | conventional heparin therapy
+  01-01 18:09 endocrine | consultations | Endocrinology consultation
+  01-01 18:09 cardiovascular | myocardial ischemia / infarction | beta blocker
+  01-01 18:09 cultures / immuno-assays | cultures | blood
+  01-01 18:09 cardiovascular | myocardial ischemia / infarction | antihyperlipidemic agent
+
+## Microbiology

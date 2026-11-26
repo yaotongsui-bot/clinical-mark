@@ -1,0 +1,278 @@
+{
+ "case_id": "E2419768",
+ "decision_point": "2100-01-02 19:34:00",
+ "claims": [
+  "Monitor patient's oxygen saturation and adjust oxygen therapy as needed.",
+  "Continue IV fluid administration to maintain hydration.",
+  "Assess patient's pain level and manage pain as necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2419768A1::01",
+   "claim_id": "E2419768A1",
+   "claim_text": "Monitor patient's oxygen saturation and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2419768A1::02",
+   "claim_id": "E2419768A1",
+   "claim_text": "Monitor patient's oxygen saturation and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2419768A2::03",
+   "claim_id": "E2419768A2",
+   "claim_text": "Continue IV fluid administration to maintain hydration.",
+   "kind": "action",
+   "text": "Continue IV fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2419768A2::04",
+   "claim_id": "E2419768A2",
+   "claim_text": "Continue IV fluid administration to maintain hydration.",
+   "kind": "fact",
+   "text": "IV fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E2419768A3::05",
+   "claim_id": "E2419768A3",
+   "claim_text": "Assess patient's pain level and manage pain as necessary.",
+   "kind": "action",
+   "text": "Assess pain level.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2419768A3::06",
+   "claim_id": "E2419768A3",
+   "claim_text": "Assess patient's pain level and manage pain as necessary.",
+   "kind": "action",
+   "text": "Manage pain as necessary.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2419768A2::04",
+   "claim_id": "E2419768A2",
+   "claim_text": "Continue IV fluid administration to maintain hydration.",
+   "kind": "fact",
+   "text": "IV fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show IV fluid administrations (sodium chloride 0.9% syringes) that were running at decision time on 2100-01-01, but the decision time is 2100-01-02 19:34. No IV fluid administration is documented within the 24 hours before the decision time; the most recent IV-related record is an antibiotic (Rocephin) at 19:00 on 2100-01-02.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:83517562",
+     "time": "2100-01-01 16:15:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 16:15:00): Medication SODIUM CHLORIDE 0.9 % SYRINGE : 10 ML SYRINGE IV BID"
+    },
+    {
+     "rid": "med:87869314",
+     "time": "2100-01-01 19:25:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 19:25:00): Medication SODIUM CHLORIDE 0.9 % SYRINGE : 10 ML SYRINGE IV See Admin Notes"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2419768A1::01",
+   "claim_id": "E2419768A1",
+   "claim_text": "Monitor patient's oxygen saturation and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1681390234",
+     "time": "2100-01-02 20:28:00",
+     "item": "SpO2",
+     "value": "93.0 %"
+    },
+    {
+     "rid": "nurse:1609662625",
+     "time": "2100-01-02 21:11:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x9.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2419768A1::02",
+   "claim_id": "E2419768A1",
+   "claim_text": "Monitor patient's oxygen saturation and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2419768A2::03",
+   "claim_id": "E2419768A2",
+   "claim_text": "Continue IV fluid administration to maintain hydration.",
+   "kind": "action",
+   "text": "Continue IV fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2419768A3::05",
+   "claim_id": "E2419768A3",
+   "claim_text": "Assess patient's pain level and manage pain as necessary.",
+   "kind": "action",
+   "text": "Assess pain level.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1602286106",
+     "time": "2100-01-03 02:09:00",
+     "item": "pain score",
+     "value": "5.0"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2419768A3::06",
+   "claim_id": "E2419768A3",
+   "claim_text": "Assess patient's pain level and manage pain as necessary.",
+   "kind": "action",
+   "text": "Manage pain as necessary.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "IV fluids are currently being administered. -- The records show IV fluid administrations (sodium chloride 0.9% syringes) that were running at decision time on 2100-01-01, but the decision time is 2100-01-02 19:34. No IV fluid administration is documented within the 24 hours before the decision time; the most recent IV-related record is an antibiotic (Rocephin) at 19:00 on 2100-01-02."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

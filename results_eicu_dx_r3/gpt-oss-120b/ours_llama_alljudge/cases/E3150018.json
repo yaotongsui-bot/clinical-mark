@@ -1,0 +1,290 @@
+{
+ "case_id": "E3150018",
+ "decision_point": "2100-01-02 23:33:00",
+ "claims": [
+  "Continue scheduled antipsychotic (haloperidol) for agitation management.",
+  "Obtain a non‑contrast head CT to evaluate persistent altered mental status.",
+  "Monitor neurologic status q1h with Glasgow Coma Scale assessments."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3150018A1::01",
+   "claim_id": "E3150018A1",
+   "claim_text": "Continue scheduled antipsychotic (haloperidol) for agitation management.",
+   "kind": "action",
+   "text": "Continue scheduled haloperidol.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "haloperidol",
+   "conditional": false,
+   "treatment_class": "antipsychotic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3150018A1::02",
+   "claim_id": "E3150018A1",
+   "claim_text": "Continue scheduled antipsychotic (haloperidol) for agitation management.",
+   "kind": "fact",
+   "text": "Haloperidol is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3150018A1::03",
+   "claim_id": "E3150018A1",
+   "claim_text": "Continue scheduled antipsychotic (haloperidol) for agitation management.",
+   "kind": "fact",
+   "text": "Agitation is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3150018A2::04",
+   "claim_id": "E3150018A2",
+   "claim_text": "Obtain a non‑contrast head CT to evaluate persistent altered mental status.",
+   "kind": "action",
+   "text": "Obtain a non-contrast head CT.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "non-contrast head CT",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3150018A2::05",
+   "claim_id": "E3150018A2",
+   "claim_text": "Obtain a non‑contrast head CT to evaluate persistent altered mental status.",
+   "kind": "fact",
+   "text": "Altered mental status is present.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "persistent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3150018A3::06",
+   "claim_id": "E3150018A3",
+   "claim_text": "Monitor neurologic status q1h with Glasgow Coma Scale assessments.",
+   "kind": "action",
+   "text": "Monitor neurologic status q1h with Glasgow Coma Scale assessments.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "neurologic status",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3150018A1::02",
+   "claim_id": "E3150018A1",
+   "claim_text": "Continue scheduled antipsychotic (haloperidol) for agitation management.",
+   "kind": "fact",
+   "text": "Haloperidol is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that haloperidol was ordered and administered, but the most recent administration record is from 00:06, which is before the decision time. The statement says it is currently being given, so it is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:77178331",
+     "time": "2100-01-02 00:06:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | anti-psychotic agent | haldol"
+    },
+    {
+     "rid": "treat:77497108",
+     "time": "2100-01-02 15:23:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | anti-psychotic agent | haldol"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3150018A1::03",
+   "claim_id": "E3150018A1",
+   "claim_text": "Continue scheduled antipsychotic (haloperidol) for agitation management.",
+   "kind": "fact",
+   "text": "Agitation is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient is receiving lorazepam and haldol for agitation management, but do not show that the patient is currently receiving these medications. The records also show that the patient has a history of receiving these medications, but this does not support the statement that the patient is currently receiving them.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:76922467",
+     "time": "2100-01-02 00:06:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | sedative agent | lorazepam"
+    },
+    {
+     "rid": "treat:77178331",
+     "time": "2100-01-02 00:06:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | anti-psychotic agent | haldol"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3150018A2::05",
+   "claim_id": "E3150018A2",
+   "claim_text": "Obtain a non‑contrast head CT to evaluate persistent altered mental status.",
+   "kind": "fact",
+   "text": "Altered mental status is present.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "persistent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The admission diagnosis mentions 'Coma/change in level of consciousness', which supports the statement 'Altered mental status is present.'",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:3150018:dx",
+     "time": "2100-01-01 23:33:00",
+     "item": "Admission diagnosis (APACHE): Coma/change in level of consciousness (for hepatic see GI, for diabetic see Endocrine, if related to cardiac arrest, see CV)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3150018A1::01",
+   "claim_id": "E3150018A1",
+   "claim_text": "Continue scheduled antipsychotic (haloperidol) for agitation management.",
+   "kind": "action",
+   "text": "Continue scheduled haloperidol.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "haloperidol",
+   "conditional": false,
+   "treatment_class": "antipsychotic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antipsychotics action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3150018A2::04",
+   "claim_id": "E3150018A2",
+   "claim_text": "Obtain a non‑contrast head CT to evaluate persistent altered mental status.",
+   "kind": "action",
+   "text": "Obtain a non-contrast head CT.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "non-contrast head CT",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3150018A3::06",
+   "claim_id": "E3150018A3",
+   "claim_text": "Monitor neurologic status q1h with Glasgow Coma Scale assessments.",
+   "kind": "action",
+   "text": "Monitor neurologic status q1h with Glasgow Coma Scale assessments.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "neurologic status",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No GCS / mental status measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Haloperidol is currently being given. -- The records show that haloperidol was ordered and administered, but the most recent administration record is from 00:06, which is before the decision time. The statement says it is currently being given, so it is not supported.",
+    "Agitation is present. -- The records show that the patient is receiving lorazepam and haldol for agitation management, but do not show that the patient is currently receiving these medications. The records also show that the patient has a history of receiving these medications, but this does not support the statement that the patient is currently receiving them."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

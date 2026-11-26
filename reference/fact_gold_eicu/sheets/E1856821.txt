@@ -1,0 +1,126 @@
+# E1856821   T = 2100-01-02 18:36:00   records before T: 292
+ICU stay 1856821 (MICU; Female, age 77; admission diagnosis: Sepsis, pulmonary).
+
+## Atoms
+deepseek-v4.1-flash|E1856821A1::02 [presupposition] Norepinephrine infusion is currently being given.   <- Continue norepinephrine infusion for shock, with dose titration to maintain adequate mean arterial pressure.
+deepseek-v4.1-flash|E1856821A1::03 [observed] Shock is present.   <- Continue norepinephrine infusion for shock, with dose titration to maintain adequate mean arterial pressure.
+deepseek-v4.1-flash|E1856821A2::07 [observed] Hyperglycemia is present.   <- Monitor blood glucose and adjust insulin regimen given hyperglycemia (fingerstick 294 mg/dL).
+deepseek-v4.1-flash|E1856821A2::08 [observed] Fingerstick glucose is 294 mg/dL.   <- Monitor blood glucose and adjust insulin regimen given hyperglycemia (fingerstick 294 mg/dL).
+gpt-oss-120b|E1856821A1::02 [presupposition] Norepinephrine is currently being given.   <- Add vasopressin infusion to the current norepinephrine regimen to achieve target MAP ≥65 mmHg.
+gpt-oss-120b|E1856821A2::06 [judgment] Sepsis is ongoing.   <- Obtain repeat blood cultures and a serum lactate level to assess ongoing sepsis and guide antimicrobial therapy.
+gpt-oss-120b|E1856821A3::08 [judgment] Refractory septic shock is possible.   <- Start stress‑dose hydrocortisone 50 mg IV q6h for possible refractory septic shock.
+qwen2.5-7b|E1856821A1::02 [observed] Blood glucose levels are elevated.   <- Monitor blood glucose levels closely due to elevated levels.
+qwen2.5-7b|E1856821A2::04 [presupposition] Norepinephrine infusion is currently being given.   <- Continue norepinephrine infusion to maintain hemodynamic stability.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2099-12-29 00:00:00): Medication 3 ML VIAL : INSULIN LISPRO (HUMAN) 100 UNIT/ML SC SOLN SC Q6H
+  Running at decision time (scheduled order started 2099-12-29 01:30:00): Medication 10 ML VIAL: INSULIN GLARGINE 100 UNIT/ML SC SOLN SC Q12H
+  Running at decision time (scheduled order started 2099-12-29 03:00:00): Medication METOPROLOL TARTRATE 25 MG PO TABS PER G TUBE Q12H
+  Running at decision time (scheduled order started 2099-12-29 15:00:00): Medication CLOPIDOGREL BISULFATE 75 MG PO TABS PER G TUBE Daily
+  Running at decision time (scheduled order started 2099-12-29 15:00:00): Medication VITAMIN D 1000 UNITS PO TABS PER G TUBE Daily
+  Running at decision time (scheduled order started 2099-12-29 15:00:00): Medication ASPIRIN 81 MG PO CHEW PER G TUBE Daily
+  Running at decision time (scheduled order started 2099-12-30 03:00:00): Medication VANCOMYCIN HCL 1000 MG IV SOLR IV See Admin Instructions
+  Running at decision time (scheduled order started 2099-12-30 19:00:00): Medication 3 ML PLAS CONT: IPRATROPIUM-ALBUTEROL 0.5-2.5 (3) MG/3ML IN SOLN NEBULIZATION Q6H
+  Running at decision time (scheduled order started 2100-01-02 03:00:00): Medication VANCOMYCIN HCL 1000 MG IV SOLR IV
+
+## PRN orders
+  12-28 23:12 Order: ACETAMINOPHEN 325 MG PO TABS PER G TUBE Q6H PRN (active at decision time)
+  12-28 23:14 Order: DOCUSATE SODIUM 100 MG PO CAPS PER G TUBE BID PRN (active at decision time)
+  12-28 23:18 Order: 3 ML PLAS CONT: IPRATROPIUM-ALBUTEROL 0.5-2.5 (3) MG/3ML IN SOLN NEBULIZATION Q4H PRN (active at decision time)
+  12-29 02:07 Order: VANCOMYCIN HCL 1000 MG IV SOLR IV Once PRN X1 (stopped 2099-12-29 05:59:00)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Norepinephrine at 13.01 mcg/min (2100-01-01 19:51:00 to 2100-01-01 23:34:00)
+  Infusion/input IVF at 10 ml/hour (2100-01-01 23:34:00 to 2100-01-02 09:51:00)
+  Infusion/input Norepinephrine at 21.01 mcg/min (2100-01-01 23:34:00 to 2100-01-02 09:51:00)
+  Infusion/input Norepinephrine at 16 mcg/min (2100-01-02 09:51:00 to 2100-01-02 13:16:00)
+  Infusion/input IVF at 10 ml/hour (2100-01-02 13:16:00 to 2100-01-02 14:11:00)
+  Infusion/input Norepinephrine at 18.03 mcg/min (2100-01-02 13:16:00 to 2100-01-02 14:11:00)
+
+## Medications given once or ended before T
+  Medication PANTOPRAZOLE SODIUM 40 MG PO TBEC PO Daily (2099-12-29 12:00:00 to 2099-12-30 13:35:00)
+  Medication 1 ML VIAL: HEPARIN SODIUM (PORCINE) 5000 UNIT/ML IJ SOLN SC Q12H SCH (2099-12-29 17:00:00 to 2099-12-29 22:53:00)
+  Given once: K PHOS MONO-SOD PHOS DI & MONO 155-852-130 MG PO TABS PO Once X1 (2099-12-29 17:00:00)
+  Medication VANCOMYCIN HCL 1000 MG IV SOLR IV (2099-12-31 03:00:00 to 2099-12-31 15:53:00)
+
+## Laboratory (newest first, up to 5)
+  -bands: 01-02 11:00 14 %; 12-31 12:00 7 %; 12-30 14:31 37 %; 12-29 11:00 31 %
+  -basos: 01-02 11:00 0 %; 01-01 11:00 0.2 %; 12-31 12:00 0 %; 12-30 14:31 0 %; 12-29 11:00 0 %
+  -eos: 01-02 11:00 0 %; 01-01 11:00 0.5 %; 12-31 12:00 0 %; 12-30 14:31 0 %; 12-29 11:00 2 %
+  -lymphs: 01-02 11:00 0 %; 01-01 11:00 10.2 %; 12-31 12:00 16 %; 12-30 14:31 6 %; 12-29 11:00 5 %
+  -monos: 01-02 11:00 1 %; 01-01 11:00 8.3 %; 12-31 12:00 14 %; 12-30 14:31 5 %; 12-29 11:00 2 %
+  -polys: 01-02 11:00 78 %; 01-01 11:00 80.8 %; 12-31 12:00 59 %; 12-30 14:31 52 %; 12-29 11:00 56 %
+  Alanine Aminotransferase (ALT): 01-01 11:00 7 IU/L; 12-31 11:00 8 IU/L; 12-29 11:00 10 IU/L
+  Albumin: 01-01 11:00 2.5 g/dL; 12-31 11:00 2.7 g/dL; 12-30 14:31 2.7 g/dL; 12-29 11:00 2.5 g/dL
+  Alkaline Phosphatase: 01-01 11:00 98 IU/L; 12-31 11:00 104 IU/L; 12-29 11:00 131 IU/L
+  Anion Gap: 01-02 11:00 22 mmol/L; 01-01 11:00 14 mmol/L; 12-31 11:00 13 mmol/L; 12-30 14:31 17 mmol/L; 12-29 11:00 12 mmol/L
+  Asparate Aminotransferase (AST): 01-01 11:00 12 IU/L; 12-31 11:00 15 IU/L; 12-29 11:00 18 IU/L
+  Base Deficit: 01-01 19:49 7 mmol/L; 12-29 11:41 0 mmol/L
+  Bicarbonate (blood gas HCO3): 01-01 19:49 30 mmol/L; 12-29 11:41 25 mmol/L
+  Bilirubin, Total: 01-01 11:00 0.9 mg/dL; 12-31 11:00 1.3 mg/dL; 12-29 11:00 1.1 mg/dL
+  Calcium, Total: 01-02 11:00 9.6 mg/dL; 01-01 11:00 8.6 mg/dL; 12-31 11:00 8.8 mg/dL; 12-30 14:31 8.7 mg/dL; 12-29 11:00 8 mg/dL
+  Chloride: 01-02 11:00 95 mmol/L; 01-01 11:00 99 mmol/L; 12-31 11:00 97 mmol/L; 12-30 14:31 96 mmol/L; 12-29 11:00 98 mmol/L
+  Creatinine: 01-02 11:00 2.55 mg/dL; 01-01 11:00 2.93 mg/dL; 12-31 11:00 2.44 mg/dL; 12-30 14:31 3.27 mg/dL; 12-29 11:00 2.71 mg/dL
+  Ferritin: 12-30 06:00 902 ng/mL
+  FiO2: 01-01 19:49 30 %; 12-29 11:41 30 %
+  Glucose: 01-02 11:00 229 mg/dL; 01-01 11:00 187 mg/dL; 12-31 11:00 180 mg/dL; 12-30 14:31 231 mg/dL; 12-29 11:00 185 mg/dL
+  Glucose finger stick: 01-02 18:11 294 mg/dL; 01-02 12:23 244 mg/dL; 01-02 05:49 158 mg/dL; 01-01 23:47 131 mg/dL; 01-01 17:43 115 mg/dL   [+15 earlier]
+  Hematocrit: 01-02 11:00 28 %; 01-01 11:00 26.5 %; 12-31 12:00 28.8 %; 12-30 14:31 34.8 %; 12-29 11:00 28.1 %
+  Hemoglobin: 01-02 11:00 8.6 g/dL; 01-01 11:00 8.3 g/dL; 12-31 12:00 9.3 g/dL; 12-30 14:31 10.9 g/dL; 12-29 11:00 8.9 g/dL
+  INR(PT): 01-01 22:31 1.7
+  MCH: 01-02 11:00 30.8 pg; 01-01 11:00 31 pg; 12-31 12:00 31.7 pg; 12-30 14:31 30.6 pg; 12-29 11:00 31.3 pg
+  MCHC: 01-02 11:00 30.7 %; 01-01 11:00 31.4 %; 12-31 12:00 32.2 %; 12-30 14:31 31.2 %; 12-29 11:00 31.8 %
+  MCV: 01-02 11:00 100.4 fL; 01-01 11:00 98.7 fL; 12-31 12:00 98.3 fL; 12-30 14:31 97.9 fL; 12-29 11:00 98.4 fL
+  MPV: 01-02 11:00 12.1 fL; 01-01 11:00 12.2 fL; 12-31 12:00 12.5 fL; 12-30 14:31 12.6 fL; 12-29 11:00 12 fL
+  Magnesium: 12-31 11:00 1.9 mg/dL; 12-29 11:00 2 mg/dL
+  Oxygen Saturation: 01-01 19:49 95 %; 12-29 11:41 97 %
+  PT: 01-01 22:31 19.1 sec
+  PTT: 01-01 22:31 38 sec
+  Phosphate: 12-31 11:00 2.7 mg/dL; 12-30 14:31 3.3 mg/dL; 12-29 11:00 1.9 mg/dL
+  Platelet Count: 01-02 11:00 142 k/mm cu; 01-01 11:00 109 k/mm cu; 12-31 12:00 104 k/mm cu; 12-30 14:31 141 k/mm cu; 12-29 11:00 91 k/mm cu
+  Potassium: 01-02 11:00 3.7 mmol/L; 01-01 11:00 4 mmol/L; 12-31 11:00 3.9 mmol/L; 12-30 14:31 4.6 mmol/L; 12-29 11:00 4.2 mmol/L
+  RBC: 01-02 11:00 2.79 m/mm cu; 01-01 11:00 2.69 m/mm cu; 12-31 12:00 2.93 m/mm cu; 12-30 14:31 3.55 m/mm cu; 12-29 11:00 2.86 m/mm cu
+  RDW: 01-02 11:00 21.9 %; 01-01 11:00 20.9 %; 12-31 12:00 21.1 %; 12-30 14:31 20.8 %; 12-29 11:00 20.7 %
+  Sodium: 01-02 11:00 138 mmol/L; 01-01 11:00 137 mmol/L; 12-31 11:00 134 mmol/L; 12-30 14:31 130 mmol/L; 12-29 11:00 131 mmol/L
+  TSH: 12-29 12:00 3.74 uIU/mL
+  TV: 01-01 19:49 500 L; 12-29 11:41 500 L
+  Total CO2: 01-02 11:00 25 mmol/L; 01-01 19:49 31 mmol/L; 01-01 11:00 28 mmol/L; 12-31 11:00 28 mmol/L; 12-30 14:31 22 mmol/L   [+2 earlier]
+  Urea Nitrogen: 01-02 11:00 45 mg/dL; 01-01 11:00 53 mg/dL; 12-31 11:00 38 mg/dL; 12-30 14:31 56 mg/dL; 12-29 11:00 40 mg/dL
+  Vancomycin - random: 01-01 21:00 14 mcg/mL; 12-31 02:50 20.3 mcg/mL; 12-29 02:30 23.5 mcg/mL
+  WBC's in urine: 12-31 02:49 >50
+  White Blood Cells: 01-02 11:00 21.5 k/mm cu; 01-01 11:00 6.3 k/mm cu; 12-31 12:00 7.3 k/mm cu; 12-30 14:31 13.2 k/mm cu; 12-29 11:00 9.5 k/mm cu
+  ammonia: 01-02 14:45 43 UMOL/L; 01-02 12:00 43 UMOL/L; 01-01 21:15 26 UMOL/L
+  fibrinogen: 01-01 22:31 263 mg/dL
+  pCO2: 01-01 19:49 36.8 mmHg; 12-29 11:41 37.2 mmHg
+  pH: 01-01 19:49 7.51; 12-29 11:41 7.43
+  pO2: 01-01 19:49 68 mmHg; 12-29 11:41 89 mmHg
+  reticulocyte count: 01-02 11:00 4.1 %
+  total protein: 01-01 11:00 4.4 g/dL; 12-31 11:00 4.8 g/dL; 12-29 11:00 4.3 g/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Central Venous Pressure: 5 mmHg @01-01 19:51
+  Glasgow coma score Eyes: 4 @01-02 13:16   24h 4-4 (n=3)
+  Glasgow coma score GCS Total: 9 @01-02 13:16   24h 9-9 (n=3)
+  Glasgow coma score Motor: 4 @01-02 13:16   24h 4-4 (n=3)
+  Glasgow coma score Verbal: 1 @01-02 13:16   24h 1-1 (n=3)
+  Heart Rate: 169 bpm @01-02 14:11   24h 97-169 (n=5)
+  Inspired O2 Fraction: 30 % @01-02 13:19   24h 30-30 (n=3)
+  Non Invasive Blood Pressure diastolic: 76 mmHg @01-02 14:11   24h 35-76 (n=5)
+  Non Invasive Blood Pressure mean: 92 mmHg @01-02 14:11   24h 50-92 (n=5)
+  Non Invasive Blood Pressure systolic: 120 mmHg @01-02 14:11   24h 75-120 (n=5)
+  O2 Delivery Device(s): Endotracheal tube (charted: ventilator) @01-02 14:11
+  O2 L/%: 30 @01-02 14:11   24h 30-30 (n=4)
+  O2 saturation pulseoxymetry: 100 % @01-02 14:11   24h 100-100 (n=5)
+  PEEP set: 5 cmH2O @01-02 13:19   24h 5-5 (n=3)
+  Respiratory Rate: 27 insp/min @01-02 14:11   24h 21-27 (n=5)
+  Respiratory Rate (Set): 18 insp/min @01-02 09:49
+  Respiratory Rate (spontaneous): 23 insp/min @01-02 13:19   24h 21-23 (n=3)
+  SaO2: 100 @01-02 13:19   24h 100-100 (n=3)
+  TV/kg IBW: 8.7719 @01-02 09:49
+  Temperature Fahrenheit: 100.1 F @01-01 21:35
+  Tidal Volume (set): 500 mL @01-02 09:49
+
+## Treatments documented
+  01-01 20:28 shock | inotropic agent | norepinephrine > 0.1 micrograms/kg/min
+
+## Microbiology

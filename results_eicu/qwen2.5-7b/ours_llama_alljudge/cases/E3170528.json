@@ -1,0 +1,260 @@
+{
+ "case_id": "E3170528",
+ "decision_point": "2100-01-02 03:39:00",
+ "claims": [
+  "Monitor blood pressure closely due to fluctuations.",
+  "Continue intravenous fluids to maintain hydration.",
+  "Assess for signs of intracranial hypertension."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3170528A1::01",
+   "claim_id": "E3170528A1",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3170528A1::02",
+   "claim_id": "E3170528A1",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3170528A2::03",
+   "claim_id": "E3170528A2",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3170528A2::04",
+   "claim_id": "E3170528A2",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3170528A3::05",
+   "claim_id": "E3170528A3",
+   "claim_text": "Assess for signs of intracranial hypertension.",
+   "kind": "action",
+   "text": "Assess for signs of intracranial hypertension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of intracranial hypertension",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3170528A1::02",
+   "claim_id": "E3170528A1",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient's blood pressure has been fluctuating, but the most recent measurement (R43) shows a mean of 113 mmHg, which is not fluctuating. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2184470681",
+     "time": "2100-01-02 00:00:00",
+     "item": "Arterial Blood Pressure mean: 113 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3170528A2::04",
+   "claim_id": "E3170528A2",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that intravenous fluids are being administered, but the statement is not supported because the records do not show that the fluids are being given currently. The records show that the medication DOCUSATE SODIUM 100 MG PO CAPS PO BID and DOCUSATE SODIUM 50 MG/5ML PO LIQD Per NG tube BID are running at decision time, but this does not support the statement that intravenous fluids is",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:105308932",
+     "time": "2100-01-01 03:45:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 03:45:00): Medication DOCUSATE SODIUM 100 MG PO CAPS PO BID"
+    },
+    {
+     "rid": "med:105529396",
+     "time": "2100-01-01 03:45:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 03:45:00): Medication DOCUSATE SODIUM 50 MG/5ML PO LIQD Per NG tube BID"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3170528A1::01",
+   "claim_id": "E3170528A1",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2206252703",
+     "time": "2100-01-02 04:00:00",
+     "item": "systolic BP",
+     "value": "133.0 mmHg"
+    },
+    {
+     "rid": "nurse:2199211918",
+     "time": "2100-01-02 04:00:00",
+     "item": "systolic BP",
+     "value": "148.0 mmHg"
+    },
+    {
+     "rid": "nurse:2206252702",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "88.0 mmHg"
+    },
+    {
+     "rid": "nurse:2199211919",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "93.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 7.5 h observation window after the decision (24 h or until ICU discharge): systolic BP x11, mean arterial pressure x11.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3170528A2::03",
+   "claim_id": "E3170528A2",
+   "claim_text": "Continue intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 7.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3170528A3::05",
+   "claim_id": "E3170528A3",
+   "claim_text": "Assess for signs of intracranial hypertension.",
+   "kind": "action",
+   "text": "Assess for signs of intracranial hypertension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of intracranial hypertension",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 7.5,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Blood pressure is fluctuating. -- The records show that the patient's blood pressure has been fluctuating, but the most recent measurement (R43) shows a mean of 113 mmHg, which is not fluctuating. The statement is not supported by the records.",
+    "Intravenous fluids are currently being given. -- The records show that intravenous fluids are being administered, but the statement is not supported because the records do not show that the fluids are being given currently. The records show that the medication DOCUSATE SODIUM 100 MG PO CAPS PO BID and DOCUSATE SODIUM 50 MG/5ML PO LIQD Per NG tube BID are running at decision time, but this does not support the statement that intravenous fluids is"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

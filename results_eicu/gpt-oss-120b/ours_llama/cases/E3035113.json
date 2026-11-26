@@ -1,0 +1,547 @@
+{
+ "case_id": "E3035113",
+ "decision_point": "2100-01-02 11:08:00",
+ "claims": [
+  "Obtain a repeat basic metabolic panel to reassess electrolytes and renal function given recent hyperglycemia and low calcium.",
+  "Order a portable chest X‑ray to evaluate for possible pneumonia or atelectasis in the setting of COPD exacerbation.",
+  "Continue hourly pulse oximetry and respiratory rate monitoring while maintaining supplemental oxygen to keep SpO₂ ≥ 92%."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3035113A1::01",
+   "claim_id": "E3035113A1",
+   "claim_text": "Obtain a repeat basic metabolic panel to reassess electrolytes and renal function given recent hyperglycemia and low calcium.",
+   "kind": "action",
+   "text": "Obtain a repeat basic metabolic panel.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "basic metabolic panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3035113A1::02",
+   "claim_id": "E3035113A1",
+   "claim_text": "Obtain a repeat basic metabolic panel to reassess electrolytes and renal function given recent hyperglycemia and low calcium.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E3035113A1::03",
+   "claim_id": "E3035113A1",
+   "claim_text": "Obtain a repeat basic metabolic panel to reassess electrolytes and renal function given recent hyperglycemia and low calcium.",
+   "kind": "fact",
+   "text": "Calcium is low.",
+   "concept": "calcium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E3035113A2::04",
+   "claim_id": "E3035113A2",
+   "claim_text": "Order a portable chest X‑ray to evaluate for possible pneumonia or atelectasis in the setting of COPD exacerbation.",
+   "kind": "action",
+   "text": "Order a portable chest X-ray.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "portable chest X-ray",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3035113A2::05",
+   "claim_id": "E3035113A2",
+   "claim_text": "Order a portable chest X‑ray to evaluate for possible pneumonia or atelectasis in the setting of COPD exacerbation.",
+   "kind": "fact",
+   "text": "COPD exacerbation is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3035113A3::06",
+   "claim_id": "E3035113A3",
+   "claim_text": "Continue hourly pulse oximetry and respiratory rate monitoring while maintaining supplemental oxygen to keep SpO₂ ≥ 92%.",
+   "kind": "action",
+   "text": "Continue hourly pulse oximetry monitoring.",
+   "concept": "heart_rate",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "pulse oximetry monitoring",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3035113A3::07",
+   "claim_id": "E3035113A3",
+   "claim_text": "Continue hourly pulse oximetry and respiratory rate monitoring while maintaining supplemental oxygen to keep SpO₂ ≥ 92%.",
+   "kind": "action",
+   "text": "Continue hourly respiratory rate monitoring.",
+   "concept": "resp_rate",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "respiratory rate monitoring",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3035113A3::08",
+   "claim_id": "E3035113A3",
+   "claim_text": "Continue hourly pulse oximetry and respiratory rate monitoring while maintaining supplemental oxygen to keep SpO₂ ≥ 92%.",
+   "kind": "action",
+   "text": "Maintain supplemental oxygen.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3035113A3::09",
+   "claim_id": "E3035113A3",
+   "claim_text": "Continue hourly pulse oximetry and respiratory rate monitoring while maintaining supplemental oxygen to keep SpO₂ ≥ 92%.",
+   "kind": "goal",
+   "text": "Keep SpO2 at or above 92%.",
+   "concept": "spo2",
+   "notes": []
+  },
+  {
+   "atom_id": "E3035113A3::P01",
+   "claim_id": "E3035113A3",
+   "claim_text": "Continue hourly pulse oximetry and respiratory rate monitoring while maintaining supplemental oxygen to keep SpO₂ ≥ 92%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving supplemental oxygen.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3035113A1::02",
+   "claim_id": "E3035113A1",
+   "claim_text": "Obtain a repeat basic metabolic panel to reassess electrolytes and renal function given recent hyperglycemia and low calcium.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:746987185",
+     "time": "2100-01-02 09:39:00",
+     "item": "Glucose",
+     "value": 231.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "1 of 1 glucose values in the 24 h before the decision were high.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E3035113A1::03",
+   "claim_id": "E3035113A1",
+   "claim_text": "Obtain a repeat basic metabolic panel to reassess electrolytes and renal function given recent hyperglycemia and low calcium.",
+   "kind": "fact",
+   "text": "Calcium is low.",
+   "concept": "calcium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:747192599",
+     "time": "2100-01-01 09:18:00",
+     "item": "Calcium, Total",
+     "value": 7.9,
+     "unit": "mg/dL",
+     "bounds": "8.4 to 10.3",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:746987186",
+     "time": "2100-01-02 09:39:00",
+     "item": "Calcium, Total",
+     "value": 7.2,
+     "unit": "mg/dL",
+     "bounds": "8.4 to 10.3",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest calcium 7.2 mg/dL at 2100-01-02 09:39:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E3035113A2::05",
+   "claim_id": "E3035113A2",
+   "claim_text": "Order a portable chest X‑ray to evaluate for possible pneumonia or atelectasis in the setting of COPD exacerbation.",
+   "kind": "fact",
+   "text": "COPD exacerbation is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show a fluctuating respiratory rate, but do not support the statement that a COPD exacerbation is present. The patient's respiratory rate has been increasing over time, but it is not clear if this is due to a COPD exacerbation or another underlying condition. Additionally, the records do not mention any other symptoms or findings that would support the diagnosis of a COPD exacerbation.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:772614047",
+     "time": "2100-01-01 09:34:00",
+     "item": "Oxygen Saturation: 93.5 %"
+    },
+    {
+     "rid": "nurse:1971254687",
+     "time": "2100-01-01 11:15:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:2128053017",
+     "time": "2100-01-01 11:15:00",
+     "item": "O2 saturation pulseoxymetry: 95 %"
+    },
+    {
+     "rid": "nurse:2052282854",
+     "time": "2100-01-01 12:00:00",
+     "item": "O2 saturation pulseoxymetry: 94 %"
+    },
+    {
+     "rid": "nurse:2019054755",
+     "time": "2100-01-01 14:00:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:1987674769",
+     "time": "2100-01-01 14:00:00",
+     "item": "O2 saturation pulseoxymetry: 96 %"
+    },
+    {
+     "rid": "nurse:2045382519",
+     "time": "2100-01-01 16:00:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:2007577948",
+     "time": "2100-01-01 16:00:00",
+     "item": "O2 saturation pulseoxymetry: 92 %"
+    },
+    {
+     "rid": "nurse:2121180624",
+     "time": "2100-01-01 17:00:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:2056605345",
+     "time": "2100-01-01 17:00:00",
+     "item": "O2 saturation pulseoxymetry: 92 %"
+    },
+    {
+     "rid": "nurse:2015697534",
+     "time": "2100-01-01 23:00:00",
+     "item": "Respiratory Rate: 24 insp/min"
+    },
+    {
+     "rid": "nurse:2120211454",
+     "time": "2100-01-02 00:00:00",
+     "item": "Respiratory Rate: 33 insp/min"
+    },
+    {
+     "rid": "nurse:2040176041",
+     "time": "2100-01-02 01:00:00",
+     "item": "Respiratory Rate: 28 insp/min"
+    },
+    {
+     "rid": "nurse:2079375502",
+     "time": "2100-01-02 02:00:00",
+     "item": "Respiratory Rate: 23 insp/min"
+    },
+    {
+     "rid": "nurse:1997422913",
+     "time": "2100-01-02 03:00:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:2086114150",
+     "time": "2100-01-02 04:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "nurse:1963489378",
+     "time": "2100-01-02 05:00:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:2063182920",
+     "time": "2100-01-02 06:00:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:2045774906",
+     "time": "2100-01-02 07:00:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:2065646749",
+     "time": "2100-01-02 08:00:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:2041401682",
+     "time": "2100-01-02 09:00:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:1998794277",
+     "time": "2100-01-02 10:00:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:1985499935",
+     "time": "2100-01-02 11:00:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3035113A3::P01",
+   "claim_id": "E3035113A3",
+   "claim_text": "Continue hourly pulse oximetry and respiratory rate monitoring while maintaining supplemental oxygen to keep SpO₂ ≥ 92%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving supplemental oxygen.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_addressed",
+   "reason": "No record of this treatment. (Panel verdict: supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    },
+    "panel_label": "supported"
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2041170455",
+     "time": "2100-01-02 01:00:00",
+     "item": "O2 saturation pulseoxymetry: 94 %"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3035113A1::01",
+   "claim_id": "E3035113A1",
+   "claim_text": "Obtain a repeat basic metabolic panel to reassess electrolytes and renal function given recent hyperglycemia and low calcium.",
+   "kind": "action",
+   "text": "Obtain a repeat basic metabolic panel.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "basic metabolic panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3035113A2::04",
+   "claim_id": "E3035113A2",
+   "claim_text": "Order a portable chest X‑ray to evaluate for possible pneumonia or atelectasis in the setting of COPD exacerbation.",
+   "kind": "action",
+   "text": "Order a portable chest X-ray.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "portable chest X-ray",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 11.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3035113A3::06",
+   "claim_id": "E3035113A3",
+   "claim_text": "Continue hourly pulse oximetry and respiratory rate monitoring while maintaining supplemental oxygen to keep SpO₂ ≥ 92%.",
+   "kind": "action",
+   "text": "Continue hourly pulse oximetry monitoring.",
+   "concept": "heart_rate",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "pulse oximetry monitoring",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2108367981",
+     "time": "2100-01-02 12:00:00",
+     "item": "heart rate",
+     "value": "71.0 bpm"
+    },
+    {
+     "rid": "nurse:2127990238",
+     "time": "2100-01-02 13:00:00",
+     "item": "heart rate",
+     "value": "75.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 11.9 h observation window after the decision (24 h or until ICU discharge): heart rate x12.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3035113A3::07",
+   "claim_id": "E3035113A3",
+   "claim_text": "Continue hourly pulse oximetry and respiratory rate monitoring while maintaining supplemental oxygen to keep SpO₂ ≥ 92%.",
+   "kind": "action",
+   "text": "Continue hourly respiratory rate monitoring.",
+   "concept": "resp_rate",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "respiratory rate monitoring",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1965161559",
+     "time": "2100-01-02 12:00:00",
+     "item": "respiratory rate",
+     "value": "18.0 insp/min"
+    },
+    {
+     "rid": "nurse:2039609713",
+     "time": "2100-01-02 13:00:00",
+     "item": "respiratory rate",
+     "value": "22.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 11.9 h observation window after the decision (24 h or until ICU discharge): respiratory rate x12.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3035113A3::08",
+   "claim_id": "E3035113A3",
+   "claim_text": "Continue hourly pulse oximetry and respiratory rate monitoring while maintaining supplemental oxygen to keep SpO₂ ≥ 92%.",
+   "kind": "action",
+   "text": "Maintain supplemental oxygen.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 11.9,
+ "scoresheet": {
+  "n": 4,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.25,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "COPD exacerbation is present. -- The records show a fluctuating respiratory rate, but do not support the statement that a COPD exacerbation is present. The patient's respiratory rate has been increasing over time, but it is not clear if this is due to a COPD exacerbation or another underlying condition. Additionally, the records do not mention any other symptoms or findings that would support the diagnosis of a COPD exacerbation."
+   ],
+   "not_addressed": [
+    "The patient is currently receiving supplemental oxygen. -- No record of this treatment. (Panel verdict: supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

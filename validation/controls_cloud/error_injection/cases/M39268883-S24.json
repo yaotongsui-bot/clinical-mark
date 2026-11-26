@@ -1,0 +1,441 @@
+{
+ "case_id": "M39268883-S24",
+ "decision_point": "2180-02-22 08:34:06",
+ "claims": [
+  "Discontinue insulin therapy to manage blood glucose levels."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39268883-S24A1::01",
+   "claim_id": "M39268883-S24A1",
+   "claim_text": "Discontinue insulin therapy to manage blood glucose levels.",
+   "kind": "action",
+   "text": "Discontinue insulin therapy.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "stop",
+   "target": "insulin therapy",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39268883-S24A1::02",
+   "claim_id": "M39268883-S24A1",
+   "claim_text": "Discontinue insulin therapy to manage blood glucose levels.",
+   "kind": "fact",
+   "text": "Insulin therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "none",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39268883-S24A1::02",
+   "claim_id": "M39268883-S24A1",
+   "claim_text": "Discontinue insulin therapy to manage blood glucose levels.",
+   "kind": "fact",
+   "text": "Insulin therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "none",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Insulin administration records exist within 24 hours before the decision time, including a regular insulin infusion running until 07:01, glargine given at 05:15, and regular insulin given at 06:04-06:06, showing insulin therapy is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "supported",
+     "glm-5.3-flash:cloud": null,
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:5477806:223258:2180-02-22 05:14:00",
+     "time": "2180-02-22 05:14:00",
+     "item": "Infusion/input Insulin - Regular at 2.998598575592041 units/hour (2180-02-22 05:14:00 to 2180-02-22 07:01:00)"
+    },
+    {
+     "rid": "inputevents:593345:223260:2180-02-22 05:15:00",
+     "time": "2180-02-22 05:15:00",
+     "item": "Infusion/input Insulin - Glargine 30 units (2180-02-22 05:15:00 to 2180-02-22 05:16:00)"
+    },
+    {
+     "rid": "emar:10019385-171",
+     "time": "2180-02-22 05:16:00",
+     "item": "MAR Administered: Insulin Glargine  (CVICU Protocol)"
+    },
+    {
+     "rid": "emar:10019385-174",
+     "time": "2180-02-22 06:04:00",
+     "item": "MAR Administered: Insulin"
+    },
+    {
+     "rid": "inputevents:1421613:223258:2180-02-22 06:06:00",
+     "time": "2180-02-22 06:06:00",
+     "item": "Infusion/input Insulin - Regular 6 units (2180-02-22 06:06:00 to 2180-02-22 06:07:00)"
+    },
+    {
+     "rid": "inputevents:1280477:223258:2180-02-21 14:46:00",
+     "time": "2180-02-21 14:46:00",
+     "item": "Infusion/input Insulin - Regular at 2 units/hour (2180-02-21 14:46:00 to 2180-02-21 17:33:00)"
+    },
+    {
+     "rid": "inputevents:2717386:223258:2180-02-21 14:46:00",
+     "time": "2180-02-21 14:46:00",
+     "item": "Infusion/input Insulin - Regular 2 units (2180-02-21 14:46:00 to 2180-02-21 14:47:00)"
+    },
+    {
+     "rid": "emar:10019385-145",
+     "time": "2180-02-21 14:49:00",
+     "item": "MAR Started: Insulin"
+    },
+    {
+     "rid": "emar:10019385-148",
+     "time": "2180-02-21 17:48:00",
+     "item": "MAR Administered: Insulin"
+    },
+    {
+     "rid": "rx:52861272:2180-02-21 18:00:00",
+     "time": "2180-02-21 18:00:00",
+     "item": "Order: Insulin 10 UNIT IV (active at decision time)"
+    },
+    {
+     "rid": "emar:10019385-155",
+     "time": "2180-02-21 20:26:00",
+     "item": "MAR Confirmed: Insulin"
+    },
+    {
+     "rid": "chart:39268883:226537:2180-02-21 22:17:00",
+     "time": "2180-02-21 22:17:00",
+     "item": "Glucose (whole blood): 132 mg/dL"
+    },
+    {
+     "rid": "chart:39268883:225664:2180-02-21 23:00:00",
+     "time": "2180-02-21 23:00:00",
+     "item": "Glucose finger stick (range 70-100): 119"
+    },
+    {
+     "rid": "inputevents:9993390:223258:2180-02-22 00:06:00",
+     "time": "2180-02-22 00:06:00",
+     "item": "Infusion/input Insulin - Regular at 2.0000612735748291 units/hour (2180-02-22 00:06:00 to 2180-02-22 00:57:00)"
+    },
+    {
+     "rid": "emar:10019385-163",
+     "time": "2180-02-22 00:33:00",
+     "item": "MAR Confirmed: Insulin"
+    },
+    {
+     "rid": "inputevents:9993969:223258:2180-02-22 00:57:00",
+     "time": "2180-02-22 00:57:00",
+     "item": "Infusion/input Insulin - Regular at 2.99942684173584 units/hour (2180-02-22 00:57:00 to 2180-02-22 04:15:00)"
+    },
+    {
+     "rid": "chart:39268883:220621:2180-02-22 03:05:00",
+     "time": "2180-02-22 03:05:00",
+     "item": "Glucose (serum): 121 mg/dL"
+    },
+    {
+     "rid": "inputevents:2837491:223258:2180-02-22 04:15:00",
+     "time": "2180-02-22 04:15:00",
+     "item": "Infusion/input Insulin - Regular 2 units (2180-02-22 04:15:00 to 2180-02-22 04:16:00)"
+    },
+    {
+     "rid": "inputevents:528324:223258:2180-02-22 04:15:00",
+     "time": "2180-02-22 04:15:00",
+     "item": "Infusion/input Insulin - Regular at 4.9990448951721191 units/hour (2180-02-22 04:15:00 to 2180-02-22 05:14:00)"
+    },
+    {
+     "rid": "rx:11324313:2180-02-22 05:00:00",
+     "time": "2180-02-22 05:00:00",
+     "item": "Order: Insulin Glargine  (CVICU Protocol) 0-50 UNIT SC (active at decision time)"
+    },
+    {
+     "rid": "emar:10019385-172",
+     "time": "2180-02-22 05:16:00",
+     "item": "MAR Confirmed: Insulin"
+    },
+    {
+     "rid": "rx:45808316:2180-02-22 06:00:00",
+     "time": "2180-02-22 06:00:00",
+     "item": "Order: Insulin 0-10 UNIT SC (active at decision time)"
+    },
+    {
+     "rid": "emar:10019385-189",
+     "time": "2180-02-22 06:16:00",
+     "item": "MAR Stopped - Unscheduled: Insulin"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39268883-S24A1::01",
+   "claim_id": "M39268883-S24A1",
+   "claim_text": "Discontinue insulin therapy to manage blood glucose levels.",
+   "kind": "action",
+   "text": "Discontinue insulin therapy.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "stop",
+   "target": "insulin therapy",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "partial_match",
+   "evidence": [
+    {
+     "rid": "RX26851078",
+     "time": "2180-02-22 11:00:00",
+     "item": "Ordered: Insulin 0 UNIT SC",
+     "class": "insulin"
+    },
+    {
+     "rid": "E10019385-203",
+     "time": "2180-02-22 11:55:00",
+     "item": "Given: Insulin",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "The AI suggested stopping, but insulin is still recorded after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.7 mmol/L at 2180-02-21 10:15:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Nitroglycerin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.7 mmol/L at 2180-02-21 10:15:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Nitroglycerin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl Citrate",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 25,
+ "observation_window_hours": 7.5,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

@@ -1,0 +1,136 @@
+# E1672915   T = 2100-01-02 19:54:00   records before T: 397
+ICU stay 1672915 (Med-Surg ICU; Male, age 72; admission diagnosis: Sepsis, unknown).
+
+## Atoms
+deepseek-v4.1-flash|E1672915A1::02 [presupposition] Piperacillin-tazobactam is currently being given.   <- Continue scheduled broad-spectrum antibiotics (piperacillin-tazobactam) for sepsis of unknown source.
+deepseek-v4.1-flash|E1672915A1::03 [judgment] Sepsis of unknown source is present.   <- Continue scheduled broad-spectrum antibiotics (piperacillin-tazobactam) for sepsis of unknown source.
+deepseek-v4.1-flash|E1672915A2::08 [observed] Fever is persistent.   <- Monitor and manage persistent fever and tachycardia with antipyretics and hemodynamic assessment.
+deepseek-v4.1-flash|E1672915A2::09 [observed] Tachycardia is persistent.   <- Monitor and manage persistent fever and tachycardia with antipyretics and hemodynamic assessment.
+deepseek-v4.1-flash|E1672915A3::14 [presupposition] Opioid orders are active.   <- Assess and manage pain and agitation with as-needed opioid and sedative therapy per existing orders.
+deepseek-v4.1-flash|E1672915A3::15 [presupposition] Sedative orders are active.   <- Assess and manage pain and agitation with as-needed opioid and sedative therapy per existing orders.
+gpt-oss-120b|E1672915A1::03 [observed] Tachycardia is present.   <- Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent tachycardia, hypertension, and signs of septic shock.
+gpt-oss-120b|E1672915A1::04 [observed] Hypertension is present.   <- Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent tachycardia, hypertension, and signs of septic shock.
+gpt-oss-120b|E1672915A1::05 [judgment] Septic shock is present.   <- Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent tachycardia, hypertension, and signs of septic shock.
+qwen2.5-7b|E1672915A3::05 [presupposition] Intravenous insulin is currently being given.   <- Continue intravenous insulin to manage glucose levels.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 17:55:00): Medication sodium chloride 0.9 % Intravenous Continuous
+  Running at decision time (scheduled order started 2100-01-01 20:30:00): Medication insulin lispro Subcutaneous
+  Running at decision time (scheduled order started 2100-01-01 22:30:00): Medication aspirin Oral Daily
+  Running at decision time (scheduled order started 2100-01-02 00:00:00): Medication enoxaparin Subcutaneous Daily
+  Running at decision time (scheduled order started 2100-01-02 00:00:00): Medication piperacillin-tazobactam Intravenous Every 8 hours
+  Running at decision time (scheduled order started 2100-01-02 01:00:00): Medication famotidine Intravenous Every 12 hours scheduled
+  Running at decision time (scheduled order started 2100-01-02 01:30:00): Medication insulin lispro Subcutaneous At bedtime
+  Running at decision time (scheduled order started 2100-01-02 02:00:00): Medication heparin (porcine) Subcutaneous Every 8 hours scheduled
+  Running at decision time (scheduled order started 2100-01-02 16:00:00): Medication sodium chloride Irrigation Continuous
+
+## PRN orders
+  01-01 19:51 Order: labetalol Intravenous Every 6 hours PRN (active at decision time)
+  01-01 21:37 Order: acetaminophen Oral Every 4 hours PRN (active at decision time)
+  01-01 21:37 Order: acetaminophen Tube Every 4 hours PRN (active at decision time)
+  01-02 01:23 Order: HYDROmorphone Intravenous Every 3 hours PRN (stopped 2100-01-02 15:27:00)
+  01-02 04:28 Order: acetaminophen Rectal Every 4 hours PRN (active at decision time)
+  01-02 15:24 Order: morphine Intravenous Every 3 hours PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Given once: LORazepam Intravenous Once X1 (2100-01-01 17:10:00)
+  Medication sodium chloride 0.9 % Intravenous Continuous (2100-01-01 17:10:00 to 2100-01-01 21:38:00)
+  Given once: acetaminophen Rectal Once X1 (2100-01-01 17:10:00)
+  Given once: acetaminophen Rectal Once X1 (2100-01-01 17:10:00)
+  Given once: sodium chloride 0.9% Intravenous Once X1 (2100-01-01 17:10:00)
+  Given once: LORazepam Intravenous Once X1 (2100-01-01 17:30:00)
+  Given once: sodium chloride 0.9% Intravenous Once X1 (2100-01-01 17:55:00)
+  Given once: LORazepam Intravenous Once X1 (2100-01-01 18:10:00)
+  Given once: LORazepam Intravenous Once X1 (2100-01-01 18:40:00)
+  Given once: vancomycin Intravenous Once X1 (2100-01-01 19:00:00)
+  Given once: LORazepam Intravenous Once X1 (2100-01-01 21:45:00)
+  Medication potassium chloride Intravenous (2100-01-02 04:15:00 to 2100-01-02 08:23:00)
+  Given once: potassium chloride Intravenous Once X1 (2100-01-02 11:45:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 17:00 0.2 %
+  -eos: 01-01 17:00 0.1 %
+  -lymphs: 01-01 17:00 10.3 %
+  -monos: 01-01 17:00 3.7 %
+  -polys: 01-01 17:00 85.7 %
+  Acetaminophen: 01-01 17:00 <15.0
+  Alanine Aminotransferase (ALT): 01-01 17:00 25 U/L
+  Albumin: 01-01 17:00 4.1 g/dL
+  Alkaline Phosphatase: 01-01 17:00 80 U/L
+  Anion Gap: 01-02 10:06 16 mmol/L; 01-01 17:00 24 mmol/L
+  Asparate Aminotransferase (AST): 01-01 17:00 31 U/L
+  BNP: 01-01 17:00 518 pg/mL
+  Base Excess: 01-02 03:08 -4.4
+  Bicarbonate: 01-02 10:06 18 mmol/L; 01-01 17:00 19 mmol/L
+  Bicarbonate (blood gas HCO3): 01-02 03:08 18.6 mmol/L
+  Bilirubin, Total: 01-01 17:00 0.6 mg/dL
+  Calcium, Total: 01-02 10:06 8.7 mg/dL; 01-01 17:00 9.9 mg/dL
+  Chloride: 01-02 10:06 102 mmol/L; 01-01 17:00 91 mmol/L
+  Creatinine: 01-02 10:06 1.04 mg/dL; 01-01 17:00 1.59 mg/dL
+  Free Calcium: 01-02 01:40 5.1 mg/dL
+  Glucose: 01-02 10:06 127 mg/dL; 01-01 17:00 170 mg/dL
+  Glucose finger stick: 01-02 16:08 118 mg/dL; 01-02 12:14 121 mg/dL; 01-02 06:28 117 mg/dL; 01-02 01:19 112 mg/dL; 01-01 20:42 108 mg/dL
+  Hematocrit: 01-02 10:06 40.4 %; 01-01 17:00 45.7 %
+  Hemoglobin: 01-02 10:06 13.6 g/dL; 01-01 17:00 15.6 g/dL
+  INR(PT): 01-01 17:00 1.3
+  Lactate: 01-02 10:06 1.4 mmol/L; 01-02 01:40 1.8 mmol/L; 01-01 17:00 6.1 mmol/L
+  MCH: 01-02 10:06 30.5 pg; 01-01 17:00 30.7 pg
+  MCHC: 01-02 10:06 33.7 g/dL; 01-01 17:00 34.1 g/dL
+  MCV: 01-02 10:06 90.6 fL; 01-01 17:00 90 fL
+  MPV: 01-02 10:06 9.7 fL; 01-01 17:00 10.1 fL
+  Magnesium: 01-02 01:40 1.6 mg/dL; 01-01 17:00 1.2 mg/dL
+  Oxygen Saturation: 01-02 03:08 95.8 %
+  PT: 01-01 17:00 15.9 seconds
+  Phosphate: 01-02 01:40 3 mg/dL
+  Platelet Count: 01-02 10:06 231 K/mcL; 01-01 17:00 351 K/mcL
+  Potassium: 01-02 10:06 3.7 mmol/L; 01-02 01:40 3.4 mmol/L; 01-01 17:00 3.8 mmol/L
+  RBC: 01-02 10:06 4.46 M/mcL; 01-01 17:00 5.08 M/mcL
+  RDW: 01-02 10:06 14.2 %; 01-01 17:00 13.7 %
+  Sodium: 01-02 10:06 132 mmol/L; 01-01 17:00 130 mmol/L
+  Urea Nitrogen: 01-02 10:06 20 mg/dL; 01-01 17:00 32 mg/dL
+  WBC's in urine: 01-01 17:15 3 /hpf
+  White Blood Cells: 01-02 10:06 17.77 K/mcL; 01-01 17:00 20.46 K/mcL
+  amylase: 01-01 17:00 45 U/L
+  lipase: 01-01 17:00 55 U/L
+  pCO2: 01-02 03:08 30 mm Hg
+  pH: 01-02 03:08 7.41
+  pO2: 01-02 03:08 78 mm Hg
+  salicylate: 01-01 17:00 <2.6
+  total protein: 01-01 17:00 7.4 g/dL
+  troponin - T: 01-01 17:00 <0.010
+  urinary specific gravity: 01-01 17:15 1.027
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Delirium Scale/Score Delirium Scale: CAM-ICU @01-02 00:23
+  Delirium Scale/Score Delirium Score: Yes @01-02 00:23
+  ECG (secs) PR: 0.16 @01-02 12:42   24h 0.1-0.2 (n=6)
+  ECG (secs) QRS: 0.08 @01-02 12:42   24h 0.04-0.16 (n=6)
+  ECG (secs) QT: 0.28 @01-02 12:42   24h 0.28-0.42 (n=6)
+  Glasgow coma score Eyes: 4 @01-02 12:42   24h 4-4 (n=5)
+  Glasgow coma score GCS Total: 14 @01-02 12:42   24h 11-14 (n=5)
+  Glasgow coma score Motor: 6 @01-02 12:42   24h 5-6 (n=5)
+  Glasgow coma score Verbal: 4 @01-02 12:42   24h 2-4 (n=5)
+  Glucose finger stick: 118 mg/dL @01-02 16:06   24h 108-121 (n=8)
+  Heart Rate: 101 bpm @01-02 19:17   24h 101-157 (n=27)
+  Non Invasive Blood Pressure diastolic: 89 mmHg @01-02 18:00   24h 40-129 (n=23)
+  Non Invasive Blood Pressure mean: 97 mmHg @01-02 18:00   24h 47-135 (n=23)
+  Non Invasive Blood Pressure systolic: 132 mmHg @01-02 18:00   24h 91-167 (n=23)
+  O2 L/%: 2 @01-02 15:08   24h 2-3 (n=5)
+  O2 saturation pulseoxymetry: 97 % @01-02 19:17   24h 94-99 (n=20)
+  Pain Level: 5 @01-02 19:25   24h 3-8 (n=12)
+  Respiratory Rate: 29 insp/min @01-02 18:00   24h 21-44 (n=26)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-02 19:25
+  Sedation Scale/Score/Goal Sedation Score: 2 @01-02 19:25   24h 1-2 (n=15)
+  TV/kg IBW: 410.4 @01-01 16:58
+  Temperature Fahrenheit: 99.5 F @01-02 19:17   24h 98.2-102.6 (n=10)
+  Temperature Location: Axillary @01-02 19:17   earlier: Oral @01-02 16:06; Rectal @01-01 17:15
+
+## Treatments documented
+  01-01 20:05 medications | therapeutic antibacterials | vancomycin
+  01-01 20:05 cultures / immuno-assays | cultures | urine
+  01-01 20:05 cultures / immuno-assays | cultures | blood
+  01-01 20:05 cultures / immuno-assays | cultures | sputum
+
+## Microbiology

@@ -1,0 +1,1691 @@
+{
+ "case_id": "M39142259",
+ "decision_point": "2115-12-29 19:36:43",
+ "claims": [
+  "Monitor liver enzymes (ALT, AST) and coagulation parameters (PT/INR, PTT) serially given markedly elevated transaminases and rising INR/PTT.",
+  "Assess and manage fever (101°F) with cultures and clinical evaluation.",
+  "Obtain blood cultures if infection suspected given fever and leukocytosis.",
+  "Continue heparin infusion with monitoring of PTT and platelet count.",
+  "Monitor and correct hypocalcemia (total calcium 7.5 mg/dL) and hypophosphatemia (phosphate 1.7 mg/dL).",
+  "Monitor blood glucose and continue insulin therapy as ordered, given hyperglycemia (fingerstick 153-176 mg/dL).",
+  "Provide pulmonary hygiene with incentive spirometry and cough/deep breathing exercises given tachypnea and oxygen requirement.",
+  "Manage pain with IV morphine as ordered, reassessing pain level.",
+  "Maintain skin care and repositioning for Braden score indicating risk.",
+  "Continue telemetry and ST segment monitoring for arrhythmia detection."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39142259A1::01",
+   "claim_id": "M39142259A1",
+   "claim_text": "Monitor liver enzymes (ALT, AST) and coagulation parameters (PT/INR, PTT) serially given markedly elevated transaminases and rising INR/PTT.",
+   "kind": "action",
+   "text": "Monitor liver enzymes (ALT, AST).",
+   "concept": "liver_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "liver enzymes",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39142259A1::02",
+   "claim_id": "M39142259A1",
+   "claim_text": "Monitor liver enzymes (ALT, AST) and coagulation parameters (PT/INR, PTT) serially given markedly elevated transaminases and rising INR/PTT.",
+   "kind": "action",
+   "text": "Monitor coagulation parameters (PT/INR, PTT).",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "coagulation parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39142259A1::03",
+   "claim_id": "M39142259A1",
+   "claim_text": "Monitor liver enzymes (ALT, AST) and coagulation parameters (PT/INR, PTT) serially given markedly elevated transaminases and rising INR/PTT.",
+   "kind": "fact",
+   "text": "Markedly elevated transaminases are present.",
+   "concept": "liver_function",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M39142259A1::04",
+   "claim_id": "M39142259A1",
+   "claim_text": "Monitor liver enzymes (ALT, AST) and coagulation parameters (PT/INR, PTT) serially given markedly elevated transaminases and rising INR/PTT.",
+   "kind": "fact",
+   "text": "Rising INR/PTT is present.",
+   "concept": "inr",
+   "notes": [
+    "concept set by the rule files: coagulation -> inr"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M39142259A2::05",
+   "claim_id": "M39142259A2",
+   "claim_text": "Assess and manage fever (101°F) with cultures and clinical evaluation.",
+   "kind": "action",
+   "text": "Assess and manage fever (101°F) with cultures and clinical evaluation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "fever",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39142259A3::06",
+   "claim_id": "M39142259A3",
+   "claim_text": "Obtain blood cultures if infection suspected given fever and leukocytosis.",
+   "kind": "action",
+   "text": "Obtain blood cultures if infection suspected.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": true,
+   "treatment_class": "cultures",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39142259A3::07",
+   "claim_id": "M39142259A3",
+   "claim_text": "Obtain blood cultures if infection suspected given fever and leukocytosis.",
+   "kind": "fact",
+   "text": "Fever is present.",
+   "concept": "temperature",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M39142259A3::08",
+   "claim_id": "M39142259A3",
+   "claim_text": "Obtain blood cultures if infection suspected given fever and leukocytosis.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M39142259A4::09",
+   "claim_id": "M39142259A4",
+   "claim_text": "Continue heparin infusion with monitoring of PTT and platelet count.",
+   "kind": "action",
+   "text": "Continue heparin infusion with monitoring of PTT and platelet count.",
+   "concept": "platelets",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "heparin infusion",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39142259A4::10",
+   "claim_id": "M39142259A4",
+   "claim_text": "Continue heparin infusion with monitoring of PTT and platelet count.",
+   "kind": "fact",
+   "text": "Heparin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rate -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "persistent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M39142259A5::11",
+   "claim_id": "M39142259A5",
+   "claim_text": "Monitor and correct hypocalcemia (total calcium 7.5 mg/dL) and hypophosphatemia (phosphate 1.7 mg/dL).",
+   "kind": "action",
+   "text": "Monitor blood glucose and continue insulin therapy as ordered.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39142259A5::12",
+   "claim_id": "M39142259A5",
+   "claim_text": "Monitor and correct hypocalcemia (total calcium 7.5 mg/dL) and hypophosphatemia (phosphate 1.7 mg/dL).",
+   "kind": "action",
+   "text": "Continue insulin therapy as ordered.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin therapy",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39142259A5::13",
+   "claim_id": "M39142259A5",
+   "claim_text": "Monitor and correct hypocalcemia (total calcium 7.5 mg/dL) and hypophosphatemia (phosphate 1.7 mg/dL).",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [
+    "concept set by the rule files: blood_gas -> glucose"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M39142259A5::14",
+   "claim_id": "M39142259A5",
+   "claim_text": "Monitor and correct hypocalcemia (total calcium 7.5 mg/dL) and hypophosphatemia (phosphate 1.7 mg/dL).",
+   "kind": "fact",
+   "text": "Hypocalcemia is present.",
+   "concept": "calcium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M39142259A5::15",
+   "claim_id": "M39142259A5",
+   "claim_text": "Monitor and correct hypocalcemia (total calcium 7.5 mg/dL) and hypophosphatemia (phosphate 1.7 mg/dL).",
+   "kind": "fact",
+   "text": "Hypophosphatemia is present.",
+   "concept": "phosphate",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M39142259A6::16",
+   "claim_id": "M39142259A6",
+   "claim_text": "Monitor blood glucose and continue insulin therapy as ordered, given hyperglycemia (fingerstick 153-176 mg/dL).",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39142259A6::17",
+   "claim_id": "M39142259A6",
+   "claim_text": "Monitor blood glucose and continue insulin therapy as ordered, given hyperglycemia (fingerstick 153-176 mg/dL).",
+   "kind": "action",
+   "text": "Continue insulin therapy as ordered.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin therapy",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39142259A6::18",
+   "claim_id": "M39142259A6",
+   "claim_text": "Monitor blood glucose and continue insulin therapy as ordered, given hyperglycemia (fingerstick 153-176 mg/dL).",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [
+    "concept set by the rule files: blood_gas -> glucose"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M39142259A7::19",
+   "claim_id": "M39142259A7",
+   "claim_text": "Provide pulmonary hygiene with incentive spirometry and cough/deep breathing exercises given tachypnea and oxygen requirement.",
+   "kind": "action",
+   "text": "Provide pulmonary hygiene with incentive spirometry and cough/deep breathing exercises.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "pulmonary hygiene",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M39142259A7::20",
+   "claim_id": "M39142259A7",
+   "claim_text": "Provide pulmonary hygiene with incentive spirometry and cough/deep breathing exercises given tachypnea and oxygen requirement.",
+   "kind": "fact",
+   "text": "Tachypnea is present.",
+   "concept": "resp_rate",
+   "notes": [
+    "concept set by the rule files: respiratory -> resp_rate"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M39142259A7::21",
+   "claim_id": "M39142259A7",
+   "claim_text": "Provide pulmonary hygiene with incentive spirometry and cough/deep breathing exercises given tachypnea and oxygen requirement.",
+   "kind": "fact",
+   "text": "Oxygen requirement is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M39142259A8::22",
+   "claim_id": "M39142259A8",
+   "claim_text": "Manage pain with IV morphine as ordered, reassessing pain level.",
+   "kind": "action",
+   "text": "Manage pain with IV morphine as ordered, reassessing pain level.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV morphine",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39142259A9::23",
+   "claim_id": "M39142259A9",
+   "claim_text": "Maintain skin care and repositioning for Braden score indicating risk.",
+   "kind": "action",
+   "text": "Maintain skin care and repositioning for Braden score indicating risk.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "other",
+   "target": "skin care and repositioning",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M39142259A10::24",
+   "claim_id": "M39142259A10",
+   "claim_text": "Continue telemetry and ST segment monitoring for arrhythmia detection.",
+   "kind": "action",
+   "text": "Continue telemetry and ST segment monitoring for arrhythmia detection.",
+   "concept": "heart_rhythm",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "telemetry and ST segment monitoring",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39142259A2::R01",
+   "claim_id": "M39142259A2",
+   "claim_text": "Assess and manage fever (101°F) with cultures and clinical evaluation.",
+   "kind": "fact",
+   "text": "Fever is present.",
+   "concept": "temperature",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39142259A1::03",
+   "claim_id": "M39142259A1",
+   "claim_text": "Monitor liver enzymes (ALT, AST) and coagulation parameters (PT/INR, PTT) serially given markedly elevated transaminases and rising INR/PTT.",
+   "kind": "fact",
+   "text": "Markedly elevated transaminases are present.",
+   "concept": "liver_function",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:469574",
+     "time": "2115-12-29 12:29:00",
+     "item": "Asparate Aminotransferase (AST)",
+     "value": 881.0,
+     "unit": "IU/L",
+     "bounds": "0.0 to 40.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:469571",
+     "time": "2115-12-29 12:29:00",
+     "item": "Alanine Aminotransferase (ALT)",
+     "value": 1343.0,
+     "unit": "IU/L",
+     "bounds": "0.0 to 40.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:469572",
+     "time": "2115-12-29 12:29:00",
+     "item": "Alkaline Phosphatase",
+     "value": 114.0,
+     "unit": "IU/L",
+     "bounds": "35.0 to 105.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "'liver function high' holds when any component is high. AST: yes; ALT: yes; total bilirubin: no; alkaline phosphatase: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39142259A1::04",
+   "claim_id": "M39142259A1",
+   "claim_text": "Monitor liver enzymes (ALT, AST) and coagulation parameters (PT/INR, PTT) serially given markedly elevated transaminases and rising INR/PTT.",
+   "kind": "fact",
+   "text": "Rising INR/PTT is present.",
+   "concept": "inr",
+   "notes": [
+    "concept set by the rule files: coagulation -> inr"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:469491",
+     "time": "2115-12-28 20:56:00",
+     "item": "INR(PT)",
+     "value": 1.4,
+     "unit": "",
+     "bounds": "0.9 to 1.1",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:469531",
+     "time": "2115-12-29 02:35:00",
+     "item": "INR(PT)",
+     "value": 1.5,
+     "unit": "",
+     "bounds": "0.9 to 1.1",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:469559",
+     "time": "2115-12-29 12:29:00",
+     "item": "INR(PT)",
+     "value": 1.6,
+     "unit": "",
+     "bounds": "0.9 to 1.1",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "3 of 3 INR values in the 24 h before the decision were high.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39142259A3::07",
+   "claim_id": "M39142259A3",
+   "claim_text": "Obtain blood cultures if infection suspected given fever and leukocytosis.",
+   "kind": "fact",
+   "text": "Fever is present.",
+   "concept": "temperature",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:39142259:223761:2115-12-29 16:00:00",
+     "time": "2115-12-29 16:00:00",
+     "item": "Temperature Fahrenheit",
+     "value": 99.6,
+     "unit": "°F",
+     "bounds": "96.8 to 100.4",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "chart:39142259:223761:2115-12-29 18:00:00",
+     "time": "2115-12-29 18:00:00",
+     "item": "Temperature Fahrenheit",
+     "value": 99.8,
+     "unit": "°F",
+     "bounds": "96.8 to 100.4",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "Median temperature over the 6 h before the decision: 99.7 °F (2 readings), normal by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "computed": {
+    "median": 99.69999999999999,
+    "status": "normal",
+    "n": 2
+   },
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39142259A3::08",
+   "claim_id": "M39142259A3",
+   "claim_text": "Obtain blood cultures if infection suspected given fever and leukocytosis.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:469506",
+     "time": "2115-12-28 20:56:00",
+     "item": "White Blood Cells",
+     "value": 10.7,
+     "unit": "K/uL",
+     "bounds": "4.0 to 11.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:469530",
+     "time": "2115-12-29 02:35:00",
+     "item": "White Blood Cells",
+     "value": 15.3,
+     "unit": "K/uL",
+     "bounds": "4.0 to 11.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:469570",
+     "time": "2115-12-29 12:29:00",
+     "item": "White Blood Cells",
+     "value": 14.3,
+     "unit": "K/uL",
+     "bounds": "4.0 to 11.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest WBC 14.3 K/uL at 2115-12-29 12:29:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39142259A4::10",
+   "claim_id": "M39142259A4",
+   "claim_text": "Continue heparin infusion with monitoring of PTT and platelet count.",
+   "kind": "fact",
+   "text": "Heparin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rate -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "persistent",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Record R37 explicitly states that the Heparin Sodium infusion is 'Running at decision time'.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:3968963:225152:2115-12-29 07:35:00",
+     "time": "2115-12-29 07:35:00",
+     "item": "Running at decision time (started 2115-12-29 07:35:00): Infusion/input Heparin Sodium at 450.0576171875 units/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "M39142259A5::13",
+   "claim_id": "M39142259A5",
+   "claim_text": "Monitor and correct hypocalcemia (total calcium 7.5 mg/dL) and hypophosphatemia (phosphate 1.7 mg/dL).",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [
+    "concept set by the rule files: blood_gas -> glucose"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:469484",
+     "time": "2115-12-28 16:20:00",
+     "item": "Glucose",
+     "value": 136.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:469516",
+     "time": "2115-12-29 02:35:00",
+     "item": "Glucose",
+     "value": 176.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:469580",
+     "time": "2115-12-29 12:29:00",
+     "item": "Glucose",
+     "value": 102.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 102 mg/dL at 2115-12-29 12:29:00 (reference 70.0 to 100.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39142259A5::14",
+   "claim_id": "M39142259A5",
+   "claim_text": "Monitor and correct hypocalcemia (total calcium 7.5 mg/dL) and hypophosphatemia (phosphate 1.7 mg/dL).",
+   "kind": "fact",
+   "text": "Hypocalcemia is present.",
+   "concept": "calcium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:469480",
+     "time": "2115-12-28 16:20:00",
+     "item": "Calcium, Total",
+     "value": 7.9,
+     "unit": "mg/dL",
+     "bounds": "8.4 to 10.3",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:469513",
+     "time": "2115-12-29 02:35:00",
+     "item": "Calcium, Total",
+     "value": 7.7,
+     "unit": "mg/dL",
+     "bounds": "8.4 to 10.3",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:469577",
+     "time": "2115-12-29 12:29:00",
+     "item": "Calcium, Total",
+     "value": 7.5,
+     "unit": "mg/dL",
+     "bounds": "8.4 to 10.3",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest calcium 7.5 mg/dL at 2115-12-29 12:29:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39142259A5::15",
+   "claim_id": "M39142259A5",
+   "claim_text": "Monitor and correct hypocalcemia (total calcium 7.5 mg/dL) and hypophosphatemia (phosphate 1.7 mg/dL).",
+   "kind": "fact",
+   "text": "Hypophosphatemia is present.",
+   "concept": "phosphate",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:469487",
+     "time": "2115-12-28 16:20:00",
+     "item": "Phosphate",
+     "value": 3.6,
+     "unit": "mg/dL",
+     "bounds": "2.7 to 4.5",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:469518",
+     "time": "2115-12-29 02:35:00",
+     "item": "Phosphate",
+     "value": 2.3,
+     "unit": "mg/dL",
+     "bounds": "2.7 to 4.5",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:469583",
+     "time": "2115-12-29 12:29:00",
+     "item": "Phosphate",
+     "value": 1.7,
+     "unit": "mg/dL",
+     "bounds": "2.7 to 4.5",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39142259A6::18",
+   "claim_id": "M39142259A6",
+   "claim_text": "Monitor blood glucose and continue insulin therapy as ordered, given hyperglycemia (fingerstick 153-176 mg/dL).",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [
+    "concept set by the rule files: blood_gas -> glucose"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:469484",
+     "time": "2115-12-28 16:20:00",
+     "item": "Glucose",
+     "value": 136.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:469516",
+     "time": "2115-12-29 02:35:00",
+     "item": "Glucose",
+     "value": 176.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:469580",
+     "time": "2115-12-29 12:29:00",
+     "item": "Glucose",
+     "value": 102.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 102 mg/dL at 2115-12-29 12:29:00 (reference 70.0 to 100.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39142259A7::20",
+   "claim_id": "M39142259A7",
+   "claim_text": "Provide pulmonary hygiene with incentive spirometry and cough/deep breathing exercises given tachypnea and oxygen requirement.",
+   "kind": "fact",
+   "text": "Tachypnea is present.",
+   "concept": "resp_rate",
+   "notes": [
+    "concept set by the rule files: respiratory -> resp_rate"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "chart:39142259:220210:2115-12-29 16:00:00",
+     "time": "2115-12-29 16:00:00",
+     "item": "Respiratory Rate",
+     "value": 30.0,
+     "unit": "insp/min",
+     "bounds": "12 to 20",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:39142259:220210:2115-12-29 17:00:00",
+     "time": "2115-12-29 17:00:00",
+     "item": "Respiratory Rate",
+     "value": 30.0,
+     "unit": "insp/min",
+     "bounds": "12 to 20",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:39142259:220210:2115-12-29 18:00:00",
+     "time": "2115-12-29 18:00:00",
+     "item": "Respiratory Rate",
+     "value": 24.0,
+     "unit": "insp/min",
+     "bounds": "12 to 20",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "chart:39142259:220210:2115-12-29 19:00:00",
+     "time": "2115-12-29 19:00:00",
+     "item": "Respiratory Rate",
+     "value": 31.0,
+     "unit": "insp/min",
+     "bounds": "12 to 20",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "Median respiratory rate over the 6 h before the decision: 30 insp/min (5 readings), high by the rule 'tachypnea RR > 20; bradypnea RR < 12'.",
+   "computed": {
+    "median": 30.0,
+    "status": "high",
+    "n": 5
+   },
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39142259A7::21",
+   "claim_id": "M39142259A7",
+   "claim_text": "Provide pulmonary hygiene with incentive spirometry and cough/deep breathing exercises given tachypnea and oxygen requirement.",
+   "kind": "fact",
+   "text": "Oxygen requirement is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The patient's oxygen saturation levels are low (93-94% in R49, R50) and they were previously receiving 4 L/min of oxygen (R32), supporting the presence of an oxygen requirement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:39142259:223834:2115-12-29 08:00:00",
+     "time": "2115-12-29 08:00:00",
+     "item": "O2 Flow: 4 L/min"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 18:00:00",
+     "time": "2115-12-29 18:00:00",
+     "item": "O2 saturation pulseoxymetry: 93 %"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 19:00:00",
+     "time": "2115-12-29 19:00:00",
+     "item": "O2 saturation pulseoxymetry: 94 %"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 13:00:00",
+     "time": "2115-12-29 13:00:00",
+     "item": "O2 saturation pulseoxymetry: 98 %"
+    },
+    {
+     "rid": "chart:39142259:223834:2115-12-28 20:48:00",
+     "time": "2115-12-28 20:48:00",
+     "item": "O2 Flow: 2 L/min"
+    },
+    {
+     "rid": "chart:39142259:226732:2115-12-28 20:48:00",
+     "time": "2115-12-28 20:48:00",
+     "item": "O2 Delivery Device(s): Nasal cannula"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 02:00:00",
+     "time": "2115-12-29 02:00:00",
+     "item": "O2 saturation pulseoxymetry: 96 %"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 03:00:00",
+     "time": "2115-12-29 03:00:00",
+     "item": "O2 saturation pulseoxymetry: 96 %"
+    },
+    {
+     "rid": "chart:39142259:223834:2115-12-29 04:00:00",
+     "time": "2115-12-29 04:00:00",
+     "item": "O2 Flow: 2 L/min"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 04:00:00",
+     "time": "2115-12-29 04:00:00",
+     "item": "O2 saturation pulseoxymetry: 97 %"
+    },
+    {
+     "rid": "chart:39142259:226732:2115-12-29 04:00:00",
+     "time": "2115-12-29 04:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula"
+    },
+    {
+     "rid": "chart:39142259:224168:2115-12-29 04:00:00",
+     "time": "2115-12-29 04:00:00",
+     "item": "Parameters Checked: 1"
+    },
+    {
+     "rid": "chart:39142259:223990:2115-12-29 04:00:00",
+     "time": "2115-12-29 04:00:00",
+     "item": "Respiratory Effort: Normal"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 05:00:00",
+     "time": "2115-12-29 05:00:00",
+     "item": "O2 saturation pulseoxymetry: 97 %"
+    },
+    {
+     "rid": "chart:39142259:225113:2115-12-29 05:49:00",
+     "time": "2115-12-29 05:49:00",
+     "item": "Currently experiencing pain: 0"
+    },
+    {
+     "rid": "chart:39142259:225118:2115-12-29 05:49:00",
+     "time": "2115-12-29 05:49:00",
+     "item": "Difficulty swallowing: 0"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 06:00:00",
+     "time": "2115-12-29 06:00:00",
+     "item": "O2 saturation pulseoxymetry: 97 %"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 07:00:00",
+     "time": "2115-12-29 07:00:00",
+     "item": "O2 saturation pulseoxymetry: 97 %"
+    },
+    {
+     "rid": "chart:39142259:226732:2115-12-29 08:00:00",
+     "time": "2115-12-29 08:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula"
+    },
+    {
+     "rid": "chart:39142259:224168:2115-12-29 08:00:00",
+     "time": "2115-12-29 08:00:00",
+     "item": "Parameters Checked: 1"
+    },
+    {
+     "rid": "chart:39142259:223990:2115-12-29 08:00:00",
+     "time": "2115-12-29 08:00:00",
+     "item": "Respiratory Effort: Shallow"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 08:41:00",
+     "time": "2115-12-29 08:41:00",
+     "item": "O2 saturation pulseoxymetry: 97 %"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 09:00:00",
+     "time": "2115-12-29 09:00:00",
+     "item": "O2 saturation pulseoxymetry: 97 %"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 10:00:00",
+     "time": "2115-12-29 10:00:00",
+     "item": "O2 saturation pulseoxymetry: 97 %"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 11:00:00",
+     "time": "2115-12-29 11:00:00",
+     "item": "O2 saturation pulseoxymetry: 97 %"
+    },
+    {
+     "rid": "chart:39142259:224168:2115-12-29 12:00:00",
+     "time": "2115-12-29 12:00:00",
+     "item": "Parameters Checked: 1"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 12:08:00",
+     "time": "2115-12-29 12:08:00",
+     "item": "O2 saturation pulseoxymetry: 92 %"
+    },
+    {
+     "rid": "chart:39142259:223990:2115-12-29 13:11:00",
+     "time": "2115-12-29 13:11:00",
+     "item": "Respiratory Effort: Shallow"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 14:00:00",
+     "time": "2115-12-29 14:00:00",
+     "item": "O2 saturation pulseoxymetry: 98 %"
+    },
+    {
+     "rid": "chart:39142259:226732:2115-12-29 15:00:00",
+     "time": "2115-12-29 15:00:00",
+     "item": "O2 Delivery Device(s): None"
+    },
+    {
+     "rid": "chart:39142259:224168:2115-12-29 16:00:00",
+     "time": "2115-12-29 16:00:00",
+     "item": "Parameters Checked: 1"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 16:52:00",
+     "time": "2115-12-29 16:52:00",
+     "item": "O2 saturation pulseoxymetry: 96 %"
+    },
+    {
+     "rid": "chart:39142259:220277:2115-12-29 17:00:00",
+     "time": "2115-12-29 17:00:00",
+     "item": "O2 saturation pulseoxymetry: 95 %"
+    }
+   ]
+  },
+  {
+   "atom_id": "M39142259A2::R01",
+   "claim_id": "M39142259A2",
+   "claim_text": "Assess and manage fever (101°F) with cultures and clinical evaluation.",
+   "kind": "fact",
+   "text": "Fever is present.",
+   "concept": "temperature",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:39142259:223761:2115-12-29 16:00:00",
+     "time": "2115-12-29 16:00:00",
+     "item": "Temperature Fahrenheit",
+     "value": 99.6,
+     "unit": "°F",
+     "bounds": "96.8 to 100.4",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "chart:39142259:223761:2115-12-29 18:00:00",
+     "time": "2115-12-29 18:00:00",
+     "item": "Temperature Fahrenheit",
+     "value": 99.8,
+     "unit": "°F",
+     "bounds": "96.8 to 100.4",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "Median temperature over the 6 h before the decision: 99.7 °F (2 readings), normal by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "computed": {
+    "median": 99.69999999999999,
+    "status": "normal",
+    "n": 2
+   },
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39142259A1::01",
+   "claim_id": "M39142259A1",
+   "claim_text": "Monitor liver enzymes (ALT, AST) and coagulation parameters (PT/INR, PTT) serially given markedly elevated transaminases and rising INR/PTT.",
+   "kind": "action",
+   "text": "Monitor liver enzymes (ALT, AST).",
+   "concept": "liver_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "liver enzymes",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:50878:2115-12-30 02:00:00:10070",
+     "time": "2115-12-30 02:00:00",
+     "item": "AST",
+     "value": "449 IU/L"
+    },
+    {
+     "rid": "lab:50878:2115-12-29 20:06:00:22159",
+     "time": "2115-12-29 20:06:00",
+     "item": "AST",
+     "value": "580 IU/L"
+    },
+    {
+     "rid": "lab:50861:2115-12-30 02:00:00:10077",
+     "time": "2115-12-30 02:00:00",
+     "item": "ALT",
+     "value": "1014 IU/L"
+    },
+    {
+     "rid": "lab:50861:2115-12-29 20:06:00:22169",
+     "time": "2115-12-29 20:06:00",
+     "item": "ALT",
+     "value": "1135 IU/L"
+    },
+    {
+     "rid": "lab:50885:2115-12-30 02:00:00:10059",
+     "time": "2115-12-30 02:00:00",
+     "item": "total bilirubin",
+     "value": "0.8 mg/dL"
+    },
+    {
+     "rid": "lab:50885:2115-12-29 20:06:00:22155",
+     "time": "2115-12-29 20:06:00",
+     "item": "total bilirubin",
+     "value": "0.9 mg/dL"
+    },
+    {
+     "rid": "lab:50863:2115-12-30 02:00:00:10058",
+     "time": "2115-12-30 02:00:00",
+     "item": "alkaline phosphatase",
+     "value": "113 IU/L"
+    },
+    {
+     "rid": "lab:50863:2115-12-29 20:06:00:22168",
+     "time": "2115-12-29 20:06:00",
+     "item": "alkaline phosphatase",
+     "value": "113 IU/L"
+    }
+   ],
+   "reason": "Measured in the 20.9 h observation window after the decision (24 h or until ICU discharge): AST x2, ALT x2, total bilirubin x2, alkaline phosphatase x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39142259A1::02",
+   "claim_id": "M39142259A1",
+   "claim_text": "Monitor liver enzymes (ALT, AST) and coagulation parameters (PT/INR, PTT) serially given markedly elevated transaminases and rising INR/PTT.",
+   "kind": "action",
+   "text": "Monitor coagulation parameters (PT/INR, PTT).",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "coagulation parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227467:2115-12-30 02:00:00:321186",
+     "time": "2115-12-30 02:00:00",
+     "item": "INR",
+     "value": "1.6"
+    },
+    {
+     "rid": "chart:227467:2115-12-30 09:00:00:321316",
+     "time": "2115-12-30 09:00:00",
+     "item": "INR",
+     "value": "1.4"
+    },
+    {
+     "rid": "chart:227465:2115-12-30 02:00:00:321163",
+     "time": "2115-12-30 02:00:00",
+     "item": "PT",
+     "value": "18 sec"
+    },
+    {
+     "rid": "chart:227465:2115-12-30 09:00:00:321305",
+     "time": "2115-12-30 09:00:00",
+     "item": "PT",
+     "value": "16.4"
+    },
+    {
+     "rid": "chart:227466:2115-12-30 02:00:00:321175",
+     "time": "2115-12-30 02:00:00",
+     "item": "PTT",
+     "value": "44.1 sec"
+    },
+    {
+     "rid": "chart:227466:2115-12-30 09:00:00:321297",
+     "time": "2115-12-30 09:00:00",
+     "item": "PTT",
+     "value": "37.3"
+    }
+   ],
+   "reason": "Measured in the 20.9 h observation window after the decision (24 h or until ICU discharge): INR x5, PT x5, PTT x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39142259A2::05",
+   "claim_id": "M39142259A2",
+   "claim_text": "Assess and manage fever (101°F) with cultures and clinical evaluation.",
+   "kind": "action",
+   "text": "Assess and manage fever (101°F) with cultures and clinical evaluation.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "fever",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39142259A3::06",
+   "claim_id": "M39142259A3",
+   "claim_text": "Obtain blood cultures if infection suspected given fever and leukocytosis.",
+   "kind": "action",
+   "text": "Obtain blood cultures if infection suspected.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": true,
+   "treatment_class": "cultures",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No cultures action recorded in the 20.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39142259A4::09",
+   "claim_id": "M39142259A4",
+   "claim_text": "Continue heparin infusion with monitoring of PTT and platelet count.",
+   "kind": "action",
+   "text": "Continue heparin infusion with monitoring of PTT and platelet count.",
+   "concept": "platelets",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "heparin infusion",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227457:2115-12-30 02:00:00:321162",
+     "time": "2115-12-30 02:00:00",
+     "item": "platelets",
+     "value": "114 K/uL"
+    },
+    {
+     "rid": "chart:227457:2115-12-30 09:00:00:321315",
+     "time": "2115-12-30 09:00:00",
+     "item": "platelets",
+     "value": "120"
+    }
+   ],
+   "reason": "Measured in the 20.9 h observation window after the decision (24 h or until ICU discharge): platelets x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39142259A5::11",
+   "claim_id": "M39142259A5",
+   "claim_text": "Monitor and correct hypocalcemia (total calcium 7.5 mg/dL) and hypophosphatemia (phosphate 1.7 mg/dL).",
+   "kind": "action",
+   "text": "Monitor blood glucose and continue insulin therapy as ordered.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2115-12-29 22:00:00:321109",
+     "time": "2115-12-29 22:00:00",
+     "item": "glucose",
+     "value": "146"
+    },
+    {
+     "rid": "chart:220621:2115-12-30 02:00:00:321153",
+     "time": "2115-12-30 02:00:00",
+     "item": "glucose",
+     "value": "132 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 20.9 h observation window after the decision (24 h or until ICU discharge): glucose x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39142259A5::12",
+   "claim_id": "M39142259A5",
+   "claim_text": "Monitor and correct hypocalcemia (total calcium 7.5 mg/dL) and hypophosphatemia (phosphate 1.7 mg/dL).",
+   "kind": "action",
+   "text": "Continue insulin therapy as ordered.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin therapy",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 20.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39142259A6::16",
+   "claim_id": "M39142259A6",
+   "claim_text": "Monitor blood glucose and continue insulin therapy as ordered, given hyperglycemia (fingerstick 153-176 mg/dL).",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2115-12-29 22:00:00:321109",
+     "time": "2115-12-29 22:00:00",
+     "item": "glucose",
+     "value": "146"
+    },
+    {
+     "rid": "chart:220621:2115-12-30 02:00:00:321153",
+     "time": "2115-12-30 02:00:00",
+     "item": "glucose",
+     "value": "132 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 20.9 h observation window after the decision (24 h or until ICU discharge): glucose x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39142259A6::17",
+   "claim_id": "M39142259A6",
+   "claim_text": "Monitor blood glucose and continue insulin therapy as ordered, given hyperglycemia (fingerstick 153-176 mg/dL).",
+   "kind": "action",
+   "text": "Continue insulin therapy as ordered.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin therapy",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 20.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39142259A7::19",
+   "claim_id": "M39142259A7",
+   "claim_text": "Provide pulmonary hygiene with incentive spirometry and cough/deep breathing exercises given tachypnea and oxygen requirement.",
+   "kind": "action",
+   "text": "Provide pulmonary hygiene with incentive spirometry and cough/deep breathing exercises.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "pulmonary hygiene",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39142259A8::22",
+   "claim_id": "M39142259A8",
+   "claim_text": "Manage pain with IV morphine as ordered, reassessing pain level.",
+   "kind": "action",
+   "text": "Manage pain with IV morphine as ordered, reassessing pain level.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV morphine",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225154",
+     "time": "2115-12-29 22:15:00",
+     "item": "Morphine Sulfate infusion started at",
+     "class": "opioid_analgesia"
+    },
+    {
+     "rid": "IN225154#2",
+     "time": "2115-12-30 00:45:00",
+     "item": "Morphine Sulfate infusion started at",
+     "class": "opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39142259A9::23",
+   "claim_id": "M39142259A9",
+   "claim_text": "Maintain skin care and repositioning for Braden score indicating risk.",
+   "kind": "action",
+   "text": "Maintain skin care and repositioning for Braden score indicating risk.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "other",
+   "target": "skin care and repositioning",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39142259A10::24",
+   "claim_id": "M39142259A10",
+   "claim_text": "Continue telemetry and ST segment monitoring for arrhythmia detection.",
+   "kind": "action",
+   "text": "Continue telemetry and ST segment monitoring for arrhythmia detection.",
+   "concept": "heart_rhythm",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "telemetry and ST segment monitoring",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220048:2115-12-29 20:00:00:321068",
+     "time": "2115-12-29 20:00:00",
+     "item": "heart rhythm",
+     "value": "SR (Sinus Rhythm)"
+    },
+    {
+     "rid": "chart:220048:2115-12-29 21:00:00:321099",
+     "time": "2115-12-29 21:00:00",
+     "item": "heart rhythm",
+     "value": "ST (Sinus Tachycardia)"
+    }
+   ],
+   "reason": "Measured in the 20.9 h observation window after the decision (24 h or until ICU discharge): heart rhythm x19.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "K Phos",
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "0.9% Sodium Chloride",
+    "D5 1/2NS",
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride (Powder)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 5,
+   "covered": true,
+   "by_atoms": [
+    "M39142259A8::22"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "K Phos",
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "0.9% Sodium Chloride",
+    "D5 1/2NS",
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride (Powder)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "phosphate",
+   "direction": "low",
+   "reason": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "name": "phosphate",
+   "treated_by": [
+    "phosphate replacement"
+   ],
+   "mentioned": true,
+   "by_atoms": [
+    "M39142259A5::15"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 34,
+ "observation_window_hours": 20.9,
+ "scoresheet": {
+  "n": 12,
+  "supported": 10,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.833,
+  "not_supported_share": 0.167,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Fever is present. -- Median temperature over the 6 h before the decision: 99.7 °F (2 readings), normal by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+    "Fever is present. -- Median temperature over the 6 h before the decision: 99.7 °F (2 readings), normal by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.833,
+  "not_supported": 2,
+  "treatment_precision": 0.333,
+  "facts_omitted": 0,
+  "treatments_omitted": 4,
+  "recall_vital": 0.0,
+  "recall_okay": 0.25,
+  "recall_all": 0.2,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

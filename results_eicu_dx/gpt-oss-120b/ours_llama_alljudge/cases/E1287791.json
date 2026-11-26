@@ -1,0 +1,352 @@
+{
+ "case_id": "E1287791",
+ "decision_point": "2100-01-02 19:17:00",
+ "claims": [
+  "Continue the mannitol continuous infusion to manage intracranial pressure.",
+  "Obtain a repeat head CT scan to assess for progression of intracerebral hemorrhage or infarct.",
+  "Monitor blood pressure closely and titrate antihypertensive therapy to maintain systolic BP < 140 mmHg."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1287791A1::01",
+   "claim_id": "E1287791A1",
+   "claim_text": "Continue the mannitol continuous infusion to manage intracranial pressure.",
+   "kind": "action",
+   "text": "Continue the mannitol continuous infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mannitol continuous infusion",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1287791A1::02",
+   "claim_id": "E1287791A1",
+   "claim_text": "Continue the mannitol continuous infusion to manage intracranial pressure.",
+   "kind": "fact",
+   "text": "Mannitol continuous infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1287791A1::03",
+   "claim_id": "E1287791A1",
+   "claim_text": "Continue the mannitol continuous infusion to manage intracranial pressure.",
+   "kind": "fact",
+   "text": "Intracranial pressure is elevated.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1287791A2::04",
+   "claim_id": "E1287791A2",
+   "claim_text": "Obtain a repeat head CT scan to assess for progression of intracerebral hemorrhage or infarct.",
+   "kind": "action",
+   "text": "Obtain a repeat head CT scan.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "head CT scan",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1287791A2::05",
+   "claim_id": "E1287791A2",
+   "claim_text": "Obtain a repeat head CT scan to assess for progression of intracerebral hemorrhage or infarct.",
+   "kind": "fact",
+   "text": "Intracerebral hemorrhage or infarct is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1287791A3::06",
+   "claim_id": "E1287791A3",
+   "claim_text": "Monitor blood pressure closely and titrate antihypertensive therapy to maintain systolic BP < 140 mmHg.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1287791A3::07",
+   "claim_id": "E1287791A3",
+   "claim_text": "Monitor blood pressure closely and titrate antihypertensive therapy to maintain systolic BP < 140 mmHg.",
+   "kind": "action",
+   "text": "Titrate antihypertensive therapy.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antihypertensive therapy",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1287791A3::08",
+   "claim_id": "E1287791A3",
+   "claim_text": "Monitor blood pressure closely and titrate antihypertensive therapy to maintain systolic BP < 140 mmHg.",
+   "kind": "goal",
+   "text": "Maintain systolic BP < 140 mmHg.",
+   "concept": "sbp",
+   "notes": []
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1287791A1::02",
+   "claim_id": "E1287791A1",
+   "claim_text": "Continue the mannitol continuous infusion to manage intracranial pressure.",
+   "kind": "fact",
+   "text": "Mannitol continuous infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement says mannitol continuous infusion is currently being given, but R18 shows that mannitol was given as a continuous infusion, but it does not show that it is currently being given. There is no record of mannitol being administered in the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:32156885",
+     "time": "2100-01-01 21:18:00",
+     "item": "Treatment documented: ICH/ cerebral infarct | mannitol | continuous infusion"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1287791A1::03",
+   "claim_id": "E1287791A1",
+   "claim_text": "Continue the mannitol continuous infusion to manage intracranial pressure.",
+   "kind": "fact",
+   "text": "Intracranial pressure is elevated.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement says that intracranial pressure is elevated, but the records show that the patient's blood pressure is within a normal range at the decision time. The records do not mention intracranial pressure at all.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:766669052",
+     "time": "2100-01-02 19:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 113 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1287791A2::05",
+   "claim_id": "E1287791A2",
+   "claim_text": "Obtain a repeat head CT scan to assess for progression of intracerebral hemorrhage or infarct.",
+   "kind": "fact",
+   "text": "Intracerebral hemorrhage or infarct is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records state that an intracerebral hemorrhage or infarct is present, but the medication orders and administration records do not support this statement. The records do mention mannitol, which is used to treat intracerebral hemorrhage, but this does not directly support the statement. The statement is not supported by the records, but it is not entirely not addressed either, as the records do ",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:32156885",
+     "time": "2100-01-01 21:18:00",
+     "item": "Treatment documented: ICH/ cerebral infarct | mannitol | continuous infusion"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1287791A1::01",
+   "claim_id": "E1287791A1",
+   "claim_text": "Continue the mannitol continuous infusion to manage intracranial pressure.",
+   "kind": "action",
+   "text": "Continue the mannitol continuous infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mannitol continuous infusion",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1287791A2::04",
+   "claim_id": "E1287791A2",
+   "claim_text": "Obtain a repeat head CT scan to assess for progression of intracerebral hemorrhage or infarct.",
+   "kind": "action",
+   "text": "Obtain a repeat head CT scan.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "head CT scan",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1287791A3::06",
+   "claim_id": "E1287791A3",
+   "claim_text": "Monitor blood pressure closely and titrate antihypertensive therapy to maintain systolic BP < 140 mmHg.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:749101305",
+     "time": "2100-01-02 20:00:00",
+     "item": "systolic BP",
+     "value": "142.0 mmHg"
+    },
+    {
+     "rid": "nurse:802447502",
+     "time": "2100-01-02 21:00:00",
+     "item": "systolic BP",
+     "value": "128.0 mmHg"
+    },
+    {
+     "rid": "nurse:749101307",
+     "time": "2100-01-02 20:00:00",
+     "item": "mean arterial pressure",
+     "value": "95.0 mmHg"
+    },
+    {
+     "rid": "nurse:802447504",
+     "time": "2100-01-02 21:00:00",
+     "item": "mean arterial pressure",
+     "value": "103.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x23, mean arterial pressure x22.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1287791A3::07",
+   "claim_id": "E1287791A3",
+   "claim_text": "Monitor blood pressure closely and titrate antihypertensive therapy to maintain systolic BP < 140 mmHg.",
+   "kind": "action",
+   "text": "Titrate antihypertensive therapy.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antihypertensive therapy",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Mannitol continuous infusion is currently being given. -- The statement says mannitol continuous infusion is currently being given, but R18 shows that mannitol was given as a continuous infusion, but it does not show that it is currently being given. There is no record of mannitol being administered in the 24 hours before the decision time.",
+    "Intracranial pressure is elevated. -- The statement says that intracranial pressure is elevated, but the records show that the patient's blood pressure is within a normal range at the decision time. The records do not mention intracranial pressure at all.",
+    "Intracerebral hemorrhage or infarct is present. -- The records state that an intracerebral hemorrhage or infarct is present, but the medication orders and administration records do not support this statement. The records do mention mannitol, which is used to treat intracerebral hemorrhage, but this does not directly support the statement. The statement is not supported by the records, but it is not entirely not addressed either, as the records do "
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

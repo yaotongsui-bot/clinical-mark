@@ -36,12 +36,15 @@ def scoresheet(facts: list[dict]) -> dict:
     return out
 
 
-def case_metrics(facts: list[dict], actions: list[dict], cov: list[dict], cov3: list[dict]) -> dict:
+def case_metrics(facts: list[dict], actions: list[dict], cov: list[dict], cov3: list[dict],
+                 omitted_facts: list[dict] | None = None) -> dict:
     f = Counter(x["label"] for x in facts)
     t = Counter(x["label"] for x in actions if x["track"] == "treatment")
     scored = sum(t[k] for k in TREATMENT_SCORED)
     out = {"fact_accuracy": _rate(f["supported"], f["supported"] + f["not_supported"]),
-           "not_supported": f["not_supported"], "treatment_precision": _rate(t["match"], scored)}
+           "not_supported": f["not_supported"], "treatment_precision": _rate(t["match"], scored),
+           "facts_omitted": sum(not x["mentioned"] for x in omitted_facts or []),
+           "treatments_omitted": sum(not g["covered"] for g in cov)}
     for suffix, rows in (("", cov), ("_at3", cov3)):
         for tier in ("vital", "okay", None):
             hit, n = recall(rows, tier)
@@ -75,6 +78,7 @@ def summarize(cases: list[dict]) -> dict:
     m_labels = Counter(a["label"] for a in monitoring)
     scored = sum(t_labels[k] for k in TREATMENT_SCORED)
     gold = [g for c in cases for g in c["coverage"]]
+    found = [x for c in cases for x in c.get("fact_omissions", [])]
     judged = [x for c in cases for x in c["facts"] + c["actions"] if x.get("method") == "llm_panel"]
     items = [x for c in cases for x in c["facts"] + c["actions"]]
     unscored = {"not_addressed", "unverifiable", "unobservable", "vague_target", "condition_not_met"}
@@ -99,6 +103,14 @@ def summarize(cases: list[dict]) -> dict:
             "problem_linked": sum(g["problem_linked"] for g in gold),
             "problem_linked_missed": sum(g["problem_linked"] and not g["covered"] for g in gold),
             "most_missed_vital": Counter(g["name"] for g in gold if g["importance"] == "vital" and not g["covered"]).most_common(10),
+        },
+        # Omissions: what the clinicians did (treatment classes) or acted on (abnormal findings) that the AI
+        # never mentions. Counted per case and class / finding; the unit differs from the AI-side labels.
+        "omissions": {
+            "facts": {"findings": len(found), "omitted": sum(not x["mentioned"] for x in found)},
+            "treatments": {"doctor_items": len(gold), "omitted": sum(not g["covered"] for g in gold),
+                           "vital": sum(g["importance"] == "vital" for g in gold),
+                           "vital_omitted": sum(g["importance"] == "vital" and not g["covered"] for g in gold)},
         },
         "judge_panel": {"items": len(judged),
                         "agreement": dict(Counter(x["panel"]["agreement"] for x in judged))},
@@ -142,7 +154,9 @@ def write_markdown(path: Path, summary: dict, cases: list[dict], meta: dict) -> 
         f"| supported / not_supported / not_addressed / unverifiable | "
         f"{' / '.join(str(f['labels'].get(k, 0)) for k in FACT_LABELS)} |",
         f"| Fact accuracy = supported / (supported + not_supported) | {_pct(f['accuracy'])} |",
-        f"| Cases with at least one not_supported fact | {f['cases_with_not_supported']} / {s['cases_evaluated']} |", "",
+        f"| Cases with at least one not_supported fact | {f['cases_with_not_supported']} / {s['cases_evaluated']} |",
+        f"| Omitted findings: abnormalities the clinicians treated that no AI fact mentions | "
+        f"{s['omissions']['facts']['omitted']} / {s['omissions']['facts']['findings']} |", "",
         "| Fact kind | n | Accuracy | Labels |", "|---|---|---|---|",
     ]
     for kind, row in f["by_fact_kind"].items():
@@ -159,6 +173,10 @@ def write_markdown(path: Path, summary: dict, cases: list[dict], meta: dict) -> 
               f"performed rate among observable items {_pct(m['performed_rate'])}. "
               f"{s['goals_excluded']} 'goal' atoms with no concrete action are not scored.", "",
               "## 3. What did the AI miss?", "",
+              f"Omitted treatments: {s['omissions']['treatments']['omitted']} of the "
+              f"{s['omissions']['treatments']['doctor_items']} treatment classes the clinicians used "
+              f"({s['omissions']['treatments']['vital_omitted']} of {s['omissions']['treatments']['vital']} vital). "
+              "Recall below is the share not omitted.", "",
               "Vital = a class the rule file marks vital, or one whose indication was present at the decision time "
               "(for example low potassium followed by potassium chloride). Other non-routine classes are okay.", "",
               "| Recall | All suggestions (micro / per-case) | First 3 suggestions only (micro / per-case) |",

@@ -1,0 +1,142 @@
+# E1682105   T = 2100-01-02 13:56:00   records before T: 829
+ICU stay 1682105 (Cardiac ICU; Female, age 53; admission diagnosis: Cardiac arrest (with or without respiratory arrest; for respiratory arrest see Respiratory System)).
+
+## Atoms
+deepseek-v4.1-flash|E1682105A1::02 [presupposition] Hemodialysis is currently being given.   <- Continue hemodialysis for severe renal failure and hyperkalemia.
+deepseek-v4.1-flash|E1682105A1::03 [observed] Severe renal failure is present.   <- Continue hemodialysis for severe renal failure and hyperkalemia.
+deepseek-v4.1-flash|E1682105A1::04 [observed] Hyperkalemia is present.   <- Continue hemodialysis for severe renal failure and hyperkalemia.
+deepseek-v4.1-flash|E1682105A3::08 [presupposition] Hypotension is present.   <- Assess and manage hypotension with intravenous fluids as needed.
+gpt-oss-120b|E1682105A1::02 [observed] Potassium is 7.5-7.7 mmol/L.   <- Initiate emergent continuous renal replacement therapy (CRRT) to address severe hyperkalemia (K+ 7.5‑7.7 mmol/L) and refractory acute kidney injury (creatinine >9 mg/dL).
+gpt-oss-120b|E1682105A1::03 [observed] Creatinine is >9 mg/dL.   <- Initiate emergent continuous renal replacement therapy (CRRT) to address severe hyperkalemia (K+ 7.5‑7.7 mmol/L) and refractory acute kidney injury (creatinine >9 mg/dL).
+gpt-oss-120b|E1682105A1::04 [judgment] Acute kidney injury is refractory.   <- Initiate emergent continuous renal replacement therapy (CRRT) to address severe hyperkalemia (K+ 7.5‑7.7 mmol/L) and refractory acute kidney injury (creatinine >9 mg/dL).
+gpt-oss-120b|E1682105A2::07 [presupposition] Hyperkalemia is present.   <- Administer intravenous insulin with dextrose and consider calcium gluconate bolus to temporize hyperkalemia while CRRT is being arranged.
+gpt-oss-120b|E1682105A3::11 [observed] Hypotension is fluctuating.   <- Titrate intravenous labetalol or add a short‑acting vasodilator to maintain mean arterial pressure >65 mmHg given fluctuating hypotension and hypertension.
+gpt-oss-120b|E1682105A3::12 [observed] Hypertension is fluctuating.   <- Titrate intravenous labetalol or add a short‑acting vasodilator to maintain mean arterial pressure >65 mmHg given fluctuating hypotension and hypertension.
+qwen2.5-7b|E1682105A1::02 [presupposition] The patient is currently on mechanical ventilation.   <- Continue mechanical ventilation with PEEP set at 5 cmH2O.
+qwen2.5-7b|E1682105A1::03 [observed] PEEP is set at 5 cmH2O.   <- Continue mechanical ventilation with PEEP set at 5 cmH2O.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 16:00:00): Medication propofol Intravenous Continuous
+  Running at decision time (scheduled order started 2100-01-01 18:00:00): Medication methylPREDNISolone sod suc(PF) Intravenous Every 8 hours
+  Running at decision time (scheduled order started 2100-01-01 18:00:00): Medication methylPREDNISolone sod suc(PF) Intravenous Every 8 hours
+  Running at decision time (scheduled order started 2100-01-02 12:15:00): Medication sodium chloride 0.9 % Hemodialysis Continuous
+  Running at decision time (scheduled order started 2100-01-02 13:00:00): Medication famotidine Intravenous Daily
+
+## PRN orders
+  01-01 14:24 Order: ondansetron Intravenous Every 6 hours PRN (active at decision time)
+  01-01 14:24 Order: ipratropium-albuterol Inhalation PRN (active at decision time)
+  01-01 17:00 Order: midazolam Intravenous Every 1 hour prn (stopped 2100-01-02 13:24:00)
+  01-01 17:00 Order: fentaNYL Intravenous Every 5 min PRN (active at decision time)
+  01-01 19:53 Order: labetalol Intravenous Every 6 hours PRN (active at decision time)
+  01-02 11:23 Order: sodium chloride 0.9% Intravenous As needed PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Given once: methylPREDNISolone sod suc(PF) Intravenous Once X1 (2100-01-01 09:15:00)
+  Medication ipratropium-albuterol Inhalation (2100-01-01 09:15:00 to 2100-01-01 09:27:00)
+  Given once: sodium bicarbonate Intravenous Once X1 (2100-01-01 09:30:00)
+  Given once: hydrALAZINE Intravenous Once X1 (2100-01-01 09:55:00)
+  Given once: methylPREDNISolone sod suc(PF) Intravenous Once X1 (2100-01-01 09:55:00)
+  Medication famotidine Intravenous Every 12 hours scheduled (2100-01-01 15:30:00 to 2100-01-01 16:28:00)
+  Medication ipratropium-albuterol Inhalation (2100-01-01 16:00:00 to 2100-01-01 23:52:00)
+  Medication acetaminophen Oral Every 6 hours (2100-01-01 17:00:00 to 2100-01-02 13:26:00)
+  Medication acetaminophen Rectal Every 6 hours (2100-01-01 17:00:00 to 2100-01-02 13:26:00)
+  Medication acetaminophen Oral Every 6 hours (2100-01-01 17:00:00 to 2100-01-02 13:26:00)
+  Medication methylPREDNISolone sod suc(PF) Intravenous Every 8 hours (2100-01-01 18:00:00 to 2100-01-02 13:27:00)
+  Medication midazolam Intravenous Continuous (2100-01-01 18:00:00 to 2100-01-02 13:24:00)
+  Given once: calcium gluconate Intravenous Once X1 (2100-01-01 21:00:00)
+  Given once: sodium chloride 0.9% Intravenous Once X1 (2100-01-02 01:00:00)
+  Given once: calcium gluconate Intravenous Once X1 (2100-01-02 02:15:00)
+  Given once: sodium chloride 0.9% Intravenous Once X1 (2100-01-02 03:00:00)
+  Given once: calcium gluconate Intravenous Once X1 (2100-01-02 07:15:00)
+
+## Laboratory (newest first, up to 5)
+  Alanine Aminotransferase (ALT): 01-01 09:06 16 U/L
+  Albumin: 01-01 09:06 3.8 g/dL
+  Alkaline Phosphatase: 01-01 09:06 155 U/L
+  Anion Gap: 01-02 12:19 31 mmol/L; 01-02 05:57 28 mmol/L; 01-01 23:30 29 mmol/L; 01-01 18:30 27 mmol/L; 01-01 09:06 36 mmol/L
+  Asparate Aminotransferase (AST): 01-01 09:06 26 U/L
+  BNP: 01-01 14:35 43002 pg/mL; 01-01 09:06 45092 pg/mL
+  Base Excess: 01-02 07:32 -5.8; 01-02 01:40 -4.9
+  Bicarbonate: 01-02 12:19 20 mmol/L; 01-02 05:57 24 mmol/L; 01-01 23:30 23 mmol/L; 01-01 18:30 24 mmol/L; 01-01 09:06 16 mmol/L
+  Bicarbonate (blood gas HCO3): 01-02 07:32 20.9 mmol/L; 01-02 01:40 20.6 mmol/L
+  Bilirubin, Total: 01-01 09:06 0.2 mg/dL
+  Calcium, Total: 01-02 12:19 8 mg/dL; 01-02 05:57 8.3 mg/dL; 01-01 23:30 8.1 mg/dL; 01-01 18:30 7.4 mg/dL; 01-01 09:06 8 mg/dL
+  Chloride: 01-02 12:19 95 mmol/L; 01-02 05:57 95 mmol/L; 01-01 23:30 93 mmol/L; 01-01 18:30 93 mmol/L; 01-01 09:06 94 mmol/L
+  Creatinine: 01-02 12:19 9.13 mg/dL; 01-02 05:57 9.02 mg/dL; 01-01 23:30 9.09 mg/dL; 01-01 18:30 8.58 mg/dL; 01-01 09:06 8.11 mg/dL
+  Free Calcium: 01-02 05:57 4.1 mg/dL; 01-02 00:58 3.9 mg/dL; 01-01 14:35 3.8 mg/dL
+  Glucose: 01-02 12:19 126 mg/dL; 01-02 05:57 97 mg/dL; 01-01 23:30 108 mg/dL; 01-01 18:30 201 mg/dL; 01-01 09:06 198 mg/dL
+  Hematocrit: 01-02 12:19 31.1 %; 01-02 07:32 33.3 %; 01-02 05:57 30.6 %; 01-02 01:40 31.8 %; 01-01 23:30 31.2 %   [+2 earlier]
+  Hemoglobin: 01-02 12:19 10.1 g/dL; 01-02 07:32 10.8 g/dL; 01-02 05:57 9.8 g/dL; 01-02 01:40 10.3 g/dL; 01-01 23:30 10 g/dL   [+2 earlier]
+  INR(PT): 01-01 14:35 3; 01-01 09:06 3.1
+  Lactate: 01-02 12:19 1.6 mmol/L; 01-02 05:57 1.7 mmol/L; 01-01 23:30 2.1 mmol/L; 01-01 18:30 1.9 mmol/L; 01-01 09:20 11.3 mmol/L
+  MCH: 01-02 12:19 30.1 pg; 01-02 05:57 30 pg; 01-01 23:30 30.1 pg; 01-01 18:30 30.3 pg; 01-01 09:30 30.2 pg
+  MCHC: 01-02 12:19 32.5 g/dL; 01-02 05:57 32 g/dL; 01-01 23:30 32.1 g/dL; 01-01 18:30 32 g/dL; 01-01 09:30 30 g/dL
+  MCV: 01-02 12:19 92.8 fL; 01-02 05:57 93.6 fL; 01-01 23:30 94 fL; 01-01 18:30 94.5 fL; 01-01 09:30 100.6 fL
+  MPV: 01-02 12:19 9.3 fL; 01-02 05:57 9.1 fL; 01-01 23:30 9.3 fL; 01-01 18:30 8.7 fL; 01-01 09:30 9 fL
+  Magnesium: 01-02 12:19 2.1 mg/dL; 01-02 05:57 2 mg/dL; 01-01 23:30 2.2 mg/dL; 01-01 18:30 2 mg/dL; 01-01 14:35 2 mg/dL   [+1 earlier]
+  Oxygen Saturation: 01-02 07:32 96.5 %; 01-02 01:40 98.1 %
+  PT: 01-01 14:35 30.3 seconds; 01-01 09:06 31.1 seconds
+  PTT: 01-01 09:06 71.2 seconds
+  Phosphate: 01-01 14:35 10.7 mg/dL; 01-01 09:06 12.1 mg/dL
+  Platelet Count: 01-02 12:19 282 K/mcL; 01-02 05:57 250 K/mcL; 01-01 23:30 243 K/mcL; 01-01 18:30 276 K/mcL; 01-01 09:30 353 K/mcL
+  Potassium: 01-02 12:19 7.5 mmol/L; 01-02 05:57 7.7 mmol/L; 01-01 23:30 7.7 mmol/L; 01-01 18:30 5.7 mmol/L; 01-01 09:06 6.4 mmol/L
+  RBC: 01-02 12:19 3.35 M/mcL; 01-02 05:57 3.27 M/mcL; 01-01 23:30 3.32 M/mcL; 01-01 18:30 3.27 M/mcL; 01-01 09:30 3.41 M/mcL
+  RDW: 01-02 12:19 16.6 %; 01-02 05:57 16.7 %; 01-01 23:30 16.6 %; 01-01 18:30 16.8 %; 01-01 09:30 16.9 %
+  Respiratory Rate: 01-02 07:32 20; 01-02 01:40 20
+  Sodium: 01-02 12:19 138 mmol/L; 01-02 05:57 139 mmol/L; 01-01 23:30 137 mmol/L; 01-01 18:30 138 mmol/L; 01-01 09:06 140 mmol/L
+  TSH: 01-02 00:58 0.45 mcIU/mL
+  TV: 01-02 07:32 400; 01-02 01:40 400
+  Urea Nitrogen: 01-02 12:19 77 mg/dL; 01-02 05:57 70 mg/dL; 01-01 23:30 68 mg/dL; 01-01 18:30 61 mg/dL; 01-01 09:06 43 mg/dL
+  WBC's in urine: 01-01 11:50 15 /hpf
+  White Blood Cells: 01-02 12:19 14.96 K/mcL; 01-02 05:57 12.26 K/mcL; 01-01 23:30 10.93 K/mcL; 01-01 18:30 15.99 K/mcL; 01-01 09:30 16.6 K/mcL
+  direct bilirubin: 01-01 09:06 <0.1
+  ethanol: 01-01 14:35 <10.0
+  lipase: 01-01 09:06 69 U/L
+  pCO2: 01-02 07:32 49.3 mm Hg; 01-02 01:40 42 mm Hg
+  pH: 01-02 07:32 7.25; 01-02 01:40 7.31
+  pO2: 01-02 07:32 115 mm Hg; 01-02 01:40 137 mm Hg
+  total protein: 01-01 09:06 6.9 g/dL
+  troponin - T: 01-01 23:30 0.207 ng/mL; 01-01 14:35 0.2 ng/mL
+  urinary specific gravity: 01-01 11:50 1.012
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Compliance: 0 @01-02 11:45   24h 0-0 (n=6)
+  Exhaled MV: 10.3 @01-02 11:45   24h 8.86-10.3 (n=6)
+  Exhaled TV (machine): 512 @01-01 13:23   earlier: 488 @01-01 09:29
+  Flow Sensitivity: 3 @01-01 13:23
+  Glasgow coma score Eyes: 4 @01-02 12:00   24h 1-4 (n=6)
+  Glasgow coma score GCS Total: 7 @01-02 12:00   24h 3-7 (n=5)
+  Glasgow coma score Motor: 2 @01-02 12:00   24h 1-2 (n=5)
+  Glasgow coma score Verbal: 1 @01-02 12:00   24h 1-1 (n=5)
+  Heart Rate: 73 bpm @01-02 13:45   24h 65-141 (n=40)
+  Inspired O2 Fraction: 60 % @01-02 13:45   24h 60-60 (n=44)
+  Mean Airway Pressure: 11 cmH2O @01-02 11:45   24h 9.1-11 (n=6)
+  Non Invasive Blood Pressure diastolic: 73 mmHg @01-02 13:45   24h 47-128 (n=39)
+  Non Invasive Blood Pressure mean: 91 mmHg @01-02 13:45   24h 57-145 (n=39)
+  Non Invasive Blood Pressure systolic: 143 mmHg @01-02 13:45   24h 75-193 (n=39)
+  O2 saturation pulseoxymetry: 100 % @01-02 13:45   24h 86-100 (n=42)
+  PEEP set: 5 cmH2O @01-02 11:45   24h 5-5 (n=25)
+  Pain Level: 0 @01-02 12:00   24h 0-0 (n=4)
+  Peak Flow: 60 @01-02 11:45   24h 60-60 (n=6)
+  Peak Insp. Pressure: 25 cmH2O @01-02 11:45   24h 18-36 (n=25)
+  Plateau Pressure: 20 @01-02 11:45   24h 20-20 (n=6)
+  Pressure to Trigger PS: 3 @01-02 11:45   24h 3-3 (n=6)
+  Respiratory Rate: 22 insp/min @01-02 13:45   24h 13-26 (n=40)
+  Respiratory Rate (Set): 20 insp/min @01-02 11:45   24h 16-20 (n=25)
+  Respiratory Rate (Total): 24 insp/min @01-02 11:45   24h 20-25 (n=25)
+  Secured at-ETT : 24 @01-02 11:55   24h 24-24 (n=5)
+  Sedation Scale/Score/Goal Sedation Goal: 0 @01-02 12:00   24h -4-0 (n=2)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-02 12:00
+  Sedation Scale/Score/Goal Sedation Score: -5 @01-02 12:00   24h -5--4 (n=5)
+  TV/kg IBW: 8.0539 @01-02 11:45   24h 8.0539-8.0539 (n=25)
+  Temperature Fahrenheit: 91.6 F @01-02 12:20   24h 91.2-94.1 (n=26)
+  Temperature Location: Rectal @01-02 12:20   earlier: Oral @01-01 16:00; Axillary @01-01 09:45
+  Tidal Volume (set): 400 mL @01-02 11:45   24h 400-400 (n=25)
+
+## Treatments documented
+  01-01 15:17 cardiovascular | non-operative procedures | diagnostic ultrasound of heart
+  01-01 15:17 pulmonary | ventilation and oxygenation | mechanical ventilation
+
+## Microbiology

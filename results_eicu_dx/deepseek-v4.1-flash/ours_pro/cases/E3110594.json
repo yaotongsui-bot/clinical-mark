@@ -1,0 +1,469 @@
+{
+ "case_id": "E3110594",
+ "decision_point": "2100-01-02 01:02:00",
+ "claims": [
+  "Monitor blood pressure closely given intermittent hypotension and recent diuretic and ACE inhibitor administration.",
+  "Assess volume status and renal function to guide ongoing diuretic therapy.",
+  "Continue current oxygen therapy via nasal cannula to maintain oxygen saturation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3110594A1::01",
+   "claim_id": "E3110594A1",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and recent diuretic and ACE inhibitor administration.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3110594A1::02",
+   "claim_id": "E3110594A1",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and recent diuretic and ACE inhibitor administration.",
+   "kind": "fact",
+   "text": "Intermittent hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3110594A1::03",
+   "claim_id": "E3110594A1",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and recent diuretic and ACE inhibitor administration.",
+   "kind": "fact",
+   "text": "Diuretic was recently administered.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3110594A1::04",
+   "claim_id": "E3110594A1",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and recent diuretic and ACE inhibitor administration.",
+   "kind": "fact",
+   "text": "ACE inhibitor was recently administered.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3110594A2::05",
+   "claim_id": "E3110594A2",
+   "claim_text": "Assess volume status and renal function to guide ongoing diuretic therapy.",
+   "kind": "action",
+   "text": "Assess volume status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "volume status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3110594A2::06",
+   "claim_id": "E3110594A2",
+   "claim_text": "Assess volume status and renal function to guide ongoing diuretic therapy.",
+   "kind": "action",
+   "text": "Assess renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "assess",
+   "target": "renal function",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3110594A2::07",
+   "claim_id": "E3110594A2",
+   "claim_text": "Assess volume status and renal function to guide ongoing diuretic therapy.",
+   "kind": "fact",
+   "text": "Diuretic therapy is ongoing.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3110594A3::08",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue current oxygen therapy via nasal cannula to maintain oxygen saturation.",
+   "kind": "action",
+   "text": "Continue current oxygen therapy via nasal cannula.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oxygen therapy",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3110594A3::09",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue current oxygen therapy via nasal cannula to maintain oxygen saturation.",
+   "kind": "fact",
+   "text": "The patient is currently on oxygen therapy via nasal cannula.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3110594A1::02",
+   "claim_id": "E3110594A1",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and recent diuretic and ACE inhibitor administration.",
+   "kind": "fact",
+   "text": "Intermittent hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1995763489",
+     "time": "2100-01-01 05:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 72.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "low"
+    },
+    {
+     "rid": "nurse:2087014459",
+     "time": "2100-01-01 23:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 63.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E3110594A1::03",
+   "claim_id": "E3110594A1",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and recent diuretic and ACE inhibitor administration.",
+   "kind": "fact",
+   "text": "Diuretic was recently administered.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show furosemide (a diuretic) was administered at 13:30 and is running at the decision time, supporting recent diuretic administration.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:103128920",
+     "time": "2100-01-01 13:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication FUROSEMIDE PO DAILY"
+    },
+    {
+     "rid": "med:103128921",
+     "time": "2100-01-01 13:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication FUROSEMIDE PO"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3110594A1::04",
+   "claim_id": "E3110594A1",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and recent diuretic and ACE inhibitor administration.",
+   "kind": "fact",
+   "text": "ACE inhibitor was recently administered.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The record shows lisinopril, an ACE inhibitor, was running at the decision time, indicating recent administration.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:103128923",
+     "time": "2100-01-01 13:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication LISINOPRIL PO DAILY"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3110594A2::07",
+   "claim_id": "E3110594A2",
+   "claim_text": "Assess volume status and renal function to guide ongoing diuretic therapy.",
+   "kind": "fact",
+   "text": "Diuretic therapy is ongoing.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show furosemide, a diuretic, as 'Running at decision time' (R34, R35), indicating ongoing diuretic therapy.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:103128920",
+     "time": "2100-01-01 13:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication FUROSEMIDE PO DAILY"
+    },
+    {
+     "rid": "med:103128921",
+     "time": "2100-01-01 13:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication FUROSEMIDE PO"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3110594A3::09",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue current oxygen therapy via nasal cannula to maintain oxygen saturation.",
+   "kind": "fact",
+   "text": "The patient is currently on oxygen therapy via nasal cannula.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Multiple monitoring records from 00:00 to 06:00 on 2100-01-01 document the patient on a nasal cannula with O2 at 2 L/min, supporting that the patient is currently on oxygen therapy via nasal cannula.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2044973043",
+     "time": "2100-01-01 00:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula (charted: nasal cannula)"
+    },
+    {
+     "rid": "nurse:2056473494",
+     "time": "2100-01-01 01:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula (charted: nasal cannula)"
+    },
+    {
+     "rid": "nurse:2122147207",
+     "time": "2100-01-01 02:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula (charted: nasal cannula)"
+    },
+    {
+     "rid": "nurse:2078486141",
+     "time": "2100-01-01 03:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula (charted: nasal cannula)"
+    },
+    {
+     "rid": "nurse:2077876672",
+     "time": "2100-01-01 04:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula (charted: nasal cannula)"
+    },
+    {
+     "rid": "nurse:1965778092",
+     "time": "2100-01-01 05:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula (charted: nasal cannula)"
+    },
+    {
+     "rid": "nurse:2008533852",
+     "time": "2100-01-01 06:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula (charted: nasal cannula)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3110594A1::01",
+   "claim_id": "E3110594A1",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and recent diuretic and ACE inhibitor administration.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2027506291",
+     "time": "2100-01-02 02:00:00",
+     "item": "systolic BP",
+     "value": "107.0 mmHg"
+    },
+    {
+     "rid": "nurse:2063848226",
+     "time": "2100-01-02 03:00:00",
+     "item": "systolic BP",
+     "value": "118.0 mmHg"
+    },
+    {
+     "rid": "nurse:2027506293",
+     "time": "2100-01-02 02:00:00",
+     "item": "mean arterial pressure",
+     "value": "80.0 mmHg"
+    },
+    {
+     "rid": "nurse:2063848228",
+     "time": "2100-01-02 03:00:00",
+     "item": "mean arterial pressure",
+     "value": "65.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x11, mean arterial pressure x11.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3110594A2::05",
+   "claim_id": "E3110594A2",
+   "claim_text": "Assess volume status and renal function to guide ongoing diuretic therapy.",
+   "kind": "action",
+   "text": "Assess volume status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "volume status",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3110594A2::06",
+   "claim_id": "E3110594A2",
+   "claim_text": "Assess volume status and renal function to guide ongoing diuretic therapy.",
+   "kind": "action",
+   "text": "Assess renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "assess",
+   "target": "renal function",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:740191725",
+     "time": "2100-01-02 14:35:00",
+     "item": "creatinine",
+     "value": "0.81 mg/dL"
+    },
+    {
+     "rid": "lab:740191719",
+     "time": "2100-01-02 14:35:00",
+     "item": "BUN",
+     "value": "21.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): creatinine x1, BUN x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3110594A3::08",
+   "claim_id": "E3110594A3",
+   "claim_text": "Continue current oxygen therapy via nasal cannula to maintain oxygen saturation.",
+   "kind": "action",
+   "text": "Continue current oxygen therapy via nasal cannula.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oxygen therapy",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 5,
+  "supported": 5,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

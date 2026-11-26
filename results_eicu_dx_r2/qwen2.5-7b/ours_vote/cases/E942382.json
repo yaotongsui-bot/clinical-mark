@@ -1,0 +1,808 @@
+{
+ "case_id": "E942382",
+ "decision_point": "2100-01-02 15:23:00",
+ "claims": [
+  "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+  "Continue the administration of diltiazem to manage the patient's heart rate and rhythm.",
+  "Evaluate the patient's oxygen saturation and consider adjusting the oxygen flow rate if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E942382A1::01",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E942382A1::02",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "action",
+   "text": "Monitor respiratory rate closely.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E942382A1::03",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "fact",
+   "text": "Blood pressure has been fluctuating significantly.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E942382A1::04",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "fact",
+   "text": "Respiratory rate has been fluctuating significantly.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E942382A2::05",
+   "claim_id": "E942382A2",
+   "claim_text": "Continue the administration of diltiazem to manage the patient's heart rate and rhythm.",
+   "kind": "action",
+   "text": "Continue diltiazem.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "diltiazem",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E942382A2::06",
+   "claim_id": "E942382A2",
+   "claim_text": "Continue the administration of diltiazem to manage the patient's heart rate and rhythm.",
+   "kind": "fact",
+   "text": "Diltiazem is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E942382A3::07",
+   "claim_id": "E942382A3",
+   "claim_text": "Evaluate the patient's oxygen saturation and consider adjusting the oxygen flow rate if necessary.",
+   "kind": "action",
+   "text": "Evaluate oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E942382A3::08",
+   "claim_id": "E942382A3",
+   "claim_text": "Evaluate the patient's oxygen saturation and consider adjusting the oxygen flow rate if necessary.",
+   "kind": "action",
+   "text": "Consider adjusting the oxygen flow rate if necessary.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen flow rate",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E942382A1::03",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "fact",
+   "text": "Blood pressure has been fluctuating significantly.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The blood pressure measurements show significant variability, with systolic values ranging from 89 to 137 mmHg and diastolic values from 49 to 90 mmHg over the recorded period, supporting the statement of fluctuation.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:462365607",
+     "time": "2100-01-01 15:45:00",
+     "item": "Non Invasive Blood Pressure diastolic: 65 mmHg"
+    },
+    {
+     "rid": "nurse:462365609",
+     "time": "2100-01-01 15:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 115 mmHg"
+    },
+    {
+     "rid": "nurse:546305894",
+     "time": "2100-01-01 16:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 84 mmHg"
+    },
+    {
+     "rid": "nurse:546305896",
+     "time": "2100-01-01 16:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 113 mmHg"
+    },
+    {
+     "rid": "nurse:487700299",
+     "time": "2100-01-01 16:15:00",
+     "item": "Non Invasive Blood Pressure diastolic: 55 mmHg"
+    },
+    {
+     "rid": "nurse:487700301",
+     "time": "2100-01-01 16:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 90 mmHg"
+    },
+    {
+     "rid": "nurse:539200207",
+     "time": "2100-01-01 17:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 72 mmHg"
+    },
+    {
+     "rid": "nurse:539200209",
+     "time": "2100-01-01 17:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 103 mmHg"
+    },
+    {
+     "rid": "nurse:470133336",
+     "time": "2100-01-01 17:15:00",
+     "item": "Non Invasive Blood Pressure diastolic: 68 mmHg"
+    },
+    {
+     "rid": "nurse:470133338",
+     "time": "2100-01-01 17:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 89 mmHg"
+    },
+    {
+     "rid": "nurse:555897926",
+     "time": "2100-01-01 17:30:00",
+     "item": "Non Invasive Blood Pressure diastolic: 79 mmHg"
+    },
+    {
+     "rid": "nurse:555897928",
+     "time": "2100-01-01 17:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 102 mmHg"
+    },
+    {
+     "rid": "nurse:535943511",
+     "time": "2100-01-01 17:45:00",
+     "item": "Non Invasive Blood Pressure diastolic: 61 mmHg"
+    },
+    {
+     "rid": "nurse:535943513",
+     "time": "2100-01-01 17:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 104 mmHg"
+    },
+    {
+     "rid": "nurse:466893690",
+     "time": "2100-01-01 18:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 70 mmHg"
+    },
+    {
+     "rid": "nurse:466893692",
+     "time": "2100-01-01 18:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 109 mmHg"
+    },
+    {
+     "rid": "nurse:563792969",
+     "time": "2100-01-01 18:15:00",
+     "item": "Non Invasive Blood Pressure diastolic: 73 mmHg"
+    },
+    {
+     "rid": "nurse:563792971",
+     "time": "2100-01-01 18:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 106 mmHg"
+    },
+    {
+     "rid": "nurse:520960893",
+     "time": "2100-01-01 18:30:00",
+     "item": "Non Invasive Blood Pressure diastolic: 85 mmHg"
+    },
+    {
+     "rid": "nurse:520960895",
+     "time": "2100-01-01 18:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 118 mmHg"
+    },
+    {
+     "rid": "nurse:501674705",
+     "time": "2100-01-01 18:45:00",
+     "item": "Non Invasive Blood Pressure diastolic: 80 mmHg"
+    },
+    {
+     "rid": "nurse:501674707",
+     "time": "2100-01-01 18:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 117 mmHg"
+    },
+    {
+     "rid": "nurse:477158632",
+     "time": "2100-01-01 19:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 80 mmHg"
+    },
+    {
+     "rid": "nurse:477158634",
+     "time": "2100-01-01 19:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 137 mmHg"
+    },
+    {
+     "rid": "nurse:459885671",
+     "time": "2100-01-01 19:15:00",
+     "item": "Non Invasive Blood Pressure diastolic: 64 mmHg"
+    },
+    {
+     "rid": "nurse:459885673",
+     "time": "2100-01-01 19:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 94 mmHg"
+    },
+    {
+     "rid": "nurse:553986591",
+     "time": "2100-01-01 19:30:00",
+     "item": "Non Invasive Blood Pressure diastolic: 49 mmHg"
+    },
+    {
+     "rid": "nurse:553986593",
+     "time": "2100-01-01 19:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 92 mmHg"
+    },
+    {
+     "rid": "nurse:483967016",
+     "time": "2100-01-01 20:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 53 mmHg"
+    },
+    {
+     "rid": "nurse:483967018",
+     "time": "2100-01-01 20:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 101 mmHg"
+    },
+    {
+     "rid": "nurse:488943413",
+     "time": "2100-01-01 21:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 64 mmHg"
+    },
+    {
+     "rid": "nurse:488943415",
+     "time": "2100-01-01 21:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 98 mmHg"
+    },
+    {
+     "rid": "nurse:530075096",
+     "time": "2100-01-01 22:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 56 mmHg"
+    },
+    {
+     "rid": "nurse:530075098",
+     "time": "2100-01-01 22:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 116 mmHg"
+    },
+    {
+     "rid": "nurse:537312794",
+     "time": "2100-01-01 23:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 64 mmHg"
+    },
+    {
+     "rid": "nurse:559536558",
+     "time": "2100-01-02 00:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 90 mmHg"
+    },
+    {
+     "rid": "nurse:512419677",
+     "time": "2100-01-02 01:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 64 mmHg"
+    },
+    {
+     "rid": "nurse:449008067",
+     "time": "2100-01-02 02:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 86 mmHg"
+    },
+    {
+     "rid": "nurse:465127862",
+     "time": "2100-01-02 03:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 62 mmHg"
+    },
+    {
+     "rid": "nurse:463779221",
+     "time": "2100-01-02 04:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 50 mmHg"
+    },
+    {
+     "rid": "nurse:540701768",
+     "time": "2100-01-02 05:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 58 mmHg"
+    },
+    {
+     "rid": "nurse:454445311",
+     "time": "2100-01-02 06:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 64 mmHg"
+    },
+    {
+     "rid": "nurse:560611603",
+     "time": "2100-01-02 07:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 49 mmHg"
+    },
+    {
+     "rid": "nurse:511474981",
+     "time": "2100-01-02 08:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 55 mmHg"
+    },
+    {
+     "rid": "nurse:507326944",
+     "time": "2100-01-02 09:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 54 mmHg"
+    },
+    {
+     "rid": "nurse:504688738",
+     "time": "2100-01-02 10:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 57 mmHg"
+    },
+    {
+     "rid": "nurse:565601338",
+     "time": "2100-01-02 11:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 73 mmHg"
+    },
+    {
+     "rid": "nurse:553533671",
+     "time": "2100-01-02 12:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 53 mmHg"
+    },
+    {
+     "rid": "nurse:539899497",
+     "time": "2100-01-02 13:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 64 mmHg"
+    },
+    {
+     "rid": "nurse:547574285",
+     "time": "2100-01-02 14:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 69 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E942382A1::04",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "fact",
+   "text": "Respiratory rate has been fluctuating significantly.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The respiratory rate measurements fluctuate significantly over time, ranging from 12 to 23 insp/min, with frequent changes between consecutive readings, supporting the statement that it has been fluctuating significantly.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:517461200",
+     "time": "2100-01-01 15:45:00",
+     "item": "Respiratory Rate: 15 insp/min"
+    },
+    {
+     "rid": "nurse:539773135",
+     "time": "2100-01-01 16:00:00",
+     "item": "Respiratory Rate: 20 insp/min"
+    },
+    {
+     "rid": "nurse:531409438",
+     "time": "2100-01-01 16:15:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:461024252",
+     "time": "2100-01-01 16:30:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "nurse:499378107",
+     "time": "2100-01-01 16:45:00",
+     "item": "Respiratory Rate: 15 insp/min"
+    },
+    {
+     "rid": "nurse:533170034",
+     "time": "2100-01-01 17:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "nurse:531436874",
+     "time": "2100-01-01 17:15:00",
+     "item": "Respiratory Rate: 12 insp/min"
+    },
+    {
+     "rid": "nurse:518810305",
+     "time": "2100-01-01 17:30:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:542825235",
+     "time": "2100-01-01 17:45:00",
+     "item": "Respiratory Rate: 15 insp/min"
+    },
+    {
+     "rid": "nurse:516973703",
+     "time": "2100-01-01 18:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "nurse:520634640",
+     "time": "2100-01-01 18:15:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:520861478",
+     "time": "2100-01-01 18:30:00",
+     "item": "Respiratory Rate: 20 insp/min"
+    },
+    {
+     "rid": "nurse:521837646",
+     "time": "2100-01-01 18:45:00",
+     "item": "Respiratory Rate: 22 insp/min"
+    },
+    {
+     "rid": "nurse:552245122",
+     "time": "2100-01-01 19:00:00",
+     "item": "Respiratory Rate: 23 insp/min"
+    },
+    {
+     "rid": "nurse:497535429",
+     "time": "2100-01-01 19:15:00",
+     "item": "Respiratory Rate: 21 insp/min"
+    },
+    {
+     "rid": "nurse:561359600",
+     "time": "2100-01-01 19:30:00",
+     "item": "Respiratory Rate: 21 insp/min"
+    },
+    {
+     "rid": "nurse:540265740",
+     "time": "2100-01-01 20:00:00",
+     "item": "Respiratory Rate: 20 insp/min"
+    },
+    {
+     "rid": "nurse:520854956",
+     "time": "2100-01-01 21:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "nurse:553300725",
+     "time": "2100-01-01 22:00:00",
+     "item": "Respiratory Rate: 23 insp/min"
+    },
+    {
+     "rid": "nurse:485832104",
+     "time": "2100-01-01 23:00:00",
+     "item": "Respiratory Rate: 12 insp/min"
+    },
+    {
+     "rid": "nurse:541727616",
+     "time": "2100-01-02 00:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "nurse:554588764",
+     "time": "2100-01-02 01:00:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:494175284",
+     "time": "2100-01-02 02:00:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:455802694",
+     "time": "2100-01-02 03:00:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:475966482",
+     "time": "2100-01-02 04:00:00",
+     "item": "Respiratory Rate: 21 insp/min"
+    },
+    {
+     "rid": "nurse:544616569",
+     "time": "2100-01-02 05:00:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:503563059",
+     "time": "2100-01-02 06:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "nurse:541637522",
+     "time": "2100-01-02 07:00:00",
+     "item": "Respiratory Rate: 14 insp/min"
+    },
+    {
+     "rid": "nurse:523683134",
+     "time": "2100-01-02 08:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "nurse:532378673",
+     "time": "2100-01-02 09:00:00",
+     "item": "Respiratory Rate: 20 insp/min"
+    },
+    {
+     "rid": "nurse:490415259",
+     "time": "2100-01-02 10:00:00",
+     "item": "Respiratory Rate: 22 insp/min"
+    },
+    {
+     "rid": "nurse:562231172",
+     "time": "2100-01-02 11:00:00",
+     "item": "Respiratory Rate: 15 insp/min"
+    },
+    {
+     "rid": "nurse:552535675",
+     "time": "2100-01-02 12:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "nurse:511955618",
+     "time": "2100-01-02 13:00:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:521153183",
+     "time": "2100-01-02 14:00:00",
+     "item": "Respiratory Rate: 20 insp/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "E942382A2::06",
+   "claim_id": "E942382A2",
+   "claim_text": "Continue the administration of diltiazem to manage the patient's heart rate and rhythm.",
+   "kind": "fact",
+   "text": "Diltiazem is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Diltiazem infusion was administered at 7.25 mL/hour on 2100-01-01 at 17:04, which is within 24 hours before the 2100-01-02 15:23 decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Diltiazem (ml/hr):101",
+     "time": "2100-01-01 17:04:00",
+     "item": "Infusion/input Diltiazem at 7.25 ml/hour (2100-01-01 17:04:00 to 2100-01-01 17:04:00)"
+    },
+    {
+     "rid": "treat:25033406",
+     "time": "2100-01-01 16:20:00",
+     "item": "Treatment documented: antiarrhythmics | class IV antiarrhythmic | diltiazem"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E942382A1::01",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:466047096",
+     "time": "2100-01-02 16:00:00",
+     "item": "systolic BP",
+     "value": "101.0 mmHg"
+    },
+    {
+     "rid": "nurse:487129162",
+     "time": "2100-01-02 17:00:00",
+     "item": "systolic BP",
+     "value": "112.0 mmHg"
+    },
+    {
+     "rid": "nurse:466047095",
+     "time": "2100-01-02 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "85.0 mmHg"
+    },
+    {
+     "rid": "nurse:487129161",
+     "time": "2100-01-02 17:00:00",
+     "item": "mean arterial pressure",
+     "value": "81.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 3.5 h observation window after the decision (24 h or until ICU discharge): systolic BP x2, mean arterial pressure x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E942382A1::02",
+   "claim_id": "E942382A1",
+   "claim_text": "Monitor the patient's blood pressure and respiratory rate closely, as they have been fluctuating significantly.",
+   "kind": "action",
+   "text": "Monitor respiratory rate closely.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:468280634",
+     "time": "2100-01-02 16:00:00",
+     "item": "respiratory rate",
+     "value": "19.0 insp/min"
+    },
+    {
+     "rid": "nurse:511629375",
+     "time": "2100-01-02 17:00:00",
+     "item": "respiratory rate",
+     "value": "21.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 3.5 h observation window after the decision (24 h or until ICU discharge): respiratory rate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E942382A2::05",
+   "claim_id": "E942382A2",
+   "claim_text": "Continue the administration of diltiazem to manage the patient's heart rate and rhythm.",
+   "kind": "action",
+   "text": "Continue diltiazem.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "diltiazem",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 3.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E942382A3::07",
+   "claim_id": "E942382A3",
+   "claim_text": "Evaluate the patient's oxygen saturation and consider adjusting the oxygen flow rate if necessary.",
+   "kind": "action",
+   "text": "Evaluate oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:471348374",
+     "time": "2100-01-02 16:00:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    },
+    {
+     "rid": "nurse:508970228",
+     "time": "2100-01-02 17:00:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    }
+   ],
+   "reason": "Measured in the 3.5 h observation window after the decision (24 h or until ICU discharge): SpO2 x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E942382A3::08",
+   "claim_id": "E942382A3",
+   "claim_text": "Evaluate the patient's oxygen saturation and consider adjusting the oxygen flow rate if necessary.",
+   "kind": "action",
+   "text": "Consider adjusting the oxygen flow rate if necessary.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen flow rate",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 3.5,
+ "scoresheet": {
+  "n": 3,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,128 @@
+# E3053511   T = 2100-01-02 20:31:00   records before T: 429
+ICU stay 3053511 (Med-Surg ICU; Female, age 25; admission diagnosis: Cardiovascular medical, other).
+
+## Atoms
+deepseek-v4.1-flash|E3053511A1::03 [observed] Tachypnea is present.   <- Continue monitoring respiratory status and oxygenation given persistent tachypnea and intermittent hypoxemia.
+deepseek-v4.1-flash|E3053511A1::04 [observed] Intermittent hypoxemia is present.   <- Continue monitoring respiratory status and oxygenation given persistent tachypnea and intermittent hypoxemia.
+deepseek-v4.1-flash|E3053511A2::07 [observed] Anemia is present.   <- Assess and manage anemia, with hemoglobin 7.6–8.4 g/dL, including consideration of transfusion per clinical context.
+deepseek-v4.1-flash|E3053511A2::08 [observed] Hemoglobin is 7.6-8.4 g/dL.   <- Assess and manage anemia, with hemoglobin 7.6–8.4 g/dL, including consideration of transfusion per clinical context.
+deepseek-v4.1-flash|E3053511A3::11 [presupposition] Vancomycin is currently being given.   <- Continue antibiotic therapy with vancomycin and piperacillin/tazobactam as documented, with monitoring of vancomycin trough.
+deepseek-v4.1-flash|E3053511A3::13 [presupposition] Piperacillin/tazobactam is currently being given.   <- Continue antibiotic therapy with vancomycin and piperacillin/tazobactam as documented, with monitoring of vancomycin trough.
+gpt-oss-120b|E3053511A1::02 [observed] Anemia is present.   <- Order packed red blood cell transfusion to treat anemia (Hb 7.6 g/dL).
+gpt-oss-120b|E3053511A1::03 [observed] Hemoglobin is 7.6 g/dL.   <- Order packed red blood cell transfusion to treat anemia (Hb 7.6 g/dL).
+gpt-oss-120b|E3053511A2::05 [presupposition] The patient is currently on non-invasive positive pressure ventilation (BiPAP).   <- Continue non‑invasive positive pressure ventilation (BiPAP) to support respiratory status.
+qwen2.5-7b|E3053511A2::04 [presupposition] Midazolam is currently being given.   <- Continue midazolam for sedation.
+
+## Running at T (infusions, scheduled medications)
+
+## PRN orders
+  01-01 06:00 Order: oxyCODONE PO PRN (stopped 2100-01-01 20:31:00)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication oxyCODONE .ROUTE .STK-MED (2100-01-01 01:12:00 to 2100-01-01 06:51:00)
+  Medication Sodium Chloride 0.9% IV .Q10H (2100-01-01 07:00:00 to 2100-01-01 15:46:00)
+  Given once: Furosemide IV ONE (2100-01-01 16:15:00)
+  Given once: Furosemide IV ONE (2100-01-01 19:15:00)
+  Given once: Furosemide IV ONE (2100-01-02 03:30:00)
+  Given once: Midazolam IVP ONE (2100-01-02 16:00:00)
+  Given once: methylPREDNISolone IV ONE (2100-01-02 16:00:00)
+  Given once: methylPREDNISolone IV ONE (2100-01-02 16:30:00)
+  Medication Midazolam .ROUTE .STK-MED (2100-01-02 17:22:00 to 2100-01-02 17:25:00)
+  Given once: methylPREDNISolone IV ONE (2100-01-02 17:30:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 11:43 0.3 %; 12-31 21:58 0.2 %
+  -eos: 01-01 11:43 0.3 %; 12-31 21:58 0.1 %
+  -lymphs: 01-01 11:43 8.5 %; 12-31 21:58 9.3 %
+  -monos: 01-01 11:43 7.2 %; 12-31 21:58 5.9 %
+  -polys: 01-01 11:43 82.3 %; 12-31 21:58 82.4 %
+  Alanine Aminotransferase (ALT): 12-31 21:58 11 U/L
+  Albumin: 12-31 21:58 3.3 g/dL
+  Alkaline Phosphatase: 12-31 21:58 97 U/L
+  Anion Gap: 01-02 07:18 12 mmol/L; 01-02 03:34 12 mmol/L; 01-01 11:43 13 mmol/L; 12-31 21:58 14 mmol/L
+  Asparate Aminotransferase (AST): 12-31 21:58 14 U/L
+  BNP: 01-02 14:42 308 pg/mL; 01-01 11:43 587 pg/mL
+  Base Excess: 01-02 07:52 2 mmol/L; 01-01 19:19 0 mmol/L
+  Bicarbonate: 01-02 07:18 25 mmol/L; 01-02 03:34 24 mmol/L; 01-01 11:43 22 mmol/L; 12-31 21:58 23 mmol/L
+  Bicarbonate (blood gas HCO3): 01-02 07:52 26.5 mmol/L; 01-01 19:19 23.5 mmol/L
+  Bilirubin, Total: 12-31 21:58 0.3 mg/dL
+  CPK: 12-31 21:58 93 U/L
+  CPK-MB: 12-31 21:58 2 ng/mL
+  CPK-MB INDEX: 12-31 21:58 2 %
+  CRP: 01-02 14:42 11.6 mg/dL
+  Calcium, Total: 01-02 07:18 8.8 mg/dL; 01-02 03:34 9 mg/dL; 01-01 11:43 8.5 mg/dL; 12-31 21:58 8.9 mg/dL
+  Chloride: 01-02 07:18 103 mmol/L; 01-02 03:34 102 mmol/L; 01-01 11:43 107 mmol/L; 12-31 21:58 103 mmol/L
+  Creatinine: 01-02 07:18 0.7 mg/dL; 01-02 03:34 0.6 mg/dL; 01-01 11:43 0.6 mg/dL; 12-31 21:58 0.6 mg/dL
+  ESR: 01-02 15:41 104 mm/hr
+  FiO2: 01-02 07:52 80; 01-01 19:19 3
+  Glucose: 01-02 07:18 90 mg/dL; 01-02 03:34 98 mg/dL; 01-01 11:43 90 mg/dL; 12-31 21:58 84 mg/dL
+  Hematocrit: 01-02 15:41 25.6 %; 01-02 07:18 24.8 %; 01-01 11:43 23.7 %; 12-31 21:58 25 %
+  Hemoglobin: 01-02 15:41 8.4 g/dL; 01-02 07:18 7.6 g/dL; 01-01 11:43 7.6 g/dL; 12-31 21:58 8.2 g/dL
+  INR(PT): 01-02 07:18 1
+  LDL: 01-01 11:43 104 mg/dL
+  MCH: 01-02 07:18 25.5 pg; 01-01 11:43 26.5 pg; 12-31 21:58 26.5 pg
+  MCHC: 01-02 07:18 30.6 g/dL; 01-01 11:43 32.1 g/dL; 12-31 21:58 32.8 g/dL
+  MCV: 01-02 07:18 83.2 fL; 01-01 11:43 82.6 fL; 12-31 21:58 80.9 fL
+  MPV: 01-02 07:18 9.2 fL; 01-01 11:43 9.8 fL; 12-31 21:58 9.4 fL
+  Magnesium: 01-02 07:18 1.9 mg/dL; 01-02 03:34 2 mg/dL; 12-31 21:58 1.8 mg/dL
+  Oxygen Saturation: 01-02 07:52 100 %; 01-01 19:19 88 %
+  PT: 01-02 07:18 10.8 SEC
+  PTT: 01-02 07:18 33 SEC
+  Phosphate: 01-02 07:18 4.4 mg/dL
+  Platelet Count: 01-02 07:18 304 K/uL; 01-01 11:43 303 K/uL; 12-31 21:58 308 K/uL
+  Potassium: 01-02 07:18 3.6 mmol/L; 01-02 03:34 3.6 mmol/L; 01-01 11:43 3.8 mmol/L; 12-31 21:58 3.6 mmol/L
+  RBC: 01-02 07:18 3 M/uL; 01-01 11:43 2.9 M/uL; 12-31 21:58 3.1 M/uL
+  Sodium: 01-02 07:18 140 mmol/L; 01-02 03:34 138 mmol/L; 01-01 11:43 142 mmol/L; 12-31 21:58 140 mmol/L
+  Urea Nitrogen: 01-02 07:18 10 mg/dL; 01-02 03:34 10 mg/dL; 01-01 11:43 8 mg/dL; 12-31 21:58 9 mg/dL
+  Vancomycin - trough: 01-02 14:42 14 mcg/mL
+  White Blood Cells: 01-02 07:18 13.3 K/uL; 01-01 11:43 14.4 K/uL; 12-31 21:58 15 K/uL
+  pCO2: 01-02 07:52 43.1 mmHg; 01-01 19:19 31.7 mmHg
+  pH: 01-02 07:52 7.396; 01-01 19:19 7.478
+  pO2: 01-02 07:52 198 mmHg; 01-01 19:19 50 mmHg
+  total cholesterol: 01-01 11:43 171 mg/dL
+  total protein: 12-31 21:58 6.2 g/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Delirium Scale/Score Delirium Scale: CAM-ICU @01-02 12:00
+  Delirium Scale/Score Delirium Score: No @01-02 12:00
+  End Tidal CO2: 27 @01-02 10:00   24h 24-29 (n=4)
+  Glasgow coma score Eyes: 4 @01-02 17:00   24h 4-4 (n=16)
+  Glasgow coma score GCS Total: 15 @01-02 17:00   24h 15-15 (n=16)
+  Glasgow coma score Motor: 6 @01-02 17:00   24h 6-6 (n=16)
+  Glasgow coma score Verbal: 5 @01-02 17:00   24h 5-5 (n=16)
+  Heart Rate: 117 bpm @01-02 20:00   24h 103-119 (n=25)
+  Non Invasive Blood Pressure diastolic: 89 mmHg @01-02 20:00   24h 69-99 (n=24)
+  Non Invasive Blood Pressure mean: 93 mmHg @01-02 20:00   24h 80-109 (n=24)
+  Non Invasive Blood Pressure systolic: 105 mmHg @01-02 20:00   24h 105-147 (n=24)
+  O2 Delivery Device(s): Nasal cannula (charted: nasal cannula) @01-02 17:00   earlier: Bipap mask (charted: BiPAP/CPAP) @01-02 10:00
+  O2 saturation pulseoxymetry: 92 % @01-02 20:00   24h 89-100 (n=24)
+  Pain Level: 0 @01-02 17:00   24h 0-6 (n=12)
+  Pain Score/Goal Pain Goal: 0 @01-02 17:00   24h 0-0 (n=3)
+  Respiratory Rate: 25 insp/min @01-02 20:00   24h 21-48 (n=25)
+  Sedation Scale/Score/Goal Sedation Goal: 0 @01-02 17:00   24h 0-0 (n=3)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-02 17:00
+  Sedation Scale/Score/Goal Sedation Score: 0 @01-02 17:00   24h 0-0 (n=3)
+  Temperature Fahrenheit: 98.5 F @01-02 13:00   24h 98.5-99.7 (n=5)
+  Temperature Location: oral @01-02 13:00   earlier: axillary @01-02 09:00
+
+## Treatments documented
+  01-01 22:52 pulmonary | medications | bronchodilator
+  01-01 22:52 cardiovascular | arrhythmias | electrolyte administration
+  01-01 22:52 pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)
+  01-01 22:52 cardiovascular | hypertension | beta blocker
+  01-01 22:52 renal | intravenous fluid | normal saline administration
+  01-01 22:52 antibacterials | penicillins | piperacillin/tazobactam
+  01-01 22:52 neurologic | pain / agitation / altered mentation | analgesics
+  01-01 22:52 medications | antibacterials | vancomycin
+  01-02 14:46 medications | antibacterials | vancomycin
+  01-02 14:46 antibacterials | penicillins | piperacillin/tazobactam
+  01-02 14:46 cardiovascular | hypertension | beta blocker
+  01-02 14:46 neurologic | pain / agitation / altered mentation | analgesics
+  01-02 14:46 renal | intravenous fluid | normal saline administration
+  01-02 14:46 cardiovascular | arrhythmias | electrolyte administration
+  01-02 14:46 pulmonary | medications | bronchodilator
+  01-02 14:46 pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)
+
+## Microbiology

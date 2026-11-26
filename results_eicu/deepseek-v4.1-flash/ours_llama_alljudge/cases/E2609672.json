@@ -1,0 +1,346 @@
+{
+ "case_id": "E2609672",
+ "decision_point": "2100-01-02 15:13:00",
+ "claims": [
+  "Continue scheduled oral metoprolol tartrate 25 mg twice daily.",
+  "Continue scheduled subcutaneous heparin 5,000 units every 8 hours for VTE prophylaxis.",
+  "Monitor blood glucose with finger-stick checks given recent hypoglycemia and glucose variability."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2609672A1::01",
+   "claim_id": "E2609672A1",
+   "claim_text": "Continue scheduled oral metoprolol tartrate 25 mg twice daily.",
+   "kind": "action",
+   "text": "Continue scheduled oral metoprolol tartrate 25 mg twice daily.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "metoprolol tartrate",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2609672A1::02",
+   "claim_id": "E2609672A1",
+   "claim_text": "Continue scheduled oral metoprolol tartrate 25 mg twice daily.",
+   "kind": "fact",
+   "text": "Metoprolol tartrate is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2609672A2::03",
+   "claim_id": "E2609672A2",
+   "claim_text": "Continue scheduled subcutaneous heparin 5,000 units every 8 hours for VTE prophylaxis.",
+   "kind": "action",
+   "text": "Continue scheduled subcutaneous heparin 5,000 units every 8 hours for VTE prophylaxis.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2609672A2::04",
+   "claim_id": "E2609672A2",
+   "claim_text": "Continue scheduled subcutaneous heparin 5,000 units every 8 hours for VTE prophylaxis.",
+   "kind": "fact",
+   "text": "Heparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2609672A3::05",
+   "claim_id": "E2609672A3",
+   "claim_text": "Monitor blood glucose with finger-stick checks given recent hypoglycemia and glucose variability.",
+   "kind": "action",
+   "text": "Monitor blood glucose with finger-stick checks.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2609672A3::06",
+   "claim_id": "E2609672A3",
+   "claim_text": "Monitor blood glucose with finger-stick checks given recent hypoglycemia and glucose variability.",
+   "kind": "fact",
+   "text": "Recent hypoglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E2609672A3::07",
+   "claim_id": "E2609672A3",
+   "claim_text": "Monitor blood glucose with finger-stick checks given recent hypoglycemia and glucose variability.",
+   "kind": "fact",
+   "text": "Glucose variability is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2609672A1::02",
+   "claim_id": "E2609672A1",
+   "claim_text": "Continue scheduled oral metoprolol tartrate 25 mg twice daily.",
+   "kind": "fact",
+   "text": "Metoprolol tartrate is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Metoprolol tartrate is currently being given because R10 shows that it is running at decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:91066490",
+     "time": "2100-01-01 03:45:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 03:45:00): Medication METOPROLOL TARTRATE 25 MG TABLET Oral 2 times daily"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2609672A2::04",
+   "claim_id": "E2609672A2",
+   "claim_text": "Continue scheduled subcutaneous heparin 5,000 units every 8 hours for VTE prophylaxis.",
+   "kind": "fact",
+   "text": "Heparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement 'Heparin is currently being given' is not supported by the records. Although there is a medication order for heparin (R7, R8, R9), the administration record (R13) shows that it was scheduled to be given 8 hours ago, not currently. Therefore, the statement is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:89704601",
+     "time": "2100-01-01 04:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 04:00:00): Medication 1 ML VIAL : HEPARIN (PORCINE) 5,000 UNIT/ML INJ SOLN SubQ Every 8 hours"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2609672A3::06",
+   "claim_id": "E2609672A3",
+   "claim_text": "Monitor blood glucose with finger-stick checks given recent hypoglycemia and glucose variability.",
+   "kind": "fact",
+   "text": "Recent hypoglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show recent hypoglycemia (glucose <30 mg/dL) at 01:20 and 06:14, but not at the decision time. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:610838420",
+     "time": "2100-01-01 01:20:00",
+     "item": "Glucose finger stick: <30"
+    },
+    {
+     "rid": "lab:611419188",
+     "time": "2100-01-01 04:37:00",
+     "item": "Glucose finger stick: 36 mg/dL"
+    },
+    {
+     "rid": "lab:612069742",
+     "time": "2100-01-01 06:14:00",
+     "item": "Glucose finger stick: 30 mg/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2609672A3::07",
+   "claim_id": "E2609672A3",
+   "claim_text": "Monitor blood glucose with finger-stick checks given recent hypoglycemia and glucose variability.",
+   "kind": "fact",
+   "text": "Glucose variability is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that glucose levels have been fluctuating, but the statement that glucose variability is present is not supported by the records. The most recent measurement (R38) shows a glucose level of 64 mg/dL, which is not indicative of variability. Additionally, the records do not show any recent hypoglycemia, which is mentioned in the original sentence.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:611549402",
+     "time": "2100-01-01 15:12:00",
+     "item": "Glucose finger stick: 64 mg/dL"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2609672A1::01",
+   "claim_id": "E2609672A1",
+   "claim_text": "Continue scheduled oral metoprolol tartrate 25 mg twice daily.",
+   "kind": "action",
+   "text": "Continue scheduled oral metoprolol tartrate 25 mg twice daily.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "metoprolol tartrate",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 8.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2609672A2::03",
+   "claim_id": "E2609672A2",
+   "claim_text": "Continue scheduled subcutaneous heparin 5,000 units every 8 hours for VTE prophylaxis.",
+   "kind": "action",
+   "text": "Continue scheduled subcutaneous heparin 5,000 units every 8 hours for VTE prophylaxis.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (prophylactic) action recorded in the 8.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2609672A3::05",
+   "claim_id": "E2609672A3",
+   "claim_text": "Monitor blood glucose with finger-stick checks given recent hypoglycemia and glucose variability.",
+   "kind": "action",
+   "text": "Monitor blood glucose with finger-stick checks.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:610458477",
+     "time": "2100-01-02 15:42:00",
+     "item": "glucose",
+     "value": "151.0 mg/dL"
+    },
+    {
+     "rid": "nurse:1773551827",
+     "time": "2100-01-02 15:42:00",
+     "item": "glucose",
+     "value": "151.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 8.0 h observation window after the decision (24 h or until ICU discharge): glucose x6.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 8.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.75,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Heparin is currently being given. -- The statement 'Heparin is currently being given' is not supported by the records. Although there is a medication order for heparin (R7, R8, R9), the administration record (R13) shows that it was scheduled to be given 8 hours ago, not currently. Therefore, the statement is not supported.",
+    "Recent hypoglycemia is present. -- The records show recent hypoglycemia (glucose <30 mg/dL) at 01:20 and 06:14, but not at the decision time. The statement is not supported by the records.",
+    "Glucose variability is present. -- The records show that glucose levels have been fluctuating, but the statement that glucose variability is present is not supported by the records. The most recent measurement (R38) shows a glucose level of 64 mg/dL, which is not indicative of variability. Additionally, the records do not show any recent hypoglycemia, which is mentioned in the original sentence."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.25,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

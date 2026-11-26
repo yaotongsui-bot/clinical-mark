@@ -1,0 +1,904 @@
+{
+ "case_id": "E942382",
+ "decision_point": "2100-01-02 15:23:00",
+ "claims": [
+  "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+  "Monitor heart rate and blood pressure closely given bradycardia and intermittent hypotension.",
+  "Assess oxygenation and titrate supplemental oxygen to maintain saturation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E942382A1::01",
+   "claim_id": "E942382A1",
+   "claim_text": "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+   "kind": "action",
+   "text": "Continue diltiazem infusion.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "diltiazem infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E942382A1::02",
+   "claim_id": "E942382A1",
+   "claim_text": "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+   "kind": "fact",
+   "text": "Diltiazem infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E942382A1::03",
+   "claim_id": "E942382A1",
+   "claim_text": "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+   "kind": "fact",
+   "text": "Atrial arrhythmia is present.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E942382A2::04",
+   "claim_id": "E942382A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given bradycardia and intermittent hypotension.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E942382A2::05",
+   "claim_id": "E942382A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given bradycardia and intermittent hypotension.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E942382A2::06",
+   "claim_id": "E942382A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given bradycardia and intermittent hypotension.",
+   "kind": "fact",
+   "text": "Bradycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E942382A2::07",
+   "claim_id": "E942382A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given bradycardia and intermittent hypotension.",
+   "kind": "fact",
+   "text": "Intermittent hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E942382A3::08",
+   "claim_id": "E942382A3",
+   "claim_text": "Assess oxygenation and titrate supplemental oxygen to maintain saturation.",
+   "kind": "action",
+   "text": "Assess oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygenation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E942382A3::09",
+   "claim_id": "E942382A3",
+   "claim_text": "Assess oxygenation and titrate supplemental oxygen to maintain saturation.",
+   "kind": "action",
+   "text": "Titrate supplemental oxygen to maintain saturation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E942382A1::02",
+   "claim_id": "E942382A1",
+   "claim_text": "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+   "kind": "fact",
+   "text": "Diltiazem infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that diltiazem was ordered and administered, but the current administration record (R20) shows that it was started at 17:04, which is after the decision time. Therefore, the statement that diltiazem infusion is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:25033406",
+     "time": "2100-01-01 16:20:00",
+     "item": "Treatment documented: antiarrhythmics | class IV antiarrhythmic | diltiazem"
+    },
+    {
+     "rid": "inf:Diltiazem (ml/hr):101",
+     "time": "2100-01-01 17:04:00",
+     "item": "Infusion/input Diltiazem at 7.25 ml/hour (2100-01-01 17:04:00 to 2100-01-01 17:04:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E942382A1::03",
+   "claim_id": "E942382A1",
+   "claim_text": "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+   "kind": "fact",
+   "text": "Atrial arrhythmia is present.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records state that the patient is receiving antiarrhythmics, but the most recent heart rate measurement (R50) is 63 bpm, which does not support the statement that an atrial arrhythmia is present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:25033406",
+     "time": "2100-01-01 16:20:00",
+     "item": "Treatment documented: antiarrhythmics | class IV antiarrhythmic | diltiazem"
+    }
+   ]
+  },
+  {
+   "atom_id": "E942382A2::06",
+   "claim_id": "E942382A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given bradycardia and intermittent hypotension.",
+   "kind": "fact",
+   "text": "Bradycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show a range of heart rates, but none are below 55 bpm, which is the threshold for bradycardia. The patient's heart rate is not consistently low.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:540364459",
+     "time": "2100-01-01 15:45:00",
+     "item": "Heart Rate: 103 bpm"
+    },
+    {
+     "rid": "resp:57777490",
+     "time": "2100-01-01 15:45:00",
+     "item": "Respiratory Rate (spontaneous): 15 insp/min"
+    },
+    {
+     "rid": "nurse:470326757",
+     "time": "2100-01-01 16:00:00",
+     "item": "Heart Rate: 99 bpm"
+    },
+    {
+     "rid": "resp:36446970",
+     "time": "2100-01-01 16:00:00",
+     "item": "Respiratory Rate (spontaneous): 20 insp/min"
+    },
+    {
+     "rid": "nurse:541996043",
+     "time": "2100-01-01 16:15:00",
+     "item": "Heart Rate: 85 bpm"
+    },
+    {
+     "rid": "nurse:505314199",
+     "time": "2100-01-01 16:15:00",
+     "item": "Temperature Fahrenheit: 98.1 F"
+    },
+    {
+     "rid": "resp:46675378",
+     "time": "2100-01-01 16:15:00",
+     "item": "Respiratory Rate (spontaneous): 17 insp/min"
+    },
+    {
+     "rid": "nurse:536680485",
+     "time": "2100-01-01 16:30:00",
+     "item": "Heart Rate: 78 bpm"
+    },
+    {
+     "rid": "resp:28999752",
+     "time": "2100-01-01 16:30:00",
+     "item": "Respiratory Rate (spontaneous): 13 insp/min"
+    },
+    {
+     "rid": "nurse:447229266",
+     "time": "2100-01-01 16:45:00",
+     "item": "Heart Rate: 77 bpm"
+    },
+    {
+     "rid": "resp:25038930",
+     "time": "2100-01-01 16:45:00",
+     "item": "Respiratory Rate (spontaneous): 15 insp/min"
+    },
+    {
+     "rid": "nurse:550668736",
+     "time": "2100-01-01 17:00:00",
+     "item": "Heart Rate: 78 bpm"
+    },
+    {
+     "rid": "resp:25635592",
+     "time": "2100-01-01 17:00:00",
+     "item": "Respiratory Rate (spontaneous): 18 insp/min"
+    },
+    {
+     "rid": "nurse:534712043",
+     "time": "2100-01-01 17:15:00",
+     "item": "Heart Rate: 78 bpm"
+    },
+    {
+     "rid": "nurse:525440384",
+     "time": "2100-01-01 17:15:00",
+     "item": "Temperature Fahrenheit: 96.8 F"
+    },
+    {
+     "rid": "resp:24167820",
+     "time": "2100-01-01 17:15:00",
+     "item": "Respiratory Rate (spontaneous): 12 insp/min"
+    },
+    {
+     "rid": "nurse:527173562",
+     "time": "2100-01-01 17:30:00",
+     "item": "Heart Rate: 85 bpm"
+    },
+    {
+     "rid": "resp:35145456",
+     "time": "2100-01-01 17:30:00",
+     "item": "Respiratory Rate (spontaneous): 16 insp/min"
+    },
+    {
+     "rid": "nurse:526809969",
+     "time": "2100-01-01 17:45:00",
+     "item": "Heart Rate: 81 bpm"
+    },
+    {
+     "rid": "nurse:510068006",
+     "time": "2100-01-01 18:00:00",
+     "item": "Heart Rate: 81 bpm"
+    },
+    {
+     "rid": "nurse:495022097",
+     "time": "2100-01-01 18:15:00",
+     "item": "Heart Rate: 89 bpm"
+    },
+    {
+     "rid": "nurse:482606666",
+     "time": "2100-01-01 18:30:00",
+     "item": "Heart Rate: 92 bpm"
+    },
+    {
+     "rid": "nurse:478931335",
+     "time": "2100-01-01 18:45:00",
+     "item": "Heart Rate: 104 bpm"
+    },
+    {
+     "rid": "nurse:541639090",
+     "time": "2100-01-01 19:00:00",
+     "item": "Heart Rate: 94 bpm"
+    },
+    {
+     "rid": "nurse:505867157",
+     "time": "2100-01-01 19:00:00",
+     "item": "Temperature Fahrenheit: 96.8 F"
+    },
+    {
+     "rid": "nurse:559734029",
+     "time": "2100-01-01 19:15:00",
+     "item": "Heart Rate: 106 bpm"
+    },
+    {
+     "rid": "nurse:514321611",
+     "time": "2100-01-01 19:30:00",
+     "item": "Heart Rate: 91 bpm"
+    },
+    {
+     "rid": "nurse:544331660",
+     "time": "2100-01-01 20:00:00",
+     "item": "Heart Rate: 64 bpm"
+    },
+    {
+     "rid": "nurse:514709539",
+     "time": "2100-01-01 21:00:00",
+     "item": "Heart Rate: 62 bpm"
+    },
+    {
+     "rid": "nurse:498121501",
+     "time": "2100-01-01 22:00:00",
+     "item": "Heart Rate: 66 bpm"
+    },
+    {
+     "rid": "nurse:476620916",
+     "time": "2100-01-01 23:00:00",
+     "item": "Heart Rate: 65 bpm"
+    },
+    {
+     "rid": "nurse:560983067",
+     "time": "2100-01-02 00:00:00",
+     "item": "Heart Rate: 65 bpm"
+    },
+    {
+     "rid": "nurse:516042648",
+     "time": "2100-01-02 01:00:00",
+     "item": "Heart Rate: 63 bpm"
+    },
+    {
+     "rid": "nurse:463220014",
+     "time": "2100-01-02 02:00:00",
+     "item": "Heart Rate: 64 bpm"
+    },
+    {
+     "rid": "nurse:496066206",
+     "time": "2100-01-02 03:00:00",
+     "item": "Heart Rate: 68 bpm"
+    },
+    {
+     "rid": "nurse:472999329",
+     "time": "2100-01-02 04:00:00",
+     "item": "Heart Rate: 69 bpm"
+    },
+    {
+     "rid": "nurse:455757288",
+     "time": "2100-01-02 05:00:00",
+     "item": "Heart Rate: 59 bpm"
+    },
+    {
+     "rid": "nurse:550518305",
+     "time": "2100-01-02 06:00:00",
+     "item": "Heart Rate: 57 bpm"
+    },
+    {
+     "rid": "nurse:488559132",
+     "time": "2100-01-02 07:00:00",
+     "item": "Heart Rate: 55 bpm"
+    },
+    {
+     "rid": "nurse:508664548",
+     "time": "2100-01-02 08:00:00",
+     "item": "Heart Rate: 59 bpm"
+    },
+    {
+     "rid": "nurse:497916764",
+     "time": "2100-01-02 09:00:00",
+     "item": "Heart Rate: 55 bpm"
+    },
+    {
+     "rid": "nurse:542246926",
+     "time": "2100-01-02 10:00:00",
+     "item": "Heart Rate: 56 bpm"
+    },
+    {
+     "rid": "nurse:466518644",
+     "time": "2100-01-02 11:00:00",
+     "item": "Heart Rate: 59 bpm"
+    },
+    {
+     "rid": "nurse:514921548",
+     "time": "2100-01-02 11:00:00",
+     "item": "Temperature Fahrenheit: 96.8 F"
+    },
+    {
+     "rid": "nurse:447480779",
+     "time": "2100-01-02 12:00:00",
+     "item": "Heart Rate: 57 bpm"
+    },
+    {
+     "rid": "nurse:491386621",
+     "time": "2100-01-02 13:00:00",
+     "item": "Heart Rate: 62 bpm"
+    },
+    {
+     "rid": "nurse:521569386",
+     "time": "2100-01-02 14:00:00",
+     "item": "Heart Rate: 63 bpm"
+    }
+   ]
+  },
+  {
+   "atom_id": "E942382A2::07",
+   "claim_id": "E942382A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given bradycardia and intermittent hypotension.",
+   "kind": "fact",
+   "text": "Intermittent hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient's respiratory rate has fluctuated between 12 and 23 inspirations per minute, but there is no record of intermittent hypotension. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:24312587",
+     "time": "2099-12-29 15:08:00",
+     "item": "Order: ONDANSETRON 2 MG/1 ML 2ML SDV INJ IV Push Q6H PRN (active at decision time)"
+    },
+    {
+     "rid": "resp:57777490",
+     "time": "2100-01-01 15:45:00",
+     "item": "Respiratory Rate (spontaneous): 15 insp/min"
+    },
+    {
+     "rid": "nurse:517461200",
+     "time": "2100-01-01 15:45:00",
+     "item": "Respiratory Rate: 15 insp/min"
+    },
+    {
+     "rid": "resp:36446970",
+     "time": "2100-01-01 16:00:00",
+     "item": "Respiratory Rate (spontaneous): 20 insp/min"
+    },
+    {
+     "rid": "nurse:539773135",
+     "time": "2100-01-01 16:00:00",
+     "item": "Respiratory Rate: 20 insp/min"
+    },
+    {
+     "rid": "resp:46675378",
+     "time": "2100-01-01 16:15:00",
+     "item": "Respiratory Rate (spontaneous): 17 insp/min"
+    },
+    {
+     "rid": "nurse:505314199",
+     "time": "2100-01-01 16:15:00",
+     "item": "Temperature Fahrenheit: 98.1 F"
+    },
+    {
+     "rid": "nurse:531409438",
+     "time": "2100-01-01 16:15:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "resp:28999752",
+     "time": "2100-01-01 16:30:00",
+     "item": "Respiratory Rate (spontaneous): 13 insp/min"
+    },
+    {
+     "rid": "nurse:461024252",
+     "time": "2100-01-01 16:30:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "resp:25038930",
+     "time": "2100-01-01 16:45:00",
+     "item": "Respiratory Rate (spontaneous): 15 insp/min"
+    },
+    {
+     "rid": "nurse:499378107",
+     "time": "2100-01-01 16:45:00",
+     "item": "Respiratory Rate: 15 insp/min"
+    },
+    {
+     "rid": "resp:25635592",
+     "time": "2100-01-01 17:00:00",
+     "item": "Respiratory Rate (spontaneous): 18 insp/min"
+    },
+    {
+     "rid": "nurse:533170034",
+     "time": "2100-01-01 17:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "inf:Diltiazem (ml/hr):101",
+     "time": "2100-01-01 17:04:00",
+     "item": "Infusion/input Diltiazem at 7.25 ml/hour (2100-01-01 17:04:00 to 2100-01-01 17:04:00)"
+    },
+    {
+     "rid": "resp:24167820",
+     "time": "2100-01-01 17:15:00",
+     "item": "Respiratory Rate (spontaneous): 12 insp/min"
+    },
+    {
+     "rid": "nurse:525440384",
+     "time": "2100-01-01 17:15:00",
+     "item": "Temperature Fahrenheit: 96.8 F"
+    },
+    {
+     "rid": "nurse:531436874",
+     "time": "2100-01-01 17:15:00",
+     "item": "Respiratory Rate: 12 insp/min"
+    },
+    {
+     "rid": "resp:35145456",
+     "time": "2100-01-01 17:30:00",
+     "item": "Respiratory Rate (spontaneous): 16 insp/min"
+    },
+    {
+     "rid": "resp:50995086",
+     "time": "2100-01-01 17:45:00",
+     "item": "Respiratory Rate (spontaneous): 15 insp/min"
+    },
+    {
+     "rid": "resp:28327343",
+     "time": "2100-01-01 18:00:00",
+     "item": "Respiratory Rate (spontaneous): 18 insp/min"
+    },
+    {
+     "rid": "resp:22761813",
+     "time": "2100-01-01 18:15:00",
+     "item": "Respiratory Rate (spontaneous): 16 insp/min"
+    },
+    {
+     "rid": "resp:33513279",
+     "time": "2100-01-01 18:30:00",
+     "item": "Respiratory Rate (spontaneous): 20 insp/min"
+    },
+    {
+     "rid": "resp:16713875",
+     "time": "2100-01-01 18:45:00",
+     "item": "Respiratory Rate (spontaneous): 22 insp/min"
+    },
+    {
+     "rid": "resp:45818197",
+     "time": "2100-01-01 19:00:00",
+     "item": "Respiratory Rate (spontaneous): 23 insp/min"
+    },
+    {
+     "rid": "nurse:505867157",
+     "time": "2100-01-01 19:00:00",
+     "item": "Temperature Fahrenheit: 96.8 F"
+    },
+    {
+     "rid": "resp:16228135",
+     "time": "2100-01-01 19:15:00",
+     "item": "Respiratory Rate (spontaneous): 21 insp/min"
+    },
+    {
+     "rid": "resp:31802621",
+     "time": "2100-01-01 19:30:00",
+     "item": "Respiratory Rate (spontaneous): 21 insp/min"
+    },
+    {
+     "rid": "resp:35515788",
+     "time": "2100-01-01 20:00:00",
+     "item": "Respiratory Rate (spontaneous): 20 insp/min"
+    },
+    {
+     "rid": "resp:29088752",
+     "time": "2100-01-01 21:00:00",
+     "item": "Respiratory Rate (spontaneous): 18 insp/min"
+    },
+    {
+     "rid": "resp:50863521",
+     "time": "2100-01-01 22:00:00",
+     "item": "Respiratory Rate (spontaneous): 23 insp/min"
+    },
+    {
+     "rid": "resp:30654158",
+     "time": "2100-01-01 23:00:00",
+     "item": "Respiratory Rate (spontaneous): 12 insp/min"
+    },
+    {
+     "rid": "resp:14390999",
+     "time": "2100-01-02 00:00:00",
+     "item": "Respiratory Rate (spontaneous): 18 insp/min"
+    },
+    {
+     "rid": "resp:35880075",
+     "time": "2100-01-02 01:00:00",
+     "item": "Respiratory Rate (spontaneous): 19 insp/min"
+    },
+    {
+     "rid": "nurse:552944723",
+     "time": "2100-01-02 01:20:00",
+     "item": "Temperature Fahrenheit: 97.5 F"
+    },
+    {
+     "rid": "resp:61987495",
+     "time": "2100-01-02 02:00:00",
+     "item": "Respiratory Rate (spontaneous): 19 insp/min"
+    },
+    {
+     "rid": "resp:39364633",
+     "time": "2100-01-02 03:00:00",
+     "item": "Respiratory Rate (spontaneous): 17 insp/min"
+    },
+    {
+     "rid": "resp:62539575",
+     "time": "2100-01-02 04:00:00",
+     "item": "Respiratory Rate (spontaneous): 21 insp/min"
+    },
+    {
+     "rid": "resp:35291944",
+     "time": "2100-01-02 05:00:00",
+     "item": "Respiratory Rate (spontaneous): 16 insp/min"
+    },
+    {
+     "rid": "resp:38607586",
+     "time": "2100-01-02 06:00:00",
+     "item": "Respiratory Rate (spontaneous): 18 insp/min"
+    },
+    {
+     "rid": "resp:54039439",
+     "time": "2100-01-02 07:00:00",
+     "item": "Respiratory Rate (spontaneous): 14 insp/min"
+    },
+    {
+     "rid": "resp:48329833",
+     "time": "2100-01-02 08:00:00",
+     "item": "Respiratory Rate (spontaneous): 18 insp/min"
+    },
+    {
+     "rid": "resp:45708506",
+     "time": "2100-01-02 09:00:00",
+     "item": "Respiratory Rate (spontaneous): 20 insp/min"
+    },
+    {
+     "rid": "resp:39696505",
+     "time": "2100-01-02 10:00:00",
+     "item": "Respiratory Rate (spontaneous): 22 insp/min"
+    },
+    {
+     "rid": "resp:43030843",
+     "time": "2100-01-02 11:00:00",
+     "item": "Respiratory Rate (spontaneous): 15 insp/min"
+    },
+    {
+     "rid": "nurse:514921548",
+     "time": "2100-01-02 11:00:00",
+     "item": "Temperature Fahrenheit: 96.8 F"
+    },
+    {
+     "rid": "resp:61596203",
+     "time": "2100-01-02 12:00:00",
+     "item": "Respiratory Rate (spontaneous): 18 insp/min"
+    },
+    {
+     "rid": "resp:50490177",
+     "time": "2100-01-02 13:00:00",
+     "item": "Respiratory Rate (spontaneous): 17 insp/min"
+    },
+    {
+     "rid": "resp:63134164",
+     "time": "2100-01-02 14:00:00",
+     "item": "Respiratory Rate (spontaneous): 20 insp/min"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E942382A1::01",
+   "claim_id": "E942382A1",
+   "claim_text": "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+   "kind": "action",
+   "text": "Continue diltiazem infusion.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "diltiazem infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 3.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E942382A2::04",
+   "claim_id": "E942382A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given bradycardia and intermittent hypotension.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:471800932",
+     "time": "2100-01-02 16:00:00",
+     "item": "heart rate",
+     "value": "61.0 bpm"
+    },
+    {
+     "rid": "nurse:460532348",
+     "time": "2100-01-02 17:00:00",
+     "item": "heart rate",
+     "value": "57.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 3.5 h observation window after the decision (24 h or until ICU discharge): heart rate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E942382A2::05",
+   "claim_id": "E942382A2",
+   "claim_text": "Monitor heart rate and blood pressure closely given bradycardia and intermittent hypotension.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:466047096",
+     "time": "2100-01-02 16:00:00",
+     "item": "systolic BP",
+     "value": "101.0 mmHg"
+    },
+    {
+     "rid": "nurse:487129162",
+     "time": "2100-01-02 17:00:00",
+     "item": "systolic BP",
+     "value": "112.0 mmHg"
+    },
+    {
+     "rid": "nurse:466047095",
+     "time": "2100-01-02 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "85.0 mmHg"
+    },
+    {
+     "rid": "nurse:487129161",
+     "time": "2100-01-02 17:00:00",
+     "item": "mean arterial pressure",
+     "value": "81.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 3.5 h observation window after the decision (24 h or until ICU discharge): systolic BP x2, mean arterial pressure x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E942382A3::08",
+   "claim_id": "E942382A3",
+   "claim_text": "Assess oxygenation and titrate supplemental oxygen to maintain saturation.",
+   "kind": "action",
+   "text": "Assess oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygenation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:471348374",
+     "time": "2100-01-02 16:00:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    },
+    {
+     "rid": "nurse:508970228",
+     "time": "2100-01-02 17:00:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    }
+   ],
+   "reason": "Measured in the 3.5 h observation window after the decision (24 h or until ICU discharge): SpO2 x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E942382A3::09",
+   "claim_id": "E942382A3",
+   "claim_text": "Assess oxygenation and titrate supplemental oxygen to maintain saturation.",
+   "kind": "action",
+   "text": "Titrate supplemental oxygen to maintain saturation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 3.5,
+ "scoresheet": {
+  "n": 4,
+  "supported": 0,
+  "not_supported": 4,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Diltiazem infusion is currently being given. -- The records show that diltiazem was ordered and administered, but the current administration record (R20) shows that it was started at 17:04, which is after the decision time. Therefore, the statement that diltiazem infusion is currently being given is not supported.",
+    "Atrial arrhythmia is present. -- The records state that the patient is receiving antiarrhythmics, but the most recent heart rate measurement (R50) is 63 bpm, which does not support the statement that an atrial arrhythmia is present.",
+    "Bradycardia is present. -- The records show a range of heart rates, but none are below 55 bpm, which is the threshold for bradycardia. The patient's heart rate is not consistently low.",
+    "Intermittent hypotension is present. -- The records show that the patient's respiratory rate has fluctuated between 12 and 23 inspirations per minute, but there is no record of intermittent hypotension. The statement is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 4,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

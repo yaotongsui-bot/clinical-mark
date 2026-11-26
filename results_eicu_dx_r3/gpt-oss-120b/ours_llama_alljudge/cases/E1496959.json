@@ -1,0 +1,327 @@
+{
+ "case_id": "E1496959",
+ "decision_point": "2100-01-02 23:23:00",
+ "claims": [
+  "Administer intravenous potassium chloride to correct hypokalemia (K+ 3.1 mEq/L).",
+  "Order repeat serum ammonia level to assess trend of hepatic encephalopathy.",
+  "Initiate intravenous antihypertensive therapy (e.g., nicardipine infusion) to control severe hypertension (SBP up to 232 mmHg)."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1496959A1::01",
+   "claim_id": "E1496959A1",
+   "claim_text": "Administer intravenous potassium chloride to correct hypokalemia (K+ 3.1 mEq/L).",
+   "kind": "action",
+   "text": "Administer intravenous potassium chloride.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1496959A1::02",
+   "claim_id": "E1496959A1",
+   "claim_text": "Administer intravenous potassium chloride to correct hypokalemia (K+ 3.1 mEq/L).",
+   "kind": "fact",
+   "text": "Potassium is 3.1 mEq/L.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1496959A2::03",
+   "claim_id": "E1496959A2",
+   "claim_text": "Order repeat serum ammonia level to assess trend of hepatic encephalopathy.",
+   "kind": "action",
+   "text": "Order repeat serum ammonia level.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum ammonia",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1496959A2::04",
+   "claim_id": "E1496959A2",
+   "claim_text": "Order repeat serum ammonia level to assess trend of hepatic encephalopathy.",
+   "kind": "fact",
+   "text": "Hepatic encephalopathy is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1496959A3::05",
+   "claim_id": "E1496959A3",
+   "claim_text": "Initiate intravenous antihypertensive therapy (e.g., nicardipine infusion) to control severe hypertension (SBP up to 232 mmHg).",
+   "kind": "action",
+   "text": "Initiate intravenous antihypertensive therapy.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "antihypertensive therapy",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1496959A3::06",
+   "claim_id": "E1496959A3",
+   "claim_text": "Initiate intravenous antihypertensive therapy (e.g., nicardipine infusion) to control severe hypertension (SBP up to 232 mmHg).",
+   "kind": "fact",
+   "text": "Systolic blood pressure is up to 232 mmHg.",
+   "concept": "sbp",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1496959A3::R01",
+   "claim_id": "E1496959A3",
+   "claim_text": "Initiate intravenous antihypertensive therapy (e.g., nicardipine infusion) to control severe hypertension (SBP up to 232 mmHg).",
+   "kind": "fact",
+   "text": "Hypertension is present.",
+   "concept": "blood_pressure",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1496959A1::02",
+   "claim_id": "E1496959A1",
+   "claim_text": "Administer intravenous potassium chloride to correct hypokalemia (K+ 3.1 mEq/L).",
+   "kind": "fact",
+   "text": "Potassium is 3.1 mEq/L.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement says the potassium level is 3.1 mEq/L, but the most recent relevant record shows the potassium level is 3.1 mEq/L, which matches the statement. However, there is also a record from 2100-01-01 18:38 showing the potassium level is 3.5 mEq/L, which does not match the statement. Therefore, the statement is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:356086001",
+     "time": "2100-01-02 08:29:00",
+     "item": "Potassium: 3.1 mEq/L"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1496959A2::04",
+   "claim_id": "E1496959A2",
+   "claim_text": "Order repeat serum ammonia level to assess trend of hepatic encephalopathy.",
+   "kind": "fact",
+   "text": "Hepatic encephalopathy is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The admission diagnosis states that the patient has hepatic encephalopathy, but the AI statement is present tense, so we need to look for recent measurements or administration records. However, there are no recent measurements or administration records that support the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:1496959:dx",
+     "time": "2100-01-01 23:23:00",
+     "item": "Admission diagnosis (APACHE): Encephalopathy, hepatic"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1496959A3::06",
+   "claim_id": "E1496959A3",
+   "claim_text": "Initiate intravenous antihypertensive therapy (e.g., nicardipine infusion) to control severe hypertension (SBP up to 232 mmHg).",
+   "kind": "fact",
+   "text": "Systolic blood pressure is up to 232 mmHg.",
+   "concept": "sbp",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The most recent measurement of systolic blood pressure is 232 mmHg, which supports the AI statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:974369873",
+     "time": "2100-01-02 04:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 232 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1496959A3::R01",
+   "claim_id": "E1496959A3",
+   "claim_text": "Initiate intravenous antihypertensive therapy (e.g., nicardipine infusion) to control severe hypertension (SBP up to 232 mmHg).",
+   "kind": "fact",
+   "text": "Hypertension is present.",
+   "concept": "blood_pressure",
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "notes": [
+    "premise added from the diagnosis-term table (missed by the atomizer)"
+   ],
+   "label": "not_supported",
+   "reason": "The patient's age and gender are recorded, but there is no mention of hypertension. The AI statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:1496959:patient",
+     "time": "2100-01-01 23:23:00",
+     "item": "Patient: Female, age 57"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1496959A1::01",
+   "claim_id": "E1496959A1",
+   "claim_text": "Administer intravenous potassium chloride to correct hypokalemia (K+ 3.1 mEq/L).",
+   "kind": "action",
+   "text": "Administer intravenous potassium chloride.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No potassium replacement action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1496959A2::03",
+   "claim_id": "E1496959A2",
+   "claim_text": "Order repeat serum ammonia level to assess trend of hepatic encephalopathy.",
+   "kind": "action",
+   "text": "Order repeat serum ammonia level.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum ammonia",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1496959A3::05",
+   "claim_id": "E1496959A3",
+   "claim_text": "Initiate intravenous antihypertensive therapy (e.g., nicardipine infusion) to control severe hypertension (SBP up to 232 mmHg).",
+   "kind": "action",
+   "text": "Initiate intravenous antihypertensive therapy.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "antihypertensive therapy",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.75,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Potassium is 3.1 mEq/L. -- The statement says the potassium level is 3.1 mEq/L, but the most recent relevant record shows the potassium level is 3.1 mEq/L, which matches the statement. However, there is also a record from 2100-01-01 18:38 showing the potassium level is 3.5 mEq/L, which does not match the statement. Therefore, the statement is not supported.",
+    "Hepatic encephalopathy is present. -- The admission diagnosis states that the patient has hepatic encephalopathy, but the AI statement is present tense, so we need to look for recent measurements or administration records. However, there are no recent measurements or administration records that support the statement.",
+    "Hypertension is present. -- The patient's age and gender are recorded, but there is no mention of hypertension. The AI statement is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.25,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

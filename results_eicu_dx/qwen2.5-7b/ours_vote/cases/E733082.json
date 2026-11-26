@@ -1,0 +1,478 @@
+{
+ "case_id": "E733082",
+ "decision_point": "2100-01-02 06:09:00",
+ "claims": [
+  "Monitor blood glucose levels closely due to recent high readings and risk of hypoglycemia.",
+  "Administer IV fluids to maintain adequate hydration and blood pressure support.",
+  "Continue monitoring respiratory rate and oxygen saturation to ensure adequate oxygenation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E733082A1::01",
+   "claim_id": "E733082A1",
+   "claim_text": "Monitor blood glucose levels closely due to recent high readings and risk of hypoglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E733082A1::02",
+   "claim_id": "E733082A1",
+   "claim_text": "Monitor blood glucose levels closely due to recent high readings and risk of hypoglycemia.",
+   "kind": "fact",
+   "text": "Recent blood glucose readings are high.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E733082A1::03",
+   "claim_id": "E733082A1",
+   "claim_text": "Monitor blood glucose levels closely due to recent high readings and risk of hypoglycemia.",
+   "kind": "fact",
+   "text": "There is a risk of hypoglycemia.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "low",
+   "time": "unspecified",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E733082A2::04",
+   "claim_id": "E733082A2",
+   "claim_text": "Administer IV fluids to maintain adequate hydration and blood pressure support.",
+   "kind": "action",
+   "text": "Administer IV fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E733082A2::05",
+   "claim_id": "E733082A2",
+   "claim_text": "Administer IV fluids to maintain adequate hydration and blood pressure support.",
+   "kind": "fact",
+   "text": "Hydration is inadequate.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E733082A2::06",
+   "claim_id": "E733082A2",
+   "claim_text": "Administer IV fluids to maintain adequate hydration and blood pressure support.",
+   "kind": "fact",
+   "text": "Blood pressure support is needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E733082A3::07",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue monitoring respiratory rate and oxygen saturation to ensure adequate oxygenation.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E733082A3::08",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue monitoring respiratory rate and oxygen saturation to ensure adequate oxygenation.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E733082A1::02",
+   "claim_id": "E733082A1",
+   "claim_text": "Monitor blood glucose levels closely due to recent high readings and risk of hypoglycemia.",
+   "kind": "fact",
+   "text": "Recent blood glucose readings are high.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:158633437",
+     "time": "2100-01-01 13:38:00",
+     "item": "Glucose",
+     "value": 153.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "1 of 1 glucose values in the 24 h before the decision were high.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E733082A1::03",
+   "claim_id": "E733082A1",
+   "claim_text": "Monitor blood glucose levels closely due to recent high readings and risk of hypoglycemia.",
+   "kind": "fact",
+   "text": "There is a risk of hypoglycemia.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "low",
+   "time": "unspecified",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement claims a risk of hypoglycemia, but all recorded glucose values are elevated (153-216 mg/dL), indicating hyperglycemia rather than hypoglycemia. The presence of PRN orders for glucose, glucagon, and dextrose (R42-R45) suggests a precautionary protocol, but the actual measurements do not support a current risk of low blood sugar.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:159617693",
+     "time": "2099-12-31 10:25:00",
+     "item": "Glucose: 163 mg/dL"
+    },
+    {
+     "rid": "lab:139845198",
+     "time": "2099-12-31 22:12:00",
+     "item": "Glucose: 167 mg/dL"
+    },
+    {
+     "rid": "lab:189196264",
+     "time": "2100-01-01 05:56:00",
+     "item": "Glucose finger stick: 216 mg/dL"
+    },
+    {
+     "rid": "nurse:519759929",
+     "time": "2100-01-01 05:56:00",
+     "item": "Glucose finger stick: 216 mg/dL"
+    },
+    {
+     "rid": "lab:158633437",
+     "time": "2100-01-01 13:38:00",
+     "item": "Glucose: 153 mg/dL"
+    },
+    {
+     "rid": "lab:188994379",
+     "time": "2100-01-01 22:59:00",
+     "item": "Glucose finger stick: 195 mg/dL"
+    },
+    {
+     "rid": "nurse:529582538",
+     "time": "2100-01-01 22:59:00",
+     "item": "Glucose finger stick: 195 mg/dL"
+    },
+    {
+     "rid": "med:24480709",
+     "time": "2100-01-01 18:07:00",
+     "item": "Order: GLUCOSE 15 GRAM/60 ML BQ LIQ PO ONCALL PRN (active at decision time)"
+    },
+    {
+     "rid": "med:24418873",
+     "time": "2100-01-01 18:07:00",
+     "item": "Order: GLUCAGON 1 MG (1 UNIT) INJ SubQ ONCALL PRN (active at decision time)"
+    },
+    {
+     "rid": "med:27779234",
+     "time": "2100-01-01 18:07:00",
+     "item": "Order: DEXTROSE 50% 25 GRAM/50 ML SYR IV Push ONCALL PRN (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E733082A2::05",
+   "claim_id": "E733082A2",
+   "claim_text": "Administer IV fluids to maintain adequate hydration and blood pressure support.",
+   "kind": "fact",
+   "text": "Hydration is inadequate.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show multiple IV fluid administrations (R3, R4, R8, R9), including a running infusion at the decision time, which indicates hydration was being actively provided. Therefore, the statement that hydration is inadequate is not supported by the evidence.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:26640049",
+     "time": "2099-12-31 14:03:00",
+     "item": "Running at decision time (scheduled order started 2099-12-31 14:03:00): Medication SODIUM CHLORIDE 0.9% 1000 ML LVP IV"
+    },
+    {
+     "rid": "med:26086402",
+     "time": "2099-12-31 15:56:00",
+     "item": "Medication SODIUM CHLORIDE 0.9% 500 ML PB IV 1XONLY (2099-12-31 15:56:00 to 2099-12-31 16:18:00)"
+    },
+    {
+     "rid": "med:27593624",
+     "time": "2100-01-01 00:46:00",
+     "item": "Medication SODIUM CHLORIDE 0.9% 500 ML LVP IV 1XONLY (2100-01-01 00:46:00 to 2100-01-01 01:07:00)"
+    },
+    {
+     "rid": "med:32372721",
+     "time": "2100-01-01 02:13:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 02:13:00): Medication SODIUM CHLORIDE 0.9% 250 ML LVP IV"
+    },
+    {
+     "rid": "lab:139845195",
+     "time": "2099-12-31 22:12:00",
+     "item": "Sodium: 135 mmol/L"
+    },
+    {
+     "rid": "lab:158633431",
+     "time": "2100-01-01 13:38:00",
+     "item": "Sodium: 135 mmol/L"
+    }
+   ]
+  },
+  {
+   "atom_id": "E733082A2::06",
+   "claim_id": "E733082A2",
+   "claim_text": "Administer IV fluids to maintain adequate hydration and blood pressure support.",
+   "kind": "fact",
+   "text": "Blood pressure support is needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show multiple systolic blood pressure readings, with the lowest at 87 mmHg (R9) and the most recent at 120 mmHg (R50). These values do not indicate a need for blood pressure support, as they are not consistently hypotensive.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:461945157",
+     "time": "2100-01-01 06:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 96 mmHg"
+    },
+    {
+     "rid": "nurse:524418168",
+     "time": "2100-01-01 07:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 87 mmHg"
+    },
+    {
+     "rid": "nurse:512749463",
+     "time": "2100-01-02 02:10:00",
+     "item": "Non Invasive Blood Pressure systolic: 120 mmHg"
+    },
+    {
+     "rid": "nurse:465559942",
+     "time": "2100-01-02 00:23:00",
+     "item": "Non Invasive Blood Pressure systolic: 104 mmHg"
+    },
+    {
+     "rid": "nurse:460700744",
+     "time": "2100-01-02 01:01:00",
+     "item": "Non Invasive Blood Pressure systolic: 121 mmHg"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E733082A1::01",
+   "claim_id": "E733082A1",
+   "claim_text": "Monitor blood glucose levels closely due to recent high readings and risk of hypoglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:157048269",
+     "time": "2100-01-02 10:25:00",
+     "item": "glucose",
+     "value": "175.0 mg/dL"
+    },
+    {
+     "rid": "lab:191109195",
+     "time": "2100-01-02 14:48:00",
+     "item": "glucose",
+     "value": "170.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x9.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E733082A2::04",
+   "claim_id": "E733082A2",
+   "claim_text": "Administer IV fluids to maintain adequate hydration and blood pressure support.",
+   "kind": "action",
+   "text": "Administer IV fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E733082A3::07",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue monitoring respiratory rate and oxygen saturation to ensure adequate oxygenation.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:538420463",
+     "time": "2100-01-02 07:26:00",
+     "item": "respiratory rate",
+     "value": "10.0 insp/min"
+    },
+    {
+     "rid": "nurse:498963687",
+     "time": "2100-01-02 09:00:00",
+     "item": "respiratory rate",
+     "value": "18.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x15.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E733082A3::08",
+   "claim_id": "E733082A3",
+   "claim_text": "Continue monitoring respiratory rate and oxygen saturation to ensure adequate oxygenation.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:562564503",
+     "time": "2100-01-02 07:26:00",
+     "item": "SpO2",
+     "value": "99.0 %"
+    },
+    {
+     "rid": "nurse:467747773",
+     "time": "2100-01-02 09:00:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x14.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.75,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "There is a risk of hypoglycemia. -- The statement claims a risk of hypoglycemia, but all recorded glucose values are elevated (153-216 mg/dL), indicating hyperglycemia rather than hypoglycemia. The presence of PRN orders for glucose, glucagon, and dextrose (R42-R45) suggests a precautionary protocol, but the actual measurements do not support a current risk of low blood sugar.",
+    "Hydration is inadequate. -- The records show multiple IV fluid administrations (R3, R4, R8, R9), including a running infusion at the decision time, which indicates hydration was being actively provided. Therefore, the statement that hydration is inadequate is not supported by the evidence.",
+    "Blood pressure support is needed. -- The records show multiple systolic blood pressure readings, with the lowest at 87 mmHg (R9) and the most recent at 120 mmHg (R50). These values do not indicate a need for blood pressure support, as they are not consistently hypotensive."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.25,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

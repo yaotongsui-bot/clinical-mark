@@ -1,0 +1,271 @@
+{
+ "case_id": "E1619343",
+ "decision_point": "2100-01-02 03:30:00",
+ "claims": [
+  "Monitor blood glucose levels closely.",
+  "Administer intravenous vancomycin for suspected infection.",
+  "Continue intravenous fluid administration with normal saline."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1619343A1::01",
+   "claim_id": "E1619343A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1619343A2::02",
+   "claim_id": "E1619343A2",
+   "claim_text": "Administer intravenous vancomycin for suspected infection.",
+   "kind": "action",
+   "text": "Administer intravenous vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1619343A2::03",
+   "claim_id": "E1619343A2",
+   "claim_text": "Administer intravenous vancomycin for suspected infection.",
+   "kind": "fact",
+   "text": "Infection is suspected.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1619343A3::04",
+   "claim_id": "E1619343A3",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration with normal saline.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "normal saline",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1619343A3::05",
+   "claim_id": "E1619343A3",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "fact",
+   "text": "Intravenous normal saline is currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1619343A2::03",
+   "claim_id": "E1619343A2",
+   "claim_text": "Administer intravenous vancomycin for suspected infection.",
+   "kind": "fact",
+   "text": "Infection is suspected.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show a vancomycin order (R36) and WBCs in urine (R16), but no documented diagnosis of infection or clinical signs like fever at the decision time. The temperature readings are normal, so the suspicion of infection is not directly supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:408469118",
+     "time": "2100-01-01 05:20:00",
+     "item": "WBC's in urine: 14 /HPF"
+    },
+    {
+     "rid": "med:62097752",
+     "time": "2100-01-01 15:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 15:30:00): Medication VANCOMYCIN HCL IV"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1619343A3::05",
+   "claim_id": "E1619343A3",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "fact",
+   "text": "Intravenous normal saline is currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Multiple medication administration records show normal saline 0.9% IV running at the decision time or administered during the surrounding period, including R1, R3, and R7 which are explicitly 'Running at decision time'.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:59501855",
+     "time": "2099-12-31 23:58:00",
+     "item": "Running at decision time (scheduled order started 2099-12-31 23:58:00): Medication NORMAL SALINE 0.9% IV"
+    },
+    {
+     "rid": "med:59389341",
+     "time": "2100-01-01 00:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 00:00:00): Medication NORMAL SALINE 0.9% IV"
+    },
+    {
+     "rid": "med:58324961",
+     "time": "2100-01-01 01:09:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 01:09:00): Medication NORMAL SALINE 0.9% IV"
+    },
+    {
+     "rid": "med:60097161",
+     "time": "2100-01-01 01:45:00",
+     "item": "Medication NORMAL SALINE 0.9% IV (2100-01-01 01:45:00 to 2100-01-01 08:02:00)"
+    },
+    {
+     "rid": "med:58066088",
+     "time": "2100-01-01 03:00:00",
+     "item": "Medication NORMAL SALINE 0.9% IV Q1H (2100-01-01 03:00:00 to 2100-01-01 05:00:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1619343A1::01",
+   "claim_id": "E1619343A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:409915083",
+     "time": "2100-01-02 08:18:00",
+     "item": "glucose",
+     "value": "210.0 mg/dL"
+    },
+    {
+     "rid": "lab:394938426",
+     "time": "2100-01-02 08:37:00",
+     "item": "glucose",
+     "value": "202.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 10.4 h observation window after the decision (24 h or until ICU discharge): glucose x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1619343A2::02",
+   "claim_id": "E1619343A2",
+   "claim_text": "Administer intravenous vancomycin for suspected infection.",
+   "kind": "action",
+   "text": "Administer intravenous vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 10.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1619343A3::04",
+   "claim_id": "E1619343A3",
+   "claim_text": "Continue intravenous fluid administration with normal saline.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration with normal saline.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "normal saline",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 10.4 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 10.4,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Infection is suspected. -- The records show a vancomycin order (R36) and WBCs in urine (R16), but no documented diagnosis of infection or clinical signs like fever at the decision time. The temperature readings are normal, so the suspicion of infection is not directly supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

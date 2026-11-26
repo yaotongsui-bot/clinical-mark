@@ -1,0 +1,360 @@
+{
+ "case_id": "M39084876-S56",
+ "decision_point": "2120-05-14 14:27:34",
+ "claims": [
+  "Discontinue pain management with oral acetaminophen."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39084876-S56A1::01",
+   "claim_id": "M39084876-S56A1",
+   "claim_text": "Discontinue pain management with oral acetaminophen.",
+   "kind": "action",
+   "text": "Discontinue pain management with oral acetaminophen.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "stop",
+   "target": "oral acetaminophen",
+   "conditional": false,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39084876-S56A1::02",
+   "claim_id": "M39084876-S56A1",
+   "claim_text": "Discontinue pain management with oral acetaminophen.",
+   "kind": "fact",
+   "text": "The patient is currently receiving oral acetaminophen for pain management.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39084876-S56A1::02",
+   "claim_id": "M39084876-S56A1",
+   "claim_text": "Discontinue pain management with oral acetaminophen.",
+   "kind": "fact",
+   "text": "The patient is currently receiving oral acetaminophen for pain management.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "No administration of this treatment is recorded in the 24 h before the decision. (Panel verdict: supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "not_addressed"
+    },
+    "panel_label": "supported"
+   },
+   "evidence": [
+    {
+     "rid": "rx:31952515:2120-05-13 15:00:00",
+     "time": "2120-05-13 15:00:00",
+     "item": "Order: Acetaminophen 650 mg PO (active at decision time)"
+    },
+    {
+     "rid": "chart:39084876:223792:2120-05-14 12:00:00",
+     "time": "2120-05-14 12:00:00",
+     "item": "Pain Management: PO Medication"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39084876-S56A1::01",
+   "claim_id": "M39084876-S56A1",
+   "claim_text": "Discontinue pain management with oral acetaminophen.",
+   "kind": "action",
+   "text": "Discontinue pain management with oral acetaminophen.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "stop",
+   "target": "oral acetaminophen",
+   "conditional": false,
+   "treatment_class": "non_opioid_analgesia",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [
+    {
+     "rid": "RX75925406",
+     "time": "2120-05-14 16:00:00",
+     "item": "Ordered: Acetaminophen IV 1000 mg IV",
+     "class": "non_opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "direction_mismatch": true,
+   "reason": "Opposite direction: the AI suggested stopping, but non-opioid analgesia is still recorded after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 10.6 K/uL at 2120-05-14 03:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 10.6 K/uL at 2120-05-14 03:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.2 mmol/L at 2120-05-13 19:45:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.2 mmol/L at 2120-05-13 19:45:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "OxycoDONE (Immediate Release)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 10.6 K/uL at 2120-05-14 03:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 10.6 K/uL at 2120-05-14 03:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.2 mmol/L at 2120-05-13 19:45:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.2 mmol/L at 2120-05-13 19:45:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "OxycoDONE (Immediate Release)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 2.2 mmol/L at 2120-05-13 19:45:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 10.6 K/uL at 2120-05-14 03:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 8,
+ "observation_window_hours": 2.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 1.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "The patient is currently receiving oral acetaminophen for pain management. -- No administration of this treatment is recorded in the 24 h before the decision. (Panel verdict: supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 2,
+  "treatments_omitted": 6,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

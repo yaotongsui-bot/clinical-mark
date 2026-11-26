@@ -1,0 +1,340 @@
+{
+ "case_id": "E3150018",
+ "decision_point": "2100-01-02 23:33:00",
+ "claims": [
+  "Monitor blood pressure and heart rate for fluctuations.",
+  "Continue sedative and anti-psychotic medications for pain and agitation.",
+  "Assess respiratory rate and oxygen saturation for stability."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3150018A1::01",
+   "claim_id": "E3150018A1",
+   "claim_text": "Monitor blood pressure and heart rate for fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3150018A1::02",
+   "claim_id": "E3150018A1",
+   "claim_text": "Monitor blood pressure and heart rate for fluctuations.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3150018A2::03",
+   "claim_id": "E3150018A2",
+   "claim_text": "Continue sedative and anti-psychotic medications for pain and agitation.",
+   "kind": "action",
+   "text": "Continue sedative medications.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "sedative medications",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3150018A2::04",
+   "claim_id": "E3150018A2",
+   "claim_text": "Continue sedative and anti-psychotic medications for pain and agitation.",
+   "kind": "fact",
+   "text": "Sedative medications are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3150018A2::05",
+   "claim_id": "E3150018A2",
+   "claim_text": "Continue sedative and anti-psychotic medications for pain and agitation.",
+   "kind": "action",
+   "text": "Continue anti-psychotic medications.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "anti-psychotic medications",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3150018A2::06",
+   "claim_id": "E3150018A2",
+   "claim_text": "Continue sedative and anti-psychotic medications for pain and agitation.",
+   "kind": "fact",
+   "text": "Anti-psychotic medications are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3150018A3::07",
+   "claim_id": "E3150018A3",
+   "claim_text": "Assess respiratory rate and oxygen saturation for stability.",
+   "kind": "action",
+   "text": "Assess respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3150018A3::08",
+   "claim_id": "E3150018A3",
+   "claim_text": "Assess respiratory rate and oxygen saturation for stability.",
+   "kind": "action",
+   "text": "Assess oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygen saturation",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3150018A2::04",
+   "claim_id": "E3150018A2",
+   "claim_text": "Continue sedative and anti-psychotic medications for pain and agitation.",
+   "kind": "fact",
+   "text": "Sedative medications are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that lorazepam was given for pain and agitation, but there is no record of administration of sedative medications in the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:76922467",
+     "time": "2100-01-02 00:06:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | sedative agent | lorazepam"
+    },
+    {
+     "rid": "treat:77367797",
+     "time": "2100-01-02 15:23:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | sedative agent | lorazepam"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3150018A2::06",
+   "claim_id": "E3150018A2",
+   "claim_text": "Continue sedative and anti-psychotic medications for pain and agitation.",
+   "kind": "fact",
+   "text": "Anti-psychotic medications are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient is receiving anti-psychotic, sedative, and antidepressant medications for pain and agitation, but they do not show that these medications are currently being given. The most recent relevant records are from 00:06, which is before the decision time of 23:33. The records do not mention any administration of these medications at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:77178331",
+     "time": "2100-01-02 00:06:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | anti-psychotic agent | haldol"
+    },
+    {
+     "rid": "treat:76922467",
+     "time": "2100-01-02 00:06:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | sedative agent | lorazepam"
+    },
+    {
+     "rid": "treat:77452078",
+     "time": "2100-01-02 00:06:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | antidepressant | vanafaxine (Effexor)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3150018A1::01",
+   "claim_id": "E3150018A1",
+   "claim_text": "Monitor blood pressure and heart rate for fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood pressure measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3150018A1::02",
+   "claim_id": "E3150018A1",
+   "claim_text": "Monitor blood pressure and heart rate for fluctuations.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No heart rate measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3150018A2::03",
+   "claim_id": "E3150018A2",
+   "claim_text": "Continue sedative and anti-psychotic medications for pain and agitation.",
+   "kind": "action",
+   "text": "Continue sedative medications.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "sedative medications",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3150018A2::05",
+   "claim_id": "E3150018A2",
+   "claim_text": "Continue sedative and anti-psychotic medications for pain and agitation.",
+   "kind": "action",
+   "text": "Continue anti-psychotic medications.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "anti-psychotic medications",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3150018A3::07",
+   "claim_id": "E3150018A3",
+   "claim_text": "Assess respiratory rate and oxygen saturation for stability.",
+   "kind": "action",
+   "text": "Assess respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No respiratory rate measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3150018A3::08",
+   "claim_id": "E3150018A3",
+   "claim_text": "Assess respiratory rate and oxygen saturation for stability.",
+   "kind": "action",
+   "text": "Assess oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "assess",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No SpO2 measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Sedative medications are currently being given. -- The records show that lorazepam was given for pain and agitation, but there is no record of administration of sedative medications in the 24 hours before the decision time.",
+    "Anti-psychotic medications are currently being given. -- The records show that the patient is receiving anti-psychotic, sedative, and antidepressant medications for pain and agitation, but they do not show that these medications are currently being given. The most recent relevant records are from 00:06, which is before the decision time of 23:33. The records do not mention any administration of these medications at the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

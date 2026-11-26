@@ -1,0 +1,352 @@
+{
+ "case_id": "E962227",
+ "decision_point": "2100-01-02 21:10:00",
+ "claims": [
+  "Continue monitoring vital signs and oxygen saturation.",
+  "Administer insulin to manage hyperglycemia.",
+  "Evaluate for potential respiratory issues and consider adjusting oxygen therapy."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E962227A1::01",
+   "claim_id": "E962227A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E962227A1::02",
+   "claim_id": "E962227A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E962227A2::03",
+   "claim_id": "E962227A2",
+   "claim_text": "Administer insulin to manage hyperglycemia.",
+   "kind": "action",
+   "text": "Administer insulin.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E962227A2::04",
+   "claim_id": "E962227A2",
+   "claim_text": "Administer insulin to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E962227A3::05",
+   "claim_id": "E962227A3",
+   "claim_text": "Evaluate for potential respiratory issues and consider adjusting oxygen therapy.",
+   "kind": "action",
+   "text": "Evaluate for potential respiratory issues.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory issues",
+   "conditional": false
+  },
+  {
+   "atom_id": "E962227A3::06",
+   "claim_id": "E962227A3",
+   "claim_text": "Evaluate for potential respiratory issues and consider adjusting oxygen therapy.",
+   "kind": "action",
+   "text": "Consider adjusting oxygen therapy.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E962227A2::04",
+   "claim_id": "E962227A2",
+   "claim_text": "Administer insulin to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The patient has been receiving ASPART insulin since 2099-12-30 17:12:00, and the most recent administration record is from 2100-01-01 16:59:00. The glucose levels have been high, with the most recent measurement being 226 mg/dL, which is above the normal range.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:36638636",
+     "time": "2099-12-30 17:12:00",
+     "item": "Running at decision time (scheduled order started 2099-12-30 17:12:00): Medication ASPART insulin MISC Pyxis"
+    },
+    {
+     "rid": "med:35518927",
+     "time": "2099-12-30 21:58:00",
+     "item": "Running at decision time (scheduled order started 2099-12-30 21:58:00): Medication ASPART insulin MISC Pyxis"
+    },
+    {
+     "rid": "med:36593391",
+     "time": "2100-01-01 14:50:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 14:50:00): Medication ASPART insulin MISC Pyxis"
+    },
+    {
+     "rid": "med:35562546",
+     "time": "2100-01-01 16:59:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 16:59:00): Medication ASPART insulin MISC Pyxis"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E962227A1::01",
+   "claim_id": "E962227A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:574915960",
+     "time": "2100-01-03 00:00:00",
+     "item": "heart rate",
+     "value": "100.0 bpm"
+    },
+    {
+     "rid": "nurse:583640788",
+     "time": "2100-01-03 01:00:00",
+     "item": "heart rate",
+     "value": "99.0 bpm"
+    },
+    {
+     "rid": "nurse:578261782",
+     "time": "2100-01-03 00:00:00",
+     "item": "systolic BP",
+     "value": "179.0 mmHg"
+    },
+    {
+     "rid": "nurse:572627588",
+     "time": "2100-01-03 01:00:00",
+     "item": "systolic BP",
+     "value": "168.0 mmHg"
+    },
+    {
+     "rid": "nurse:578261781",
+     "time": "2100-01-03 00:00:00",
+     "item": "mean arterial pressure",
+     "value": "114.0 mmHg"
+    },
+    {
+     "rid": "nurse:572627587",
+     "time": "2100-01-03 01:00:00",
+     "item": "mean arterial pressure",
+     "value": "112.0 mmHg"
+    },
+    {
+     "rid": "nurse:575864934",
+     "time": "2100-01-03 00:00:00",
+     "item": "respiratory rate",
+     "value": "15.0 insp/min"
+    },
+    {
+     "rid": "nurse:583532548",
+     "time": "2100-01-03 01:00:00",
+     "item": "respiratory rate",
+     "value": "8.0 insp/min"
+    },
+    {
+     "rid": "nurse:566406554",
+     "time": "2100-01-03 00:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:571703681",
+     "time": "2100-01-03 01:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:582320259",
+     "time": "2100-01-03 01:00:00",
+     "item": "temperature",
+     "value": "98.8 F"
+    },
+    {
+     "rid": "nurse:585942774",
+     "time": "2100-01-03 05:00:00",
+     "item": "temperature",
+     "value": "98.6 F"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x19, systolic BP x18, mean arterial pressure x18, respiratory rate x19, SpO2 x20, temperature x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E962227A1::02",
+   "claim_id": "E962227A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:566406554",
+     "time": "2100-01-03 00:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:571703681",
+     "time": "2100-01-03 01:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x20.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E962227A2::03",
+   "claim_id": "E962227A2",
+   "claim_text": "Administer insulin to manage hyperglycemia.",
+   "kind": "action",
+   "text": "Administer insulin.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E962227A3::05",
+   "claim_id": "E962227A3",
+   "claim_text": "Evaluate for potential respiratory issues and consider adjusting oxygen therapy.",
+   "kind": "action",
+   "text": "Evaluate for potential respiratory issues.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory issues",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E962227A3::06",
+   "claim_id": "E962227A3",
+   "claim_text": "Evaluate for potential respiratory issues and consider adjusting oxygen therapy.",
+   "kind": "action",
+   "text": "Consider adjusting oxygen therapy.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

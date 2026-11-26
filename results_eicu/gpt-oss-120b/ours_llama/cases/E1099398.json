@@ -1,0 +1,274 @@
+{
+ "case_id": "E1099398",
+ "decision_point": "2100-01-02 05:47:00",
+ "claims": [
+  "Continue intravenous antihistamine infusion for ongoing anaphylaxis management.",
+  "Start a short course of intravenous corticosteroids to prevent delayed biphasic reaction.",
+  "Monitor serum glucose hourly and initiate insulin infusion if glucose remains >250 mg/dL."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1099398A1::01",
+   "claim_id": "E1099398A1",
+   "claim_text": "Continue intravenous antihistamine infusion for ongoing anaphylaxis management.",
+   "kind": "action",
+   "text": "Continue intravenous antihistamine infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous antihistamine infusion",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1099398A1::02",
+   "claim_id": "E1099398A1",
+   "claim_text": "Continue intravenous antihistamine infusion for ongoing anaphylaxis management.",
+   "kind": "fact",
+   "text": "Intravenous antihistamine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1099398A1::03",
+   "claim_id": "E1099398A1",
+   "claim_text": "Continue intravenous antihistamine infusion for ongoing anaphylaxis management.",
+   "kind": "fact",
+   "text": "Anaphylaxis is ongoing.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1099398A2::04",
+   "claim_id": "E1099398A2",
+   "claim_text": "Start a short course of intravenous corticosteroids to prevent delayed biphasic reaction.",
+   "kind": "action",
+   "text": "Start a short course of intravenous corticosteroids.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "start",
+   "target": "intravenous corticosteroids",
+   "conditional": false,
+   "treatment_class": "steroid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1099398A3::05",
+   "claim_id": "E1099398A3",
+   "claim_text": "Monitor serum glucose hourly and initiate insulin infusion if glucose remains >250 mg/dL.",
+   "kind": "action",
+   "text": "Monitor serum glucose hourly.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1099398A3::06",
+   "claim_id": "E1099398A3",
+   "claim_text": "Monitor serum glucose hourly and initiate insulin infusion if glucose remains >250 mg/dL.",
+   "kind": "action",
+   "text": "Initiate insulin infusion if glucose remains >250 mg/dL.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "start",
+   "target": "insulin infusion",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1099398A1::02",
+   "claim_id": "E1099398A1",
+   "claim_text": "Continue intravenous antihistamine infusion for ongoing anaphylaxis management.",
+   "kind": "fact",
+   "text": "Intravenous antihistamine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement says the infusion is currently being given, but the most recent relevant record (R45) shows a non-invasive blood pressure measurement, not an administration record of the infusion. The earlier records (R1-R44) do not show administration of the infusion either.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:674378219",
+     "time": "2100-01-02 04:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 161 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1099398A1::03",
+   "claim_id": "E1099398A1",
+   "claim_text": "Continue intravenous antihistamine infusion for ongoing anaphylaxis management.",
+   "kind": "fact",
+   "text": "Anaphylaxis is ongoing.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement 'Anaphylaxis is ongoing' is not supported by the records. The most recent relevant record (R46) shows a temperature of 98.4 F, which is not indicative of anaphylaxis. Additionally, there are no records of anaphylaxis treatment or management in the provided records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:687256984",
+     "time": "2100-01-02 04:00:00",
+     "item": "Temperature Fahrenheit: 98.4 F"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1099398A1::01",
+   "claim_id": "E1099398A1",
+   "claim_text": "Continue intravenous antihistamine infusion for ongoing anaphylaxis management.",
+   "kind": "action",
+   "text": "Continue intravenous antihistamine infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous antihistamine infusion",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1099398A2::04",
+   "claim_id": "E1099398A2",
+   "claim_text": "Start a short course of intravenous corticosteroids to prevent delayed biphasic reaction.",
+   "kind": "action",
+   "text": "Start a short course of intravenous corticosteroids.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "start",
+   "target": "intravenous corticosteroids",
+   "conditional": false,
+   "treatment_class": "steroid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No corticosteroids action recorded in the 8.8 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1099398A3::05",
+   "claim_id": "E1099398A3",
+   "claim_text": "Monitor serum glucose hourly and initiate insulin infusion if glucose remains >250 mg/dL.",
+   "kind": "action",
+   "text": "Monitor serum glucose hourly.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:263085401",
+     "time": "2100-01-02 08:30:00",
+     "item": "glucose",
+     "value": "199.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 8.8 h observation window after the decision (24 h or until ICU discharge): glucose x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1099398A3::06",
+   "claim_id": "E1099398A3",
+   "claim_text": "Monitor serum glucose hourly and initiate insulin infusion if glucose remains >250 mg/dL.",
+   "kind": "action",
+   "text": "Initiate insulin infusion if glucose remains >250 mg/dL.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "start",
+   "target": "insulin infusion",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 8.8 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 8.8,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous antihistamine infusion is currently being given. -- The statement says the infusion is currently being given, but the most recent relevant record (R45) shows a non-invasive blood pressure measurement, not an administration record of the infusion. The earlier records (R1-R44) do not show administration of the infusion either.",
+    "Anaphylaxis is ongoing. -- The statement 'Anaphylaxis is ongoing' is not supported by the records. The most recent relevant record (R46) shows a temperature of 98.4 F, which is not indicative of anaphylaxis. Additionally, there are no records of anaphylaxis treatment or management in the provided records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

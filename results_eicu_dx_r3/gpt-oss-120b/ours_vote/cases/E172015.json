@@ -1,0 +1,399 @@
+{
+ "case_id": "E172015",
+ "decision_point": "2100-01-02 23:52:00",
+ "claims": [
+  "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+  "Monitor serum magnesium and replace if below 1.5 mg/dL.",
+  "Continue PRN lorazepam dosing for alcohol withdrawal symptom control."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E172015A1::01",
+   "claim_id": "E172015A1",
+   "claim_text": "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+   "kind": "action",
+   "text": "Administer platelet transfusion.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "administer",
+   "target": "platelet transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_other",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E172015A1::02",
+   "claim_id": "E172015A1",
+   "claim_text": "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+   "kind": "fact",
+   "text": "Thrombocytopenia is present.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E172015A1::03",
+   "claim_id": "E172015A1",
+   "claim_text": "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+   "kind": "fact",
+   "text": "Platelet count is 45 K/µL.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E172015A2::04",
+   "claim_id": "E172015A2",
+   "claim_text": "Monitor serum magnesium and replace if below 1.5 mg/dL.",
+   "kind": "action",
+   "text": "Monitor serum magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E172015A2::05",
+   "claim_id": "E172015A2",
+   "claim_text": "Monitor serum magnesium and replace if below 1.5 mg/dL.",
+   "kind": "action",
+   "text": "Replace magnesium if below 1.5 mg/dL.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "magnesium",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E172015A3::06",
+   "claim_id": "E172015A3",
+   "claim_text": "Continue PRN lorazepam dosing for alcohol withdrawal symptom control.",
+   "kind": "action",
+   "text": "Continue PRN lorazepam dosing.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E172015A3::07",
+   "claim_id": "E172015A3",
+   "claim_text": "Continue PRN lorazepam dosing for alcohol withdrawal symptom control.",
+   "kind": "fact",
+   "text": "PRN lorazepam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E172015A3::08",
+   "claim_id": "E172015A3",
+   "claim_text": "Continue PRN lorazepam dosing for alcohol withdrawal symptom control.",
+   "kind": "fact",
+   "text": "Alcohol withdrawal is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E172015A1::02",
+   "claim_id": "E172015A1",
+   "claim_text": "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+   "kind": "fact",
+   "text": "Thrombocytopenia is present.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:52529565",
+     "time": "2099-12-31 12:45:00",
+     "item": "Platelet Count",
+     "value": 65.0,
+     "unit": "K/mcL",
+     "bounds": "150 to 440",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:52129352",
+     "time": "2100-01-01 10:27:00",
+     "item": "Platelet Count",
+     "value": 49.0,
+     "unit": "K/mcL",
+     "bounds": "150 to 440",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:54110455",
+     "time": "2100-01-02 09:40:00",
+     "item": "Platelet Count",
+     "value": 45.0,
+     "unit": "K/mcL",
+     "bounds": "150 to 440",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest platelets 45 K/mcL at 2100-01-02 09:40:00 (reference 150 to 440) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E172015A1::03",
+   "claim_id": "E172015A1",
+   "claim_text": "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+   "kind": "fact",
+   "text": "Platelet count is 45 K/µL.",
+   "concept": "platelets",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:54110455",
+     "time": "2100-01-02 09:40:00",
+     "item": "Platelet Count",
+     "value": 45.0,
+     "unit": "K/mcL",
+     "bounds": "150 to 440",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "The stated platelets (45) matches recorded values before the decision (45 at 2100-01-02 09:40:00).",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E172015A3::07",
+   "claim_id": "E172015A3",
+   "claim_text": "Continue PRN lorazepam dosing for alcohol withdrawal symptom control.",
+   "kind": "fact",
+   "text": "PRN lorazepam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show a lorazepam administration on 2099-12-31 at 00:15 and active PRN orders for lorazepam, but no administration of lorazepam within 24 hours before the decision time (2100-01-02 23:52). Therefore, the statement that PRN lorazepam is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:10345704",
+     "time": "2099-12-31 00:15:00",
+     "item": "Given once: 1 ML  -  LORAZEPAM 2 MG/ML IJ SOLN IV Once (2099-12-31 00:15:00)"
+    },
+    {
+     "rid": "med:9282055",
+     "time": "2099-12-31 03:18:00",
+     "item": "Order: 1 ML  -  LORAZEPAM 2 MG/ML IJ SOLN IV Q8H PRN (active at decision time)"
+    },
+    {
+     "rid": "med:11544057",
+     "time": "2099-12-31 05:10:00",
+     "item": "Order: 1 ML  -  LORAZEPAM 2 MG/ML IJ SOLN IV Q1H PRN (active at decision time)"
+    },
+    {
+     "rid": "med:9997213",
+     "time": "2099-12-31 05:10:00",
+     "item": "Order: LORAZEPAM 1 MG PO TABS PO Q1H PRN (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E172015A3::08",
+   "claim_id": "E172015A3",
+   "claim_text": "Continue PRN lorazepam dosing for alcohol withdrawal symptom control.",
+   "kind": "fact",
+   "text": "Alcohol withdrawal is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The admission diagnosis at the decision time explicitly states 'Alcohol withdrawal' (R25), which directly supports the statement that alcohol withdrawal is present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:172015:dx",
+     "time": "2100-01-01 23:52:00",
+     "item": "Admission diagnosis (APACHE): Alcohol withdrawal"
+    },
+    {
+     "rid": "lab:49742851",
+     "time": "2099-12-31 00:10:00",
+     "item": "ethanol: 442 mg/dL"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E172015A1::01",
+   "claim_id": "E172015A1",
+   "claim_text": "Administer platelet transfusion to address thrombocytopenia (platelet count 45 K/µL).",
+   "kind": "action",
+   "text": "Administer platelet transfusion.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "administer",
+   "target": "platelet transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_other",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No platelet / plasma transfusion action recorded in the 20.3 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E172015A2::04",
+   "claim_id": "E172015A2",
+   "claim_text": "Monitor serum magnesium and replace if below 1.5 mg/dL.",
+   "kind": "action",
+   "text": "Monitor serum magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:43101823",
+     "time": "2100-01-03 10:25:00",
+     "item": "magnesium",
+     "value": "1.8 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 20.3 h observation window after the decision (24 h or until ICU discharge): magnesium x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E172015A2::05",
+   "claim_id": "E172015A2",
+   "claim_text": "Monitor serum magnesium and replace if below 1.5 mg/dL.",
+   "kind": "action",
+   "text": "Replace magnesium if below 1.5 mg/dL.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "magnesium",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E172015A3::06",
+   "claim_id": "E172015A3",
+   "claim_text": "Continue PRN lorazepam dosing for alcohol withdrawal symptom control.",
+   "kind": "action",
+   "text": "Continue PRN lorazepam dosing.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 20.3 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 20.3,
+ "scoresheet": {
+  "n": 4,
+  "supported": 3,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.75,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "PRN lorazepam is currently being given. -- The records show a lorazepam administration on 2099-12-31 at 00:15 and active PRN orders for lorazepam, but no administration of lorazepam within 24 hours before the decision time (2100-01-02 23:52). Therefore, the statement that PRN lorazepam is currently being given is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.75,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

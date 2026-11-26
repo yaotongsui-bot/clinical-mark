@@ -5,7 +5,7 @@ Each atom has a kind:
 - "action": something the AI recommends doing (monitor, assess, give, start, continue, stop,
   adjust, order a test, perform a procedure, consult). Make one atom per independently
   checkable target: "Monitor potassium and magnesium" gives two action atoms.
-- "goal": a desired state with no concrete action, e.g. "Maintain adequate oxygenation".
+- "goal": a desired state with its own target and no concrete action, e.g. "Maintain SpO2 above 92%".
 - "fact": something the AI presents as already true about the patient.
 
 Facts have a fact_kind:
@@ -14,6 +14,7 @@ Facts have a fact_kind:
     "Assess for potential causes of hypokalemia"        -> fact "Hypokalemia is present."
     "Administer fluids to address hyponatremia"         -> fact "Hyponatremia is present."
     "Continue vancomycin"                               -> fact "Vancomycin is currently being given."
+    "Titrate phenylephrine"                             -> fact "Phenylephrine is currently being given."
     "Continue mechanical ventilation"                   -> fact "The patient is currently on mechanical ventilation."
 - "judgment": a diagnosis, cause, or necessity the AI asserts ("ongoing antibiotics are needed",
   "lactate indicates metabolic acidosis").
@@ -24,6 +25,22 @@ These are NOT facts, so do not create fact atoms for them:
 - purposes: "to prevent hypoxemia", "to maintain hydration", "to manage coagulation status"
 - things to look for: "assess for signs of infection", "monitor for bleeding"
 - example causes: "such as diuretic use or gastrointestinal losses"
+- a value the AI did not state: "Replete potassium" does not say that potassium is low.
+
+How far to split:
+- A listed item is its own atom: "liver enzymes (AST, ALT, alkaline phosphatase)" gives three actions.
+- A general word followed by "including" is replaced by the listed items: "electrolytes, including
+  magnesium and potassium" gives magnesium and potassium.
+- Assessing and managing are separate actions: "Assess and manage pain" gives "Assess pain." and
+  "Manage pain.". Two words for one check stay one action: "assess and monitor".
+- Each stated setting or value is its own fact: "mechanical ventilation with CPAP/PSV, PEEP 5 cmH2O
+  and FiO2 40%" gives "The ventilator mode is CPAP/PSV.", "PEEP is 5 cmH2O." and "FiO2 is 40%.". The same
+  holds for PCA, CRRT and pacemaker settings. Do not also make actions from those settings.
+- A diagnosis and its value are two facts: "anemia (hemoglobin 7.7 g/dL)" gives "Anemia is present."
+  and "Hemoglobin is 7.7 g/dL.". A value range stays one fact: "Sodium is 150-159 mEq/L.".
+- A stated order, device or current treatment is a fact: "with active insulin orders" gives
+  "Insulin orders are active.".
+- A purpose with no target of its own is not an atom: "for blood pressure control" gives nothing.
 
 Split facts by target and direction: "elevated creatinine and anion gap" gives two facts;
 "hyperkalemia and hypokalemia" gives two facts.

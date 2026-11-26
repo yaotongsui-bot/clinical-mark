@@ -1,0 +1,224 @@
+{
+ "case_id": "E153972",
+ "decision_point": "2100-01-02 17:19:00",
+ "claims": [
+  "Monitor patient's hemodynamic stability closely given the fluctuating blood pressure readings.",
+  "Continue PANTOPRAZOLE SODIUM IV infusion to manage potential acid-related complications."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E153972A1::01",
+   "claim_id": "E153972A1",
+   "claim_text": "Monitor patient's hemodynamic stability closely given the fluctuating blood pressure readings.",
+   "kind": "action",
+   "text": "Monitor hemodynamic stability closely.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamic stability",
+   "conditional": false
+  },
+  {
+   "atom_id": "E153972A1::02",
+   "claim_id": "E153972A1",
+   "claim_text": "Monitor patient's hemodynamic stability closely given the fluctuating blood pressure readings.",
+   "kind": "fact",
+   "text": "Blood pressure readings are fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E153972A2::03",
+   "claim_id": "E153972A2",
+   "claim_text": "Continue PANTOPRAZOLE SODIUM IV infusion to manage potential acid-related complications.",
+   "kind": "action",
+   "text": "Continue PANTOPRAZOLE SODIUM IV infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pantoprazole sodium IV infusion",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E153972A2::04",
+   "claim_id": "E153972A2",
+   "claim_text": "Continue PANTOPRAZOLE SODIUM IV infusion to manage potential acid-related complications.",
+   "kind": "fact",
+   "text": "PANTOPRAZOLE SODIUM IV infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E153972A1::02",
+   "claim_id": "E153972A1",
+   "claim_text": "Monitor patient's hemodynamic stability closely given the fluctuating blood pressure readings.",
+   "kind": "fact",
+   "text": "Blood pressure readings are fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient's blood pressure was fluctuating, but the most recent measurement (R50) is 123 mmHg, which is not the highest value. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:180512490",
+     "time": "2100-01-02 16:48:00",
+     "item": "Non Invasive Blood Pressure systolic: 123 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E153972A2::04",
+   "claim_id": "E153972A2",
+   "claim_text": "Continue PANTOPRAZOLE SODIUM IV infusion to manage potential acid-related complications.",
+   "kind": "fact",
+   "text": "PANTOPRAZOLE SODIUM IV infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The medication PANTOPRAZOLE SODIUM IV infusion is currently being given, as shown by the 'Running at decision time' record (R11) with ongoing_at_decision set to True.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:8084764",
+     "time": "2100-01-01 14:47:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 14:47:00): Medication PANTOPRAZOLE SODIUM 40 MG IV SOLR IV Continuous"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E153972A1::01",
+   "claim_id": "E153972A1",
+   "claim_text": "Monitor patient's hemodynamic stability closely given the fluctuating blood pressure readings.",
+   "kind": "action",
+   "text": "Monitor hemodynamic stability closely.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamic stability",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:182354990",
+     "time": "2100-01-02 17:27:00",
+     "item": "heart rate",
+     "value": "74.0 bpm"
+    },
+    {
+     "rid": "nurse:110604273",
+     "time": "2100-01-02 17:42:00",
+     "item": "heart rate",
+     "value": "72.0 bpm"
+    },
+    {
+     "rid": "nurse:144966479",
+     "time": "2100-01-02 17:27:00",
+     "item": "systolic BP",
+     "value": "135.0 mmHg"
+    },
+    {
+     "rid": "nurse:253771013",
+     "time": "2100-01-02 17:42:00",
+     "item": "systolic BP",
+     "value": "145.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 1.8 h observation window after the decision (24 h or until ICU discharge): heart rate x4, systolic BP x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E153972A2::03",
+   "claim_id": "E153972A2",
+   "claim_text": "Continue PANTOPRAZOLE SODIUM IV infusion to manage potential acid-related complications.",
+   "kind": "action",
+   "text": "Continue PANTOPRAZOLE SODIUM IV infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pantoprazole sodium IV infusion",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No stress ulcer prophylaxis action recorded in the 1.8 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 1.8,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Blood pressure readings are fluctuating. -- The records show that the patient's blood pressure was fluctuating, but the most recent measurement (R50) is 123 mmHg, which is not the highest value. The statement is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

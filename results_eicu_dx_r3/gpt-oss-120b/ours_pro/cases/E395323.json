@@ -1,0 +1,334 @@
+{
+ "case_id": "E395323",
+ "decision_point": "2100-01-02 19:04:00",
+ "claims": [
+  "Begin continuous arterial blood pressure monitoring and obtain a lactate level to assess perfusion status.",
+  "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent hypotension despite fluid bolus.",
+  "Transfuse packed red blood cells to address hemoglobin of 8 g/dL in the setting of sepsis."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E395323A1::01",
+   "claim_id": "E395323A1",
+   "claim_text": "Begin continuous arterial blood pressure monitoring and obtain a lactate level to assess perfusion status.",
+   "kind": "action",
+   "text": "Begin continuous arterial blood pressure monitoring.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E395323A1::02",
+   "claim_id": "E395323A1",
+   "claim_text": "Begin continuous arterial blood pressure monitoring and obtain a lactate level to assess perfusion status.",
+   "kind": "action",
+   "text": "Obtain a lactate level.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E395323A2::03",
+   "claim_id": "E395323A2",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent hypotension despite fluid bolus.",
+   "kind": "action",
+   "text": "Start norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E395323A2::04",
+   "claim_id": "E395323A2",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent hypotension despite fluid bolus.",
+   "kind": "goal",
+   "text": "Maintain MAP ≥65 mmHg.",
+   "concept": "map",
+   "notes": []
+  },
+  {
+   "atom_id": "E395323A2::05",
+   "claim_id": "E395323A2",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent hypotension despite fluid bolus.",
+   "kind": "fact",
+   "text": "Hypotension is persistent despite fluid bolus.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "persistent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E395323A3::06",
+   "claim_id": "E395323A3",
+   "claim_text": "Transfuse packed red blood cells to address hemoglobin of 8 g/dL in the setting of sepsis.",
+   "kind": "action",
+   "text": "Transfuse packed red blood cells.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "administer",
+   "target": "packed red blood cells",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E395323A3::07",
+   "claim_id": "E395323A3",
+   "claim_text": "Transfuse packed red blood cells to address hemoglobin of 8 g/dL in the setting of sepsis.",
+   "kind": "fact",
+   "text": "Hemoglobin is 8 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E395323A3::08",
+   "claim_id": "E395323A3",
+   "claim_text": "Transfuse packed red blood cells to address hemoglobin of 8 g/dL in the setting of sepsis.",
+   "kind": "fact",
+   "text": "Sepsis is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E395323A2::05",
+   "claim_id": "E395323A2",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent hypotension despite fluid bolus.",
+   "kind": "fact",
+   "text": "Hypotension is persistent despite fluid bolus.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "persistent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:337927221",
+     "time": "2100-01-02 19:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 89.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E395323A3::07",
+   "claim_id": "E395323A3",
+   "claim_text": "Transfuse packed red blood cells to address hemoglobin of 8 g/dL in the setting of sepsis.",
+   "kind": "fact",
+   "text": "Hemoglobin is 8 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:90021740",
+     "time": "2100-01-02 13:10:00",
+     "item": "Hemoglobin",
+     "value": 8.0,
+     "unit": "g/dl",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "The stated hemoglobin (8) matches recorded values before the decision (8 at 2100-01-02 13:10:00).",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E395323A3::08",
+   "claim_id": "E395323A3",
+   "claim_text": "Transfuse packed red blood cells to address hemoglobin of 8 g/dL in the setting of sepsis.",
+   "kind": "fact",
+   "text": "Sepsis is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The admission diagnosis explicitly states 'Sepsis, renal/UTI (including bladder)', which directly supports the statement that sepsis is present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:395323:dx",
+     "time": "2100-01-01 19:04:00",
+     "item": "Admission diagnosis (APACHE): Sepsis, renal/UTI (including bladder)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E395323A1::01",
+   "claim_id": "E395323A1",
+   "claim_text": "Begin continuous arterial blood pressure monitoring and obtain a lactate level to assess perfusion status.",
+   "kind": "action",
+   "text": "Begin continuous arterial blood pressure monitoring.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:369999979",
+     "time": "2100-01-02 19:15:00",
+     "item": "systolic BP",
+     "value": "88.0 mmHg"
+    },
+    {
+     "rid": "nurse:368073829",
+     "time": "2100-01-02 19:30:00",
+     "item": "systolic BP",
+     "value": "96.0 mmHg"
+    },
+    {
+     "rid": "nurse:357558080",
+     "time": "2100-01-02 21:00:00",
+     "item": "mean arterial pressure",
+     "value": "64.0 mmHg"
+    },
+    {
+     "rid": "nurse:333187653",
+     "time": "2100-01-02 21:40:00",
+     "item": "mean arterial pressure",
+     "value": "54.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x42, mean arterial pressure x39.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E395323A1::02",
+   "claim_id": "E395323A1",
+   "claim_text": "Begin continuous arterial blood pressure monitoring and obtain a lactate level to assess perfusion status.",
+   "kind": "action",
+   "text": "Obtain a lactate level.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E395323A2::03",
+   "claim_id": "E395323A2",
+   "claim_text": "Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent hypotension despite fluid bolus.",
+   "kind": "action",
+   "text": "Start norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "start",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E395323A3::06",
+   "claim_id": "E395323A3",
+   "claim_text": "Transfuse packed red blood cells to address hemoglobin of 8 g/dL in the setting of sepsis.",
+   "kind": "action",
+   "text": "Transfuse packed red blood cells.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "administer",
+   "target": "packed red blood cells",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

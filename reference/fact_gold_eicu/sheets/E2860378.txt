@@ -1,0 +1,86 @@
+# E2860378   T = 2100-01-02 14:07:00   records before T: 488
+ICU stay 2860378 (Med-Surg ICU; Female, age 36; admission diagnosis: Diabetic hyperglycemic hyperosmolar nonketotic coma (HHNC)).
+
+## Atoms
+deepseek-v4.1-flash|E2860378A1::02 [observed] Hypotension is persistent.   <- Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.
+deepseek-v4.1-flash|E2860378A1::03 [observed] Systolic blood pressure is 88-99 mmHg.   <- Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.
+deepseek-v4.1-flash|E2860378A1::04 [observed] MAP is 59-78 mmHg.   <- Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.
+deepseek-v4.1-flash|E2860378A2::06 [presupposition] Hypotension is present.   <- Assess volume status and consider fluid resuscitation for hypotension.
+deepseek-v4.1-flash|E2860378A3::09 [observed] Last recorded glucose was 176 mg/dL at 02:34.   <- Monitor blood glucose to guide insulin therapy, as last recorded glucose was 176 mg/dL at 02:34.
+gpt-oss-120b|E2860378A1::02 [presupposition] Intravenous insulin infusion is currently being given.   <- Continue intravenous insulin infusion with titration to maintain glucose 140-180 mg/dL.
+gpt-oss-120b|E2860378A3::10 [presupposition] The patient is currently on insulin therapy.   <- Obtain a repeat basic metabolic panel, including serum potassium and magnesium, to guide electrolyte replacement while on insulin therapy.
+qwen2.5-7b|E2860378A1::02 [presupposition] Insulin infusion is currently being given.   <- Continue insulin infusion to manage hyperglycemia.
+qwen2.5-7b|E2860378A1::03 [observed] Hyperglycemia is present.   <- Continue insulin infusion to manage hyperglycemia.
+qwen2.5-7b|E2860378A2::05 [observed] Blood pressure is fluctuating.   <- Monitor blood pressure closely due to fluctuations.
+qwen2.5-7b|E2860378A3::07 [observed] Blood pressure is low.   <- Assess for signs of hypovolemia given low blood pressure readings.
+
+## Running at T (infusions, scheduled medications)
+
+## PRN orders
+
+## Infusions ended before T (oldest first)
+  Infusion/input Insulin at 9.68 (2100-01-01 16:00:00 to 2100-01-01 17:00:00)
+  Infusion/input Insulin at 3.57 (2100-01-01 17:00:00 to 2100-01-01 18:00:00)
+  Infusion/input Insulin at 1.8 (2100-01-01 18:00:00 to 2100-01-02 02:30:00)
+  Infusion/input Insulin at 4.5 (2100-01-02 02:30:00 to 2100-01-02 02:30:00)
+
+## Medications given once or ended before T
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-02 12:10 1 %; 01-01 12:30 1 %
+  -eos: 01-02 12:10 5 %; 01-01 12:30 0 %
+  -lymphs: 01-02 12:10 50 %; 01-01 12:30 12 %
+  -monos: 01-02 12:10 8 %; 01-01 12:30 4 %
+  -polys: 01-02 12:10 36 %; 01-01 12:30 83 %
+  Alanine Aminotransferase (ALT): 01-01 20:25 28 U/L; 01-01 12:30 40 U/L
+  Albumin: 01-01 20:25 3 g/dL; 01-01 12:30 4.4 g/dL
+  Alkaline Phosphatase: 01-01 20:25 118 U/L; 01-01 12:30 175 U/L
+  Anion Gap: 01-01 23:55 9.7 mmol/L; 01-01 20:25 12 mmol/L; 01-01 16:25 17.5 mmol/L; 01-01 12:30 24.1 mmol/L
+  Asparate Aminotransferase (AST): 01-01 20:25 8 U/L; 01-01 12:30 28 U/L
+  Bicarbonate: 01-01 23:55 26 mmol/L; 01-01 20:25 26 mmol/L; 01-01 16:25 23 mmol/L; 01-01 12:30 22 mmol/L
+  Bilirubin, Total: 01-01 20:25 0.3 mg/dL; 01-01 12:30 0.8 mg/dL
+  CPK: 01-01 23:55 30 U/L; 01-01 20:25 28 U/L
+  CPK-MB: 01-01 23:55 <0.5; 01-01 20:25 <0.5
+  Calcium, Total: 01-01 23:55 7.6 mg/dL; 01-01 20:25 7.9 mg/dL; 01-01 16:25 8.3 mg/dL; 01-01 12:30 9.6 mg/dL
+  Chloride: 01-01 23:55 106 mmol/L; 01-01 20:25 106 mmol/L; 01-01 16:25 106 mmol/L; 01-01 12:30 94 mmol/L
+  Creatinine: 01-01 23:55 0.8 mg/dL; 01-01 20:25 1 mg/dL; 01-01 16:25 0.7 mg/dL; 01-01 12:30 1 mg/dL
+  ESR: 01-01 16:25 19 mm/hr
+  Glucose: 01-01 23:55 267 mg/dL; 01-01 20:25 255 mg/dL; 01-01 16:25 254 mg/dL; 01-01 12:30 504 mg/dL
+  Glucose finger stick: 01-02 02:34 176 mg/dL; 01-02 00:16 177 mg/dL; 01-01 22:11 210 mg/dL; 01-01 20:05 226 mg/dL; 01-01 19:07 238 mg/dL   [+4 earlier]
+  Hematocrit: 01-02 12:10 36.2 %; 01-01 12:30 47.2 %
+  Hemoglobin: 01-02 12:10 12.1 g/dL; 01-01 12:30 16.6 g/dL
+  MCH: 01-02 12:10 28.1 pg; 01-01 12:30 28 pg
+  MCHC: 01-02 12:10 33.4 g/dL; 01-01 12:30 35.2 g/dL
+  MCV: 01-02 12:10 84 fL; 01-01 12:30 80 fL
+  Magnesium: 01-02 12:10 2.3 mg/dL; 01-01 16:25 1.6 mg/dL
+  Phosphate: 01-02 12:10 1.9 mg/dL; 01-01 16:25 1.7 mg/dL
+  Platelet Count: 01-02 12:10 214 K/uL; 01-01 12:30 291 K/uL
+  Potassium: 01-01 23:55 3.7 mmol/L; 01-01 20:25 4 mmol/L; 01-01 16:25 3.5 mmol/L; 01-01 12:30 4.1 mmol/L
+  RBC: 01-02 12:10 4.3 M/uL; 01-01 12:30 5.92 M/uL
+  RDW: 01-02 12:10 14.6 %; 01-01 12:30 14.2 %
+  Sodium: 01-01 23:55 138 mmol/L; 01-01 20:25 140 mmol/L; 01-01 16:25 143 mmol/L; 01-01 12:30 136 mmol/L
+  TSH: 01-02 12:10 0.85 uIU/mL
+  Urea Nitrogen: 01-01 23:55 10 mg/dL; 01-01 20:25 11 mg/dL; 01-01 16:25 11 mg/dL; 01-01 12:30 12 mg/dL
+  White Blood Cells: 01-02 12:10 6.7 K/uL; 01-01 12:30 8.7 K/uL
+  amylase: 01-01 12:30 56 U/L
+  lipase: 01-01 12:30 52 U/L
+  total protein: 01-01 20:25 6.2 g/dL; 01-01 12:30 9.2 g/dL
+  troponin - I: 01-01 23:55 <0.02; 01-01 20:25 <0.02
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Best Eye Response: 4-->(E4) spontaneous @01-02 12:00
+  Best Motor Response: 6-->(M6) obeys commands @01-02 12:00
+  Best Verbal Response: 5-->(V5) oriented @01-02 12:00
+  Heart Rate: 58 bpm @01-02 14:00   24h 58-112 (n=67)
+  Non Invasive Blood Pressure diastolic: 56 mmHg @01-02 14:00   24h 41-122 (n=65)
+  Non Invasive Blood Pressure mean: 64 mmHg @01-02 14:00   24h 51-139 (n=65)
+  Non Invasive Blood Pressure systolic: 94 mmHg @01-02 14:00   24h 80-187 (n=65)
+  P.O.: 100 @01-02 05:00
+  Respiratory Rate: 14 insp/min @01-02 14:00   24h 8-20 (n=67)
+  Score (Glasgow Coma Scale): 15 @01-02 12:00   24h 15-15 (n=7)
+  Temperature Fahrenheit: 96.6 F @01-02 12:00   24h 96.4-98.4 (n=7)
+  Temperature Location: Temp Artery @01-02 12:00   earlier: Oral @01-02 04:08
+
+## Treatments documented
+
+## Microbiology

@@ -1,0 +1,381 @@
+{
+ "case_id": "E1064283",
+ "decision_point": "2100-01-02 19:52:00",
+ "claims": [
+  "Continue IV nicardipine infusion to maintain systolic blood pressure < 150 mmHg.",
+  "Obtain serum acetylcholine receptor antibody titer to assess myasthenia gravis activity.",
+  "Monitor blood pressure and heart rate every hour while on antihypertensive therapy."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1064283A1::01",
+   "claim_id": "E1064283A1",
+   "claim_text": "Continue IV nicardipine infusion to maintain systolic blood pressure < 150 mmHg.",
+   "kind": "action",
+   "text": "Continue IV nicardipine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV nicardipine infusion",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1064283A1::02",
+   "claim_id": "E1064283A1",
+   "claim_text": "Continue IV nicardipine infusion to maintain systolic blood pressure < 150 mmHg.",
+   "kind": "fact",
+   "text": "IV nicardipine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E1064283A1::03",
+   "claim_id": "E1064283A1",
+   "claim_text": "Continue IV nicardipine infusion to maintain systolic blood pressure < 150 mmHg.",
+   "kind": "goal",
+   "text": "Maintain systolic blood pressure < 150 mmHg.",
+   "concept": "sbp",
+   "notes": []
+  },
+  {
+   "atom_id": "E1064283A2::04",
+   "claim_id": "E1064283A2",
+   "claim_text": "Obtain serum acetylcholine receptor antibody titer to assess myasthenia gravis activity.",
+   "kind": "action",
+   "text": "Obtain serum acetylcholine receptor antibody titer.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum acetylcholine receptor antibody titer",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1064283A2::05",
+   "claim_id": "E1064283A2",
+   "claim_text": "Obtain serum acetylcholine receptor antibody titer to assess myasthenia gravis activity.",
+   "kind": "fact",
+   "text": "Myasthenia gravis is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1064283A3::06",
+   "claim_id": "E1064283A3",
+   "claim_text": "Monitor blood pressure and heart rate every hour while on antihypertensive therapy.",
+   "kind": "action",
+   "text": "Monitor blood pressure every hour.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1064283A3::07",
+   "claim_id": "E1064283A3",
+   "claim_text": "Monitor blood pressure and heart rate every hour while on antihypertensive therapy.",
+   "kind": "action",
+   "text": "Monitor heart rate every hour.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1064283A3::08",
+   "claim_id": "E1064283A3",
+   "claim_text": "Monitor blood pressure and heart rate every hour while on antihypertensive therapy.",
+   "kind": "fact",
+   "text": "Antihypertensive therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1064283A1::02",
+   "claim_id": "E1064283A1",
+   "claim_text": "Continue IV nicardipine infusion to maintain systolic blood pressure < 150 mmHg.",
+   "kind": "fact",
+   "text": "IV nicardipine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "The records mention nicardipine only as a treatment documented for hypertension (R33), but there is no medication order or administration record showing that an IV nicardipine infusion was ordered or given. Therefore, the statement that it is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:30751134",
+     "time": "2100-01-02 02:32:00",
+     "item": "Treatment documented: hypertension | vasodilating agent - IV | nicardipine"
+    },
+    {
+     "rid": "med:37575495",
+     "time": "2100-01-02 16:04:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 16:04:00): Medication amLODIPine PO or NG qDay"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1064283A2::05",
+   "claim_id": "E1064283A2",
+   "claim_text": "Obtain serum acetylcholine receptor antibody titer to assess myasthenia gravis activity.",
+   "kind": "fact",
+   "text": "Myasthenia gravis is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The admission diagnosis record explicitly states 'Myasthenia gravis', directly supporting the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:1064283:dx",
+     "time": "2100-01-01 19:52:00",
+     "item": "Admission diagnosis (APACHE): Myasthenia gravis"
+    },
+    {
+     "rid": "treat:30798604",
+     "time": "2100-01-02 02:32:00",
+     "item": "Treatment documented: neurologic | neuromyopathy therapy | IVIG administration"
+    },
+    {
+     "rid": "treat:30733950",
+     "time": "2100-01-02 02:32:00",
+     "item": "Treatment documented: neuromyopathy therapy | reversal of neuromuscular blockade | pyridostigmine"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1064283A3::08",
+   "claim_id": "E1064283A3",
+   "claim_text": "Monitor blood pressure and heart rate every hour while on antihypertensive therapy.",
+   "kind": "fact",
+   "text": "Antihypertensive therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R47 shows amLODIPine, an antihypertensive, running at the decision time, which supports the statement that antihypertensive therapy is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:37575495",
+     "time": "2100-01-02 16:04:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 16:04:00): Medication amLODIPine PO or NG qDay"
+    },
+    {
+     "rid": "med:37575494",
+     "time": "2100-01-02 16:04:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 16:04:00): Medication amLODIPine PO or NG qDay"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1064283A1::01",
+   "claim_id": "E1064283A1",
+   "claim_text": "Continue IV nicardipine infusion to maintain systolic blood pressure < 150 mmHg.",
+   "kind": "action",
+   "text": "Continue IV nicardipine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV nicardipine infusion",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1064283A2::04",
+   "claim_id": "E1064283A2",
+   "claim_text": "Obtain serum acetylcholine receptor antibody titer to assess myasthenia gravis activity.",
+   "kind": "action",
+   "text": "Obtain serum acetylcholine receptor antibody titer.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum acetylcholine receptor antibody titer",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1064283A3::06",
+   "claim_id": "E1064283A3",
+   "claim_text": "Monitor blood pressure and heart rate every hour while on antihypertensive therapy.",
+   "kind": "action",
+   "text": "Monitor blood pressure every hour.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:659499256",
+     "time": "2100-01-02 20:00:00",
+     "item": "systolic BP",
+     "value": "177.0 mmHg"
+    },
+    {
+     "rid": "nurse:655590049",
+     "time": "2100-01-02 21:00:00",
+     "item": "systolic BP",
+     "value": "174.0 mmHg"
+    },
+    {
+     "rid": "nurse:659499255",
+     "time": "2100-01-02 20:00:00",
+     "item": "mean arterial pressure",
+     "value": "117.0 mmHg"
+    },
+    {
+     "rid": "nurse:655590048",
+     "time": "2100-01-02 21:00:00",
+     "item": "mean arterial pressure",
+     "value": "117.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x21, mean arterial pressure x21.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1064283A3::07",
+   "claim_id": "E1064283A3",
+   "claim_text": "Monitor blood pressure and heart rate every hour while on antihypertensive therapy.",
+   "kind": "action",
+   "text": "Monitor heart rate every hour.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:668386235",
+     "time": "2100-01-02 20:00:00",
+     "item": "heart rate",
+     "value": "76.0 bpm"
+    },
+    {
+     "rid": "nurse:654874585",
+     "time": "2100-01-02 21:00:00",
+     "item": "heart rate",
+     "value": "69.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x30.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "IV nicardipine infusion is currently being given. -- The records mention nicardipine only as a treatment documented for hypertension (R33), but there is no medication order or administration record showing that an IV nicardipine infusion was ordered or given. Therefore, the statement that it is currently being given is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

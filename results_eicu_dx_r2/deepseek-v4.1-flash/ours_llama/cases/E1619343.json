@@ -1,0 +1,540 @@
+{
+ "case_id": "E1619343",
+ "decision_point": "2100-01-02 03:30:00",
+ "claims": [
+  "Obtain blood cultures and repeat lactate to evaluate for infection given fever and leukocytosis.",
+  "Continue insulin infusion and monitor glucose closely as glucose has risen to 218 mg/dL.",
+  "Monitor oxygen saturation and consider supplemental oxygen for saturation of 92%."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1619343A1::01",
+   "claim_id": "E1619343A1",
+   "claim_text": "Obtain blood cultures and repeat lactate to evaluate for infection given fever and leukocytosis.",
+   "kind": "action",
+   "text": "Obtain blood cultures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": false,
+   "treatment_class": "cultures",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1619343A1::02",
+   "claim_id": "E1619343A1",
+   "claim_text": "Obtain blood cultures and repeat lactate to evaluate for infection given fever and leukocytosis.",
+   "kind": "action",
+   "text": "Repeat lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1619343A1::03",
+   "claim_id": "E1619343A1",
+   "claim_text": "Obtain blood cultures and repeat lactate to evaluate for infection given fever and leukocytosis.",
+   "kind": "fact",
+   "text": "Fever is present.",
+   "concept": "temperature",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1619343A1::04",
+   "claim_id": "E1619343A1",
+   "claim_text": "Obtain blood cultures and repeat lactate to evaluate for infection given fever and leukocytosis.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1619343A2::05",
+   "claim_id": "E1619343A2",
+   "claim_text": "Continue insulin infusion and monitor glucose closely as glucose has risen to 218 mg/dL.",
+   "kind": "action",
+   "text": "Continue insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1619343A2::06",
+   "claim_id": "E1619343A2",
+   "claim_text": "Continue insulin infusion and monitor glucose closely as glucose has risen to 218 mg/dL.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E1619343A2::07",
+   "claim_id": "E1619343A2",
+   "claim_text": "Continue insulin infusion and monitor glucose closely as glucose has risen to 218 mg/dL.",
+   "kind": "action",
+   "text": "Monitor glucose closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1619343A2::08",
+   "claim_id": "E1619343A2",
+   "claim_text": "Continue insulin infusion and monitor glucose closely as glucose has risen to 218 mg/dL.",
+   "kind": "fact",
+   "text": "Glucose has risen to 218 mg/dL.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1619343A3::09",
+   "claim_id": "E1619343A3",
+   "claim_text": "Monitor oxygen saturation and consider supplemental oxygen for saturation of 92%.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1619343A3::10",
+   "claim_id": "E1619343A3",
+   "claim_text": "Monitor oxygen saturation and consider supplemental oxygen for saturation of 92%.",
+   "kind": "action",
+   "text": "Consider supplemental oxygen.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "supplemental oxygen",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1619343A3::11",
+   "claim_id": "E1619343A3",
+   "claim_text": "Monitor oxygen saturation and consider supplemental oxygen for saturation of 92%.",
+   "kind": "fact",
+   "text": "Oxygen saturation is 92%.",
+   "concept": "spo2",
+   "notes": [
+    "concept set by the rule files: oxygenation -> spo2"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1619343A1::03",
+   "claim_id": "E1619343A1",
+   "claim_text": "Obtain blood cultures and repeat lactate to evaluate for infection given fever and leukocytosis.",
+   "kind": "fact",
+   "text": "Fever is present.",
+   "concept": "temperature",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1194444574",
+     "time": "2100-01-02 00:00:00",
+     "item": "Temperature Fahrenheit",
+     "value": 98.8,
+     "unit": "F",
+     "bounds": "96.8 to 100.4",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "nurse:1176327682",
+     "time": "2100-01-02 02:34:00",
+     "item": "Temperature Fahrenheit",
+     "value": 100.9,
+     "unit": "F",
+     "bounds": "96.8 to 100.4",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "nurse:1245832545",
+     "time": "2100-01-02 02:46:00",
+     "item": "Temperature Fahrenheit",
+     "value": 100.9,
+     "unit": "F",
+     "bounds": "96.8 to 100.4",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "Median temperature over the 6 h before the decision: 100.9 F (3 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "computed": {
+    "median": 100.9,
+    "status": "high",
+    "n": 3
+   },
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1619343A1::04",
+   "claim_id": "E1619343A1",
+   "claim_text": "Obtain blood cultures and repeat lactate to evaluate for infection given fever and leukocytosis.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:398591011",
+     "time": "2100-01-01 00:34:00",
+     "item": "White Blood Cells",
+     "value": 15.2,
+     "unit": "K/mcL",
+     "bounds": "4 to 11",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:400369172",
+     "time": "2100-01-01 06:30:00",
+     "item": "White Blood Cells",
+     "value": 14.4,
+     "unit": "K/mcL",
+     "bounds": "4 to 11",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest WBC 14.4 K/mcL at 2100-01-01 06:30:00 (reference 4 to 11) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1619343A2::06",
+   "claim_id": "E1619343A2",
+   "claim_text": "Continue insulin infusion and monitor glucose closely as glucose has risen to 218 mg/dL.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "The records show that insulin infusion was ordered and running at decision time, but there is no record of insulin administration in the 24 hours before the decision time. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:59501855",
+     "time": "2099-12-31 23:58:00",
+     "item": "Running at decision time (scheduled order started 2099-12-31 23:58:00): Medication NORMAL SALINE 0.9% IV"
+    },
+    {
+     "rid": "med:60002414",
+     "time": "2099-12-31 23:58:00",
+     "item": "Running at decision time (scheduled order started 2099-12-31 23:58:00): Medication NORMAL SALINE 0.9% IV"
+    },
+    {
+     "rid": "med:59389341",
+     "time": "2100-01-01 00:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 00:00:00): Medication NORMAL SALINE 0.9% IV"
+    },
+    {
+     "rid": "med:58324961",
+     "time": "2100-01-01 01:09:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 01:09:00): Medication NORMAL SALINE 0.9% IV"
+    },
+    {
+     "rid": "med:60097161",
+     "time": "2100-01-01 01:45:00",
+     "item": "Medication NORMAL SALINE 0.9% IV (2100-01-01 01:45:00 to 2100-01-01 08:02:00)"
+    },
+    {
+     "rid": "med:58066088",
+     "time": "2100-01-01 03:00:00",
+     "item": "Medication NORMAL SALINE 0.9% IV Q1H (2100-01-01 03:00:00 to 2100-01-01 05:00:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1619343A2::08",
+   "claim_id": "E1619343A2",
+   "claim_text": "Continue insulin infusion and monitor glucose closely as glucose has risen to 218 mg/dL.",
+   "kind": "fact",
+   "text": "Glucose has risen to 218 mg/dL.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:410892070",
+     "time": "2100-01-02 02:26:00",
+     "item": "Glucose finger stick",
+     "value": 218.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "The stated glucose (218) matches recorded values before the decision (218 at 2100-01-02 02:26:00).",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1619343A3::11",
+   "claim_id": "E1619343A3",
+   "claim_text": "Monitor oxygen saturation and consider supplemental oxygen for saturation of 92%.",
+   "kind": "fact",
+   "text": "Oxygen saturation is 92%.",
+   "concept": "spo2",
+   "notes": [
+    "concept set by the rule files: oxygenation -> spo2"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1216754269",
+     "time": "2100-01-02 03:09:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 92.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "The stated SpO2 (92) matches recorded values before the decision (92 at 2100-01-02 03:09:00).",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1619343A1::01",
+   "claim_id": "E1619343A1",
+   "claim_text": "Obtain blood cultures and repeat lactate to evaluate for infection given fever and leukocytosis.",
+   "kind": "action",
+   "text": "Obtain blood cultures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": false,
+   "treatment_class": "cultures",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No cultures action recorded in the 10.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1619343A1::02",
+   "claim_id": "E1619343A1",
+   "claim_text": "Obtain blood cultures and repeat lactate to evaluate for infection given fever and leukocytosis.",
+   "kind": "action",
+   "text": "Repeat lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "lactate",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 10.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1619343A2::05",
+   "claim_id": "E1619343A2",
+   "claim_text": "Continue insulin infusion and monitor glucose closely as glucose has risen to 218 mg/dL.",
+   "kind": "action",
+   "text": "Continue insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 10.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1619343A2::07",
+   "claim_id": "E1619343A2",
+   "claim_text": "Continue insulin infusion and monitor glucose closely as glucose has risen to 218 mg/dL.",
+   "kind": "action",
+   "text": "Monitor glucose closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:409915083",
+     "time": "2100-01-02 08:18:00",
+     "item": "glucose",
+     "value": "210.0 mg/dL"
+    },
+    {
+     "rid": "lab:394938426",
+     "time": "2100-01-02 08:37:00",
+     "item": "glucose",
+     "value": "202.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 10.4 h observation window after the decision (24 h or until ICU discharge): glucose x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1619343A3::09",
+   "claim_id": "E1619343A3",
+   "claim_text": "Monitor oxygen saturation and consider supplemental oxygen for saturation of 92%.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1253156702",
+     "time": "2100-01-02 04:00:00",
+     "item": "SpO2",
+     "value": "94.0 %"
+    },
+    {
+     "rid": "nurse:1198032777",
+     "time": "2100-01-02 06:00:00",
+     "item": "SpO2",
+     "value": "94.0 %"
+    }
+   ],
+   "reason": "Measured in the 10.4 h observation window after the decision (24 h or until ICU discharge): SpO2 x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1619343A3::10",
+   "claim_id": "E1619343A3",
+   "claim_text": "Monitor oxygen saturation and consider supplemental oxygen for saturation of 92%.",
+   "kind": "action",
+   "text": "Consider supplemental oxygen.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "supplemental oxygen",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 10.4,
+ "scoresheet": {
+  "n": 5,
+  "supported": 4,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.8,
+  "not_supported_share": 0.2,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Insulin infusion is currently being given. -- The records show that insulin infusion was ordered and running at decision time, but there is no record of insulin administration in the 24 hours before the decision time. The statement is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.8,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

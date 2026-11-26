@@ -1,0 +1,560 @@
+{
+ "case_id": "E962227",
+ "decision_point": "2100-01-02 21:10:00",
+ "claims": [
+  "Continue monitoring blood pressure closely given persistent hypertension (e.g., 173/85 mmHg at 20:00) and active antihypertensive orders.",
+  "Assess and manage metabolic acidosis with sodium bicarbonate therapy already ordered, and recheck acid-base status.",
+  "Continue supplemental oxygen at 4 L/min to maintain oxygen saturation, as documented at 21:00 (SpO2 99%)."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E962227A1::01",
+   "claim_id": "E962227A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypertension (e.g., 173/85 mmHg at 20:00) and active antihypertensive orders.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E962227A1::02",
+   "claim_id": "E962227A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypertension (e.g., 173/85 mmHg at 20:00) and active antihypertensive orders.",
+   "kind": "fact",
+   "text": "Hypertension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E962227A1::03",
+   "claim_id": "E962227A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypertension (e.g., 173/85 mmHg at 20:00) and active antihypertensive orders.",
+   "kind": "fact",
+   "text": "Blood pressure is 173/85 mmHg at 20:00.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E962227A1::04",
+   "claim_id": "E962227A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypertension (e.g., 173/85 mmHg at 20:00) and active antihypertensive orders.",
+   "kind": "fact",
+   "text": "Antihypertensive orders are active.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E962227A2::05",
+   "claim_id": "E962227A2",
+   "claim_text": "Assess and manage metabolic acidosis with sodium bicarbonate therapy already ordered, and recheck acid-base status.",
+   "kind": "action",
+   "text": "Assess metabolic acidosis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "metabolic acidosis",
+   "conditional": false
+  },
+  {
+   "atom_id": "E962227A2::06",
+   "claim_id": "E962227A2",
+   "claim_text": "Assess and manage metabolic acidosis with sodium bicarbonate therapy already ordered, and recheck acid-base status.",
+   "kind": "fact",
+   "text": "Metabolic acidosis is present.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E962227A2::07",
+   "claim_id": "E962227A2",
+   "claim_text": "Assess and manage metabolic acidosis with sodium bicarbonate therapy already ordered, and recheck acid-base status.",
+   "kind": "action",
+   "text": "Manage metabolic acidosis with sodium bicarbonate therapy.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "administer",
+   "target": "sodium bicarbonate",
+   "conditional": false,
+   "treatment_class": "bicarbonate",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E962227A2::08",
+   "claim_id": "E962227A2",
+   "claim_text": "Assess and manage metabolic acidosis with sodium bicarbonate therapy already ordered, and recheck acid-base status.",
+   "kind": "fact",
+   "text": "Sodium bicarbonate therapy is already ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E962227A2::09",
+   "claim_id": "E962227A2",
+   "claim_text": "Assess and manage metabolic acidosis with sodium bicarbonate therapy already ordered, and recheck acid-base status.",
+   "kind": "action",
+   "text": "Recheck acid-base status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "acid-base status",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E962227A3::10",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue supplemental oxygen at 4 L/min to maintain oxygen saturation, as documented at 21:00 (SpO2 99%).",
+   "kind": "action",
+   "text": "Continue supplemental oxygen at 4 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E962227A3::11",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue supplemental oxygen at 4 L/min to maintain oxygen saturation, as documented at 21:00 (SpO2 99%).",
+   "kind": "fact",
+   "text": "Supplemental oxygen is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E962227A3::12",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue supplemental oxygen at 4 L/min to maintain oxygen saturation, as documented at 21:00 (SpO2 99%).",
+   "kind": "fact",
+   "text": "SpO2 is 99% at 21:00.",
+   "concept": "spo2",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E962227A1::02",
+   "claim_id": "E962227A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypertension (e.g., 173/85 mmHg at 20:00) and active antihypertensive orders.",
+   "kind": "fact",
+   "text": "Hypertension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:582827588",
+     "time": "2100-01-02 20:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 173.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "'blood pressure high' holds when any component is high. systolic BP: yes; mean arterial pressure: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E962227A1::03",
+   "claim_id": "E962227A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypertension (e.g., 173/85 mmHg at 20:00) and active antihypertensive orders.",
+   "kind": "fact",
+   "text": "Blood pressure is 173/85 mmHg at 20:00.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:582827588",
+     "time": "2100-01-02 20:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 173.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "'blood pressure high' holds when any component is high. systolic BP: yes; mean arterial pressure: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E962227A1::04",
+   "claim_id": "E962227A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypertension (e.g., 173/85 mmHg at 20:00) and active antihypertensive orders.",
+   "kind": "fact",
+   "text": "Antihypertensive orders are active.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The records show active antihypertensive medication orders for hydrALAZINE IV and labetalol IV, as well as a running scheduled order for hydrALAZINE PO at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:36583898",
+     "time": "2099-12-30 00:32:00",
+     "item": "Order: hydrALAZINE IV q6hr PRN (active at decision time)"
+    },
+    {
+     "rid": "med:35780013",
+     "time": "2099-12-30 00:32:00",
+     "item": "Order: labetalol IV q4hr PRN (active at decision time)"
+    },
+    {
+     "rid": "med:35949195",
+     "time": "2100-01-02 03:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 03:00:00): Medication hydrALAZINE PO 3xDaily"
+    }
+   ]
+  },
+  {
+   "atom_id": "E962227A2::06",
+   "claim_id": "E962227A2",
+   "claim_text": "Assess and manage metabolic acidosis with sodium bicarbonate therapy already ordered, and recheck acid-base status.",
+   "kind": "fact",
+   "text": "Metabolic acidosis is present.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:232014636",
+     "time": "2100-01-02 11:50:00",
+     "item": "pH",
+     "value": 7.19,
+     "unit": "",
+     "bounds": "7.35 to 7.45",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:232014629",
+     "time": "2100-01-02 11:50:00",
+     "item": "Bicarbonate (blood gas HCO3)",
+     "value": 16.5,
+     "unit": "mmol/L",
+     "bounds": "22 to 32",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "metabolic acidosis: pH 7.19 (low required: yes); bicarbonate 16.5 (low required: yes).",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E962227A2::08",
+   "claim_id": "E962227A2",
+   "claim_text": "Assess and manage metabolic acidosis with sodium bicarbonate therapy already ordered, and recheck acid-base status.",
+   "kind": "fact",
+   "text": "Sodium bicarbonate therapy is already ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: metabolic_acidosis -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R50 shows a sodium bicarbonate medication administration running at the decision time, which supports that sodium bicarbonate therapy is ordered and being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:35894977",
+     "time": "2100-01-02 19:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-02 19:00:00): Medication sodium bicarbonate PO 3xDaily"
+    }
+   ]
+  },
+  {
+   "atom_id": "E962227A3::11",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue supplemental oxygen at 4 L/min to maintain oxygen saturation, as documented at 21:00 (SpO2 99%).",
+   "kind": "fact",
+   "text": "Supplemental oxygen is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_addressed",
+   "reason": "No record of this treatment. (Panel verdict: supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    },
+    "panel_label": "supported"
+   },
+   "evidence": [
+    {
+     "rid": "nurse:566055081",
+     "time": "2100-01-02 20:00:00",
+     "item": "O2 L/%: 4"
+    },
+    {
+     "rid": "nurse:578779102",
+     "time": "2100-01-02 21:00:00",
+     "item": "O2 saturation pulseoxymetry: 99 %"
+    }
+   ]
+  },
+  {
+   "atom_id": "E962227A3::12",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue supplemental oxygen at 4 L/min to maintain oxygen saturation, as documented at 21:00 (SpO2 99%).",
+   "kind": "fact",
+   "text": "SpO2 is 99% at 21:00.",
+   "concept": "spo2",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:578779102",
+     "time": "2100-01-02 21:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 99.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "The stated SpO2 (99) matches recorded values before the decision (99 at 2100-01-02 21:00:00).",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E962227A1::01",
+   "claim_id": "E962227A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypertension (e.g., 173/85 mmHg at 20:00) and active antihypertensive orders.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:578261782",
+     "time": "2100-01-03 00:00:00",
+     "item": "systolic BP",
+     "value": "179.0 mmHg"
+    },
+    {
+     "rid": "nurse:572627588",
+     "time": "2100-01-03 01:00:00",
+     "item": "systolic BP",
+     "value": "168.0 mmHg"
+    },
+    {
+     "rid": "nurse:578261781",
+     "time": "2100-01-03 00:00:00",
+     "item": "mean arterial pressure",
+     "value": "114.0 mmHg"
+    },
+    {
+     "rid": "nurse:572627587",
+     "time": "2100-01-03 01:00:00",
+     "item": "mean arterial pressure",
+     "value": "112.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x18, mean arterial pressure x18.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E962227A2::05",
+   "claim_id": "E962227A2",
+   "claim_text": "Assess and manage metabolic acidosis with sodium bicarbonate therapy already ordered, and recheck acid-base status.",
+   "kind": "action",
+   "text": "Assess metabolic acidosis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "metabolic acidosis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E962227A2::07",
+   "claim_id": "E962227A2",
+   "claim_text": "Assess and manage metabolic acidosis with sodium bicarbonate therapy already ordered, and recheck acid-base status.",
+   "kind": "action",
+   "text": "Manage metabolic acidosis with sodium bicarbonate therapy.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "administer",
+   "target": "sodium bicarbonate",
+   "conditional": false,
+   "treatment_class": "bicarbonate",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sodium bicarbonate action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E962227A2::09",
+   "claim_id": "E962227A2",
+   "claim_text": "Assess and manage metabolic acidosis with sodium bicarbonate therapy already ordered, and recheck acid-base status.",
+   "kind": "action",
+   "text": "Recheck acid-base status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "acid-base status",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E962227A3::10",
+   "claim_id": "E962227A3",
+   "claim_text": "Continue supplemental oxygen at 4 L/min to maintain oxygen saturation, as documented at 21:00 (SpO2 99%).",
+   "kind": "action",
+   "text": "Continue supplemental oxygen at 4 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 7,
+  "supported": 6,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.857,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.143,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Supplemental oxygen is currently being given. -- No record of this treatment. (Panel verdict: supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

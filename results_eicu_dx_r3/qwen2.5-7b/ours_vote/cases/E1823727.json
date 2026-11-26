@@ -1,0 +1,411 @@
+{
+ "case_id": "E1823727",
+ "decision_point": "2100-01-02 14:58:00",
+ "claims": [
+  "Monitor renal function and electrolytes.",
+  "Continue IV fluids and electrolyte management.",
+  "Assess for signs of infection given leukocytosis."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1823727A1::01",
+   "claim_id": "E1823727A1",
+   "claim_text": "Monitor renal function and electrolytes.",
+   "kind": "action",
+   "text": "Monitor renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "renal function",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823727A1::02",
+   "claim_id": "E1823727A1",
+   "claim_text": "Monitor renal function and electrolytes.",
+   "kind": "action",
+   "text": "Monitor electrolytes.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolytes",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823727A2::03",
+   "claim_id": "E1823727A2",
+   "claim_text": "Continue IV fluids and electrolyte management.",
+   "kind": "action",
+   "text": "Continue IV fluids.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1823727A2::04",
+   "claim_id": "E1823727A2",
+   "claim_text": "Continue IV fluids and electrolyte management.",
+   "kind": "fact",
+   "text": "IV fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E1823727A2::05",
+   "claim_id": "E1823727A2",
+   "claim_text": "Continue IV fluids and electrolyte management.",
+   "kind": "action",
+   "text": "Continue electrolyte management.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "continue",
+   "target": "electrolyte management",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E1823727A2::06",
+   "claim_id": "E1823727A2",
+   "claim_text": "Continue IV fluids and electrolyte management.",
+   "kind": "fact",
+   "text": "Electrolyte management is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: electrolytes -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E1823727A3::07",
+   "claim_id": "E1823727A3",
+   "claim_text": "Assess for signs of infection given leukocytosis.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823727A3::08",
+   "claim_id": "E1823727A3",
+   "claim_text": "Assess for signs of infection given leukocytosis.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1823727A2::04",
+   "claim_id": "E1823727A2",
+   "claim_text": "Continue IV fluids and electrolyte management.",
+   "kind": "fact",
+   "text": "IV fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R14 shows a continuous IV sodium chloride infusion running at decision time, and R28 documents a 1,000 mL IV sodium chloride bag given at 14:05, just before the 14:58 decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:64699651",
+     "time": "2100-01-01 02:35:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 02:35:00): Medication Sodium Chloride 0.9% 1,000 ML BAG IV CONT"
+    },
+    {
+     "rid": "med:65324208",
+     "time": "2100-01-01 14:05:00",
+     "item": "Given once: Sodium Chloride 0.9% 1,000 ML BAG IV ONE (2100-01-01 14:05:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823727A2::06",
+   "claim_id": "E1823727A2",
+   "claim_text": "Continue IV fluids and electrolyte management.",
+   "kind": "fact",
+   "text": "Electrolyte management is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: electrolytes -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "The records show administration of IV fluids (sodium chloride) and medications like insulin and dextrose, but there is no administration record of a specific electrolyte replacement (e.g., potassium, magnesium, calcium) in the 24 hours before the decision time. The statement that 'electrolyte management' is currently being given is therefore not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:67081543",
+     "time": "2099-12-31 16:00:00",
+     "item": "Given once: SODIUM CHLORIDE IV ONE (2099-12-31 16:00:00)"
+    },
+    {
+     "rid": "med:66404302",
+     "time": "2100-01-01 02:11:00",
+     "item": "Medication Sodium Chloride 0.9% 1,000 ML BAG .ROUTE .STK-MED (2100-01-01 02:11:00 to 2100-01-01 04:40:00)"
+    },
+    {
+     "rid": "med:64699651",
+     "time": "2100-01-01 02:35:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 02:35:00): Medication Sodium Chloride 0.9% 1,000 ML BAG IV CONT"
+    },
+    {
+     "rid": "med:64707250",
+     "time": "2100-01-01 04:50:00",
+     "item": "Given once: Sodium Chloride 0.9% 1,000 ML BAG IV ONE (2100-01-01 04:50:00)"
+    },
+    {
+     "rid": "med:65324208",
+     "time": "2100-01-01 14:05:00",
+     "item": "Given once: Sodium Chloride 0.9% 1,000 ML BAG IV ONE (2100-01-01 14:05:00)"
+    },
+    {
+     "rid": "med:67175580",
+     "time": "2100-01-01 14:05:00",
+     "item": "Given once: INSULIN HUMAN REGULAR IV ONE (2100-01-01 14:05:00)"
+    },
+    {
+     "rid": "med:64929762",
+     "time": "2100-01-01 14:05:00",
+     "item": "Given once: DEXTROSE 50% IV ONE (2100-01-01 14:05:00)"
+    },
+    {
+     "rid": "lab:421844077",
+     "time": "2100-01-02 10:00:00",
+     "item": "Magnesium: 2 mg/dL"
+    },
+    {
+     "rid": "lab:421844079",
+     "time": "2100-01-02 10:00:00",
+     "item": "Calcium, Total: 8.9 mg/dL"
+    },
+    {
+     "rid": "lab:421844073",
+     "time": "2100-01-02 10:00:00",
+     "item": "Potassium: 5.1 mmol/L"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823727A3::08",
+   "claim_id": "E1823727A3",
+   "claim_text": "Assess for signs of infection given leukocytosis.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:437155200",
+     "time": "2100-01-01 10:36:00",
+     "item": "White Blood Cells",
+     "value": 10.9,
+     "unit": "K/mm3",
+     "bounds": "4 to 11",
+     "bounds_basis": "fallback_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:432880374",
+     "time": "2100-01-01 23:13:00",
+     "item": "White Blood Cells",
+     "value": 8.6,
+     "unit": "K/mm3",
+     "bounds": "4 to 11",
+     "bounds_basis": "fallback_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:428867650",
+     "time": "2100-01-02 10:00:00",
+     "item": "White Blood Cells",
+     "value": 8.3,
+     "unit": "K/mm3",
+     "bounds": "4 to 11",
+     "bounds_basis": "fallback_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest WBC 8.3 K/mm3 at 2100-01-02 10:00:00 (reference 4 to 11) is normal, not consistent with 'high'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1823727A1::01",
+   "claim_id": "E1823727A1",
+   "claim_text": "Monitor renal function and electrolytes.",
+   "kind": "action",
+   "text": "Monitor renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "renal function",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No renal function measurement in the 8.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1823727A1::02",
+   "claim_id": "E1823727A1",
+   "claim_text": "Monitor renal function and electrolytes.",
+   "kind": "action",
+   "text": "Monitor electrolytes.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolytes",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 8.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1823727A2::03",
+   "claim_id": "E1823727A2",
+   "claim_text": "Continue IV fluids and electrolyte management.",
+   "kind": "action",
+   "text": "Continue IV fluids.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 8.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1823727A2::05",
+   "claim_id": "E1823727A2",
+   "claim_text": "Continue IV fluids and electrolyte management.",
+   "kind": "action",
+   "text": "Continue electrolyte management.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "continue",
+   "target": "electrolyte management",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No potassium replacement / magnesium replacement / calcium replacement / phosphate replacement action recorded in the 8.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1823727A3::07",
+   "claim_id": "E1823727A3",
+   "claim_text": "Assess for signs of infection given leukocytosis.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 8.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Electrolyte management is currently being given. -- The records show administration of IV fluids (sodium chloride) and medications like insulin and dextrose, but there is no administration record of a specific electrolyte replacement (e.g., potassium, magnesium, calcium) in the 24 hours before the decision time. The statement that 'electrolyte management' is currently being given is therefore not supported by the records.",
+    "Leukocytosis is present. -- Latest WBC 8.3 K/mm3 at 2100-01-02 10:00:00 (reference 4 to 11) is normal, not consistent with 'high'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,92 @@
+# E1619343   T = 2100-01-02 03:30:00   records before T: 299
+ICU stay 1619343 (Cardiac ICU; Male, age 51; admission diagnosis: Diabetic ketoacidosis).
+
+## Atoms
+deepseek-v4.1-flash|E1619343A1::03 [observed] Fever is present.   <- Obtain blood cultures and repeat lactate to evaluate for infection given fever and leukocytosis.
+deepseek-v4.1-flash|E1619343A1::04 [observed] Leukocytosis is present.   <- Obtain blood cultures and repeat lactate to evaluate for infection given fever and leukocytosis.
+deepseek-v4.1-flash|E1619343A2::06 [presupposition] Insulin infusion is currently being given.   <- Continue insulin infusion and monitor glucose closely as glucose has risen to 218 mg/dL.
+deepseek-v4.1-flash|E1619343A2::08 [observed] Glucose has risen to 218 mg/dL.   <- Continue insulin infusion and monitor glucose closely as glucose has risen to 218 mg/dL.
+deepseek-v4.1-flash|E1619343A3::11 [observed] Oxygen saturation is 92%.   <- Monitor oxygen saturation and consider supplemental oxygen for saturation of 92%.
+gpt-oss-120b|E1619343A1::P01 [presupposition] The patient is currently receiving intravenous regular insulin infusion.   <- Continue intravenous regular insulin infusion with hourly glucose checks to target glucose 140-180 mg/dL.
+qwen2.5-7b|E1619343A2::03 [presupposition] Infection is suspected.   <- Administer intravenous vancomycin for suspected infection.
+qwen2.5-7b|E1619343A3::05 [presupposition] Intravenous normal saline is currently being administered.   <- Continue intravenous fluid administration with normal saline.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2099-12-31 23:58:00): Medication NORMAL SALINE 0.9% IV
+  Running at decision time (scheduled order started 2099-12-31 23:58:00): Medication NORMAL SALINE 0.9% IV
+  Running at decision time (scheduled order started 2100-01-01 00:00:00): Medication NORMAL SALINE 0.9% IV
+  Running at decision time (scheduled order started 2100-01-01 00:02:00): Medication ONDANSETRON HCL IV OT
+  Running at decision time (scheduled order started 2100-01-01 01:09:00): Medication NORMAL SALINE 0.9% IV
+  Running at decision time (scheduled order started 2100-01-01 15:30:00): Medication VANCOMYCIN HCL IV
+  Running at decision time (scheduled order started 2100-01-01 22:15:00): Medication METOCLOPRAMIDE HCL IV OT
+
+## PRN orders
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication NORMAL SALINE 0.9% IV (2100-01-01 01:45:00 to 2100-01-01 08:02:00)
+  Medication NORMAL SALINE 0.9% IV Q1H (2100-01-01 03:00:00 to 2100-01-01 05:00:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 06:30 0.2 %; 01-01 00:34 0.3 %
+  -eos: 01-01 06:30 0 %; 01-01 00:34 0 %
+  -lymphs: 01-01 06:30 8.5 %; 01-01 00:34 5.1 %
+  -monos: 01-01 06:30 5.3 %; 01-01 00:34 4.4 %
+  -polys: 01-01 06:30 86 %; 01-01 00:34 90.2 %
+  Alanine Aminotransferase (ALT): 01-01 00:34 24 U/L
+  Albumin: 01-01 00:34 3.7 g/dL
+  Alkaline Phosphatase: 01-01 00:34 124 U/L
+  Asparate Aminotransferase (AST): 01-01 00:34 22 U/L
+  Bicarbonate: 01-01 23:23 29 mmol/L; 01-01 15:11 26 mmol/L; 01-01 11:27 25 mmol/L; 01-01 06:30 24 mmol/L; 01-01 03:41 20 mmol/L   [+1 earlier]
+  Bilirubin, Total: 01-01 00:34 0.4 mg/dL
+  Calcium, Total: 01-01 00:34 10 mg/dL
+  Chloride: 01-01 23:23 111 mmol/L; 01-01 15:11 115 mmol/L; 01-01 11:27 115 mmol/L; 01-01 06:30 114 mmol/L; 01-01 03:41 108 mmol/L   [+1 earlier]
+  Creatinine: 01-01 00:34 1.73 mg/dL
+  Glucose: 01-01 00:34 580 mg/dL
+  Glucose finger stick: 01-02 02:26 218 mg/dL; 01-01 21:33 158 mg/dL; 01-01 18:01 160 mg/dL; 01-01 17:05 144 mg/dL; 01-01 16:23 155 mg/dL   [+14 earlier]
+  Hematocrit: 01-01 06:30 38.4 %; 01-01 00:34 42.5 %
+  Hemoglobin: 01-01 06:30 12.4 g/dL; 01-01 00:34 13.4 g/dL
+  Lactate: 01-01 15:04 0.5 mmol/L
+  MCH: 01-01 06:30 27.8 pg; 01-01 00:34 27.9 pg
+  MCHC: 01-01 06:30 32.3 g/dL; 01-01 00:34 31.4 g/dL
+  MCV: 01-01 06:30 86.1 FL; 01-01 00:34 88.8 FL
+  MPV: 01-01 06:30 9.3 FL; 01-01 00:34 10 FL
+  Magnesium: 01-01 23:23 1.8 mg/dL; 01-01 06:30 2.2 mg/dL
+  Phosphate: 01-01 15:11 1.8 mg/dL; 01-01 11:27 1.7 mg/dL; 01-01 06:30 1.3 mg/dL; 01-01 03:41 2 mg/dL
+  Platelet Count: 01-01 06:30 220 K/mcL; 01-01 00:34 207 K/mcL
+  Potassium: 01-01 23:23 3.5 mmol/L; 01-01 15:11 3.4 mmol/L; 01-01 11:27 3.8 mmol/L; 01-01 06:30 3.8 mmol/L; 01-01 03:41 4.1 mmol/L   [+1 earlier]
+  RBC: 01-01 06:30 4.46 M/mcL; 01-01 00:34 4.78 M/mcL
+  RDW: 01-01 06:30 14.2 %; 01-01 00:34 14.4 %
+  Sodium: 01-01 23:23 145 mmol/L; 01-01 15:11 149 mmol/L; 01-01 11:27 149 mmol/L; 01-01 06:30 148 mmol/L; 01-01 03:41 146 mmol/L   [+1 earlier]
+  Urea Nitrogen: 01-01 00:34 56 mg/dL
+  WBC's in urine: 01-01 05:20 14 /HPF
+  White Blood Cells: 01-01 06:30 14.4 K/mcL; 01-01 00:34 15.2 K/mcL
+  lipase: 01-01 00:34 16 U/L
+  myoglobin: 01-01 11:27 114 ng/mL; 01-01 06:30 146 ng/mL
+  serum ketones: 01-01 00:34 9.9 mmol/L
+  total protein: 01-01 00:34 7.1 g/dL
+  troponin - I: 01-01 11:27 0.071 ng/mL; 01-01 06:30 0.07 ng/mL; 01-01 00:34 0.041 ng/mL
+  urinary specific gravity: 01-01 05:20 1.022
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-02 00:00   24h 4-4 (n=3)
+  Glasgow coma score GCS Total: 15 @01-02 00:00   24h 15-15 (n=3)
+  Glasgow coma score Motor: 6 @01-02 00:00   24h 6-6 (n=3)
+  Glasgow coma score Verbal: 5 @01-02 00:00   24h 5-5 (n=3)
+  Heart Rate: 86 bpm @01-02 03:09   24h 74-98 (n=31)
+  Non Invasive Blood Pressure diastolic: 87 mmHg @01-02 03:09   24h 82-100 (n=20)
+  Non Invasive Blood Pressure mean: 114 mmHg @01-02 03:09   24h 106-137 (n=20)
+  Non Invasive Blood Pressure systolic: 162 mmHg @01-02 03:09   24h 149-178 (n=20)
+  O2 L/%: 98 @01-01 02:43
+  O2 saturation pulseoxymetry: 92 % @01-02 03:09   24h 92-98 (n=20)
+  Respiratory Rate: 19 insp/min @01-02 03:09   24h 14-50 (n=31)
+  Temperature Fahrenheit: 100.9 F @01-02 02:46   24h 98-100.9 (n=7)
+  Temperature Location: Axillary @01-02 02:34   earlier: Oral @01-01 08:00
+
+## Treatments documented
+  01-01 06:48 endocrine | intravenous fluid administration | normal saline administration
+  01-01 06:48 endocrine | electrolyte correction | administration of electrolytes
+  01-01 06:48 glucose metabolism | insulin | continuous infusion
+
+## Microbiology

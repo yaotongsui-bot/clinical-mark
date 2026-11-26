@@ -1,0 +1,222 @@
+{
+ "case_id": "E1068212",
+ "decision_point": "2100-01-02 02:36:00",
+ "claims": [
+  "Monitor blood pressure and heart rate closely.",
+  "Continue pericardial drainage catheter monitoring.",
+  "Administer intravenous magnesium sulfate as ordered."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1068212A1::01",
+   "claim_id": "E1068212A1",
+   "claim_text": "Monitor blood pressure and heart rate closely.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1068212A1::02",
+   "claim_id": "E1068212A1",
+   "claim_text": "Monitor blood pressure and heart rate closely.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1068212A2::03",
+   "claim_id": "E1068212A2",
+   "claim_text": "Continue pericardial drainage catheter monitoring.",
+   "kind": "action",
+   "text": "Continue pericardial drainage catheter monitoring.",
+   "concept": "other",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "pericardial drainage catheter monitoring",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1068212A2::04",
+   "claim_id": "E1068212A2",
+   "claim_text": "Continue pericardial drainage catheter monitoring.",
+   "kind": "fact",
+   "text": "Pericardial drainage catheter monitoring is currently being performed.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1068212A3::05",
+   "claim_id": "E1068212A3",
+   "claim_text": "Administer intravenous magnesium sulfate as ordered.",
+   "kind": "action",
+   "text": "Administer intravenous magnesium sulfate as ordered.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "magnesium sulfate",
+   "conditional": false,
+   "treatment_class": "magnesium_replacement",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1068212A2::04",
+   "claim_id": "E1068212A2",
+   "claim_text": "Continue pericardial drainage catheter monitoring.",
+   "kind": "fact",
+   "text": "Pericardial drainage catheter monitoring is currently being performed.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records document placement of a pericardial drainage catheter (R16), but there is no record of ongoing monitoring of the catheter at the decision time. The statement that monitoring is currently being performed is therefore not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:30739369",
+     "time": "2100-01-01 07:10:00",
+     "item": "Treatment documented: non-operative procedures | pericardiocentesis | placement of pericardial drainage catheter"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1068212A1::01",
+   "claim_id": "E1068212A1",
+   "claim_text": "Monitor blood pressure and heart rate closely.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood pressure measurement in the 3.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1068212A1::02",
+   "claim_id": "E1068212A1",
+   "claim_text": "Monitor blood pressure and heart rate closely.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No heart rate measurement in the 3.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1068212A2::03",
+   "claim_id": "E1068212A2",
+   "claim_text": "Continue pericardial drainage catheter monitoring.",
+   "kind": "action",
+   "text": "Continue pericardial drainage catheter monitoring.",
+   "concept": "other",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "pericardial drainage catheter monitoring",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1068212A3::05",
+   "claim_id": "E1068212A3",
+   "claim_text": "Administer intravenous magnesium sulfate as ordered.",
+   "kind": "action",
+   "text": "Administer intravenous magnesium sulfate as ordered.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "magnesium sulfate",
+   "conditional": false,
+   "treatment_class": "magnesium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No magnesium replacement action recorded in the 3.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 3.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Pericardial drainage catheter monitoring is currently being performed. -- The records document placement of a pericardial drainage catheter (R16), but there is no record of ongoing monitoring of the catheter at the decision time. The statement that monitoring is currently being performed is therefore not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

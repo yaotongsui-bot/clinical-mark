@@ -1,0 +1,132 @@
+# E1705630   T = 2100-01-02 22:19:00   records before T: 719
+ICU stay 1705630 (Cardiac ICU; Male, age 52; admission diagnosis: Head only trauma).
+
+## Atoms
+deepseek-v4.1-flash|E1705630A1::02 [observed] Hypertension is persistent.   <- Monitor blood pressure closely given persistent hypertension (systolic 150-170s, diastolic 90-106) and PRN labetalol ordered.
+deepseek-v4.1-flash|E1705630A1::03 [observed] Systolic blood pressure is 150-170s.   <- Monitor blood pressure closely given persistent hypertension (systolic 150-170s, diastolic 90-106) and PRN labetalol ordered.
+deepseek-v4.1-flash|E1705630A1::04 [observed] Diastolic blood pressure is 90-106.   <- Monitor blood pressure closely given persistent hypertension (systolic 150-170s, diastolic 90-106) and PRN labetalol ordered.
+deepseek-v4.1-flash|E1705630A1::05 [observed] PRN labetalol is ordered.   <- Monitor blood pressure closely given persistent hypertension (systolic 150-170s, diastolic 90-106) and PRN labetalol ordered.
+deepseek-v4.1-flash|E1705630A2::07 [observed] Thrombocytopenia is present.   <- Monitor platelet count given thrombocytopenia (26-43 K/mcL) with repeat CBC.
+deepseek-v4.1-flash|E1705630A2::08 [observed] Platelet count is 26-43 K/mcL.   <- Monitor platelet count given thrombocytopenia (26-43 K/mcL) with repeat CBC.
+deepseek-v4.1-flash|E1705630A3::11 [presupposition] Supplemental oxygen is currently being given.   <- Continue supplemental oxygen at 2 L/min to maintain oxygen saturation above 92%.
+gpt-oss-120b|E1705630A1::02 [observed] Severe thrombocytopenia is present.   <- Order platelet transfusion to address severe thrombocytopenia (platelet count 26‑37 K/µL).
+gpt-oss-120b|E1705630A1::03 [observed] Platelet count is 26-37 K/µL.   <- Order platelet transfusion to address severe thrombocytopenia (platelet count 26‑37 K/µL).
+gpt-oss-120b|E1705630A2::05 [presupposition] Intravenous potassium chloride infusion is currently being given.   <- Continue intravenous potassium chloride infusion to correct persistent hypokalemia (K⁺ 3.2‑3.3 mmol/L).
+gpt-oss-120b|E1705630A2::06 [observed] Persistent hypokalemia is present.   <- Continue intravenous potassium chloride infusion to correct persistent hypokalemia (K⁺ 3.2‑3.3 mmol/L).
+gpt-oss-120b|E1705630A2::07 [observed] Potassium is 3.2-3.3 mmol/L.   <- Continue intravenous potassium chloride infusion to correct persistent hypokalemia (K⁺ 3.2‑3.3 mmol/L).
+gpt-oss-120b|E1705630A3::10 [presupposition] IV labetalol infusion is currently being given.   <- Monitor blood pressure closely and titrate IV labetalol infusion to maintain MAP < 100 mmHg given sustained systolic pressures 150‑170 mmHg.
+gpt-oss-120b|E1705630A3::12 [observed] Systolic pressures are 150-170 mmHg.   <- Monitor blood pressure closely and titrate IV labetalol infusion to maintain MAP < 100 mmHg given sustained systolic pressures 150‑170 mmHg.
+qwen2.5-7b|E1705630A3::05 [presupposition] Sedation is currently being given.   <- Continue sedation at a reduced level.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 11:20:00): Medication sodium chloride 0.9 % Intravenous Continuous
+  Running at decision time (scheduled order started 2100-01-01 22:00:00): Medication sodium chloride 0.9 % Intravenous Continuous
+  Running at decision time (scheduled order started 2100-01-01 22:15:00): Medication sodium chloride 0.9 % Intravenous Continuous
+  Running at decision time (scheduled order started 2100-01-02 01:15:00): Medication potassium chloride Intravenous
+  Running at decision time (scheduled order started 2100-01-02 14:00:00): Medication famotidine Intravenous 2 times daily
+
+## PRN orders
+  01-01 11:18 Order: HYDROmorphone Intravenous Every 2 hour PRN (active at decision time)
+  01-01 17:07 Order: ondansetron Intravenous Every 6 hours PRN (active at decision time)
+  01-01 18:00 Order: LORazepam Intramuscular Every 1 hour prn (stopped 2100-01-01 19:23:00)
+  01-01 18:00 Order: LORazepam Intravenous Every 1 hour prn (stopped 2100-01-01 19:23:00)
+  01-01 18:00 Order: LORazepam Oral Every 1 hour prn (stopped 2100-01-01 19:23:00)
+  01-01 18:00 Order: labetalol Intravenous Every 6 hours PRN (active at decision time)
+  01-01 19:23 Order: LORazepam Intravenous Every 4 hours PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Given once: haloperidol lactate Intramuscular Once X1 (2100-01-01 06:15:00)
+  Given once: haloperidol lactate Intravenous Once X1 (2100-01-01 06:20:00)
+  Medication sodium chloride 0.9 % Intravenous Continuous (2100-01-01 12:25:00 to 2100-01-01 21:23:00)
+  Medication sodium chloride 0.9 % Intravenous Continuous (2100-01-01 14:20:00 to 2100-01-01 21:23:00)
+  Given once: labetalol Intravenous Once X1 (2100-01-01 17:20:00)
+  Medication famotidine Intravenous 2 times daily (2100-01-01 19:00:00 to 2100-01-01 21:23:00)
+  Given once: labetalol Intravenous Once X1 (2100-01-01 20:05:00)
+  Given once: calcium gluconate Intravenous Once X1 (2100-01-02 00:00:00)
+  Medication potassium chloride Intravenous (2100-01-02 00:00:00 to 2100-01-02 00:49:00)
+  Medication potassium chloride Intravenous (2100-01-02 11:00:00 to 2100-01-02 15:24:00)
+  Given once: potassium chloride Intravenous Once X1 (2100-01-02 21:00:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-02 08:22 1.3 %
+  -eos: 01-02 08:22 0 %
+  -lymphs: 01-02 08:22 7.1 %
+  -monos: 01-02 08:22 14.9 %
+  -polys: 01-02 08:22 76.1 %
+  Alanine Aminotransferase (ALT): 01-01 21:13 43 U/L; 01-01 12:35 44 U/L
+  Albumin: 01-01 21:13 3.8 g/dL; 01-01 12:35 3.8 g/dL
+  Alkaline Phosphatase: 01-01 21:13 201 U/L; 01-01 12:35 218 U/L
+  Anion Gap: 01-02 08:22 21 mmol/L; 01-02 00:51 25 mmol/L; 01-01 21:13 22 mmol/L; 01-01 12:35 22 mmol/L
+  Asparate Aminotransferase (AST): 01-01 21:13 114 U/L; 01-01 12:35 120 U/L
+  Bicarbonate: 01-02 08:22 27 mmol/L; 01-02 00:51 25 mmol/L; 01-01 21:13 26 mmol/L; 01-01 12:35 25 mmol/L
+  Bilirubin, Total: 01-01 21:13 1.2 mg/dL; 01-01 12:35 1 mg/dL
+  Calcium, Total: 01-01 21:13 8 mg/dL; 01-01 12:35 8.3 mg/dL
+  Chloride: 01-02 08:22 98 mmol/L; 01-02 00:51 99 mmol/L; 01-01 21:13 100 mmol/L; 01-01 12:35 101 mmol/L
+  Creatinine: 01-02 08:22 0.42 mg/dL; 01-02 00:51 0.34 mg/dL; 01-01 21:13 0.29 mg/dL; 01-01 12:35 0.35 mg/dL
+  Fe: 01-02 00:51 103 mcg/dL
+  Fe/TIBC Ratio: 01-02 00:51 40 %
+  Ferritin: 01-02 00:51 473 ng/mL
+  Free Calcium: 01-02 17:35 4.7 mg/dL; 01-02 08:22 4.6 mg/dL; 01-02 00:51 3.9 mg/dL
+  Glucose: 01-02 08:22 174 mg/dL; 01-02 00:51 125 mg/dL; 01-01 21:13 124 mg/dL; 01-01 12:35 138 mg/dL
+  Hematocrit: 01-02 17:35 30.7 %; 01-02 08:22 31.2 %; 01-02 00:51 29.5 %; 01-01 20:14 31.7 %; 01-01 10:44 35.9 %
+  Hemoglobin: 01-02 17:35 10.5 g/dL; 01-02 08:22 10.6 g/dL; 01-02 00:51 10.2 g/dL; 01-01 20:14 11.1 g/dL; 01-01 10:44 12.2 g/dL
+  INR(PT): 01-01 22:27 1.2; 01-01 21:13 1.2; 01-01 06:33 1.2
+  LDH: 01-01 22:27 286 U/L
+  Lactate: 01-02 17:35 1.1 mmol/L; 01-01 21:13 2.3 mmol/L
+  MCH: 01-02 17:35 34.7 pg; 01-02 08:22 34.4 pg; 01-02 00:51 34.6 pg; 01-01 20:14 35.1 pg; 01-01 10:44 33.9 pg
+  MCHC: 01-02 17:35 34.2 g/dL; 01-02 08:22 34 g/dL; 01-02 00:51 34.6 g/dL; 01-01 20:14 35 g/dL; 01-01 10:44 34 g/dL
+  MCV: 01-02 17:35 101.3 fL; 01-02 08:22 101.3 fL; 01-02 00:51 100 fL; 01-01 20:14 100.3 fL; 01-01 10:44 99.7 fL
+  MPV: 01-02 17:35 11.1 fL; 01-02 08:22 10.9 fL; 01-02 00:51 10.4 fL; 01-01 22:27 11.8 fL; 01-01 20:14 12.5 fL   [+1 earlier]
+  Magnesium: 01-02 17:35 2 mg/dL; 01-02 08:22 2.3 mg/dL; 01-02 00:51 1.5 mg/dL
+  PT: 01-01 22:27 14.9 seconds; 01-01 21:13 14.8 seconds; 01-01 06:33 14.5 seconds
+  PTT: 01-01 22:27 26.4 seconds
+  Phosphate: 01-02 00:51 2.6 mg/dL
+  Platelet Count: 01-02 17:35 37 K/mcL; 01-02 08:22 26 K/mcL; 01-02 00:51 43 K/mcL; 01-01 22:27 26 K/mcL; 01-01 20:14 26 K/mcL   [+1 earlier]
+  Potassium: 01-02 17:35 3.9 mmol/L; 01-02 08:22 3.3 mmol/L; 01-02 00:51 3.2 mmol/L; 01-01 21:13 3.2 mmol/L; 01-01 12:35 3.2 mmol/L
+  RBC: 01-02 17:35 3.03 M/mcL; 01-02 08:22 3.08 M/mcL; 01-02 00:51 2.95 M/mcL; 01-01 20:14 3.16 M/mcL; 01-01 10:44 3.6 M/mcL
+  RDW: 01-02 17:35 14.2 %; 01-02 08:22 14.6 %; 01-02 00:51 14.6 %; 01-01 20:14 14.6 %; 01-01 10:44 14.5 %
+  Sodium: 01-02 17:35 142 mmol/L; 01-02 08:22 143 mmol/L; 01-02 00:51 146 mmol/L; 01-01 21:13 145 mmol/L; 01-01 12:35 145 mmol/L
+  TIBC: 01-02 00:51 260 mcg/dL
+  Urea Nitrogen: 01-02 08:22 7 mg/dL; 01-02 00:51 4 mg/dL; 01-01 21:13 4 mg/dL; 01-01 12:35 5 mg/dL
+  Vitamin B12: 01-02 08:22 736 pg/mL
+  White Blood Cells: 01-02 17:35 2.16 K/mcL; 01-02 08:22 1.62 K/mcL; 01-02 00:51 1.65 K/mcL; 01-01 20:14 2.82 K/mcL; 01-01 10:44 3.28 K/mcL
+  ethanol: 01-01 06:33 447 mg/dL
+  fibrinogen: 01-01 22:27 354 mg/dL
+  folate: 01-02 08:22 10.9 ng/mL
+  haptoglobin: 01-01 22:27 103 mg/dL
+  total protein: 01-01 21:13 6.6 g/dL; 01-01 12:35 6.6 g/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Delirium Scale/Score Delirium Scale: CAM-ICU @01-02 13:00
+  Delirium Scale/Score Delirium Score: No @01-02 13:00
+  Glasgow coma score Eyes: 4 @01-02 22:00   24h 3-4 (n=13)
+  Glasgow coma score GCS Total: 15 @01-02 22:00   24h 14-15 (n=13)
+  Glasgow coma score Motor: 6 @01-02 22:00   24h 6-6 (n=13)
+  Glasgow coma score Verbal: 5 @01-02 22:00   24h 5-5 (n=13)
+  Heart Rate: 77 bpm @01-02 22:00   24h 68-115 (n=38)
+  Non Invasive Blood Pressure diastolic: 106 mmHg @01-02 22:00   24h 77-106 (n=30)
+  Non Invasive Blood Pressure mean: 120 mmHg @01-02 22:00   24h 93-125 (n=30)
+  Non Invasive Blood Pressure systolic: 162 mmHg @01-02 22:00   24h 132-173 (n=30)
+  O2 L/%: 2 @01-02 21:00   24h 2-2 (n=7)
+  O2 saturation pulseoxymetry: 95 % @01-02 22:00   24h 92-98 (n=37)
+  Respiratory Rate: 11 insp/min @01-02 22:00   24h 11-22 (n=37)
+  Sedation Scale/Score/Goal Sedation Goal: 0 @01-02 14:40   24h 0-0 (n=2)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-02 22:00
+  Sedation Scale/Score/Goal Sedation Score: 1 @01-02 22:00   24h -1-1 (n=15)
+  TV/kg IBW: 438 @01-01 20:00
+  Temperature Fahrenheit: 98.6 F @01-02 20:12   24h 97.7-99.7 (n=12)
+  Temperature Location: Oral @01-02 20:12
+
+## Treatments documented
+  01-01 23:12 trauma | CT scan | pelvis
+  01-01 23:12 trauma | CT scan | head
+  01-01 23:12 pain / agitation / altered mentation | sedative agent | diazepam
+  01-01 23:12 trauma | CT scan | without contrast
+  01-01 23:12 pain / agitation / altered mentation | sedative agent | haloperidol
+  01-01 23:12 trauma | CT scan | chest
+  01-01 23:12 trauma | CT scan | abdomen
+  01-01 23:12 trauma | CT scan | spine
+
+## Microbiology

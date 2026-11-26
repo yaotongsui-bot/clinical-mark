@@ -1,0 +1,234 @@
+{
+ "case_id": "E664474",
+ "decision_point": "2100-01-02 00:05:00",
+ "claims": [
+  "Continue non‑invasive ventilation with current settings and monitor respiratory parameters closely.",
+  "Obtain an arterial blood gas to assess oxygenation, ventilation, and acid‑base status.",
+  "Order a chest radiograph to evaluate for airway edema or other obstructive pathology."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E664474A1::01",
+   "claim_id": "E664474A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and monitor respiratory parameters closely.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E664474A1::02",
+   "claim_id": "E664474A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and monitor respiratory parameters closely.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E664474A1::03",
+   "claim_id": "E664474A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and monitor respiratory parameters closely.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters closely.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "E664474A2::04",
+   "claim_id": "E664474A2",
+   "claim_text": "Obtain an arterial blood gas to assess oxygenation, ventilation, and acid‑base status.",
+   "kind": "action",
+   "text": "Obtain an arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E664474A3::05",
+   "claim_id": "E664474A3",
+   "claim_text": "Order a chest radiograph to evaluate for airway edema or other obstructive pathology.",
+   "kind": "action",
+   "text": "Order a chest radiograph.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "chest radiograph",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E664474A1::02",
+   "claim_id": "E664474A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and monitor respiratory parameters closely.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "No record of this treatment. (Panel verdict: supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "supported"
+    },
+    "panel_label": "supported"
+   },
+   "evidence": [
+    {
+     "rid": "treat:24167359",
+     "time": "2100-01-01 10:32:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E664474A1::01",
+   "claim_id": "E664474A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and monitor respiratory parameters closely.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-invasive ventilation action recorded in the 2.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E664474A1::03",
+   "claim_id": "E664474A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and monitor respiratory parameters closely.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters closely.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:528665117",
+     "time": "2100-01-02 01:15:00",
+     "item": "respiratory rate",
+     "value": "22.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 2.6 h observation window after the decision (24 h or until ICU discharge): respiratory rate x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E664474A2::04",
+   "claim_id": "E664474A2",
+   "claim_text": "Obtain an arterial blood gas to assess oxygenation, ventilation, and acid‑base status.",
+   "kind": "action",
+   "text": "Obtain an arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 2.6 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E664474A3::05",
+   "claim_id": "E664474A3",
+   "claim_text": "Order a chest radiograph to evaluate for airway edema or other obstructive pathology.",
+   "kind": "action",
+   "text": "Order a chest radiograph.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "chest radiograph",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 2.6 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 2.6,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 1.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "The patient is currently on non-invasive ventilation. -- No record of this treatment. (Panel verdict: supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

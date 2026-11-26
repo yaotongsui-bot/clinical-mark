@@ -1,0 +1,237 @@
+{
+ "case_id": "E1588473",
+ "decision_point": "2100-01-02 15:40:00",
+ "claims": [
+  "Monitor patient's vital signs closely, especially blood pressure and heart rate.",
+  "Administer supplemental oxygen via nasal cannula as needed.",
+  "Continue intravenous fluid administration to maintain adequate volume status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1588473A1::01",
+   "claim_id": "E1588473A1",
+   "claim_text": "Monitor patient's vital signs closely, especially blood pressure and heart rate.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1588473A1::02",
+   "claim_id": "E1588473A1",
+   "claim_text": "Monitor patient's vital signs closely, especially blood pressure and heart rate.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1588473A2::03",
+   "claim_id": "E1588473A2",
+   "claim_text": "Administer supplemental oxygen via nasal cannula as needed.",
+   "kind": "action",
+   "text": "Administer supplemental oxygen via nasal cannula as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "supplemental oxygen",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1588473A3::04",
+   "claim_id": "E1588473A3",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate volume status.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1588473A3::05",
+   "claim_id": "E1588473A3",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate volume status.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1588473A3::05",
+   "claim_id": "E1588473A3",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate volume status.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R34 shows a continuous intravenous fluid (Lactated Ringers) running at the decision time, which directly supports the statement that intravenous fluids are currently being administered.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:56044003",
+     "time": "2100-01-01 20:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 20:00:00): Medication 1000 ML : LACTATED RINGERS IV SOLN Intravenous Continuous"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1588473A1::01",
+   "claim_id": "E1588473A1",
+   "claim_text": "Monitor patient's vital signs closely, especially blood pressure and heart rate.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1165238771",
+     "time": "2100-01-02 15:58:00",
+     "item": "systolic BP",
+     "value": "121.0 mmHg"
+    },
+    {
+     "rid": "nurse:1062620293",
+     "time": "2100-01-02 16:00:00",
+     "item": "systolic BP",
+     "value": "121.0 mmHg"
+    },
+    {
+     "rid": "nurse:1062620294",
+     "time": "2100-01-02 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "79.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 2.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x2, mean arterial pressure x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1588473A1::02",
+   "claim_id": "E1588473A1",
+   "claim_text": "Monitor patient's vital signs closely, especially blood pressure and heart rate.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No heart rate measurement in the 2.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1588473A2::03",
+   "claim_id": "E1588473A2",
+   "claim_text": "Administer supplemental oxygen via nasal cannula as needed.",
+   "kind": "action",
+   "text": "Administer supplemental oxygen via nasal cannula as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "supplemental oxygen",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1588473A3::04",
+   "claim_id": "E1588473A3",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate volume status.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 2.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 2.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

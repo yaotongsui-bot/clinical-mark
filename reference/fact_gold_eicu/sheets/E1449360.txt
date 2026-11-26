@@ -1,0 +1,96 @@
+# E1449360   T = 2100-01-02 06:16:00   records before T: 535
+ICU stay 1449360 (Med-Surg ICU; Female, age 24; admission diagnosis: Pre-eclampsia/eclampsia).
+
+## Atoms
+deepseek-v4.1-flash|E1449360A1::03 [observed] The patient is on a magnesium infusion for pre-eclampsia/eclampsia.   <- Continue magnesium infusion at the current rate and monitor magnesium levels, as the patient is on a magnesium infusion for pre-eclampsia/eclampsia.
+deepseek-v4.1-flash|E1449360A2::05 [observed] Persistent diastolic hypertension is present.   <- Monitor blood pressure closely, given persistent diastolic hypertension (diastolic 86-97 mmHg) over the past 24 hours.
+deepseek-v4.1-flash|E1449360A2::06 [observed] Diastolic blood pressure is 86-97 mmHg.   <- Monitor blood pressure closely, given persistent diastolic hypertension (diastolic 86-97 mmHg) over the past 24 hours.
+deepseek-v4.1-flash|E1449360A3::10 [observed] Magnesium is being infused.   <- Assess for magnesium toxicity by monitoring deep tendon reflexes, respiratory rate, and oxygen saturation, as magnesium is being infused.
+gpt-oss-120b|E1449360A2::04 [presupposition] Magnesium sulfate infusion is currently being given.   <- Continue the magnesium sulfate infusion at the current rate with close monitoring of blood pressure, reflexes, and urine output.
+gpt-oss-120b|E1449360A3::10 [observed] Systolic blood pressure is persistently elevated.   <- Order a short‑acting antihypertensive (e.g., labetalol IV) to maintain systolic blood pressure <140 mmHg given persistent elevations.
+qwen2.5-7b|E1449360A1::02 [presupposition] Magnesium infusion is currently being given.   <- Continue magnesium infusion at 43.75 mL/hour.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 05:45:00): Medication SENNOSIDES-DOCUSATE SODIUM 8.6-50 MG PO TABS PO Q24H
+  Running at decision time (scheduled order started 2100-01-01 05:45:00): Medication 1000 ML : LACTATED RINGERS IV SOLN IV Continuous
+  Running at decision time (scheduled order started 2100-01-01 18:00:00): Medication ENOXAPARIN SODIUM 40 MG/0.4ML SC SOLN SC Daily
+  Running at decision time (started 2100-01-02 05:45:00): Infusion/input Volume (mL) Magnesium at 43.75 ml/hour
+
+## PRN orders
+  12-31 06:32 Order: OXYCODONE-ACETAMINOPHEN 5-325 MG PO TABS PO Q3H PRN (stopped 2100-01-01 05:32:00)
+  12-31 06:32 Order: SODIUM CHLORIDE 0.9 % IJ SOLN IV PRN (stopped 2100-01-01 05:32:00)
+  12-31 06:32 Order: 1000 ML : LACTATED RINGERS IV SOLN IV PRN (stopped 2100-01-01 05:32:00)
+  12-31 06:32 Order: ONDANSETRON HCL 4 MG/2ML IJ SOLN IV Q6H PRN (stopped 2100-01-01 05:32:00)
+  12-31 06:32 Order: ACETAMINOPHEN 325 MG PO TABS PO Q4H PRN (stopped 2100-01-01 05:32:00)
+  12-31 06:32 Order: 250 ML FLEX CONT : SODIUM CHLORIDE 0.9 % IV SOLN IV PRN (stopped 2100-01-01 05:32:00)
+  12-31 17:25 Order: DIPHENHYDRAMINE HCL 50 MG/ML IJ SOLN IV Q15 min PRN (stopped 2100-01-01 05:32:00)
+  01-01 05:32 Order: DIPHENHYDRAMINE HCL 25 MG PO CAPS PO Q6H PRN (active at decision time)
+  01-01 05:32 Order: BISACODYL 10 MG RE SUPP RE Daily PRN (active at decision time)
+  01-01 05:32 Order: OXYCODONE-ACETAMINOPHEN 5-325 MG PO TABS PO Q4H PRN (active at decision time)
+  01-01 05:32 Order: ONDANSETRON HCL 4 MG PO TABS PO Q4H PRN (active at decision time)
+  01-01 05:32 Order: ZOLPIDEM TARTRATE 5 MG PO TABS PO QHS PRN (active at decision time)
+  01-01 05:32 Order: ONDANSETRON HCL 4 MG/2ML IJ SOLN IV Q4H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Volume (mL) Magnesium at 182.08 ml/hour (2100-01-01 13:00:00 to 2100-01-01 14:00:00)
+  Infusion/input Volume (mL) Magnesium at 25 ml/hour (2100-01-01 14:00:00 to 2100-01-01 16:03:00)
+  Infusion/input Volume (mL) Magnesium at 51.25 ml/hour (2100-01-01 16:03:00 to 2100-01-01 17:00:00)
+  Infusion/input Volume (mL) Magnesium at 23.75 ml/hour (2100-01-01 17:00:00 to 2100-01-01 19:00:00)
+  Infusion/input Volume (mL) Magnesium at 50 ml/hour (2100-01-01 19:00:00 to 2100-01-01 22:00:00)
+  Infusion/input Volume (mL) Magnesium at 25 ml/hour (2100-01-01 22:00:00 to 2100-01-02 00:30:00)
+  Infusion/input Volume (mL) Magnesium at 37.5 ml/hour (2100-01-02 00:30:00 to 2100-01-02 04:00:00)
+  Infusion/input Volume (mL) Magnesium at 50 ml/hour (2100-01-02 04:00:00 to 2100-01-02 05:45:00)
+
+## Medications given once or ended before T
+  Medication SODIUM CHLORIDE 0.9 % IJ SOLN IV Q12H (2099-12-31 06:45:00 to 2100-01-01 05:32:00)
+  Medication 1000 ML : LACTATED RINGERS IV SOLN IV Continuous (2099-12-31 06:45:00 to 2100-01-01 05:32:00)
+  Given once: ONDANSETRON HCL 4 MG/2ML IJ SOLN IV Once (2099-12-31 10:15:00)
+  Given once: ONDANSETRON HCL 4 MG/2ML IJ SOLN IV Once (2099-12-31 12:30:00)
+
+## Laboratory (newest first, up to 5)
+  Alanine Aminotransferase (ALT): 01-01 10:15 13 U/L; 01-01 04:25 13 U/L; 12-31 06:35 10 U/L
+  Albumin: 01-01 10:15 2.1 g/dL; 01-01 04:25 2.2 g/dL; 12-31 06:35 2.6 g/dL
+  Alkaline Phosphatase: 01-01 10:15 138 U/L; 01-01 04:25 152 U/L; 12-31 06:35 173 U/L
+  Asparate Aminotransferase (AST): 01-01 10:15 26 U/L; 01-01 04:25 24 U/L; 12-31 06:35 14 U/L
+  Bicarbonate: 01-01 10:15 23 mEq/L; 01-01 04:25 20 mEq/L; 12-31 06:35 20 mEq/L
+  Bilirubin, Total: 01-01 10:15 0.2 mg/dL; 01-01 04:25 0.3 mg/dL; 12-31 06:35 0.2 mg/dL
+  Calcium, Total: 01-01 10:15 8.7 mg/dL; 01-01 04:25 9.1 mg/dL; 12-31 06:35 9.5 mg/dL
+  Chloride: 01-01 10:15 103 mEq/L; 01-01 04:25 100 mEq/L; 12-31 06:35 103 mEq/L
+  Creatinine: 01-01 10:15 1.11 mg/dL; 01-01 04:25 1.12 mg/dL; 12-31 06:35 0.94 mg/dL
+  Glucose: 01-01 10:15 99 mg/dL; 01-01 04:25 106 mg/dL; 12-31 06:35 85 mg/dL
+  Hematocrit: 01-01 10:15 33.3 %; 01-01 04:25 34 %; 12-31 17:34 35.7 %; 12-31 06:35 35.7 %
+  Hemoglobin: 01-01 10:15 11.6 g/dL; 01-01 04:25 12.2 g/dL; 12-31 17:34 12.6 g/dL; 12-31 06:35 12.7 g/dL
+  LDH: 01-01 10:15 193 U/L; 01-01 04:25 160 U/L; 12-31 06:35 154 U/L
+  MCHC: 01-01 10:15 34.8 g/dL; 01-01 04:25 35.9 g/dL; 12-31 17:34 35.3 g/dL; 12-31 06:35 35.6 g/dL
+  MCV: 01-01 10:15 86.7 fL; 01-01 04:25 85.6 fL; 12-31 17:34 87.1 fL; 12-31 06:35 86.2 fL
+  Magnesium: 01-01 10:15 5.5 mg/dL
+  Platelet Count: 01-01 10:15 220 K/uL; 01-01 04:25 226 K/uL; 12-31 17:34 264 K/uL; 12-31 06:35 254 K/uL
+  Potassium: 01-01 10:15 4.1 mEq/L; 01-01 04:25 4 mEq/L; 12-31 06:35 3.9 mEq/L
+  RBC: 01-01 10:15 3.84 MIL/uL; 01-01 04:25 3.97 MIL/uL; 12-31 17:34 4.1 MIL/uL; 12-31 06:35 4.14 MIL/uL
+  RDW: 01-01 10:15 14.2 %; 01-01 04:25 14.2 %; 12-31 17:34 14.2 %; 12-31 06:35 14.1 %
+  Sodium: 01-01 10:15 135 mEq/L; 01-01 04:25 130 mEq/L; 12-31 06:35 135 mEq/L
+  Urea Nitrogen: 01-01 10:15 14 mg/dL; 01-01 04:25 16 mg/dL; 12-31 06:35 16 mg/dL
+  White Blood Cells: 01-01 10:15 25.5 K/uL; 01-01 04:25 24.6 K/uL; 12-31 17:34 17.5 K/uL; 12-31 06:35 15.1 K/uL
+  total protein: 01-01 10:15 5.6 g/dL; 01-01 04:25 5.4 g/dL; 12-31 06:35 6.3 g/dL
+  uric acid: 01-01 10:15 9 mg/dL; 01-01 04:25 9.2 mg/dL; 12-31 06:35 8.4 mg/dL
+  urinary creatinine: 01-01 02:00 142.81 mg/dL; 12-31 07:00 131.86 mg/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Heart Rate: 96 bpm @01-02 06:00   24h 81-120 (n=22)
+  Non Invasive Blood Pressure diastolic: 95 mmHg @01-02 06:00   24h 82-97 (n=24)
+  Non Invasive Blood Pressure mean: 102 mmHg @01-02 06:00   24h 92-106 (n=18)
+  Non Invasive Blood Pressure systolic: 131 mmHg @01-02 06:00   24h 118-141 (n=24)
+  O2 saturation pulseoxymetry: 99 % @01-02 06:00   24h 97-100 (n=22)
+  P.O.: 240 @01-02 05:45   24h 60-360 (n=9)
+  Pain Level: 1 @01-02 05:40   24h 0-1 (n=10)
+  Pain Score/Goal Pain Goal: 1 @01-02 00:40   earlier: 3 @12-31 07:26
+  Respiratory Rate: 18 insp/min @01-02 05:00   24h 18-20 (n=13)
+  Temperature Fahrenheit: 98.4 F @01-02 05:00   24h 97.9-98.8 (n=6)
+  Temperature Location: Oral @01-02 05:00   earlier: Axillary @01-01 00:46
+
+## Treatments documented
+  01-01 07:41 surgery | analgesics /sedatives/ nmbs | analgesics
+  01-01 07:41 anticoagulant administration | low molecular weight heparin | enoxaparin
+  01-01 07:41 electrolyte correction | administration of electrolytes | magnesium
+
+## Microbiology

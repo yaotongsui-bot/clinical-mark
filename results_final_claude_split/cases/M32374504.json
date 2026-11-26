@@ -1,0 +1,626 @@
+{
+ "case_id": "M32374504",
+ "decision_point": "2117-04-12 22:05:00",
+ "claims": [
+  "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above 90%.",
+  "Continue isotonic saline infusion at 50 mL/hour.",
+  "Monitor serum sodium and chloride given hyponatremia and hypochloremia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32374504A1::01",
+   "claim_id": "M32374504A1",
+   "claim_text": "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above 90%.",
+   "kind": "action",
+   "text": "Continue supplemental oxygen via nasal cannula at 2 L/min.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32374504A1::02",
+   "claim_id": "M32374504A1",
+   "claim_text": "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above 90%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving oxygen at 2 L/min via nasal cannula.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M32374504A1::03",
+   "claim_id": "M32374504A1",
+   "claim_text": "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above 90%.",
+   "kind": "goal",
+   "text": "Maintain SpO2 above 90%.",
+   "concept": "spo2",
+   "notes": []
+  },
+  {
+   "atom_id": "M32374504A2::04",
+   "claim_id": "M32374504A2",
+   "claim_text": "Continue isotonic saline infusion at 50 mL/hour.",
+   "kind": "action",
+   "text": "Continue isotonic saline infusion at 50 mL/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "isotonic saline",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32374504A2::05",
+   "claim_id": "M32374504A2",
+   "claim_text": "Continue isotonic saline infusion at 50 mL/hour.",
+   "kind": "fact",
+   "text": "Isotonic saline is currently infusing at 50 mL/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M32374504A3::06",
+   "claim_id": "M32374504A3",
+   "claim_text": "Monitor serum sodium and chloride given hyponatremia and hypochloremia.",
+   "kind": "action",
+   "text": "Monitor serum sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum sodium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32374504A3::07",
+   "claim_id": "M32374504A3",
+   "claim_text": "Monitor serum sodium and chloride given hyponatremia and hypochloremia.",
+   "kind": "action",
+   "text": "Monitor serum chloride.",
+   "concept": "chloride",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum chloride",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32374504A3::08",
+   "claim_id": "M32374504A3",
+   "claim_text": "Monitor serum sodium and chloride given hyponatremia and hypochloremia.",
+   "kind": "fact",
+   "text": "Hyponatremia is present.",
+   "concept": "sodium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M32374504A3::09",
+   "claim_id": "M32374504A3",
+   "claim_text": "Monitor serum sodium and chloride given hyponatremia and hypochloremia.",
+   "kind": "fact",
+   "text": "Hypochloremia is present.",
+   "concept": "chloride",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M32374504A1::P01",
+   "claim_id": "M32374504A1",
+   "claim_text": "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above 90%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving supplemental oxygen.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32374504A1::02",
+   "claim_id": "M32374504A1",
+   "claim_text": "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above 90%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving oxygen at 2 L/min via nasal cannula.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The most recent oxygen delivery records before the decision time show O2 Flow at 2 L/min and O2 Delivery Device(s) as Nasal cannula, supporting the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:32374504:223834:2117-04-12 20:00:00",
+     "time": "2117-04-12 20:00:00",
+     "item": "O2 Flow: 2 L/min"
+    },
+    {
+     "rid": "chart:32374504:226732:2117-04-12 20:00:00",
+     "time": "2117-04-12 20:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula"
+    }
+   ]
+  },
+  {
+   "atom_id": "M32374504A2::05",
+   "claim_id": "M32374504A2",
+   "claim_text": "Continue isotonic saline infusion at 50 mL/hour.",
+   "kind": "fact",
+   "text": "Isotonic saline is currently infusing at 50 mL/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R31 is a 'Running at decision time' record showing NaCl 0.9% infusing at 50 mL/hour, which directly supports the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:4418867:225158:2117-04-12 08:07:00",
+     "time": "2117-04-12 08:07:00",
+     "item": "Running at decision time (started 2117-04-12 08:07:00): Infusion/input NaCl 0.9% at 50 mL/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "M32374504A3::08",
+   "claim_id": "M32374504A3",
+   "claim_text": "Monitor serum sodium and chloride given hyponatremia and hypochloremia.",
+   "kind": "fact",
+   "text": "Hyponatremia is present.",
+   "concept": "sodium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:281755",
+     "time": "2117-04-12 02:00:00",
+     "item": "Sodium",
+     "value": 129.0,
+     "unit": "mEq/L",
+     "bounds": "133.0 to 145.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:281769",
+     "time": "2117-04-12 05:26:00",
+     "item": "Sodium, Whole Blood",
+     "value": 131.0,
+     "unit": "mEq/L",
+     "bounds": "135.0 to 148.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:281772",
+     "time": "2117-04-12 10:30:00",
+     "item": "Sodium",
+     "value": 129.0,
+     "unit": "mEq/L",
+     "bounds": "133.0 to 145.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest sodium 129 mEq/L at 2117-04-12 10:30:00 (reference 133.0 to 145.0) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M32374504A3::09",
+   "claim_id": "M32374504A3",
+   "claim_text": "Monitor serum sodium and chloride given hyponatremia and hypochloremia.",
+   "kind": "fact",
+   "text": "Hypochloremia is present.",
+   "concept": "chloride",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:281735",
+     "time": "2117-04-11 23:48:00",
+     "item": "Chloride",
+     "value": 93.0,
+     "unit": "mEq/L",
+     "bounds": "96.0 to 108.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:281746",
+     "time": "2117-04-12 02:00:00",
+     "item": "Chloride",
+     "value": 92.0,
+     "unit": "mEq/L",
+     "bounds": "96.0 to 108.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:281770",
+     "time": "2117-04-12 10:30:00",
+     "item": "Chloride",
+     "value": 92.0,
+     "unit": "mEq/L",
+     "bounds": "96.0 to 108.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest chloride 92 mEq/L at 2117-04-12 10:30:00 (reference 96.0 to 108.0) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M32374504A1::P01",
+   "claim_id": "M32374504A1",
+   "claim_text": "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above 90%.",
+   "kind": "fact",
+   "text": "The patient is currently receiving supplemental oxygen.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "The most recent O2 Delivery Device record before the decision time shows a nasal cannula at 20:00 with an O2 flow of 2 L/min, indicating the patient is currently receiving supplemental oxygen.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:32374504:226732:2117-04-12 20:00:00",
+     "time": "2117-04-12 20:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula"
+    },
+    {
+     "rid": "chart:32374504:223834:2117-04-12 20:00:00",
+     "time": "2117-04-12 20:00:00",
+     "item": "O2 Flow: 2 L/min"
+    },
+    {
+     "rid": "chart:32374504:220277:2117-04-12 20:00:00",
+     "time": "2117-04-12 20:00:00",
+     "item": "O2 saturation pulseoxymetry: 98 %"
+    },
+    {
+     "rid": "chart:32374504:220277:2117-04-12 21:00:00",
+     "time": "2117-04-12 21:00:00",
+     "item": "O2 saturation pulseoxymetry: 98 %"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32374504A1::01",
+   "claim_id": "M32374504A1",
+   "claim_text": "Continue supplemental oxygen via nasal cannula at 2 L/min to maintain SpO2 above 90%.",
+   "kind": "action",
+   "text": "Continue supplemental oxygen via nasal cannula at 2 L/min.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32374504A2::04",
+   "claim_id": "M32374504A2",
+   "claim_text": "Continue isotonic saline infusion at 50 mL/hour.",
+   "kind": "action",
+   "text": "Continue isotonic saline infusion at 50 mL/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "isotonic saline",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2117-04-12 08:07:00",
+     "item": "NaCl 0.9% infusion continuing at 50 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225828",
+     "time": "2117-04-12 22:45:00",
+     "item": "LR infusion started at 10 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32374504A3::06",
+   "claim_id": "M32374504A3",
+   "claim_text": "Monitor serum sodium and chloride given hyponatremia and hypochloremia.",
+   "kind": "action",
+   "text": "Monitor serum sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum sodium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2117-04-13 03:15:00:604397",
+     "time": "2117-04-13 03:15:00",
+     "item": "sodium",
+     "value": "131 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2117-04-13 03:15:00:36137",
+     "time": "2117-04-13 03:15:00",
+     "item": "sodium",
+     "value": "131 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32374504A3::07",
+   "claim_id": "M32374504A3",
+   "claim_text": "Monitor serum sodium and chloride given hyponatremia and hypochloremia.",
+   "kind": "action",
+   "text": "Monitor serum chloride.",
+   "concept": "chloride",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum chloride",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220602:2117-04-13 03:15:00:604396",
+     "time": "2117-04-13 03:15:00",
+     "item": "chloride",
+     "value": "93 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2117-04-13 03:15:00:36136",
+     "time": "2117-04-13 03:15:00",
+     "item": "chloride",
+     "value": "93 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): chloride x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CT scan"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "LR",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M32374504A2::04"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CT scan"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "LR",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M32374504A2::04"
+   ]
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 21,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 5,
+  "supported": 5,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 3,
+  "recall_vital": null,
+  "recall_okay": 0.25,
+  "recall_all": 0.25,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.25,
+  "recall_all_at3": 0.25
+ }
+}

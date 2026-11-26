@@ -1,0 +1,296 @@
+{
+ "case_id": "E1829278",
+ "decision_point": "2100-01-02 08:43:00",
+ "claims": [
+  "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+  "Continue intravenous fluid administration to maintain adequate hydration.",
+  "Administer intravenous Nicardipine to manage hypertension."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1829278A1::01",
+   "claim_id": "E1829278A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1829278A1::02",
+   "claim_id": "E1829278A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is persistent.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1829278A2::03",
+   "claim_id": "E1829278A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1829278A2::04",
+   "claim_id": "E1829278A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1829278A3::05",
+   "claim_id": "E1829278A3",
+   "claim_text": "Administer intravenous Nicardipine to manage hypertension.",
+   "kind": "action",
+   "text": "Administer intravenous Nicardipine.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "administer",
+   "target": "nicardipine",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1829278A3::06",
+   "claim_id": "E1829278A3",
+   "claim_text": "Administer intravenous Nicardipine to manage hypertension.",
+   "kind": "fact",
+   "text": "Hypertension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1829278A1::02",
+   "claim_id": "E1829278A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is persistent.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:420187339",
+     "time": "2100-01-01 09:45:00",
+     "item": "Glucose",
+     "value": 325.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 325 mg/dL (reference 70 to 100); 1 of 1 values in the 24 h before the decision were high.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1829278A2::04",
+   "claim_id": "E1829278A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R40 shows an IVF infusion running at decision time, started at 03:00 on 2100-01-02, which directly supports the statement that intravenous fluids are currently being administered.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:IVF (ml/hr):1097",
+     "time": "2100-01-02 03:00:00",
+     "item": "Running at decision time (started 2100-01-02 03:00:00): Infusion/input IVF at 125 ml/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1829278A3::06",
+   "claim_id": "E1829278A3",
+   "claim_text": "Administer intravenous Nicardipine to manage hypertension.",
+   "kind": "fact",
+   "text": "Hypertension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "nurse:1310994953",
+     "time": "2100-01-02 08:24:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 149.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "nurse:1310994955",
+     "time": "2100-01-02 08:24:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 119.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'blood pressure high' holds when any component is high. systolic BP: no; mean arterial pressure: no.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1829278A1::01",
+   "claim_id": "E1829278A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:427205732",
+     "time": "2100-01-02 11:30:00",
+     "item": "glucose",
+     "value": "290.0 mg/dL"
+    },
+    {
+     "rid": "lab:444561983",
+     "time": "2100-01-02 11:37:00",
+     "item": "glucose",
+     "value": "270.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1829278A2::03",
+   "claim_id": "E1829278A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1829278A3::05",
+   "claim_id": "E1829278A3",
+   "claim_text": "Administer intravenous Nicardipine to manage hypertension.",
+   "kind": "action",
+   "text": "Administer intravenous Nicardipine.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "administer",
+   "target": "nicardipine",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hypertension is present. -- 'blood pressure high' holds when any component is high. systolic BP: no; mean arterial pressure: no."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

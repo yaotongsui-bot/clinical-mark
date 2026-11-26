@@ -1,0 +1,478 @@
+{
+ "case_id": "M35446858",
+ "decision_point": "2141-08-01 00:01:00",
+ "claims": [
+  "Continue continuous ST segment monitoring for cardiac ischemia surveillance.",
+  "Maintain the current IV access with occlusive dressing for ongoing intravenous therapy.",
+  "Perform a repeat basic metabolic panel to reassess electrolytes and renal function."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35446858A1::01",
+   "claim_id": "M35446858A1",
+   "claim_text": "Continue continuous ST segment monitoring for cardiac ischemia surveillance.",
+   "kind": "action",
+   "text": "Continue continuous ST segment monitoring.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ST segment monitoring",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35446858A1::02",
+   "claim_id": "M35446858A1",
+   "claim_text": "Continue continuous ST segment monitoring for cardiac ischemia surveillance.",
+   "kind": "fact",
+   "text": "ST segment monitoring is for cardiac ischemia surveillance.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "none",
+   "time": "none",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M35446858A2::03",
+   "claim_id": "M35446858A2",
+   "claim_text": "Maintain the current IV access with occlusive dressing for ongoing intravenous therapy.",
+   "kind": "action",
+   "text": "Maintain the current IV access with occlusive dressing.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV access",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M35446858A2::04",
+   "claim_id": "M35446858A2",
+   "claim_text": "Maintain the current IV access with occlusive dressing for ongoing intravenous therapy.",
+   "kind": "fact",
+   "text": "Intravenous therapy is currently ongoing.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M35446858A3::05",
+   "claim_id": "M35446858A3",
+   "claim_text": "Perform a repeat basic metabolic panel to reassess electrolytes and renal function.",
+   "kind": "action",
+   "text": "Perform a repeat basic metabolic panel.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "basic metabolic panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M35446858A3::06",
+   "claim_id": "M35446858A3",
+   "claim_text": "Perform a repeat basic metabolic panel to reassess electrolytes and renal function.",
+   "kind": "action",
+   "text": "Reassess electrolytes.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "assess",
+   "target": "electrolytes",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35446858A3::07",
+   "claim_id": "M35446858A3",
+   "claim_text": "Perform a repeat basic metabolic panel to reassess electrolytes and renal function.",
+   "kind": "action",
+   "text": "Reassess renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "assess",
+   "target": "renal function",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35446858A1::02",
+   "claim_id": "M35446858A1",
+   "claim_text": "Continue continuous ST segment monitoring for cardiac ischemia surveillance.",
+   "kind": "fact",
+   "text": "ST segment monitoring is for cardiac ischemia surveillance.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "none",
+   "time": "none",
+   "specimen": "none",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "A clinical judgment (diagnosis, cause or necessity) with no directly comparable record."
+  },
+  {
+   "atom_id": "M35446858A2::04",
+   "claim_id": "M35446858A2",
+   "claim_text": "Maintain the current IV access with occlusive dressing for ongoing intravenous therapy.",
+   "kind": "fact",
+   "text": "Intravenous therapy is currently ongoing.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_addressed",
+   "reason": "The records show active IV fluid and IV medication orders, but no administration record of intravenous therapy in the 24 hours before the decision time, so ongoing IV therapy is not documented.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "not_addressed",
+     "glm-5.3-flash:cloud": "supported",
+     "gpt-oss:120b:cloud": "not_addressed"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "rx:13042707:2141-07-31 02:00:00",
+     "time": "2141-07-31 02:00:00",
+     "item": "Order: SW 200 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:24890613:2141-07-31 02:00:00",
+     "time": "2141-07-31 02:00:00",
+     "item": "Order: SW 400 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:94294625:2141-07-31 02:00:00",
+     "time": "2141-07-31 02:00:00",
+     "item": "Order: SW 600 mL IV (active at decision time)"
+    },
+    {
+     "rid": "rx:23415079:2141-07-31 21:00:00",
+     "time": "2141-07-31 21:00:00",
+     "item": "Order: PHENObarbital 330 mg IV (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35446858A1::01",
+   "claim_id": "M35446858A1",
+   "claim_text": "Continue continuous ST segment monitoring for cardiac ischemia surveillance.",
+   "kind": "action",
+   "text": "Continue continuous ST segment monitoring.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ST segment monitoring",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35446858A2::03",
+   "claim_id": "M35446858A2",
+   "claim_text": "Maintain the current IV access with occlusive dressing for ongoing intravenous therapy.",
+   "kind": "action",
+   "text": "Maintain the current IV access with occlusive dressing.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV access",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "llm_panel",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "not_done",
+     "glm-5.3-flash:cloud": "not_done",
+     "gpt-oss:120b:cloud": "not_done"
+    }
+   },
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35446858A3::05",
+   "claim_id": "M35446858A3",
+   "claim_text": "Perform a repeat basic metabolic panel to reassess electrolytes and renal function.",
+   "kind": "action",
+   "text": "Perform a repeat basic metabolic panel.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "basic metabolic panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35446858A3::06",
+   "claim_id": "M35446858A3",
+   "claim_text": "Perform a repeat basic metabolic panel to reassess electrolytes and renal function.",
+   "kind": "action",
+   "text": "Reassess electrolytes.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "assess",
+   "target": "electrolytes",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2141-08-01 02:50:00:179441",
+     "time": "2141-08-01 02:50:00",
+     "item": "sodium",
+     "value": "140 mEq/L"
+    },
+    {
+     "rid": "lab:50983:2141-08-01 02:50:00:93563",
+     "time": "2141-08-01 02:50:00",
+     "item": "sodium",
+     "value": "140 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2141-08-01 02:50:00:179443",
+     "time": "2141-08-01 02:50:00",
+     "item": "potassium",
+     "value": "3.4 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2141-08-01 02:50:00:93568",
+     "time": "2141-08-01 02:50:00",
+     "item": "potassium",
+     "value": "3.4 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2141-08-01 02:50:00:179436",
+     "time": "2141-08-01 02:50:00",
+     "item": "chloride",
+     "value": "105 mEq/L"
+    },
+    {
+     "rid": "lab:50902:2141-08-01 02:50:00:93565",
+     "time": "2141-08-01 02:50:00",
+     "item": "chloride",
+     "value": "105 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2141-08-01 02:50:00:179439",
+     "time": "2141-08-01 02:50:00",
+     "item": "bicarbonate",
+     "value": "23 mEq/L"
+    },
+    {
+     "rid": "lab:50882:2141-08-01 02:50:00:93569",
+     "time": "2141-08-01 02:50:00",
+     "item": "bicarbonate",
+     "value": "23 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2141-08-01 02:50:00:179445",
+     "time": "2141-08-01 02:50:00",
+     "item": "magnesium",
+     "value": "1.6 mg/dL"
+    },
+    {
+     "rid": "lab:50960:2141-08-01 02:50:00:93572",
+     "time": "2141-08-01 02:50:00",
+     "item": "magnesium",
+     "value": "1.6 mg/dL"
+    },
+    {
+     "rid": "chart:225625:2141-08-01 02:50:00:179444",
+     "time": "2141-08-01 02:50:00",
+     "item": "calcium",
+     "value": "8.9 mg/dL"
+    },
+    {
+     "rid": "lab:50893:2141-08-01 02:50:00:93570",
+     "time": "2141-08-01 02:50:00",
+     "item": "calcium",
+     "value": "8.9 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2141-08-01 02:50:00:179437",
+     "time": "2141-08-01 02:50:00",
+     "item": "phosphate",
+     "value": "2.8 mg/dL"
+    },
+    {
+     "rid": "lab:50970:2141-08-01 02:50:00:93566",
+     "time": "2141-08-01 02:50:00",
+     "item": "phosphate",
+     "value": "2.8 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 22.6 h observation window after the decision (24 h or until ICU discharge): sodium x2, potassium x2, chloride x2, bicarbonate x2, magnesium x2, calcium x2, phosphate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35446858A3::07",
+   "claim_id": "M35446858A3",
+   "claim_text": "Perform a repeat basic metabolic panel to reassess electrolytes and renal function.",
+   "kind": "action",
+   "text": "Reassess renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "assess",
+   "target": "renal function",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220615:2141-08-01 02:50:00:179446",
+     "time": "2141-08-01 02:50:00",
+     "item": "creatinine",
+     "value": "1.2 mg/dL"
+    },
+    {
+     "rid": "lab:50912:2141-08-01 02:50:00:93567",
+     "time": "2141-08-01 02:50:00",
+     "item": "creatinine",
+     "value": "1.2 mg/dL"
+    },
+    {
+     "rid": "chart:225624:2141-08-01 02:50:00:179432",
+     "time": "2141-08-01 02:50:00",
+     "item": "BUN",
+     "value": "15 mg/dL"
+    },
+    {
+     "rid": "lab:51006:2141-08-01 02:50:00:93571",
+     "time": "2141-08-01 02:50:00",
+     "item": "BUN",
+     "value": "15 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 22.6 h observation window after the decision (24 h or until ICU discharge): creatinine x2, BUN x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Haloperidol",
+    "Haloperidol (Haldol)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "PHENObarbital Alcohol Withdrawal Dose Taper (Days 2-7)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Haloperidol",
+    "Haloperidol (Haldol)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "PHENObarbital Alcohol Withdrawal Dose Taper (Days 2-7)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 11,
+ "observation_window_hours": 22.6,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 1,
+  "supported_share": 0.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.5,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Intravenous therapy is currently ongoing. -- The records show active IV fluid and IV medication orders, but no administration record of intravenous therapy in the 24 hours before the decision time, so ongoing IV therapy is not documented."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 2,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

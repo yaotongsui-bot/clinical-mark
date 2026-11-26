@@ -1,0 +1,816 @@
+{
+ "case_id": "M34170353",
+ "decision_point": "2149-10-03 12:48:08",
+ "claims": [
+  "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+  "Continue intravenous calcium supplementation.",
+  "Assess and manage pain levels."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34170353A1::01",
+   "claim_id": "M34170353A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34170353A1::02",
+   "claim_id": "M34170353A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34170353A1::03",
+   "claim_id": "M34170353A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium closely.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34170353A2::04",
+   "claim_id": "M34170353A2",
+   "claim_text": "Continue intravenous calcium supplementation.",
+   "kind": "action",
+   "text": "Continue intravenous calcium supplementation.",
+   "concept": "calcium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous calcium supplementation",
+   "conditional": false,
+   "treatment_class": "calcium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34170353A2::05",
+   "claim_id": "M34170353A2",
+   "claim_text": "Continue intravenous calcium supplementation.",
+   "kind": "fact",
+   "text": "Intravenous calcium supplementation is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: calcium -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "none",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M34170353A3::06",
+   "claim_id": "M34170353A3",
+   "claim_text": "Assess and manage pain levels.",
+   "kind": "action",
+   "text": "Assess pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34170353A3::07",
+   "claim_id": "M34170353A3",
+   "claim_text": "Assess and manage pain levels.",
+   "kind": "action",
+   "text": "Manage pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "other",
+   "target": "pain levels",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M34170353A2::05",
+   "claim_id": "M34170353A2",
+   "claim_text": "Continue intravenous calcium supplementation.",
+   "kind": "fact",
+   "text": "Intravenous calcium supplementation is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: calcium -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "none",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Calcium Gluconate was administered at 12:35 and an infusion was running at the decision time 12:48, showing intravenous calcium supplementation is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "supported",
+     "glm-5.3-flash:cloud": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "emar:10005866-962",
+     "time": "2149-10-03 12:35:00",
+     "item": "MAR Administered: Calcium Gluconate sliding scale (Critical Care-Ionized calcium)"
+    },
+    {
+     "rid": "inputevents:2294633:221456:2149-10-03 12:36:00",
+     "time": "2149-10-03 12:36:00",
+     "item": "Running at decision time (started 2149-10-03 12:36:00): Infusion/input Calcium Gluconate"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M34170353A1::01",
+   "claim_id": "M34170353A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2149-10-03 20:28:00:644667",
+     "time": "2149-10-03 20:28:00",
+     "item": "sodium",
+     "value": "137 mEq/L"
+    },
+    {
+     "rid": "chart:220645:2149-10-04 11:36:00:644888",
+     "time": "2149-10-04 11:36:00",
+     "item": "sodium",
+     "value": "138 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2149-10-03 20:28:00:644675",
+     "time": "2149-10-03 20:28:00",
+     "item": "potassium",
+     "value": "3.3 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2149-10-04 11:36:00:644885",
+     "time": "2149-10-04 11:36:00",
+     "item": "potassium",
+     "value": "3.2 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2149-10-03 20:28:00:644687",
+     "time": "2149-10-03 20:28:00",
+     "item": "chloride",
+     "value": "103 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2149-10-04 11:36:00:644889",
+     "time": "2149-10-04 11:36:00",
+     "item": "chloride",
+     "value": "102 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2149-10-03 20:28:00:644688",
+     "time": "2149-10-03 20:28:00",
+     "item": "bicarbonate",
+     "value": "22 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2149-10-04 11:36:00:644886",
+     "time": "2149-10-04 11:36:00",
+     "item": "bicarbonate",
+     "value": "24 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2149-10-03 20:28:00:644678",
+     "time": "2149-10-03 20:28:00",
+     "item": "magnesium",
+     "value": "2 mg/dL"
+    },
+    {
+     "rid": "chart:220635:2149-10-04 11:36:00:644891",
+     "time": "2149-10-04 11:36:00",
+     "item": "magnesium",
+     "value": "1.6 mg/dL"
+    },
+    {
+     "rid": "chart:225667:2149-10-04 02:06:00:644243",
+     "time": "2149-10-04 02:06:00",
+     "item": "calcium",
+     "value": "1.14 mmol/L"
+    },
+    {
+     "rid": "chart:225625:2149-10-03 20:28:00:644669",
+     "time": "2149-10-03 20:28:00",
+     "item": "calcium",
+     "value": "7.8 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2149-10-03 20:28:00:644690",
+     "time": "2149-10-03 20:28:00",
+     "item": "phosphate",
+     "value": "1.8 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2149-10-04 11:36:00:644890",
+     "time": "2149-10-04 11:36:00",
+     "item": "phosphate",
+     "value": "2.8 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x6, potassium x8, chloride x6, bicarbonate x6, magnesium x6, calcium x10, phosphate x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34170353A1::02",
+   "claim_id": "M34170353A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227442:2149-10-03 20:28:00:644675",
+     "time": "2149-10-03 20:28:00",
+     "item": "potassium",
+     "value": "3.3 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2149-10-04 11:36:00:644885",
+     "time": "2149-10-04 11:36:00",
+     "item": "potassium",
+     "value": "3.2 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x8.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34170353A1::03",
+   "claim_id": "M34170353A1",
+   "claim_text": "Monitor electrolyte levels closely, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium closely.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220635:2149-10-03 20:28:00:644678",
+     "time": "2149-10-03 20:28:00",
+     "item": "magnesium",
+     "value": "2 mg/dL"
+    },
+    {
+     "rid": "chart:220635:2149-10-04 11:36:00:644891",
+     "time": "2149-10-04 11:36:00",
+     "item": "magnesium",
+     "value": "1.6 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): magnesium x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34170353A2::04",
+   "claim_id": "M34170353A2",
+   "claim_text": "Continue intravenous calcium supplementation.",
+   "kind": "action",
+   "text": "Continue intravenous calcium supplementation.",
+   "concept": "calcium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous calcium supplementation",
+   "conditional": false,
+   "treatment_class": "calcium_replacement",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN221456",
+     "time": "2149-10-03 12:36:00",
+     "item": "Calcium Gluconate infusion continuing at",
+     "class": "calcium_replacement"
+    },
+    {
+     "rid": "E10005866-1000",
+     "time": "2149-10-03 20:46:00",
+     "item": "Given: Calcium Gluconate sliding scale (Critical Care-Ionized calcium)",
+     "class": "calcium_replacement"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded calcium replacement after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34170353A3::06",
+   "claim_id": "M34170353A3",
+   "claim_text": "Assess and manage pain levels.",
+   "kind": "action",
+   "text": "Assess pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223791:2149-10-03 16:00:00:643428",
+     "time": "2149-10-03 16:00:00",
+     "item": "pain score",
+     "value": "Mild to Moderate."
+    },
+    {
+     "rid": "chart:223791:2149-10-03 21:00:00:643546",
+     "time": "2149-10-03 21:00:00",
+     "item": "pain score",
+     "value": "Moderate to Severe."
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x18.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34170353A3::07",
+   "claim_id": "M34170353A3",
+   "claim_text": "Assess and manage pain levels.",
+   "kind": "action",
+   "text": "Manage pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "other",
+   "target": "pain levels",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX34271823",
+     "time": "2149-10-03 16:00:00",
+     "item": "Ordered: HYDROmorphone (Dilaudid) 0.25 mg IV",
+     "class": "opioid_analgesia"
+    },
+    {
+     "rid": "E10005866-981",
+     "time": "2149-10-03 17:20:00",
+     "item": "Given: HYDROmorphone (Dilaudid)",
+     "class": "opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia / non-opioid analgesia after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest albumin 2.7 g/dL at 2149-10-03 02:35:00 (reference 3.5 to 5.2) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fluconazole",
+    "Piperacillin-Tazobactam",
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 16,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.7 mg/dL at 2149-10-03 11:20:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "K Phos",
+    "Potassium Phosphate"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "PHENYLEPHrine",
+    "Phenylephrine"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.09 mmol/L at 2149-10-03 11:26:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate",
+    "Calcium Gluconate sliding scale (Critical Care-Ionized calcium)"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M34170353A2::04"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray",
+    "Endoscopy",
+    "Portable Chest X-Ray"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "D5 1/2NS",
+    "Dextrose 5%",
+    "OR Crystalloid Intake"
+   ],
+   "doctor_rows": 19,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)",
+    "Magnesium Sulfate Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "TPN without Lipids"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Amiodarone",
+    "Amiodarone 600/500",
+    "Metoprolol",
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 9,
+   "covered": true,
+   "by_atoms": [
+    "M34170353A3::07"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest albumin 2.7 g/dL at 2149-10-03 02:35:00 (reference 3.5 to 5.2) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Albumin 5%",
+    "Albumin 5% (12.5g / 250mL)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fluconazole",
+    "Piperacillin-Tazobactam",
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 16,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.7 mg/dL at 2149-10-03 11:20:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "K Phos",
+    "Potassium Phosphate"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "PHENYLEPHrine",
+    "Phenylephrine"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.09 mmol/L at 2149-10-03 11:26:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate",
+    "Calcium Gluconate sliding scale (Critical Care-Ionized calcium)"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M34170353A2::04"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray",
+    "Endoscopy",
+    "Portable Chest X-Ray"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "D5 1/2NS",
+    "Dextrose 5%",
+    "OR Crystalloid Intake"
+   ],
+   "doctor_rows": 19,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)",
+    "Magnesium Sulfate Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "TPN without Lipids"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Amiodarone",
+    "Amiodarone 600/500",
+    "Metoprolol",
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 12,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "HYDROmorphone",
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 9,
+   "covered": true,
+   "by_atoms": [
+    "M34170353A3::07"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 113,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.2,
+  "recall_okay": 0.125,
+  "recall_all": 0.154,
+  "recall_vital_at3": 0.2,
+  "recall_okay_at3": 0.125,
+  "recall_all_at3": 0.154
+ }
+}

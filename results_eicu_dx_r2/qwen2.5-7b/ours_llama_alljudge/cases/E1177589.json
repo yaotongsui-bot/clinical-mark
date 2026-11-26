@@ -1,0 +1,241 @@
+{
+ "case_id": "E1177589",
+ "decision_point": "2100-01-02 10:15:00",
+ "claims": [
+  "Monitor blood glucose levels closely.",
+  "Continue oxygen therapy with 2 L/min nasal cannula.",
+  "Assess for signs of hypovolemia and consider fluid resuscitation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1177589A1::01",
+   "claim_id": "E1177589A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1177589A2::02",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue oxygen therapy with 2 L/min nasal cannula.",
+   "kind": "action",
+   "text": "Continue oxygen therapy with 2 L/min nasal cannula.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oxygen therapy",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1177589A2::03",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue oxygen therapy with 2 L/min nasal cannula.",
+   "kind": "fact",
+   "text": "Oxygen therapy with 2 L/min nasal cannula is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1177589A3::04",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypovolemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1177589A3::05",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation.",
+   "kind": "action",
+   "text": "Consider fluid resuscitation.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1177589A2::03",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue oxygen therapy with 2 L/min nasal cannula.",
+   "kind": "fact",
+   "text": "Oxygen therapy with 2 L/min nasal cannula is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show that the patient is currently receiving oxygen therapy with 2 L/min nasal cannula. The 'O2 Delivery Device(s)' row (R14) shows that the patient is receiving oxygen through a nasal cannula, and the 'O2 L/%' row (R15) shows that the oxygen flow is 2 L/min. Additionally, the 'LPM O2' row (R17) shows that the patient is receiving 2 L/min of oxygen. These records support the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:723840803",
+     "time": "2100-01-01 10:15:00",
+     "item": "O2 Delivery Device(s): Nasal cannula (charted: N/C)"
+    },
+    {
+     "rid": "nurse:730342087",
+     "time": "2100-01-01 10:15:00",
+     "item": "O2 L/%: 29"
+    },
+    {
+     "rid": "lab:290760783",
+     "time": "2100-01-01 10:15:00",
+     "item": "LPM O2: 2 L/min"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1177589A1::01",
+   "claim_id": "E1177589A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:289125249",
+     "time": "2100-01-02 10:47:00",
+     "item": "glucose",
+     "value": "131.0 mg/dL"
+    },
+    {
+     "rid": "lab:281610958",
+     "time": "2100-01-02 15:10:00",
+     "item": "glucose",
+     "value": "269.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1177589A2::02",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue oxygen therapy with 2 L/min nasal cannula.",
+   "kind": "action",
+   "text": "Continue oxygen therapy with 2 L/min nasal cannula.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oxygen therapy",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1177589A3::04",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypovolemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1177589A3::05",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation.",
+   "kind": "action",
+   "text": "Consider fluid resuscitation.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

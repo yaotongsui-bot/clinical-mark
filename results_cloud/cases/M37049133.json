@@ -1,0 +1,405 @@
+{
+ "case_id": "M37049133",
+ "decision_point": "2196-04-15 13:40:00",
+ "claims": [
+  "Monitor hemoglobin and hematocrit levels closely.",
+  "Continue monitoring vital signs and oxygen saturation.",
+  "Assess for signs of infection given low white blood cell count."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37049133A1::01",
+   "claim_id": "M37049133A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hemoglobin levels closely.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37049133A1::02",
+   "claim_id": "M37049133A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hematocrit levels closely.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37049133A2::03",
+   "claim_id": "M37049133A2",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37049133A2::04",
+   "claim_id": "M37049133A2",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37049133A3::05",
+   "claim_id": "M37049133A3",
+   "claim_text": "Assess for signs of infection given low white blood cell count.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37049133A3::06",
+   "claim_id": "M37049133A3",
+   "claim_text": "Assess for signs of infection given low white blood cell count.",
+   "kind": "fact",
+   "text": "White blood cell count is low.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37049133A3::06",
+   "claim_id": "M37049133A3",
+   "claim_text": "Assess for signs of infection given low white blood cell count.",
+   "kind": "fact",
+   "text": "White blood cell count is low.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:38816",
+     "time": "2196-04-15 03:36:00",
+     "item": "White Blood Cells",
+     "value": 2.4,
+     "unit": "K/uL",
+     "bounds": "4.0 to 11.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest WBC 2.4 K/uL at 2196-04-15 03:36:00 (reference 4.0 to 11.0) is low, consistent with 'low'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37049133A1::01",
+   "claim_id": "M37049133A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hemoglobin levels closely.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No hemoglobin measurement in the 3.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37049133A1::02",
+   "claim_id": "M37049133A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hematocrit levels closely.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No hematocrit measurement in the 3.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37049133A2::03",
+   "claim_id": "M37049133A2",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2196-04-15 14:00:00:87245",
+     "time": "2196-04-15 14:00:00",
+     "item": "heart rate",
+     "value": "92 bpm"
+    },
+    {
+     "rid": "chart:220045:2196-04-15 15:00:00:87259",
+     "time": "2196-04-15 15:00:00",
+     "item": "heart rate",
+     "value": "85 bpm"
+    },
+    {
+     "rid": "chart:220179:2196-04-15 14:00:00:87241",
+     "time": "2196-04-15 14:00:00",
+     "item": "systolic BP",
+     "value": "120 mmHg"
+    },
+    {
+     "rid": "chart:220179:2196-04-15 15:00:00:87251",
+     "time": "2196-04-15 15:00:00",
+     "item": "systolic BP",
+     "value": "114 mmHg"
+    },
+    {
+     "rid": "chart:220181:2196-04-15 14:00:00:87239",
+     "time": "2196-04-15 14:00:00",
+     "item": "mean arterial pressure",
+     "value": "79 mmHg"
+    },
+    {
+     "rid": "chart:220181:2196-04-15 15:00:00:87253",
+     "time": "2196-04-15 15:00:00",
+     "item": "mean arterial pressure",
+     "value": "76 mmHg"
+    },
+    {
+     "rid": "chart:220210:2196-04-15 14:00:00:87246",
+     "time": "2196-04-15 14:00:00",
+     "item": "respiratory rate",
+     "value": "18 insp/min"
+    },
+    {
+     "rid": "chart:220210:2196-04-15 15:00:00:87254",
+     "time": "2196-04-15 15:00:00",
+     "item": "respiratory rate",
+     "value": "19 insp/min"
+    },
+    {
+     "rid": "chart:220277:2196-04-15 14:00:00:87247",
+     "time": "2196-04-15 14:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:223761:2196-04-15 16:00:00:87262",
+     "time": "2196-04-15 16:00:00",
+     "item": "temperature",
+     "value": "97.7 °F"
+    }
+   ],
+   "reason": "Measured in the 3.2 h observation window after the decision (24 h or until ICU discharge): heart rate x3, systolic BP x3, mean arterial pressure x3, respiratory rate x3, SpO2 x1, temperature x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37049133A2::04",
+   "claim_id": "M37049133A2",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220277:2196-04-15 14:00:00:87247",
+     "time": "2196-04-15 14:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    }
+   ],
+   "reason": "Measured in the 3.2 h observation window after the decision (24 h or until ICU discharge): SpO2 x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37049133A3::05",
+   "claim_id": "M37049133A3",
+   "claim_text": "Assess for signs of infection given low white blood cell count.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "D5NS"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 2.6 mg/dL at 2196-04-15 03:36:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "D5NS"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 5,
+ "observation_window_hours": 3.2,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

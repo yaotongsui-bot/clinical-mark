@@ -1,0 +1,524 @@
+{
+ "case_id": "E383358",
+ "decision_point": "2100-01-02 00:50:00",
+ "claims": [
+  "Continue ventilator weaning protocol with daily assessment of spontaneous breathing trials.",
+  "Monitor blood glucose q4h and adjust subcutaneous insulin detemir dose as needed to maintain target range.",
+  "Check INR in 12 hours and adjust warfarin (coumadin) dosing to keep INR within therapeutic range (2.0‑3.0)."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E383358A1::01",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue ventilator weaning protocol with daily assessment of spontaneous breathing trials.",
+   "kind": "action",
+   "text": "Continue ventilator weaning protocol.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "ventilator weaning protocol",
+   "conditional": false,
+   "treatment_class": "ventilation",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E383358A1::02",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue ventilator weaning protocol with daily assessment of spontaneous breathing trials.",
+   "kind": "action",
+   "text": "Assess daily for spontaneous breathing trials.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "spontaneous breathing trials",
+   "conditional": false
+  },
+  {
+   "atom_id": "E383358A1::03",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue ventilator weaning protocol with daily assessment of spontaneous breathing trials.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E383358A2::04",
+   "claim_id": "E383358A2",
+   "claim_text": "Monitor blood glucose q4h and adjust subcutaneous insulin detemir dose as needed to maintain target range.",
+   "kind": "action",
+   "text": "Monitor blood glucose q4h.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E383358A2::05",
+   "claim_id": "E383358A2",
+   "claim_text": "Monitor blood glucose q4h and adjust subcutaneous insulin detemir dose as needed to maintain target range.",
+   "kind": "action",
+   "text": "Adjust subcutaneous insulin detemir dose as needed to maintain target range.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin detemir",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E383358A2::06",
+   "claim_id": "E383358A2",
+   "claim_text": "Monitor blood glucose q4h and adjust subcutaneous insulin detemir dose as needed to maintain target range.",
+   "kind": "fact",
+   "text": "Subcutaneous insulin detemir is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E383358A3::07",
+   "claim_id": "E383358A3",
+   "claim_text": "Check INR in 12 hours and adjust warfarin (coumadin) dosing to keep INR within therapeutic range (2.0‑3.0).",
+   "kind": "action",
+   "text": "Check INR in 12 hours.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "INR",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E383358A3::08",
+   "claim_id": "E383358A3",
+   "claim_text": "Check INR in 12 hours and adjust warfarin (coumadin) dosing to keep INR within therapeutic range (2.0‑3.0).",
+   "kind": "action",
+   "text": "Adjust warfarin (coumadin) dosing to keep INR within therapeutic range (2.0-3.0).",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "warfarin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E383358A3::09",
+   "claim_id": "E383358A3",
+   "claim_text": "Check INR in 12 hours and adjust warfarin (coumadin) dosing to keep INR within therapeutic range (2.0‑3.0).",
+   "kind": "fact",
+   "text": "Warfarin (coumadin) is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E383358A1::03",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue ventilator weaning protocol with daily assessment of spontaneous breathing trials.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The patient is currently on mechanical ventilation. The records show that the patient is weaning from mechanical ventilation (R5), and there are multiple treatment documents indicating ventilation and oxygenation therapy (R7, R8, R9, R10, R11), but there is no record of the patient currently being on mechanical ventilation. The PEEP set is 5 cmH2O (R4), but later records show it is set to 7 cmH2O,",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:383358:dx",
+     "time": "2100-01-01 00:50:00",
+     "item": "Admission diagnosis (APACHE): Weaning from mechanical ventilation (transfer from other unit or hospital only)"
+    },
+    {
+     "rid": "treat:15053604",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | ventilator weaning"
+    },
+    {
+     "rid": "treat:12658220",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | CPAP/PEEP therapy"
+    },
+    {
+     "rid": "treat:15812220",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | tracheal suctioning"
+    },
+    {
+     "rid": "treat:14311802",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (40% to 60%) | 40-50%"
+    },
+    {
+     "rid": "treat:14574946",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (40% to 60%) | reduce FIO2 as tolerated"
+    },
+    {
+     "rid": "treat:16218293",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: bronchodilator | beta-agonist | albuterol (Proventil, Ventolin)"
+    },
+    {
+     "rid": "treat:11456442",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: pulmonary | consultations | Pulmonary/CCM consultation"
+    },
+    {
+     "rid": "treat:10915420",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: procedures | vascular catheter placement | central venous"
+    },
+    {
+     "rid": "treat:15543884",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | sedative agent | haloperidol"
+    },
+    {
+     "rid": "resp:8826306",
+     "time": "2100-01-01 02:20:00",
+     "item": "Respiratory Rate (Set): 10 insp/min"
+    },
+    {
+     "rid": "resp:8826310",
+     "time": "2100-01-01 02:20:00",
+     "item": "PEEP set: 7 cmH2O"
+    },
+    {
+     "rid": "resp:7968373",
+     "time": "2100-01-01 21:44:00",
+     "item": "PEEP set: 5 cmH2O"
+    }
+   ]
+  },
+  {
+   "atom_id": "E383358A2::06",
+   "claim_id": "E383358A2",
+   "claim_text": "Monitor blood glucose q4h and adjust subcutaneous insulin detemir dose as needed to maintain target range.",
+   "kind": "fact",
+   "text": "Subcutaneous insulin detemir is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that insulin detemir was ordered and scheduled to be administered at 03:00, but there is no record of it being administered at the decision time of 00:50. The statement that it is currently being given is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:16309467",
+     "time": "2100-01-01 03:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 03:00:00): Medication INSULIN DETEMIR 100 UNIT/ML SUB-Q 10 ML VIAL SubQ 2100"
+    }
+   ]
+  },
+  {
+   "atom_id": "E383358A3::09",
+   "claim_id": "E383358A3",
+   "claim_text": "Check INR in 12 hours and adjust warfarin (coumadin) dosing to keep INR within therapeutic range (2.0‑3.0).",
+   "kind": "fact",
+   "text": "Warfarin (coumadin) is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that warfarin (coumadin) was ordered and administered, but the current administration status is not clear. R7 shows that warfarin was administered, but R34 shows that it was still being administered at a later time. Therefore, the statement that warfarin is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:13092474",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: arrhythmias | anticoagulant administration | coumadin"
+    },
+    {
+     "rid": "treat:17268335",
+     "time": "2100-01-01 20:28:00",
+     "item": "Treatment documented: arrhythmias | anticoagulant administration | coumadin"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E383358A1::01",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue ventilator weaning protocol with daily assessment of spontaneous breathing trials.",
+   "kind": "action",
+   "text": "Continue ventilator weaning protocol.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "ventilator weaning protocol",
+   "conditional": false,
+   "treatment_class": "ventilation",
+   "class_level": "group",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (15 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:9517736",
+     "time": "2100-01-02 01:19:00",
+     "item": "ventilator setting",
+     "value": "45.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:9517738",
+     "time": "2100-01-02 01:19:00",
+     "item": "ventilator setting",
+     "value": "5.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:8491038",
+     "time": "2100-01-02 05:13:00",
+     "item": "ventilator setting",
+     "value": "45.0 %",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E383358A1::02",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue ventilator weaning protocol with daily assessment of spontaneous breathing trials.",
+   "kind": "action",
+   "text": "Assess daily for spontaneous breathing trials.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "spontaneous breathing trials",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:326049314",
+     "time": "2100-01-02 02:00:00",
+     "item": "respiratory rate",
+     "value": "23.0 insp/min"
+    },
+    {
+     "rid": "nurse:327949380",
+     "time": "2100-01-02 03:00:00",
+     "item": "respiratory rate",
+     "value": "21.0 insp/min"
+    },
+    {
+     "rid": "nurse:353487605",
+     "time": "2100-01-02 01:19:00",
+     "item": "SpO2",
+     "value": "99.0 %"
+    },
+    {
+     "rid": "nurse:362213996",
+     "time": "2100-01-02 02:00:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    },
+    {
+     "rid": "resp:9517736",
+     "time": "2100-01-02 01:19:00",
+     "item": "ventilator settings",
+     "value": "45.0 %"
+    },
+    {
+     "rid": "resp:9517738",
+     "time": "2100-01-02 01:19:00",
+     "item": "ventilator settings",
+     "value": "5.0 cmH2O"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x8, SpO2 x7, ventilator settings x15.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E383358A2::04",
+   "claim_id": "E383358A2",
+   "claim_text": "Monitor blood glucose q4h and adjust subcutaneous insulin detemir dose as needed to maintain target range.",
+   "kind": "action",
+   "text": "Monitor blood glucose q4h.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:96734282",
+     "time": "2100-01-02 13:27:00",
+     "item": "glucose",
+     "value": "79.0 mg/dl"
+    },
+    {
+     "rid": "nurse:341987544",
+     "time": "2100-01-02 13:27:00",
+     "item": "glucose",
+     "value": "79.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E383358A2::05",
+   "claim_id": "E383358A2",
+   "claim_text": "Monitor blood glucose q4h and adjust subcutaneous insulin detemir dose as needed to maintain target range.",
+   "kind": "action",
+   "text": "Adjust subcutaneous insulin detemir dose as needed to maintain target range.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin detemir",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E383358A3::07",
+   "claim_id": "E383358A3",
+   "claim_text": "Check INR in 12 hours and adjust warfarin (coumadin) dosing to keep INR within therapeutic range (2.0‑3.0).",
+   "kind": "action",
+   "text": "Check INR in 12 hours.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "INR",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:89798053",
+     "time": "2100-01-02 09:36:00",
+     "item": "INR",
+     "value": "2.0"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): INR x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E383358A3::08",
+   "claim_id": "E383358A3",
+   "claim_text": "Check INR in 12 hours and adjust warfarin (coumadin) dosing to keep INR within therapeutic range (2.0‑3.0).",
+   "kind": "action",
+   "text": "Adjust warfarin (coumadin) dosing to keep INR within therapeutic range (2.0-3.0).",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "warfarin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (therapeutic) action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The patient is currently on mechanical ventilation. The records show that the patient is weaning from mechanical ventilation (R5), and there are multiple treatment documents indicating ventilation and oxygenation therapy (R7, R8, R9, R10, R11), but there is no record of the patient currently being on mechanical ventilation. The PEEP set is 5 cmH2O (R4), but later records show it is set to 7 cmH2O,",
+    "Subcutaneous insulin detemir is currently being given. -- The records show that insulin detemir was ordered and scheduled to be administered at 03:00, but there is no record of it being administered at the decision time of 00:50. The statement that it is currently being given is not supported by the records.",
+    "Warfarin (coumadin) is currently being given. -- The records show that warfarin (coumadin) was ordered and administered, but the current administration status is not clear. R7 shows that warfarin was administered, but R34 shows that it was still being administered at a later time. Therefore, the statement that warfarin is currently being given is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 3,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

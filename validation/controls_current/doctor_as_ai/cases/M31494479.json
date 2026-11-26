@@ -1,0 +1,270 @@
+{
+ "case_id": "M31494479",
+ "decision_point": "2141-12-18 10:24:25",
+ "claims": [
+  "Continue Dextrose 5%.",
+  "Administer Insulin - Regular."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31494479A1::01",
+   "claim_id": "M31494479A1",
+   "claim_text": "Continue Dextrose 5%.",
+   "kind": "action",
+   "text": "Continue Dextrose 5%.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Dextrose 5%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31494479A1::02",
+   "claim_id": "M31494479A1",
+   "claim_text": "Continue Dextrose 5%.",
+   "kind": "fact",
+   "text": "Dextrose 5% is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M31494479A2::03",
+   "claim_id": "M31494479A2",
+   "claim_text": "Administer Insulin - Regular.",
+   "kind": "action",
+   "text": "Administer Insulin - Regular.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Insulin - Regular",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M31494479A1::02",
+   "claim_id": "M31494479A1",
+   "claim_text": "Continue Dextrose 5%.",
+   "kind": "fact",
+   "text": "Dextrose 5% is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R16 shows a Dextrose 5% infusion running at decision time, which directly supports the statement that Dextrose 5% is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:1951175:220949:2141-12-17 15:26:00",
+     "time": "2141-12-17 15:26:00",
+     "item": "Running at decision time (started 2141-12-17 15:26:00): Infusion/input Dextrose 5% at 10 mL/hour"
+    },
+    {
+     "rid": "inputevents:441011:220949:2141-12-18 09:30:00",
+     "time": "2141-12-18 09:30:00",
+     "item": "Infusion/input Dextrose 5% 50 ml (2141-12-18 09:30:00 to 2141-12-18 09:31:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M31494479A1::01",
+   "claim_id": "M31494479A1",
+   "claim_text": "Continue Dextrose 5%.",
+   "kind": "action",
+   "text": "Continue Dextrose 5%.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Dextrose 5%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2141-12-17 15:26:00",
+     "item": "Dextrose 5% infusion continuing at 10 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M31494479A2::03",
+   "claim_id": "M31494479A2",
+   "claim_text": "Administer Insulin - Regular.",
+   "kind": "action",
+   "text": "Administer Insulin - Regular.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "Insulin - Regular",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN223258",
+     "time": "2141-12-18 12:10:00",
+     "item": "Insulin - Regular infusion started at",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.1 mmol/L at 2141-12-17 13:32:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 3.1 mmol/L at 2141-12-17 13:32:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M31494479A1::01"
+   ]
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M31494479A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.1 mmol/L at 2141-12-17 13:32:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 3.1 mmol/L at 2141-12-17 13:32:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M31494479A1::01"
+   ]
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M31494479A2::03"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 3.1 mmol/L at 2141-12-17 13:32:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 6,
+ "observation_window_hours": 3.9,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 1,
+  "treatments_omitted": 0,
+  "recall_vital": 1.0,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": 1.0,
+  "recall_okay_at3": 1.0,
+  "recall_all_at3": 1.0
+ }
+}

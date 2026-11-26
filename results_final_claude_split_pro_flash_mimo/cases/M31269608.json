@@ -1,0 +1,746 @@
+{
+ "case_id": "M31269608",
+ "decision_point": "2154-04-25 23:03:44",
+ "claims": [
+  "Continue NaCl 0.9% infusion at 50 mL/hour.",
+  "Monitor blood glucose given elevated fingerstick values (182-213 mg/dL).",
+  "Assess and manage pain given reported severe pain (8/10)."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31269608A1::01",
+   "claim_id": "M31269608A1",
+   "claim_text": "Continue NaCl 0.9% infusion at 50 mL/hour.",
+   "kind": "action",
+   "text": "Continue NaCl 0.9% infusion at 50 mL/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "NaCl 0.9%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31269608A1::02",
+   "claim_id": "M31269608A1",
+   "claim_text": "Continue NaCl 0.9% infusion at 50 mL/hour.",
+   "kind": "fact",
+   "text": "NaCl 0.9% is currently infusing at 50 mL/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M31269608A2::03",
+   "claim_id": "M31269608A2",
+   "claim_text": "Monitor blood glucose given elevated fingerstick values (182-213 mg/dL).",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A2::04",
+   "claim_id": "M31269608A2",
+   "claim_text": "Monitor blood glucose given elevated fingerstick values (182-213 mg/dL).",
+   "kind": "fact",
+   "text": "Fingerstick glucose values are elevated at 182-213 mg/dL.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M31269608A3::05",
+   "claim_id": "M31269608A3",
+   "claim_text": "Assess and manage pain given reported severe pain (8/10).",
+   "kind": "action",
+   "text": "Assess pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31269608A3::06",
+   "claim_id": "M31269608A3",
+   "claim_text": "Assess and manage pain given reported severe pain (8/10).",
+   "kind": "action",
+   "text": "Manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "other",
+   "target": "pain management",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M31269608A3::07",
+   "claim_id": "M31269608A3",
+   "claim_text": "Assess and manage pain given reported severe pain (8/10).",
+   "kind": "fact",
+   "text": "Severe pain of 8/10 is reported.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M31269608A1::02",
+   "claim_id": "M31269608A1",
+   "claim_text": "Continue NaCl 0.9% infusion at 50 mL/hour.",
+   "kind": "fact",
+   "text": "NaCl 0.9% is currently infusing at 50 mL/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R46 shows an infusion of NaCl 0.9% at 50 mL/hour that was running at the decision time, directly supporting the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "deepseek-v4.1-flash:cloud": "supported",
+     "mimo-v2.6-pro:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:5704964:225158:2154-04-25 18:30:00",
+     "time": "2154-04-25 18:30:00",
+     "item": "Running at decision time (started 2154-04-25 18:30:00): Infusion/input NaCl 0.9% at 50 mL/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "M31269608A2::04",
+   "claim_id": "M31269608A2",
+   "claim_text": "Monitor blood glucose given elevated fingerstick values (182-213 mg/dL).",
+   "kind": "fact",
+   "text": "Fingerstick glucose values are elevated at 182-213 mg/dL.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:220835",
+     "time": "2154-04-24 21:30:00",
+     "item": "Glucose",
+     "value": 143.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:220887",
+     "time": "2154-04-25 03:59:00",
+     "item": "Glucose",
+     "value": 174.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 174 mg/dL at 2154-04-25 03:59:00 (reference 70.0 to 100.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31269608A3::07",
+   "claim_id": "M31269608A3",
+   "claim_text": "Assess and manage pain given reported severe pain (8/10).",
+   "kind": "fact",
+   "text": "Severe pain of 8/10 is reported.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The record R45 at 22:00 on 2154-04-25 documents 'Pain Level: Severe (8)', which directly supports the statement that severe pain of 8/10 is reported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "deepseek-v4.1-flash:cloud": "supported",
+     "mimo-v2.6-pro:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:31269608:223791:2154-04-25 22:00:00",
+     "time": "2154-04-25 22:00:00",
+     "item": "Pain Level: Severe (8)"
+    },
+    {
+     "rid": "chart:31269608:223781:2154-04-25 22:00:00",
+     "time": "2154-04-25 22:00:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "chart:31269608:223783:2154-04-25 22:00:00",
+     "time": "2154-04-25 22:00:00",
+     "item": "Pain Location: Back"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M31269608A1::01",
+   "claim_id": "M31269608A1",
+   "claim_text": "Continue NaCl 0.9% infusion at 50 mL/hour.",
+   "kind": "action",
+   "text": "Continue NaCl 0.9% infusion at 50 mL/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "NaCl 0.9%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2154-04-25 18:30:00",
+     "item": "NaCl 0.9% infusion continuing at 50 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158#2",
+     "time": "2154-04-26 07:15:00",
+     "item": "NaCl 0.9% infusion started at 49.997417449951172 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M31269608A2::03",
+   "claim_id": "M31269608A2",
+   "claim_text": "Monitor blood glucose given elevated fingerstick values (182-213 mg/dL).",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2154-04-26 13:00:00:596640",
+     "time": "2154-04-26 13:00:00",
+     "item": "glucose",
+     "value": "152"
+    },
+    {
+     "rid": "chart:220621:2154-04-26 08:01:00:599818",
+     "time": "2154-04-26 08:01:00",
+     "item": "glucose",
+     "value": "150 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A3::05",
+   "claim_id": "M31269608A3",
+   "claim_text": "Assess and manage pain given reported severe pain (8/10).",
+   "kind": "action",
+   "text": "Assess pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223791:2154-04-26 22:47:00:602494",
+     "time": "2154-04-26 22:47:00",
+     "item": "pain score",
+     "value": "Mild"
+    },
+    {
+     "rid": "chart:224409:2154-04-26 22:47:00:602499",
+     "time": "2154-04-26 22:47:00",
+     "item": "pain score",
+     "value": "None to Mild"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31269608A3::06",
+   "claim_id": "M31269608A3",
+   "claim_text": "Assess and manage pain given reported severe pain (8/10).",
+   "kind": "action",
+   "text": "Manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "other",
+   "target": "pain management",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX82723694",
+     "time": "2154-04-26 07:00:00",
+     "item": "Ordered: Acetaminophen IV 1000 mg IV",
+     "class": "non_opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia / non-opioid analgesia after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.8 mg/dL at 2154-04-25 03:59:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 7.8 mg/dL at 2154-04-25 03:59:00 (reference 8.4 to 10.3) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2154-04-25 03:59:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "potassium",
+     "direction": "low",
+     "reason": "Latest potassium 3 mEq/L at 2154-04-25 03:59:00 (reference 3.3 to 5.1) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "LevETIRAcetam"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Enalapril Maleate",
+    "HydrALAZINE",
+    "Hydralazine"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CT scan",
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Atenolol",
+    "Labetalol"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dexamethasone"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M31269608A1::01"
+   ]
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M31269608A3::06"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.8 mg/dL at 2154-04-25 03:59:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 7.8 mg/dL at 2154-04-25 03:59:00 (reference 8.4 to 10.3) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2154-04-25 03:59:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "potassium",
+     "direction": "low",
+     "reason": "Latest potassium 3 mEq/L at 2154-04-25 03:59:00 (reference 3.3 to 5.1) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antiepileptic",
+   "name": "antiepileptics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "LevETIRAcetam"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Enalapril Maleate",
+    "HydrALAZINE",
+    "Hydralazine"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CT scan",
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Atenolol",
+    "Labetalol"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dexamethasone"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M31269608A1::01"
+   ]
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M31269608A3::06"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "calcium",
+   "direction": "low",
+   "reason": "Latest calcium 7.8 mg/dL at 2154-04-25 03:59:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "name": "calcium",
+   "treated_by": [
+    "calcium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "potassium",
+   "direction": "low",
+   "reason": "Latest potassium 3 mEq/L at 2154-04-25 03:59:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "name": "potassium",
+   "treated_by": [
+    "potassium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 55,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 2,
+  "treatments_omitted": 9,
+  "recall_vital": 0.0,
+  "recall_okay": 0.25,
+  "recall_all": 0.182,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.25,
+  "recall_all_at3": 0.182
+ }
+}

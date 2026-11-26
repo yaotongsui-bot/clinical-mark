@@ -1,0 +1,280 @@
+{
+ "case_id": "E3223097",
+ "decision_point": "2100-01-02 22:45:00",
+ "claims": [
+  "Monitor patient's blood pressure and adjust fluid administration as needed.",
+  "Continue pain management with IV morphine as needed.",
+  "Assess for signs of hypovolemia and consider fluid resuscitation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3223097A1::01",
+   "claim_id": "E3223097A1",
+   "claim_text": "Monitor patient's blood pressure and adjust fluid administration as needed.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3223097A1::02",
+   "claim_id": "E3223097A1",
+   "claim_text": "Monitor patient's blood pressure and adjust fluid administration as needed.",
+   "kind": "action",
+   "text": "Adjust fluid administration as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "fluid administration",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3223097A2::03",
+   "claim_id": "E3223097A2",
+   "claim_text": "Continue pain management with IV morphine as needed.",
+   "kind": "action",
+   "text": "Continue pain management with IV morphine as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV morphine",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3223097A2::04",
+   "claim_id": "E3223097A2",
+   "claim_text": "Continue pain management with IV morphine as needed.",
+   "kind": "fact",
+   "text": "IV morphine is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3223097A3::05",
+   "claim_id": "E3223097A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypovolemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3223097A3::06",
+   "claim_id": "E3223097A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation.",
+   "kind": "action",
+   "text": "Consider fluid resuscitation.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3223097A2::04",
+   "claim_id": "E3223097A2",
+   "claim_text": "Continue pain management with IV morphine as needed.",
+   "kind": "fact",
+   "text": "IV morphine is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records contain an active order for IV morphine (R15), but no administration record of morphine within the 24 hours before the decision time. Therefore, the statement that IV morphine is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:108267355",
+     "time": "2100-01-02 01:00:00",
+     "item": "Order: MORPHINE INJ IV PUSH Q2H PRN (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3223097A1::01",
+   "claim_id": "E3223097A1",
+   "claim_text": "Monitor patient's blood pressure and adjust fluid administration as needed.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2228900220",
+     "time": "2100-01-03 01:00:00",
+     "item": "systolic BP",
+     "value": "92.0 mmHg"
+    },
+    {
+     "rid": "nurse:2264743610",
+     "time": "2100-01-03 01:30:00",
+     "item": "systolic BP",
+     "value": "117.0 mmHg"
+    },
+    {
+     "rid": "nurse:2228900222",
+     "time": "2100-01-03 01:00:00",
+     "item": "mean arterial pressure",
+     "value": "56.0 mmHg"
+    },
+    {
+     "rid": "nurse:2264743612",
+     "time": "2100-01-03 01:30:00",
+     "item": "mean arterial pressure",
+     "value": "70.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 7.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x3, mean arterial pressure x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3223097A1::02",
+   "claim_id": "E3223097A1",
+   "claim_text": "Monitor patient's blood pressure and adjust fluid administration as needed.",
+   "kind": "action",
+   "text": "Adjust fluid administration as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "fluid administration",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 7.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3223097A2::03",
+   "claim_id": "E3223097A2",
+   "claim_text": "Continue pain management with IV morphine as needed.",
+   "kind": "action",
+   "text": "Continue pain management with IV morphine as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV morphine",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia action recorded in the 7.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3223097A3::05",
+   "claim_id": "E3223097A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypovolemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3223097A3::06",
+   "claim_id": "E3223097A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation.",
+   "kind": "action",
+   "text": "Consider fluid resuscitation.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 7.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 7.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "IV morphine is currently being given. -- The records contain an active order for IV morphine (R15), but no administration record of morphine within the 24 hours before the decision time. Therefore, the statement that IV morphine is currently being given is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

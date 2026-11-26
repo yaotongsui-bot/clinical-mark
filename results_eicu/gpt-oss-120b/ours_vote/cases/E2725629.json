@@ -1,0 +1,278 @@
+{
+ "case_id": "E2725629",
+ "decision_point": "2100-01-02 20:35:00",
+ "claims": [
+  "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+  "Obtain a repeat troponin level in 6 hours to assess trend of myocardial injury.",
+  "Schedule a transthoracic echocardiogram to evaluate cardiac function and rule out new wall motion abnormalities."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2725629A1::01",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+   "kind": "action",
+   "text": "Continue the amiodarone infusion.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "amiodarone infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2725629A1::02",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+   "kind": "fact",
+   "text": "Amiodarone infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E2725629A1::03",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+   "kind": "fact",
+   "text": "Supraventricular tachyarrhythmia is present.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E2725629A2::04",
+   "claim_id": "E2725629A2",
+   "claim_text": "Obtain a repeat troponin level in 6 hours to assess trend of myocardial injury.",
+   "kind": "action",
+   "text": "Obtain a repeat troponin level in 6 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "troponin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E2725629A2::05",
+   "claim_id": "E2725629A2",
+   "claim_text": "Obtain a repeat troponin level in 6 hours to assess trend of myocardial injury.",
+   "kind": "fact",
+   "text": "Myocardial injury is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E2725629A3::06",
+   "claim_id": "E2725629A3",
+   "claim_text": "Schedule a transthoracic echocardiogram to evaluate cardiac function and rule out new wall motion abnormalities.",
+   "kind": "action",
+   "text": "Schedule a transthoracic echocardiogram.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "transthoracic echocardiogram",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2725629A1::02",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+   "kind": "fact",
+   "text": "Amiodarone infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The record R50 shows an Amiodarone infusion running at the decision time, which supports the statement that the patient is currently receiving Amiodarone.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Amiodarone ():1277",
+     "time": "2100-01-02 17:52:00",
+     "item": "Running at decision time (started 2100-01-02 17:52:00): Infusion/input Amiodarone at 68"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2725629A1::03",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+   "kind": "fact",
+   "text": "Supraventricular tachyarrhythmia is present.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_addressed",
+   "reason": "The records show an ongoing amiodarone infusion but do not mention or otherwise establish supraventricular tachyarrhythmia.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "E2725629A2::05",
+   "claim_id": "E2725629A2",
+   "claim_text": "Obtain a repeat troponin level in 6 hours to assess trend of myocardial injury.",
+   "kind": "fact",
+   "text": "Myocardial injury is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_addressed",
+   "reason": "The records contain only heart-rate measurements and do not mention myocardial injury, troponin elevation, or an ischemic diagnosis.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2725629A1::01",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+   "kind": "action",
+   "text": "Continue the amiodarone infusion.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "amiodarone infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 23.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2725629A2::04",
+   "claim_id": "E2725629A2",
+   "claim_text": "Obtain a repeat troponin level in 6 hours to assess trend of myocardial injury.",
+   "kind": "action",
+   "text": "Obtain a repeat troponin level in 6 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "troponin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2725629A3::06",
+   "claim_id": "E2725629A3",
+   "claim_text": "Schedule a transthoracic echocardiogram to evaluate cardiac function and rule out new wall motion abnormalities.",
+   "kind": "action",
+   "text": "Schedule a transthoracic echocardiogram.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "transthoracic echocardiogram",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 23.9 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 23.9,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 2,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.667,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Supraventricular tachyarrhythmia is present. -- The records show an ongoing amiodarone infusion but do not mention or otherwise establish supraventricular tachyarrhythmia.",
+    "Myocardial injury is present. -- The records contain only heart-rate measurements and do not mention myocardial injury, troponin elevation, or an ischemic diagnosis."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

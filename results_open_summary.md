@@ -9,6 +9,7 @@
 | not_supported facts per case | 0.66 (0.54 to 0.78) | 0.75 | 0.58 | 0.65 | 0.21 (0.13 to 0.31) |
 | Cases with a not_supported fact | 45.1% (38.8% to 52.2%) | 48.2% | 42.4% | 44.7% | 20.0% (11.8% to 29.4%) |
 | Treatment agreement (strict) | 69.6% (63.8% to 74.4%) | 73.3% | 70.6% | 64.7% | 81.9% (73.1% to 90.1%) |
+| Treatment agreement (partial counts as agreeing) | 72.6% (66.9% to 77.7%) | 75.7% | 74.0% | 68.2% | 81.9% (73.1% to 90.1%) |
 | Vital recall | 38.3% (33.3% to 43.3%) | 38.8% | 39.3% | 36.9% | 19.6% (15.5% to 24.7%) |
 | Vital recall, first 3 suggestions | 18.8% (16.0% to 21.7%) | 18.2% | 17.8% | 20.6% | 19.6% (15.5% to 24.7%) |
 | All recall | 30.8% (28.2% to 33.7%) | 29.8% | 31.8% | 30.8% | 12.8% (11.0% to 15.0%) |

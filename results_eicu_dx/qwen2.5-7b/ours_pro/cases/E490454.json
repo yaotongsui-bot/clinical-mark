@@ -1,0 +1,266 @@
+{
+ "case_id": "E490454",
+ "decision_point": "2100-01-02 23:35:00",
+ "claims": [
+  "Continue non-invasive ventilation with a BiPAP/CPAP mask.",
+  "Monitor respiratory rate and oxygen saturation.",
+  "Administer IV furosemide for fluid management."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E490454A1::01",
+   "claim_id": "E490454A1",
+   "claim_text": "Continue non-invasive ventilation with a BiPAP/CPAP mask.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation with a BiPAP/CPAP mask.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E490454A1::02",
+   "claim_id": "E490454A1",
+   "claim_text": "Continue non-invasive ventilation with a BiPAP/CPAP mask.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation with a BiPAP/CPAP mask.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E490454A2::03",
+   "claim_id": "E490454A2",
+   "claim_text": "Monitor respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E490454A2::04",
+   "claim_id": "E490454A2",
+   "claim_text": "Monitor respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E490454A3::05",
+   "claim_id": "E490454A3",
+   "claim_text": "Administer IV furosemide for fluid management.",
+   "kind": "action",
+   "text": "Administer IV furosemide for fluid management.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E490454A1::02",
+   "claim_id": "E490454A1",
+   "claim_text": "Continue non-invasive ventilation with a BiPAP/CPAP mask.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation with a BiPAP/CPAP mask.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The most recent O2 Delivery Device record before the decision time (R49, at 23:20) shows a Bipap mask (charted: BiPAP/CPAP), indicating the patient is currently on non-invasive ventilation with a BiPAP/CPAP mask.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:410831358",
+     "time": "2100-01-02 23:20:00",
+     "item": "O2 Delivery Device(s): Bipap mask (charted: BiPAP/CPAP)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E490454A1::01",
+   "claim_id": "E490454A1",
+   "claim_text": "Continue non-invasive ventilation with a BiPAP/CPAP mask.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation with a BiPAP/CPAP mask.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (28 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:11328118",
+     "time": "2100-01-03 04:09:00",
+     "item": "ventilator setting",
+     "value": "100.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:9978432",
+     "time": "2100-01-03 04:38:00",
+     "item": "ventilator setting",
+     "value": "100.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:9978435",
+     "time": "2100-01-03 04:38:00",
+     "item": "ventilator setting",
+     "value": "10.0 cmH2O",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E490454A2::03",
+   "claim_id": "E490454A2",
+   "claim_text": "Monitor respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:429483737",
+     "time": "2100-01-03 02:30:00",
+     "item": "respiratory rate",
+     "value": "20.0 insp/min"
+    },
+    {
+     "rid": "nurse:393755799",
+     "time": "2100-01-03 03:00:00",
+     "item": "respiratory rate",
+     "value": "19.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x25.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E490454A2::04",
+   "claim_id": "E490454A2",
+   "claim_text": "Monitor respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:420573883",
+     "time": "2100-01-03 02:30:00",
+     "item": "SpO2",
+     "value": "94.0 %"
+    },
+    {
+     "rid": "nurse:438020135",
+     "time": "2100-01-03 03:00:00",
+     "item": "SpO2",
+     "value": "96.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x27.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E490454A3::05",
+   "claim_id": "E490454A3",
+   "claim_text": "Administer IV furosemide for fluid management.",
+   "kind": "action",
+   "text": "Administer IV furosemide for fluid management.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No diuretics action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,122 @@
+# E978037   T = 2100-01-02 04:37:00   records before T: 608
+ICU stay 978037 (Cardiac ICU; Male, age 63; admission diagnosis: Bleeding, lower GI).
+
+## Atoms
+deepseek-v4.1-flash|E978037A1::03 [observed] Hypotension is present.   <- Continue monitoring blood pressure and heart rate closely given recent hypotension and tachycardia.
+deepseek-v4.1-flash|E978037A1::04 [observed] Tachycardia is present.   <- Continue monitoring blood pressure and heart rate closely given recent hypotension and tachycardia.
+deepseek-v4.1-flash|E978037A2::07 [observed] Hyperglycemia is present.   <- Monitor blood glucose and administer insulin per sliding scale or scheduled orders for hyperglycemia.
+deepseek-v4.1-flash|E978037A3::10 [observed] Pain score is 6.   <- Assess and manage pain with PRN analgesics as ordered, given reported pain score of 6.
+gpt-oss-120b|E978037A1::03 [presupposition] Norepinephrine infusion is currently being given.   <- Increase norepinephrine infusion to maintain MAP ≥65 mmHg
+gpt-oss-120b|E978037A2::06 [judgment] Ongoing bleeding is present.   <- Obtain repeat hemoglobin and hematocrit in 2 hours to assess ongoing bleeding
+gpt-oss-120b|E978037A3::08 [presupposition] Arterial line is currently in place.   <- Continue close hemodynamic monitoring with arterial line and repeat lactate in 4 hours
+qwen2.5-7b|E978037A2::04 [presupposition] Intravenous fluid therapy with normal saline is currently being given.   <- Continue intravenous fluid therapy with normal saline.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 03:17:00): Medication Sodium Chloride 0.9% 1,000 mL IV
+  Running at decision time (scheduled order started 2100-01-01 09:43:00): Medication <<norepinephrine 4 mg/4 mL Inj IV
+  Running at decision time (scheduled order started 2100-01-01 09:48:00): Medication Sodium Chloride 0.9% 1,000 mL IV
+  Running at decision time (scheduled order started 2100-01-01 10:00:00): Medication levothyroxine PO 1xDaily
+  Running at decision time (scheduled order started 2100-01-01 13:00:00): Medication Lasix PO 1xDaily
+  Running at decision time (scheduled order started 2100-01-01 13:00:00): Medication Protonix IV 1xDaily
+  Running at decision time (scheduled order started 2100-01-01 20:30:00): Medication NovoLOG Subcut 3xDaily ac
+  Running at decision time (scheduled order started 2100-01-01 21:12:00): Medication ASPART insulin MISC Pyxis
+  Running at decision time (scheduled order started 2100-01-02 01:00:00): Medication NovoLOG Subcut 1xDaily hs
+  Running at decision time (scheduled order started 2100-01-02 01:55:00): Medication ASPART insulin MISC Pyxis
+
+## PRN orders
+  01-01 03:21 Order: Ativan PO q2hr PRN (active at decision time)
+  01-01 03:21 Order: morPHINe IV q4hr PRN (active at decision time)
+  01-01 03:21 Order: Tylenol Rectal q4hr PRN (active at decision time)
+  01-01 03:21 Order: morPHINe IV q2hr PRN (active at decision time)
+  01-01 03:21 Order: morPHINe IV q2hr PRN (active at decision time)
+  01-01 03:21 Order: Ativan IV q2hr PRN (active at decision time)
+  01-01 03:21 Order: morPHINe IV q2hr PRN (active at decision time)
+  01-01 03:21 Order: Zofran IV q6hr PRN (active at decision time)
+  01-01 03:21 Order: Nitrostat SL q5min PRN (active at decision time)
+  01-01 03:25 Order: docusate sodium PO 2xDaily PRN (active at decision time)
+  01-01 03:26 Order: zolpidem PO 1xDaily hs PRN (active at decision time)
+  01-01 09:29 Order: albuterol NEB rtq4h PRN (active at decision time)
+  01-01 19:42 Order: Dextrose 50% IV as directed PRN (active at decision time)
+  01-01 19:42 Order: Dextrose 50% IV as directed PRN (active at decision time)
+  01-01 19:42 Order: GlucaGen IM as directed PRN (active at decision time)
+  01-01 19:42 Order: Dextrose 50% IV as directed PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Norepinephrine at 10 mcg/min (2100-01-01 09:59:00 to 2100-01-01 16:00:00)
+  Infusion/input Norepinephrine at 5 mcg/min (2100-01-01 16:00:00 to 2100-01-01 16:30:00)
+  Infusion/input Norepinephrine at 3 mcg/min (2100-01-01 16:30:00 to 2100-01-01 17:15:00)
+  Infusion/input Octreotide at 50 mcg/hour (2100-01-01 17:30:00 to 2100-01-01 17:30:00)
+
+## Medications given once or ended before T
+  Given once: NaCl 0.9% Bolus IV Once (2100-01-01 02:38:00)
+  Medication Sodium Chloride 0.9% 1,000 mL IV (2100-01-01 03:21:00 to 2100-01-01 09:48:00)
+
+## Laboratory (newest first, up to 5)
+  -bands: 01-01 02:20 11 %
+  -lymphs: 01-01 02:20 7 %
+  -monos: 01-01 02:20 9 %
+  -polys: 01-01 02:20 73 %
+  Alanine Aminotransferase (ALT): 01-01 02:20 96 IU/L
+  Albumin: 01-01 02:20 1.8 g/dL
+  Alkaline Phosphatase: 01-01 02:20 137 IU/L
+  Anion Gap: 01-01 22:05 11; 01-01 02:20 15
+  Asparate Aminotransferase (AST): 01-01 02:20 174 IU/L
+  Bicarbonate: 01-01 22:05 20 mmol/L; 01-01 02:20 19 mmol/L
+  Bilirubin, Total: 01-01 02:20 2 mg/dL
+  CRP: 01-01 08:50 3.04 mg/dL
+  Calcium, Total: 01-01 22:05 7.7 mg/dL; 01-01 02:20 7.5 mg/dL
+  Chloride: 01-01 22:05 96 mmol/L; 01-01 02:20 95 mmol/L
+  Creatinine: 01-01 22:05 2.32 mg/dL; 01-01 02:20 2.67 mg/dL
+  Free Calcium: 01-01 08:50 4.1 mg/dL
+  Glucose: 01-01 22:05 224 mg/dL; 01-01 02:20 190 mg/dL
+  Glucose finger stick: 01-02 01:51 221 mg/dL; 01-01 19:32 206 mg/dL; 01-01 14:00 161 mg/dL; 01-01 10:07 127 mg/dL; 01-01 04:47 163 mg/dL
+  Hematocrit: 01-01 22:05 29 %; 01-01 15:53 29.8 %; 01-01 08:50 29.6 %; 01-01 02:20 25.1 %
+  Hemoglobin: 01-01 22:05 9.5 g/dL; 01-01 15:53 9.9 g/dL; 01-01 08:50 9.6 g/dL; 01-01 02:20 8.2 g/dL
+  INR(PT): 01-01 08:50 1.9; 01-01 02:20 1.9
+  Lactate: 01-01 08:50 2.1 mmol/L
+  MCH: 01-01 08:50 30.1 pg; 01-01 02:20 30.4 pg
+  MCHC: 01-01 08:50 32.3 g/dL; 01-01 02:20 32.6 g/dL
+  MCV: 01-01 08:50 93 fL; 01-01 02:20 93.2 fL
+  MPV: 01-01 08:50 8 fL; 01-01 02:20 7.9 fL
+  Magnesium: 01-01 08:50 1.9 mg/dL
+  PT: 01-01 08:50 21.5 sec; 01-01 02:20 21.3 sec
+  PTT: 01-01 08:50 31 sec
+  Phosphate: 01-01 08:50 5.9 mg/dL
+  Platelet Count: 01-01 08:50 181 th/uL; 01-01 02:20 186 th/uL
+  Potassium: 01-01 22:05 6 mmol/L; 01-01 02:20 5.5 mmol/L
+  RBC: 01-01 08:50 3.19 mill/uL; 01-01 02:20 2.69 mill/uL
+  RDW: 01-01 08:50 15.9 %; 01-01 02:20 16.9 %
+  Sodium: 01-01 22:05 127 mmol/L; 01-01 02:20 129 mmol/L
+  Urea Nitrogen: 01-01 22:05 62 mg/dL; 01-01 02:20 56 mg/dL
+  White Blood Cells: 01-01 08:50 14.5 th/uL; 01-01 02:20 13.5 th/uL
+  ammonia: 01-01 03:45 65 umol/L
+  total protein: 01-01 02:20 4.5 g/dL
+  troponin - I: 01-01 08:50 0.018 ng/mL; 01-01 02:20 0.016 ng/mL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Delirium Scale/Score Delirium Scale: CAM-ICU @01-02 00:00
+  Delirium Scale/Score Delirium Score: No @01-02 00:00
+  Glasgow coma score Eyes: 4 @01-02 04:00   24h 4-4 (n=7)
+  Glasgow coma score GCS Total: 15 @01-02 04:00   24h 14-15 (n=7)
+  Glasgow coma score Motor: 6 @01-02 04:00   24h 6-6 (n=7)
+  Glasgow coma score Verbal: 5 @01-02 04:00   24h 4-5 (n=7)
+  Heart Rate: 98 bpm @01-02 04:00   24h 93-114 (n=56)
+  Non Invasive Blood Pressure diastolic: 66 mmHg @01-02 04:00   24h 24-81 (n=56)
+  Non Invasive Blood Pressure mean: 74 mmHg @01-02 04:00   24h 38-88 (n=56)
+  Non Invasive Blood Pressure systolic: 100 mmHg @01-02 04:00   24h 60-122 (n=56)
+  O2 L/%: 2 @01-02 04:00   24h 2-2 (n=28)
+  O2 saturation pulseoxymetry: 97 % @01-02 04:00   24h 93-100 (n=50)
+  Pain Level: 6 @01-02 02:16   24h 0-7 (n=11)
+  Pain Score/Goal Pain Goal: 3 @01-02 02:16   24h 0-3 (n=7)
+  Respiratory Rate: 13 insp/min @01-02 04:00   24h 7-36 (n=56)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-02 03:16
+  Sedation Scale/Score/Goal Sedation Score: -1 @01-02 03:16   24h -2-0 (n=19)
+  Temperature Fahrenheit: 97.3 F @01-02 00:00   24h 96.8-98.3 (n=7)
+
+## Treatments documented
+  01-01 05:28 pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)
+  01-01 05:28 pulmonary | consultations | Pulmonary/CCM consultation
+  01-01 05:28 cardiovascular | intravenous fluid | normal saline administration
+  01-01 05:28 cardiovascular | intravenous fluid | blood product administration
+
+## Microbiology

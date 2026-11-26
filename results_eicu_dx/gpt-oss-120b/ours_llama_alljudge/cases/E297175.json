@@ -1,0 +1,411 @@
+{
+ "case_id": "E297175",
+ "decision_point": "2100-01-02 01:21:00",
+ "claims": [
+  "Obtain a repeat arterial blood gas to assess ongoing ventilation status and guide weaning from non‑invasive ventilation.",
+  "Continue current non‑invasive ventilation settings and monitor respiratory parameters closely for the next 4–6 hours.",
+  "Order a chest radiograph to evaluate for possible infiltrates or atelectasis given persistent respiratory symptoms."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E297175A1::01",
+   "claim_id": "E297175A1",
+   "claim_text": "Obtain a repeat arterial blood gas to assess ongoing ventilation status and guide weaning from non‑invasive ventilation.",
+   "kind": "action",
+   "text": "Obtain a repeat arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E297175A1::02",
+   "claim_id": "E297175A1",
+   "claim_text": "Obtain a repeat arterial blood gas to assess ongoing ventilation status and guide weaning from non‑invasive ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E297175A2::03",
+   "claim_id": "E297175A2",
+   "claim_text": "Continue current non‑invasive ventilation settings and monitor respiratory parameters closely for the next 4–6 hours.",
+   "kind": "action",
+   "text": "Continue current non-invasive ventilation settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E297175A2::04",
+   "claim_id": "E297175A2",
+   "claim_text": "Continue current non‑invasive ventilation settings and monitor respiratory parameters closely for the next 4–6 hours.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters closely for the next 4-6 hours.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "E297175A3::05",
+   "claim_id": "E297175A3",
+   "claim_text": "Order a chest radiograph to evaluate for possible infiltrates or atelectasis given persistent respiratory symptoms.",
+   "kind": "action",
+   "text": "Order a chest radiograph.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "chest radiograph",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E297175A3::06",
+   "claim_id": "E297175A3",
+   "claim_text": "Order a chest radiograph to evaluate for possible infiltrates or atelectasis given persistent respiratory symptoms.",
+   "kind": "fact",
+   "text": "Persistent respiratory symptoms are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "persistent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E297175A2::P01",
+   "claim_id": "E297175A2",
+   "claim_text": "Continue current non‑invasive ventilation settings and monitor respiratory parameters closely for the next 4–6 hours.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation (BiPAP/CPAP).",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E297175A1::02",
+   "claim_id": "E297175A1",
+   "claim_text": "Obtain a repeat arterial blood gas to assess ongoing ventilation status and guide weaning from non‑invasive ventilation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The patient is currently on non-invasive ventilation, as documented in the treatment records at 02:42, 15:28, 15:31, and 15:33. The PEEP setting of 5 cmH2O at 02:13 and the recent measurements of non-invasive blood pressure also support this statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:8940918",
+     "time": "2100-01-01 02:42:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:9267018",
+     "time": "2100-01-01 15:28:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:10140558",
+     "time": "2100-01-01 15:31:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:8283864",
+     "time": "2100-01-01 15:33:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    }
+   ]
+  },
+  {
+   "atom_id": "E297175A3::06",
+   "claim_id": "E297175A3",
+   "claim_text": "Order a chest radiograph to evaluate for possible infiltrates or atelectasis given persistent respiratory symptoms.",
+   "kind": "fact",
+   "text": "Persistent respiratory symptoms are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "persistent",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient's respiratory rate has been fluctuating, with values ranging from 15 to 26 breaths per minute. However, there is no evidence to support the statement that persistent respiratory symptoms are present. The records do not mention any symptoms or measurements that would indicate persistent respiratory symptoms.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:309414053",
+     "time": "2100-01-01 02:00:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:313111342",
+     "time": "2100-01-01 05:00:00",
+     "item": "Respiratory Rate: 24 insp/min"
+    },
+    {
+     "rid": "nurse:305007187",
+     "time": "2100-01-01 09:00:00",
+     "item": "Respiratory Rate: 26 insp/min"
+    },
+    {
+     "rid": "nurse:313545694",
+     "time": "2100-01-01 12:00:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:311172273",
+     "time": "2100-01-01 13:00:00",
+     "item": "Respiratory Rate: 15 insp/min"
+    },
+    {
+     "rid": "nurse:307324571",
+     "time": "2100-01-01 17:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "E297175A2::P01",
+   "claim_id": "E297175A2",
+   "claim_text": "Continue current non‑invasive ventilation settings and monitor respiratory parameters closely for the next 4–6 hours.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation (BiPAP/CPAP).",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_supported",
+   "reason": "The records show that PEEP was set to 5 cmH2O at 02:13, and that it was still 5 cmH2O at 13:16. However, the statement says that the patient is currently on non-invasive ventilation (BiPAP/CPAP), which implies that the PEEP setting is not 5 cmH2O. Additionally, the records show that the patient was on non-invasive ventilation at 15:28 and 15:31, but the statement says that the patient is currently",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "resp:6438713",
+     "time": "2100-01-01 02:13:00",
+     "item": "PEEP set: 5 cmH2O"
+    },
+    {
+     "rid": "lab:81263421",
+     "time": "2100-01-01 13:16:00",
+     "item": "PEEP: 5"
+    },
+    {
+     "rid": "treat:10140558",
+     "time": "2100-01-01 15:31:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:8283864",
+     "time": "2100-01-01 15:33:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E297175A1::01",
+   "claim_id": "E297175A1",
+   "claim_text": "Obtain a repeat arterial blood gas to assess ongoing ventilation status and guide weaning from non‑invasive ventilation.",
+   "kind": "action",
+   "text": "Obtain a repeat arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 15.6 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E297175A2::03",
+   "claim_id": "E297175A2",
+   "claim_text": "Continue current non‑invasive ventilation settings and monitor respiratory parameters closely for the next 4–6 hours.",
+   "kind": "action",
+   "text": "Continue current non-invasive ventilation settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (1 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:6224157",
+     "time": "2100-01-02 01:30:00",
+     "item": "ventilator setting",
+     "value": "36.0 %",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E297175A2::04",
+   "claim_id": "E297175A2",
+   "claim_text": "Continue current non‑invasive ventilation settings and monitor respiratory parameters closely for the next 4–6 hours.",
+   "kind": "action",
+   "text": "Monitor respiratory parameters closely for the next 4-6 hours.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory parameters",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:313733229",
+     "time": "2100-01-02 05:00:00",
+     "item": "respiratory rate",
+     "value": "24.0 insp/min"
+    },
+    {
+     "rid": "nurse:305228969",
+     "time": "2100-01-02 09:00:00",
+     "item": "respiratory rate",
+     "value": "13.0 insp/min"
+    },
+    {
+     "rid": "nurse:310677270",
+     "time": "2100-01-02 05:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:306476252",
+     "time": "2100-01-02 09:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "resp:6224157",
+     "time": "2100-01-02 01:30:00",
+     "item": "ventilator settings",
+     "value": "36.0 %"
+    }
+   ],
+   "reason": "Measured in the 15.6 h observation window after the decision (24 h or until ICU discharge): respiratory rate x4, SpO2 x4, ventilator settings x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E297175A3::05",
+   "claim_id": "E297175A3",
+   "claim_text": "Order a chest radiograph to evaluate for possible infiltrates or atelectasis given persistent respiratory symptoms.",
+   "kind": "action",
+   "text": "Order a chest radiograph.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "chest radiograph",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 15.6 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 15.6,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Persistent respiratory symptoms are present. -- The records show that the patient's respiratory rate has been fluctuating, with values ranging from 15 to 26 breaths per minute. However, there is no evidence to support the statement that persistent respiratory symptoms are present. The records do not mention any symptoms or measurements that would indicate persistent respiratory symptoms.",
+    "The patient is currently on non-invasive ventilation (BiPAP/CPAP). -- The records show that PEEP was set to 5 cmH2O at 02:13, and that it was still 5 cmH2O at 13:16. However, the statement says that the patient is currently on non-invasive ventilation (BiPAP/CPAP), which implies that the PEEP setting is not 5 cmH2O. Additionally, the records show that the patient was on non-invasive ventilation at 15:28 and 15:31, but the statement says that the patient is currently"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

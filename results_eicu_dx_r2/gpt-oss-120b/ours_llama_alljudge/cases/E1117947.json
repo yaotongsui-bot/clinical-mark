@@ -1,0 +1,563 @@
+{
+ "case_id": "E1117947",
+ "decision_point": "2100-01-02 06:58:00",
+ "claims": [
+  "Order packed red blood cell transfusion to address hemoglobin ~8.5 g/dL with ongoing respiratory distress.",
+  "Continue non‑invasive ventilation with close monitoring of respiratory rate and oxygen saturation.",
+  "Obtain repeat arterial blood gas to reassess PaO₂/FiO₂ ratio and acid‑base status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1117947A1::01",
+   "claim_id": "E1117947A1",
+   "claim_text": "Order packed red blood cell transfusion to address hemoglobin ~8.5 g/dL with ongoing respiratory distress.",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1117947A1::02",
+   "claim_id": "E1117947A1",
+   "claim_text": "Order packed red blood cell transfusion to address hemoglobin ~8.5 g/dL with ongoing respiratory distress.",
+   "kind": "fact",
+   "text": "Hemoglobin is ~8.5 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1117947A1::03",
+   "claim_id": "E1117947A1",
+   "claim_text": "Order packed red blood cell transfusion to address hemoglobin ~8.5 g/dL with ongoing respiratory distress.",
+   "kind": "fact",
+   "text": "Respiratory distress is ongoing.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "persistent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1117947A2::04",
+   "claim_id": "E1117947A2",
+   "claim_text": "Continue non‑invasive ventilation with close monitoring of respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1117947A2::05",
+   "claim_id": "E1117947A2",
+   "claim_text": "Continue non‑invasive ventilation with close monitoring of respiratory rate and oxygen saturation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1117947A2::06",
+   "claim_id": "E1117947A2",
+   "claim_text": "Continue non‑invasive ventilation with close monitoring of respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1117947A2::07",
+   "claim_id": "E1117947A2",
+   "claim_text": "Continue non‑invasive ventilation with close monitoring of respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1117947A3::08",
+   "claim_id": "E1117947A3",
+   "claim_text": "Obtain repeat arterial blood gas to reassess PaO₂/FiO₂ ratio and acid‑base status.",
+   "kind": "action",
+   "text": "Obtain repeat arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1117947A3::09",
+   "claim_id": "E1117947A3",
+   "claim_text": "Obtain repeat arterial blood gas to reassess PaO₂/FiO₂ ratio and acid‑base status.",
+   "kind": "action",
+   "text": "Reassess PaO2/FiO2 ratio.",
+   "concept": "po2",
+   "notes": [],
+   "action_class": "assess",
+   "target": "PaO2/FiO2 ratio",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1117947A3::10",
+   "claim_id": "E1117947A3",
+   "claim_text": "Obtain repeat arterial blood gas to reassess PaO₂/FiO₂ ratio and acid‑base status.",
+   "kind": "action",
+   "text": "Reassess acid-base status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "acid-base status",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1117947A1::02",
+   "claim_id": "E1117947A1",
+   "claim_text": "Order packed red blood cell transfusion to address hemoglobin ~8.5 g/dL with ongoing respiratory distress.",
+   "kind": "fact",
+   "text": "Hemoglobin is ~8.5 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The most recent hemoglobin measurement is 8.5 g/dL, which supports the AI statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:266328149",
+     "time": "2100-01-01 10:20:00",
+     "item": "Hemoglobin: 8.5 g/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1117947A1::03",
+   "claim_id": "E1117947A1",
+   "claim_text": "Order packed red blood cell transfusion to address hemoglobin ~8.5 g/dL with ongoing respiratory distress.",
+   "kind": "fact",
+   "text": "Respiratory distress is ongoing.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "persistent",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The AI statement says 'Respiratory distress is ongoing', but the records show a respiratory rate of 39-49 breaths per minute, which is not necessarily indicative of ongoing respiratory distress. The records do not mention any other symptoms or conditions that would support the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:670638643",
+     "time": "2100-01-01 06:00:00",
+     "item": "Respiratory Rate: 39 insp/min"
+    },
+    {
+     "rid": "nurse:696851582",
+     "time": "2100-01-01 07:00:00",
+     "item": "Respiratory Rate: 39 insp/min"
+    },
+    {
+     "rid": "nurse:688790352",
+     "time": "2100-01-01 07:15:00",
+     "item": "Respiratory Rate: 38 insp/min"
+    },
+    {
+     "rid": "nurse:686913766",
+     "time": "2100-01-01 07:30:00",
+     "item": "Respiratory Rate: 39 insp/min"
+    },
+    {
+     "rid": "nurse:702830971",
+     "time": "2100-01-01 07:45:00",
+     "item": "Respiratory Rate: 38 insp/min"
+    },
+    {
+     "rid": "nurse:682889048",
+     "time": "2100-01-01 08:00:00",
+     "item": "Respiratory Rate: 32 insp/min"
+    },
+    {
+     "rid": "nurse:677582522",
+     "time": "2100-01-01 09:00:00",
+     "item": "Respiratory Rate: 32 insp/min"
+    },
+    {
+     "rid": "nurse:708325002",
+     "time": "2100-01-01 10:00:00",
+     "item": "Respiratory Rate: 29 insp/min"
+    },
+    {
+     "rid": "nurse:705719119",
+     "time": "2100-01-01 11:00:00",
+     "item": "Respiratory Rate: 38 insp/min"
+    },
+    {
+     "rid": "nurse:673665634",
+     "time": "2100-01-01 12:00:00",
+     "item": "Respiratory Rate: 44 insp/min"
+    },
+    {
+     "rid": "nurse:680009356",
+     "time": "2100-01-01 13:00:00",
+     "item": "Respiratory Rate: 42 insp/min"
+    },
+    {
+     "rid": "nurse:700165794",
+     "time": "2100-01-01 14:00:00",
+     "item": "Respiratory Rate: 36 insp/min"
+    },
+    {
+     "rid": "nurse:714290749",
+     "time": "2100-01-01 15:00:00",
+     "item": "Respiratory Rate: 33 insp/min"
+    },
+    {
+     "rid": "nurse:673138487",
+     "time": "2100-01-01 16:00:00",
+     "item": "Respiratory Rate: 44 insp/min"
+    },
+    {
+     "rid": "nurse:718343216",
+     "time": "2100-01-01 17:00:00",
+     "item": "Respiratory Rate: 39 insp/min"
+    },
+    {
+     "rid": "nurse:702522852",
+     "time": "2100-01-01 18:00:00",
+     "item": "Respiratory Rate: 42 insp/min"
+    },
+    {
+     "rid": "nurse:713252689",
+     "time": "2100-01-01 19:00:00",
+     "item": "Respiratory Rate: 31 insp/min"
+    },
+    {
+     "rid": "nurse:673790312",
+     "time": "2100-01-01 21:00:00",
+     "item": "Respiratory Rate: 44 insp/min"
+    },
+    {
+     "rid": "nurse:691342605",
+     "time": "2100-01-01 22:00:00",
+     "item": "Respiratory Rate: 49 insp/min"
+    },
+    {
+     "rid": "nurse:672096490",
+     "time": "2100-01-01 23:00:00",
+     "item": "Respiratory Rate: 33 insp/min"
+    },
+    {
+     "rid": "nurse:714289807",
+     "time": "2100-01-02 00:00:00",
+     "item": "Respiratory Rate: 35 insp/min"
+    },
+    {
+     "rid": "nurse:678123639",
+     "time": "2100-01-02 01:00:00",
+     "item": "Respiratory Rate: 31 insp/min"
+    },
+    {
+     "rid": "nurse:695748895",
+     "time": "2100-01-02 02:00:00",
+     "item": "Respiratory Rate: 32 insp/min"
+    },
+    {
+     "rid": "nurse:679629495",
+     "time": "2100-01-02 03:00:00",
+     "item": "Respiratory Rate: 37 insp/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1117947A2::05",
+   "claim_id": "E1117947A2",
+   "claim_text": "Continue non‑invasive ventilation with close monitoring of respiratory rate and oxygen saturation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records state that the patient is on non-invasive ventilation, but the most recent relevant rows show that the patient's blood pressure is fluctuating and not necessarily supported by the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:31336792",
+     "time": "2100-01-01 07:31:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1117947A1::01",
+   "claim_id": "E1117947A1",
+   "claim_text": "Order packed red blood cell transfusion to address hemoglobin ~8.5 g/dL with ongoing respiratory distress.",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1117947A2::04",
+   "claim_id": "E1117947A2",
+   "claim_text": "Continue non‑invasive ventilation with close monitoring of respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (65 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:71762421",
+     "time": "2100-01-02 07:00:00",
+     "item": "ventilator setting",
+     "value": "80.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:71777427",
+     "time": "2100-01-02 07:45:00",
+     "item": "ventilator setting",
+     "value": "80.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:75892888",
+     "time": "2100-01-02 08:00:00",
+     "item": "ventilator setting",
+     "value": "80.0 %",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1117947A2::06",
+   "claim_id": "E1117947A2",
+   "claim_text": "Continue non‑invasive ventilation with close monitoring of respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:719784376",
+     "time": "2100-01-02 07:00:00",
+     "item": "respiratory rate",
+     "value": "30.0 insp/min"
+    },
+    {
+     "rid": "nurse:713720183",
+     "time": "2100-01-02 08:00:00",
+     "item": "respiratory rate",
+     "value": "29.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x35.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1117947A2::07",
+   "claim_id": "E1117947A2",
+   "claim_text": "Continue non‑invasive ventilation with close monitoring of respiratory rate and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:706311003",
+     "time": "2100-01-02 07:00:00",
+     "item": "SpO2",
+     "value": "91.0 %"
+    },
+    {
+     "rid": "nurse:693268232",
+     "time": "2100-01-02 07:45:00",
+     "item": "SpO2",
+     "value": "91.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x37.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1117947A3::08",
+   "claim_id": "E1117947A3",
+   "claim_text": "Obtain repeat arterial blood gas to reassess PaO₂/FiO₂ ratio and acid‑base status.",
+   "kind": "action",
+   "text": "Obtain repeat arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1117947A3::09",
+   "claim_id": "E1117947A3",
+   "claim_text": "Obtain repeat arterial blood gas to reassess PaO₂/FiO₂ ratio and acid‑base status.",
+   "kind": "action",
+   "text": "Reassess PaO2/FiO2 ratio.",
+   "concept": "po2",
+   "notes": [],
+   "action_class": "assess",
+   "target": "PaO2/FiO2 ratio",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No PaO2 measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1117947A3::10",
+   "claim_id": "E1117947A3",
+   "claim_text": "Obtain repeat arterial blood gas to reassess PaO₂/FiO₂ ratio and acid‑base status.",
+   "kind": "action",
+   "text": "Reassess acid-base status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "acid-base status",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Respiratory distress is ongoing. -- The AI statement says 'Respiratory distress is ongoing', but the records show a respiratory rate of 39-49 breaths per minute, which is not necessarily indicative of ongoing respiratory distress. The records do not mention any other symptoms or conditions that would support the statement.",
+    "The patient is currently on non-invasive ventilation. -- The records state that the patient is on non-invasive ventilation, but the most recent relevant rows show that the patient's blood pressure is fluctuating and not necessarily supported by the statement."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

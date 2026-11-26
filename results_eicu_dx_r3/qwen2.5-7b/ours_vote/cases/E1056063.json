@@ -1,0 +1,644 @@
+{
+ "case_id": "E1056063",
+ "decision_point": "2100-01-02 10:15:00",
+ "claims": [
+  "Monitor patient's heart rate and respiratory rate closely due to variability and potential for respiratory depression.",
+  "Continue oxygen therapy with nasal cannula at 2 L/min to maintain adequate oxygen saturation.",
+  "Assess for signs of magnesium toxicity, given the recent administration of magnesium sulfate."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1056063A1::01",
+   "claim_id": "E1056063A1",
+   "claim_text": "Monitor patient's heart rate and respiratory rate closely due to variability and potential for respiratory depression.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1056063A1::02",
+   "claim_id": "E1056063A1",
+   "claim_text": "Monitor patient's heart rate and respiratory rate closely due to variability and potential for respiratory depression.",
+   "kind": "action",
+   "text": "Monitor respiratory rate closely.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1056063A1::03",
+   "claim_id": "E1056063A1",
+   "claim_text": "Monitor patient's heart rate and respiratory rate closely due to variability and potential for respiratory depression.",
+   "kind": "fact",
+   "text": "Heart rate is variable.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1056063A1::04",
+   "claim_id": "E1056063A1",
+   "claim_text": "Monitor patient's heart rate and respiratory rate closely due to variability and potential for respiratory depression.",
+   "kind": "fact",
+   "text": "Respiratory rate is variable.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1056063A1::05",
+   "claim_id": "E1056063A1",
+   "claim_text": "Monitor patient's heart rate and respiratory rate closely due to variability and potential for respiratory depression.",
+   "kind": "fact",
+   "text": "There is potential for respiratory depression.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "other",
+   "time": "unspecified",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1056063A2::06",
+   "claim_id": "E1056063A2",
+   "claim_text": "Continue oxygen therapy with nasal cannula at 2 L/min to maintain adequate oxygen saturation.",
+   "kind": "action",
+   "text": "Continue oxygen therapy with nasal cannula at 2 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oxygen therapy",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1056063A2::07",
+   "claim_id": "E1056063A2",
+   "claim_text": "Continue oxygen therapy with nasal cannula at 2 L/min to maintain adequate oxygen saturation.",
+   "kind": "fact",
+   "text": "Oxygen therapy with nasal cannula at 2 L/min is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1056063A3::08",
+   "claim_id": "E1056063A3",
+   "claim_text": "Assess for signs of magnesium toxicity, given the recent administration of magnesium sulfate.",
+   "kind": "action",
+   "text": "Assess for signs of magnesium toxicity.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of magnesium toxicity",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1056063A3::09",
+   "claim_id": "E1056063A3",
+   "claim_text": "Assess for signs of magnesium toxicity, given the recent administration of magnesium sulfate.",
+   "kind": "fact",
+   "text": "Magnesium sulfate was recently administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: magnesium -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1056063A1::03",
+   "claim_id": "E1056063A1",
+   "claim_text": "Monitor patient's heart rate and respiratory rate closely due to variability and potential for respiratory depression.",
+   "kind": "fact",
+   "text": "Heart rate is variable.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The heart rate measurements fluctuate widely over the recorded period, ranging from 80 to 131 bpm, demonstrating variability.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:666910736",
+     "time": "2100-01-01 10:00:00",
+     "item": "Heart Rate: 126 bpm"
+    },
+    {
+     "rid": "nurse:658653265",
+     "time": "2100-01-01 10:30:00",
+     "item": "Heart Rate: 114 bpm"
+    },
+    {
+     "rid": "nurse:657005134",
+     "time": "2100-01-01 11:00:00",
+     "item": "Heart Rate: 115 bpm"
+    },
+    {
+     "rid": "nurse:654061879",
+     "time": "2100-01-01 11:30:00",
+     "item": "Heart Rate: 114 bpm"
+    },
+    {
+     "rid": "nurse:662026579",
+     "time": "2100-01-01 13:00:00",
+     "item": "Heart Rate: 96 bpm"
+    },
+    {
+     "rid": "nurse:656421031",
+     "time": "2100-01-01 13:46:00",
+     "item": "Heart Rate: 107 bpm"
+    },
+    {
+     "rid": "nurse:655834146",
+     "time": "2100-01-01 14:00:00",
+     "item": "Heart Rate: 112 bpm"
+    },
+    {
+     "rid": "nurse:660841422",
+     "time": "2100-01-01 15:00:00",
+     "item": "Heart Rate: 99 bpm"
+    },
+    {
+     "rid": "nurse:653236491",
+     "time": "2100-01-01 15:30:00",
+     "item": "Heart Rate: 85 bpm"
+    },
+    {
+     "rid": "nurse:656487865",
+     "time": "2100-01-01 16:00:00",
+     "item": "Heart Rate: 92 bpm"
+    },
+    {
+     "rid": "nurse:662560579",
+     "time": "2100-01-01 17:00:00",
+     "item": "Heart Rate: 95 bpm"
+    },
+    {
+     "rid": "nurse:664471467",
+     "time": "2100-01-01 17:37:00",
+     "item": "Heart Rate: 87 bpm"
+    },
+    {
+     "rid": "nurse:660229346",
+     "time": "2100-01-01 18:00:00",
+     "item": "Heart Rate: 85 bpm"
+    },
+    {
+     "rid": "nurse:659851736",
+     "time": "2100-01-01 18:34:00",
+     "item": "Heart Rate: 86 bpm"
+    },
+    {
+     "rid": "nurse:667489288",
+     "time": "2100-01-01 19:00:00",
+     "item": "Heart Rate: 97 bpm"
+    },
+    {
+     "rid": "nurse:653838458",
+     "time": "2100-01-01 20:20:00",
+     "item": "Heart Rate: 108 bpm"
+    },
+    {
+     "rid": "nurse:662243262",
+     "time": "2100-01-01 21:00:00",
+     "item": "Heart Rate: 84 bpm"
+    },
+    {
+     "rid": "nurse:655289958",
+     "time": "2100-01-01 22:00:00",
+     "item": "Heart Rate: 80 bpm"
+    },
+    {
+     "rid": "nurse:659979641",
+     "time": "2100-01-01 23:00:00",
+     "item": "Heart Rate: 88 bpm"
+    },
+    {
+     "rid": "nurse:661717859",
+     "time": "2100-01-02 01:00:00",
+     "item": "Heart Rate: 108 bpm"
+    },
+    {
+     "rid": "nurse:665022892",
+     "time": "2100-01-02 01:42:00",
+     "item": "Heart Rate: 97 bpm"
+    },
+    {
+     "rid": "nurse:661860421",
+     "time": "2100-01-02 03:00:00",
+     "item": "Heart Rate: 84 bpm"
+    },
+    {
+     "rid": "nurse:657771075",
+     "time": "2100-01-02 05:00:00",
+     "item": "Heart Rate: 131 bpm"
+    },
+    {
+     "rid": "nurse:662723343",
+     "time": "2100-01-02 08:36:00",
+     "item": "Heart Rate: 112 bpm"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1056063A1::04",
+   "claim_id": "E1056063A1",
+   "claim_text": "Monitor patient's heart rate and respiratory rate closely due to variability and potential for respiratory depression.",
+   "kind": "fact",
+   "text": "Respiratory rate is variable.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The respiratory rate measurements fluctuate widely over the admission, ranging from 7 to 21 breaths per minute, demonstrating variability.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:658982440",
+     "time": "2100-01-01 10:00:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:664586827",
+     "time": "2100-01-01 13:00:00",
+     "item": "Respiratory Rate: 14 insp/min"
+    },
+    {
+     "rid": "nurse:668899630",
+     "time": "2100-01-01 14:00:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "nurse:664903317",
+     "time": "2100-01-01 15:00:00",
+     "item": "Respiratory Rate: 11 insp/min"
+    },
+    {
+     "rid": "nurse:654779563",
+     "time": "2100-01-01 15:30:00",
+     "item": "Respiratory Rate: 7 insp/min"
+    },
+    {
+     "rid": "nurse:657409452",
+     "time": "2100-01-01 16:00:00",
+     "item": "Respiratory Rate: 9 insp/min"
+    },
+    {
+     "rid": "nurse:659018426",
+     "time": "2100-01-01 17:37:00",
+     "item": "Respiratory Rate: 15 insp/min"
+    },
+    {
+     "rid": "nurse:656963092",
+     "time": "2100-01-01 18:34:00",
+     "item": "Respiratory Rate: 21 insp/min"
+    },
+    {
+     "rid": "nurse:653170392",
+     "time": "2100-01-01 19:00:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "nurse:665110366",
+     "time": "2100-01-01 21:00:00",
+     "item": "Respiratory Rate: 12 insp/min"
+    },
+    {
+     "rid": "nurse:668082474",
+     "time": "2100-01-01 22:00:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "nurse:652713539",
+     "time": "2100-01-01 23:00:00",
+     "item": "Respiratory Rate: 15 insp/min"
+    },
+    {
+     "rid": "nurse:656002946",
+     "time": "2100-01-02 01:00:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:666569004",
+     "time": "2100-01-02 03:00:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:668580119",
+     "time": "2100-01-02 05:00:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:666593591",
+     "time": "2100-01-02 08:36:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1056063A1::05",
+   "claim_id": "E1056063A1",
+   "claim_text": "Monitor patient's heart rate and respiratory rate closely due to variability and potential for respiratory depression.",
+   "kind": "fact",
+   "text": "There is potential for respiratory depression.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "other",
+   "time": "unspecified",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The admission diagnosis of street drug overdose including opiates (R4) and recorded low respiratory rates of 7 and 9 breaths/min (R21, R23, R26) directly support the potential for respiratory depression.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:1056063:dx",
+     "time": "2100-01-01 10:15:00",
+     "item": "Admission diagnosis (APACHE): Overdose, street drugs (opiates, cocaine, amphetamine)"
+    },
+    {
+     "rid": "nurse:654779563",
+     "time": "2100-01-01 15:30:00",
+     "item": "Respiratory Rate: 7 insp/min"
+    },
+    {
+     "rid": "nurse:657409452",
+     "time": "2100-01-01 16:00:00",
+     "item": "Respiratory Rate: 9 insp/min"
+    },
+    {
+     "rid": "nurse:665928379",
+     "time": "2100-01-01 17:00:00",
+     "item": "Respiratory Rate: 9 insp/min"
+    },
+    {
+     "rid": "treat:30747294",
+     "time": "2100-01-01 10:33:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (< 40%) | nasal cannula"
+    },
+    {
+     "rid": "nurse:664903317",
+     "time": "2100-01-01 15:00:00",
+     "item": "Respiratory Rate: 11 insp/min"
+    },
+    {
+     "rid": "nurse:653236491",
+     "time": "2100-01-01 15:30:00",
+     "item": "Heart Rate: 85 bpm"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1056063A2::07",
+   "claim_id": "E1056063A2",
+   "claim_text": "Continue oxygen therapy with nasal cannula at 2 L/min to maintain adequate oxygen saturation.",
+   "kind": "fact",
+   "text": "Oxygen therapy with nasal cannula at 2 L/min is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records document oxygen therapy via nasal cannula (R6) and an O2 flow of 2 L/min (R12), but the most recent flow measurement is from 2100-01-01 17:00, more than 24 hours before the decision time. There is no administration or flow record within the 24 hours before 2100-01-02 10:15 to confirm it is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:30747294",
+     "time": "2100-01-01 10:33:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (< 40%) | nasal cannula"
+    },
+    {
+     "rid": "nurse:663725365",
+     "time": "2100-01-01 13:00:00",
+     "item": "O2 L/%: 2"
+    },
+    {
+     "rid": "nurse:651926767",
+     "time": "2100-01-01 17:00:00",
+     "item": "O2 L/%: 2"
+    },
+    {
+     "rid": "nurse:654933215",
+     "time": "2100-01-02 08:36:00",
+     "item": "O2 saturation pulseoxymetry: 98 %"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1056063A3::09",
+   "claim_id": "E1056063A3",
+   "claim_text": "Assess for signs of magnesium toxicity, given the recent administration of magnesium sulfate.",
+   "kind": "fact",
+   "text": "Magnesium sulfate was recently administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: magnesium -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R31 documents the administration of magnesium sulfate ivpb at 2100-01-01 15:33, which is within the 24 hours before the decision time of 2100-01-02 10:15.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:37819106",
+     "time": "2100-01-01 15:33:00",
+     "item": "Given once: magnesium sulfate ivpb. IVPB Once (2100-01-01 15:33:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1056063A1::01",
+   "claim_id": "E1056063A1",
+   "claim_text": "Monitor patient's heart rate and respiratory rate closely due to variability and potential for respiratory depression.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:668711347",
+     "time": "2100-01-02 13:00:00",
+     "item": "heart rate",
+     "value": "100.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 5.0 h observation window after the decision (24 h or until ICU discharge): heart rate x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1056063A1::02",
+   "claim_id": "E1056063A1",
+   "claim_text": "Monitor patient's heart rate and respiratory rate closely due to variability and potential for respiratory depression.",
+   "kind": "action",
+   "text": "Monitor respiratory rate closely.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No respiratory rate measurement in the 5.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1056063A2::06",
+   "claim_id": "E1056063A2",
+   "claim_text": "Continue oxygen therapy with nasal cannula at 2 L/min to maintain adequate oxygen saturation.",
+   "kind": "action",
+   "text": "Continue oxygen therapy with nasal cannula at 2 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oxygen therapy",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1056063A3::08",
+   "claim_id": "E1056063A3",
+   "claim_text": "Assess for signs of magnesium toxicity, given the recent administration of magnesium sulfate.",
+   "kind": "action",
+   "text": "Assess for signs of magnesium toxicity.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of magnesium toxicity",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 5.0,
+ "scoresheet": {
+  "n": 5,
+  "supported": 4,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.8,
+  "not_supported_share": 0.2,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Oxygen therapy with nasal cannula at 2 L/min is currently being given. -- The records document oxygen therapy via nasal cannula (R6) and an O2 flow of 2 L/min (R12), but the most recent flow measurement is from 2100-01-01 17:00, more than 24 hours before the decision time. There is no administration or flow record within the 24 hours before 2100-01-02 10:15 to confirm it is currently being given."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.8,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

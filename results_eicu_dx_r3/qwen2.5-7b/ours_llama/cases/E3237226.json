@@ -1,0 +1,251 @@
+{
+ "case_id": "E3237226",
+ "decision_point": "2100-01-02 02:57:00",
+ "claims": [
+  "Monitor patient's respiratory rate and oxygen saturation closely.",
+  "Continue non-invasive ventilation as needed.",
+  "Administer lorazepam as needed for pain or agitation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3237226A1::01",
+   "claim_id": "E3237226A1",
+   "claim_text": "Monitor patient's respiratory rate and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3237226A1::02",
+   "claim_id": "E3237226A1",
+   "claim_text": "Monitor patient's respiratory rate and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3237226A2::03",
+   "claim_id": "E3237226A2",
+   "claim_text": "Continue non-invasive ventilation as needed.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation as needed.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": true,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3237226A2::04",
+   "claim_id": "E3237226A2",
+   "claim_text": "Continue non-invasive ventilation as needed.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3237226A3::05",
+   "claim_id": "E3237226A3",
+   "claim_text": "Administer lorazepam as needed for pain or agitation.",
+   "kind": "action",
+   "text": "Administer lorazepam as needed for pain or agitation.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3237226A2::04",
+   "claim_id": "E3237226A2",
+   "claim_text": "Continue non-invasive ventilation as needed.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient was on non-invasive ventilation, but the most recent relevant rows (R46, R47, R48) show a different blood pressure reading, which contradicts the statement. The statement is not supported even when earlier rows agree.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:79471997",
+     "time": "2100-01-01 03:41:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:78657626",
+     "time": "2100-01-01 04:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3237226A1::01",
+   "claim_id": "E3237226A1",
+   "claim_text": "Monitor patient's respiratory rate and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2265674521",
+     "time": "2100-01-02 03:00:00",
+     "item": "respiratory rate",
+     "value": "26.0 insp/min"
+    },
+    {
+     "rid": "nurse:2272716818",
+     "time": "2100-01-02 05:00:00",
+     "item": "respiratory rate",
+     "value": "26.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x18.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3237226A1::02",
+   "claim_id": "E3237226A1",
+   "claim_text": "Monitor patient's respiratory rate and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2255806432",
+     "time": "2100-01-02 07:52:00",
+     "item": "SpO2",
+     "value": "99.0 %"
+    },
+    {
+     "rid": "nurse:2253370550",
+     "time": "2100-01-02 09:00:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x8.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3237226A2::03",
+   "claim_id": "E3237226A2",
+   "claim_text": "Continue non-invasive ventilation as needed.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation as needed.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": true,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-invasive ventilation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3237226A3::05",
+   "claim_id": "E3237226A3",
+   "claim_text": "Administer lorazepam as needed for pain or agitation.",
+   "kind": "action",
+   "text": "Administer lorazepam as needed for pain or agitation.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on non-invasive ventilation. -- The records show that the patient was on non-invasive ventilation, but the most recent relevant rows (R46, R47, R48) show a different blood pressure reading, which contradicts the statement. The statement is not supported even when earlier rows agree."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

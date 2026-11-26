@@ -1,0 +1,445 @@
+{
+ "case_id": "M31959184-R12",
+ "decision_point": "2110-12-01 17:11:36",
+ "claims": [
+  "Evaluate the patient for potential respiratory issues given the low lactate dehydrogenase and respiratory alarms."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31959184-R12A1::01",
+   "claim_id": "M31959184-R12A1",
+   "claim_text": "Evaluate the patient for potential respiratory issues given the low lactate dehydrogenase and respiratory alarms.",
+   "kind": "action",
+   "text": "Evaluate the patient for potential respiratory issues.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory issues",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31959184-R12A1::02",
+   "claim_id": "M31959184-R12A1",
+   "claim_text": "Evaluate the patient for potential respiratory issues given the low lactate dehydrogenase and respiratory alarms.",
+   "kind": "fact",
+   "text": "Lactate dehydrogenase is low.",
+   "concept": "lactate",
+   "notes": [
+    "concept set by the rule files: other -> lactate"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M31959184-R12A1::03",
+   "claim_id": "M31959184-R12A1",
+   "claim_text": "Evaluate the patient for potential respiratory issues given the low lactate dehydrogenase and respiratory alarms.",
+   "kind": "fact",
+   "text": "Respiratory alarms are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M31959184-R12A1::02",
+   "claim_id": "M31959184-R12A1",
+   "claim_text": "Evaluate the patient for potential respiratory issues given the low lactate dehydrogenase and respiratory alarms.",
+   "kind": "fact",
+   "text": "Lactate dehydrogenase is low.",
+   "concept": "lactate",
+   "notes": [
+    "concept set by the rule files: other -> lactate"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:102487",
+     "time": "2110-11-30 15:20:00",
+     "item": "Lactate",
+     "value": 4.5,
+     "unit": "mmol/L",
+     "bounds": "0.5 to 2.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:102562",
+     "time": "2110-11-30 16:43:00",
+     "item": "Lactate",
+     "value": 2.3,
+     "unit": "mmol/L",
+     "bounds": "0.5 to 2.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest lactate 2.3 mmol/L at 2110-11-30 16:43:00 (reference 0.5 to 2.0) is high, not consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31959184-R12A1::03",
+   "claim_id": "M31959184-R12A1",
+   "claim_text": "Evaluate the patient for potential respiratory issues given the low lactate dehydrogenase and respiratory alarms.",
+   "kind": "fact",
+   "text": "Respiratory alarms are present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "unverifiable",
+   "method": "rule",
+   "evidence": [],
+   "reason": "The source records alarm threshold settings, not alarm events."
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M31959184-R12A1::01",
+   "claim_id": "M31959184-R12A1",
+   "claim_text": "Evaluate the patient for potential respiratory issues given the low lactate dehydrogenase and respiratory alarms.",
+   "kind": "action",
+   "text": "Evaluate the patient for potential respiratory issues.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory issues",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 226 mg/dL (treatment threshold > 180).",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "high",
+     "reason": "Latest glucose 226 mg/dL (treatment threshold > 180)."
+    }
+   ],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.3 mmol/L at 2110-11-30 16:43:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.3 mmol/L at 2110-11-30 16:43:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "LR"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Enoxaparin (Lovenox)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)",
+    "OxycoDONE (Immediate Release)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 226 mg/dL (treatment threshold > 180).",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "high",
+     "reason": "Latest glucose 226 mg/dL (treatment threshold > 180)."
+    }
+   ],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.3 mmol/L at 2110-11-30 16:43:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.3 mmol/L at 2110-11-30 16:43:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "LR"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Enoxaparin (Lovenox)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)",
+    "OxycoDONE (Immediate Release)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "glucose",
+   "direction": "high",
+   "reason": "Latest glucose 226 mg/dL (treatment threshold > 180).",
+   "name": "glucose",
+   "treated_by": [
+    "insulin"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 2.3 mmol/L at 2110-11-30 16:43:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": true,
+   "by_atoms": [
+    "M31959184-R12A1::02"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 40,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 1,
+  "supported_share": 0.0,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.5,
+  "reasons": {
+   "not_supported": [
+    "Lactate dehydrogenase is low. -- Latest lactate 2.3 mmol/L at 2110-11-30 16:43:00 (reference 0.5 to 2.0) is high, not consistent with 'low'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 1,
+  "treatments_omitted": 8,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

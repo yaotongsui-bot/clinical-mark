@@ -1,0 +1,231 @@
+{
+ "case_id": "E3152779",
+ "decision_point": "2100-01-02 00:45:00",
+ "claims": [
+  "Monitor blood glucose levels closely.",
+  "Continue mechanical ventilation support.",
+  "Assess for signs of infection and adjust antibiotic therapy as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3152779A1::01",
+   "claim_id": "E3152779A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3152779A2::02",
+   "claim_id": "E3152779A2",
+   "claim_text": "Continue mechanical ventilation support.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation support.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3152779A2::03",
+   "claim_id": "E3152779A2",
+   "claim_text": "Continue mechanical ventilation support.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3152779A3::04",
+   "claim_id": "E3152779A3",
+   "claim_text": "Assess for signs of infection and adjust antibiotic therapy as needed.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3152779A3::05",
+   "claim_id": "E3152779A3",
+   "claim_text": "Assess for signs of infection and adjust antibiotic therapy as needed.",
+   "kind": "action",
+   "text": "Adjust antibiotic therapy as needed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3152779A2::03",
+   "claim_id": "E3152779A2",
+   "claim_text": "Continue mechanical ventilation support.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The patient is currently on mechanical ventilation because R43 shows that mechanical ventilation is documented at 14:22, which is close to the decision time of 00:45. Additionally, R3 shows that mechanical ventilation was documented at 01:01, which is also close to the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:77154751",
+     "time": "2100-01-01 14:22:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3152779A1::01",
+   "claim_id": "E3152779A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:777341801",
+     "time": "2100-01-02 02:20:00",
+     "item": "glucose",
+     "value": "248.0 mg/dL"
+    },
+    {
+     "rid": "nurse:2146754368",
+     "time": "2100-01-02 02:20:00",
+     "item": "glucose",
+     "value": "248.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 17.2 h observation window after the decision (24 h or until ICU discharge): glucose x19.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3152779A2::02",
+   "claim_id": "E3152779A2",
+   "claim_text": "Continue mechanical ventilation support.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation support.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 17.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3152779A3::04",
+   "claim_id": "E3152779A3",
+   "claim_text": "Assess for signs of infection and adjust antibiotic therapy as needed.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3152779A3::05",
+   "claim_id": "E3152779A3",
+   "claim_text": "Assess for signs of infection and adjust antibiotic therapy as needed.",
+   "kind": "action",
+   "text": "Adjust antibiotic therapy as needed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 17.2 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 17.2,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

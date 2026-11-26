@@ -1,0 +1,159 @@
+# E962227   T = 2100-01-02 21:10:00   records before T: 750
+ICU stay 962227 (Med-Surg ICU; Female, age 49; admission diagnosis: Cardiovascular medical, other).
+
+## Atoms
+deepseek-v4.1-flash|E962227A1::02 [observed] Hypertension is present.   <- Continue monitoring blood pressure closely given persistent hypertension (e.g., 173/85 mmHg at 20:00) and active antihypertensive orders.
+deepseek-v4.1-flash|E962227A1::03 [observed] Blood pressure is 173/85 mmHg at 20:00.   <- Continue monitoring blood pressure closely given persistent hypertension (e.g., 173/85 mmHg at 20:00) and active antihypertensive orders.
+deepseek-v4.1-flash|E962227A1::04 [observed] Antihypertensive orders are active.   <- Continue monitoring blood pressure closely given persistent hypertension (e.g., 173/85 mmHg at 20:00) and active antihypertensive orders.
+deepseek-v4.1-flash|E962227A2::06 [presupposition] Metabolic acidosis is present.   <- Assess and manage metabolic acidosis with sodium bicarbonate therapy already ordered, and recheck acid-base status.
+deepseek-v4.1-flash|E962227A2::08 [observed] Sodium bicarbonate therapy is already ordered.   <- Assess and manage metabolic acidosis with sodium bicarbonate therapy already ordered, and recheck acid-base status.
+deepseek-v4.1-flash|E962227A3::11 [presupposition] Supplemental oxygen is currently being given.   <- Continue supplemental oxygen at 4 L/min to maintain oxygen saturation, as documented at 21:00 (SpO2 99%).
+deepseek-v4.1-flash|E962227A3::12 [observed] SpO2 is 99% at 21:00.   <- Continue supplemental oxygen at 4 L/min to maintain oxygen saturation, as documented at 21:00 (SpO2 99%).
+gpt-oss-120b|E962227A3::05 [presupposition] The patient is currently on hemodialysis.   <- Continue daily hemodialysis and monitor serum electrolytes (potassium, bicarbonate) each shift.
+qwen2.5-7b|E962227A2::04 [presupposition] Hyperglycemia is present.   <- Administer insulin to manage hyperglycemia.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2099-12-29 22:00:00): Medication ondansetron MISC Pyxis
+  Running at decision time (scheduled order started 2099-12-30 02:00:00): Medication NovoLOG Subcut 1xDaily hs
+  Running at decision time (scheduled order started 2099-12-30 03:00:00): Medication heparin Subcut q8hr
+  Running at decision time (scheduled order started 2099-12-30 11:00:00): Medication levothyroxine PO 1xDaily
+  Running at decision time (scheduled order started 2099-12-30 12:30:00): Medication NovoLOG Subcut 3xDaily ac
+  Running at decision time (scheduled order started 2099-12-30 12:30:00): Medication Protonix PO
+  Running at decision time (scheduled order started 2099-12-30 13:00:00): Medication DuoNeb NEB
+  Running at decision time (scheduled order started 2099-12-30 14:00:00): Medication aspirin PO 1xDaily
+  Running at decision time (scheduled order started 2099-12-30 17:12:00): Medication ASPART insulin MISC Pyxis
+  Running at decision time (scheduled order started 2099-12-30 21:58:00): Medication ASPART insulin MISC Pyxis
+  Running at decision time (scheduled order started 2099-12-31 20:39:00): Medication albuterol-ipratropium 3-0.5mg MISC Pyxis
+  Running at decision time (scheduled order started 2100-01-01 14:50:00): Medication ASPART insulin MISC Pyxis
+  Running at decision time (scheduled order started 2100-01-01 16:59:00): Medication ASPART insulin MISC Pyxis
+  Running at decision time (scheduled order started 2100-01-01 17:00:00): Medication furosemide IV 2xDaily
+  Running at decision time (scheduled order started 2100-01-01 20:21:00): Medication albuterol-ipratropium 3-0.5mg MISC Pyxis
+  Running at decision time (scheduled order started 2100-01-01 21:25:00): Medication <<norepinephrine 4 mg/4 mL Inj IV
+  Running at decision time (scheduled order started 2100-01-01 22:36:00): Medication ASPART insulin MISC Pyxis
+  Running at decision time (scheduled order started 2100-01-02 02:00:00): Medication metoprolol tartrate PO 2xDaily
+  Running at decision time (scheduled order started 2100-01-02 03:00:00): Medication hydrALAZINE PO 3xDaily
+  Running at decision time (scheduled order started 2100-01-02 06:30:00): Medication Flagyl PO q8hr
+  Running at decision time (scheduled order started 2100-01-02 11:57:00): Medication albuterol-ipratropium 3-0.5mg MISC Pyxis
+  Running at decision time (scheduled order started 2100-01-02 13:23:00): Medication ASPART insulin MISC Pyxis
+  Running at decision time (scheduled order started 2100-01-02 19:00:00): Medication sodium bicarbonate PO 3xDaily
+
+## PRN orders
+  12-29 22:38 Order: nitroGLYCERIN SL q5min PRN (active at decision time)
+  12-29 22:38 Order: Zofran IV q4hr PRN (active at decision time)
+  12-30 00:30 Order: traMADol PO 2xDaily PRN (active at decision time)
+  12-30 00:31 Order: Dulcolax Laxative Rectal 1xDaily PRN (active at decision time)
+  12-30 00:31 Order: Ativan IV q4hr PRN (active at decision time)
+  12-30 00:31 Order: Colace PO 2xDaily PRN (active at decision time)
+  12-30 00:31 Order: acetaminophen Rectal q4hr PRN (active at decision time)
+  12-30 00:31 Order: acetaminophen PO q4hr PRN (active at decision time)
+  12-30 00:32 Order: Dulcolax Laxative PO 1xDaily PRN (active at decision time)
+  12-30 00:32 Order: hydrALAZINE IV q6hr PRN (active at decision time)
+  12-30 00:32 Order: Haldol IV q4hr PRN (active at decision time)
+  12-30 00:32 Order: Haldol IV q4hr PRN (active at decision time)
+  12-30 00:32 Order: DuoNeb NEB PRN (active at decision time)
+  12-30 00:32 Order: labetalol IV q4hr PRN (active at decision time)
+  12-30 00:33 Order: Dextrose 50% IV as directed PRN (active at decision time)
+  12-30 00:33 Order: Dextrose 50% IV as directed PRN (active at decision time)
+  12-30 00:33 Order: Dextrose 50% IV as directed PRN (active at decision time)
+  12-30 00:33 Order: GlucaGen IM as directed PRN (active at decision time)
+  12-30 01:20 Order: albuterol NEB PRN (active at decision time)
+  12-30 04:38 Order: Dilaudid IV q4hr PRN (stopped 2100-01-01 19:31:00)
+  01-01 19:31 Order: Dilaudid IV q4hr PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Furosemide at 10 mg/hour (2099-12-30 03:22:00 to 2099-12-30 13:16:00)
+  Infusion/input Furosemide at 20 mg/hour (2099-12-30 13:16:00 to 2099-12-31 13:41:00)
+
+## Medications given once or ended before T
+  Given once: Lasix IV Once (2099-12-29 21:38:00)
+  Given once: Zofran IV Once (2099-12-29 21:59:00)
+  Medication metoprolol tartrate PO 2xDaily (2099-12-30 02:00:00 to 2100-01-01 19:32:00)
+  Medication hydrALAZINE PO 3xDaily (2099-12-30 03:00:00 to 2100-01-01 19:30:00)
+
+## Laboratory (newest first, up to 5)
+  -bands: 01-02 11:06 23 %; 01-01 10:30 11 %; 12-30 09:36 1 %
+  -basos: 01-02 11:06 1 %; 12-29 20:40 2.6 %
+  -eos: 01-02 11:06 2 %; 12-30 09:36 3 %; 12-29 20:40 6 %
+  -lymphs: 01-02 11:06 29 %; 01-01 10:30 29 %; 12-30 09:36 19 %; 12-29 20:40 8.8 %
+  -monos: 01-02 11:06 10 %; 01-01 10:30 3 %; 12-30 09:36 4 %; 12-29 20:40 11.4 %
+  -polys: 01-02 11:06 35 %; 01-01 10:30 57 %; 12-30 09:36 73 %; 12-29 20:40 71.2 %
+  Alanine Aminotransferase (ALT): 12-30 09:36 39 IU/L
+  Albumin: 01-02 08:30 1.9 g/dL; 01-01 10:30 2 g/dL; 12-31 18:30 2.1 g/dL; 12-31 09:56 2 g/dL; 12-30 09:36 1.9 g/dL
+  Alkaline Phosphatase: 12-30 09:36 311 IU/L
+  Anion Gap: 01-01 20:00 12; 12-31 17:05 9; 12-30 09:36 8
+  Asparate Aminotransferase (AST): 12-30 09:36 28 IU/L
+  BNP: 12-29 20:40 2960 pg/mL
+  Base Excess: 01-02 11:50 -10.5 mmol/L; 01-02 11:31 -9.4 mmol/L
+  Bicarbonate: 01-02 08:30 17 mmol/L; 01-01 20:00 18 mmol/L; 01-01 10:30 19 mmol/L; 12-31 18:30 18 mmol/L; 12-31 17:05 17 mmol/L   [+3 earlier]
+  Bicarbonate (blood gas HCO3): 01-02 11:50 16.5 mmol/L; 01-02 11:31 17.3 mmol/L
+  Bilirubin, Total: 12-30 09:36 0.2 mg/dL
+  CPK: 01-02 14:44 49 IU/L; 12-30 09:36 33 IU/L
+  Calcium, Total: 01-02 08:30 7.9 mg/dL; 01-01 20:00 8.1 mg/dL; 01-01 10:30 8.1 mg/dL; 12-31 18:30 8.2 mg/dL; 12-31 17:05 6 mg/dL   [+2 earlier]
+  Carboxyhemoglobin: 01-02 11:50 1 %; 01-02 11:31 1.2 %
+  Chloride: 01-02 08:30 108 mmol/L; 01-01 20:00 109 mmol/L; 01-01 10:30 107 mmol/L; 12-31 18:30 106 mmol/L; 12-31 17:05 117 mmol/L   [+3 earlier]
+  Creatinine: 01-02 08:30 4.05 mg/dL; 01-01 20:00 4.06 mg/dL; 01-01 10:30 3.81 mg/dL; 12-31 18:30 3.71 mg/dL; 12-31 17:05 2.66 mg/dL   [+3 earlier]
+  Fe: 12-30 15:15 27 mcg/dL
+  Fe/TIBC Ratio: 12-30 15:15 13 %
+  FiO2: 01-02 11:50 36 %; 01-02 11:31 36 %
+  Free Calcium: 12-29 20:40 4.8 mg/dL
+  Glucose: 01-02 16:08 200 mg/dL; 01-02 13:02 228 mg/dL; 01-02 08:30 180 mg/dL; 01-02 03:22 187 mg/dL; 01-01 22:26 162 mg/dL   [+20 earlier]
+  HDL: 12-30 09:36 103 mg/dL
+  Hematocrit: 01-02 11:06 28.1 %; 01-01 10:30 26.5 %; 12-30 09:36 27.3 %; 12-29 20:40 29.6 %
+  Hemoglobin: 01-02 11:06 8.3 g/dL; 01-01 10:30 8 g/dL; 12-30 09:36 8.4 g/dL; 12-29 20:40 9.1 g/dL
+  INR(PT): 12-29 20:40 0.9
+  LPM O2: 01-02 11:50 4; 01-02 11:31 4
+  Lactate: 01-02 14:44 0.7 mmol/L
+  MCH: 01-02 11:06 17.7 pg; 01-01 10:30 18.3 pg; 12-30 09:36 18.5 pg; 12-29 20:40 18.2 pg
+  MCHC: 01-02 11:06 29.4 g/dL; 01-01 10:30 30.2 g/dL; 12-30 09:36 30.9 g/dL; 12-29 20:40 30.7 g/dL
+  MCV: 01-02 11:06 60.1 fL; 01-01 10:30 60.4 fL; 12-30 09:36 59.9 fL; 12-29 20:40 59.1 fL
+  MPV: 01-02 11:06 9.1 fL; 01-01 10:30 9.1 fL; 12-30 09:36 9.4 fL; 12-29 20:40 9.4 fL
+  Magnesium: 01-02 08:30 2.2 mg/dL; 01-01 20:00 2.4 mg/dL; 01-01 10:30 2.3 mg/dL; 12-31 09:56 2.2 mg/dL; 12-30 09:36 2.1 mg/dL
+  Methemoglobin: 01-02 11:50 0.9 %; 01-02 11:31 1 %
+  O2 Content: 01-02 11:50 10.5 mL/dL; 01-02 11:31 8.8 mL/dL
+  Oxygen Saturation: 01-02 11:50 95.4 %; 01-02 11:31 80.2 %
+  PT: 12-29 20:40 10.5 sec
+  PTT: 12-29 20:40 24.5 sec
+  Phosphate: 01-02 08:30 7.1 mg/dL; 01-01 10:30 7.5 mg/dL; 12-31 18:30 7.6 mg/dL; 12-31 09:56 7.9 mg/dL
+  Platelet Count: 01-02 11:06 257 th/uL; 01-01 10:30 225 th/uL; 12-30 09:36 253 th/uL; 12-29 20:40 279 th/uL
+  Potassium: 01-02 08:30 4.8 mmol/L; 01-01 20:00 4.8 mmol/L; 01-01 10:30 5 mmol/L; 12-31 18:30 5 mmol/L; 12-31 17:05 3.9 mmol/L   [+3 earlier]
+  RBC: 01-02 11:06 4.67 mill/uL; 01-01 10:30 4.39 mill/uL; 12-30 09:36 4.56 mill/uL; 12-29 20:40 5 mill/uL
+  RDW: 01-02 11:06 22.8 %; 01-01 10:30 22.5 %; 12-30 09:36 23.1 %; 12-29 20:40 22.8 %
+  Sodium: 01-02 08:30 137 mmol/L; 01-01 20:00 139 mmol/L; 01-01 10:30 138 mmol/L; 12-31 18:30 136 mmol/L; 12-31 17:05 143 mmol/L   [+3 earlier]
+  TIBC: 12-30 15:15 203 mcg/dL
+  Urea Nitrogen: 01-02 08:30 54 mg/dL; 01-01 20:00 55 mg/dL; 01-01 10:30 56 mg/dL; 12-31 18:30 54 mg/dL; 12-31 17:05 42 mg/dL   [+3 earlier]
+  White Blood Cells: 01-02 11:06 3.3 th/uL; 01-01 10:30 3.3 th/uL; 12-30 09:36 4.9 th/uL; 12-29 20:40 6.6 th/uL
+  pCO2: 01-02 11:50 45 mmHg; 01-02 11:31 45 mmHg
+  pH: 01-02 11:50 7.19; 01-02 11:31 7.21
+  pO2: 01-02 11:50 78 mmHg; 01-02 11:31 48 mmHg
+  total cholesterol: 12-30 09:36 171 mg/dL
+  total protein: 12-30 09:36 5.2 g/dL
+  triglycerides: 12-30 09:36 130 mg/dL
+  troponin - I: 01-02 08:30 1.13 ng/mL; 01-02 02:40 1.26 ng/mL; 01-01 20:00 1.25 ng/mL; 12-30 09:36 <0.015; 12-29 20:40 0 ng/mL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Delirium Scale/Score Delirium Scale: CAM-ICU @01-02 13:00
+  Delirium Scale/Score Delirium Score: No @01-02 13:00
+  Glasgow coma score Eyes: 4 @01-02 13:00   24h 4-4 (n=4)
+  Glasgow coma score GCS Total: 15 @01-02 13:00   24h 15-15 (n=4)
+  Glasgow coma score Motor: 6 @01-02 13:00   24h 6-6 (n=4)
+  Glasgow coma score Verbal: 5 @01-02 13:00   24h 5-5 (n=4)
+  Heart Rate: 95 bpm @01-02 20:00   24h 69-95 (n=42)
+  Inspired O2 Fraction: 21 % @12-30 01:29
+  Non Invasive Blood Pressure diastolic: 85 mmHg @01-02 20:00   24h 56-112 (n=38)
+  Non Invasive Blood Pressure mean: 117 mmHg @01-02 20:00   24h 70-128 (n=36)
+  Non Invasive Blood Pressure systolic: 173 mmHg @01-02 20:00   24h 107-173 (n=38)
+  O2 L/%: 4 @01-02 20:00   24h 4-4 (n=15)
+  O2 saturation pulseoxymetry: 99 % @01-02 21:00   24h 94-99 (n=42)
+  Pain Level: 0 @01-02 11:00   24h 0-8 (n=12)
+  Pain Score/Goal Pain Goal: 2 @01-02 04:50   24h 2-2 (n=2)
+  Respiratory Rate: 14 insp/min @01-02 20:33   24h 0-28 (n=44)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-02 19:00
+  Sedation Scale/Score/Goal Sedation Score: 0 @01-02 19:00   24h -1-0 (n=9)
+  Temperature Fahrenheit: 97.9 F @01-02 17:00   24h 97.9-98.1 (n=5)
+
+## Treatments documented
+  01-01 22:06 cardiovascular | arrhythmias | beta blocker
+  01-01 22:06 hypertension | vasodilating agent - IV | hydralazine
+  01-01 22:06 renal | dialysis | hemodialysis
+
+## Microbiology

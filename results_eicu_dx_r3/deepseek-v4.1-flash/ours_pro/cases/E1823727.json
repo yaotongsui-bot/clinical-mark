@@ -1,0 +1,467 @@
+{
+ "case_id": "E1823727",
+ "decision_point": "2100-01-02 14:58:00",
+ "claims": [
+  "Continue hemodialysis as documented for renal failure.",
+  "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+  "Monitor potassium level given hyperkalemia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1823727A1::01",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue hemodialysis as documented for renal failure.",
+   "kind": "action",
+   "text": "Continue hemodialysis.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "continue",
+   "target": "hemodialysis",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1823727A1::02",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue hemodialysis as documented for renal failure.",
+   "kind": "fact",
+   "text": "Hemodialysis is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1823727A1::03",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue hemodialysis as documented for renal failure.",
+   "kind": "fact",
+   "text": "Renal failure is present.",
+   "concept": "creatinine",
+   "notes": [
+    "concept set by the rule files: renal_function -> creatinine"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1823727A2::04",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "action",
+   "text": "Monitor hemoglobin.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823727A2::05",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "action",
+   "text": "Monitor hematocrit.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823727A2::06",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1823727A2::07",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "fact",
+   "text": "Bleeding risk is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1823727A3::08",
+   "claim_id": "E1823727A3",
+   "claim_text": "Monitor potassium level given hyperkalemia.",
+   "kind": "action",
+   "text": "Monitor potassium level.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823727A3::09",
+   "claim_id": "E1823727A3",
+   "claim_text": "Monitor potassium level given hyperkalemia.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1823727A1::02",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue hemodialysis as documented for renal failure.",
+   "kind": "fact",
+   "text": "Hemodialysis is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records document hemodialysis as a treatment (R35, R42, R47), but there is no administration record showing hemodialysis was being given at the decision time of 2100-01-01 14:58:00. The documentation entries are after the decision time and do not confirm ongoing administration.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:49499012",
+     "time": "2100-01-01 15:00:00",
+     "item": "Treatment documented: renal | dialysis | hemodialysis"
+    },
+    {
+     "rid": "treat:51660586",
+     "time": "2100-01-01 21:58:00",
+     "item": "Treatment documented: renal | dialysis | hemodialysis"
+    },
+    {
+     "rid": "treat:49270664",
+     "time": "2100-01-02 08:42:00",
+     "item": "Treatment documented: renal | dialysis | hemodialysis"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823727A1::03",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue hemodialysis as documented for renal failure.",
+   "kind": "fact",
+   "text": "Renal failure is present.",
+   "concept": "creatinine",
+   "notes": [
+    "concept set by the rule files: renal_function -> creatinine"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:423695896",
+     "time": "2099-12-31 13:00:00",
+     "item": "Creatinine",
+     "value": 7.17,
+     "unit": "mg/dL",
+     "bounds": "0.5 to 1.2",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:420398066",
+     "time": "2100-01-01 10:36:00",
+     "item": "Creatinine",
+     "value": 9.45,
+     "unit": "mg/dL",
+     "bounds": "0.5 to 1.2",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:421844074",
+     "time": "2100-01-02 10:00:00",
+     "item": "Creatinine",
+     "value": 7.06,
+     "unit": "mg/dL",
+     "bounds": "0.5 to 1.2",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest creatinine 7.06 mg/dL at 2100-01-02 10:00:00 (reference 0.5 to 1.2) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1823727A2::06",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:432880373",
+     "time": "2100-01-01 23:13:00",
+     "item": "Hemoglobin",
+     "value": 8.7,
+     "unit": "gm/dL",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:436374622",
+     "time": "2100-01-02 04:01:00",
+     "item": "Hemoglobin",
+     "value": 8.5,
+     "unit": "gm/dL",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:428867649",
+     "time": "2100-01-02 10:00:00",
+     "item": "Hemoglobin",
+     "value": 8.1,
+     "unit": "gm/dL",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 8.1 gm/dL at 2100-01-02 10:00:00 (reference 12 to 16) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1823727A2::07",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "fact",
+   "text": "Bleeding risk is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The admission diagnosis explicitly states 'Renal bleeding', which directly indicates that bleeding risk is present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:1823727:dx",
+     "time": "2100-01-01 14:58:00",
+     "item": "Admission diagnosis (APACHE): Renal bleeding"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823727A3::09",
+   "claim_id": "E1823727A3",
+   "claim_text": "Monitor potassium level given hyperkalemia.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:423695895",
+     "time": "2099-12-31 13:00:00",
+     "item": "Potassium",
+     "value": 5.4,
+     "unit": "mmol/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:420398065",
+     "time": "2100-01-01 10:36:00",
+     "item": "Potassium",
+     "value": 6.7,
+     "unit": "mmol/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:421844073",
+     "time": "2100-01-02 10:00:00",
+     "item": "Potassium",
+     "value": 5.1,
+     "unit": "mmol/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest potassium 5.1 mmol/L at 2100-01-02 10:00:00 (reference 3.3 to 5.1) is normal, not consistent with 'high'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1823727A1::01",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue hemodialysis as documented for renal failure.",
+   "kind": "action",
+   "text": "Continue hemodialysis.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "continue",
+   "target": "hemodialysis",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No renal replacement therapy action recorded in the 8.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1823727A2::04",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "action",
+   "text": "Monitor hemoglobin.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:437638271",
+     "time": "2100-01-02 19:21:00",
+     "item": "hemoglobin",
+     "value": "7.6 gm/dL"
+    }
+   ],
+   "reason": "Measured in the 8.0 h observation window after the decision (24 h or until ICU discharge): hemoglobin x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1823727A2::05",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "action",
+   "text": "Monitor hematocrit.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No hematocrit measurement in the 8.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1823727A3::08",
+   "claim_id": "E1823727A3",
+   "claim_text": "Monitor potassium level given hyperkalemia.",
+   "kind": "action",
+   "text": "Monitor potassium level.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 8.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 8.0,
+ "scoresheet": {
+  "n": 5,
+  "supported": 3,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.6,
+  "not_supported_share": 0.4,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hemodialysis is currently being given. -- The records document hemodialysis as a treatment (R35, R42, R47), but there is no administration record showing hemodialysis was being given at the decision time of 2100-01-01 14:58:00. The documentation entries are after the decision time and do not confirm ongoing administration.",
+    "Hyperkalemia is present. -- Latest potassium 5.1 mmol/L at 2100-01-02 10:00:00 (reference 3.3 to 5.1) is normal, not consistent with 'high'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.6,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

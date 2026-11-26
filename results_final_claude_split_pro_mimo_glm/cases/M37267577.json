@@ -1,0 +1,711 @@
+{
+ "case_id": "M37267577",
+ "decision_point": "2137-06-13 18:37:22",
+ "claims": [
+  "Continue heparin sodium infusion at the current rate.",
+  "Monitor serum potassium given hyperkalemia and active potassium replacement.",
+  "Monitor coagulation status with PTT/INR given prolonged PTT and heparin infusion."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M37267577A1::01",
+   "claim_id": "M37267577A1",
+   "claim_text": "Continue heparin sodium infusion at the current rate.",
+   "kind": "action",
+   "text": "Continue heparin infusion at the current rate.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M37267577A1::02",
+   "claim_id": "M37267577A1",
+   "claim_text": "Continue heparin sodium infusion at the current rate.",
+   "kind": "fact",
+   "text": "Heparin is currently being infused.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M37267577A2::03",
+   "claim_id": "M37267577A2",
+   "claim_text": "Monitor serum potassium given hyperkalemia and active potassium replacement.",
+   "kind": "action",
+   "text": "Monitor serum potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37267577A2::04",
+   "claim_id": "M37267577A2",
+   "claim_text": "Monitor serum potassium given hyperkalemia and active potassium replacement.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M37267577A2::05",
+   "claim_id": "M37267577A2",
+   "claim_text": "Monitor serum potassium given hyperkalemia and active potassium replacement.",
+   "kind": "fact",
+   "text": "Potassium replacement is active.",
+   "concept": "potassium",
+   "notes": [
+    "concept set by the rule files: none -> potassium"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M37267577A3::06",
+   "claim_id": "M37267577A3",
+   "claim_text": "Monitor coagulation status with PTT/INR given prolonged PTT and heparin infusion.",
+   "kind": "action",
+   "text": "Monitor PTT.",
+   "concept": "ptt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PTT",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37267577A3::07",
+   "claim_id": "M37267577A3",
+   "claim_text": "Monitor coagulation status with PTT/INR given prolonged PTT and heparin infusion.",
+   "kind": "action",
+   "text": "Monitor INR.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false
+  },
+  {
+   "atom_id": "M37267577A3::08",
+   "claim_id": "M37267577A3",
+   "claim_text": "Monitor coagulation status with PTT/INR given prolonged PTT and heparin infusion.",
+   "kind": "fact",
+   "text": "PTT is prolonged.",
+   "concept": "ptt",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M37267577A3::09",
+   "claim_id": "M37267577A3",
+   "claim_text": "Monitor coagulation status with PTT/INR given prolonged PTT and heparin infusion.",
+   "kind": "fact",
+   "text": "Heparin is being infused.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M37267577A1::02",
+   "claim_id": "M37267577A1",
+   "claim_text": "Continue heparin sodium infusion at the current rate.",
+   "kind": "fact",
+   "text": "Heparin is currently being infused.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R34 shows a Heparin Sodium infusion running at decision time (started 15:52), confirming the statement that heparin is currently being infused.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "mimo-v2.6-pro:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:8495312:225152:2137-06-13 15:52:00",
+     "time": "2137-06-13 15:52:00",
+     "item": "Running at decision time (started 2137-06-13 15:52:00): Infusion/input Heparin Sodium at 1019.106201171875 units/hour"
+    },
+    {
+     "rid": "emar:10015272-38",
+     "time": "2137-06-13 16:18:00",
+     "item": "MAR Started: Heparin"
+    },
+    {
+     "rid": "emar:10015272-35",
+     "time": "2137-06-13 16:23:00",
+     "item": "MAR Started: Heparin"
+    },
+    {
+     "rid": "emar:10015272-36",
+     "time": "2137-06-13 17:12:00",
+     "item": "MAR Administered: Heparin"
+    }
+   ]
+  },
+  {
+   "atom_id": "M37267577A2::04",
+   "claim_id": "M37267577A2",
+   "claim_text": "Monitor serum potassium given hyperkalemia and active potassium replacement.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:192752",
+     "time": "2137-06-12 22:36:00",
+     "item": "Potassium",
+     "value": 5.1,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:192764",
+     "time": "2137-06-13 05:35:00",
+     "item": "Potassium",
+     "value": 5.1,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:192787",
+     "time": "2137-06-13 14:13:00",
+     "item": "Potassium, Whole Blood",
+     "value": 4.7,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest potassium 4.7 mEq/L at 2137-06-13 14:13:00 (reference 3.3 to 5.1) is normal, not consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M37267577A2::05",
+   "claim_id": "M37267577A2",
+   "claim_text": "Monitor serum potassium given hyperkalemia and active potassium replacement.",
+   "kind": "fact",
+   "text": "Potassium replacement is active.",
+   "concept": "potassium",
+   "notes": [
+    "concept set by the rule files: none -> potassium"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Multiple active orders for Potassium Chloride Replacement are present at the decision time, indicating that potassium replacement is active.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "mimo-v2.6-pro:cloud": "not_addressed",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "rx:79559108:2137-06-13 00:00:00",
+     "time": "2137-06-13 00:00:00",
+     "item": "Order: Potassium Chloride Replacement (Critical Care and Oncology)  40 mEq PO (active at decision time)"
+    },
+    {
+     "rid": "rx:67181679:2137-06-13 00:00:00",
+     "time": "2137-06-13 00:00:00",
+     "item": "Order: Potassium Chloride Replacement (Critical Care and Oncology)  60 mEq PO (active at decision time)"
+    },
+    {
+     "rid": "rx:83017746:2137-06-13 00:00:00",
+     "time": "2137-06-13 00:00:00",
+     "item": "Order: Potassium Chloride Replacement (Critical Care and Oncology)  80 mEq PO (active at decision time)"
+    },
+    {
+     "rid": "rx:24095078:2137-06-13 00:00:00",
+     "time": "2137-06-13 00:00:00",
+     "item": "Order: Potassium Chloride Replacement (Critical Care and Oncology)  40 mEq PO (active at decision time)"
+    },
+    {
+     "rid": "rx:59417380:2137-06-13 00:00:00",
+     "time": "2137-06-13 00:00:00",
+     "item": "Order: Potassium Chloride Replacement (Critical Care and Oncology)  60 mEq PO (active at decision time)"
+    },
+    {
+     "rid": "rx:30369945:2137-06-13 00:00:00",
+     "time": "2137-06-13 00:00:00",
+     "item": "Order: Potassium Chloride Replacement (Critical Care and Oncology)  80 mEq PO (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M37267577A3::08",
+   "claim_id": "M37267577A3",
+   "claim_text": "Monitor coagulation status with PTT/INR given prolonged PTT and heparin infusion.",
+   "kind": "fact",
+   "text": "PTT is prolonged.",
+   "concept": "ptt",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:192755",
+     "time": "2137-06-12 22:36:00",
+     "item": "PTT",
+     "value": 114.5,
+     "unit": "sec",
+     "bounds": "25.0 to 36.5",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:192769",
+     "time": "2137-06-13 05:35:00",
+     "item": "PTT",
+     "value": 57.4,
+     "unit": "sec",
+     "bounds": "25.0 to 36.5",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:192785",
+     "time": "2137-06-13 13:54:00",
+     "item": "PTT",
+     "value": 25.3,
+     "unit": "sec",
+     "bounds": "25.0 to 36.5",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest PTT 25.3 sec at 2137-06-13 13:54:00 (reference 25.0 to 36.5) is normal, not consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M37267577A3::09",
+   "claim_id": "M37267577A3",
+   "claim_text": "Monitor coagulation status with PTT/INR given prolonged PTT and heparin infusion.",
+   "kind": "fact",
+   "text": "Heparin is being infused.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R36 is a 'Running at decision time' record for Heparin Sodium infusion, which directly shows heparin was being infused at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "mimo-v2.6-pro:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:8495312:225152:2137-06-13 15:52:00",
+     "time": "2137-06-13 15:52:00",
+     "item": "Running at decision time (started 2137-06-13 15:52:00): Infusion/input Heparin Sodium at 1019.106201171875 units/hour"
+    },
+    {
+     "rid": "emar:10015272-36",
+     "time": "2137-06-13 17:12:00",
+     "item": "MAR Administered: Heparin"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M37267577A1::01",
+   "claim_id": "M37267577A1",
+   "claim_text": "Continue heparin sodium infusion at the current rate.",
+   "kind": "action",
+   "text": "Continue heparin infusion at the current rate.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225152",
+     "time": "2137-06-13 15:52:00",
+     "item": "Heparin Sodium infusion continuing at 1019.106201171875 units/hour",
+     "class": "anticoagulant_therapeutic"
+    },
+    {
+     "rid": "IN225152#2",
+     "time": "2137-06-13 22:53:00",
+     "item": "Heparin Sodium infusion started at 923.4906005859375 units/hour",
+     "class": "anticoagulant_therapeutic"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded anticoagulation (therapeutic) after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M37267577A2::03",
+   "claim_id": "M37267577A2",
+   "claim_text": "Monitor serum potassium given hyperkalemia and active potassium replacement.",
+   "kind": "action",
+   "text": "Monitor serum potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227442:2137-06-14 04:42:00:350691",
+     "time": "2137-06-14 04:42:00",
+     "item": "potassium",
+     "value": "4 mEq/L"
+    },
+    {
+     "rid": "lab:50971:2137-06-14 04:42:00:82771",
+     "time": "2137-06-14 04:42:00",
+     "item": "potassium",
+     "value": "4.0 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37267577A3::06",
+   "claim_id": "M37267577A3",
+   "claim_text": "Monitor coagulation status with PTT/INR given prolonged PTT and heparin infusion.",
+   "kind": "action",
+   "text": "Monitor PTT.",
+   "concept": "ptt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PTT",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227466:2137-06-14 12:10:00:350455",
+     "time": "2137-06-14 12:10:00",
+     "item": "PTT",
+     "value": "80.5 sec"
+    },
+    {
+     "rid": "chart:227466:2137-06-14 04:42:00:350689",
+     "time": "2137-06-14 04:42:00",
+     "item": "PTT",
+     "value": "91.4 sec"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): PTT x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M37267577A3::07",
+   "claim_id": "M37267577A3",
+   "claim_text": "Monitor coagulation status with PTT/INR given prolonged PTT and heparin infusion.",
+   "kind": "action",
+   "text": "Monitor INR.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "INR",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227467:2137-06-14 04:42:00:350690",
+     "time": "2137-06-14 04:42:00",
+     "item": "INR",
+     "value": "1.4"
+    },
+    {
+     "rid": "chart:227467:2137-06-13 21:47:00:350744",
+     "time": "2137-06-13 21:47:00",
+     "item": "INR",
+     "value": "1.5"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): INR x4.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.1 mmol/L at 2137-06-13 14:13:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.1 mmol/L at 2137-06-13 14:13:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 113 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "indications": [
+    {
+     "concept": "heart_rate",
+     "direction": "high",
+     "reason": "Median heart rate over the 6 h before the decision: 113 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'."
+    }
+   ],
+   "doctor_targets": [
+    "Digoxin",
+    "Digoxin (Lanoxin)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)",
+    "Magnesium Sulfate Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium",
+    "Warfarin"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M37267577A1::01"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.1 mmol/L at 2137-06-13 14:13:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.1 mmol/L at 2137-06-13 14:13:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 113 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "indications": [
+    {
+     "concept": "heart_rate",
+     "direction": "high",
+     "reason": "Median heart rate over the 6 h before the decision: 113 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'."
+    }
+   ],
+   "doctor_targets": [
+    "Digoxin",
+    "Digoxin (Lanoxin)"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)",
+    "Magnesium Sulfate Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium",
+    "Warfarin"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M37267577A1::01"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "heart_rate",
+   "direction": "high",
+   "reason": "Median heart rate over the 6 h before the decision: 113 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "name": "heart rate",
+   "treated_by": [
+    "rate / rhythm control"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 2.1 mmol/L at 2137-06-13 14:13:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 30,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 5,
+  "supported": 3,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.6,
+  "not_supported_share": 0.4,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hyperkalemia is present. -- Latest potassium 4.7 mEq/L at 2137-06-13 14:13:00 (reference 3.3 to 5.1) is normal, not consistent with 'high'.",
+    "PTT is prolonged. -- Latest PTT 25.3 sec at 2137-06-13 13:54:00 (reference 25.0 to 36.5) is normal, not consistent with 'high'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.6,
+  "not_supported": 2,
+  "treatment_precision": 1.0,
+  "facts_omitted": 2,
+  "treatments_omitted": 3,
+  "recall_vital": 0.0,
+  "recall_okay": 0.5,
+  "recall_all": 0.25,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.5,
+  "recall_all_at3": 0.25
+ }
+}

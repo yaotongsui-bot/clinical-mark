@@ -9,6 +9,9 @@ measure run-to-run variation; even at temperature 0 the model is not fully repro
 Usage
   python generate_answers.py --out input/mimic_triples_fixed.json      # fill answers cleared by fix_input.py
   python generate_answers.py --variant open --samples 3 --temperature 0.7
+  python generate_answers.py --model deepseek-v4.1-flash:cloud --out input/mimic_triples_deepseek.json
+A model named "<name>:cloud" runs on Ollama's hosted API (OLLAMA_API_KEY); default outputs then carry
+the model name, so the qwen2.5:7b answers are never overwritten.
 An existing --out file is resumed (only cases without an answer are generated); otherwise the
 source is copied and its answers are kept as ai_generated_reference.
 """
@@ -19,6 +22,7 @@ import argparse
 import copy
 import datetime
 import json
+import os
 import re
 import time
 import urllib.request
@@ -26,6 +30,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 ENDPOINT = "http://127.0.0.1:11434"
+CLOUD_ENDPOINT = "https://ollama.com"
 MODEL = "qwen2.5:7b-instruct-q4_K_M"
 OPTIONS = {"temperature": 0, "seed": 20260925, "num_ctx": 32768, "num_predict": 400, "num_gpu": 99}
 ALLOWED = {
@@ -63,18 +68,35 @@ VARIANTS = {
 
 
 def chat(payload: dict) -> dict:
-    request = urllib.request.Request(ENDPOINT + "/api/chat", data=json.dumps(payload).encode("utf-8"),
-                                     headers={"Content-Type": "application/json"})
+    headers, endpoint = {"Content-Type": "application/json"}, ENDPOINT
+    if payload["model"].endswith(":cloud"):
+        headers["Authorization"] = f"Bearer {os.environ['OLLAMA_API_KEY'].strip()}"
+        # Hosted reasoning models think by default and spend the 400-token budget before answering;
+        # the original generator does not reason either.
+        endpoint, payload = CLOUD_ENDPOINT, {**payload, "model": payload["model"].removesuffix(":cloud"), "think": False}
+    request = urllib.request.Request(endpoint + "/api/chat", data=json.dumps(payload).encode("utf-8"),
+                                     headers=headers)
     with urllib.request.urlopen(request, timeout=600) as response:
         return json.load(response)
 
 
-def validate(raw: dict, triple_id: str, max_claims: int, num_ctx: int) -> list[dict]:
+def _json_object(text: str) -> dict:
+    """The JSON object in a reply; the hosted API ignores "format", so it may come wrapped in prose."""
+    decoder = json.JSONDecoder()
+    for start in (i for i, ch in enumerate(text) if ch == "{"):
+        try:
+            return decoder.raw_decode(text[start:])[0]
+        except ValueError:
+            continue
+    raise ValueError("no JSON object in the reply")
+
+
+def validate(raw: dict, triple_id: str, max_claims: int, num_ctx: int, model: str) -> list[dict]:
     if raw.get("done_reason") not in (None, "stop"):
         raise ValueError(f"Unexpected done_reason={raw.get('done_reason')}")
     if (raw.get("prompt_eval_count") or 0) >= num_ctx - 400:
         raise ValueError("Prompt may have been truncated by context limit")
-    claims = json.loads(raw["message"]["content"]).get("claims")
+    claims = _json_object(raw["message"]["content"]).get("claims")
     if not isinstance(claims, list) or not 1 <= len(claims) <= max_claims:
         raise ValueError(f"Expected 1-{max_claims} claims")
     for idx, claim in enumerate(claims, 1):
@@ -88,11 +110,11 @@ def validate(raw: dict, triple_id: str, max_claims: int, num_ctx: int) -> list[d
         if claim["action_type"] not in ALLOWED:
             raise ValueError(f"Claim {idx} has unknown action_type {claim['action_type']!r}")
         claim["claim_id"] = f"{triple_id}A{idx}"
-        claim["arm"] = MODEL
+        claim["arm"] = model
     return claims
 
 
-def generate(source: Path, out: Path, variant: str, temperature: float, seed: int) -> None:
+def generate(source: Path, out: Path, variant: str, temperature: float, seed: int, model: str) -> None:
     spec = VARIANTS[variant]
     options = {**OPTIONS, "temperature": temperature, "seed": seed, "num_predict": spec["num_predict"]}
     if out.exists():
@@ -109,14 +131,14 @@ def generate(source: Path, out: Path, variant: str, temperature: float, seed: in
         if triple["evaluation_eligibility"]["decision_within_icu_stay"] is not True:
             continue  # never evaluated
         tid = triple["triple_id"]
-        payload = {"model": MODEL, "stream": False, "format": "json", "options": options,
+        payload = {"model": model, "stream": False, "format": "json", "options": options,
                    "messages": [{"role": "system", "content": spec["system"]},
                                 {"role": "user", "content": triple["case_prompt"]["text"]}]}
         started = time.monotonic()
         for attempt in range(3):
             raw = chat(payload)
             try:
-                claims = validate(raw, tid, spec["max_claims"], options["num_ctx"])
+                claims = validate(raw, tid, spec["max_claims"], options["num_ctx"], model)
                 break
             except (ValueError, json.JSONDecodeError) as exc:
                 if attempt == 2:
@@ -124,7 +146,7 @@ def generate(source: Path, out: Path, variant: str, temperature: float, seed: in
                 payload["messages"].append({"role": "user", "content": (
                     f"Your previous JSON did not match the required schema: {exc}. Regenerate the entire "
                     "JSON object. Use only the action_type values " + ", ".join(sorted(ALLOWED)) + ".")})
-        triple["ai_generated"] = {"arm": MODEL, "variant": variant, "claims": claims, "options": options,
+        triple["ai_generated"] = {"arm": model, "variant": variant, "claims": claims, "options": options,
                                   "generated_at_utc": datetime.datetime.now(datetime.timezone.utc).isoformat()}
         with raw_log.open("a", encoding="utf-8") as handle:
             handle.write(json.dumps({"triple_id": tid, "response": raw}, ensure_ascii=False) + "\n")
@@ -132,7 +154,7 @@ def generate(source: Path, out: Path, variant: str, temperature: float, seed: in
               f"({time.monotonic() - started:.1f}s)", flush=True)
         if i % 10 == 0:  # checkpoint; rerunning resumes
             out.write_text(json.dumps(doc, ensure_ascii=False) + "\n", encoding="utf-8")
-    doc["generation"] = {**doc.get("generation", {}), "model": MODEL, "variant": variant,
+    doc["generation"] = {**doc.get("generation", {}), "model": model, "variant": variant,
                          "system_prompt": spec["system"], "options": options}
     out.write_text(json.dumps(doc, ensure_ascii=False) + "\n", encoding="utf-8")
 
@@ -144,11 +166,13 @@ def main() -> None:
     parser.add_argument("--variant", choices=sorted(VARIANTS), default="original")
     parser.add_argument("--samples", type=int, default=1)
     parser.add_argument("--temperature", type=float, default=0.0)
+    parser.add_argument("--model", default=MODEL, help="generator; '<name>:cloud' runs on Ollama's hosted API")
     args = parser.parse_args()
+    tag = "" if args.model == MODEL else "_" + args.model.removesuffix(":cloud").split(":")[0].split("-")[0]
     for k in range(1, args.samples + 1):
         out = args.out if args.out and args.samples == 1 else \
-            ROOT / "input" / f"mimic_triples_{args.variant}_s{k}.json"
-        generate(args.source, out, args.variant, args.temperature, OPTIONS["seed"] + k - 1)
+            ROOT / "input" / f"mimic_triples_{args.variant}{tag}_s{k}.json"
+        generate(args.source, out, args.variant, args.temperature, OPTIONS["seed"] + k - 1, args.model)
         print(f"done -> {out}", flush=True)
 
 

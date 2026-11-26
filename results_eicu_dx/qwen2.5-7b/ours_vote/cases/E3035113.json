@@ -1,0 +1,539 @@
+{
+ "case_id": "E3035113",
+ "decision_point": "2100-01-02 11:08:00",
+ "claims": [
+  "Monitor blood glucose levels closely due to fluctuations and risk of hypoglycemia.",
+  "Continue vancomycin and zosyn IV as ordered for suspected infection.",
+  "Assess for signs of respiratory distress and adjust oxygen therapy as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3035113A1::01",
+   "claim_id": "E3035113A1",
+   "claim_text": "Monitor blood glucose levels closely due to fluctuations and risk of hypoglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3035113A1::02",
+   "claim_id": "E3035113A1",
+   "claim_text": "Monitor blood glucose levels closely due to fluctuations and risk of hypoglycemia.",
+   "kind": "fact",
+   "text": "Blood glucose levels are fluctuating.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E3035113A1::03",
+   "claim_id": "E3035113A1",
+   "claim_text": "Monitor blood glucose levels closely due to fluctuations and risk of hypoglycemia.",
+   "kind": "fact",
+   "text": "There is a risk of hypoglycemia.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "low",
+   "time": "unspecified",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E3035113A2::04",
+   "claim_id": "E3035113A2",
+   "claim_text": "Continue vancomycin and zosyn IV as ordered for suspected infection.",
+   "kind": "action",
+   "text": "Continue vancomycin IV.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3035113A2::05",
+   "claim_id": "E3035113A2",
+   "claim_text": "Continue vancomycin and zosyn IV as ordered for suspected infection.",
+   "kind": "action",
+   "text": "Continue zosyn IV.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "zosyn",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3035113A2::06",
+   "claim_id": "E3035113A2",
+   "claim_text": "Continue vancomycin and zosyn IV as ordered for suspected infection.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3035113A2::07",
+   "claim_id": "E3035113A2",
+   "claim_text": "Continue vancomycin and zosyn IV as ordered for suspected infection.",
+   "kind": "fact",
+   "text": "Zosyn is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3035113A2::08",
+   "claim_id": "E3035113A2",
+   "claim_text": "Continue vancomycin and zosyn IV as ordered for suspected infection.",
+   "kind": "fact",
+   "text": "Infection is suspected.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3035113A3::09",
+   "claim_id": "E3035113A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory distress",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3035113A3::10",
+   "claim_id": "E3035113A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3035113A1::02",
+   "claim_id": "E3035113A1",
+   "claim_text": "Monitor blood glucose levels closely due to fluctuations and risk of hypoglycemia.",
+   "kind": "fact",
+   "text": "Blood glucose levels are fluctuating.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The glucose values vary widely from 98 to 398 mg/dL, showing fluctuation.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:747192598",
+     "time": "2100-01-01 09:18:00",
+     "item": "Glucose: 98 mg/dL"
+    },
+    {
+     "rid": "lab:761969107",
+     "time": "2100-01-01 16:44:00",
+     "item": "Glucose finger stick: 193 mg/dL"
+    },
+    {
+     "rid": "lab:761931859",
+     "time": "2100-01-01 18:08:00",
+     "item": "Glucose finger stick: 189 mg/dL"
+    },
+    {
+     "rid": "lab:762411637",
+     "time": "2100-01-01 22:41:00",
+     "item": "Glucose finger stick: 398 mg/dL"
+    },
+    {
+     "rid": "lab:760523871",
+     "time": "2100-01-01 23:57:00",
+     "item": "Glucose finger stick: 355 mg/dL"
+    },
+    {
+     "rid": "lab:760687809",
+     "time": "2100-01-02 01:15:00",
+     "item": "Glucose finger stick: 70 mg/dL"
+    },
+    {
+     "rid": "lab:761052433",
+     "time": "2100-01-02 03:42:00",
+     "item": "Glucose finger stick: 169 mg/dL"
+    },
+    {
+     "rid": "lab:746987185",
+     "time": "2100-01-02 09:39:00",
+     "item": "Glucose: 231 mg/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3035113A1::03",
+   "claim_id": "E3035113A1",
+   "claim_text": "Monitor blood glucose levels closely due to fluctuations and risk of hypoglycemia.",
+   "kind": "fact",
+   "text": "There is a risk of hypoglycemia.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "low",
+   "time": "unspecified",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The patient is receiving scheduled insulin, and a glucose value of 70 mg/dL was recorded, indicating a risk of hypoglycemia. The active PRN dextrose order also supports the need for close glucose monitoring.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:103137332",
+     "time": "2100-01-01 17:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 17:00:00): Medication HumaLOG SUBCUT"
+    },
+    {
+     "rid": "lab:760687809",
+     "time": "2100-01-02 01:15:00",
+     "item": "Glucose finger stick: 70 mg/dL"
+    },
+    {
+     "rid": "lab:762411637",
+     "time": "2100-01-01 22:41:00",
+     "item": "Glucose finger stick: 398 mg/dL"
+    },
+    {
+     "rid": "lab:760523871",
+     "time": "2100-01-01 23:57:00",
+     "item": "Glucose finger stick: 355 mg/dL"
+    },
+    {
+     "rid": "lab:761052433",
+     "time": "2100-01-02 03:42:00",
+     "item": "Glucose finger stick: 169 mg/dL"
+    },
+    {
+     "rid": "lab:746987185",
+     "time": "2100-01-02 09:39:00",
+     "item": "Glucose: 231 mg/dL"
+    },
+    {
+     "rid": "med:103137437",
+     "time": "2100-01-01 13:30:00",
+     "item": "Order: DEXTROSE 50% ADULT IV PRN (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3035113A2::06",
+   "claim_id": "E3035113A2",
+   "claim_text": "Continue vancomycin and zosyn IV as ordered for suspected infection.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show vancomycin IV running at decision time (R38), which directly supports the statement that vancomycin is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:103137792",
+     "time": "2100-01-01 22:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 22:30:00): Medication vancomycin IV"
+    },
+    {
+     "rid": "med:103137243",
+     "time": "2100-01-01 22:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 22:30:00): Medication vancomycin IV"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3035113A2::07",
+   "claim_id": "E3035113A2",
+   "claim_text": "Continue vancomycin and zosyn IV as ordered for suspected infection.",
+   "kind": "fact",
+   "text": "Zosyn is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "Zosyn was given once at 10:16 on 2100-01-01, but there is no administration record within 24 hours before the decision time (2100-01-02 05:00) or a 'Running at decision time' record for Zosyn. The most recent relevant record shows only a one-time dose, not ongoing administration.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:103137268",
+     "time": "2100-01-01 10:16:00",
+     "item": "Given once: ZOSYN IV ONE TIME One Time Stat (2100-01-01 10:16:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3035113A2::08",
+   "claim_id": "E3035113A2",
+   "claim_text": "Continue vancomycin and zosyn IV as ordered for suspected infection.",
+   "kind": "fact",
+   "text": "Infection is suspected.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show vancomycin and Zosyn were given once at 10:15 and 10:16, and vancomycin was running at 22:30, but there is no record of Zosyn being administered or ordered as a continuing infusion at the decision time. The statement to 'continue' both antibiotics is therefore only partially supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:103137267",
+     "time": "2100-01-01 10:15:00",
+     "item": "Given once: vancomycin IV ONE TIME One Time Stat (2100-01-01 10:15:00)"
+    },
+    {
+     "rid": "med:103137268",
+     "time": "2100-01-01 10:16:00",
+     "item": "Given once: ZOSYN IV ONE TIME One Time Stat (2100-01-01 10:16:00)"
+    },
+    {
+     "rid": "med:103137792",
+     "time": "2100-01-01 22:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 22:30:00): Medication vancomycin IV"
+    },
+    {
+     "rid": "med:103137243",
+     "time": "2100-01-01 22:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 22:30:00): Medication vancomycin IV"
+    },
+    {
+     "rid": "pat:3035113:dx",
+     "time": "2100-01-01 11:08:00",
+     "item": "Admission diagnosis (APACHE): Emphysema/bronchitis"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3035113A1::01",
+   "claim_id": "E3035113A1",
+   "claim_text": "Monitor blood glucose levels closely due to fluctuations and risk of hypoglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:763108740",
+     "time": "2100-01-02 16:44:00",
+     "item": "glucose",
+     "value": "146.0 mg/dL"
+    },
+    {
+     "rid": "lab:761870891",
+     "time": "2100-01-02 21:21:00",
+     "item": "glucose",
+     "value": "181.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 11.9 h observation window after the decision (24 h or until ICU discharge): glucose x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3035113A2::04",
+   "claim_id": "E3035113A2",
+   "claim_text": "Continue vancomycin and zosyn IV as ordered for suspected infection.",
+   "kind": "action",
+   "text": "Continue vancomycin IV.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 11.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3035113A2::05",
+   "claim_id": "E3035113A2",
+   "claim_text": "Continue vancomycin and zosyn IV as ordered for suspected infection.",
+   "kind": "action",
+   "text": "Continue zosyn IV.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "zosyn",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 11.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3035113A3::09",
+   "claim_id": "E3035113A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3035113A3::10",
+   "claim_id": "E3035113A3",
+   "claim_text": "Assess for signs of respiratory distress and adjust oxygen therapy as needed.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 11.9,
+ "scoresheet": {
+  "n": 5,
+  "supported": 3,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.6,
+  "not_supported_share": 0.4,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Zosyn is currently being given. -- Zosyn was given once at 10:16 on 2100-01-01, but there is no administration record within 24 hours before the decision time (2100-01-02 05:00) or a 'Running at decision time' record for Zosyn. The most recent relevant record shows only a one-time dose, not ongoing administration.",
+    "Infection is suspected. -- The records show vancomycin and Zosyn were given once at 10:15 and 10:16, and vancomycin was running at 22:30, but there is no record of Zosyn being administered or ordered as a continuing infusion at the decision time. The statement to 'continue' both antibiotics is therefore only partially supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.6,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

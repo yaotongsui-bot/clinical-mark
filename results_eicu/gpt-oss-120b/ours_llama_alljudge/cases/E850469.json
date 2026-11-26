@@ -1,0 +1,544 @@
+{
+ "case_id": "E850469",
+ "decision_point": "2100-01-02 13:47:00",
+ "claims": [
+  "Obtain repeat blood cultures to assess ongoing bacteremia.",
+  "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+  "Monitor serum lactate q6h to track response to sepsis therapy."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E850469A1::01",
+   "claim_id": "E850469A1",
+   "claim_text": "Obtain repeat blood cultures to assess ongoing bacteremia.",
+   "kind": "action",
+   "text": "Obtain repeat blood cultures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": false,
+   "treatment_class": "cultures",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E850469A1::02",
+   "claim_id": "E850469A1",
+   "claim_text": "Obtain repeat blood cultures to assess ongoing bacteremia.",
+   "kind": "fact",
+   "text": "Bacteremia is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E850469A2::03",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "action",
+   "text": "Continue piperacillin-tazobactam.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "piperacillin-tazobactam",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E850469A2::04",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "action",
+   "text": "Continue vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E850469A2::05",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "fact",
+   "text": "Piperacillin-tazobactam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E850469A2::06",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E850469A3::07",
+   "claim_id": "E850469A3",
+   "claim_text": "Monitor serum lactate q6h to track response to sepsis therapy.",
+   "kind": "action",
+   "text": "Monitor serum lactate q6h.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E850469A1::02",
+   "claim_id": "E850469A1",
+   "claim_text": "Obtain repeat blood cultures to assess ongoing bacteremia.",
+   "kind": "fact",
+   "text": "Bacteremia is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that the patient has a fever, but there is no evidence of bacteremia. The patient's white blood cell count is 7.9 K/MM3, which is within the normal range. The patient's lactate level is 3.8 mmol/L, which is slightly elevated, but not indicative of bacteremia. The patient's glucose level is 138 mg/dL, which is slightly elevated, but not indicative of bacteremia. The patient's anion",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:562659463",
+     "time": "2100-01-01 13:45:00",
+     "item": "Temperature Fahrenheit: 99.5 F"
+    },
+    {
+     "rid": "nurse:562659461",
+     "time": "2100-01-01 13:45:00",
+     "item": "Temperature Location: Oral"
+    },
+    {
+     "rid": "nurse:496723150",
+     "time": "2100-01-01 13:45:00",
+     "item": "Respiratory Rate: 25 insp/min"
+    },
+    {
+     "rid": "nurse:449985421",
+     "time": "2100-01-01 14:00:00",
+     "item": "Respiratory Rate: 25 insp/min"
+    },
+    {
+     "rid": "nurse:491666802",
+     "time": "2100-01-01 14:15:00",
+     "item": "Respiratory Rate: 23 insp/min"
+    },
+    {
+     "rid": "treat:23711724",
+     "time": "2100-01-01 14:20:00",
+     "item": "Treatment documented: intravenous fluid | normal saline administration | aggressive volume resuscitation (>250 mls/hr)"
+    },
+    {
+     "rid": "nurse:496097106",
+     "time": "2100-01-01 14:21:00",
+     "item": "Temperature Fahrenheit: 99.5 F"
+    },
+    {
+     "rid": "nurse:496097107",
+     "time": "2100-01-01 14:21:00",
+     "item": "Temperature Location: Oral"
+    },
+    {
+     "rid": "lab:223758159",
+     "time": "2100-01-01 14:21:00",
+     "item": "Respiratory Rate: 25 /min"
+    },
+    {
+     "rid": "nurse:563334600",
+     "time": "2100-01-01 14:21:00",
+     "item": "Respiratory Rate: 24 insp/min"
+    },
+    {
+     "rid": "med:34978603",
+     "time": "2100-01-01 14:28:00",
+     "item": "Order: ONDANSETRON 2 MG/1 ML 2ML SDV INJ IV Push Q6H PRN (active at decision time)"
+    },
+    {
+     "rid": "med:30805209",
+     "time": "2100-01-01 14:28:00",
+     "item": "Order: acetaMINOPHEN 325 MG TAB PO Q4H PRN (active at decision time)"
+    },
+    {
+     "rid": "med:32866308",
+     "time": "2100-01-01 14:28:00",
+     "item": "Order: acetaMINOPHEN 650MG RECT SUPP PR Q4H PRN (active at decision time)"
+    },
+    {
+     "rid": "nurse:470234910",
+     "time": "2100-01-01 14:30:00",
+     "item": "Respiratory Rate: 21 insp/min"
+    },
+    {
+     "rid": "med:30941158",
+     "time": "2100-01-01 14:31:00",
+     "item": "Order: GLUCOSE 15 GRAM/60 ML BQ LIQ PO ONCALL PRN (active at decision time)"
+    },
+    {
+     "rid": "med:22804310",
+     "time": "2100-01-01 14:31:00",
+     "item": "Order: GLUCOSE 15 GRAM/60 ML BQ LIQ PO ONCALL PRN (active at decision time)"
+    },
+    {
+     "rid": "med:31664743",
+     "time": "2100-01-01 14:31:00",
+     "item": "Order: GLUCAGON 1 MG (1 UNIT) INJ SubQ ONCALL PRN (active at decision time)"
+    },
+    {
+     "rid": "med:22627244",
+     "time": "2100-01-01 14:31:00",
+     "item": "Order: DEXTROSE 50% 25 GRAM/50 ML SYR IV Push ONCALL PRN (active at decision time)"
+    },
+    {
+     "rid": "med:25316215",
+     "time": "2100-01-01 14:32:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 14:32:00): Medication ENOXAPARIN 40 MG/0.4 ML SYR SubQ Q24H"
+    },
+    {
+     "rid": "med:31585302",
+     "time": "2100-01-01 14:33:00",
+     "item": "Medication VANCOmycin 1 GM in NS 250 mL IVPB IVPB Q24H (2100-01-01 14:33:00 to 2100-01-01 15:18:00)"
+    },
+    {
+     "rid": "nurse:550060199",
+     "time": "2100-01-01 14:45:00",
+     "item": "Respiratory Rate: 28 insp/min"
+    },
+    {
+     "rid": "nurse:562673454",
+     "time": "2100-01-01 15:00:00",
+     "item": "Temperature Fahrenheit: 98.1 F"
+    },
+    {
+     "rid": "nurse:562673452",
+     "time": "2100-01-01 15:00:00",
+     "item": "Temperature Location: Bladder"
+    },
+    {
+     "rid": "med:27545705",
+     "time": "2100-01-01 15:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 15:30:00): Medication VANCOmycin 1 GM in NS 250 mL IVPB IVPB Q24H"
+    },
+    {
+     "rid": "lab:148432660",
+     "time": "2100-01-01 15:45:00",
+     "item": "Lactate: 3.8 mmol/L"
+    },
+    {
+     "rid": "lab:188693787",
+     "time": "2100-01-01 15:54:00",
+     "item": "Glucose finger stick: 138 mg/dL"
+    },
+    {
+     "rid": "lab:191648082",
+     "time": "2100-01-01 18:57:00",
+     "item": "Glucose finger stick: 147 mg/dL"
+    },
+    {
+     "rid": "nurse:530771076",
+     "time": "2100-01-01 19:00:00",
+     "item": "Temperature Fahrenheit: 97.9 F"
+    },
+    {
+     "rid": "nurse:530771074",
+     "time": "2100-01-01 19:00:00",
+     "item": "Temperature Location: Bladder"
+    },
+    {
+     "rid": "lab:165407277",
+     "time": "2100-01-01 19:25:00",
+     "item": "Lactate: 3.9 mmol/L"
+    },
+    {
+     "rid": "nurse:533246176",
+     "time": "2100-01-01 22:00:00",
+     "item": "Temperature Fahrenheit: 96.8 F"
+    },
+    {
+     "rid": "nurse:533246174",
+     "time": "2100-01-01 22:00:00",
+     "item": "Temperature Location: Bladder"
+    },
+    {
+     "rid": "nurse:552515978",
+     "time": "2100-01-01 23:00:00",
+     "item": "Temperature Fahrenheit: 96.8 F"
+    },
+    {
+     "rid": "nurse:552515976",
+     "time": "2100-01-01 23:00:00",
+     "item": "Temperature Location: Bladder"
+    },
+    {
+     "rid": "lab:189475863",
+     "time": "2100-01-01 23:10:00",
+     "item": "Glucose finger stick: 125 mg/dL"
+    },
+    {
+     "rid": "nurse:483813492",
+     "time": "2100-01-02 03:00:00",
+     "item": "Temperature Fahrenheit: 98.1 F"
+    },
+    {
+     "rid": "nurse:483813490",
+     "time": "2100-01-02 03:00:00",
+     "item": "Temperature Location: Bladder"
+    },
+    {
+     "rid": "lab:188760947",
+     "time": "2100-01-02 04:21:00",
+     "item": "Glucose finger stick: 147 mg/dL"
+    },
+    {
+     "rid": "nurse:491018310",
+     "time": "2100-01-02 07:00:00",
+     "item": "Temperature Fahrenheit: 98.6 F"
+    },
+    {
+     "rid": "nurse:491018308",
+     "time": "2100-01-02 07:00:00",
+     "item": "Temperature Location: Bladder"
+    },
+    {
+     "rid": "lab:140191643",
+     "time": "2100-01-02 10:45:00",
+     "item": "Magnesium: 1.4 mg/dL"
+    },
+    {
+     "rid": "lab:145231244",
+     "time": "2100-01-02 10:45:00",
+     "item": "Anion Gap: 9"
+    },
+    {
+     "rid": "lab:145231242",
+     "time": "2100-01-02 10:45:00",
+     "item": "Potassium: 2.8 mmol/L"
+    },
+    {
+     "rid": "nurse:524646710",
+     "time": "2100-01-02 11:00:00",
+     "item": "Temperature Fahrenheit: 99.3 F"
+    },
+    {
+     "rid": "nurse:524646708",
+     "time": "2100-01-02 11:00:00",
+     "item": "Temperature Location: Bladder"
+    }
+   ]
+  },
+  {
+   "atom_id": "E850469A2::05",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "fact",
+   "text": "Piperacillin-tazobactam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that piperacillin-tazobactam was ordered and administered at 14:33 on 01-01-2100, but there is no record of it being administered at the decision time of 13:47 on 01-02-2100. However, there is a record of it being administered at 15:30 on 01-01-2100, which is within the 24-hour window.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:31585302",
+     "time": "2100-01-01 14:33:00",
+     "item": "Medication VANCOmycin 1 GM in NS 250 mL IVPB IVPB Q24H (2100-01-01 14:33:00 to 2100-01-01 15:18:00)"
+    },
+    {
+     "rid": "med:27545705",
+     "time": "2100-01-01 15:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 15:30:00): Medication VANCOmycin 1 GM in NS 250 mL IVPB IVPB Q24H"
+    }
+   ]
+  },
+  {
+   "atom_id": "E850469A2::06",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "Vancomycin was administered in the 24 hours before the decision time, but the records also show that it was not given at the decision time. The statement is not supported because it claims that vancomycin is currently being given, but the records do not show administration at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:31585302",
+     "time": "2100-01-01 14:33:00",
+     "item": "Medication VANCOmycin 1 GM in NS 250 mL IVPB IVPB Q24H (2100-01-01 14:33:00 to 2100-01-01 15:18:00)"
+    },
+    {
+     "rid": "med:27545705",
+     "time": "2100-01-01 15:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 15:30:00): Medication VANCOmycin 1 GM in NS 250 mL IVPB IVPB Q24H"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E850469A1::01",
+   "claim_id": "E850469A1",
+   "claim_text": "Obtain repeat blood cultures to assess ongoing bacteremia.",
+   "kind": "action",
+   "text": "Obtain repeat blood cultures.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "blood cultures",
+   "conditional": false,
+   "treatment_class": "cultures",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No cultures action recorded in the 3.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E850469A2::03",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "action",
+   "text": "Continue piperacillin-tazobactam.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "piperacillin-tazobactam",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 3.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E850469A2::04",
+   "claim_id": "E850469A2",
+   "claim_text": "Continue current broad‑spectrum antibiotics (piperacillin‑tazobactam and vancomycin) pending culture results.",
+   "kind": "action",
+   "text": "Continue vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 3.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E850469A3::07",
+   "claim_id": "E850469A3",
+   "claim_text": "Monitor serum lactate q6h to track response to sepsis therapy.",
+   "kind": "action",
+   "text": "Monitor serum lactate q6h.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 3.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 3.2,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Bacteremia is present. -- The records show that the patient has a fever, but there is no evidence of bacteremia. The patient's white blood cell count is 7.9 K/MM3, which is within the normal range. The patient's lactate level is 3.8 mmol/L, which is slightly elevated, but not indicative of bacteremia. The patient's glucose level is 138 mg/dL, which is slightly elevated, but not indicative of bacteremia. The patient's anion",
+    "Piperacillin-tazobactam is currently being given. -- The records show that piperacillin-tazobactam was ordered and administered at 14:33 on 01-01-2100, but there is no record of it being administered at the decision time of 13:47 on 01-02-2100. However, there is a record of it being administered at 15:30 on 01-01-2100, which is within the 24-hour window.",
+    "Vancomycin is currently being given. -- Vancomycin was administered in the 24 hours before the decision time, but the records also show that it was not given at the decision time. The statement is not supported because it claims that vancomycin is currently being given, but the records do not show administration at the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

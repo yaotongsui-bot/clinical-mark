@@ -1,0 +1,148 @@
+# E756295   T = 2100-01-02 23:16:00   records before T: 622
+ICU stay 756295 (Med-Surg ICU; Female, age 63; admission diagnosis: Coma/change in level of consciousness (for hepatic see GI, for diabetic see Endocrine, if related to cardiac arrest, see CV)).
+
+## Atoms
+deepseek-v4.1-flash|E756295A1::02 [presupposition] The patient is currently on mechanical ventilation.   <- Continue mechanical ventilation with lung-protective settings, monitoring oxygenation and acid-base status.
+deepseek-v4.1-flash|E756295A2::06 [presupposition] Dobutamine infusion is currently being given.   <- Continue dobutamine infusion for ventricular dysfunction, monitoring hemodynamic response.
+deepseek-v4.1-flash|E756295A2::07 [judgment] Ventricular dysfunction is present.   <- Continue dobutamine infusion for ventricular dysfunction, monitoring hemodynamic response.
+deepseek-v4.1-flash|E756295A3::10 [presupposition] Sodium bicarbonate infusion is currently being given.   <- Continue sodium bicarbonate infusion for metabolic acidosis, monitoring serum bicarbonate and pH.
+deepseek-v4.1-flash|E756295A3::11 [judgment] Metabolic acidosis is present.   <- Continue sodium bicarbonate infusion for metabolic acidosis, monitoring serum bicarbonate and pH.
+gpt-oss-120b|E756295A1::03 [presupposition] Metabolic acidosis is present.   <- Increase sodium bicarbonate infusion to target serum bicarbonate >22 mmol/L and correct metabolic acidosis.
+gpt-oss-120b|E756295A2::06 [presupposition] Dobutamine infusion is currently being given.   <- Titrate dobutamine infusion to maintain mean arterial pressure ≥65 mmHg.
+qwen2.5-7b|E756295A2::04 [presupposition] The patient is currently on mechanical ventilation.   <- Continue mechanical ventilation with close monitoring of respiratory parameters.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 15:00:00): Medication CHLORHEXIDINE GLUCONATE UD LIQ 15ML Oral swab Q12H (int)
+  Running at decision time (scheduled order started 2100-01-01 23:02:00): Medication PROPOFOL 10 MG/1 ML 100ML SDV INJ IV
+  Running at decision time (scheduled order started 2100-01-02 01:00:00): Medication ENOXAPARIN 40 MG/0.4 ML SYR SubQ Q24H
+  Running at decision time (scheduled order started 2100-01-02 04:00:00): Medication FAMOTIDINE 20 MG/2 ML SDV INJ IV Push Q12H
+  Running at decision time (scheduled order started 2100-01-02 08:02:00): Medication HEPARIN 25,000 unit(s) in D5W 25 IV
+  Running at decision time (scheduled order started 2100-01-02 17:28:00): Medication SODIUM BICARBONATE 8.4% 50 ML INJ IV
+  Running at decision time (started 2100-01-02 22:00:00): Infusion/input Calcium Gluconate IVF Infused at 80 ml/hour
+  Running at decision time (started 2100-01-02 22:00:00): Infusion/input Dobutamine at 44 ml/hour
+  Running at decision time (started 2100-01-02 22:00:00): Infusion/input Heparin at 21 ml/hour
+  Running at decision time (started 2100-01-02 22:00:00): Infusion/input Magnesium Sulfate IVF Infused at 100 ml/hour
+  Running at decision time (started 2100-01-02 22:00:00): Infusion/input Propofol at 26 ml/hour
+  Running at decision time (started 2100-01-02 22:00:00): Infusion/input Sodium Bicarb IVF Infused at 923 ml/hour
+
+## PRN orders
+  01-01 19:13 Order: LORazepam 2 MG/1 ML 1 ML INJ IV Push ONCALL PRN (active at decision time)
+  01-01 22:39 Order: HYDROmorphone 1 MG/1 ML SYR IV Push 1XONLY PRN (stopped 2100-01-01 22:48:00)
+  01-01 23:02 Order: MORPHINE 4 MG/1 ML 1 ML SYR IV Push Q1H PRN (active at decision time)
+  01-02 00:27 Order: METOPROLOL 1 MG/ML 5ML SDV INJ IV Push Q6H PRN (active at decision time)
+  01-02 08:03 Order: HEPARIN 5000 UNIT/ML 1ML INJ IV ONCALL PRN (active at decision time)
+  01-02 22:20 Order: acetaMINOPHEN 325 MG TAB NG Q4H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Propofol at 13.4 ml/hour (2100-01-02 01:00:00 to 2100-01-02 13:00:00)
+  Infusion/input Heparin at 28.4 ml/hour (2100-01-02 13:00:00 to 2100-01-02 15:00:00)
+  Infusion/input Propofol at 21 ml/hour (2100-01-02 13:00:00 to 2100-01-02 15:00:00)
+  Infusion/input Heparin at 17 ml/hour (2100-01-02 15:00:00 to 2100-01-02 22:00:00)
+  Infusion/input Propofol at 5 ml/hour (2100-01-02 15:00:00 to 2100-01-02 22:00:00)
+
+## Medications given once or ended before T
+  Medication SODIUM CHLORIDE 0.9% 1000 ML PB IV 1XONLY (2100-01-01 19:11:00 to 2100-01-01 19:41:00)
+  Medication MORPHINE 4 MG/1 ML 1 ML SYR IV 1XONLY (2100-01-01 19:12:00 to 2100-01-01 19:42:00)
+  Medication ONDANSETRON 2 MG/1 ML 2ML SDV INJ IV Push 1XONLY (2100-01-01 19:12:00 to 2100-01-01 20:16:00)
+  Medication fentaNYL (PF) 50 MCG/1 ML 2 ML INJ IV Push 1XONLY (2100-01-01 19:15:00 to 2100-01-01 19:47:00)
+  Medication fentaNYL (PF) 50 MCG/1 ML 2 ML INJ IV Push 1XONLY (2100-01-01 20:15:00 to 2100-01-01 20:34:00)
+  Medication SODIUM CHLORIDE 0.9% 1000 ML PB IV 1XONLY (2100-01-01 20:32:00 to 2100-01-01 20:34:00)
+  Medication PROPOFOL 10 MG/1 ML 100ML SDV INJ IV (2100-01-01 20:52:00 to 2100-01-01 23:16:00)
+  Medication SODIUM CHLORIDE 0.9% 1000 ML LVP IV (2100-01-01 22:52:00 to 2100-01-02 10:17:00)
+  Medication SODIUM CHLORIDE 0.9% 1000 ML PB IV 1XONLY (2100-01-02 02:48:00 to 2100-01-02 02:59:00)
+  Medication SODIUM CHLORIDE 0.9% 1000 ML PB IV 1XONLY (2100-01-02 03:53:00 to 2100-01-02 03:56:00)
+  Medication SODIUM CHLORIDE 0.9% 500 ML PB IV 1XONLY (2100-01-02 07:50:00 to 2100-01-02 08:15:00)
+  Medication HEPARIN 5000 UNIT/ML 1ML INJ IV 1XONLY (2100-01-02 08:03:00 to 2100-01-02 08:36:00)
+  Medication DEXTROSE 50% 25 GRAM/50 ML SYR IV Push 1XONLY (2100-01-02 10:16:00 to 2100-01-02 10:21:00)
+  Medication DEXT 5%-NACL 0.45% 1000 ML LVP IV (2100-01-02 10:17:00 to 2100-01-02 12:35:00)
+  Medication SODIUM BICARBONATE 8.4% 50 ML INJ IV (2100-01-02 12:34:00 to 2100-01-02 17:29:00)
+  Medication SODium PHOSphate 15 MMOL/100ML NS IVPB 1XONLY (2100-01-02 16:25:00 to 2100-01-02 17:14:00)
+  Medication CALCIUM GLUCONATE 2 GRAM/D5W 50ML IVPB 1XONLY (2100-01-02 17:31:00 to 2100-01-02 18:19:00)
+
+## Laboratory (newest first, up to 5)
+  Acetaminophen: 01-01 17:55 <2
+  Alanine Aminotransferase (ALT): 01-02 15:15 124 IU/L; 01-02 09:27 85 IU/L; 01-01 17:55 82 IU/L
+  Albumin: 01-02 15:15 2.2 g/dL; 01-02 09:27 2.3 g/dL; 01-01 17:55 3.6 g/dL
+  Alkaline Phosphatase: 01-02 15:15 143 IU/L; 01-02 09:27 152 IU/L; 01-01 17:55 206 IU/L
+  Anion Gap: 01-02 15:15 17; 01-02 09:27 18; 01-02 00:40 16; 01-01 17:55 23
+  Asparate Aminotransferase (AST): 01-02 15:15 801 IU/L; 01-02 09:27 451 IU/L; 01-01 17:55 188 IU/L
+  Base Excess: 01-02 15:29 -11.2 mmol/L; 01-02 10:58 -15.1 mmol/L; 01-02 07:39 -16.7 mmol/L; 01-01 23:45 -7.6 mmol/L; 01-01 20:36 -9.3 mmol/L   [+1 earlier]
+  Bicarbonate: 01-02 15:15 18 mmol/L; 01-02 09:27 15 mmol/L; 01-02 00:40 21 mmol/L; 01-01 17:55 19 mmol/L
+  Bicarbonate (blood gas HCO3): 01-02 15:29 14 mmol/L; 01-02 10:58 12.5 mmol/L; 01-02 07:39 11.6 mmol/L; 01-01 23:45 16 mmol/L; 01-01 20:36 15 mmol/L   [+1 earlier]
+  Bilirubin, Total: 01-02 15:15 2.3 mg/dL; 01-02 09:27 3 mg/dL; 01-01 17:55 2.1 mg/dL
+  CPK: 01-01 17:55 1794 IU/L
+  Calcium, Total: 01-02 15:15 6.3 mg/dL; 01-02 09:27 6.5 mg/dL; 01-02 00:40 6.8 mg/dL; 01-01 17:55 9.2 mg/dL
+  Chloride: 01-02 15:15 114 mmol/L; 01-02 09:27 115 mmol/L; 01-02 00:40 109 mmol/L; 01-01 17:55 100 mmol/L
+  Creatinine: 01-02 15:15 1.34 mg/dL; 01-02 09:27 1.22 mg/dL; 01-02 00:40 0.97 mg/dL; 01-01 17:55 1.18 mg/dL
+  FiO2: 01-02 15:29 40%
+  Glucose: 01-02 15:15 167 mg/dL; 01-02 09:27 32 mg/dL; 01-02 00:40 105 mg/dL; 01-01 17:55 134 mg/dL
+  Glucose finger stick: 01-02 10:37 136 mg/dL
+  Hematocrit: 01-02 15:15 36.1 %; 01-02 09:27 38.1 %; 01-01 17:55 37 %
+  Hemoglobin: 01-02 15:15 11.8 g/dL; 01-02 09:27 12.7 g/dL; 01-01 17:55 12.6 g/dL
+  INR(PT): 01-02 15:15 3.1; 01-02 00:40 1.4; 01-01 17:55 1.1
+  Lactate: 01-02 15:15 4.8 mmol/L; 01-02 09:27 8 mmol/L; 01-01 20:23 9.9 mmol/L
+  MCH: 01-02 15:15 37.2 pg; 01-02 09:27 38.2 pg; 01-01 17:55 37.6 pg
+  MCHC: 01-02 15:15 32.6 g/dL; 01-02 09:27 33.3 g/dL; 01-01 17:55 34 g/dL
+  MCV: 01-02 15:15 113.9 fL; 01-02 09:27 114.6 fL; 01-01 17:55 110.7 fL
+  MPV: 01-02 15:15 8.7 fL; 01-02 09:27 8.4 fL; 01-01 17:55 9.1 fL
+  Magnesium: 01-02 15:15 1.3 mg/dL
+  Oxygen Saturation: 01-02 15:29 97 %; 01-01 23:45 98 %; 01-01 20:36 97 %; 01-01 20:18 16 %
+  PT: 01-02 15:15 30.9 second(s); 01-02 00:40 16.6 second(s); 01-01 17:55 13.9 second(s)
+  PTT: 01-02 19:20 97.8 second(s); 01-02 15:15 >220.0
+  Phosphate: 01-02 15:15 2.3 mg/dL
+  Platelet Count: 01-02 15:15 215 K/MM3; 01-02 09:27 229 K/MM3; 01-01 17:55 371 K/MM3
+  Potassium: 01-02 15:15 4.2 mmol/L; 01-02 09:27 3.7 mmol/L; 01-02 05:58 4.1 mmol/L; 01-02 00:40 2.5 mmol/L; 01-01 17:55 2.7 mmol/L
+  RBC: 01-02 15:15 3.17 M/MM3; 01-02 09:27 3.33 M/MM3; 01-01 17:55 3.34 M/MM3
+  RDW: 01-02 15:15 16.7 %; 01-02 09:27 16.9 %; 01-01 17:55 16.1 %
+  Sodium: 01-02 15:15 149 mmol/L; 01-02 09:27 148 mmol/L; 01-02 00:40 146 mmol/L; 01-01 17:55 142 mmol/L
+  TSH: 01-01 23:45 0.08 mIU/L; 01-01 17:55 0.09 mIU/L
+  Urea Nitrogen: 01-02 15:15 15 mg/dL; 01-02 09:27 12 mg/dL; 01-02 00:40 8 mg/dL; 01-01 17:55 8 mg/dL
+  White Blood Cells: 01-02 15:15 13.1 K/MM3; 01-02 09:27 13.7 K/MM3; 01-01 17:55 12.8 K/MM3
+  ammonia: 01-01 23:45 62 umol/L
+  ethanol: 01-01 17:55 <10
+  free T4: 01-01 23:45 1.97 ng/dL
+  lipase: 01-01 17:55 131 IU/L
+  pCO2: 01-02 15:29 29 mmHg; 01-02 10:58 36 mmHg; 01-02 07:39 36.3 mmHg; 01-01 23:45 26 mmHg; 01-01 20:36 30 mmHg   [+1 earlier]
+  pH: 01-02 15:29 7.29 unit(s); 01-02 10:58 7.17 unit(s); 01-02 07:39 7.12 unit(s); 01-01 23:45 7.4 unit(s); 01-01 20:36 7.33 unit(s)   [+1 earlier]
+  pO2: 01-02 15:29 135 mmHg; 01-02 10:58 44 mmHg; 01-02 07:39 43.9 mmHg; 01-01 23:45 200 mmHg; 01-01 20:36 143 mmHg   [+1 earlier]
+  total protein: 01-02 15:15 5.1 g/dL; 01-02 09:27 5.1 g/dL; 01-01 17:55 7.8 g/dL
+  troponin - I: 01-02 15:15 12.7 ng/mL; 01-02 09:27 12.1 ng/mL; 01-02 05:58 11.2 ng/mL; 01-01 23:45 5.04 ng/mL; 01-01 17:55 0.1 ng/mL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Compliance: 23.9 @01-01 23:18
+  Exhaled MV: 8.01 @01-02 21:00   24h 8.01-12.1 (n=9)
+  Fall Risk: High @01-02 19:30
+  Glasgow coma score Eyes: 2 @01-02 19:30   24h 2-2 (n=5)
+  Glasgow coma score GCS Total: 8 @01-02 19:30   24h 6-8 (n=5)
+  Glasgow coma score Motor: 5 @01-02 19:30   24h 3-5 (n=5)
+  Glasgow coma score Verbal: 1 @01-02 19:30   24h 1-1 (n=5)
+  Glucose finger stick: 136 mg/dL @01-02 10:37
+  Heart Rate: 122 bpm @01-02 23:00   24h 94-143 (n=42)
+  Inspired O2 Fraction: 50 % @01-02 21:00   24h 50-70 (n=11)
+  Mean Airway Pressure: 9.4 cmH2O @01-02 21:00   24h 9-15 (n=10)
+  Non Invasive Blood Pressure diastolic: 96 mmHg @01-02 23:00   24h 56-112 (n=38)
+  Non Invasive Blood Pressure mean: 104 mmHg @01-02 23:00   24h 59-116 (n=39)
+  Non Invasive Blood Pressure systolic: 128 mmHg @01-02 23:00   24h 70-134 (n=38)
+  O2 saturation pulseoxymetry: 95 % @01-02 23:00   24h 53-100 (n=46)
+  PEEP set: 5 cmH2O @01-02 21:00   24h 5-5 (n=11)
+  Peak Insp. Pressure: 16 cmH2O @01-02 21:00   24h 16-24 (n=10)
+  Plateau Pressure: 23 @01-01 23:18
+  Respiratory Rate: 23 insp/min @01-02 23:00   24h 14-28 (n=41)
+  Respiratory Rate (Set): 14 insp/min @01-02 21:00   24h 14-14 (n=12)
+  Respiratory Rate (Total): 18 insp/min @01-02 21:00   24h 14-27 (n=10)
+  Respiratory Rate (spontaneous): 23 insp/min @01-02 23:00   24h 14-28 (n=41)
+  TV/kg IBW: 8.1955 @01-02 21:00   24h 8.1955-10.9939 (n=12)
+  Temperature Fahrenheit: 99.7 F @01-02 22:36   24h 98.4-100 (n=6)
+  Temperature Location: Axillary @01-02 22:36   earlier: Forehead @01-02 14:00; Oral @01-02 07:00
+  Tidal Volume (set): 410 mL @01-02 21:00   24h 410-550 (n=12)
+
+## Treatments documented
+  01-01 23:32 pulmonary | ventilation and oxygenation | mechanical ventilation
+  01-02 17:42 pulmonary | ventilation and oxygenation | mechanical ventilation
+  01-02 19:40 ventricular dysfunction | inotropic agent | dobutamine
+  01-02 19:40 pulmonary | ventilation and oxygenation | mechanical ventilation
+  01-02 23:01 renal | medications | bicarbonate
+  01-02 23:01 ventricular dysfunction | inotropic agent | dobutamine
+  01-02 23:01 pulmonary | ventilation and oxygenation | mechanical ventilation
+
+## Microbiology

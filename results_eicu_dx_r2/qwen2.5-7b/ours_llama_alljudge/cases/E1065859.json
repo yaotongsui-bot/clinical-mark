@@ -1,0 +1,466 @@
+{
+ "case_id": "E1065859",
+ "decision_point": "2100-01-02 20:54:00",
+ "claims": [
+  "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+  "Continue intravenous fluid administration to maintain adequate blood pressure and volume status.",
+  "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1065859A1::01",
+   "claim_id": "E1065859A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1065859A1::02",
+   "claim_id": "E1065859A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1065859A2::03",
+   "claim_id": "E1065859A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate blood pressure and volume status.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1065859A2::04",
+   "claim_id": "E1065859A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate blood pressure and volume status.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1065859A3::05",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "hypovolemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1065859A3::06",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "sepsis",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1065859A3::07",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1065859A3::08",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "fact",
+   "text": "Altered mental status is present.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1065859A1::02",
+   "claim_id": "E1065859A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The patient's blood glucose levels have been consistently above normal throughout the day, with the most recent measurement at 20:51 being 110 mg/dL. This supports the statement that hyperglycemia is present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:253023719",
+     "time": "2100-01-01 21:28:00",
+     "item": "Glucose: 142 mg/dL"
+    },
+    {
+     "rid": "lab:255600917",
+     "time": "2100-01-01 22:27:00",
+     "item": "Glucose finger stick: 134 mg/dL"
+    },
+    {
+     "rid": "lab:255679427",
+     "time": "2100-01-02 00:01:00",
+     "item": "Glucose finger stick: 84 mg/dL"
+    },
+    {
+     "rid": "nurse:658206583",
+     "time": "2100-01-02 00:01:00",
+     "item": "Glucose finger stick: 84 mg/dL"
+    },
+    {
+     "rid": "lab:255452842",
+     "time": "2100-01-02 00:37:00",
+     "item": "Glucose finger stick: 101 mg/dL"
+    },
+    {
+     "rid": "nurse:659878781",
+     "time": "2100-01-02 00:37:00",
+     "item": "Glucose finger stick: 101 mg/dL"
+    },
+    {
+     "rid": "lab:251972034",
+     "time": "2100-01-02 09:20:00",
+     "item": "Glucose: 124 mg/dL"
+    },
+    {
+     "rid": "lab:255845403",
+     "time": "2100-01-02 10:44:00",
+     "item": "Glucose finger stick: 130 mg/dL"
+    },
+    {
+     "rid": "nurse:667816027",
+     "time": "2100-01-02 10:44:00",
+     "item": "Glucose finger stick: 130 mg/dL"
+    },
+    {
+     "rid": "lab:255824943",
+     "time": "2100-01-02 12:30:00",
+     "item": "Glucose finger stick: 120 mg/dL"
+    },
+    {
+     "rid": "nurse:667311795",
+     "time": "2100-01-02 12:30:00",
+     "item": "Glucose finger stick: 120 mg/dL"
+    },
+    {
+     "rid": "lab:255462616",
+     "time": "2100-01-02 13:37:00",
+     "item": "Glucose finger stick: 116 mg/dL"
+    },
+    {
+     "rid": "nurse:667789951",
+     "time": "2100-01-02 13:37:00",
+     "item": "Glucose finger stick: 116 mg/dL"
+    },
+    {
+     "rid": "lab:253319435",
+     "time": "2100-01-02 14:02:00",
+     "item": "Glucose: 105 mg/dL"
+    },
+    {
+     "rid": "lab:251886328",
+     "time": "2100-01-02 19:40:00",
+     "item": "Glucose: 100 mg/dL"
+    },
+    {
+     "rid": "lab:252096255",
+     "time": "2100-01-02 19:40:00",
+     "item": "Glucose: 96 mg/dL"
+    },
+    {
+     "rid": "lab:255952387",
+     "time": "2100-01-02 19:41:00",
+     "item": "Glucose finger stick: 107 mg/dL"
+    },
+    {
+     "rid": "nurse:656629335",
+     "time": "2100-01-02 19:41:00",
+     "item": "Glucose finger stick: 107 mg/dL"
+    },
+    {
+     "rid": "lab:255819637",
+     "time": "2100-01-02 20:51:00",
+     "item": "Glucose finger stick: 110 mg/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1065859A2::04",
+   "claim_id": "E1065859A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate blood pressure and volume status.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show that intravenous fluids were administered at 21:06 on 2100-01-01 (R11) and that the patient received a fluid bolus (R12) and aggressive volume resuscitation (R13).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:37519213",
+     "time": "2100-01-01 21:06:00",
+     "item": "Medication NS 1,000 mL IV (2100-01-01 21:06:00 to 2100-01-02 00:28:00)"
+    },
+    {
+     "rid": "treat:30789180",
+     "time": "2100-01-01 21:19:00",
+     "item": "Treatment documented: intravenous fluid | normal saline administration | fluid bolus (250-1000mls)"
+    },
+    {
+     "rid": "treat:30744076",
+     "time": "2100-01-01 21:19:00",
+     "item": "Treatment documented: intravenous fluid | normal saline administration | aggressive volume resuscitation (>250 mls/hr)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1065859A3::07",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient is receiving intravenous fluids and electrolyte correction, but the statement about hypotension is not supported by the records. The most recent heart rate measurement is 106 bpm, which is within a normal range. Additionally, the records do not mention any recent administration of medications that would indicate hypotension.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:30744076",
+     "time": "2100-01-01 21:19:00",
+     "item": "Treatment documented: intravenous fluid | normal saline administration | aggressive volume resuscitation (>250 mls/hr)"
+    },
+    {
+     "rid": "treat:30773060",
+     "time": "2100-01-01 21:19:00",
+     "item": "Treatment documented: electrolyte correction | treatment of hyperkalemia | kayexalate"
+    },
+    {
+     "rid": "treat:30789180",
+     "time": "2100-01-01 21:19:00",
+     "item": "Treatment documented: intravenous fluid | normal saline administration | fluid bolus (250-1000mls)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1065859A3::08",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "fact",
+   "text": "Altered mental status is present.",
+   "concept": "neuro",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient's best verbal response is Confused, but this does not necessarily indicate altered mental status. Altered mental status is a broader term that can encompass a range of cognitive and behavioral changes, and Confused is only one possible manifestation of it. Furthermore, the records do not provide any information about the patient's mental status prior to the Confus",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:665107388",
+     "time": "2100-01-02 01:00:00",
+     "item": "Best Verbal Response: Confused"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1065859A1::01",
+   "claim_id": "E1065859A1",
+   "claim_text": "Monitor blood glucose levels closely due to persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:255941258",
+     "time": "2100-01-02 23:30:00",
+     "item": "glucose",
+     "value": "111.0 mg/dL"
+    },
+    {
+     "rid": "nurse:653843712",
+     "time": "2100-01-02 23:30:00",
+     "item": "glucose",
+     "value": "111.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x12.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1065859A2::03",
+   "claim_id": "E1065859A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate blood pressure and volume status.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1065859A3::05",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "hypovolemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1065859A3::06",
+   "claim_id": "E1065859A3",
+   "claim_text": "Assess for signs of hypovolemia or sepsis given the patient's hypotension and altered mental status.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "sepsis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 2,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hypotension is present. -- The records show that the patient is receiving intravenous fluids and electrolyte correction, but the statement about hypotension is not supported by the records. The most recent heart rate measurement is 106 bpm, which is within a normal range. Additionally, the records do not mention any recent administration of medications that would indicate hypotension.",
+    "Altered mental status is present. -- The records show that the patient's best verbal response is Confused, but this does not necessarily indicate altered mental status. Altered mental status is a broader term that can encompass a range of cognitive and behavioral changes, and Confused is only one possible manifestation of it. Furthermore, the records do not provide any information about the patient's mental status prior to the Confus"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

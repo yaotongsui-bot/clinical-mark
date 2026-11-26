@@ -1,0 +1,401 @@
+{
+ "case_id": "E3111371",
+ "decision_point": "2100-01-02 08:40:00",
+ "claims": [
+  "Continue the scheduled intravenous diazepam infusion per protocol to maintain sedation and prevent withdrawal.",
+  "Monitor the patient's sedation level (RASS) and respiratory status q1h while on sedatives.",
+  "Obtain repeat liver function tests (AST, ALT, bilirubin) in 12 hours to assess trending hepatic injury."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3111371A1::01",
+   "claim_id": "E3111371A1",
+   "claim_text": "Continue the scheduled intravenous diazepam infusion per protocol to maintain sedation and prevent withdrawal.",
+   "kind": "action",
+   "text": "Continue the scheduled intravenous diazepam infusion per protocol.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "diazepam infusion",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3111371A1::02",
+   "claim_id": "E3111371A1",
+   "claim_text": "Continue the scheduled intravenous diazepam infusion per protocol to maintain sedation and prevent withdrawal.",
+   "kind": "fact",
+   "text": "The patient is currently receiving an intravenous diazepam infusion.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3111371A2::03",
+   "claim_id": "E3111371A2",
+   "claim_text": "Monitor the patient's sedation level (RASS) and respiratory status q1h while on sedatives.",
+   "kind": "action",
+   "text": "Monitor sedation level (RASS) q1h.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "RASS",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3111371A2::04",
+   "claim_id": "E3111371A2",
+   "claim_text": "Monitor the patient's sedation level (RASS) and respiratory status q1h while on sedatives.",
+   "kind": "action",
+   "text": "Monitor respiratory status q1h.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3111371A3::05",
+   "claim_id": "E3111371A3",
+   "claim_text": "Obtain repeat liver function tests (AST, ALT, bilirubin) in 12 hours to assess trending hepatic injury.",
+   "kind": "action",
+   "text": "Obtain AST in 12 hours.",
+   "concept": "ast",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "AST",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3111371A3::06",
+   "claim_id": "E3111371A3",
+   "claim_text": "Obtain repeat liver function tests (AST, ALT, bilirubin) in 12 hours to assess trending hepatic injury.",
+   "kind": "action",
+   "text": "Obtain ALT in 12 hours.",
+   "concept": "alt",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "ALT",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3111371A3::07",
+   "claim_id": "E3111371A3",
+   "claim_text": "Obtain repeat liver function tests (AST, ALT, bilirubin) in 12 hours to assess trending hepatic injury.",
+   "kind": "action",
+   "text": "Obtain bilirubin in 12 hours.",
+   "concept": "bilirubin",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "bilirubin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3111371A3::08",
+   "claim_id": "E3111371A3",
+   "claim_text": "Obtain repeat liver function tests (AST, ALT, bilirubin) in 12 hours to assess trending hepatic injury.",
+   "kind": "fact",
+   "text": "Hepatic injury is trending.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: liver_function -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "abnormal",
+   "time": "recent",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3111371A1::02",
+   "claim_id": "E3111371A1",
+   "claim_text": "Continue the scheduled intravenous diazepam infusion per protocol to maintain sedation and prevent withdrawal.",
+   "kind": "fact",
+   "text": "The patient is currently receiving an intravenous diazepam infusion.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Multiple medication administration records show intravenous diazepam running at the decision time, including scheduled and one-time orders.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:102452523",
+     "time": "2100-01-01 08:43:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 08:43:00): Medication DIAZEPAM INTRAVENOU PYX1TIME"
+    },
+    {
+     "rid": "med:102452447",
+     "time": "2100-01-01 09:09:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 09:09:00): Medication DIAZEPAM INTRAVENOU PYX1TIME"
+    },
+    {
+     "rid": "med:102452403",
+     "time": "2100-01-01 09:33:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 09:33:00): Medication DIAZEPAM INTRAVENOU PER PROTOCOL"
+    },
+    {
+     "rid": "med:102452405",
+     "time": "2100-01-01 09:33:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 09:33:00): Medication DIAZEPAM INTRAVENOU PER PROTOCOL"
+    },
+    {
+     "rid": "med:102452406",
+     "time": "2100-01-01 09:33:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 09:33:00): Medication DIAZEPAM INTRAVENOU PER PROTOCOL"
+    },
+    {
+     "rid": "med:102452485",
+     "time": "2100-01-01 10:48:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 10:48:00): Medication DIAZEPAM INTRAVENOU ONETIME"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3111371A3::08",
+   "claim_id": "E3111371A3",
+   "claim_text": "Obtain repeat liver function tests (AST, ALT, bilirubin) in 12 hours to assess trending hepatic injury.",
+   "kind": "fact",
+   "text": "Hepatic injury is trending.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: liver_function -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "abnormal",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "not_addressed",
+   "reason": "The records contain no mention of hepatic injury, liver function tests, or any related values such as AST, ALT, or bilirubin.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3111371A1::01",
+   "claim_id": "E3111371A1",
+   "claim_text": "Continue the scheduled intravenous diazepam infusion per protocol to maintain sedation and prevent withdrawal.",
+   "kind": "action",
+   "text": "Continue the scheduled intravenous diazepam infusion per protocol.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "diazepam infusion",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3111371A2::03",
+   "claim_id": "E3111371A2",
+   "claim_text": "Monitor the patient's sedation level (RASS) and respiratory status q1h while on sedatives.",
+   "kind": "action",
+   "text": "Monitor sedation level (RASS) q1h.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "RASS",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No sedation score (RASS) measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3111371A2::04",
+   "claim_id": "E3111371A2",
+   "claim_text": "Monitor the patient's sedation level (RASS) and respiratory status q1h while on sedatives.",
+   "kind": "action",
+   "text": "Monitor respiratory status q1h.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2110482219",
+     "time": "2100-01-02 09:00:00",
+     "item": "respiratory rate",
+     "value": "24.0 insp/min"
+    },
+    {
+     "rid": "nurse:2063190451",
+     "time": "2100-01-02 10:00:00",
+     "item": "respiratory rate",
+     "value": "18.0 insp/min"
+    },
+    {
+     "rid": "nurse:2128526912",
+     "time": "2100-01-02 09:00:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    },
+    {
+     "rid": "nurse:2031413689",
+     "time": "2100-01-02 10:00:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x9, SpO2 x9.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3111371A3::05",
+   "claim_id": "E3111371A3",
+   "claim_text": "Obtain repeat liver function tests (AST, ALT, bilirubin) in 12 hours to assess trending hepatic injury.",
+   "kind": "action",
+   "text": "Obtain AST in 12 hours.",
+   "concept": "ast",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "AST",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:741331143",
+     "time": "2100-01-02 10:17:00",
+     "item": "AST",
+     "value": "301.0 IU/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): AST x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3111371A3::06",
+   "claim_id": "E3111371A3",
+   "claim_text": "Obtain repeat liver function tests (AST, ALT, bilirubin) in 12 hours to assess trending hepatic injury.",
+   "kind": "action",
+   "text": "Obtain ALT in 12 hours.",
+   "concept": "alt",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "ALT",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:741331150",
+     "time": "2100-01-02 10:17:00",
+     "item": "ALT",
+     "value": "147.0 IU/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): ALT x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3111371A3::07",
+   "claim_id": "E3111371A3",
+   "claim_text": "Obtain repeat liver function tests (AST, ALT, bilirubin) in 12 hours to assess trending hepatic injury.",
+   "kind": "action",
+   "text": "Obtain bilirubin in 12 hours.",
+   "concept": "bilirubin",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "bilirubin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:745129940",
+     "time": "2100-01-02 10:17:00",
+     "item": "total bilirubin",
+     "value": "5.6 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): total bilirubin x1.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.5,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Hepatic injury is trending. -- The records contain no mention of hepatic injury, liver function tests, or any related values such as AST, ALT, or bilirubin."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

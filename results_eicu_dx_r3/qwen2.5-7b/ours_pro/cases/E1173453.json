@@ -1,0 +1,429 @@
+{
+ "case_id": "E1173453",
+ "decision_point": "2100-01-02 13:06:00",
+ "claims": [
+  "Monitor the patient's blood pressure closely due to fluctuations.",
+  "Continue antibiotic therapy with vancomycin.",
+  "Assess the patient's pain level and adjust pain management as necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1173453A1::01",
+   "claim_id": "E1173453A1",
+   "claim_text": "Monitor the patient's blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1173453A1::02",
+   "claim_id": "E1173453A1",
+   "claim_text": "Monitor the patient's blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1173453A2::03",
+   "claim_id": "E1173453A2",
+   "claim_text": "Continue antibiotic therapy with vancomycin.",
+   "kind": "action",
+   "text": "Continue vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1173453A2::04",
+   "claim_id": "E1173453A2",
+   "claim_text": "Continue antibiotic therapy with vancomycin.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1173453A3::05",
+   "claim_id": "E1173453A3",
+   "claim_text": "Assess the patient's pain level and adjust pain management as necessary.",
+   "kind": "action",
+   "text": "Assess pain level.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain level",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1173453A3::06",
+   "claim_id": "E1173453A3",
+   "claim_text": "Assess the patient's pain level and adjust pain management as necessary.",
+   "kind": "action",
+   "text": "Adjust pain management as necessary.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1173453A1::02",
+   "claim_id": "E1173453A1",
+   "claim_text": "Monitor the patient's blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The systolic blood pressure measurements fluctuate between 132 and 182 mmHg over the 24 hours before the decision time, supporting the statement that blood pressure is fluctuating.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:731454622",
+     "time": "2100-01-01 13:07:00",
+     "item": "Non Invasive Blood Pressure systolic: 135 mmHg"
+    },
+    {
+     "rid": "nurse:727495532",
+     "time": "2100-01-01 13:15:00",
+     "item": "Non Invasive Blood Pressure systolic: 153 mmHg"
+    },
+    {
+     "rid": "nurse:723194479",
+     "time": "2100-01-01 13:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 161 mmHg"
+    },
+    {
+     "rid": "nurse:723291931",
+     "time": "2100-01-01 13:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 152 mmHg"
+    },
+    {
+     "rid": "nurse:722517726",
+     "time": "2100-01-01 14:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 138 mmHg"
+    },
+    {
+     "rid": "nurse:729384675",
+     "time": "2100-01-01 14:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 134 mmHg"
+    },
+    {
+     "rid": "nurse:728802826",
+     "time": "2100-01-01 15:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 140 mmHg"
+    },
+    {
+     "rid": "nurse:724068880",
+     "time": "2100-01-01 16:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 151 mmHg"
+    },
+    {
+     "rid": "nurse:728142034",
+     "time": "2100-01-01 17:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 132 mmHg"
+    },
+    {
+     "rid": "nurse:729221988",
+     "time": "2100-01-01 18:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 147 mmHg"
+    },
+    {
+     "rid": "nurse:729283701",
+     "time": "2100-01-01 19:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 165 mmHg"
+    },
+    {
+     "rid": "nurse:724043370",
+     "time": "2100-01-01 20:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 155 mmHg"
+    },
+    {
+     "rid": "nurse:731721023",
+     "time": "2100-01-01 21:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 151 mmHg"
+    },
+    {
+     "rid": "nurse:725603676",
+     "time": "2100-01-01 22:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 157 mmHg"
+    },
+    {
+     "rid": "nurse:722407671",
+     "time": "2100-01-01 23:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 154 mmHg"
+    },
+    {
+     "rid": "nurse:727142066",
+     "time": "2100-01-02 00:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 158 mmHg"
+    },
+    {
+     "rid": "nurse:728485535",
+     "time": "2100-01-02 01:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 151 mmHg"
+    },
+    {
+     "rid": "nurse:722095766",
+     "time": "2100-01-02 02:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 151 mmHg"
+    },
+    {
+     "rid": "nurse:731502188",
+     "time": "2100-01-02 03:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 151 mmHg"
+    },
+    {
+     "rid": "nurse:732505375",
+     "time": "2100-01-02 04:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 161 mmHg"
+    },
+    {
+     "rid": "nurse:729615936",
+     "time": "2100-01-02 05:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 158 mmHg"
+    },
+    {
+     "rid": "nurse:728001657",
+     "time": "2100-01-02 06:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 136 mmHg"
+    },
+    {
+     "rid": "nurse:727033507",
+     "time": "2100-01-02 07:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 159 mmHg"
+    },
+    {
+     "rid": "nurse:723143494",
+     "time": "2100-01-02 08:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 157 mmHg"
+    },
+    {
+     "rid": "nurse:722621422",
+     "time": "2100-01-02 09:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 182 mmHg"
+    },
+    {
+     "rid": "nurse:728073455",
+     "time": "2100-01-02 10:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 151 mmHg"
+    },
+    {
+     "rid": "nurse:725293078",
+     "time": "2100-01-02 11:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 153 mmHg"
+    },
+    {
+     "rid": "nurse:721728687",
+     "time": "2100-01-02 12:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 142 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1173453A2::04",
+   "claim_id": "E1173453A2",
+   "claim_text": "Continue antibiotic therapy with vancomycin.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records document vancomycin as a treatment (R15), but there is no administration record (e.g., MAR Administered, Given, or Running at decision time) showing it was actually given within 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:31681954",
+     "time": "2100-01-01 13:12:00",
+     "item": "Treatment documented: medications | antibiotics | vancomycin"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1173453A1::01",
+   "claim_id": "E1173453A1",
+   "claim_text": "Monitor the patient's blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:730689062",
+     "time": "2100-01-02 14:00:00",
+     "item": "systolic BP",
+     "value": "169.0 mmHg"
+    },
+    {
+     "rid": "nurse:721857535",
+     "time": "2100-01-02 15:00:00",
+     "item": "systolic BP",
+     "value": "146.0 mmHg"
+    },
+    {
+     "rid": "nurse:730689064",
+     "time": "2100-01-02 14:00:00",
+     "item": "mean arterial pressure",
+     "value": "118.0 mmHg"
+    },
+    {
+     "rid": "nurse:721857537",
+     "time": "2100-01-02 15:00:00",
+     "item": "mean arterial pressure",
+     "value": "107.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 4.5 h observation window after the decision (24 h or until ICU discharge): systolic BP x4, mean arterial pressure x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1173453A2::03",
+   "claim_id": "E1173453A2",
+   "claim_text": "Continue antibiotic therapy with vancomycin.",
+   "kind": "action",
+   "text": "Continue vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 4.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1173453A3::05",
+   "claim_id": "E1173453A3",
+   "claim_text": "Assess the patient's pain level and adjust pain management as necessary.",
+   "kind": "action",
+   "text": "Assess pain level.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain level",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:722429373",
+     "time": "2100-01-02 17:00:00",
+     "item": "pain score",
+     "value": "1.0"
+    }
+   ],
+   "reason": "Measured in the 4.5 h observation window after the decision (24 h or until ICU discharge): pain score x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1173453A3::06",
+   "claim_id": "E1173453A3",
+   "claim_text": "Assess the patient's pain level and adjust pain management as necessary.",
+   "kind": "action",
+   "text": "Adjust pain management as necessary.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "pain management",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 4.5 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 4.5,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Vancomycin is currently being given. -- The records document vancomycin as a treatment (R15), but there is no administration record (e.g., MAR Administered, Given, or Running at decision time) showing it was actually given within 24 hours before the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

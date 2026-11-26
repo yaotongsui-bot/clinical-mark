@@ -1,0 +1,422 @@
+{
+ "case_id": "E758325",
+ "decision_point": "2100-01-02 16:29:00",
+ "claims": [
+  "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+  "Continue mechanical ventilation with adjusted oxygenation settings.",
+  "Assess for signs of infection or complications, including troponin levels."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E758325A1::01",
+   "claim_id": "E758325A1",
+   "claim_text": "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E758325A1::02",
+   "claim_id": "E758325A1",
+   "claim_text": "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E758325A1::03",
+   "claim_id": "E758325A1",
+   "claim_text": "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure and heart rate have been fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [
+    "concept set by the rule files: vital_signs -> blood_pressure"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E758325A2::04",
+   "claim_id": "E758325A2",
+   "claim_text": "Continue mechanical ventilation with adjusted oxygenation settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E758325A2::05",
+   "claim_id": "E758325A2",
+   "claim_text": "Continue mechanical ventilation with adjusted oxygenation settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E758325A2::06",
+   "claim_id": "E758325A2",
+   "claim_text": "Continue mechanical ventilation with adjusted oxygenation settings.",
+   "kind": "action",
+   "text": "Adjust oxygenation settings.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygenation settings",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E758325A3::07",
+   "claim_id": "E758325A3",
+   "claim_text": "Assess for signs of infection or complications, including troponin levels.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "E758325A3::08",
+   "claim_id": "E758325A3",
+   "claim_text": "Assess for signs of infection or complications, including troponin levels.",
+   "kind": "action",
+   "text": "Assess for complications.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "complications",
+   "conditional": false
+  },
+  {
+   "atom_id": "E758325A3::09",
+   "claim_id": "E758325A3",
+   "claim_text": "Assess for signs of infection or complications, including troponin levels.",
+   "kind": "action",
+   "text": "Order troponin levels.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "troponin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E758325A1::03",
+   "claim_id": "E758325A1",
+   "claim_text": "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure and heart rate have been fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [
+    "concept set by the rule files: vital_signs -> blood_pressure"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The statement says that blood pressure and heart rate have been fluctuating. The records show that the heart rate has been fluctuating, with values ranging from 104 to 150 bpm. The blood pressure has also been fluctuating, with values ranging from 70 to 126 mmHg. The most recent measurement of heart rate (R48) is 101 bpm, which is within the fluctuating range. Therefore, the statement is supported",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:535880227",
+     "time": "2100-01-02 14:11:00",
+     "item": "Heart Rate: 101 bpm"
+    }
+   ]
+  },
+  {
+   "atom_id": "E758325A2::05",
+   "claim_id": "E758325A2",
+   "claim_text": "Continue mechanical ventilation with adjusted oxygenation settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient was on mechanical ventilation, but the most recent relevant rows (R13 and R31) do not show that the patient is currently on mechanical ventilation. R13 shows that the patient was on mechanical ventilation at 16:48, but R31 shows that the patient was still on mechanical ventilation at 23:55. However, R31 is not the most recent relevant row, and R13 is not supported",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:27130257",
+     "time": "2100-01-01 16:48:00",
+     "item": "Treatment documented: ventilation and oxygenation | mechanical ventilation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:25271904",
+     "time": "2100-01-01 21:02:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E758325A1::01",
+   "claim_id": "E758325A1",
+   "claim_text": "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:470573808",
+     "time": "2100-01-02 17:00:00",
+     "item": "systolic BP",
+     "value": "138.0 mmHg"
+    },
+    {
+     "rid": "nurse:521752799",
+     "time": "2100-01-02 18:00:00",
+     "item": "systolic BP",
+     "value": "113.0 mmHg"
+    },
+    {
+     "rid": "nurse:470573807",
+     "time": "2100-01-02 17:00:00",
+     "item": "mean arterial pressure",
+     "value": "103.0 mmHg"
+    },
+    {
+     "rid": "nurse:521752798",
+     "time": "2100-01-02 18:00:00",
+     "item": "mean arterial pressure",
+     "value": "88.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x23, mean arterial pressure x23.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E758325A1::02",
+   "claim_id": "E758325A1",
+   "claim_text": "Monitor patient's blood pressure and heart rate closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:518781067",
+     "time": "2100-01-02 17:00:00",
+     "item": "heart rate",
+     "value": "88.0 bpm"
+    },
+    {
+     "rid": "nurse:446754484",
+     "time": "2100-01-02 18:00:00",
+     "item": "heart rate",
+     "value": "96.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x28.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E758325A2::04",
+   "claim_id": "E758325A2",
+   "claim_text": "Continue mechanical ventilation with adjusted oxygenation settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (67 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:21939060",
+     "time": "2100-01-02 19:05:00",
+     "item": "ventilator setting",
+     "value": "45.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:21939064",
+     "time": "2100-01-02 19:05:00",
+     "item": "ventilator setting",
+     "value": "14.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:21939066",
+     "time": "2100-01-02 19:05:00",
+     "item": "ventilator setting",
+     "value": "10.0 cmH2O",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E758325A2::06",
+   "claim_id": "E758325A2",
+   "claim_text": "Continue mechanical ventilation with adjusted oxygenation settings.",
+   "kind": "action",
+   "text": "Adjust oxygenation settings.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygenation settings",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E758325A3::07",
+   "claim_id": "E758325A3",
+   "claim_text": "Assess for signs of infection or complications, including troponin levels.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E758325A3::08",
+   "claim_id": "E758325A3",
+   "claim_text": "Assess for signs of infection or complications, including troponin levels.",
+   "kind": "action",
+   "text": "Assess for complications.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "complications",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E758325A3::09",
+   "claim_id": "E758325A3",
+   "claim_text": "Assess for signs of infection or complications, including troponin levels.",
+   "kind": "action",
+   "text": "Order troponin levels.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "troponin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The records show that the patient was on mechanical ventilation, but the most recent relevant rows (R13 and R31) do not show that the patient is currently on mechanical ventilation. R13 shows that the patient was on mechanical ventilation at 16:48, but R31 shows that the patient was still on mechanical ventilation at 23:55. However, R31 is not the most recent relevant row, and R13 is not supported"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

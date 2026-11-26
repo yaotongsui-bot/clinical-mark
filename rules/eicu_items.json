@@ -1,0 +1,103 @@
+{
+ "_note": "Maps eICU Collaborative Research Database Demo v2.0.1 records onto the evaluator's canonical items, which are MIMIC-IV item ids, so that rules/measures.json, the ventilation rule and the device rules apply unchanged. Written from the eICU schema and value lists (2026-11-14 survey), not from any verdict. Times are minute offsets from unit admission; rows count as known before T when their event offset and, where the table has one, their entry offset are before T.",
+ "decision_offset_minutes": 1440,
+ "running_infusion_max_gap_minutes": 240,
+ "_running_note": "eICU charts infusions about hourly with the current rate (median gap 60 min, 90th percentile 206 min). An infusion counts as running at T when its last rate charted before T is above 0 and was charted within running_infusion_max_gap_minutes before T. A rate of 0 marks a stop.",
+ "_medication_note": "eICU has no medication administration record. A scheduled (non-PRN) medication order active at T is taken as running at T; a one-time order is taken as given at its start; PRN orders are orders only.",
+ "lab": {
+  "potassium": ["50971", "Potassium"],
+  "sodium": ["50983", "Sodium"],
+  "chloride": ["50902", "Chloride"],
+  "bicarbonate": ["50882", "Bicarbonate"],
+  "HCO3": ["50882", "Bicarbonate (blood gas HCO3)"],
+  "magnesium": ["50960", "Magnesium"],
+  "calcium": ["50893", "Calcium, Total"],
+  "ionized calcium": ["50808", "Free Calcium"],
+  "phosphate": ["50970", "Phosphate"],
+  "creatinine": ["50912", "Creatinine"],
+  "BUN": ["51006", "Urea Nitrogen"],
+  "glucose": ["50931", "Glucose"],
+  "lactate": ["50813", "Lactate"],
+  "anion gap": ["50868", "Anion Gap"],
+  "WBC x 1000": ["51301", "White Blood Cells"],
+  "Hgb": ["51222", "Hemoglobin"],
+  "Hct": ["51221", "Hematocrit"],
+  "platelets x 1000": ["51265", "Platelet Count"],
+  "PT - INR": ["51237", "INR(PT)"],
+  "PT": ["51274", "PT"],
+  "PTT": ["51275", "PTT"],
+  "AST (SGOT)": ["50878", "Asparate Aminotransferase (AST)"],
+  "ALT (SGPT)": ["50861", "Alanine Aminotransferase (ALT)"],
+  "total bilirubin": ["50885", "Bilirubin, Total"],
+  "alkaline phos.": ["50863", "Alkaline Phosphatase"],
+  "albumin": ["50862", "Albumin"],
+  "pH": ["50820", "pH"],
+  "paCO2": ["50818", "pCO2"],
+  "paO2": ["50821", "pO2"],
+  "O2 Sat (%)": ["50817", "Oxygen Saturation"]
+ },
+ "lab_chart": {
+  "bedside glucose": ["225664", "Glucose finger stick"]
+ },
+ "lab_bounds_by_unit": {
+  "_note": "eICU labs carry no reference range; the rows below get one because the concept's fallback range is for another quantity (ionized calcium is mapped to calcium, whose fallback range is for total calcium).",
+  "ionized calcium": {"mmol/l": [1.12, 1.32], "mg/dl": [4.5, 5.3]}
+ },
+ "nurse": {
+  "Heart Rate": ["220045", "Heart Rate", "bpm"],
+  "Respiratory Rate": ["220210", "Respiratory Rate", "insp/min"],
+  "O2 Saturation": ["220277", "O2 saturation pulseoxymetry", "%"],
+  "Non-Invasive BP Systolic": ["220179", "Non Invasive Blood Pressure systolic", "mmHg"],
+  "Non-Invasive BP Diastolic": ["220180", "Non Invasive Blood Pressure diastolic", "mmHg"],
+  "Non-Invasive BP Mean": ["220181", "Non Invasive Blood Pressure mean", "mmHg"],
+  "Invasive BP Systolic": ["220050", "Arterial Blood Pressure systolic", "mmHg"],
+  "Invasive BP Diastolic": ["220051", "Arterial Blood Pressure diastolic", "mmHg"],
+  "Invasive BP Mean": ["220052", "Arterial Blood Pressure mean", "mmHg"],
+  "Temperature (F)": ["223761", "Temperature Fahrenheit", "F"],
+  "Bedside Glucose": ["225664", "Glucose finger stick", "mg/dL"],
+  "CVP": ["220074", "Central Venous Pressure", "mmHg"],
+  "Pain Score": ["223791", "Pain Level", ""]
+ },
+ "nurse_skip": ["Temperature (C)"],
+ "resp": {
+  "FiO2": ["223835", "Inspired O2 Fraction", "%"],
+  "FIO2 (%)": ["223835", "Inspired O2 Fraction", "%"],
+  "O2 Percentage": ["223835", "Inspired O2 Fraction", "%"],
+  "PEEP": ["220339", "PEEP set", "cmH2O"],
+  "PEEP/CPAP": ["220339", "PEEP set", "cmH2O"],
+  "Tidal Volume (set)": ["224684", "Tidal Volume (set)", "mL"],
+  "Set Vt (Servo,LTV)": ["224684", "Tidal Volume (set)", "mL"],
+  "Exhaled TV (patient)": ["224685", "Tidal Volume (observed)", "mL"],
+  "Vent Rate": ["224688", "Respiratory Rate (Set)", "insp/min"],
+  "RR (patient)": ["224689", "Respiratory Rate (spontaneous)", "insp/min"],
+  "Total RR": ["224690", "Respiratory Rate (Total)", "insp/min"],
+  "Pressure Support": ["224701", "PSV Level", "cmH2O"],
+  "Peak Insp. Pressure": ["224695", "Peak Insp. Pressure", "cmH2O"],
+  "Mean Airway Pressure": ["224697", "Mean Airway Pressure", "cmH2O"],
+  "Ventilator Support Mode": ["223849", "Ventilator Mode", ""],
+  "RT Vent On/Off": ["223849", "Ventilator Mode", ""],
+  "LPM O2": ["223834", "O2 Flow", "L/min"],
+  "Oxygen Flow Rate": ["223834", "O2 Flow", "L/min"]
+ },
+ "resp_value_map": {
+  "RT Vent On/Off": {"Off": "Standby"}
+ },
+ "device_sources": {
+  "nurse": ["O2 Admin Device"],
+  "resp": ["O2 Device", "Oxygen Delivery Method"]
+ },
+ "devices": [
+  ["trach.{0,6}(to )?vent", "Tracheostomy tube"],
+  ["\\bvent(ilator)?\\b|mechanical ventilator|^simv$|^ps-auto$", "Endotracheal tube"],
+  ["t\\s*-?\\s*piece", "T-piece"],
+  ["trach collar|trach mask|^tc$", "Trach mask"],
+  ["bi-?pap|bpap|cpap", "Bipap mask"],
+  ["hi-?\\s*flo|high flow|hfnc|vapo?r?therm|hhhf|^hf\\b", "High flow nasal cannula"],
+  ["non-?rebreather|\\bnrb|\\bnrm", "Non-rebreather"],
+  ["venturi|^vm$", "Venti mask"],
+  ["aerosol|misty ox", "Aerosol-cool"],
+  ["ox[iy]m[iy]zer|ox[iy] ?mask|simple mask|face mask|^mask|partial-rebreather", "Medium conc mask"],
+  ["nasal|^nc$|^n/c$|^nch$|lnc$", "Nasal cannula"],
+  ["^r\\.?/?a\\b|room ?air|rm air|rooom air|^none$", "None"]
+ ]
+}

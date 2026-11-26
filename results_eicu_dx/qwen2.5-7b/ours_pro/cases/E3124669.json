@@ -1,0 +1,436 @@
+{
+ "case_id": "E3124669",
+ "decision_point": "2100-01-02 03:21:00",
+ "claims": [
+  "Monitor serum salicylate levels closely.",
+  "Administer intravenous fluids to maintain hydration.",
+  "Continue pain management with oral medications as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3124669A1::01",
+   "claim_id": "E3124669A1",
+   "claim_text": "Monitor serum salicylate levels closely.",
+   "kind": "action",
+   "text": "Monitor serum salicylate levels closely.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum salicylate levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3124669A2::02",
+   "claim_id": "E3124669A2",
+   "claim_text": "Administer intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3124669A3::03",
+   "claim_id": "E3124669A3",
+   "claim_text": "Continue pain management with oral medications as needed.",
+   "kind": "action",
+   "text": "Continue pain management with oral medications as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oral pain medications",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E3124669A3::04",
+   "claim_id": "E3124669A3",
+   "claim_text": "Continue pain management with oral medications as needed.",
+   "kind": "fact",
+   "text": "Pain management with oral medications is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3124669A3::04",
+   "claim_id": "E3124669A3",
+   "claim_text": "Continue pain management with oral medications as needed.",
+   "kind": "fact",
+   "text": "Pain management with oral medications is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show pain levels and pulmonary medications, but no oral pain medication administration or order is documented. The statement that oral pain management is currently being given is therefore not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2014539392",
+     "time": "2100-01-01 03:00:00",
+     "item": "Pain Level: 8"
+    },
+    {
+     "rid": "nurse:2014539393",
+     "time": "2100-01-01 03:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "pat:3124669:patient",
+     "time": "2100-01-01 03:21:00",
+     "item": "Patient: Male, age 54"
+    },
+    {
+     "rid": "pat:3124669:dx",
+     "time": "2100-01-01 03:21:00",
+     "item": "Admission diagnosis (APACHE): Overdose, analgesic (aspirin, acetaminophen)"
+    },
+    {
+     "rid": "nurse:1969925639",
+     "time": "2100-01-01 04:00:00",
+     "item": "Pain Level: 8"
+    },
+    {
+     "rid": "nurse:1969925640",
+     "time": "2100-01-01 04:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:1993871429",
+     "time": "2100-01-01 05:00:00",
+     "item": "Pain Level: 8"
+    },
+    {
+     "rid": "nurse:1993871430",
+     "time": "2100-01-01 05:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:2001480565",
+     "time": "2100-01-01 06:00:00",
+     "item": "Pain Level: 8"
+    },
+    {
+     "rid": "nurse:2001480566",
+     "time": "2100-01-01 06:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:2100735358",
+     "time": "2100-01-01 07:00:00",
+     "item": "Pain Level: 8"
+    },
+    {
+     "rid": "nurse:2100735359",
+     "time": "2100-01-01 07:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:2011773273",
+     "time": "2100-01-01 08:00:00",
+     "item": "Pain Level: 8"
+    },
+    {
+     "rid": "nurse:2011773274",
+     "time": "2100-01-01 08:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "treat:72338766",
+     "time": "2100-01-01 08:35:00",
+     "item": "Treatment documented: pulmonary | medications | antibacterials"
+    },
+    {
+     "rid": "treat:70847170",
+     "time": "2100-01-01 08:35:00",
+     "item": "Treatment documented: pulmonary | medications | bronchodilator"
+    },
+    {
+     "rid": "treat:76060953",
+     "time": "2100-01-01 08:35:00",
+     "item": "Treatment documented: pulmonary | medications | glucocorticoid administration"
+    },
+    {
+     "rid": "nurse:1984106943",
+     "time": "2100-01-01 09:00:00",
+     "item": "Pain Level: 8"
+    },
+    {
+     "rid": "nurse:1984106944",
+     "time": "2100-01-01 09:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:2012278116",
+     "time": "2100-01-01 10:00:00",
+     "item": "Pain Level: 8"
+    },
+    {
+     "rid": "nurse:2012278117",
+     "time": "2100-01-01 10:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:2004495950",
+     "time": "2100-01-01 11:00:00",
+     "item": "Pain Level: 8"
+    },
+    {
+     "rid": "nurse:2004495951",
+     "time": "2100-01-01 11:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:2064507563",
+     "time": "2100-01-01 12:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:2010701112",
+     "time": "2100-01-01 13:00:00",
+     "item": "Pain Level: 10"
+    },
+    {
+     "rid": "nurse:2010701111",
+     "time": "2100-01-01 13:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:2089905262",
+     "time": "2100-01-01 14:00:00",
+     "item": "Pain Level: 10"
+    },
+    {
+     "rid": "nurse:2089905261",
+     "time": "2100-01-01 14:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:2031166052",
+     "time": "2100-01-01 15:00:00",
+     "item": "Pain Level: 9"
+    },
+    {
+     "rid": "nurse:2031166051",
+     "time": "2100-01-01 15:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:2123599049",
+     "time": "2100-01-01 16:00:00",
+     "item": "Pain Level: 9"
+    },
+    {
+     "rid": "nurse:2123599048",
+     "time": "2100-01-01 16:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:2047539242",
+     "time": "2100-01-01 17:00:00",
+     "item": "Pain Level: 9"
+    },
+    {
+     "rid": "nurse:2047539241",
+     "time": "2100-01-01 17:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:1979458801",
+     "time": "2100-01-01 18:00:00",
+     "item": "Pain Level: 9"
+    },
+    {
+     "rid": "nurse:1979458800",
+     "time": "2100-01-01 18:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:2034259776",
+     "time": "2100-01-01 19:00:00",
+     "item": "Pain Level: 9"
+    },
+    {
+     "rid": "nurse:2034259775",
+     "time": "2100-01-01 19:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:1970757645",
+     "time": "2100-01-01 20:00:00",
+     "item": "Pain Level: 8"
+    },
+    {
+     "rid": "nurse:1970757644",
+     "time": "2100-01-01 20:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "nurse:2082921452",
+     "time": "2100-01-01 21:00:00",
+     "item": "Pain Level: 8"
+    },
+    {
+     "rid": "nurse:2082921451",
+     "time": "2100-01-01 21:00:00",
+     "item": "Pain Score/Goal Pain Goal: 0"
+    },
+    {
+     "rid": "treat:75796698",
+     "time": "2100-01-01 21:56:00",
+     "item": "Treatment documented: pulmonary | medications | bronchodilator"
+    },
+    {
+     "rid": "treat:73316394",
+     "time": "2100-01-01 21:56:00",
+     "item": "Treatment documented: pulmonary | medications | antibacterials"
+    },
+    {
+     "rid": "treat:72174931",
+     "time": "2100-01-01 21:56:00",
+     "item": "Treatment documented: pulmonary | medications | glucocorticoid administration"
+    },
+    {
+     "rid": "nurse:1970533873",
+     "time": "2100-01-01 22:00:00",
+     "item": "Pain Level: 8"
+    },
+    {
+     "rid": "nurse:1963390963",
+     "time": "2100-01-01 23:00:00",
+     "item": "Pain Level: 8"
+    },
+    {
+     "rid": "nurse:1965704296",
+     "time": "2100-01-02 00:00:00",
+     "item": "Pain Level: 6"
+    },
+    {
+     "rid": "nurse:2127136178",
+     "time": "2100-01-02 01:00:00",
+     "item": "Pain Level: 4"
+    },
+    {
+     "rid": "nurse:1978921672",
+     "time": "2100-01-02 02:00:00",
+     "item": "Pain Level: 4"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3124669A1::01",
+   "claim_id": "E3124669A1",
+   "claim_text": "Monitor serum salicylate levels closely.",
+   "kind": "action",
+   "text": "Monitor serum salicylate levels closely.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum salicylate levels",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3124669A2::02",
+   "claim_id": "E3124669A2",
+   "claim_text": "Administer intravenous fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 10.1 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3124669A3::03",
+   "claim_id": "E3124669A3",
+   "claim_text": "Continue pain management with oral medications as needed.",
+   "kind": "action",
+   "text": "Continue pain management with oral medications as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oral pain medications",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 10.1 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 10.1,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Pain management with oral medications is currently being given. -- The records show pain levels and pulmonary medications, but no oral pain medication administration or order is documented. The statement that oral pain management is currently being given is therefore not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

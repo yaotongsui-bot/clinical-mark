@@ -1,0 +1,469 @@
+{
+ "case_id": "E3223097",
+ "decision_point": "2100-01-02 22:45:00",
+ "claims": [
+  "Continue octreotide infusion at 50 mcg/hour for variceal bleeding.",
+  "Monitor serum potassium and treat hyperkalemia as indicated.",
+  "Monitor blood pressure and hemoglobin for ongoing bleeding and hemodynamic instability."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3223097A1::01",
+   "claim_id": "E3223097A1",
+   "claim_text": "Continue octreotide infusion at 50 mcg/hour for variceal bleeding.",
+   "kind": "action",
+   "text": "Continue octreotide infusion at 50 mcg/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "octreotide infusion",
+   "conditional": false,
+   "treatment_class": "chronic_home_med",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3223097A1::02",
+   "claim_id": "E3223097A1",
+   "claim_text": "Continue octreotide infusion at 50 mcg/hour for variceal bleeding.",
+   "kind": "fact",
+   "text": "Octreotide infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3223097A1::03",
+   "claim_id": "E3223097A1",
+   "claim_text": "Continue octreotide infusion at 50 mcg/hour for variceal bleeding.",
+   "kind": "fact",
+   "text": "Variceal bleeding is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3223097A2::04",
+   "claim_id": "E3223097A2",
+   "claim_text": "Monitor serum potassium and treat hyperkalemia as indicated.",
+   "kind": "action",
+   "text": "Monitor serum potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3223097A2::05",
+   "claim_id": "E3223097A2",
+   "claim_text": "Monitor serum potassium and treat hyperkalemia as indicated.",
+   "kind": "action",
+   "text": "Treat hyperkalemia as indicated.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "hyperkalemia treatment",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3223097A2::06",
+   "claim_id": "E3223097A2",
+   "claim_text": "Monitor serum potassium and treat hyperkalemia as indicated.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E3223097A3::07",
+   "claim_id": "E3223097A3",
+   "claim_text": "Monitor blood pressure and hemoglobin for ongoing bleeding and hemodynamic instability.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3223097A3::08",
+   "claim_id": "E3223097A3",
+   "claim_text": "Monitor blood pressure and hemoglobin for ongoing bleeding and hemodynamic instability.",
+   "kind": "action",
+   "text": "Monitor hemoglobin.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3223097A3::09",
+   "claim_id": "E3223097A3",
+   "claim_text": "Monitor blood pressure and hemoglobin for ongoing bleeding and hemodynamic instability.",
+   "kind": "fact",
+   "text": "Ongoing bleeding is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "persistent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3223097A3::10",
+   "claim_id": "E3223097A3",
+   "claim_text": "Monitor blood pressure and hemoglobin for ongoing bleeding and hemodynamic instability.",
+   "kind": "fact",
+   "text": "Hemodynamic instability is present.",
+   "concept": "cardiac",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> cardiac"
+   ],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3223097A1::02",
+   "claim_id": "E3223097A1",
+   "claim_text": "Continue octreotide infusion at 50 mcg/hour for variceal bleeding.",
+   "kind": "fact",
+   "text": "Octreotide infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The statement 'Octreotide infusion is currently being given' is supported by record R33, which shows that an infusion of Octreotide at 50 mcg/hour is running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Octreotide (mcg/hr):615",
+     "time": "2100-01-02 09:00:00",
+     "item": "Running at decision time (started 2100-01-02 09:00:00): Infusion/input Octreotide at 50 mcg/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3223097A1::03",
+   "claim_id": "E3223097A1",
+   "claim_text": "Continue octreotide infusion at 50 mcg/hour for variceal bleeding.",
+   "kind": "fact",
+   "text": "Variceal bleeding is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that octreotide infusion was started at 50 mcg/hour, but there is no record of variceal bleeding being present. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Octreotide (mcg/hr):615",
+     "time": "2100-01-02 09:00:00",
+     "item": "Running at decision time (started 2100-01-02 09:00:00): Infusion/input Octreotide at 50 mcg/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3223097A2::06",
+   "claim_id": "E3223097A2",
+   "claim_text": "Monitor serum potassium and treat hyperkalemia as indicated.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that the patient's calcium level was 8 mg/dL at 02:00 on 2100-01-02 and 5.8 mg/dL at 08:10 on 2100-01-02, which indicates that the patient's calcium level was low. However, the statement 'Hyperkalemia is present' is not supported by these records, as hyperkalemia refers to high levels of potassium in the blood, not low levels of calcium.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:792945438",
+     "time": "2100-01-02 01:59:00",
+     "item": "Calcium, Total: 8 mg/dL"
+    },
+    {
+     "rid": "lab:790439713",
+     "time": "2100-01-02 08:10:00",
+     "item": "Calcium, Total: 5.8 mg/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3223097A3::09",
+   "claim_id": "E3223097A3",
+   "claim_text": "Monitor blood pressure and hemoglobin for ongoing bleeding and hemodynamic instability.",
+   "kind": "fact",
+   "text": "Ongoing bleeding is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "persistent",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement 'Ongoing bleeding is present' is not supported by the records. The blood pressure readings (R4 and R12) show that the patient's blood pressure is within a normal range, and the non-invasive blood pressure reading (R29) is also within a normal range. There is no evidence of ongoing bleeding in the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2276798334",
+     "time": "2100-01-01 22:48:00",
+     "item": "Non Invasive Blood Pressure systolic: 93 mmHg"
+    },
+    {
+     "rid": "nurse:2277299006",
+     "time": "2100-01-02 01:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 91 mmHg"
+    },
+    {
+     "rid": "nurse:2224765788",
+     "time": "2100-01-02 09:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 85 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3223097A3::10",
+   "claim_id": "E3223097A3",
+   "claim_text": "Monitor blood pressure and hemoglobin for ongoing bleeding and hemodynamic instability.",
+   "kind": "fact",
+   "text": "Hemodynamic instability is present.",
+   "concept": "cardiac",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> cardiac"
+   ],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The patient's hemoglobin level is low (7.5 g/dL and 7.2 g/dL), indicating hemodynamic instability. However, the records do not show any administration of blood products or other treatments that would directly address this issue. The patient is receiving ongoing treatment (R17 and R19), but this does not directly support the statement. The records do mention bleeding and upper GI bleeding as the AP",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:797274268",
+     "time": "2100-01-02 01:59:00",
+     "item": "Hemoglobin: 7.5 g/dL"
+    },
+    {
+     "rid": "lab:795285372",
+     "time": "2100-01-02 08:10:00",
+     "item": "Hemoglobin: 7.2 g/dL"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3223097A1::01",
+   "claim_id": "E3223097A1",
+   "claim_text": "Continue octreotide infusion at 50 mcg/hour for variceal bleeding.",
+   "kind": "action",
+   "text": "Continue octreotide infusion at 50 mcg/hour.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "octreotide infusion",
+   "conditional": false,
+   "treatment_class": "chronic_home_med",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No chronic / home medications action recorded in the 7.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3223097A2::04",
+   "claim_id": "E3223097A2",
+   "claim_text": "Monitor serum potassium and treat hyperkalemia as indicated.",
+   "kind": "action",
+   "text": "Monitor serum potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 7.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3223097A2::05",
+   "claim_id": "E3223097A2",
+   "claim_text": "Monitor serum potassium and treat hyperkalemia as indicated.",
+   "kind": "action",
+   "text": "Treat hyperkalemia as indicated.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "hyperkalemia treatment",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3223097A3::07",
+   "claim_id": "E3223097A3",
+   "claim_text": "Monitor blood pressure and hemoglobin for ongoing bleeding and hemodynamic instability.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2228900220",
+     "time": "2100-01-03 01:00:00",
+     "item": "systolic BP",
+     "value": "92.0 mmHg"
+    },
+    {
+     "rid": "nurse:2264743610",
+     "time": "2100-01-03 01:30:00",
+     "item": "systolic BP",
+     "value": "117.0 mmHg"
+    },
+    {
+     "rid": "nurse:2228900222",
+     "time": "2100-01-03 01:00:00",
+     "item": "mean arterial pressure",
+     "value": "56.0 mmHg"
+    },
+    {
+     "rid": "nurse:2264743612",
+     "time": "2100-01-03 01:30:00",
+     "item": "mean arterial pressure",
+     "value": "70.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 7.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x3, mean arterial pressure x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3223097A3::08",
+   "claim_id": "E3223097A3",
+   "claim_text": "Monitor blood pressure and hemoglobin for ongoing bleeding and hemodynamic instability.",
+   "kind": "action",
+   "text": "Monitor hemoglobin.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No hemoglobin measurement in the 7.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 7.0,
+ "scoresheet": {
+  "n": 5,
+  "supported": 1,
+  "not_supported": 4,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.2,
+  "not_supported_share": 0.8,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Variceal bleeding is present. -- The records show that octreotide infusion was started at 50 mcg/hour, but there is no record of variceal bleeding being present. The statement is not supported by the records.",
+    "Hyperkalemia is present. -- The records show that the patient's calcium level was 8 mg/dL at 02:00 on 2100-01-02 and 5.8 mg/dL at 08:10 on 2100-01-02, which indicates that the patient's calcium level was low. However, the statement 'Hyperkalemia is present' is not supported by these records, as hyperkalemia refers to high levels of potassium in the blood, not low levels of calcium.",
+    "Ongoing bleeding is present. -- The statement 'Ongoing bleeding is present' is not supported by the records. The blood pressure readings (R4 and R12) show that the patient's blood pressure is within a normal range, and the non-invasive blood pressure reading (R29) is also within a normal range. There is no evidence of ongoing bleeding in the records.",
+    "Hemodynamic instability is present. -- The patient's hemoglobin level is low (7.5 g/dL and 7.2 g/dL), indicating hemodynamic instability. However, the records do not show any administration of blood products or other treatments that would directly address this issue. The patient is receiving ongoing treatment (R17 and R19), but this does not directly support the statement. The records do mention bleeding and upper GI bleeding as the AP"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.2,
+  "not_supported": 4,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -6,7 +6,8 @@ Treatment actions are matched by code: the rule file gives the treatment group, 
 checked against the recorded rows. Only AI actions the rule file cannot classify go to the
 judge panel.
 
-Treatment labels: match, partial_match (same goal, different agent or direction), not_done,
+Treatment labels: match, partial_match (same goal, different agent in the same class or group), not_done
+(including the opposite direction: stop vs continued, increase vs decreased, a change never made),
 condition_not_met (a conditional suggestion with no matching action), vague_target, unobservable.
 Monitoring labels: performed, not_performed, unobservable.
 """
@@ -134,13 +135,14 @@ def _decide(atom: dict, rows: list[dict], observations: list[dict]) -> dict:
     """Target and direction decided by code from the same-group recorded actions."""
     cls, level, action = atom["treatment_class"], atom["class_level"], atom["action_class"]
     name = rules.class_name(cls)
-    pool = rows if level == "group" else [r for r in rows if r["class"] == cls]
+    pool = rows if level == "group" else [r for r in rows if r["class"] == cls or cls in rules.also_classes(r["target"])]
     if rules.group_of(cls) == "ventilation" and not re.search(r"extubat|wean", atom["text"], re.I):
         extubated = [r for r in rows if r["class"] == "extubation"]
         pool = [r for r in pool if r["class"] != "extubation"]
         if extubated and not pool:
-            return {"label": PARTIAL, "evidence": _cite_rows(extubated), "method": "rule",
-                    "reason": "The AI suggested continuing or adjusting ventilation; the clinicians extubated after the decision."}
+            return {"label": NOT_DONE, "evidence": _cite_rows(extubated), "method": "rule", "direction_mismatch": True,
+                    "reason": "Opposite direction: the AI suggested continuing or adjusting ventilation; the clinicians "
+                              "extubated after the decision."}
     drug = rules.named_drug(f"{atom['target']} {atom['text']}", cls) if level == "class" else None
     if drug and not pool:  # "heparin" suggested and prophylactic heparin given: the named drug was used
         pool = [r for r in rows if re.search(drug, f"{r['target']} {r['text']}", re.I)]
@@ -159,8 +161,8 @@ def _decide(atom: dict, rows: list[dict], observations: list[dict]) -> dict:
                     "reason": f"The drug the AI named ({drug}) was not used; the clinicians used {used} from the same class."}
         pool = same
     if action == "stop":
-        return {"label": PARTIAL, "evidence": _cite_rows(pool), "method": "rule",
-                "reason": f"The AI suggested stopping, but {name} is still recorded after the decision."}
+        return {"label": NOT_DONE, "evidence": _cite_rows(pool), "method": "rule", "direction_mismatch": True,
+                "reason": f"Opposite direction: the AI suggested stopping, but {name} is still recorded after the decision."}
     if action == "adjust":
         if rules.group_of(cls) == "ventilation":
             charted = _ventilator_charting(atom, observations)
@@ -175,15 +177,16 @@ def _decide(atom: dict, rows: list[dict], observations: list[dict]) -> dict:
                         "evidence": _cite_rows([r for r in pool if r["target"].casefold() in changed]),
                         "reason": f"The {name} infusion rate changed after the decision ({', '.join(changed)})."}
             if moves:  # "increase norepinephrine" while the rate only went down
-                return {"label": PARTIAL, "evidence": _cite_rows(pool), "method": "rule",
-                        "reason": f"The {name} infusion rate moved {'down' if wanted == 'up' else 'up'} after the "
-                                  f"decision, not {wanted} as suggested."}
+                return {"label": NOT_DONE, "evidence": _cite_rows(pool), "method": "rule", "direction_mismatch": True,
+                        "reason": f"Opposite direction: the {name} infusion rate moved {'down' if wanted == 'up' else 'up'} "
+                                  f"after the decision, not {wanted} as suggested."}
         if atom["conditional"]:  # "adjust if needed": whether the condition arose is unknown
             return {"label": CONDITION_NOT_MET, "evidence": _cite_rows(pool), "method": "rule",
                     "reason": f"{name} continued after the decision without a recorded dose or setting change; "
                               f"the suggestion was conditional."}
-        return {"label": PARTIAL, "evidence": _cite_rows(pool), "method": "rule",
-                "reason": f"{name} continued after the decision, but no dose or setting change is recorded."}
+        return {"label": NOT_DONE, "evidence": _cite_rows(pool), "method": "rule", "direction_mismatch": True,
+                "reason": f"No change: {name} continued after the decision, but the suggested dose or setting "
+                          f"change is not recorded."}
     note = " (already running before the decision and continued)" if all(r["spans_decision_point"] for r in pool) else ""
     condition = " The suggestion was conditional; the record does not show whether the condition was met." \
         if atom["conditional"] else ""
@@ -263,13 +266,31 @@ def gold_classes(doctor_actions: list[dict], pre_rows: list[dict], decision) -> 
         for concept, direction, threshold in rules.indications(cls):
             present, reason = indication_present(pre_rows, concept, direction, decision, threshold)
             if present:
-                linked.append(reason)
+                linked.append({"concept": concept, "direction": direction, "reason": reason})
         static = rules.importance(cls)
         out.append({"class": cls, "name": rules.class_name(cls),
                     "importance": "vital" if static == "vital" or linked else "okay",
-                    "problem_linked": bool(linked), "indication": " ".join(linked),
+                    "problem_linked": bool(linked), "indication": " ".join(x["reason"] for x in linked),
+                    "indications": linked,
                     "doctor_targets": sorted({r["target"].strip() for r in rows})[:6], "doctor_rows": len(rows)})
     return out
+
+
+def fact_omissions(gold: list[dict], facts: list[dict]) -> list[dict]:
+    """Abnormal findings the clinicians treated after T (the indications present for their
+    problem-linked classes), each marked mentioned when an AI fact speaks about it, right or wrong.
+    A finding the AI never mentions is a fact omission."""
+    findings: dict[tuple[str, str], dict] = {}
+    for entry in gold:
+        for ind in entry.get("indications", []):
+            row = findings.setdefault((ind["concept"], ind["direction"]),
+                                      {**ind, "name": rules.concept_name(ind["concept"]), "treated_by": []})
+            row["treated_by"].append(entry["name"])
+    out = []
+    for row in findings.values():
+        by = [f["atom_id"] for f in facts if rules.same_finding(f.get("concept", ""), row["concept"])]
+        out.append({**row, "mentioned": bool(by), "by_atoms": by})
+    return sorted(out, key=lambda r: (r["mentioned"], r["concept"]))
 
 
 def _claim_index(claim_id: str) -> int:

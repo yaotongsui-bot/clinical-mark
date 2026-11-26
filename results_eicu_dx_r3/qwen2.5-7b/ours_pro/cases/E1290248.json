@@ -1,0 +1,609 @@
+{
+ "case_id": "E1290248",
+ "decision_point": "2100-01-02 14:06:00",
+ "claims": [
+  "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+  "Continue intravenous fluid administration to maintain hydration.",
+  "Assess for signs of anemia and consider further diagnostic workup."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1290248A1::01",
+   "claim_id": "E1290248A1",
+   "claim_text": "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+   "kind": "action",
+   "text": "Monitor vital signs closely.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1290248A1::02",
+   "claim_id": "E1290248A1",
+   "claim_text": "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+   "kind": "fact",
+   "text": "SpO2 is fluctuating.",
+   "concept": "spo2",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1290248A1::03",
+   "claim_id": "E1290248A1",
+   "claim_text": "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+   "kind": "fact",
+   "text": "Pulse is fluctuating.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1290248A2::04",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous fluid administration to maintain hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1290248A2::05",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous fluid administration to maintain hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1290248A3::06",
+   "claim_id": "E1290248A3",
+   "claim_text": "Assess for signs of anemia and consider further diagnostic workup.",
+   "kind": "action",
+   "text": "Assess for signs of anemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of anemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1290248A3::07",
+   "claim_id": "E1290248A3",
+   "claim_text": "Assess for signs of anemia and consider further diagnostic workup.",
+   "kind": "action",
+   "text": "Consider further diagnostic workup.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "diagnostic workup",
+   "conditional": true,
+   "treatment_class": "diagnostics",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1290248A1::02",
+   "claim_id": "E1290248A1",
+   "claim_text": "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+   "kind": "fact",
+   "text": "SpO2 is fluctuating.",
+   "concept": "spo2",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The SpO2 measurements show significant variation over time, including drops to 2%, 0%, 1%, 80%, and 10%, followed by recovery to 99-100%, and a later drop to 94%. This pattern of changing values supports the statement that SpO2 is fluctuating.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:795562051",
+     "time": "2100-01-01 15:45:00",
+     "item": "SpO2: 98"
+    },
+    {
+     "rid": "nurse:762009999",
+     "time": "2100-01-01 16:15:00",
+     "item": "SpO2: 2"
+    },
+    {
+     "rid": "nurse:813828603",
+     "time": "2100-01-01 16:45:00",
+     "item": "SpO2: 95"
+    },
+    {
+     "rid": "nurse:800023484",
+     "time": "2100-01-01 17:00:00",
+     "item": "SpO2: 0"
+    },
+    {
+     "rid": "nurse:793276740",
+     "time": "2100-01-01 17:15:00",
+     "item": "SpO2: 1"
+    },
+    {
+     "rid": "nurse:802850510",
+     "time": "2100-01-01 18:37:00",
+     "item": "SpO2: 80"
+    },
+    {
+     "rid": "nurse:774104038",
+     "time": "2100-01-01 18:48:00",
+     "item": "SpO2: 10"
+    },
+    {
+     "rid": "nurse:747371389",
+     "time": "2100-01-01 19:15:00",
+     "item": "SpO2: 99"
+    },
+    {
+     "rid": "nurse:770980030",
+     "time": "2100-01-02 10:00:00",
+     "item": "SpO2: 99"
+    },
+    {
+     "rid": "nurse:791268760",
+     "time": "2100-01-02 14:00:00",
+     "item": "SpO2: 94"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1290248A1::03",
+   "claim_id": "E1290248A1",
+   "claim_text": "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+   "kind": "fact",
+   "text": "Pulse is fluctuating.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The pulse measurements fluctuate between 56 and 98 beats per minute over the recorded period, demonstrating variability consistent with the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:781051912",
+     "time": "2100-01-01 13:00:00",
+     "item": "Pulse: 98"
+    },
+    {
+     "rid": "nurse:746915617",
+     "time": "2100-01-01 13:45:00",
+     "item": "Pulse: 76"
+    },
+    {
+     "rid": "nurse:739629540",
+     "time": "2100-01-01 14:00:00",
+     "item": "Pulse: 80"
+    },
+    {
+     "rid": "nurse:760137231",
+     "time": "2100-01-01 14:45:00",
+     "item": "Pulse: 83"
+    },
+    {
+     "rid": "nurse:759050355",
+     "time": "2100-01-01 15:00:00",
+     "item": "Pulse: 89"
+    },
+    {
+     "rid": "nurse:748594586",
+     "time": "2100-01-01 15:15:00",
+     "item": "Pulse: 91"
+    },
+    {
+     "rid": "nurse:756905171",
+     "time": "2100-01-01 15:30:00",
+     "item": "Pulse: 80"
+    },
+    {
+     "rid": "nurse:763409221",
+     "time": "2100-01-01 15:41:00",
+     "item": "Pulse: 86"
+    },
+    {
+     "rid": "nurse:733975237",
+     "time": "2100-01-01 15:45:00",
+     "item": "Pulse: 79"
+    },
+    {
+     "rid": "nurse:749248266",
+     "time": "2100-01-01 16:00:00",
+     "item": "Pulse: 75"
+    },
+    {
+     "rid": "nurse:756296199",
+     "time": "2100-01-01 16:15:00",
+     "item": "Pulse: 69"
+    },
+    {
+     "rid": "nurse:756867818",
+     "time": "2100-01-01 16:30:00",
+     "item": "Pulse: 79"
+    },
+    {
+     "rid": "nurse:779350222",
+     "time": "2100-01-01 16:45:00",
+     "item": "Pulse: 82"
+    },
+    {
+     "rid": "nurse:758057312",
+     "time": "2100-01-01 17:00:00",
+     "item": "Pulse: 68"
+    },
+    {
+     "rid": "nurse:772627095",
+     "time": "2100-01-01 17:15:00",
+     "item": "Pulse: 69"
+    },
+    {
+     "rid": "nurse:750719297",
+     "time": "2100-01-01 17:30:00",
+     "item": "Pulse: 75"
+    },
+    {
+     "rid": "nurse:774903831",
+     "time": "2100-01-01 17:45:00",
+     "item": "Pulse: 65"
+    },
+    {
+     "rid": "nurse:737321900",
+     "time": "2100-01-01 18:00:00",
+     "item": "Pulse: 66"
+    },
+    {
+     "rid": "nurse:780142117",
+     "time": "2100-01-01 18:37:00",
+     "item": "Pulse: 65"
+    },
+    {
+     "rid": "nurse:769823862",
+     "time": "2100-01-01 18:48:00",
+     "item": "Pulse: 62"
+    },
+    {
+     "rid": "nurse:743850081",
+     "time": "2100-01-01 18:50:00",
+     "item": "Pulse: 62"
+    },
+    {
+     "rid": "nurse:809459793",
+     "time": "2100-01-01 19:00:00",
+     "item": "Pulse: 62"
+    },
+    {
+     "rid": "nurse:783409950",
+     "time": "2100-01-01 19:15:00",
+     "item": "Pulse: 65"
+    },
+    {
+     "rid": "nurse:755699463",
+     "time": "2100-01-01 19:30:00",
+     "item": "Pulse: 70"
+    },
+    {
+     "rid": "nurse:749702753",
+     "time": "2100-01-01 19:45:00",
+     "item": "Pulse: 77"
+    },
+    {
+     "rid": "nurse:811601304",
+     "time": "2100-01-01 20:00:00",
+     "item": "Pulse: 64"
+    },
+    {
+     "rid": "nurse:762434649",
+     "time": "2100-01-01 20:15:00",
+     "item": "Pulse: 67"
+    },
+    {
+     "rid": "nurse:771962202",
+     "time": "2100-01-01 20:30:00",
+     "item": "Pulse: 65"
+    },
+    {
+     "rid": "nurse:808983786",
+     "time": "2100-01-01 20:45:00",
+     "item": "Pulse: 69"
+    },
+    {
+     "rid": "nurse:761969175",
+     "time": "2100-01-01 21:00:00",
+     "item": "Pulse: 82"
+    },
+    {
+     "rid": "nurse:759969140",
+     "time": "2100-01-01 21:15:00",
+     "item": "Pulse: 68"
+    },
+    {
+     "rid": "nurse:770074436",
+     "time": "2100-01-01 21:30:00",
+     "item": "Pulse: 67"
+    },
+    {
+     "rid": "nurse:743825593",
+     "time": "2100-01-01 21:45:00",
+     "item": "Pulse: 69"
+    },
+    {
+     "rid": "nurse:736498084",
+     "time": "2100-01-01 22:00:00",
+     "item": "Pulse: 75"
+    },
+    {
+     "rid": "nurse:802570087",
+     "time": "2100-01-01 22:15:00",
+     "item": "Pulse: 69"
+    },
+    {
+     "rid": "nurse:795770740",
+     "time": "2100-01-01 22:21:00",
+     "item": "Pulse: 72"
+    },
+    {
+     "rid": "nurse:807972929",
+     "time": "2100-01-01 23:04:00",
+     "item": "Pulse: 67"
+    },
+    {
+     "rid": "nurse:792707897",
+     "time": "2100-01-02 00:00:00",
+     "item": "Pulse: 67"
+    },
+    {
+     "rid": "nurse:783225638",
+     "time": "2100-01-02 00:15:00",
+     "item": "Pulse: 68"
+    },
+    {
+     "rid": "nurse:804337204",
+     "time": "2100-01-02 00:30:00",
+     "item": "Pulse: 66"
+    },
+    {
+     "rid": "nurse:779668353",
+     "time": "2100-01-02 01:00:00",
+     "item": "Pulse: 79"
+    },
+    {
+     "rid": "nurse:736516582",
+     "time": "2100-01-02 02:00:00",
+     "item": "Pulse: 67"
+    },
+    {
+     "rid": "nurse:792150284",
+     "time": "2100-01-02 03:00:00",
+     "item": "Pulse: 68"
+    },
+    {
+     "rid": "nurse:798641043",
+     "time": "2100-01-02 04:00:00",
+     "item": "Pulse: 69"
+    },
+    {
+     "rid": "nurse:813263221",
+     "time": "2100-01-02 05:00:00",
+     "item": "Pulse: 58"
+    },
+    {
+     "rid": "nurse:782048183",
+     "time": "2100-01-02 06:00:00",
+     "item": "Pulse: 69"
+    },
+    {
+     "rid": "nurse:804945352",
+     "time": "2100-01-02 07:00:00",
+     "item": "Pulse: 65"
+    },
+    {
+     "rid": "nurse:736451079",
+     "time": "2100-01-02 08:00:00",
+     "item": "Pulse: 56"
+    },
+    {
+     "rid": "nurse:747117206",
+     "time": "2100-01-02 09:00:00",
+     "item": "Pulse: 68"
+    },
+    {
+     "rid": "nurse:743316621",
+     "time": "2100-01-02 10:00:00",
+     "item": "Pulse: 67"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1290248A2::05",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous fluid administration to maintain hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show orders for IV fluids (R17, R18) and documentation of IV fluid administration (R38, R39), but no administration record within 24 hours before the decision time. The orders are PRN and were stopped, and the documentation does not confirm current administration.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:43563912",
+     "time": "2100-01-01 16:30:00",
+     "item": "Order: 250 ml flex cont : sodium chloride 0.9 % iv soln IV PRN (stopped 2100-01-01 22:29:00)"
+    },
+    {
+     "rid": "med:45769388",
+     "time": "2100-01-01 16:30:00",
+     "item": "Order: 150 ml flex cont : sodium chloride 0.9 % iv soln OTHER Q1H PRN (stopped 2100-01-01 22:29:00)"
+    },
+    {
+     "rid": "treat:32597104",
+     "time": "2100-01-01 20:58:00",
+     "item": "Treatment documented: gastrointestinal | intravenous fluid administration | normal saline administration"
+    },
+    {
+     "rid": "treat:32792431",
+     "time": "2100-01-01 20:58:00",
+     "item": "Treatment documented: gastrointestinal | intravenous fluid administration | blood product administration"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1290248A1::01",
+   "claim_id": "E1290248A1",
+   "claim_text": "Monitor patient's vital signs closely due to fluctuating SpO2 and pulse.",
+   "kind": "action",
+   "text": "Monitor vital signs closely.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No vital signs measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1290248A2::04",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous fluid administration to maintain hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1290248A3::06",
+   "claim_id": "E1290248A3",
+   "claim_text": "Assess for signs of anemia and consider further diagnostic workup.",
+   "kind": "action",
+   "text": "Assess for signs of anemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of anemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1290248A3::07",
+   "claim_id": "E1290248A3",
+   "claim_text": "Assess for signs of anemia and consider further diagnostic workup.",
+   "kind": "action",
+   "text": "Consider further diagnostic workup.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "diagnostic workup",
+   "conditional": true,
+   "treatment_class": "diagnostics",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG / cultures action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous fluids are currently being administered. -- The records show orders for IV fluids (R17, R18) and documentation of IV fluid administration (R38, R39), but no administration record within 24 hours before the decision time. The orders are PRN and were stopped, and the documentation does not confirm current administration."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

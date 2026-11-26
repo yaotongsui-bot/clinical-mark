@@ -1,0 +1,147 @@
+# E521456   T = 2100-01-02 18:57:00   records before T: 496
+ICU stay 521456 (Med-Surg ICU; Male, age 82; admission diagnosis: Chest/pelvis trauma).
+
+## Atoms
+deepseek-v4.1-flash|E521456A1::02 [presupposition] The patient is currently on mechanical ventilation.   <- Continue mechanical ventilation with lung-protective settings, including PEEP 7 cmH2O and FiO2 65%, while monitoring oxygenation and ventilation.
+deepseek-v4.1-flash|E521456A1::03 [observed] PEEP is 7 cmH2O.   <- Continue mechanical ventilation with lung-protective settings, including PEEP 7 cmH2O and FiO2 65%, while monitoring oxygenation and ventilation.
+deepseek-v4.1-flash|E521456A1::04 [observed] FiO2 is 65%.   <- Continue mechanical ventilation with lung-protective settings, including PEEP 7 cmH2O and FiO2 65%, while monitoring oxygenation and ventilation.
+deepseek-v4.1-flash|E521456A2::09 [presupposition] Insulin sliding scale is currently being given.   <- Monitor blood glucose closely and continue insulin sliding scale to maintain glycemic control, given recent hypoglycemia and hyperglycemia.
+deepseek-v4.1-flash|E521456A2::10 [observed] Recent hypoglycemia is present.   <- Monitor blood glucose closely and continue insulin sliding scale to maintain glycemic control, given recent hypoglycemia and hyperglycemia.
+deepseek-v4.1-flash|E521456A2::11 [observed] Recent hyperglycemia is present.   <- Monitor blood glucose closely and continue insulin sliding scale to maintain glycemic control, given recent hypoglycemia and hyperglycemia.
+gpt-oss-120b|E521456A1::01 [presupposition] The patient is currently on volume-controlled mechanical ventilation.   <- Continue volume‑controlled mechanical ventilation with tidal volume 6‑8 mL/kg, FiO₂ 65‑70 % and PEEP 5‑7 cmH₂O.
+gpt-oss-120b|E521456A1::02 [observed] Tidal volume is 6-8 mL/kg.   <- Continue volume‑controlled mechanical ventilation with tidal volume 6‑8 mL/kg, FiO₂ 65‑70 % and PEEP 5‑7 cmH₂O.
+gpt-oss-120b|E521456A1::03 [observed] FiO2 is 65-70%.   <- Continue volume‑controlled mechanical ventilation with tidal volume 6‑8 mL/kg, FiO₂ 65‑70 % and PEEP 5‑7 cmH₂O.
+gpt-oss-120b|E521456A1::04 [observed] PEEP is 5-7 cmH2O.   <- Continue volume‑controlled mechanical ventilation with tidal volume 6‑8 mL/kg, FiO₂ 65‑70 % and PEEP 5‑7 cmH₂O.
+gpt-oss-120b|E521456A2::07 [presupposition] Insulin sliding-scale is currently being given.   <- Monitor point‑of‑care glucose q4h and adjust insulin sliding‑scale as needed.
+qwen2.5-7b|E521456A1::01 [presupposition] The patient is currently on mechanical ventilation.   <- Continue mechanical ventilation with tidal volume 300 mL and PEEP 5 cmH2O.
+qwen2.5-7b|E521456A1::02 [observed] Tidal volume is 300 mL.   <- Continue mechanical ventilation with tidal volume 300 mL and PEEP 5 cmH2O.
+qwen2.5-7b|E521456A1::03 [observed] PEEP is 5 cmH2O.   <- Continue mechanical ventilation with tidal volume 300 mL and PEEP 5 cmH2O.
+qwen2.5-7b|E521456A3::08 [judgment] Delirium is potentially present.   <- Administer 10 mL of magnesium sulfate intravenously for potential delirium.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 19:22:00): Medication ATROVENT INH
+  Running at decision time (scheduled order started 2100-01-01 19:27:00): Medication DIPRIVAN IV CONT INF
+  Running at decision time (scheduled order started 2100-01-01 20:34:00): Medication HumuLIN R SUBQ Q4H
+  Running at decision time (scheduled order started 2100-01-01 20:46:00): Medication HumuLIN R IV
+  Running at decision time (scheduled order started 2100-01-02 02:00:00): Medication DULCOLAX REC
+  Running at decision time (started 2100-01-02 05:00:00): Infusion/input Fentanyl at 65 mcg/hour
+  Running at decision time (started 2100-01-02 09:00:00): Infusion/input Propofol at 35 mcg/kg/min
+  Running at decision time (scheduled order started 2100-01-02 12:54:00): Medication MILK OF MAGNESIA NG Q12H
+  Running at decision time (scheduled order started 2100-01-02 12:54:00): Medication Protonix IV DAILY
+
+## PRN orders
+  01-01 17:15 Order: GLUTOSE 15 PO PRN (stopped 2100-01-01 18:57:00)
+  01-01 19:23 Order: ATROVENT INH Q4HPRN PRN (active at decision time)
+  01-01 22:15 Order: GLUCAGEN IM PRN (active at decision time)
+  01-01 22:15 Order: DEXTROSE 50% IV PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Propofol at 20 mcg/kg/min (2100-01-01 18:00:00 to 2100-01-01 19:45:00)
+  Infusion/input Fentanyl at 25 mcg/hour (2100-01-01 19:40:00 to 2100-01-01 23:00:00)
+  Infusion/input Propofol at 25 mcg/kg/min (2100-01-01 19:45:00 to 2100-01-01 20:00:00)
+  Infusion/input Propofol at 20 mcg/kg/min (2100-01-01 20:00:00 to 2100-01-01 23:00:00)
+  Infusion/input Fentanyl at 60 mcg/hour (2100-01-01 23:00:00 to 2100-01-02 05:00:00)
+  Infusion/input Propofol at 25 mcg/kg/min (2100-01-01 23:00:00 to 2100-01-02 09:00:00)
+
+## Medications given once or ended before T
+  Medication HumuLIN R SUBQ Q4H (2100-01-01 17:33:00 to 2100-01-01 20:33:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-02 08:43 0 %; 01-01 14:10 0 %
+  -eos: 01-02 08:43 0 %; 01-01 14:10 1 %
+  -lymphs: 01-02 08:43 7 %; 01-01 14:10 24 %
+  -monos: 01-02 08:43 3 %; 01-01 14:10 4 %
+  -polys: 01-02 08:43 90 %; 01-01 14:10 71 %
+  Anion Gap: 01-02 08:43 10; 01-01 14:10 10
+  Base Excess: 01-02 13:46 2.7 mmol/L; 01-02 09:00 4 mmol/L; 01-01 21:12 0.8 mmol/L; 01-01 19:36 1.5 mmol/L; 01-01 18:58 0.9 mmol/L   [+1 earlier]
+  Bicarbonate: 01-02 08:43 29 mmol/L; 01-01 14:10 34 mmol/L
+  Bicarbonate (blood gas HCO3): 01-02 13:46 27.6 mmol/L; 01-02 09:00 29.1 mmol/L; 01-01 21:12 27.3 mmol/L; 01-01 19:36 30.4 mmol/L; 01-01 18:58 31.2 mmol/L   [+1 earlier]
+  Calcium, Total: 01-02 08:43 7.6 mg/dL
+  Carboxyhemoglobin: 01-02 13:46 0.3 %; 01-02 09:00 0.3 %; 01-01 21:12 0.4 %; 01-01 19:36 0.4 %; 01-01 18:58 0.3 %   [+1 earlier]
+  Chloride: 01-02 08:43 99 mmol/L; 01-01 14:10 93 mmol/L
+  Creatinine: 01-02 08:43 0.7 mg/dL; 01-01 14:10 0.6 mg/dL
+  FiO2: 01-02 13:46 65 %; 01-02 09:00 70 %; 01-01 21:12 70 %; 01-01 19:36 70 %; 01-01 18:58 100 %   [+1 earlier]
+  Glucose: 01-02 08:43 82 mg/dL; 01-01 16:59 450 mg/dL; 01-01 14:10 420 mg/dL
+  Glucose finger stick: 01-02 18:54 164 mg/dL; 01-02 14:10 120 mg/dL; 01-02 13:39 85 mg/dL; 01-02 12:30 60 mg/dL; 01-02 07:48 98 mg/dL   [+8 earlier]
+  Hematocrit: 01-02 08:43 27.5 %; 01-02 03:04 30.9 %; 01-01 14:10 35.8 %
+  Hemoglobin: 01-02 08:43 9.5 g/dL; 01-02 03:04 10.6 g/dL; 01-01 14:10 11.9 g/dL
+  INR(PT): 01-01 14:10 0.9
+  MCH: 01-02 08:43 33 pg; 01-01 14:10 33 pg
+  MCHC: 01-02 08:43 35 g/dL; 01-01 14:10 33 g/dL
+  MCV: 01-02 08:43 96 fL; 01-01 14:10 98 fL
+  MPV: 01-02 08:43 10.3 fL; 01-01 14:10 10.6 fL
+  Magnesium: 01-02 08:43 1.7 mg/dL
+  Methemoglobin: 01-02 13:46 0.2 %; 01-02 09:00 0.2 %; 01-01 21:12 0.1 %; 01-01 19:36 0.1 %; 01-01 18:58 0 %   [+1 earlier]
+  O2 Content: 01-02 13:46 11.6 mL/dL; 01-02 09:00 12.9 mL/dL; 01-01 21:12 14.9 mL/dL; 01-01 19:36 14.2 mL/dL; 01-01 18:58 16.4 mL/dL   [+1 earlier]
+  Oxygen Saturation: 01-02 13:46 96.5 %; 01-02 09:00 97.1 %; 01-01 21:12 97.4 %; 01-01 19:36 92.7 %; 01-01 18:58 99 %   [+1 earlier]
+  PEEP: 01-02 13:46 7 cmH?O; 01-02 09:00 5 cmH?O; 01-01 21:12 5 cmH?O
+  PT: 01-01 14:10 12.9 Seconds
+  PTT: 01-01 14:10 30.9 Seconds
+  Platelet Count: 01-02 08:43 145 K/uL; 01-01 14:10 221 K/uL
+  Potassium: 01-02 08:43 4.8 mmol/L; 01-01 14:10 4.5 mmol/L
+  RBC: 01-02 08:43 2.87 M/uL; 01-01 14:10 3.64 M/uL
+  RDW: 01-02 08:43 13.5 %; 01-01 14:10 13.5 %
+  Respiratory Rate: 01-02 13:46 34 b/min; 01-02 09:00 34 b/min; 01-01 21:12 34 b/min; 01-01 19:36 30 b/min; 01-01 18:58 18 b/min
+  Sodium: 01-02 08:43 138 mmol/L; 01-01 14:10 137 mmol/L
+  TV: 01-02 13:46 300 mL; 01-02 09:00 300 mL; 01-01 21:12 300 mL; 01-01 19:36 300 mL; 01-01 18:58 300 mL
+  Urea Nitrogen: 01-02 08:43 29 mg/dL; 01-01 14:10 20 mg/dL
+  White Blood Cells: 01-02 08:43 15.7 K/uL; 01-01 14:10 13 K/uL
+  pCO2: 01-02 13:46 44.2 mmHg; 01-02 09:00 46.5 mmHg; 01-01 21:12 52.4 mmHg; 01-01 19:36 73.1 mmHg; 01-01 18:58 86.2 mmHg   [+1 earlier]
+  pH: 01-02 13:46 7.413; 01-02 09:00 7.414; 01-01 21:12 7.334; 01-01 19:36 7.237; 01-01 18:58 7.177   [+1 earlier]
+  pO2: 01-02 13:46 89.3 mmHg; 01-02 09:00 94.8 mmHg; 01-01 21:12 106.9 mmHg; 01-01 19:36 75.8 mmHg; 01-01 18:58 255.7 mmHg   [+1 earlier]
+  troponin - I: 01-02 08:43 0.18 ng/mL; 01-01 14:10 0.06 ng/mL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Delirium Scale/Score Delirium Scale: CAM-ICU @01-02 12:00
+  Delirium Scale/Score Delirium Score: No @01-02 12:00
+  Exhaled MV: 10.7 @01-02 11:13   24h 10.5-10.7 (n=2)
+  Exhaled TV (machine): 315 @01-02 11:13   24h 300-315 (n=2)
+  Flow Sensitivity: 2 @01-02 03:23
+  Glasgow coma score Eyes: 4 @01-02 18:00   24h 4-4 (n=7)
+  Glasgow coma score GCS Total: 10 @01-02 18:00   24h 10-10 (n=7)
+  Glasgow coma score Motor: 5 @01-02 18:00   24h 5-5 (n=7)
+  Glasgow coma score Verbal: 1 @01-02 18:00   24h 1-1 (n=7)
+  Glucose finger stick: 323 mg/dL @01-01 22:00   24h 323-376 (n=4)
+  Head of Bed Elevation: Yes @01-02 11:13
+  Heart Rate: 67 bpm @01-02 18:00   24h 67-93 (n=22)
+  Humidifier Temp: 37 @01-02 11:13   24h 37-37 (n=2)
+  Inspired O2 Fraction: 65 % @01-02 13:22   24h 65-70 (n=8)
+  Mean Airway Pressure: 9 cmH2O @01-02 11:13   24h 9-9 (n=2)
+  Non Invasive Blood Pressure diastolic: 46 mmHg @01-02 18:00   24h 43-62 (n=21)
+  Non Invasive Blood Pressure mean: 60 mmHg @01-02 18:00   24h 56-74 (n=21)
+  Non Invasive Blood Pressure systolic: 108 mmHg @01-02 18:00   24h 95-125 (n=21)
+  O2 Delivery Device(s): Endotracheal tube (charted: ventilator) @01-02 18:00
+  O2 saturation pulseoxymetry: 100 % @01-02 18:00   24h 91-100 (n=22)
+  PEEP set: 7 cmH2O @01-02 13:22   24h 0-7 (n=10)
+  Pain Level: 0 @01-02 18:00   24h 0-0 (n=4)
+  Pain Score/Goal Pain Goal: 0 @01-02 18:00   24h 0-0 (n=4)
+  Peak Insp. Pressure: 14 cmH2O @01-02 11:13   24h 13-14 (n=2)
+  Plateau Pressure: 12 @01-02 11:13   24h 12-12 (n=2)
+  Respiratory Rate: 34 insp/min @01-02 16:00   24h 0-34 (n=21)
+  Respiratory Rate (Set): 34 insp/min @01-02 13:22   24h 30-34 (n=8)
+  Respiratory Rate (Total): 34 insp/min @01-02 11:13   24h 34-34 (n=3)
+  Respiratory Rate (spontaneous): 34 insp/min @01-02 11:13   24h 18-34 (n=4)
+  SaO2: 99 @01-02 11:13   24h 92-100 (n=7)
+  Sedation Scale/Score/Goal Sedation Goal: -2 @01-02 18:00   24h -2--2 (n=11)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-02 18:00
+  Sedation Scale/Score/Goal Sedation Score: -2 @01-02 18:00   24h -2--2 (n=11)
+  TV/kg IBW: 4.3871 @01-02 13:22   24h 4.3871-4.3871 (n=8)
+  Temperature Fahrenheit: 98.2 F @01-02 09:00   24h 97.5-98.2 (n=3)
+  Temperature Location: axillary @01-02 09:00
+  Tidal Volume (set): 300 mL @01-02 13:22   24h 300-300 (n=8)
+
+## Treatments documented
+  01-01 20:30 medications | sedative | propofol
+  01-01 20:30 ventilation and oxygenation | mechanical ventilation | tidal volume 6-10 ml/kg
+  01-01 20:30 medications | bronchodilator | ipratropium
+  01-01 20:30 trauma | splinting | orthopedic device
+  01-01 20:30 cardiovascular | consultations | Cardiology consultation
+  01-01 20:30 pulmonary | ventilation and oxygenation | oxygen therapy (> 60%)
+  01-01 20:30 burns/trauma | consultations | Orthopedics consultation
+  01-01 20:30 ventilation and oxygenation | mechanical ventilation | volume controlled
+  01-01 20:30 ventilation and oxygenation | mechanical ventilation | assist controlled
+  01-01 20:30 medications | laxatives | bisacodyl (Dulcolax, Fleet)
+  01-01 20:30 glucose metabolism | insulin | sliding scale administration
+  01-01 20:30 pulmonary | consultations | Pulmonary medicine consultation
+
+## Microbiology

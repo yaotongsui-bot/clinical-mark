@@ -1,0 +1,604 @@
+{
+ "case_id": "E3220742",
+ "decision_point": "2100-01-02 02:33:00",
+ "claims": [
+  "Continue levetiracetam for seizure prophylaxis/therapy as ordered.",
+  "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+  "Monitor oxygen saturation and respiratory status given recent desaturation to 87%."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3220742A1::01",
+   "claim_id": "E3220742A1",
+   "claim_text": "Continue levetiracetam for seizure prophylaxis/therapy as ordered.",
+   "kind": "action",
+   "text": "Continue levetiracetam.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "levetiracetam",
+   "conditional": false,
+   "treatment_class": "antiepileptic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3220742A1::02",
+   "claim_id": "E3220742A1",
+   "claim_text": "Continue levetiracetam for seizure prophylaxis/therapy as ordered.",
+   "kind": "fact",
+   "text": "Levetiracetam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3220742A2::03",
+   "claim_id": "E3220742A2",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3220742A2::04",
+   "claim_id": "E3220742A2",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+   "kind": "fact",
+   "text": "Intermittent hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3220742A2::05",
+   "claim_id": "E3220742A2",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+   "kind": "fact",
+   "text": "PRN antihypertensive orders are active.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3220742A3::06",
+   "claim_id": "E3220742A3",
+   "claim_text": "Monitor oxygen saturation and respiratory status given recent desaturation to 87%.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3220742A3::07",
+   "claim_id": "E3220742A3",
+   "claim_text": "Monitor oxygen saturation and respiratory status given recent desaturation to 87%.",
+   "kind": "action",
+   "text": "Monitor respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3220742A3::08",
+   "claim_id": "E3220742A3",
+   "claim_text": "Monitor oxygen saturation and respiratory status given recent desaturation to 87%.",
+   "kind": "fact",
+   "text": "Recent desaturation to 87% occurred.",
+   "concept": "oxygenation",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3220742A1::02",
+   "claim_id": "E3220742A1",
+   "claim_text": "Continue levetiracetam for seizure prophylaxis/therapy as ordered.",
+   "kind": "fact",
+   "text": "Levetiracetam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show an administration of levetiracetam 500 mg on 2100-01-01 (R31) and treatment documentation for seizure therapy with levetiracetam (R17, R42), supporting that the patient is receiving levetiracetam.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:106139556",
+     "time": "2100-01-01 05:00:00",
+     "item": "Medication LEVETIRACETAM 500 MG PO TABS Oral bida,0800,2200 INDEF (2100-01-01 05:00:00 to 2100-01-01 11:47:00)"
+    },
+    {
+     "rid": "treat:80143187",
+     "time": "2100-01-01 02:44:00",
+     "item": "Treatment documented: seizure therapy | anticonvulsant | levetiracetam"
+    },
+    {
+     "rid": "treat:79179985",
+     "time": "2100-01-01 16:31:00",
+     "item": "Treatment documented: seizure therapy | anticonvulsant | levetiracetam"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3220742A2::04",
+   "claim_id": "E3220742A2",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+   "kind": "fact",
+   "text": "Intermittent hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:2234877865",
+     "time": "2100-01-01 12:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 85.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "low"
+    },
+    {
+     "rid": "nurse:2234877867",
+     "time": "2100-01-01 12:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 62.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E3220742A2::05",
+   "claim_id": "E3220742A2",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+   "kind": "fact",
+   "text": "PRN antihypertensive orders are active.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement claims the patient is hypertensive, but the recorded diastolic blood pressures are mostly below 90 mmHg, with many values in the 50s-70s range, and the most recent value is 60 mmHg. Only a few early readings (e.g., R12-R15) are elevated, so the overall record does not support current hypertension.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2235664687",
+     "time": "2099-12-31 17:04:00",
+     "item": "Non Invasive Blood Pressure diastolic: 81 mmHg"
+    },
+    {
+     "rid": "nurse:2235664686",
+     "time": "2099-12-31 17:04:00",
+     "item": "Non Invasive Blood Pressure systolic: 150 mmHg"
+    },
+    {
+     "rid": "nurse:2261451497",
+     "time": "2099-12-31 18:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 85 mmHg"
+    },
+    {
+     "rid": "nurse:2251227225",
+     "time": "2099-12-31 18:26:00",
+     "item": "Non Invasive Blood Pressure diastolic: 95 mmHg"
+    },
+    {
+     "rid": "nurse:2227605428",
+     "time": "2099-12-31 18:45:00",
+     "item": "Non Invasive Blood Pressure diastolic: 70 mmHg"
+    },
+    {
+     "rid": "nurse:2214303474",
+     "time": "2099-12-31 19:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 72 mmHg"
+    },
+    {
+     "rid": "nurse:2225054145",
+     "time": "2099-12-31 19:45:00",
+     "item": "Non Invasive Blood Pressure diastolic: 93 mmHg"
+    },
+    {
+     "rid": "nurse:2245832719",
+     "time": "2099-12-31 22:32:00",
+     "item": "Non Invasive Blood Pressure diastolic: 79 mmHg"
+    },
+    {
+     "rid": "nurse:2242155909",
+     "time": "2099-12-31 23:48:00",
+     "item": "Non Invasive Blood Pressure diastolic: 75 mmHg"
+    },
+    {
+     "rid": "nurse:2212460532",
+     "time": "2100-01-01 00:57:00",
+     "item": "Non Invasive Blood Pressure diastolic: 95 mmHg"
+    },
+    {
+     "rid": "nurse:2270694914",
+     "time": "2100-01-01 01:10:00",
+     "item": "Non Invasive Blood Pressure diastolic: 79 mmHg"
+    },
+    {
+     "rid": "nurse:2225553337",
+     "time": "2100-01-01 01:16:00",
+     "item": "Non Invasive Blood Pressure diastolic: 101 mmHg"
+    },
+    {
+     "rid": "nurse:2275315259",
+     "time": "2100-01-01 01:30:00",
+     "item": "Non Invasive Blood Pressure diastolic: 100 mmHg"
+    },
+    {
+     "rid": "nurse:2233762574",
+     "time": "2100-01-01 01:46:00",
+     "item": "Non Invasive Blood Pressure diastolic: 104 mmHg"
+    },
+    {
+     "rid": "nurse:2271015246",
+     "time": "2100-01-01 01:48:00",
+     "item": "Non Invasive Blood Pressure diastolic: 104 mmHg"
+    },
+    {
+     "rid": "nurse:2235093987",
+     "time": "2100-01-01 02:01:00",
+     "item": "Non Invasive Blood Pressure diastolic: 91 mmHg"
+    },
+    {
+     "rid": "nurse:2271944355",
+     "time": "2100-01-01 02:30:00",
+     "item": "Non Invasive Blood Pressure diastolic: 106 mmHg"
+    },
+    {
+     "rid": "nurse:2228386531",
+     "time": "2100-01-01 02:45:00",
+     "item": "Non Invasive Blood Pressure diastolic: 90 mmHg"
+    },
+    {
+     "rid": "nurse:2276224073",
+     "time": "2100-01-01 03:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 84 mmHg"
+    },
+    {
+     "rid": "nurse:2247228741",
+     "time": "2100-01-01 04:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 72 mmHg"
+    },
+    {
+     "rid": "nurse:2263764509",
+     "time": "2100-01-01 05:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 68 mmHg"
+    },
+    {
+     "rid": "nurse:2244569856",
+     "time": "2100-01-01 06:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 65 mmHg"
+    },
+    {
+     "rid": "nurse:2239182867",
+     "time": "2100-01-01 07:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 65 mmHg"
+    },
+    {
+     "rid": "nurse:2255924216",
+     "time": "2100-01-01 08:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 81 mmHg"
+    },
+    {
+     "rid": "nurse:2219623232",
+     "time": "2100-01-01 09:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 63 mmHg"
+    },
+    {
+     "rid": "nurse:2274924699",
+     "time": "2100-01-01 10:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 69 mmHg"
+    },
+    {
+     "rid": "nurse:2242681066",
+     "time": "2100-01-01 11:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 67 mmHg"
+    },
+    {
+     "rid": "nurse:2234877866",
+     "time": "2100-01-01 12:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 49 mmHg"
+    },
+    {
+     "rid": "nurse:2209856279",
+     "time": "2100-01-01 12:20:00",
+     "item": "Non Invasive Blood Pressure diastolic: 53 mmHg"
+    },
+    {
+     "rid": "nurse:2247460712",
+     "time": "2100-01-01 13:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 56 mmHg"
+    },
+    {
+     "rid": "nurse:2274927393",
+     "time": "2100-01-01 15:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 52 mmHg"
+    },
+    {
+     "rid": "nurse:2264557308",
+     "time": "2100-01-01 17:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 56 mmHg"
+    },
+    {
+     "rid": "nurse:2221340834",
+     "time": "2100-01-01 21:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 68 mmHg"
+    },
+    {
+     "rid": "nurse:2262468039",
+     "time": "2100-01-02 01:00:00",
+     "item": "Non Invasive Blood Pressure diastolic: 60 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3220742A3::08",
+   "claim_id": "E3220742A3",
+   "claim_text": "Monitor oxygen saturation and respiratory status given recent desaturation to 87%.",
+   "kind": "fact",
+   "text": "Recent desaturation to 87% occurred.",
+   "concept": "oxygenation",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:2234169382",
+     "time": "2100-01-02 01:00:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 87.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'oxygenation low' holds when any component is low. SpO2: yes.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3220742A1::01",
+   "claim_id": "E3220742A1",
+   "claim_text": "Continue levetiracetam for seizure prophylaxis/therapy as ordered.",
+   "kind": "action",
+   "text": "Continue levetiracetam.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "levetiracetam",
+   "conditional": false,
+   "treatment_class": "antiepileptic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antiepileptics action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3220742A2::03",
+   "claim_id": "E3220742A2",
+   "claim_text": "Monitor blood pressure closely given intermittent hypotension and PRN antihypertensive orders.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2235743207",
+     "time": "2100-01-02 04:45:00",
+     "item": "systolic BP",
+     "value": "133.0 mmHg"
+    },
+    {
+     "rid": "nurse:2209142786",
+     "time": "2100-01-02 06:00:00",
+     "item": "systolic BP",
+     "value": "125.0 mmHg"
+    },
+    {
+     "rid": "nurse:2235743209",
+     "time": "2100-01-02 04:45:00",
+     "item": "mean arterial pressure",
+     "value": "92.0 mmHg"
+    },
+    {
+     "rid": "nurse:2209142788",
+     "time": "2100-01-02 06:00:00",
+     "item": "mean arterial pressure",
+     "value": "84.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x12, mean arterial pressure x12.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3220742A3::06",
+   "claim_id": "E3220742A3",
+   "claim_text": "Monitor oxygen saturation and respiratory status given recent desaturation to 87%.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2276083400",
+     "time": "2100-01-02 09:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:2247407525",
+     "time": "2100-01-02 12:55:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3220742A3::07",
+   "claim_id": "E3220742A3",
+   "claim_text": "Monitor oxygen saturation and respiratory status given recent desaturation to 87%.",
+   "kind": "action",
+   "text": "Monitor respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2226769323",
+     "time": "2100-01-02 04:45:00",
+     "item": "respiratory rate",
+     "value": "23.0 insp/min"
+    },
+    {
+     "rid": "nurse:2263500249",
+     "time": "2100-01-02 06:00:00",
+     "item": "respiratory rate",
+     "value": "26.0 insp/min"
+    },
+    {
+     "rid": "nurse:2276083400",
+     "time": "2100-01-02 09:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:2247407525",
+     "time": "2100-01-02 12:55:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    },
+    {
+     "rid": "resp:244888231",
+     "time": "2100-01-02 14:00:00",
+     "item": "ventilator settings",
+     "value": "21.0 %"
+    },
+    {
+     "rid": "resp:240571712",
+     "time": "2100-01-02 23:12:00",
+     "item": "ventilator settings",
+     "value": "21.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x14, SpO2 x6, ventilator settings x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 3,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.75,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "PRN antihypertensive orders are active. -- The statement claims the patient is hypertensive, but the recorded diastolic blood pressures are mostly below 90 mmHg, with many values in the 50s-70s range, and the most recent value is 60 mmHg. Only a few early readings (e.g., R12-R15) are elevated, so the overall record does not support current hypertension."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.75,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

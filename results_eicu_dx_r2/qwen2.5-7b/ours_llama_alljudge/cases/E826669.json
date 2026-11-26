@@ -1,0 +1,506 @@
+{
+ "case_id": "E826669",
+ "decision_point": "2100-01-02 00:46:00",
+ "claims": [
+  "Continue monitoring vital signs and oxygen saturation.",
+  "Administer supplemental oxygen as needed.",
+  "Evaluate and manage electrolyte imbalances, particularly sodium and potassium."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E826669A1::01",
+   "claim_id": "E826669A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E826669A1::02",
+   "claim_id": "E826669A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E826669A2::03",
+   "claim_id": "E826669A2",
+   "claim_text": "Administer supplemental oxygen as needed.",
+   "kind": "action",
+   "text": "Administer supplemental oxygen as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "supplemental oxygen",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E826669A3::04",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "action",
+   "text": "Evaluate electrolyte imbalances.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "assess",
+   "target": "electrolyte imbalances",
+   "conditional": false
+  },
+  {
+   "atom_id": "E826669A3::05",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "action",
+   "text": "Manage electrolyte imbalances.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "other",
+   "target": "electrolyte imbalances",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E826669A3::06",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "fact",
+   "text": "Electrolyte imbalances are present.",
+   "concept": "electrolytes",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E826669A3::07",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "action",
+   "text": "Evaluate sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "sodium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E826669A3::08",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "action",
+   "text": "Manage sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "other",
+   "target": "sodium",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E826669A3::09",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "action",
+   "text": "Evaluate potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E826669A3::10",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "action",
+   "text": "Manage potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "other",
+   "target": "potassium",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E826669A3::06",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "fact",
+   "text": "Electrolyte imbalances are present.",
+   "concept": "electrolytes",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that the patient's potassium level is 3.9 mmol/L, which is within the normal range. However, the statement that electrolyte imbalances are present is not supported by the records, as the patient's potassium level is not significantly abnormal. Additionally, the records do not show any other electrolyte imbalances that would support the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:157228371",
+     "time": "2100-01-01 15:51:00",
+     "item": "Potassium: 3.9 mmol/L"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E826669A1::01",
+   "claim_id": "E826669A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:479772072",
+     "time": "2100-01-02 01:00:00",
+     "item": "heart rate",
+     "value": "96.0 bpm"
+    },
+    {
+     "rid": "nurse:550555546",
+     "time": "2100-01-02 01:15:00",
+     "item": "heart rate",
+     "value": "90.0 bpm"
+    },
+    {
+     "rid": "nurse:528055970",
+     "time": "2100-01-02 01:00:00",
+     "item": "systolic BP",
+     "value": "135.0 mmHg"
+    },
+    {
+     "rid": "nurse:489999735",
+     "time": "2100-01-02 01:15:00",
+     "item": "systolic BP",
+     "value": "137.0 mmHg"
+    },
+    {
+     "rid": "nurse:521852495",
+     "time": "2100-01-02 03:00:00",
+     "item": "mean arterial pressure",
+     "value": "103.0 mmHg"
+    },
+    {
+     "rid": "nurse:477911259",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "105.0 mmHg"
+    },
+    {
+     "rid": "nurse:490536384",
+     "time": "2100-01-02 01:00:00",
+     "item": "respiratory rate",
+     "value": "20.0 insp/min"
+    },
+    {
+     "rid": "nurse:535024839",
+     "time": "2100-01-02 01:15:00",
+     "item": "respiratory rate",
+     "value": "20.0 insp/min"
+    },
+    {
+     "rid": "nurse:490089207",
+     "time": "2100-01-02 04:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:543707435",
+     "time": "2100-01-02 05:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:477068808",
+     "time": "2100-01-02 02:30:00",
+     "item": "temperature",
+     "value": "97.5 F"
+    },
+    {
+     "rid": "nurse:506437075",
+     "time": "2100-01-02 03:00:00",
+     "item": "temperature",
+     "value": "98.1 F"
+    }
+   ],
+   "reason": "Measured in the 15.7 h observation window after the decision (24 h or until ICU discharge): heart rate x27, systolic BP x27, mean arterial pressure x20, respiratory rate x27, SpO2 x19, temperature x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E826669A1::02",
+   "claim_id": "E826669A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:490089207",
+     "time": "2100-01-02 04:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    },
+    {
+     "rid": "nurse:543707435",
+     "time": "2100-01-02 05:00:00",
+     "item": "SpO2",
+     "value": "98.0 %"
+    }
+   ],
+   "reason": "Measured in the 15.7 h observation window after the decision (24 h or until ICU discharge): SpO2 x19.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E826669A2::03",
+   "claim_id": "E826669A2",
+   "claim_text": "Administer supplemental oxygen as needed.",
+   "kind": "action",
+   "text": "Administer supplemental oxygen as needed.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "administer",
+   "target": "supplemental oxygen",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E826669A3::04",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "action",
+   "text": "Evaluate electrolyte imbalances.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "assess",
+   "target": "electrolyte imbalances",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:160655209",
+     "time": "2100-01-02 11:00:00",
+     "item": "sodium",
+     "value": "133.0 mmol/L"
+    },
+    {
+     "rid": "lab:160655204",
+     "time": "2100-01-02 11:00:00",
+     "item": "potassium",
+     "value": "3.8 mmol/L"
+    },
+    {
+     "rid": "lab:160655216",
+     "time": "2100-01-02 11:00:00",
+     "item": "chloride",
+     "value": "98.0 mmol/L"
+    },
+    {
+     "rid": "lab:160655211",
+     "time": "2100-01-02 11:00:00",
+     "item": "bicarbonate",
+     "value": "22.0 mmol/L"
+    },
+    {
+     "rid": "lab:151789897",
+     "time": "2100-01-02 11:00:00",
+     "item": "magnesium",
+     "value": "2.0 mg/dL"
+    },
+    {
+     "rid": "lab:160655213",
+     "time": "2100-01-02 11:00:00",
+     "item": "calcium",
+     "value": "7.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 15.7 h observation window after the decision (24 h or until ICU discharge): sodium x1, potassium x1, chloride x1, bicarbonate x1, magnesium x1, calcium x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E826669A3::05",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "action",
+   "text": "Manage electrolyte imbalances.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "other",
+   "target": "electrolyte imbalances",
+   "conditional": false,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No potassium replacement / magnesium replacement / calcium replacement / phosphate replacement action recorded in the 15.7 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E826669A3::07",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "action",
+   "text": "Evaluate sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "sodium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:160655209",
+     "time": "2100-01-02 11:00:00",
+     "item": "sodium",
+     "value": "133.0 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 15.7 h observation window after the decision (24 h or until ICU discharge): sodium x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E826669A3::08",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "action",
+   "text": "Manage sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "other",
+   "target": "sodium",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E826669A3::09",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "action",
+   "text": "Evaluate potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:160655204",
+     "time": "2100-01-02 11:00:00",
+     "item": "potassium",
+     "value": "3.8 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 15.7 h observation window after the decision (24 h or until ICU discharge): potassium x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E826669A3::10",
+   "claim_id": "E826669A3",
+   "claim_text": "Evaluate and manage electrolyte imbalances, particularly sodium and potassium.",
+   "kind": "action",
+   "text": "Manage potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "other",
+   "target": "potassium",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 15.7,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Electrolyte imbalances are present. -- The records show that the patient's potassium level is 3.9 mmol/L, which is within the normal range. However, the statement that electrolyte imbalances are present is not supported by the records, as the patient's potassium level is not significantly abnormal. Additionally, the records do not show any other electrolyte imbalances that would support the statement."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

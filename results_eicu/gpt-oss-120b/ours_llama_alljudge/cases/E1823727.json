@@ -1,0 +1,579 @@
+{
+ "case_id": "E1823727",
+ "decision_point": "2100-01-02 14:58:00",
+ "claims": [
+  "Continue intermittent hemodialysis as scheduled to manage uremia and fluid balance.",
+  "Monitor coagulation parameters (PT/INR, PTT, platelet count) q6h and repeat CBC q6h to assess ongoing bleeding and need for blood product support.",
+  "Order packed red blood cell transfusion if hemoglobin remains <8 g/dL or symptomatic anemia develops."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1823727A1::01",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue intermittent hemodialysis as scheduled to manage uremia and fluid balance.",
+   "kind": "action",
+   "text": "Continue intermittent hemodialysis as scheduled.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intermittent hemodialysis",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1823727A1::02",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue intermittent hemodialysis as scheduled to manage uremia and fluid balance.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intermittent hemodialysis.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1823727A1::03",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue intermittent hemodialysis as scheduled to manage uremia and fluid balance.",
+   "kind": "fact",
+   "text": "Uremia is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1823727A1::04",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue intermittent hemodialysis as scheduled to manage uremia and fluid balance.",
+   "kind": "fact",
+   "text": "Fluid balance is abnormal.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1823727A2::05",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor coagulation parameters (PT/INR, PTT, platelet count) q6h and repeat CBC q6h to assess ongoing bleeding and need for blood product support.",
+   "kind": "action",
+   "text": "Monitor PT/INR q6h.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT/INR",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823727A2::06",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor coagulation parameters (PT/INR, PTT, platelet count) q6h and repeat CBC q6h to assess ongoing bleeding and need for blood product support.",
+   "kind": "action",
+   "text": "Monitor PTT q6h.",
+   "concept": "ptt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PTT",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823727A2::07",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor coagulation parameters (PT/INR, PTT, platelet count) q6h and repeat CBC q6h to assess ongoing bleeding and need for blood product support.",
+   "kind": "action",
+   "text": "Monitor platelet count q6h.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "platelet count",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823727A2::08",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor coagulation parameters (PT/INR, PTT, platelet count) q6h and repeat CBC q6h to assess ongoing bleeding and need for blood product support.",
+   "kind": "action",
+   "text": "Repeat CBC q6h.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "CBC",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1823727A2::09",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor coagulation parameters (PT/INR, PTT, platelet count) q6h and repeat CBC q6h to assess ongoing bleeding and need for blood product support.",
+   "kind": "fact",
+   "text": "Ongoing bleeding is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1823727A3::10",
+   "claim_id": "E1823727A3",
+   "claim_text": "Order packed red blood cell transfusion if hemoglobin remains <8 g/dL or symptomatic anemia develops.",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion if hemoglobin remains <8 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": true,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1823727A3::11",
+   "claim_id": "E1823727A3",
+   "claim_text": "Order packed red blood cell transfusion if hemoglobin remains <8 g/dL or symptomatic anemia develops.",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion if symptomatic anemia develops.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": true,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1823727A1::02",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue intermittent hemodialysis as scheduled to manage uremia and fluid balance.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intermittent hemodialysis.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The patient is currently receiving intermittent hemodialysis because the records state that the patient is receiving hemodialysis (R31, R32, R44, R45).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:49499012",
+     "time": "2100-01-01 15:00:00",
+     "item": "Treatment documented: renal | dialysis | hemodialysis"
+    },
+    {
+     "rid": "treat:52188332",
+     "time": "2100-01-01 15:00:00",
+     "item": "Treatment documented: hematology | coagulation and platelets | blood product administration"
+    },
+    {
+     "rid": "treat:49270664",
+     "time": "2100-01-02 08:42:00",
+     "item": "Treatment documented: renal | dialysis | hemodialysis"
+    },
+    {
+     "rid": "treat:46361069",
+     "time": "2100-01-02 08:42:00",
+     "item": "Treatment documented: hematology | coagulation and platelets | blood product administration"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823727A1::03",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue intermittent hemodialysis as scheduled to manage uremia and fluid balance.",
+   "kind": "fact",
+   "text": "Uremia is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The records state that the patient is receiving intermittent hemodialysis to manage uremia and fluid balance. This is supported by the treatment documentation records (R34, R35, R38, R39) which mention hemodialysis as a treatment.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:49499012",
+     "time": "2100-01-01 15:00:00",
+     "item": "Treatment documented: renal | dialysis | hemodialysis"
+    },
+    {
+     "rid": "treat:52188332",
+     "time": "2100-01-01 15:00:00",
+     "item": "Treatment documented: hematology | coagulation and platelets | blood product administration"
+    },
+    {
+     "rid": "treat:51660586",
+     "time": "2100-01-01 21:58:00",
+     "item": "Treatment documented: renal | dialysis | hemodialysis"
+    },
+    {
+     "rid": "treat:49016558",
+     "time": "2100-01-01 21:58:00",
+     "item": "Treatment documented: hematology | coagulation and platelets | blood product administration"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823727A1::04",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue intermittent hemodialysis as scheduled to manage uremia and fluid balance.",
+   "kind": "fact",
+   "text": "Fluid balance is abnormal.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient has been receiving intermittent hemodialysis, which is intended to manage uremia and fluid balance. However, the records also show that the patient's chloride and sodium levels are not within normal limits, and the anion gap is elevated. This suggests that the patient's fluid balance is abnormal, but the records do not fully support the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:423695907",
+     "time": "2099-12-31 13:00:00",
+     "item": "Chloride: 98 mmol/L"
+    },
+    {
+     "rid": "lab:423695900",
+     "time": "2099-12-31 13:00:00",
+     "item": "Sodium: 137 mmol/L"
+    },
+    {
+     "rid": "lab:423695898",
+     "time": "2099-12-31 13:00:00",
+     "item": "Anion Gap: 10 mEq/L"
+    },
+    {
+     "rid": "lab:436167890",
+     "time": "2099-12-31 13:00:00",
+     "item": "Platelet Count: 155 K/mm3"
+    },
+    {
+     "rid": "lab:443647532",
+     "time": "2099-12-31 15:05:00",
+     "item": "urinary specific gravity: 1.028"
+    },
+    {
+     "rid": "lab:459958681",
+     "time": "2100-01-01 02:22:00",
+     "item": "Base Excess: -1.7 mmol/L"
+    },
+    {
+     "rid": "lab:459958679",
+     "time": "2100-01-01 02:22:00",
+     "item": "pH: 7.45"
+    },
+    {
+     "rid": "lab:459958674",
+     "time": "2100-01-01 02:22:00",
+     "item": "Bicarbonate (blood gas HCO3): 21.7 mmol/L"
+    },
+    {
+     "rid": "lab:434780069",
+     "time": "2100-01-01 02:56:00",
+     "item": "Platelet Count: 201 K/mm3"
+    },
+    {
+     "rid": "lab:421844081",
+     "time": "2100-01-02 10:00:00",
+     "item": "Chloride: 93 mmol/L"
+    },
+    {
+     "rid": "lab:421844076",
+     "time": "2100-01-02 10:00:00",
+     "item": "Sodium: 136 mmol/L"
+    },
+    {
+     "rid": "lab:421844075",
+     "time": "2100-01-02 10:00:00",
+     "item": "Anion Gap: 10 mEq/L"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823727A2::09",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor coagulation parameters (PT/INR, PTT, platelet count) q6h and repeat CBC q6h to assess ongoing bleeding and need for blood product support.",
+   "kind": "fact",
+   "text": "Ongoing bleeding is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient's platelet count and hemoglobin levels have been monitored and recorded, but there is no clear indication of ongoing bleeding. The platelet count has fluctuated between 130-201 K/mm3, and the hemoglobin levels have been between 7.3-12.7 gm/dL. While the patient has received various medications, including blood products, there is no direct evidence of ongoing blood",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:436167890",
+     "time": "2099-12-31 13:00:00",
+     "item": "Platelet Count: 155 K/mm3"
+    },
+    {
+     "rid": "lab:436167884",
+     "time": "2099-12-31 13:00:00",
+     "item": "Hemoglobin: 12.7 gm/dL"
+    },
+    {
+     "rid": "lab:459958674",
+     "time": "2100-01-01 02:22:00",
+     "item": "Bicarbonate (blood gas HCO3): 21.7 mmol/L"
+    },
+    {
+     "rid": "lab:434780069",
+     "time": "2100-01-01 02:56:00",
+     "item": "Platelet Count: 201 K/mm3"
+    },
+    {
+     "rid": "lab:434780063",
+     "time": "2100-01-01 02:56:00",
+     "item": "Hemoglobin: 10.2 gm/dL"
+    },
+    {
+     "rid": "lab:432880379",
+     "time": "2100-01-01 23:13:00",
+     "item": "Platelet Count: 130 K/mm3"
+    },
+    {
+     "rid": "lab:432880373",
+     "time": "2100-01-01 23:13:00",
+     "item": "Hemoglobin: 8.7 gm/dL"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1823727A1::01",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue intermittent hemodialysis as scheduled to manage uremia and fluid balance.",
+   "kind": "action",
+   "text": "Continue intermittent hemodialysis as scheduled.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intermittent hemodialysis",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No renal replacement therapy action recorded in the 8.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1823727A2::05",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor coagulation parameters (PT/INR, PTT, platelet count) q6h and repeat CBC q6h to assess ongoing bleeding and need for blood product support.",
+   "kind": "action",
+   "text": "Monitor PT/INR q6h.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PT/INR",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No INR measurement in the 8.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1823727A2::06",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor coagulation parameters (PT/INR, PTT, platelet count) q6h and repeat CBC q6h to assess ongoing bleeding and need for blood product support.",
+   "kind": "action",
+   "text": "Monitor PTT q6h.",
+   "concept": "ptt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PTT",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No PTT measurement in the 8.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1823727A2::07",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor coagulation parameters (PT/INR, PTT, platelet count) q6h and repeat CBC q6h to assess ongoing bleeding and need for blood product support.",
+   "kind": "action",
+   "text": "Monitor platelet count q6h.",
+   "concept": "platelets",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "platelet count",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No platelets measurement in the 8.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1823727A2::08",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor coagulation parameters (PT/INR, PTT, platelet count) q6h and repeat CBC q6h to assess ongoing bleeding and need for blood product support.",
+   "kind": "action",
+   "text": "Repeat CBC q6h.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "CBC",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:437638271",
+     "time": "2100-01-02 19:21:00",
+     "item": "hemoglobin",
+     "value": "7.6 gm/dL"
+    }
+   ],
+   "reason": "Measured in the 8.0 h observation window after the decision (24 h or until ICU discharge): hemoglobin x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1823727A3::10",
+   "claim_id": "E1823727A3",
+   "claim_text": "Order packed red blood cell transfusion if hemoglobin remains <8 g/dL or symptomatic anemia develops.",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion if hemoglobin remains <8 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": true,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:437638271",
+     "time": "2100-01-02 19:21:00",
+     "item": "hemoglobin",
+     "value": "7.6 gm/dL"
+    }
+   ],
+   "reason": "Measured in the 8.0 h observation window after the decision (24 h or until ICU discharge): hemoglobin x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1823727A3::11",
+   "claim_id": "E1823727A3",
+   "claim_text": "Order packed red blood cell transfusion if hemoglobin remains <8 g/dL or symptomatic anemia develops.",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion if symptomatic anemia develops.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": true,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 8.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 8.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 2,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Fluid balance is abnormal. -- The records show that the patient has been receiving intermittent hemodialysis, which is intended to manage uremia and fluid balance. However, the records also show that the patient's chloride and sodium levels are not within normal limits, and the anion gap is elevated. This suggests that the patient's fluid balance is abnormal, but the records do not fully support the statement.",
+    "Ongoing bleeding is present. -- The records show that the patient's platelet count and hemoglobin levels have been monitored and recorded, but there is no clear indication of ongoing bleeding. The platelet count has fluctuated between 130-201 K/mm3, and the hemoglobin levels have been between 7.3-12.7 gm/dL. While the patient has received various medications, including blood products, there is no direct evidence of ongoing blood"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

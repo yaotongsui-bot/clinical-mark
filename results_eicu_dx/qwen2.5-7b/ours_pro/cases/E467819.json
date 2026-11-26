@@ -1,0 +1,352 @@
+{
+ "case_id": "E467819",
+ "decision_point": "2100-01-02 01:43:00",
+ "claims": [
+  "Continue monitoring blood pressure and adjust nicardipine infusion as needed.",
+  "Administer oral enalapril as ordered.",
+  "Continue head of bed elevation to prevent aspiration."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E467819A1::01",
+   "claim_id": "E467819A1",
+   "claim_text": "Continue monitoring blood pressure and adjust nicardipine infusion as needed.",
+   "kind": "action",
+   "text": "Continue monitoring blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E467819A1::02",
+   "claim_id": "E467819A1",
+   "claim_text": "Continue monitoring blood pressure and adjust nicardipine infusion as needed.",
+   "kind": "action",
+   "text": "Adjust nicardipine infusion as needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "nicardipine infusion",
+   "conditional": true,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E467819A1::03",
+   "claim_id": "E467819A1",
+   "claim_text": "Continue monitoring blood pressure and adjust nicardipine infusion as needed.",
+   "kind": "fact",
+   "text": "Nicardipine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E467819A2::04",
+   "claim_id": "E467819A2",
+   "claim_text": "Administer oral enalapril as ordered.",
+   "kind": "action",
+   "text": "Administer oral enalapril as ordered.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "administer",
+   "target": "oral enalapril",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E467819A2::05",
+   "claim_id": "E467819A2",
+   "claim_text": "Administer oral enalapril as ordered.",
+   "kind": "fact",
+   "text": "Oral enalapril is ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E467819A3::06",
+   "claim_id": "E467819A3",
+   "claim_text": "Continue head of bed elevation to prevent aspiration.",
+   "kind": "action",
+   "text": "Continue head of bed elevation.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "continue",
+   "target": "head of bed elevation",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E467819A3::07",
+   "claim_id": "E467819A3",
+   "claim_text": "Continue head of bed elevation to prevent aspiration.",
+   "kind": "fact",
+   "text": "Head of bed elevation is currently being done.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E467819A1::03",
+   "claim_id": "E467819A1",
+   "claim_text": "Continue monitoring blood pressure and adjust nicardipine infusion as needed.",
+   "kind": "fact",
+   "text": "Nicardipine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "The most recent nicardipine administration record (R50) shows an infusion that ended at 00:00 on 2100-01-02, which is more than 1 hour and 43 minutes before the decision time of 01:43. There is no record of an infusion running at the decision time or within the preceding 24 hours that is still active.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Nicardipine (mg/hr):1277",
+     "time": "2100-01-01 23:00:00",
+     "item": "Infusion/input Nicardipine at 1 mg/hour (2100-01-01 23:00:00 to 2100-01-02 00:00:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E467819A2::05",
+   "claim_id": "E467819A2",
+   "claim_text": "Administer oral enalapril as ordered.",
+   "kind": "fact",
+   "text": "Oral enalapril is ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "The records document enalapril as a treatment for hypertension, but there is no medication order for oral enalapril. The statement that it is 'ordered' is therefore not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:21537781",
+     "time": "2100-01-01 03:04:00",
+     "item": "Treatment documented: hypertension | ACE inhibitor | enalapril"
+    },
+    {
+     "rid": "treat:19176426",
+     "time": "2100-01-01 03:33:00",
+     "item": "Treatment documented: hypertension | ACE inhibitor | enalapril"
+    },
+    {
+     "rid": "treat:19136983",
+     "time": "2100-01-01 14:46:00",
+     "item": "Treatment documented: hypertension | ACE inhibitor | enalapril"
+    }
+   ]
+  },
+  {
+   "atom_id": "E467819A3::07",
+   "claim_id": "E467819A3",
+   "claim_text": "Continue head of bed elevation to prevent aspiration.",
+   "kind": "fact",
+   "text": "Head of bed elevation is currently being done.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The most recent record before the decision time (R50, at 23:49) documents 'Head of Bed Elevation: Yes', which directly supports the statement that head of bed elevation is currently being done.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "resp:10681786",
+     "time": "2100-01-01 23:49:00",
+     "item": "Head of Bed Elevation: Yes"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E467819A1::01",
+   "claim_id": "E467819A1",
+   "claim_text": "Continue monitoring blood pressure and adjust nicardipine infusion as needed.",
+   "kind": "action",
+   "text": "Continue monitoring blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:391988738",
+     "time": "2100-01-02 02:00:00",
+     "item": "systolic BP",
+     "value": "120.0 mmHg"
+    },
+    {
+     "rid": "nurse:397305011",
+     "time": "2100-01-02 03:00:00",
+     "item": "systolic BP",
+     "value": "122.0 mmHg"
+    },
+    {
+     "rid": "nurse:391988740",
+     "time": "2100-01-02 02:00:00",
+     "item": "mean arterial pressure",
+     "value": "65.0 mmHg"
+    },
+    {
+     "rid": "nurse:397305013",
+     "time": "2100-01-02 03:00:00",
+     "item": "mean arterial pressure",
+     "value": "78.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x23, mean arterial pressure x23.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E467819A1::02",
+   "claim_id": "E467819A1",
+   "claim_text": "Continue monitoring blood pressure and adjust nicardipine infusion as needed.",
+   "kind": "action",
+   "text": "Adjust nicardipine infusion as needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "nicardipine infusion",
+   "conditional": true,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E467819A2::04",
+   "claim_id": "E467819A2",
+   "claim_text": "Administer oral enalapril as ordered.",
+   "kind": "action",
+   "text": "Administer oral enalapril as ordered.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "administer",
+   "target": "oral enalapril",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E467819A3::06",
+   "claim_id": "E467819A3",
+   "claim_text": "Continue head of bed elevation to prevent aspiration.",
+   "kind": "action",
+   "text": "Continue head of bed elevation.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "continue",
+   "target": "head of bed elevation",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Nicardipine infusion is currently being given. -- The most recent nicardipine administration record (R50) shows an infusion that ended at 00:00 on 2100-01-02, which is more than 1 hour and 43 minutes before the decision time of 01:43. There is no record of an infusion running at the decision time or within the preceding 24 hours that is still active.",
+    "Oral enalapril is ordered. -- The records document enalapril as a treatment for hypertension, but there is no medication order for oral enalapril. The statement that it is 'ordered' is therefore not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

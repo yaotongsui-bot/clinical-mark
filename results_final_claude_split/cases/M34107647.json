@@ -1,0 +1,518 @@
+{
+ "case_id": "M34107647",
+ "decision_point": "2153-03-29 02:21:00",
+ "claims": [
+  "Continue norepinephrine infusion for hemodynamic support.",
+  "Continue insulin therapy for hyperglycemia management.",
+  "Monitor serum lactate to assess tissue perfusion."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34107647A1::01",
+   "claim_id": "M34107647A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34107647A1::02",
+   "claim_id": "M34107647A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being infused.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M34107647A2::03",
+   "claim_id": "M34107647A2",
+   "claim_text": "Continue insulin therapy for hyperglycemia management.",
+   "kind": "action",
+   "text": "Continue insulin therapy.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34107647A2::04",
+   "claim_id": "M34107647A2",
+   "claim_text": "Continue insulin therapy for hyperglycemia management.",
+   "kind": "fact",
+   "text": "The patient is currently receiving insulin.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M34107647A2::05",
+   "claim_id": "M34107647A2",
+   "claim_text": "Continue insulin therapy for hyperglycemia management.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M34107647A3::06",
+   "claim_id": "M34107647A3",
+   "claim_text": "Monitor serum lactate to assess tissue perfusion.",
+   "kind": "action",
+   "text": "Monitor serum lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum lactate",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M34107647A1::02",
+   "claim_id": "M34107647A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support.",
+   "kind": "fact",
+   "text": "Norepinephrine is currently being infused.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "The most recent norepinephrine record before the decision time is 'MAR Stopped - Unscheduled: Norepinephrine' at 08:00 on 2153-03-28, indicating the infusion was stopped. No subsequent administration record shows it was restarted.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "emar:10019003-53",
+     "time": "2153-03-28 08:00:00",
+     "item": "MAR Stopped - Unscheduled: Norepinephrine"
+    },
+    {
+     "rid": "inputevents:7063375:221906:2153-03-28 06:05:00",
+     "time": "2153-03-28 06:05:00",
+     "item": "Infusion/input Norepinephrine at 0.0099979506558156572 mcg/kg/min (2153-03-28 06:05:00 to 2153-03-28 08:00:00)"
+    },
+    {
+     "rid": "rx:30862747:2153-03-28 04:00:00",
+     "time": "2153-03-28 04:00:00",
+     "item": "Order: NORepinephrine 8 mg IV DRIP (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M34107647A2::04",
+   "claim_id": "M34107647A2",
+   "claim_text": "Continue insulin therapy for hyperglycemia management.",
+   "kind": "fact",
+   "text": "The patient is currently receiving insulin.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The records show insulin was administered at 21:02 and 21:10 on 2153-03-28, which is within 24 hours before the decision time of 2153-03-29 02:21:00, supporting that the patient is currently receiving insulin.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "emar:10019003-75",
+     "time": "2153-03-28 21:02:00",
+     "item": "MAR Administered: Insulin"
+    },
+    {
+     "rid": "inputevents:8373463:223262:2153-03-28 21:10:00",
+     "time": "2153-03-28 21:10:00",
+     "item": "Infusion/input Insulin - Humalog 2 units (2153-03-28 21:10:00 to 2153-03-28 21:11:00)"
+    },
+    {
+     "rid": "rx:54562897:2153-03-28 04:00:00",
+     "time": "2153-03-28 04:00:00",
+     "item": "Order: Insulin 0 UNIT SC (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M34107647A2::05",
+   "claim_id": "M34107647A2",
+   "claim_text": "Continue insulin therapy for hyperglycemia management.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:225267",
+     "time": "2153-03-28 03:16:00",
+     "item": "Glucose",
+     "value": 258.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 258 mg/dL at 2153-03-28 03:16:00 (reference 70.0 to 100.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M34107647A1::01",
+   "claim_id": "M34107647A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34107647A2::03",
+   "claim_id": "M34107647A2",
+   "claim_text": "Continue insulin therapy for hyperglycemia management.",
+   "kind": "action",
+   "text": "Continue insulin therapy.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34107647A3::06",
+   "claim_id": "M34107647A3",
+   "claim_text": "Monitor serum lactate to assess tissue perfusion.",
+   "kind": "action",
+   "text": "Monitor serum lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum lactate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225668:2153-03-29 04:42:00:668432",
+     "time": "2153-03-29 04:42:00",
+     "item": "lactate",
+     "value": "2.1 mmol/L"
+    },
+    {
+     "rid": "lab:50813:2153-03-29 04:42:00:82509",
+     "time": "2153-03-29 04:42:00",
+     "item": "lactate",
+     "value": "2.1 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): lactate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 116.1 K/uL at 2153-03-28 03:16:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 116.1 K/uL at 2153-03-28 03:16:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Ciprofloxacin",
+    "Ciprofloxacin HCl",
+    "Ciprofloxacin IV",
+    "MetRONIDAZOLE (FLagyl)",
+    "Metronidazole"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.7 mmol/L at 2153-03-28 20:00:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 3.7 mmol/L at 2153-03-28 20:00:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "OLANZapine"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 116.1 K/uL at 2153-03-28 03:16:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 116.1 K/uL at 2153-03-28 03:16:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Ciprofloxacin",
+    "Ciprofloxacin HCl",
+    "Ciprofloxacin IV",
+    "MetRONIDAZOLE (FLagyl)",
+    "Metronidazole"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 3.7 mmol/L at 2153-03-28 20:00:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 3.7 mmol/L at 2153-03-28 20:00:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "OLANZapine"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 3.7 mmol/L at 2153-03-28 20:00:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 116.1 K/uL at 2153-03-28 03:16:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 60,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Norepinephrine is currently being infused. -- The most recent norepinephrine record before the decision time is 'MAR Stopped - Unscheduled: Norepinephrine' at 08:00 on 2153-03-28, indicating the infusion was stopped. No subsequent administration record shows it was restarted."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 2,
+  "treatments_omitted": 5,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

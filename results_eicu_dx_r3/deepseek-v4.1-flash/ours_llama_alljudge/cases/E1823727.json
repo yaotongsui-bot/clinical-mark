@@ -1,0 +1,448 @@
+{
+ "case_id": "E1823727",
+ "decision_point": "2100-01-02 14:58:00",
+ "claims": [
+  "Continue hemodialysis as documented for renal failure.",
+  "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+  "Monitor potassium level given hyperkalemia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1823727A1::01",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue hemodialysis as documented for renal failure.",
+   "kind": "action",
+   "text": "Continue hemodialysis.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "continue",
+   "target": "hemodialysis",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1823727A1::02",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue hemodialysis as documented for renal failure.",
+   "kind": "fact",
+   "text": "Hemodialysis is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1823727A1::03",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue hemodialysis as documented for renal failure.",
+   "kind": "fact",
+   "text": "Renal failure is present.",
+   "concept": "creatinine",
+   "notes": [
+    "concept set by the rule files: renal_function -> creatinine"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1823727A2::04",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "action",
+   "text": "Monitor hemoglobin.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823727A2::05",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "action",
+   "text": "Monitor hematocrit.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823727A2::06",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1823727A2::07",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "fact",
+   "text": "Bleeding risk is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1823727A3::08",
+   "claim_id": "E1823727A3",
+   "claim_text": "Monitor potassium level given hyperkalemia.",
+   "kind": "action",
+   "text": "Monitor potassium level.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823727A3::09",
+   "claim_id": "E1823727A3",
+   "claim_text": "Monitor potassium level given hyperkalemia.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1823727A1::02",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue hemodialysis as documented for renal failure.",
+   "kind": "fact",
+   "text": "Hemodialysis is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: renal_function -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that hemodialysis was documented as a treatment, but there is no record of it being administered at the decision time. The 'Running at decision time' record for Sodium Chloride 0.9% 1,000 ML BAG IV CONT (R14) does not support the statement, as it is a different medication. The 'Given once' records for Sodium Chloride 0.9% 1,000 ML BAG IV ONE (R13, R17, R28) do not support the 'is'",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:49499012",
+     "time": "2100-01-01 15:00:00",
+     "item": "Treatment documented: renal | dialysis | hemodialysis"
+    },
+    {
+     "rid": "treat:52188332",
+     "time": "2100-01-01 15:00:00",
+     "item": "Treatment documented: hematology | coagulation and platelets | blood product administration"
+    },
+    {
+     "rid": "treat:49270664",
+     "time": "2100-01-02 08:42:00",
+     "item": "Treatment documented: renal | dialysis | hemodialysis"
+    },
+    {
+     "rid": "treat:46361069",
+     "time": "2100-01-02 08:42:00",
+     "item": "Treatment documented: hematology | coagulation and platelets | blood product administration"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823727A1::03",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue hemodialysis as documented for renal failure.",
+   "kind": "fact",
+   "text": "Renal failure is present.",
+   "concept": "creatinine",
+   "notes": [
+    "concept set by the rule files: renal_function -> creatinine"
+   ],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records mention renal failure and hemodialysis, but do not show that the patient is currently receiving treatment for renal failure. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:1823727:dx",
+     "time": "2100-01-01 14:58:00",
+     "item": "Admission diagnosis (APACHE): Renal bleeding"
+    },
+    {
+     "rid": "treat:49499012",
+     "time": "2100-01-01 15:00:00",
+     "item": "Treatment documented: renal | dialysis | hemodialysis"
+    },
+    {
+     "rid": "treat:52188332",
+     "time": "2100-01-01 15:00:00",
+     "item": "Treatment documented: hematology | coagulation and platelets | blood product administration"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823727A2::06",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement 'Anemia is present' is not supported by the records. The most recent hemoglobin measurement (R18) shows a value of 7.3 gm/dL, which is below the normal range. However, the records do not show any evidence of anemia being present or treated. The medication orders and administration records do not mention anemia or any treatments related to it.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:437155199",
+     "time": "2100-01-01 10:36:00",
+     "item": "Hemoglobin: 7.3 gm/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823727A2::07",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "fact",
+   "text": "Bleeding risk is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The admission diagnosis is renal bleeding, but there is no evidence in the records that a bleeding risk is present. The records do mention hemoglobin and hematocrit measurements, but they do not indicate a bleeding risk.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:1823727:dx",
+     "time": "2100-01-01 14:58:00",
+     "item": "Admission diagnosis (APACHE): Renal bleeding"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823727A3::09",
+   "claim_id": "E1823727A3",
+   "claim_text": "Monitor potassium level given hyperkalemia.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that the patient's pH is 7.45, which is within the normal range. However, the patient's bicarbonate level is 21.7 mmol/L, which is slightly elevated. The patient's platelet count is 201 K/mm3, which is within the normal range. The patient's calcium level is 8.4 mg/dL, which is within the normal range. The patient's magnesium level is 2 mg/dL, which is within the normal range. The ",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:459958681",
+     "time": "2100-01-01 02:22:00",
+     "item": "Base Excess: -1.7 mmol/L"
+    },
+    {
+     "rid": "lab:459958679",
+     "time": "2100-01-01 02:22:00",
+     "item": "pH: 7.45"
+    },
+    {
+     "rid": "lab:459958674",
+     "time": "2100-01-01 02:22:00",
+     "item": "Bicarbonate (blood gas HCO3): 21.7 mmol/L"
+    },
+    {
+     "rid": "lab:434780069",
+     "time": "2100-01-01 02:56:00",
+     "item": "Platelet Count: 201 K/mm3"
+    },
+    {
+     "rid": "lab:421844079",
+     "time": "2100-01-02 10:00:00",
+     "item": "Calcium, Total: 8.9 mg/dL"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1823727A1::01",
+   "claim_id": "E1823727A1",
+   "claim_text": "Continue hemodialysis as documented for renal failure.",
+   "kind": "action",
+   "text": "Continue hemodialysis.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "continue",
+   "target": "hemodialysis",
+   "conditional": false,
+   "treatment_class": "renal_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No renal replacement therapy action recorded in the 8.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1823727A2::04",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "action",
+   "text": "Monitor hemoglobin.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:437638271",
+     "time": "2100-01-02 19:21:00",
+     "item": "hemoglobin",
+     "value": "7.6 gm/dL"
+    }
+   ],
+   "reason": "Measured in the 8.0 h observation window after the decision (24 h or until ICU discharge): hemoglobin x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1823727A2::05",
+   "claim_id": "E1823727A2",
+   "claim_text": "Monitor hemoglobin and hematocrit given anemia and bleeding risk.",
+   "kind": "action",
+   "text": "Monitor hematocrit.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No hematocrit measurement in the 8.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1823727A3::08",
+   "claim_id": "E1823727A3",
+   "claim_text": "Monitor potassium level given hyperkalemia.",
+   "kind": "action",
+   "text": "Monitor potassium level.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 8.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 8.0,
+ "scoresheet": {
+  "n": 5,
+  "supported": 0,
+  "not_supported": 5,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hemodialysis is currently being given. -- The records show that hemodialysis was documented as a treatment, but there is no record of it being administered at the decision time. The 'Running at decision time' record for Sodium Chloride 0.9% 1,000 ML BAG IV CONT (R14) does not support the statement, as it is a different medication. The 'Given once' records for Sodium Chloride 0.9% 1,000 ML BAG IV ONE (R13, R17, R28) do not support the 'is'",
+    "Renal failure is present. -- The records mention renal failure and hemodialysis, but do not show that the patient is currently receiving treatment for renal failure. The statement is not supported by the records.",
+    "Anemia is present. -- The statement 'Anemia is present' is not supported by the records. The most recent hemoglobin measurement (R18) shows a value of 7.3 gm/dL, which is below the normal range. However, the records do not show any evidence of anemia being present or treated. The medication orders and administration records do not mention anemia or any treatments related to it.",
+    "Bleeding risk is present. -- The admission diagnosis is renal bleeding, but there is no evidence in the records that a bleeding risk is present. The records do mention hemoglobin and hematocrit measurements, but they do not indicate a bleeding risk.",
+    "Hyperkalemia is present. -- The records show that the patient's pH is 7.45, which is within the normal range. However, the patient's bicarbonate level is 21.7 mmol/L, which is slightly elevated. The patient's platelet count is 201 K/mm3, which is within the normal range. The patient's calcium level is 8.4 mg/dL, which is within the normal range. The patient's magnesium level is 2 mg/dL, which is within the normal range. The "
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 5,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

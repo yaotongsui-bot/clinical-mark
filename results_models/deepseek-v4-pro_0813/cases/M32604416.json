@@ -1,0 +1,851 @@
+{
+ "case_id": "M32604416",
+ "decision_point": "2132-12-16 09:29:01",
+ "claims": [
+  "Continue mechanical ventilation with the current settings (CMV/ASSIST/AutoFlow, PEEP 5 cmH2O, set tidal volume 550 mL, FiO2 70%).",
+  "Continue nicardipine infusion at approximately 1 mcg/kg/min for blood pressure control.",
+  "Monitor arterial blood gases and hemoglobin given anemia and respiratory failure."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M32604416A1::01",
+   "claim_id": "M32604416A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (CMV/ASSIST/AutoFlow, PEEP 5 cmH2O, set tidal volume 550 mL, FiO2 70%).",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32604416A1::02",
+   "claim_id": "M32604416A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (CMV/ASSIST/AutoFlow, PEEP 5 cmH2O, set tidal volume 550 mL, FiO2 70%).",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M32604416A2::03",
+   "claim_id": "M32604416A2",
+   "claim_text": "Continue nicardipine infusion at approximately 1 mcg/kg/min for blood pressure control.",
+   "kind": "action",
+   "text": "Continue nicardipine infusion at approximately 1 mcg/kg/min.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nicardipine",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M32604416A2::04",
+   "claim_id": "M32604416A2",
+   "claim_text": "Continue nicardipine infusion at approximately 1 mcg/kg/min for blood pressure control.",
+   "kind": "fact",
+   "text": "Nicardipine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "M32604416A3::05",
+   "claim_id": "M32604416A3",
+   "claim_text": "Monitor arterial blood gases and hemoglobin given anemia and respiratory failure.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32604416A3::06",
+   "claim_id": "M32604416A3",
+   "claim_text": "Monitor arterial blood gases and hemoglobin given anemia and respiratory failure.",
+   "kind": "action",
+   "text": "Monitor hemoglobin.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false
+  },
+  {
+   "atom_id": "M32604416A3::07",
+   "claim_id": "M32604416A3",
+   "claim_text": "Monitor arterial blood gases and hemoglobin given anemia and respiratory failure.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M32604416A3::08",
+   "claim_id": "M32604416A3",
+   "claim_text": "Monitor arterial blood gases and hemoglobin given anemia and respiratory failure.",
+   "kind": "fact",
+   "text": "Respiratory failure is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M32604416A1::02",
+   "claim_id": "M32604416A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (CMV/ASSIST/AutoFlow, PEEP 5 cmH2O, set tidal volume 550 mL, FiO2 70%).",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:32604416:224688:2132-12-15 14:00:00",
+     "time": "2132-12-15 14:00:00",
+     "item": "Respiratory Rate (Set): 15 insp/min"
+    }
+   ],
+   "reason": "The last ventilator/intubation record ('Respiratory Rate (Set): 15 insp/min') was 19.5 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M32604416A2::04",
+   "claim_id": "M32604416A2",
+   "claim_text": "Continue nicardipine infusion at approximately 1 mcg/kg/min for blood pressure control.",
+   "kind": "fact",
+   "text": "Nicardipine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R50 shows a Nicardipine infusion running at decision time, started at 09:25 on 2132-12-16, which directly supports the statement that Nicardipine infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:1764824:222042:2132-12-16 09:25:00",
+     "time": "2132-12-16 09:25:00",
+     "item": "Running at decision time (started 2132-12-16 09:25:00): Infusion/input Nicardipine at 1.0001375339925289 mcg/kg/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "M32604416A3::07",
+   "claim_id": "M32604416A3",
+   "claim_text": "Monitor arterial blood gases and hemoglobin given anemia and respiratory failure.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:75414",
+     "time": "2132-12-15 12:58:00",
+     "item": "Hemoglobin",
+     "value": 7.2,
+     "unit": "g/dL",
+     "bounds": "14.0 to 18.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:75436",
+     "time": "2132-12-15 14:40:00",
+     "item": "Hemoglobin",
+     "value": 9.8,
+     "unit": "g/dL",
+     "bounds": "14.0 to 18.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:75482",
+     "time": "2132-12-16 02:14:00",
+     "item": "Hemoglobin",
+     "value": 8.7,
+     "unit": "g/dL",
+     "bounds": "14.0 to 18.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 8.7 g/dL at 2132-12-16 02:14:00 (reference 14.0 to 18.0) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M32604416A3::08",
+   "claim_id": "M32604416A3",
+   "claim_text": "Monitor arterial blood gases and hemoglobin given anemia and respiratory failure.",
+   "kind": "fact",
+   "text": "Respiratory failure is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_addressed",
+   "reason": "The records contain only respiratory rate, effort, and pattern measurements. They do not include a diagnosis of respiratory failure or the clinical criteria (e.g., blood gas values, oxygenation status) needed to establish it.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M32604416A1::01",
+   "claim_id": "M32604416A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (CMV/ASSIST/AutoFlow, PEEP 5 cmH2O, set tidal volume 550 mL, FiO2 70%).",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32604416A2::03",
+   "claim_id": "M32604416A2",
+   "claim_text": "Continue nicardipine infusion at approximately 1 mcg/kg/min for blood pressure control.",
+   "kind": "action",
+   "text": "Continue nicardipine infusion at approximately 1 mcg/kg/min.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nicardipine",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN222042",
+     "time": "2132-12-16 09:25:00",
+     "item": "Nicardipine infusion continuing at 1.0001375339925289 mcg/kg/min",
+     "class": "antihypertensive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded antihypertensives after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M32604416A3::05",
+   "claim_id": "M32604416A3",
+   "claim_text": "Monitor arterial blood gases and hemoglobin given anemia and respiratory failure.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:50820:2132-12-16 14:06:00:21461",
+     "time": "2132-12-16 14:06:00",
+     "item": "pH",
+     "value": "7.49 units"
+    },
+    {
+     "rid": "lab:50820:2132-12-17 02:38:00:74675",
+     "time": "2132-12-17 02:38:00",
+     "item": "pH",
+     "value": "___ units"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pH x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M32604416A3::06",
+   "claim_id": "M32604416A3",
+   "claim_text": "Monitor arterial blood gases and hemoglobin given anemia and respiratory failure.",
+   "kind": "action",
+   "text": "Monitor hemoglobin.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220228:2132-12-17 02:18:00:2604",
+     "time": "2132-12-17 02:18:00",
+     "item": "hemoglobin",
+     "value": "7.9 g/dl"
+    },
+    {
+     "rid": "lab:51222:2132-12-17 02:18:00:40176",
+     "time": "2132-12-17 02:18:00",
+     "item": "hemoglobin",
+     "value": "7.9 g/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): hemoglobin x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 14.9 K/uL at 2132-12-16 02:14:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 14.9 K/uL at 2132-12-16 02:14:00 (reference 4.0 to 11.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Ciprofloxacin",
+    "Vancomycin"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.11 mmol/L at 2132-12-16 02:26:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 1.11 mmol/L at 2132-12-16 02:26:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes. Latest lactate 2.3 mmol/L at 2132-12-15 12:57:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes."
+    },
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.3 mmol/L at 2132-12-15 12:57:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "glucose_rescue",
+   "name": "hypoglycemia treatment",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 50%",
+    "Glucagon",
+    "Glucose Gel"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Glargine",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydralazine",
+    "Lisinopril",
+    "Nicardipine"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M32604416A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 14.9 K/uL at 2132-12-16 02:14:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 14.9 K/uL at 2132-12-16 02:14:00 (reference 4.0 to 11.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Ciprofloxacin",
+    "Vancomycin"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.11 mmol/L at 2132-12-16 02:26:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 1.11 mmol/L at 2132-12-16 02:26:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes. Latest lactate 2.3 mmol/L at 2132-12-15 12:57:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "blood_pressure",
+     "direction": "low",
+     "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes."
+    },
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.3 mmol/L at 2132-12-15 12:57:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 7,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Furosemide",
+    "Furosemide (Lasix)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "glucose_rescue",
+   "name": "hypoglycemia treatment",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 50%",
+    "Glucagon",
+    "Glucose Gel"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Glargine",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 11,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydralazine",
+    "Lisinopril",
+    "Nicardipine"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M32604416A2::03"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "blood_pressure",
+   "direction": "low",
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "name": "blood pressure",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "calcium",
+   "direction": "low",
+   "reason": "Latest calcium 1.11 mmol/L at 2132-12-16 02:26:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "name": "calcium",
+   "treated_by": [
+    "calcium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 2.3 mmol/L at 2132-12-15 12:57:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 14.9 K/uL at 2132-12-16 02:14:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 58,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.25,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The last ventilator/intubation record ('Respiratory Rate (Set): 15 insp/min') was 19.5 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T."
+   ],
+   "not_addressed": [
+    "Respiratory failure is present. -- The records contain only respiratory rate, effort, and pattern measurements. They do not include a diagnosis of respiratory failure or the clinical criteria (e.g., blood gas values, oxygenation status) needed to establish it."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.5,
+  "facts_omitted": 4,
+  "treatments_omitted": 11,
+  "recall_vital": 0.0,
+  "recall_okay": 0.125,
+  "recall_all": 0.083,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.125,
+  "recall_all_at3": 0.083
+ }
+}

@@ -1,0 +1,317 @@
+{
+ "case_id": "E1121034",
+ "decision_point": "2100-01-02 15:27:00",
+ "claims": [
+  "Continue monitoring vital signs and adjust sedation as needed.",
+  "Continue mechanical ventilation with adjusted settings.",
+  "Administer intravenous potassium chloride as ordered."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1121034A1::01",
+   "claim_id": "E1121034A1",
+   "claim_text": "Continue monitoring vital signs and adjust sedation as needed.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1121034A1::02",
+   "claim_id": "E1121034A1",
+   "claim_text": "Continue monitoring vital signs and adjust sedation as needed.",
+   "kind": "action",
+   "text": "Adjust sedation as needed.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1121034A2::03",
+   "claim_id": "E1121034A2",
+   "claim_text": "Continue mechanical ventilation with adjusted settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with adjusted settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1121034A2::04",
+   "claim_id": "E1121034A2",
+   "claim_text": "Continue mechanical ventilation with adjusted settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1121034A3::05",
+   "claim_id": "E1121034A3",
+   "claim_text": "Administer intravenous potassium chloride as ordered.",
+   "kind": "action",
+   "text": "Administer intravenous potassium chloride as ordered.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1121034A2::04",
+   "claim_id": "E1121034A2",
+   "claim_text": "Continue mechanical ventilation with adjusted settings.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient was on mechanical ventilation, but the most recent relevant rows (R9, R21, R43) do not show the current respiratory rate setting, which is necessary to support the statement. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:31536791",
+     "time": "2100-01-01 15:18:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    },
+    {
+     "rid": "treat:31041065",
+     "time": "2100-01-01 17:56:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    },
+    {
+     "rid": "treat:31217010",
+     "time": "2100-01-02 06:36:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | mechanical ventilation"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1121034A1::01",
+   "claim_id": "E1121034A1",
+   "claim_text": "Continue monitoring vital signs and adjust sedation as needed.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:703798546",
+     "time": "2100-01-02 15:30:00",
+     "item": "heart rate",
+     "value": "72.0 bpm"
+    },
+    {
+     "rid": "nurse:709659973",
+     "time": "2100-01-02 16:00:00",
+     "item": "heart rate",
+     "value": "74.0 bpm"
+    },
+    {
+     "rid": "nurse:681560989",
+     "time": "2100-01-02 15:30:00",
+     "item": "systolic BP",
+     "value": "108.0 mmHg"
+    },
+    {
+     "rid": "nurse:708297863",
+     "time": "2100-01-02 16:00:00",
+     "item": "systolic BP",
+     "value": "119.0 mmHg"
+    },
+    {
+     "rid": "nurse:681560988",
+     "time": "2100-01-02 15:30:00",
+     "item": "mean arterial pressure",
+     "value": "67.0 mmHg"
+    },
+    {
+     "rid": "nurse:708297862",
+     "time": "2100-01-02 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "74.0 mmHg"
+    },
+    {
+     "rid": "nurse:695497118",
+     "time": "2100-01-02 15:30:00",
+     "item": "respiratory rate",
+     "value": "30.0 insp/min"
+    },
+    {
+     "rid": "nurse:704563060",
+     "time": "2100-01-02 16:00:00",
+     "item": "respiratory rate",
+     "value": "22.0 insp/min"
+    },
+    {
+     "rid": "nurse:673496432",
+     "time": "2100-01-02 17:00:00",
+     "item": "temperature",
+     "value": "96.4 F"
+    },
+    {
+     "rid": "nurse:712258015",
+     "time": "2100-01-02 20:00:00",
+     "item": "temperature",
+     "value": "96.1 F"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x25, systolic BP x29, mean arterial pressure x29, respiratory rate x26, temperature x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1121034A1::02",
+   "claim_id": "E1121034A1",
+   "claim_text": "Continue monitoring vital signs and adjust sedation as needed.",
+   "kind": "action",
+   "text": "Adjust sedation as needed.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1121034A2::03",
+   "claim_id": "E1121034A2",
+   "claim_text": "Continue mechanical ventilation with adjusted settings.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with adjusted settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (59 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:73318355",
+     "time": "2100-01-02 16:00:00",
+     "item": "ventilator setting",
+     "value": "170.0 mL",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:73318356",
+     "time": "2100-01-02 16:00:00",
+     "item": "ventilator setting",
+     "value": "7.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:73318358",
+     "time": "2100-01-02 16:00:00",
+     "item": "ventilator setting",
+     "value": "10.0 insp/min",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1121034A3::05",
+   "claim_id": "E1121034A3",
+   "claim_text": "Administer intravenous potassium chloride as ordered.",
+   "kind": "action",
+   "text": "Administer intravenous potassium chloride as ordered.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No potassium replacement action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The records show that the patient was on mechanical ventilation, but the most recent relevant rows (R9, R21, R43) do not show the current respiratory rate setting, which is necessary to support the statement. The statement is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,651 @@
+{
+ "case_id": "M30913302",
+ "decision_point": "2187-05-19 18:39:00",
+ "claims": [
+  "Continue mechanical ventilation with current settings (FiO2 40%, PEEP 5 cmH2O, set rate 16/min, tidal volume 550 mL) and monitor respiratory status.",
+  "Monitor CIWA-Ar score and vital signs for alcohol withdrawal, with lorazepam available for symptom management.",
+  "Monitor blood glucose and administer sliding-scale insulin as ordered."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30913302A1::01",
+   "claim_id": "M30913302A1",
+   "claim_text": "Continue mechanical ventilation with current settings (FiO2 40%, PEEP 5 cmH2O, set rate 16/min, tidal volume 550 mL) and monitor respiratory status.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30913302A1::02",
+   "claim_id": "M30913302A1",
+   "claim_text": "Continue mechanical ventilation with current settings (FiO2 40%, PEEP 5 cmH2O, set rate 16/min, tidal volume 550 mL) and monitor respiratory status.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M30913302A1::03",
+   "claim_id": "M30913302A1",
+   "claim_text": "Continue mechanical ventilation with current settings (FiO2 40%, PEEP 5 cmH2O, set rate 16/min, tidal volume 550 mL) and monitor respiratory status.",
+   "kind": "action",
+   "text": "Monitor respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30913302A2::04",
+   "claim_id": "M30913302A2",
+   "claim_text": "Monitor CIWA-Ar score and vital signs for alcohol withdrawal, with lorazepam available for symptom management.",
+   "kind": "action",
+   "text": "Monitor CIWA-Ar score.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "CIWA-Ar score",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30913302A2::05",
+   "claim_id": "M30913302A2",
+   "claim_text": "Monitor CIWA-Ar score and vital signs for alcohol withdrawal, with lorazepam available for symptom management.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30913302A2::06",
+   "claim_id": "M30913302A2",
+   "claim_text": "Monitor CIWA-Ar score and vital signs for alcohol withdrawal, with lorazepam available for symptom management.",
+   "kind": "action",
+   "text": "Have lorazepam available for symptom management.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30913302A3::07",
+   "claim_id": "M30913302A3",
+   "claim_text": "Monitor blood glucose and administer sliding-scale insulin as ordered.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30913302A3::08",
+   "claim_id": "M30913302A3",
+   "claim_text": "Monitor blood glucose and administer sliding-scale insulin as ordered.",
+   "kind": "action",
+   "text": "Administer sliding-scale insulin as ordered.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "sliding-scale insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30913302A1::02",
+   "claim_id": "M30913302A1",
+   "claim_text": "Continue mechanical ventilation with current settings (FiO2 40%, PEEP 5 cmH2O, set rate 16/min, tidal volume 550 mL) and monitor respiratory status.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "chart:30913302:223849:2187-05-19 12:00:00",
+     "time": "2187-05-19 12:00:00",
+     "item": "Ventilator Mode: CMV/ASSIST/AutoFlow (49)"
+    }
+   ],
+   "reason": "The last ventilator/intubation record ('Ventilator Mode: CMV/ASSIST/AutoFlow (49)') was 6.7 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30913302A1::01",
+   "claim_id": "M30913302A1",
+   "claim_text": "Continue mechanical ventilation with current settings (FiO2 40%, PEEP 5 cmH2O, set rate 16/min, tidal volume 550 mL) and monitor respiratory status.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (1 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "chart:223835:2187-05-19 20:00:00:45454",
+     "time": "2187-05-19 20:00:00",
+     "item": "ventilator setting",
+     "value": "40",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30913302A1::03",
+   "claim_id": "M30913302A1",
+   "claim_text": "Continue mechanical ventilation with current settings (FiO2 40%, PEEP 5 cmH2O, set rate 16/min, tidal volume 550 mL) and monitor respiratory status.",
+   "kind": "action",
+   "text": "Monitor respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2187-05-19 19:00:00:45298",
+     "time": "2187-05-19 19:00:00",
+     "item": "respiratory rate",
+     "value": "23 insp/min"
+    },
+    {
+     "rid": "chart:220210:2187-05-19 20:00:00:45369",
+     "time": "2187-05-19 20:00:00",
+     "item": "respiratory rate",
+     "value": "19 insp/min"
+    },
+    {
+     "rid": "chart:220277:2187-05-19 19:00:00:45303",
+     "time": "2187-05-19 19:00:00",
+     "item": "SpO2",
+     "value": "100 %"
+    },
+    {
+     "rid": "chart:220277:2187-05-19 20:00:00:45426",
+     "time": "2187-05-19 20:00:00",
+     "item": "SpO2",
+     "value": "100 %"
+    },
+    {
+     "rid": "chart:223835:2187-05-19 20:00:00:45454",
+     "time": "2187-05-19 20:00:00",
+     "item": "ventilator settings",
+     "value": "40"
+    }
+   ],
+   "reason": "Measured in the 21.4 h observation window after the decision (24 h or until ICU discharge): respiratory rate x21, SpO2 x21, ventilator settings x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A2::04",
+   "claim_id": "M30913302A2",
+   "claim_text": "Monitor CIWA-Ar score and vital signs for alcohol withdrawal, with lorazepam available for symptom management.",
+   "kind": "action",
+   "text": "Monitor CIWA-Ar score.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "CIWA-Ar score",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A2::05",
+   "claim_id": "M30913302A2",
+   "claim_text": "Monitor CIWA-Ar score and vital signs for alcohol withdrawal, with lorazepam available for symptom management.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2187-05-19 19:00:00:45300",
+     "time": "2187-05-19 19:00:00",
+     "item": "heart rate",
+     "value": "94 bpm"
+    },
+    {
+     "rid": "chart:220045:2187-05-19 20:00:00:45328",
+     "time": "2187-05-19 20:00:00",
+     "item": "heart rate",
+     "value": "98 bpm"
+    },
+    {
+     "rid": "chart:220179:2187-05-19 19:00:00:45295",
+     "time": "2187-05-19 19:00:00",
+     "item": "systolic BP",
+     "value": "135 mmHg"
+    },
+    {
+     "rid": "chart:220179:2187-05-19 20:00:00:45382",
+     "time": "2187-05-19 20:00:00",
+     "item": "systolic BP",
+     "value": "105 mmHg"
+    },
+    {
+     "rid": "chart:220181:2187-05-19 19:00:00:45296",
+     "time": "2187-05-19 19:00:00",
+     "item": "mean arterial pressure",
+     "value": "96 mmHg"
+    },
+    {
+     "rid": "chart:220181:2187-05-19 20:00:00:45339",
+     "time": "2187-05-19 20:00:00",
+     "item": "mean arterial pressure",
+     "value": "88 mmHg"
+    },
+    {
+     "rid": "chart:220210:2187-05-19 19:00:00:45298",
+     "time": "2187-05-19 19:00:00",
+     "item": "respiratory rate",
+     "value": "23 insp/min"
+    },
+    {
+     "rid": "chart:220210:2187-05-19 20:00:00:45369",
+     "time": "2187-05-19 20:00:00",
+     "item": "respiratory rate",
+     "value": "19 insp/min"
+    },
+    {
+     "rid": "chart:220277:2187-05-19 19:00:00:45303",
+     "time": "2187-05-19 19:00:00",
+     "item": "SpO2",
+     "value": "100 %"
+    },
+    {
+     "rid": "chart:220277:2187-05-19 20:00:00:45426",
+     "time": "2187-05-19 20:00:00",
+     "item": "SpO2",
+     "value": "100 %"
+    },
+    {
+     "rid": "chart:223761:2187-05-19 20:00:00:45402",
+     "time": "2187-05-19 20:00:00",
+     "item": "temperature",
+     "value": "99.4 °F"
+    },
+    {
+     "rid": "chart:223761:2187-05-20 00:00:00:45534",
+     "time": "2187-05-20 00:00:00",
+     "item": "temperature",
+     "value": "100.1 °F"
+    }
+   ],
+   "reason": "Measured in the 21.4 h observation window after the decision (24 h or until ICU discharge): heart rate x21, systolic BP x21, mean arterial pressure x21, respiratory rate x21, SpO2 x21, temperature x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A2::06",
+   "claim_id": "M30913302A2",
+   "claim_text": "Monitor CIWA-Ar score and vital signs for alcohol withdrawal, with lorazepam available for symptom management.",
+   "kind": "action",
+   "text": "Have lorazepam available for symptom management.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX53469669",
+     "time": "2187-05-19 19:00:00",
+     "item": "Ordered: Lorazepam 2-4 mg IV",
+     "class": "sedation"
+    },
+    {
+     "rid": "IN221385",
+     "time": "2187-05-19 19:45:00",
+     "item": "Lorazepam (Ativan) infusion started at",
+     "class": "sedation"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded sedation after the decision. The suggestion was conditional; the record does not show whether the condition was met.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30913302A3::07",
+   "claim_id": "M30913302A3",
+   "claim_text": "Monitor blood glucose and administer sliding-scale insulin as ordered.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225664:2187-05-19 22:00:00:45498",
+     "time": "2187-05-19 22:00:00",
+     "item": "glucose",
+     "value": "118"
+    },
+    {
+     "rid": "chart:225664:2187-05-20 10:00:00:45730",
+     "time": "2187-05-20 10:00:00",
+     "item": "glucose",
+     "value": "144"
+    }
+   ],
+   "reason": "Measured in the 21.4 h observation window after the decision (24 h or until ICU discharge): glucose x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30913302A3::08",
+   "claim_id": "M30913302A3",
+   "claim_text": "Monitor blood glucose and administer sliding-scale insulin as ordered.",
+   "kind": "action",
+   "text": "Administer sliding-scale insulin as ordered.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "sliding-scale insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 21.4 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "D5 1/2NS",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)"
+   ],
+   "doctor_rows": 5,
+   "covered": true,
+   "by_atoms": [
+    "M30913302A2::06"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "D5 1/2NS",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 4,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Lorazepam",
+    "Lorazepam (Ativan)"
+   ],
+   "doctor_rows": 5,
+   "covered": true,
+   "by_atoms": [
+    "M30913302A2::06"
+   ]
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 38,
+ "observation_window_hours": 21.4,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The last ventilator/intubation record ('Ventilator Mode: CMV/ASSIST/AutoFlow (49)') was 6.7 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 6,
+  "recall_vital": null,
+  "recall_okay": 0.143,
+  "recall_all": 0.143,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.143,
+  "recall_all_at3": 0.143
+ }
+}

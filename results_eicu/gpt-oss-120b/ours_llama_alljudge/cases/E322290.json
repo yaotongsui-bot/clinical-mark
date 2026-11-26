@@ -1,0 +1,289 @@
+{
+ "case_id": "E322290",
+ "decision_point": "2100-01-02 13:27:00",
+ "claims": [
+  "Obtain a repeat INR measurement to assess warfarin anticoagulation effectiveness.",
+  "Adjust warfarin dose based on the repeat INR result to achieve therapeutic range for pulmonary embolism.",
+  "Continue low molecular weight heparin (enoxaparin) as a bridge until therapeutic INR is confirmed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E322290A1::01",
+   "claim_id": "E322290A1",
+   "claim_text": "Obtain a repeat INR measurement to assess warfarin anticoagulation effectiveness.",
+   "kind": "action",
+   "text": "Obtain a repeat INR measurement.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "INR",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E322290A1::02",
+   "claim_id": "E322290A1",
+   "claim_text": "Obtain a repeat INR measurement to assess warfarin anticoagulation effectiveness.",
+   "kind": "fact",
+   "text": "Warfarin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E322290A2::03",
+   "claim_id": "E322290A2",
+   "claim_text": "Adjust warfarin dose based on the repeat INR result to achieve therapeutic range for pulmonary embolism.",
+   "kind": "action",
+   "text": "Adjust warfarin dose based on the repeat INR result.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "warfarin",
+   "conditional": true,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E322290A2::04",
+   "claim_id": "E322290A2",
+   "claim_text": "Adjust warfarin dose based on the repeat INR result to achieve therapeutic range for pulmonary embolism.",
+   "kind": "fact",
+   "text": "Therapeutic INR range is needed for pulmonary embolism.",
+   "concept": "inr",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "other",
+   "time": "unspecified",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E322290A3::05",
+   "claim_id": "E322290A3",
+   "claim_text": "Continue low molecular weight heparin (enoxaparin) as a bridge until therapeutic INR is confirmed.",
+   "kind": "action",
+   "text": "Continue low molecular weight heparin (enoxaparin).",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "enoxaparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E322290A3::06",
+   "claim_id": "E322290A3",
+   "claim_text": "Continue low molecular weight heparin (enoxaparin) as a bridge until therapeutic INR is confirmed.",
+   "kind": "fact",
+   "text": "Low molecular weight heparin (enoxaparin) is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E322290A1::02",
+   "claim_id": "E322290A1",
+   "claim_text": "Obtain a repeat INR measurement to assess warfarin anticoagulation effectiveness.",
+   "kind": "fact",
+   "text": "Warfarin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement 'Warfarin is currently being given' is not supported by the records. Although there is a medication order for Warfarin (R40), it does not show administration of the drug. The records do mention anticoagulant administration (R16, R28, R29), but this is not specific to Warfarin.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:14877916",
+     "time": "2100-01-01 22:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 22:00:00): Medication WARFARIN 5 MG TABLET Oral"
+    }
+   ]
+  },
+  {
+   "atom_id": "E322290A2::04",
+   "claim_id": "E322290A2",
+   "claim_text": "Adjust warfarin dose based on the repeat INR result to achieve therapeutic range for pulmonary embolism.",
+   "kind": "fact",
+   "text": "Therapeutic INR range is needed for pulmonary embolism.",
+   "concept": "inr",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "other",
+   "time": "unspecified",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The statement requires a therapeutic INR range for pulmonary embolism, but the records show that the INR is 1, which is not within the therapeutic range. The records also mention enoxaparin, which is an anticoagulant, but it does not provide information about the INR range.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:90743100",
+     "time": "2100-01-02 09:40:00",
+     "item": "INR(PT): 1"
+    }
+   ]
+  },
+  {
+   "atom_id": "E322290A3::06",
+   "claim_id": "E322290A3",
+   "claim_text": "Continue low molecular weight heparin (enoxaparin) as a bridge until therapeutic INR is confirmed.",
+   "kind": "fact",
+   "text": "Low molecular weight heparin (enoxaparin) is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that low molecular weight heparin (enoxaparin) was administered. Specifically, R18 and R30 both document the administration of enoxaparin as part of anticoagulant therapy.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:13793208",
+     "time": "2100-01-01 16:27:00",
+     "item": "Treatment documented: anticoagulant administration | low molecular weight heparin | enoxaparin"
+    },
+    {
+     "rid": "treat:18481709",
+     "time": "2100-01-01 16:47:00",
+     "item": "Treatment documented: anticoagulant administration | low molecular weight heparin | enoxaparin"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E322290A1::01",
+   "claim_id": "E322290A1",
+   "claim_text": "Obtain a repeat INR measurement to assess warfarin anticoagulation effectiveness.",
+   "kind": "action",
+   "text": "Obtain a repeat INR measurement.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "INR",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No INR measurement in the 2.1 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E322290A2::03",
+   "claim_id": "E322290A2",
+   "claim_text": "Adjust warfarin dose based on the repeat INR result to achieve therapeutic range for pulmonary embolism.",
+   "kind": "action",
+   "text": "Adjust warfarin dose based on the repeat INR result.",
+   "concept": "inr",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "warfarin",
+   "conditional": true,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (therapeutic) action recorded in the 2.1 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E322290A3::05",
+   "claim_id": "E322290A3",
+   "claim_text": "Continue low molecular weight heparin (enoxaparin) as a bridge until therapeutic INR is confirmed.",
+   "kind": "action",
+   "text": "Continue low molecular weight heparin (enoxaparin).",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "enoxaparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (prophylactic) action recorded in the 2.1 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 2.1,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Warfarin is currently being given. -- The statement 'Warfarin is currently being given' is not supported by the records. Although there is a medication order for Warfarin (R40), it does not show administration of the drug. The records do mention anticoagulant administration (R16, R28, R29), but this is not specific to Warfarin.",
+    "Therapeutic INR range is needed for pulmonary embolism. -- The statement requires a therapeutic INR range for pulmonary embolism, but the records show that the INR is 1, which is not within the therapeutic range. The records also mention enoxaparin, which is an anticoagulant, but it does not provide information about the INR range."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

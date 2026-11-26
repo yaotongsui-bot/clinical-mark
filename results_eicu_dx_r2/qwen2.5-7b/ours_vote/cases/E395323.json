@@ -1,0 +1,392 @@
+{
+ "case_id": "E395323",
+ "decision_point": "2100-01-02 19:04:00",
+ "claims": [
+  "Monitor patient for signs of hypotension and adjust IV fluid administration as needed.",
+  "Continue vancomycin and piperacillin/tazobactam for suspected sepsis.",
+  "Assess patient for signs of delirium or confusion."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E395323A1::01",
+   "claim_id": "E395323A1",
+   "claim_text": "Monitor patient for signs of hypotension and adjust IV fluid administration as needed.",
+   "kind": "action",
+   "text": "Monitor patient for signs of hypotension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hypotension",
+   "conditional": false
+  },
+  {
+   "atom_id": "E395323A1::02",
+   "claim_id": "E395323A1",
+   "claim_text": "Monitor patient for signs of hypotension and adjust IV fluid administration as needed.",
+   "kind": "action",
+   "text": "Adjust IV fluid administration as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "IV fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E395323A2::03",
+   "claim_id": "E395323A2",
+   "claim_text": "Continue vancomycin and piperacillin/tazobactam for suspected sepsis.",
+   "kind": "action",
+   "text": "Continue vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E395323A2::04",
+   "claim_id": "E395323A2",
+   "claim_text": "Continue vancomycin and piperacillin/tazobactam for suspected sepsis.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E395323A2::05",
+   "claim_id": "E395323A2",
+   "claim_text": "Continue vancomycin and piperacillin/tazobactam for suspected sepsis.",
+   "kind": "action",
+   "text": "Continue piperacillin/tazobactam.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "piperacillin/tazobactam",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E395323A2::06",
+   "claim_id": "E395323A2",
+   "claim_text": "Continue vancomycin and piperacillin/tazobactam for suspected sepsis.",
+   "kind": "fact",
+   "text": "Piperacillin/tazobactam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E395323A2::07",
+   "claim_id": "E395323A2",
+   "claim_text": "Continue vancomycin and piperacillin/tazobactam for suspected sepsis.",
+   "kind": "fact",
+   "text": "Sepsis is suspected.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E395323A3::08",
+   "claim_id": "E395323A3",
+   "claim_text": "Assess patient for signs of delirium or confusion.",
+   "kind": "action",
+   "text": "Assess patient for signs of delirium.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "delirium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E395323A3::09",
+   "claim_id": "E395323A3",
+   "claim_text": "Assess patient for signs of delirium or confusion.",
+   "kind": "action",
+   "text": "Assess patient for signs of confusion.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "confusion",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E395323A2::04",
+   "claim_id": "E395323A2",
+   "claim_text": "Continue vancomycin and piperacillin/tazobactam for suspected sepsis.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records document vancomycin as a treatment (R14), but there is no medication administration record showing it was given within 24 hours before the decision time. Therefore, the statement that it is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:17894788",
+     "time": "2100-01-01 20:47:00",
+     "item": "Treatment documented: medications | antibacterials | vancomycin"
+    }
+   ]
+  },
+  {
+   "atom_id": "E395323A2::06",
+   "claim_id": "E395323A2",
+   "claim_text": "Continue vancomycin and piperacillin/tazobactam for suspected sepsis.",
+   "kind": "fact",
+   "text": "Piperacillin/tazobactam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records mention piperacillin/tazobactam only as a documented treatment (R13), but there is no medication order or administration record showing it was given within 24 hours before the decision time. Therefore, the statement that it is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:16699466",
+     "time": "2100-01-01 20:47:00",
+     "item": "Treatment documented: antibacterials | penicillins | piperacillin/tazobactam"
+    },
+    {
+     "rid": "med:16302595",
+     "time": "2100-01-01 21:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 21:00:00): Medication SODIUM CHLORIDE 0.9 % IV 250 ML BAG IV"
+    }
+   ]
+  },
+  {
+   "atom_id": "E395323A2::07",
+   "claim_id": "E395323A2",
+   "claim_text": "Continue vancomycin and piperacillin/tazobactam for suspected sepsis.",
+   "kind": "fact",
+   "text": "Sepsis is suspected.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The admission diagnosis explicitly states 'Sepsis, renal/UTI (including bladder)', which directly supports the statement that sepsis is suspected.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:395323:dx",
+     "time": "2100-01-01 19:04:00",
+     "item": "Admission diagnosis (APACHE): Sepsis, renal/UTI (including bladder)"
+    },
+    {
+     "rid": "treat:16699466",
+     "time": "2100-01-01 20:47:00",
+     "item": "Treatment documented: antibacterials | penicillins | piperacillin/tazobactam"
+    },
+    {
+     "rid": "treat:17894788",
+     "time": "2100-01-01 20:47:00",
+     "item": "Treatment documented: medications | antibacterials | vancomycin"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E395323A1::01",
+   "claim_id": "E395323A1",
+   "claim_text": "Monitor patient for signs of hypotension and adjust IV fluid administration as needed.",
+   "kind": "action",
+   "text": "Monitor patient for signs of hypotension.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hypotension",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E395323A1::02",
+   "claim_id": "E395323A1",
+   "claim_text": "Monitor patient for signs of hypotension and adjust IV fluid administration as needed.",
+   "kind": "action",
+   "text": "Adjust IV fluid administration as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "IV fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E395323A2::03",
+   "claim_id": "E395323A2",
+   "claim_text": "Continue vancomycin and piperacillin/tazobactam for suspected sepsis.",
+   "kind": "action",
+   "text": "Continue vancomycin.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E395323A2::05",
+   "claim_id": "E395323A2",
+   "claim_text": "Continue vancomycin and piperacillin/tazobactam for suspected sepsis.",
+   "kind": "action",
+   "text": "Continue piperacillin/tazobactam.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "piperacillin/tazobactam",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E395323A3::08",
+   "claim_id": "E395323A3",
+   "claim_text": "Assess patient for signs of delirium or confusion.",
+   "kind": "action",
+   "text": "Assess patient for signs of delirium.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "delirium",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E395323A3::09",
+   "claim_id": "E395323A3",
+   "claim_text": "Assess patient for signs of delirium or confusion.",
+   "kind": "action",
+   "text": "Assess patient for signs of confusion.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "confusion",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Vancomycin is currently being given. -- The records document vancomycin as a treatment (R14), but there is no medication administration record showing it was given within 24 hours before the decision time. Therefore, the statement that it is currently being given is not supported.",
+    "Piperacillin/tazobactam is currently being given. -- The records mention piperacillin/tazobactam only as a documented treatment (R13), but there is no medication order or administration record showing it was given within 24 hours before the decision time. Therefore, the statement that it is currently being given is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

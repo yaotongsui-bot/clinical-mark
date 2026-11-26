@@ -1,0 +1,162 @@
+# E454584   T = 2100-01-02 20:29:00   records before T: 534
+ICU stay 454584 (Med-Surg ICU; Female, age 63; admission diagnosis: Arrest, respiratory (without cardiac arrest)).
+
+## Atoms
+deepseek-v4.1-flash|E454584A1::01 [presupposition] The patient is currently on mechanical ventilation.   <- Continue mechanical ventilation with current settings (FiO2 50%, PEEP 5 cmH2O, set rate 16, tidal volume 350 mL) and monitor oxygenation and ventilation.
+deepseek-v4.1-flash|E454584A1::02 [observed] FiO2 is 50%.   <- Continue mechanical ventilation with current settings (FiO2 50%, PEEP 5 cmH2O, set rate 16, tidal volume 350 mL) and monitor oxygenation and ventilation.
+deepseek-v4.1-flash|E454584A1::03 [observed] PEEP is 5 cmH2O.   <- Continue mechanical ventilation with current settings (FiO2 50%, PEEP 5 cmH2O, set rate 16, tidal volume 350 mL) and monitor oxygenation and ventilation.
+deepseek-v4.1-flash|E454584A1::04 [observed] Set respiratory rate is 16 breaths per minute.   <- Continue mechanical ventilation with current settings (FiO2 50%, PEEP 5 cmH2O, set rate 16, tidal volume 350 mL) and monitor oxygenation and ventilation.
+deepseek-v4.1-flash|E454584A1::05 [observed] Tidal volume is 350 mL.   <- Continue mechanical ventilation with current settings (FiO2 50%, PEEP 5 cmH2O, set rate 16, tidal volume 350 mL) and monitor oxygenation and ventilation.
+deepseek-v4.1-flash|E454584A2::10 [observed] Insulin orders are active.   <- Monitor blood glucose and administer sliding-scale insulin as ordered, given recent glucose variability.
+deepseek-v4.1-flash|E454584A2::12 [observed] Recent glucose variability is present.   <- Monitor blood glucose and administer sliding-scale insulin as ordered, given recent glucose variability.
+deepseek-v4.1-flash|E454584A3::17 [observed] RASS is fluctuating.   <- Assess and manage sedation and delirium, considering the patient's fluctuating RASS and CAM-ICU positive status.
+deepseek-v4.1-flash|E454584A3::18 [observed] CAM-ICU is positive.   <- Assess and manage sedation and delirium, considering the patient's fluctuating RASS and CAM-ICU positive status.
+gpt-oss-120b|E454584A1::02 [presupposition] The patient is currently on mechanical ventilation.   <- Continue mechanical ventilation with current settings (PEEP 5 cmH₂O, FiO₂ 50%) and monitor for readiness to wean as sedation is deepened.
+gpt-oss-120b|E454584A1::03 [observed] PEEP is 5 cmH2O.   <- Continue mechanical ventilation with current settings (PEEP 5 cmH₂O, FiO₂ 50%) and monitor for readiness to wean as sedation is deepened.
+gpt-oss-120b|E454584A1::04 [observed] FiO2 is 50%.   <- Continue mechanical ventilation with current settings (PEEP 5 cmH₂O, FiO₂ 50%) and monitor for readiness to wean as sedation is deepened.
+gpt-oss-120b|E454584A2::08 [observed] Ammonia is elevated at 87 µmol/L.   <- Obtain a serum ammonia level trend and start lactulose orally to lower ammonia given the elevated value (87 µmol/L).
+gpt-oss-120b|E454584A3::11 [presupposition] Insulin infusion is currently being given.   <- Check bedside glucose hourly and adjust sliding‑scale insulin infusion to maintain glucose 80‑140 mg/dL.
+qwen2.5-7b|E454584A2::04 [presupposition] The patient is currently on mechanical ventilation.   <- Continue mechanical ventilation with PEEP set at 5 cmH2O.
+qwen2.5-7b|E454584A2::05 [observed] PEEP is set at 5 cmH2O.   <- Continue mechanical ventilation with PEEP set at 5 cmH2O.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 15:37:00): Medication LOVENOX SUBQ DAILY
+  Running at decision time (scheduled order started 2100-01-01 18:00:00): Medication NovoLOG Flexpen SUBQ Q4H
+  Running at decision time (scheduled order started 2100-01-02 14:00:00): Medication Protonix IV DAILY
+  Running at decision time (scheduled order started 2100-01-02 14:43:00): Medication ZESTRIL OGT DAILY
+
+## PRN orders
+  01-01 15:29 Order: TYLENOL PO Q4HPRN PRN (active at decision time)
+  01-01 15:29 Order: DEXTROSE 50% ABBOJECT IV PRN (active at decision time)
+  01-01 15:29 Order: GLUCAGEN IM PRN (active at decision time)
+  01-01 15:29 Order: DEXTROSE 50% ABBOJECT IV PRN (active at decision time)
+  01-01 15:29 Order: ZOFRAN IV Q8HPRN PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Fentanyl at 40 mcg/hour (2100-01-02 00:00:00 to 2100-01-02 06:00:00)
+  Infusion/input Fentanyl at 50 mcg/hour (2100-01-02 06:00:00 to 2100-01-02 13:00:00)
+
+## Medications given once or ended before T
+  Given once: DEXTROSE 50% ABBOJECT IV ONE TIME (2100-01-01 13:05:00)
+  Given once: GLUCAGEN IV ONE TIME (2100-01-01 13:25:00)
+  Given once: DEXTROSE 50% ABBOJECT IV ONE TIME (2100-01-01 13:26:00)
+  Given once: ATIVAN IV ONE TIME (2100-01-02 18:02:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 12:35 0 %
+  -eos: 01-01 12:35 0 %
+  -lymphs: 01-01 12:35 5 %
+  -monos: 01-01 12:35 5 %
+  -polys: 01-01 12:35 90 %
+  Acetaminophen: 01-01 12:35 <2.0
+  Alanine Aminotransferase (ALT): 01-02 07:26 87 U/L; 01-01 12:35 112 U/L
+  Albumin: 01-02 07:26 1.8 g/dL; 01-01 12:35 1.9 g/dL
+  Alkaline Phosphatase: 01-02 07:26 196 U/L; 01-01 12:35 227 U/L
+  Anion Gap: 01-02 07:26 8; 01-01 12:35 6
+  Asparate Aminotransferase (AST): 01-02 07:26 37 U/L; 01-01 12:35 55 U/L
+  Base Excess: 01-02 08:47 5.6 mmol/L; 01-01 13:07 5.4 mmol/L
+  Bicarbonate: 01-02 07:26 26 mmol/L; 01-01 12:35 28 mmol/L
+  Bicarbonate (blood gas HCO3): 01-02 08:47 29.9 mmol/L; 01-01 13:07 27.8 mmol/L
+  Bilirubin, Total: 01-02 07:26 0.9 mg/dL; 01-01 12:35 0.9 mg/dL
+  CPK: 01-01 12:35 59 U/L
+  Calcium, Total: 01-02 07:26 8 mg/dL; 01-01 12:35 8.4 mg/dL
+  Carboxyhemoglobin: 01-02 08:47 1 %; 01-01 13:07 0.3 %
+  Chloride: 01-02 07:26 110 mmol/L; 01-01 12:35 106 mmol/L
+  Creatinine: 01-02 07:26 0.45 mg/dL; 01-01 12:35 0.55 mg/dL
+  FiO2: 01-02 08:47 50 %; 01-01 13:07 100 %
+  Glucose: 01-02 07:26 97 mg/dL; 01-01 12:35 78 mg/dL
+  Glucose finger stick: 01-02 18:29 146 mg/dL; 01-02 18:27 153 mg/dL; 01-02 14:30 97 mg/dL; 01-02 03:36 78 mg/dL; 01-01 23:42 133 mg/dL   [+6 earlier]
+  Hematocrit: 01-02 07:26 27.1 %; 01-01 12:35 29 %
+  Hemoglobin: 01-02 07:26 8.4 g/dL; 01-01 12:35 9.3 g/dL
+  Lactate: 01-01 14:35 3.1 mmol/L
+  MCH: 01-02 07:26 28 pg; 01-01 12:35 28 pg
+  MCHC: 01-02 07:26 31 g/dL; 01-01 12:35 32 g/dL
+  MCV: 01-02 07:26 89 fL; 01-01 12:35 89 fL
+  MPV: 01-02 07:26 10.9 fL; 01-01 12:35 11 fL
+  Magnesium: 01-02 07:26 2 mg/dL; 01-01 12:35 1.7 mg/dL
+  Methemoglobin: 01-02 08:47 0.1 %; 01-01 13:07 0.4 %
+  Oxygen Saturation: 01-02 08:47 99.1 %; 01-01 13:07 99.9 %
+  PEEP: 01-02 08:47 5 cmH?O; 01-01 13:07 5 cmH?O
+  Platelet Count: 01-02 07:26 349 K/uL; 01-01 12:35 306 K/uL
+  Potassium: 01-02 07:26 3.9 mmol/L; 01-01 12:35 5.2 mmol/L
+  RBC: 01-02 07:26 3.05 M/uL; 01-01 12:35 3.27 M/uL
+  RDW: 01-02 07:26 16.2 %; 01-01 12:35 16.2 %
+  Respiratory Rate: 01-02 08:47 16 b/min; 01-01 13:07 16 b/min
+  Sodium: 01-02 07:26 144 mmol/L; 01-01 12:35 140 mmol/L
+  TV: 01-02 08:47 350 mL; 01-01 13:07 400 mL
+  Urea Nitrogen: 01-02 07:26 11 mg/dL; 01-01 12:35 14 mg/dL
+  WBC's in urine: 01-01 13:25 127 /HPF
+  White Blood Cells: 01-02 07:26 10.4 K/uL; 01-01 12:35 14.1 K/uL
+  ammonia: 01-02 15:29 87 umol/L; 01-01 14:35 37 umol/L
+  direct bilirubin: 01-01 12:35 0.3 mg/dL
+  ethanol: 01-01 12:35 <3
+  lipase: 01-01 12:35 450 U/L
+  pCO2: 01-02 08:47 42.7 mmHg; 01-01 13:07 32.3 mmHg
+  pH: 01-02 08:47 7.463; 01-01 13:07 7.553
+  pO2: 01-02 08:47 123.4 mmHg; 01-01 13:07 512.4 mmHg
+  salicylate: 01-01 12:35 1.7 mg/dL
+  total protein: 01-02 07:26 6 g/dL; 01-01 12:35 7.4 g/dL
+  troponin - I: 01-02 07:26 <0.04; 01-01 12:47 <0.02; 01-01 12:35 <0.02
+  urinary specific gravity: 01-01 13:25 1.006
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Delirium Scale/Score Delirium Scale: CAM-ICU @01-02 12:00
+  Delirium Scale/Score Delirium Score: Yes @01-02 12:00   earlier:  @01-02 08:00
+  Exhaled MV: 5.7 @01-02 11:54   24h 0.35-5.7 (n=3)
+  Glasgow coma score Eyes: 2 @01-02 16:00   24h 2-2 (n=2)
+  Glasgow coma score GCS Total: 4 @01-02 16:00   24h 4-7 (n=2)
+  Glasgow coma score Motor: 1 @01-02 16:00   24h 1-4 (n=2)
+  Glasgow coma score Verbal: 1 @01-02 16:00   24h 1-1 (n=2)
+  Head of Bed Elevation: Yes @01-01 20:36
+  Heart Rate: 94 bpm @01-02 16:00   24h 79-97 (n=20)
+  Inspired O2 Fraction: 50 % @01-02 18:10   24h 40-50 (n=16)
+  Mean Airway Pressure: 7 cmH2O @01-02 18:10   24h 7-10 (n=8)
+  Non Invasive Blood Pressure diastolic: 75 mmHg @01-02 16:00   24h 63-152 (n=20)
+  Non Invasive Blood Pressure mean: 87 mmHg @01-02 16:00   24h 77-157 (n=20)
+  Non Invasive Blood Pressure systolic: 135 mmHg @01-02 16:00   24h 109-170 (n=20)
+  O2 Delivery Device(s): Endotracheal tube (charted: ventilator) @01-02 16:00
+  O2 L/%: 50 @01-02 10:00   24h 50-50 (n=14)
+  O2 saturation pulseoxymetry: 100 % @01-02 16:00   24h 100-100 (n=20)
+  PEEP set: 5 cmH2O @01-02 18:10   24h 5-5 (n=16)
+  Pain Level: 0 @01-02 10:00   24h 0-0 (n=9)
+  Pain Score/Goal Pain Goal: 0 @01-02 10:00   24h 0-0 (n=8)
+  Peak Insp. Pressure: 25 cmH2O @01-02 18:10   24h 13-30 (n=8)
+  Plateau Pressure: 15 @01-02 18:10   24h 11-16 (n=8)
+  Respiratory Rate: 13 insp/min @01-02 16:00   24h 11-21 (n=20)
+  Respiratory Rate (Set): 16 insp/min @01-02 18:10   24h 16-18 (n=16)
+  Respiratory Rate (spontaneous): 16 insp/min @01-02 14:48   24h 1-19 (n=8)
+  SaO2: 100 @01-02 14:48   24h 100-100 (n=5)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-02 12:00
+  Sedation Scale/Score/Goal Sedation Score: -5 @01-02 12:00   24h -5--2 (n=8)
+  TV/kg IBW: 6.9835 @01-02 18:10   24h 6.9835-6.9835 (n=12)
+  Temperature Fahrenheit: 98.1 F @01-02 16:00   24h 97.6-98.6 (n=11)
+  Temperature Location: core @01-02 16:00   earlier: axillary @01-02 08:00; oral @01-02 04:00
+  Tidal Volume (observed): 357 mL @01-02 18:10   24h 350-627 (n=7)
+  Tidal Volume (set): 350 mL @01-02 18:10   24h 350-350 (n=16)
+
+## Treatments documented
+  01-01 23:30 pulmonary | ventilation and oxygenation | tracheal suctioning
+  01-01 23:30 vascular disorders | VTE prophylaxis | low molecular weight heparin
+  01-01 23:30 pulmonary | medications | glucocorticoid administration
+  01-01 23:30 glucose metabolism | glucose | D5NS
+  01-01 23:30 medications | antibacterials | vancomycin
+  01-01 23:30 pulmonary | medications | bronchodilator
+  01-01 23:30 pulmonary | ventilation and oxygenation | mechanical ventilation
+  01-01 23:30 pulmonary | ventilation and oxygenation | CPAP/PEEP therapy
+  01-01 23:30 renal | urinary catheters | foley catheter
+  01-01 23:30 antibacterials | third generation cephalosporin | ceftriaxone
+  01-01 23:30 antibacterials | penicillins | piperacillin/tazobactam
+  01-01 23:30 pulmonary | ventilation and oxygenation | oxygen therapy (40% to 60%)
+  01-01 23:30 glucose metabolism | insulin | sliding scale administration
+  01-01 23:30 medications | stress ulcer prophylaxis | pantoprazole
+  01-01 23:30 pulmonary | radiologic procedures / bronchoscopy | endotracheal tube
+  01-01 23:30 vascular disorders | VTE prophylaxis | compression boots
+  01-01 23:30 cardiovascular | hypertension | ACE inhibitor
+  01-01 23:30 pulmonary | consultations | Pulmonary medicine consultation
+  01-01 23:30 glucose metabolism | insulin | subcutaneous dose of regular insulin
+  01-01 23:30 medications | antiemetic | serotonin antagonist
+  01-01 23:30 pulmonary | radiologic procedures / bronchoscopy | chest x-ray
+  01-01 23:30 cardiovascular | consultations | Cardiology consultation
+  01-01 23:30 general | support services | social work consult
+
+## Microbiology

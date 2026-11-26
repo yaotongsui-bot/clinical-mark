@@ -72,11 +72,14 @@
     "metabolic_acidosis":   {"name": "metabolic acidosis", "all": [["ph", "low"], ["bicarbonate", "low"]]}
   },
   "ventilation_status": {
-    "_note": "Status at the decision time for 'currently on mechanical ventilation'. Ventilator settings are charted every 1-4 h while ventilated, so no ventilator charting in the last max_gap_hours counts as not ventilated. An explicit 'NOT INTUBATED' or 'Standby' is a direct negative.",
+    "_note": "Status at the decision time for 'currently on mechanical ventilation'. Ventilator settings are charted every 1-4 h while ventilated, so no ventilator charting in the last max_gap_hours counts as not ventilated. An explicit 'NOT INTUBATED' or 'Standby' is a direct negative, and so is a non-invasive O2 delivery device charted after the last ventilator row, unless a tube device is charted after it.",
     "max_gap_hours": 6,
     "positive_chart_items": ["223849", "229314", "220339", "224684", "224688", "224685", "224695", "224697"],
     "lab_values": {"50812": {"INTUBATED": true, "NOT INTUBATED": false}, "50828": {"CONTROLLED": true}},
-    "negative_chart_values": ["Standby"]
+    "negative_chart_values": ["Standby"],
+    "device_item": "226732",
+    "tube_devices": ["Endotracheal tube", "Tracheostomy tube"],
+    "negative_devices": ["Nasal cannula", "None", "Face tent", "Aerosol-cool", "High flow nasal cannula", "High flow neb", "Bipap mask", "Non-rebreather", "Medium conc mask", "Venti mask", "CPAP mask", "Trach mask"]
   },
   "diagnosis_terms": {
     "_note": "Checked in order against the atomic fact text; the first match overrides the atomizer's concept/direction. Patterns are case-insensitive regular expressions.",
@@ -120,6 +123,8 @@
       ["coagulation (profile|panel|studies)|\\bcoags?\\b", "coagulation"],
       ["respiratory (status|parameters|function)|breathing", "respiratory"],
       ["cardiac (status|parameters|function)|hemodynamic", "cardiac"],
+      ["mean arterial pressure|\\bmaps?\\b", "map"],
+      ["systolic", "sbp"],
       ["blood pressure", "blood_pressure"],
       ["heart rate|pulse", "heart_rate"],
       ["respiratory rate", "resp_rate"],

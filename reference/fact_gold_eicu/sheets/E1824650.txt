@@ -1,0 +1,156 @@
+# E1824650   T = 2100-01-02 17:48:00   records before T: 268
+ICU stay 1824650 (Cardiac ICU; Male, age 56; admission diagnosis: CABG alone, coronary artery bypass grafting).
+
+## Atoms
+deepseek-v4.1-flash|E1824650A1::02 [presupposition] Aspirin is currently being given.   <- Continue scheduled aspirin, metoprolol, famotidine, docusate, and potassium chloride as ordered.
+deepseek-v4.1-flash|E1824650A1::04 [presupposition] Metoprolol is currently being given.   <- Continue scheduled aspirin, metoprolol, famotidine, docusate, and potassium chloride as ordered.
+deepseek-v4.1-flash|E1824650A1::06 [presupposition] Famotidine is currently being given.   <- Continue scheduled aspirin, metoprolol, famotidine, docusate, and potassium chloride as ordered.
+deepseek-v4.1-flash|E1824650A1::08 [presupposition] Docusate is currently being given.   <- Continue scheduled aspirin, metoprolol, famotidine, docusate, and potassium chloride as ordered.
+deepseek-v4.1-flash|E1824650A1::10 [presupposition] Potassium chloride is currently being given.   <- Continue scheduled aspirin, metoprolol, famotidine, docusate, and potassium chloride as ordered.
+deepseek-v4.1-flash|E1824650A2::13 [presupposition] Sliding-scale insulin orders are active.   <- Monitor blood glucose and administer sliding-scale insulin as ordered.
+deepseek-v4.1-flash|E1824650A3::15 [observed] Vitals are stable.   <- Assess readiness for ICU discharge given stable vitals, GCS 15, and room air.
+deepseek-v4.1-flash|E1824650A3::16 [observed] GCS is 15.   <- Assess readiness for ICU discharge given stable vitals, GCS 15, and room air.
+deepseek-v4.1-flash|E1824650A3::17 [observed] The patient is on room air.   <- Assess readiness for ICU discharge given stable vitals, GCS 15, and room air.
+gpt-oss-120b|E1824650A1::03 [presupposition] The patient is currently on mechanical ventilation.   <- Continue ventilator weaning and transition to spontaneous breathing trials.
+gpt-oss-120b|E1824650A2::06 [presupposition] Insulin is currently being given.   <- Monitor capillary glucose every 4 hours and adjust insulin dosing as needed.
+gpt-oss-120b|E1824650A3::09 [presupposition] The patient was recently extubated.   <- Obtain a chest radiograph to assess lung fields after recent extubation.
+qwen2.5-7b|E1824650A2::03 [presupposition] The patient is currently on mechanical ventilation.   <- Wean off mechanical ventilation.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 14:40:00): Medication ASPIRIN PO DAILY
+  Running at decision time (scheduled order started 2100-01-01 14:40:00): Medication ALBUTEROL SULF NEB RT Q4H
+  Running at decision time (scheduled order started 2100-01-02 02:00:00): Medication FAMOTIDINE PO BID
+  Running at decision time (scheduled order started 2100-01-02 02:00:00): Medication DOCUSATE SODIUM PO BID
+  Running at decision time (scheduled order started 2100-01-02 14:00:00): Medication METOPROLOL TARTRATE PO Q12HR
+  Running at decision time (scheduled order started 2100-01-02 14:00:00): Medication POTASSIUM CHLORIDE PO DAILY
+  Running at decision time (scheduled order started 2100-01-02 16:00:00): Medication INSULIN HUMAN REGULAR SUBCUT QID AC
+
+## PRN orders
+  01-01 14:40 Order: NITROGLYCERIN 50MG/D5W 250ML BTL IV TITRATE PRN (stopped 2100-01-02 14:30:00)
+  01-01 14:40 Order: ACETAMINOPHEN PO Q4H PRN (active at decision time)
+  01-01 14:40 Order: KCL 40 MEQ/100ML STERILE WATER BAG IV PROTOCOL PRN (stopped 2100-01-02 14:30:00)
+  01-01 14:40 Order: MAGNESIUM HYDROXIDE PO Q4H PRN (active at decision time)
+  01-01 14:40 Order: ACETAMINOPHEN PR Q4H PRN (stopped 2100-01-02 14:30:00)
+  01-01 14:40 Order: MIDAZOLAM HCL IV PRN (stopped 2100-01-02 14:30:00)
+  01-01 14:40 Order: MORPHINE SULFATE IV Q2H PRN (stopped 2100-01-02 14:30:00)
+  01-01 14:40 Order: MAGNESIUM SULF 2 GM/SW 50 ML BAG IV PROTOCOL PRN (stopped 2100-01-02 14:30:00)
+  01-01 14:40 Order: ACETAMIN/HYDROCODON 325MG/5MG PO Q4H PRN (active at decision time)
+  01-01 14:40 Order: Ondansetron IV Q6H PRN (active at decision time)
+  01-01 14:40 Order: MORPHINE SULFATE IV Q1H PRN (stopped 2100-01-02 14:30:00)
+  01-01 16:05 Order: DEXTROSE 50% IV PRN (active at decision time)
+  01-01 18:35 Order: DEXTROSE 50% IV PRN (active at decision time)
+  01-02 14:45 Order: ZOLPIDEM TARTRATE PO NIGHTLY PRN (active at decision time)
+  01-02 14:45 Order: BISACODYL PR DAILY PRN (active at decision time)
+  01-02 14:50 Order: ALBUTEROL SULF INH Q6H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Amicar at 50 ml/hour (2100-01-01 18:00:00 to 2100-01-02 05:54:00)
+  Infusion/input MIV at 50 ml/hour (2100-01-01 18:00:00 to 2100-01-02 15:35:00)
+
+## Medications given once or ended before T
+  Medication NOREPINEPHRINE BITARTRATE 1 MG/ML AMP IV (2100-01-01 10:30:00 to 2100-01-02 04:59:00)
+  Medication FAMOTIDINE PO (2100-01-01 11:00:00 to 2100-01-02 04:59:00)
+  Medication VANCOMYCIN HCL .ROUTE .STK-MED (2100-01-01 11:16:00 to 2100-01-01 11:17:00)
+  Medication VANCOMYCIN HCL .ROUTE .STK-MED (2100-01-01 11:17:00 to 2100-01-01 11:18:00)
+  Medication BACITRACIN .ROUTE .STK-MED (2100-01-01 11:17:00 to 2100-01-01 11:18:00)
+  Medication NOREPINEPHRINE BITARTRATE 1 MG/ML AMP IV TITRATE (2100-01-01 14:40:00 to 2100-01-02 14:30:00)
+  Medication Sodium Chloride 0.9% 1,000 ML BAG IV CONT (2100-01-01 14:40:00 to 2100-01-02 14:30:00)
+  Given once: SODIUM CHLORIDE IV ONE (2100-01-01 14:40:00)
+  Medication INSULIN HUMAN REGULAR IV (2100-01-01 19:00:00 to 2100-01-02 14:30:00)
+  Medication ALBUMIN HUMAN 25% IV .STK-MED (2100-01-01 19:06:00 to 2100-01-01 19:07:00)
+  Medication SODIUM BICARBONATE 8.4% IV .STK-MED (2100-01-01 19:06:00 to 2100-01-01 19:07:00)
+  Medication PHENYLEPHRINE HCL IV .STK-MED (2100-01-01 19:06:00 to 2100-01-01 19:07:00)
+  Medication HEPARIN SOD (PORCINE) IV .STK-MED (2100-01-01 20:13:00 to 2100-01-01 20:14:00)
+  Medication LIDOCAINE HCL 2% IV .STK-MED (2100-01-01 20:13:00 to 2100-01-01 20:14:00)
+  Medication FUROSEMIDE IV .STK-MED (2100-01-01 20:18:00 to 2100-01-01 20:19:00)
+  Medication HEPARIN SOD (PORCINE) IV .STK-MED (2100-01-01 20:18:00 to 2100-01-01 20:19:00)
+  Medication AMINOCAPROIC ACID INJ .STK-MED (2100-01-01 20:18:00 to 2100-01-01 20:19:00)
+  Medication EPHEDRINE SULFATE IV .STK-MED (2100-01-01 20:18:00 to 2100-01-01 20:19:00)
+  Medication PHENYLEPHRINE HCL IV .STK-MED (2100-01-01 20:18:00 to 2100-01-01 20:19:00)
+  Medication POTASSIUM CHLORIDE IV .STK-MED (2100-01-01 20:18:00 to 2100-01-01 20:19:00)
+  Medication FUROSEMIDE IV (2100-01-02 13:00:00 to 2100-01-02 14:47:00)
+  Given once: SODIUM CHLORIDE IV ONE (2100-01-02 14:45:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 12-31 15:33 0.6 %
+  -eos: 12-31 15:33 7.8 %
+  -lymphs: 12-31 15:33 35.2 %
+  -monos: 12-31 15:33 10.2 %
+  -polys: 12-31 15:33 46.2 %
+  Alanine Aminotransferase (ALT): 12-31 15:33 51 U/L
+  Albumin: 12-31 15:33 4.5 G/DL
+  Alkaline Phosphatase: 12-31 15:33 91 U/L
+  Asparate Aminotransferase (AST): 12-31 15:33 37 U/L
+  Base Excess: 01-01 17:12 1.5 mmol/L; 01-01 16:15 0.1 mmol/L; 01-01 15:18 0 mmol/L; 01-01 14:54 0.9 mmol/L; 01-01 14:21 0.5 mmol/L   [+1 earlier]
+  Bicarbonate: 01-02 09:30 24 MMOL/L; 01-01 17:43 20 MMOL/L; 12-31 15:33 32 MMOL/L
+  Bicarbonate (blood gas HCO3): 01-01 17:12 25.9 mmol/L; 01-01 16:15 24.7 mmol/L; 01-01 15:18 24.8 mmol/L; 01-01 14:54 26.6 mmol/L; 01-01 14:21 27.4 mmol/L   [+1 earlier]
+  Bilirubin, Total: 12-31 15:33 0.6 MG/DL
+  Calcium, Total: 01-02 09:30 7.9 MG/DL; 01-01 17:43 5.7 MG/DL; 12-31 15:33 9.8 MG/DL
+  Chloride: 01-02 09:30 107 MMOL/L; 01-01 17:43 118 MMOL/L; 12-31 15:33 102 MMOL/L
+  Creatinine: 01-02 09:30 1.1 MG/DL; 01-01 17:43 0.8 MG/DL; 12-31 15:33 1.1 MG/DL
+  FiO2: 01-01 17:12 50 %
+  Glucose: 01-02 09:30 145 MG/DL; 01-01 17:43 86 MG/DL; 12-31 15:33 63 MG/DL
+  Glucose finger stick: 01-02 17:00 129 mg/dL; 01-02 15:03 181 mg/dL; 01-02 12:56 136 mg/dL; 01-02 11:39 132 mg/dL; 01-02 09:22 146 mg/dL   [+9 earlier]
+  Hematocrit: 01-02 09:30 30.3 %; 01-01 17:43 23.8 %; 12-31 15:33 43.1 %
+  Hemoglobin: 01-02 09:30 10.3 G/DL; 01-01 17:43 8.1 G/DL; 12-31 15:33 14.7 G/DL
+  INR(PT): 01-01 17:43 1.5; 12-31 15:33 1
+  MCH: 01-02 09:30 32.3 PG; 01-01 17:43 32.1 PG; 12-31 15:33 32 PG
+  MCHC: 01-02 09:30 34.1 G/DL; 01-01 17:43 34.1 G/DL; 12-31 15:33 34.1 G/DL
+  MCV: 01-02 09:30 94.9 FL; 01-01 17:43 94.4 FL; 12-31 15:33 93.7 FL
+  MPV: 01-02 09:30 9.7 FL; 01-01 17:43 8.5 FL; 12-31 15:33 8.5 FL
+  Magnesium: 01-02 09:30 2.2 MG/DL; 01-01 17:43 2 MG/DL
+  Oxygen Saturation: 01-01 17:12 98.1 %; 01-01 16:15 99.8 %; 01-01 15:18 99.9 %; 01-01 14:54 100.1 %; 01-01 14:21 100.3 %   [+1 earlier]
+  PEEP: 01-01 17:12 5
+  PT: 01-01 17:43 15.7 SEC; 12-31 15:33 10.7 SEC
+  PTT: 01-01 17:43 35.8 SEC; 12-31 15:33 29 SEC
+  Platelet Count: 01-02 09:30 156 10; 01-01 17:43 88 10; 12-31 15:33 229 10
+  Potassium: 01-02 09:30 4.2 MMOL/L; 01-01 17:43 3.2 MMOL/L; 12-31 15:33 4.4 MMOL/L
+  RBC: 01-02 09:30 3.2 10; 01-01 17:43 2.52 10; 12-31 15:33 4.61 10
+  RDW: 01-02 09:30 14 FL; 01-01 17:43 13.6 FL; 12-31 15:33 13.5 FL
+  Sodium: 01-02 09:30 141 MMOL/L; 01-01 17:43 145 MMOL/L; 12-31 15:33 140 MMOL/L
+  TV: 01-01 17:12 500
+  Total CO2: 01-01 17:12 27.1 meq/L; 01-01 16:15 25.9 meq/L; 01-01 15:18 26 meq/L; 01-01 14:54 28 meq/L; 01-01 14:21 29.1 meq/L   [+1 earlier]
+  Urea Nitrogen: 01-02 09:30 16 MG/DL; 01-01 17:43 9 MG/DL; 12-31 15:33 8 MG/DL
+  White Blood Cells: 01-02 09:30 11.6 10; 01-01 17:43 6.3 10; 12-31 15:33 5.7 10
+  pCO2: 01-01 17:12 39 mmHg; 01-01 16:15 39 mmHg; 01-01 15:18 40 mmHg; 01-01 14:54 47 mmHg; 01-01 14:21 57 mmHg   [+1 earlier]
+  pH: 01-01 17:12 7.43; 01-01 16:15 7.41; 01-01 15:18 7.4; 01-01 14:54 7.36; 01-01 14:21 7.29   [+1 earlier]
+  pO2: 01-01 16:15 265 mmHg; 01-01 15:18 334 mmHg; 01-01 14:54 355 mmHg; 01-01 14:21 557 mmHg; 01-01 12:08 87 mmHg
+  total protein: 12-31 15:33 7.9 G/DL
+  urinary specific gravity: 12-31 15:44 1.01
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Arterial Blood Pressure diastolic: 62 mmHg @01-02 05:54   24h 61-66 (n=3)
+  Arterial Blood Pressure mean: 79 mmHg @01-02 05:54   24h 76-84 (n=3)
+  Arterial Blood Pressure systolic: 116 mmHg @01-02 05:54   24h 110-121 (n=3)
+  Central Venous Pressure: 14 mmHg @01-02 05:54   24h 12-14 (n=3)
+  End Tidal CO2: 39 @01-01 18:00
+  Glasgow coma score Eyes: 4 @01-02 15:35   24h 3-4 (n=4)
+  Glasgow coma score GCS Total: 15 @01-02 15:35   24h 12-15 (n=4)
+  Glasgow coma score Motor: 6 @01-02 15:35   24h 6-6 (n=4)
+  Glasgow coma score Verbal: 5 @01-02 15:35   24h 3-5 (n=4)
+  Heart Rate: 81 bpm @01-02 15:35   24h 71-81 (n=4)
+  Inspired O2 Fraction: 21 % @01-02 15:37   24h 21-50 (n=4)
+  Non Invasive Blood Pressure diastolic: 67 mmHg @01-02 15:35   24h 63-67 (n=3)
+  Non Invasive Blood Pressure mean: 84 mmHg @01-02 15:35   24h 79-84 (n=3)
+  Non Invasive Blood Pressure systolic: 119 mmHg @01-02 15:35   24h 110-119 (n=3)
+  O2 Delivery Device(s): None (charted: RA) @01-02 15:35   earlier: Nasal cannula (charted: nasal cannula) @01-02 05:54; Endotracheal tube (charted: ventilator) @01-01 18:00
+  O2 Flow: 2 L/min @01-02 05:55   24h 2-2 (n=2)
+  O2 saturation pulseoxymetry: 95 % @01-02 15:35   24h 95-100 (n=4)
+  PA Diastolic: 26 @01-02 05:54   24h 17-26 (n=3)
+  PA Mean: 31 @01-02 05:54   24h 23-31 (n=3)
+  PA Systolic: 40 @01-02 05:54   24h 30-40 (n=3)
+  PEEP set: 0 cmH2O @01-02 05:55   24h 0-5 (n=2)
+  Respiratory Rate: 21 insp/min @01-02 15:35   24h 11-32 (n=4)
+  Respiratory Rate (spontaneous): 21 insp/min @01-02 15:37   24h 11-32 (n=4)
+  SaO2: 95 @01-02 15:37   24h 95-100 (n=4)
+  Temperature Fahrenheit: 97.9 F @01-02 13:00   24h 97-99.7 (n=3)
+  Temperature Location: tympanic @01-02 13:00   earlier: core @01-02 07:00
+
+## Treatments documented
+  01-01 18:14 pulmonary | ventilation and oxygenation | mechanical ventilation
+  01-01 18:14 cardiovascular | cardiac surgery | CABG
+  01-02 04:49 cardiovascular | cardiac surgery | CABG
+  01-02 04:49 pulmonary | ventilation and oxygenation | oxygen therapy (< 40%)
+  01-02 04:49 pulmonary | ventilation and oxygenation | ventilator weaning
+
+## Microbiology

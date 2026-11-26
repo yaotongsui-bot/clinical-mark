@@ -1,0 +1,378 @@
+{
+ "case_id": "E3148216",
+ "decision_point": "2100-01-02 01:47:00",
+ "claims": [
+  "Monitor the patient's oxygen saturation closely, as it has fluctuated between 94% and 100%.",
+  "Continue sedation at the RASS score of 0 to maintain patient comfort.",
+  "Adjust the oxygen therapy to 2 L/min, as the patient's saturation has been between 94% and 98%."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3148216A1::01",
+   "claim_id": "E3148216A1",
+   "claim_text": "Monitor the patient's oxygen saturation closely, as it has fluctuated between 94% and 100%.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation closely.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3148216A1::02",
+   "claim_id": "E3148216A1",
+   "claim_text": "Monitor the patient's oxygen saturation closely, as it has fluctuated between 94% and 100%.",
+   "kind": "fact",
+   "text": "Oxygen saturation has fluctuated between 94% and 100%.",
+   "concept": "spo2",
+   "notes": [
+    "concept set by the rule files: oxygenation -> spo2"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3148216A2::03",
+   "claim_id": "E3148216A2",
+   "claim_text": "Continue sedation at the RASS score of 0 to maintain patient comfort.",
+   "kind": "action",
+   "text": "Continue sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "sedation",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3148216A2::04",
+   "claim_id": "E3148216A2",
+   "claim_text": "Continue sedation at the RASS score of 0 to maintain patient comfort.",
+   "kind": "fact",
+   "text": "Sedation is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3148216A2::05",
+   "claim_id": "E3148216A2",
+   "claim_text": "Continue sedation at the RASS score of 0 to maintain patient comfort.",
+   "kind": "fact",
+   "text": "RASS score is 0.",
+   "concept": "sedation",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3148216A3::06",
+   "claim_id": "E3148216A3",
+   "claim_text": "Adjust the oxygen therapy to 2 L/min, as the patient's saturation has been between 94% and 98%.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy to 2 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3148216A3::07",
+   "claim_id": "E3148216A3",
+   "claim_text": "Adjust the oxygen therapy to 2 L/min, as the patient's saturation has been between 94% and 98%.",
+   "kind": "fact",
+   "text": "Oxygen saturation has been between 94% and 98%.",
+   "concept": "spo2",
+   "notes": [
+    "concept set by the rule files: oxygenation -> spo2"
+   ],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "recent",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3148216A1::02",
+   "claim_id": "E3148216A1",
+   "claim_text": "Monitor the patient's oxygen saturation closely, as it has fluctuated between 94% and 100%.",
+   "kind": "fact",
+   "text": "Oxygen saturation has fluctuated between 94% and 100%.",
+   "concept": "spo2",
+   "notes": [
+    "concept set by the rule files: oxygenation -> spo2"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show that the patient's oxygen saturation has fluctuated between 94% and 100% in the 24 hours before the decision time. The most recent measurements show that the patient's oxygen saturation was 100% at 01:15, 01:58, and 03:00, and 100% at 08:00. This supports the statement that the patient's oxygen saturation has fluctuated between 94% and 100%.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2146882877",
+     "time": "2100-01-01 00:45:00",
+     "item": "O2 saturation pulseoxymetry: 100 %"
+    },
+    {
+     "rid": "nurse:2138678189",
+     "time": "2100-01-01 01:00:00",
+     "item": "O2 saturation pulseoxymetry: 100 %"
+    },
+    {
+     "rid": "nurse:2150663366",
+     "time": "2100-01-01 01:15:00",
+     "item": "O2 saturation pulseoxymetry: 100 %"
+    },
+    {
+     "rid": "nurse:2140315631",
+     "time": "2100-01-01 08:00:00",
+     "item": "O2 saturation pulseoxymetry: 100 %"
+    },
+    {
+     "rid": "nurse:2142981599",
+     "time": "2100-01-01 08:00:00",
+     "item": "O2 L/%: 4"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3148216A2::04",
+   "claim_id": "E3148216A2",
+   "claim_text": "Continue sedation at the RASS score of 0 to maintain patient comfort.",
+   "kind": "fact",
+   "text": "Sedation is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient's sedation score is 0, but there is no record of sedation being administered. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2146001854",
+     "time": "2100-01-01 01:58:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: 0"
+    },
+    {
+     "rid": "nurse:2139511592",
+     "time": "2100-01-01 01:58:00",
+     "item": "Temperature Fahrenheit: 98.1 F"
+    },
+    {
+     "rid": "nurse:2134235006",
+     "time": "2100-01-01 01:58:00",
+     "item": "Respiratory Rate: 12 insp/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3148216A2::05",
+   "claim_id": "E3148216A2",
+   "claim_text": "Continue sedation at the RASS score of 0 to maintain patient comfort.",
+   "kind": "fact",
+   "text": "RASS score is 0.",
+   "concept": "sedation",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show that the RASS score is 0 at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2146001854",
+     "time": "2100-01-01 01:58:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: 0"
+    },
+    {
+     "rid": "nurse:2146001855",
+     "time": "2100-01-01 01:58:00",
+     "item": "Sedation Scale/Score/Goal Sedation Scale: RASS"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3148216A3::07",
+   "claim_id": "E3148216A3",
+   "claim_text": "Adjust the oxygen therapy to 2 L/min, as the patient's saturation has been between 94% and 98%.",
+   "kind": "fact",
+   "text": "Oxygen saturation has been between 94% and 98%.",
+   "concept": "spo2",
+   "notes": [
+    "concept set by the rule files: oxygenation -> spo2"
+   ],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "recent",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show that the patient's oxygen saturation has been between 94% and 98% in the last hour, which supports the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2137244773",
+     "time": "2100-01-01 01:58:00",
+     "item": "O2 saturation pulseoxymetry: 98 %"
+    },
+    {
+     "rid": "nurse:2139043460",
+     "time": "2100-01-01 01:58:00",
+     "item": "O2 L/%: 4"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3148216A1::01",
+   "claim_id": "E3148216A1",
+   "claim_text": "Monitor the patient's oxygen saturation closely, as it has fluctuated between 94% and 100%.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation closely.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2151730794",
+     "time": "2100-01-02 02:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:2137263026",
+     "time": "2100-01-02 03:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    }
+   ],
+   "reason": "Measured in the 19.8 h observation window after the decision (24 h or until ICU discharge): SpO2 x16.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3148216A2::03",
+   "claim_id": "E3148216A2",
+   "claim_text": "Continue sedation at the RASS score of 0 to maintain patient comfort.",
+   "kind": "action",
+   "text": "Continue sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "sedation",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 19.8 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3148216A3::06",
+   "claim_id": "E3148216A3",
+   "claim_text": "Adjust the oxygen therapy to 2 L/min, as the patient's saturation has been between 94% and 98%.",
+   "kind": "action",
+   "text": "Adjust oxygen therapy to 2 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "oxygen therapy",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 19.8,
+ "scoresheet": {
+  "n": 4,
+  "supported": 3,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.75,
+  "not_supported_share": 0.25,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Sedation is currently being given. -- The records show that the patient's sedation score is 0, but there is no record of sedation being administered. The statement is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.75,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

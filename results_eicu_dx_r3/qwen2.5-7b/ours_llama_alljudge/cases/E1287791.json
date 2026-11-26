@@ -1,0 +1,322 @@
+{
+ "case_id": "E1287791",
+ "decision_point": "2100-01-02 19:17:00",
+ "claims": [
+  "Monitor blood pressure and adjust antihypertensive therapy as needed.",
+  "Continue sedation at -1 RASS score.",
+  "Assess Glasgow Coma Scale daily to monitor neurological status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1287791A1::01",
+   "claim_id": "E1287791A1",
+   "claim_text": "Monitor blood pressure and adjust antihypertensive therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1287791A1::02",
+   "claim_id": "E1287791A1",
+   "claim_text": "Monitor blood pressure and adjust antihypertensive therapy as needed.",
+   "kind": "action",
+   "text": "Adjust antihypertensive therapy as needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antihypertensive therapy",
+   "conditional": true,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1287791A2::03",
+   "claim_id": "E1287791A2",
+   "claim_text": "Continue sedation at -1 RASS score.",
+   "kind": "action",
+   "text": "Continue sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "sedation",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1287791A2::04",
+   "claim_id": "E1287791A2",
+   "claim_text": "Continue sedation at -1 RASS score.",
+   "kind": "fact",
+   "text": "RASS score is -1.",
+   "concept": "sedation",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1287791A3::05",
+   "claim_id": "E1287791A3",
+   "claim_text": "Assess Glasgow Coma Scale daily to monitor neurological status.",
+   "kind": "action",
+   "text": "Assess Glasgow Coma Scale daily.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "Glasgow Coma Scale",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1287791A2::P01",
+   "claim_id": "E1287791A2",
+   "claim_text": "Continue sedation at -1 RASS score.",
+   "kind": "fact",
+   "text": "The patient is currently receiving sedation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1287791A2::04",
+   "claim_id": "E1287791A2",
+   "claim_text": "Continue sedation at -1 RASS score.",
+   "kind": "fact",
+   "text": "RASS score is -1.",
+   "concept": "sedation",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The RASS score was -1 at decision time, as shown by multiple measurements in the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:751242573",
+     "time": "2100-01-02 01:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:748157740",
+     "time": "2100-01-02 04:15:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:746553336",
+     "time": "2100-01-02 05:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:779839890",
+     "time": "2100-01-02 09:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    },
+    {
+     "rid": "nurse:800553970",
+     "time": "2100-01-02 13:00:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -1"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1287791A2::P01",
+   "claim_id": "E1287791A2",
+   "claim_text": "Continue sedation at -1 RASS score.",
+   "kind": "fact",
+   "text": "The patient is currently receiving sedation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_supported",
+   "reason": "The patient is currently receiving sedation. The records show that lorazepam was ordered (R1) and ondansetron was ordered (R2), but there is no record of sedation administration in the 24 hours before the decision time. However, the sedation score was -4 (R7) and the sedation scale was RASS (R8), which indicates that the patient was receiving sedation.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:43068790",
+     "time": "2099-12-30 19:52:00",
+     "item": "Order: 1 ml crtrdg-ndl : lorazepam 2 mg/ml ij soln IV PRN X1 (active at decision time)"
+    },
+    {
+     "rid": "med:45717876",
+     "time": "2099-12-30 19:52:00",
+     "item": "Order: 2 ml vial : ondansetron hcl 4 mg/2ml ij soln IV Q8H PRN (active at decision time)"
+    },
+    {
+     "rid": "nurse:752794701",
+     "time": "2100-01-01 19:10:00",
+     "item": "Sedation Scale/Score/Goal Sedation Score: -4"
+    },
+    {
+     "rid": "nurse:752794702",
+     "time": "2100-01-01 19:10:00",
+     "item": "Sedation Scale/Score/Goal Sedation Scale: RASS"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1287791A1::01",
+   "claim_id": "E1287791A1",
+   "claim_text": "Monitor blood pressure and adjust antihypertensive therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:749101305",
+     "time": "2100-01-02 20:00:00",
+     "item": "systolic BP",
+     "value": "142.0 mmHg"
+    },
+    {
+     "rid": "nurse:802447502",
+     "time": "2100-01-02 21:00:00",
+     "item": "systolic BP",
+     "value": "128.0 mmHg"
+    },
+    {
+     "rid": "nurse:749101307",
+     "time": "2100-01-02 20:00:00",
+     "item": "mean arterial pressure",
+     "value": "95.0 mmHg"
+    },
+    {
+     "rid": "nurse:802447504",
+     "time": "2100-01-02 21:00:00",
+     "item": "mean arterial pressure",
+     "value": "103.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x23, mean arterial pressure x22.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1287791A1::02",
+   "claim_id": "E1287791A1",
+   "claim_text": "Monitor blood pressure and adjust antihypertensive therapy as needed.",
+   "kind": "action",
+   "text": "Adjust antihypertensive therapy as needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antihypertensive therapy",
+   "conditional": true,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1287791A2::03",
+   "claim_id": "E1287791A2",
+   "claim_text": "Continue sedation at -1 RASS score.",
+   "kind": "action",
+   "text": "Continue sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "sedation",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1287791A3::05",
+   "claim_id": "E1287791A3",
+   "claim_text": "Assess Glasgow Coma Scale daily to monitor neurological status.",
+   "kind": "action",
+   "text": "Assess Glasgow Coma Scale daily.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "Glasgow Coma Scale",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 1,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently receiving sedation. -- The patient is currently receiving sedation. The records show that lorazepam was ordered (R1) and ondansetron was ordered (R2), but there is no record of sedation administration in the 24 hours before the decision time. However, the sedation score was -4 (R7) and the sedation scale was RASS (R8), which indicates that the patient was receiving sedation."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

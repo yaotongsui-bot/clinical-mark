@@ -1,0 +1,102 @@
+# E3170528   T = 2100-01-02 03:39:00   records before T: 436
+ICU stay 3170528 (Neuro ICU; Female, age 75; admission diagnosis: Hemorrhage/hematoma, intracranial).
+
+## Atoms
+deepseek-v4.1-flash|E3170528A1::03 [presupposition] The patient is currently in the Neuro ICU.   <- Continue frequent neurologic monitoring with Glasgow Coma Scale and vital signs in the Neuro ICU.
+deepseek-v4.1-flash|E3170528A2::05 [presupposition] Intracranial hemorrhage is present.   <- Maintain blood pressure control for intracranial hemorrhage using the ordered PRN hydralazine as needed for hypertension.
+deepseek-v4.1-flash|E3170528A2::06 [presupposition] PRN hydralazine is ordered.   <- Maintain blood pressure control for intracranial hemorrhage using the ordered PRN hydralazine as needed for hypertension.
+deepseek-v4.1-flash|E3170528A3::09 [presupposition] Pantoprazole is currently being given.   <- Continue stress ulcer prophylaxis with pantoprazole as ordered.
+gpt-oss-120b|E3170528A1::02 [presupposition] Intermittent pneumatic compression is currently being given.   <- Continue intermittent pneumatic compression for VTE prophylaxis.
+gpt-oss-120b|E3170528A2::05 [presupposition] Nicardipine infusion is currently being given.   <- Monitor blood pressure closely and titrate nicardipine infusion to maintain mean arterial pressure between 80-100 mmHg.
+gpt-oss-120b|E3170528A3::08 [presupposition] Intracerebral hemorrhage is present.   <- Obtain a repeat head CT to assess for progression of intracerebral hemorrhage.
+qwen2.5-7b|E3170528A1::02 [observed] Blood pressure is fluctuating.   <- Monitor blood pressure closely due to fluctuations.
+qwen2.5-7b|E3170528A2::04 [presupposition] Intravenous fluids are currently being given.   <- Continue intravenous fluids to maintain hydration.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 03:45:00): Medication DOCUSATE SODIUM 100 MG PO CAPS PO BID
+  Running at decision time (scheduled order started 2100-01-01 03:45:00): Medication DOCUSATE SODIUM 50 MG/5ML PO LIQD Per NG tube BID
+  Running at decision time (scheduled order started 2100-01-01 14:00:00): Medication PANTOPRAZOLE SODIUM 40 MG PO TBEC PO QAM
+
+## PRN orders
+  01-01 03:27 Order: IPRATROPIUM-ALBUTEROL 0.5-2.5 (3) MG/3ML IN SOLN IN Q6H PRN (active at decision time)
+  01-01 03:27 Order: BISACODYL 10 MG RE SUPP RE Daily PRN (active at decision time)
+  01-01 03:27 Order: OXYCODONE-ACETAMINOPHEN 5-325 MG PO TABS PO Q4H PRN (active at decision time)
+  01-01 03:27 Order: MORPHINE SULFATE (PF) 4 MG/ML IV SOLN IV Q4H PRN (active at decision time)
+  01-01 03:27 Order: ACETAMINOPHEN 650 MG RE SUPP RE Q6H PRN (active at decision time)
+  01-01 03:27 Order: HYDRALAZINE HCL 20 MG/ML IJ SOLN IV Q2H PRN (active at decision time)
+  01-01 03:27 Order: ACETAMINOPHEN 325 MG PO TABS PO Q4H PRN (active at decision time)
+  01-01 03:27 Order: ONDANSETRON HCL 4 MG/2ML IJ SOLN IV Q4H PRN (active at decision time)
+  01-01 03:27 Order: LABETALOL HCL 5 MG/ML IV SOLN IV Q1H PRN (stopped 2100-01-02 01:40:00)
+  01-01 03:27 Order: DEXTROSE 50 % IV SOLN IV PRN (stopped 2100-01-02 01:40:00)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication POTASSIUM CHLORIDE IN NACL 20-0.9 MEQ/L-% IV SOLN IV Continuous (2100-01-01 03:45:00 to 2100-01-02 01:40:00)
+  Medication INSULIN REGULAR HUMAN 100 UNIT/ML IJ SOLN SC (2100-01-01 08:00:00 to 2100-01-01 12:38:00)
+  Given once: POTASSIUM CHLORIDE 2 MEQ/ML IV SOLN IV Once X1 (2100-01-01 09:30:00)
+  Medication PANTOPRAZOLE SODIUM 40 MG IV SOLR IV QAM (2100-01-01 14:00:00 to 2100-01-01 14:10:00)
+  Given once: ONDANSETRON HCL 4 MG/2ML IJ SOLN IV Once X1 (2100-01-02 03:30:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 08:01 0.8 %; 01-01 01:32 0.8 %
+  -eos: 01-01 08:01 2.3 %; 01-01 01:32 2.4 %
+  -lymphs: 01-01 08:01 16.7 %; 01-01 01:32 19.1 %
+  -monos: 01-01 08:01 9.2 %; 01-01 01:32 8.2 %
+  -polys: 01-01 08:01 71 %; 01-01 01:32 69.5 %
+  Anion Gap: 01-01 08:01 12 mmol/L; 01-01 02:00 14 mmol/L
+  Bicarbonate: 01-01 08:01 25 mmol/L; 01-01 02:00 22 mmol/L
+  Calcium, Total: 01-01 08:01 9.3 mg/dL; 01-01 02:00 10.1 mg/dL
+  Chloride: 01-01 08:01 101 mmol/L; 01-01 02:00 103 mmol/L
+  Creatinine: 01-01 08:01 0.52 mg/dL; 01-01 02:00 0.6 mg/dL
+  Glucose: 01-01 08:01 104 mg/dL; 01-01 02:00 119 mg/dL
+  HDL: 01-01 04:19 60 mg/dL
+  Hematocrit: 01-01 08:01 36.2 %; 01-01 01:32 40.5 %
+  Hemoglobin: 01-01 08:01 12.1 g/dL; 01-01 01:32 14.1 g/dL
+  INR(PT): 01-01 01:44 0.9
+  LDL: 01-01 04:19 100 mg/dL
+  MCH: 01-01 08:01 30.2 pg; 01-01 01:32 31.6 pg
+  MCHC: 01-01 08:01 33.4 %; 01-01 01:32 34.9 %
+  MCV: 01-01 08:01 90.4 fl; 01-01 01:32 90.6 fl
+  MPV: 01-01 08:01 9.6 fl; 01-01 01:32 9.4 fl
+  PT: 01-01 01:44 10.4 sec
+  PTT: 01-01 01:44 21.5 sec
+  Platelet Count: 01-01 08:01 296 TH/cmm; 01-01 01:32 323 TH/cmm
+  Potassium: 01-01 08:01 3.5 mmol/L; 01-01 02:00 3.6 mmol/L
+  RBC: 01-01 08:01 4.01 M/cmm; 01-01 01:32 4.48 M/cmm
+  RDW: 01-01 08:01 15.3; 01-01 01:32 15
+  Sodium: 01-01 08:01 138 mmol/L; 01-01 02:00 139 mmol/L
+  Urea Nitrogen: 01-01 08:01 17 mg/dL; 01-01 02:00 21 mg/dL
+  White Blood Cells: 01-01 08:01 10.1 TH/cmm; 01-01 01:32 10.9 TH/cmm
+  total cholesterol: 01-01 04:19 180 mg/dL
+  triglycerides: 01-01 04:19 98 mg/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Arterial Blood Pressure diastolic: 77 mmHg @01-02 03:00   24h 54-145 (n=25)
+  Arterial Blood Pressure mean: 105 mmHg @01-02 03:00   24h 74-217 (n=25)
+  Arterial Blood Pressure systolic: 151 mmHg @01-02 03:00   24h 100-155 (n=25)
+  Glasgow coma score Eyes: 4 @01-02 01:00   24h 3-4 (n=23)
+  Glasgow coma score GCS Total: 15 @01-02 01:00   24h 14-15 (n=23)
+  Glasgow coma score Motor: 6 @01-02 01:00   24h 6-6 (n=23)
+  Glasgow coma score Verbal: 5 @01-02 01:00   24h 5-5 (n=23)
+  Heart Rate: 107 bpm @01-02 03:00   24h 81-107 (n=26)
+  Non Invasive Blood Pressure diastolic: 78 mmHg @01-02 03:00   24h 51-97 (n=15)
+  Non Invasive Blood Pressure mean: 88 mmHg @01-02 03:00   24h 68-110 (n=15)
+  Non Invasive Blood Pressure systolic: 136 mmHg @01-02 03:00   24h 118-166 (n=15)
+  O2 saturation pulseoxymetry: 95 % @01-02 03:00   24h 94-100 (n=29)
+  Pain Assessment: 0-10 @01-02 01:00
+  Pain Level: 0 @01-02 01:00   24h 0-0 (n=10)
+  Respiratory Rate: 19 insp/min @01-02 03:00   24h 14-24 (n=26)
+  TV/kg IBW: 59.3 @01-01 00:57
+  Temperature Fahrenheit: 97.2 F @01-02 01:00   24h 97.2-98.1 (n=6)
+  Temperature Location: Axillary @01-02 01:00   earlier: Oral @01-01 00:57
+
+## Treatments documented
+  01-01 03:53 vascular disorders | VTE prophylaxis | compression boots
+  01-01 03:53 neurologic | neuromyopathy therapy | monitor vital capacities for deterioration
+  01-01 03:53 ICH/ cerebral infarct | antihypertensives | nicardipine
+  01-01 03:53 medications | stress ulcer treatment | pantoprazole
+  01-01 03:53 glucose metabolism | glucose | D50
+  01-01 03:53 glucose metabolism | insulin | subcutaneous dose of regular insulin
+
+## Microbiology

@@ -1,0 +1,291 @@
+{
+ "case_id": "E1071224",
+ "decision_point": "2100-01-02 16:46:00",
+ "claims": [
+  "Monitor the patient's blood pressure and adjust the infusion rate of NS if necessary to maintain stable hemodynamics.",
+  "Continue the administration of heparin at 1300 units/hour to prevent thrombus formation.",
+  "Assess the patient's pain level and consider adjusting analgesic therapy if the pain score is not adequately controlled."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1071224A1::01",
+   "claim_id": "E1071224A1",
+   "claim_text": "Monitor the patient's blood pressure and adjust the infusion rate of NS if necessary to maintain stable hemodynamics.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1071224A1::02",
+   "claim_id": "E1071224A1",
+   "claim_text": "Monitor the patient's blood pressure and adjust the infusion rate of NS if necessary to maintain stable hemodynamics.",
+   "kind": "action",
+   "text": "Adjust the infusion rate of NS if necessary.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "NS infusion rate",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1071224A2::03",
+   "claim_id": "E1071224A2",
+   "claim_text": "Continue the administration of heparin at 1300 units/hour to prevent thrombus formation.",
+   "kind": "action",
+   "text": "Continue the administration of heparin at 1300 units/hour.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1071224A2::04",
+   "claim_id": "E1071224A2",
+   "claim_text": "Continue the administration of heparin at 1300 units/hour to prevent thrombus formation.",
+   "kind": "fact",
+   "text": "Heparin is currently being given at 1300 units/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1071224A3::05",
+   "claim_id": "E1071224A3",
+   "claim_text": "Assess the patient's pain level and consider adjusting analgesic therapy if the pain score is not adequately controlled.",
+   "kind": "action",
+   "text": "Assess the patient's pain level.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain level",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1071224A3::06",
+   "claim_id": "E1071224A3",
+   "claim_text": "Assess the patient's pain level and consider adjusting analgesic therapy if the pain score is not adequately controlled.",
+   "kind": "action",
+   "text": "Consider adjusting analgesic therapy if the pain score is not adequately controlled.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "analgesic therapy",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1071224A2::04",
+   "claim_id": "E1071224A2",
+   "claim_text": "Continue the administration of heparin at 1300 units/hour to prevent thrombus formation.",
+   "kind": "fact",
+   "text": "Heparin is currently being given at 1300 units/hour.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R50 shows a Heparin infusion running at decision time at 1300 units/hour, which directly supports the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Heparin (units/hr):1154",
+     "time": "2100-01-02 12:00:00",
+     "item": "Running at decision time (started 2100-01-02 12:00:00): Infusion/input Heparin at 1300 units/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1071224A1::01",
+   "claim_id": "E1071224A1",
+   "claim_text": "Monitor the patient's blood pressure and adjust the infusion rate of NS if necessary to maintain stable hemodynamics.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:661491816",
+     "time": "2100-01-02 17:00:00",
+     "item": "systolic BP",
+     "value": "147.0 mmHg"
+    },
+    {
+     "rid": "nurse:662758140",
+     "time": "2100-01-02 17:25:00",
+     "item": "systolic BP",
+     "value": "148.0 mmHg"
+    },
+    {
+     "rid": "nurse:661491818",
+     "time": "2100-01-02 17:00:00",
+     "item": "mean arterial pressure",
+     "value": "76.0 mmHg"
+    },
+    {
+     "rid": "nurse:660276183",
+     "time": "2100-01-02 18:00:00",
+     "item": "mean arterial pressure",
+     "value": "86.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x25, mean arterial pressure x21.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071224A1::02",
+   "claim_id": "E1071224A1",
+   "claim_text": "Monitor the patient's blood pressure and adjust the infusion rate of NS if necessary to maintain stable hemodynamics.",
+   "kind": "action",
+   "text": "Adjust the infusion rate of NS if necessary.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "NS infusion rate",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1071224A2::03",
+   "claim_id": "E1071224A2",
+   "claim_text": "Continue the administration of heparin at 1300 units/hour to prevent thrombus formation.",
+   "kind": "action",
+   "text": "Continue the administration of heparin at 1300 units/hour.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (therapeutic) action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1071224A3::05",
+   "claim_id": "E1071224A3",
+   "claim_text": "Assess the patient's pain level and consider adjusting analgesic therapy if the pain score is not adequately controlled.",
+   "kind": "action",
+   "text": "Assess the patient's pain level.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain level",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:667315718",
+     "time": "2100-01-02 18:00:00",
+     "item": "pain score",
+     "value": "9.0"
+    },
+    {
+     "rid": "nurse:666598295",
+     "time": "2100-01-02 20:00:00",
+     "item": "pain score",
+     "value": "5.0"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071224A3::06",
+   "claim_id": "E1071224A3",
+   "claim_text": "Assess the patient's pain level and consider adjusting analgesic therapy if the pain score is not adequately controlled.",
+   "kind": "action",
+   "text": "Consider adjusting analgesic therapy if the pain score is not adequately controlled.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "analgesic therapy",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

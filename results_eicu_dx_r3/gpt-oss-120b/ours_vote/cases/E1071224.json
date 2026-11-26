@@ -1,0 +1,400 @@
+{
+ "case_id": "E1071224",
+ "decision_point": "2100-01-02 16:46:00",
+ "claims": [
+  "Obtain repeat complete blood count and coagulation panel to reassess anemia and anticoagulation effect.",
+  "Adjust heparin infusion to a lower rate pending repeat PTT and consider holding if bleeding risk increases.",
+  "Administer packed red blood cells if hemoglobin remains <8 g/dL after repeat labs."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1071224A1::01",
+   "claim_id": "E1071224A1",
+   "claim_text": "Obtain repeat complete blood count and coagulation panel to reassess anemia and anticoagulation effect.",
+   "kind": "action",
+   "text": "Obtain repeat complete blood count.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "complete blood count",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1071224A1::02",
+   "claim_id": "E1071224A1",
+   "claim_text": "Obtain repeat complete blood count and coagulation panel to reassess anemia and anticoagulation effect.",
+   "kind": "action",
+   "text": "Obtain repeat coagulation panel.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "coagulation panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1071224A1::03",
+   "claim_id": "E1071224A1",
+   "claim_text": "Obtain repeat complete blood count and coagulation panel to reassess anemia and anticoagulation effect.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1071224A1::04",
+   "claim_id": "E1071224A1",
+   "claim_text": "Obtain repeat complete blood count and coagulation panel to reassess anemia and anticoagulation effect.",
+   "kind": "fact",
+   "text": "Anticoagulation effect is present.",
+   "concept": "coagulation",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1071224A2::05",
+   "claim_id": "E1071224A2",
+   "claim_text": "Adjust heparin infusion to a lower rate pending repeat PTT and consider holding if bleeding risk increases.",
+   "kind": "action",
+   "text": "Adjust heparin infusion to a lower rate pending repeat PTT.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "heparin infusion",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1071224A2::06",
+   "claim_id": "E1071224A2",
+   "claim_text": "Adjust heparin infusion to a lower rate pending repeat PTT and consider holding if bleeding risk increases.",
+   "kind": "fact",
+   "text": "Heparin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E1071224A2::07",
+   "claim_id": "E1071224A2",
+   "claim_text": "Adjust heparin infusion to a lower rate pending repeat PTT and consider holding if bleeding risk increases.",
+   "kind": "action",
+   "text": "Consider holding heparin if bleeding risk increases.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "stop",
+   "target": "heparin",
+   "conditional": true,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1071224A3::08",
+   "claim_id": "E1071224A3",
+   "claim_text": "Administer packed red blood cells if hemoglobin remains <8 g/dL after repeat labs.",
+   "kind": "action",
+   "text": "Administer packed red blood cells if hemoglobin remains <8 g/dL after repeat labs.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "administer",
+   "target": "packed red blood cells",
+   "conditional": true,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1071224A1::03",
+   "claim_id": "E1071224A1",
+   "claim_text": "Obtain repeat complete blood count and coagulation panel to reassess anemia and anticoagulation effect.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:254627380",
+     "time": "2100-01-01 08:30:00",
+     "item": "Hemoglobin",
+     "value": 7.7,
+     "unit": "g/dl",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:254638691",
+     "time": "2100-01-02 04:39:00",
+     "item": "Hemoglobin",
+     "value": 8.2,
+     "unit": "g/dl",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:253825836",
+     "time": "2100-01-02 11:00:00",
+     "item": "Hemoglobin",
+     "value": 8.0,
+     "unit": "g/dl",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 8 g/dl at 2100-01-02 11:00:00 (reference 12 to 16) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1071224A1::04",
+   "claim_id": "E1071224A1",
+   "claim_text": "Obtain repeat complete blood count and coagulation panel to reassess anemia and anticoagulation effect.",
+   "kind": "fact",
+   "text": "Anticoagulation effect is present.",
+   "concept": "coagulation",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:253825833",
+     "time": "2100-01-02 11:00:00",
+     "item": "PTT",
+     "value": 51.2,
+     "unit": "sec",
+     "bounds": "25 to 36.5",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "'coagulation abnormal' holds when any component is abnormal. INR: no; PT: no; PTT: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1071224A2::06",
+   "claim_id": "E1071224A2",
+   "claim_text": "Adjust heparin infusion to a lower rate pending repeat PTT and consider holding if bleeding risk increases.",
+   "kind": "fact",
+   "text": "Heparin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R49 shows a Heparin infusion running at decision time (started 2100-01-02 12:00:00), which directly supports the statement that heparin is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Heparin (units/hr):1154",
+     "time": "2100-01-02 12:00:00",
+     "item": "Running at decision time (started 2100-01-02 12:00:00): Infusion/input Heparin at 1300 units/hour"
+    },
+    {
+     "rid": "inf:NS (ml/hr):1094",
+     "time": "2100-01-02 11:00:00",
+     "item": "Running at decision time (started 2100-01-02 11:00:00): Infusion/input NS at 100 ml/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1071224A1::01",
+   "claim_id": "E1071224A1",
+   "claim_text": "Obtain repeat complete blood count and coagulation panel to reassess anemia and anticoagulation effect.",
+   "kind": "action",
+   "text": "Obtain repeat complete blood count.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "complete blood count",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:255132905",
+     "time": "2100-01-03 06:52:00",
+     "item": "WBC",
+     "value": "11.6 thou/cmm"
+    },
+    {
+     "rid": "lab:254170330",
+     "time": "2100-01-02 23:55:00",
+     "item": "hemoglobin",
+     "value": "9.8 g/dl"
+    },
+    {
+     "rid": "lab:255132907",
+     "time": "2100-01-03 06:52:00",
+     "item": "hemoglobin",
+     "value": "9.9 g/dl"
+    },
+    {
+     "rid": "lab:255132913",
+     "time": "2100-01-03 06:52:00",
+     "item": "platelets",
+     "value": "119.0 thou/cmm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): WBC x1, hemoglobin x2, platelets x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071224A1::02",
+   "claim_id": "E1071224A1",
+   "claim_text": "Obtain repeat complete blood count and coagulation panel to reassess anemia and anticoagulation effect.",
+   "kind": "action",
+   "text": "Obtain repeat coagulation panel.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "coagulation panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:255132904",
+     "time": "2100-01-03 06:52:00",
+     "item": "PTT",
+     "value": "48.0 sec"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): PTT x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071224A2::05",
+   "claim_id": "E1071224A2",
+   "claim_text": "Adjust heparin infusion to a lower rate pending repeat PTT and consider holding if bleeding risk increases.",
+   "kind": "action",
+   "text": "Adjust heparin infusion to a lower rate pending repeat PTT.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "heparin infusion",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (therapeutic) action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1071224A2::07",
+   "claim_id": "E1071224A2",
+   "claim_text": "Adjust heparin infusion to a lower rate pending repeat PTT and consider holding if bleeding risk increases.",
+   "kind": "action",
+   "text": "Consider holding heparin if bleeding risk increases.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "stop",
+   "target": "heparin",
+   "conditional": true,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (therapeutic) recorded after the decision, consistent with stopping it.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1071224A3::08",
+   "claim_id": "E1071224A3",
+   "claim_text": "Administer packed red blood cells if hemoglobin remains <8 g/dL after repeat labs.",
+   "kind": "action",
+   "text": "Administer packed red blood cells if hemoglobin remains <8 g/dL after repeat labs.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "administer",
+   "target": "packed red blood cells",
+   "conditional": true,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

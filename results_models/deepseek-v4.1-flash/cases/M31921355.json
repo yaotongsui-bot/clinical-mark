@@ -1,0 +1,455 @@
+{
+ "case_id": "M31921355",
+ "decision_point": "2136-04-23 18:01:13",
+ "claims": [
+  "Continue total parenteral nutrition with lipids at the ordered infusion rate.",
+  "Monitor blood glucose given fingerstick hyperglycemia and ongoing parenteral nutrition.",
+  "Monitor hemoglobin and hematocrit for anemia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31921355A1::01",
+   "claim_id": "M31921355A1",
+   "claim_text": "Continue total parenteral nutrition with lipids at the ordered infusion rate.",
+   "kind": "action",
+   "text": "Continue total parenteral nutrition with lipids at the ordered infusion rate.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "total parenteral nutrition with lipids",
+   "conditional": false,
+   "treatment_class": "nutrition",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M31921355A1::02",
+   "claim_id": "M31921355A1",
+   "claim_text": "Continue total parenteral nutrition with lipids at the ordered infusion rate.",
+   "kind": "fact",
+   "text": "Total parenteral nutrition with lipids is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M31921355A2::03",
+   "claim_id": "M31921355A2",
+   "claim_text": "Monitor blood glucose given fingerstick hyperglycemia and ongoing parenteral nutrition.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31921355A2::04",
+   "claim_id": "M31921355A2",
+   "claim_text": "Monitor blood glucose given fingerstick hyperglycemia and ongoing parenteral nutrition.",
+   "kind": "fact",
+   "text": "Fingerstick glucose is high.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M31921355A2::05",
+   "claim_id": "M31921355A2",
+   "claim_text": "Monitor blood glucose given fingerstick hyperglycemia and ongoing parenteral nutrition.",
+   "kind": "fact",
+   "text": "Parenteral nutrition is ongoing.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M31921355A3::06",
+   "claim_id": "M31921355A3",
+   "claim_text": "Monitor hemoglobin and hematocrit for anemia.",
+   "kind": "action",
+   "text": "Monitor hemoglobin.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31921355A3::07",
+   "claim_id": "M31921355A3",
+   "claim_text": "Monitor hemoglobin and hematocrit for anemia.",
+   "kind": "action",
+   "text": "Monitor hematocrit.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31921355A3::08",
+   "claim_id": "M31921355A3",
+   "claim_text": "Monitor hemoglobin and hematocrit for anemia.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M31921355A1::02",
+   "claim_id": "M31921355A1",
+   "claim_text": "Continue total parenteral nutrition with lipids at the ordered infusion rate.",
+   "kind": "fact",
+   "text": "Total parenteral nutrition with lipids is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Records show TPN with lipids running at the decision time: R30 documents TPN w/ Lipids infusing at 70.83 mL/hour and R31 documents lipids additive, both ongoing at decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:5910749:225916:2136-04-22 21:00:00",
+     "time": "2136-04-22 21:00:00",
+     "item": "Running at decision time (started 2136-04-22 21:00:00): Infusion/input TPN w/ Lipids at 70.833335876464844 mL/hour"
+    },
+    {
+     "rid": "inputevents:5910749:225969:2136-04-22 21:00:00",
+     "time": "2136-04-22 21:00:00",
+     "item": "Running at decision time (started 2136-04-22 21:00:00): Infusion/input Lipids (additive)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M31921355A2::04",
+   "claim_id": "M31921355A2",
+   "claim_text": "Monitor blood glucose given fingerstick hyperglycemia and ongoing parenteral nutrition.",
+   "kind": "fact",
+   "text": "Fingerstick glucose is high.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:94647",
+     "time": "2136-04-21 06:19:00",
+     "item": "Glucose",
+     "value": 105.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:94677",
+     "time": "2136-04-22 06:07:00",
+     "item": "Glucose",
+     "value": 142.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:94739",
+     "time": "2136-04-23 05:56:00",
+     "item": "Glucose",
+     "value": 133.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 133 mg/dL at 2136-04-23 05:56:00 (reference 70.0 to 100.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M31921355A2::05",
+   "claim_id": "M31921355A2",
+   "claim_text": "Monitor blood glucose given fingerstick hyperglycemia and ongoing parenteral nutrition.",
+   "kind": "fact",
+   "text": "Parenteral nutrition is ongoing.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Administration records show TPN components (lipids, amino acids, dextrose PN, TPN w/ lipids) running at the decision time, confirming parenteral nutrition is ongoing.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:5910749:225969:2136-04-22 21:00:00",
+     "time": "2136-04-22 21:00:00",
+     "item": "Running at decision time (started 2136-04-22 21:00:00): Infusion/input Lipids (additive)"
+    },
+    {
+     "rid": "inputevents:5910749:225948:2136-04-22 21:00:00",
+     "time": "2136-04-22 21:00:00",
+     "item": "Running at decision time (started 2136-04-22 21:00:00): Infusion/input Amino Acids"
+    },
+    {
+     "rid": "inputevents:5910749:225947:2136-04-22 21:00:00",
+     "time": "2136-04-22 21:00:00",
+     "item": "Running at decision time (started 2136-04-22 21:00:00): Infusion/input Dextrose PN"
+    },
+    {
+     "rid": "inputevents:5910749:225916:2136-04-22 21:00:00",
+     "time": "2136-04-22 21:00:00",
+     "item": "Running at decision time (started 2136-04-22 21:00:00): Infusion/input TPN w/ Lipids at 70.833335876464844 mL/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "M31921355A3::08",
+   "claim_id": "M31921355A3",
+   "claim_text": "Monitor hemoglobin and hematocrit for anemia.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:94663",
+     "time": "2136-04-22 06:07:00",
+     "item": "Hemoglobin",
+     "value": 7.9,
+     "unit": "g/dL",
+     "bounds": "12.0 to 16.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:94702",
+     "time": "2136-04-22 22:03:00",
+     "item": "Hemoglobin",
+     "value": 7.6,
+     "unit": "g/dL",
+     "bounds": "12.0 to 16.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:94719",
+     "time": "2136-04-23 05:56:00",
+     "item": "Hemoglobin",
+     "value": 7.7,
+     "unit": "g/dL",
+     "bounds": "12.0 to 16.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 7.7 g/dL at 2136-04-23 05:56:00 (reference 12.0 to 16.0) is low, consistent with 'low'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M31921355A1::01",
+   "claim_id": "M31921355A1",
+   "claim_text": "Continue total parenteral nutrition with lipids at the ordered infusion rate.",
+   "kind": "action",
+   "text": "Continue total parenteral nutrition with lipids at the ordered infusion rate.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "total parenteral nutrition with lipids",
+   "conditional": false,
+   "treatment_class": "nutrition",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225916",
+     "time": "2136-04-22 21:00:00",
+     "item": "TPN w/ Lipids infusion continuing at 70.833335876464844 mL/hour",
+     "class": "nutrition"
+    },
+    {
+     "rid": "IN225947",
+     "time": "2136-04-22 21:00:00",
+     "item": "Dextrose PN infusion continuing at",
+     "class": "nutrition"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded nutrition support after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M31921355A2::03",
+   "claim_id": "M31921355A2",
+   "claim_text": "Monitor blood glucose given fingerstick hyperglycemia and ongoing parenteral nutrition.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No glucose measurement in the 1.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31921355A3::06",
+   "claim_id": "M31921355A3",
+   "claim_text": "Monitor hemoglobin and hematocrit for anemia.",
+   "kind": "action",
+   "text": "Monitor hemoglobin.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No hemoglobin measurement in the 1.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31921355A3::07",
+   "claim_id": "M31921355A3",
+   "claim_text": "Monitor hemoglobin and hematocrit for anemia.",
+   "kind": "action",
+   "text": "Monitor hematocrit.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No hematocrit measurement in the 1.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Amino Acids",
+    "Dextrose PN",
+    "Lipids (additive)",
+    "TPN w/ Lipids"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M31921355A1::01"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Amino Acids",
+    "Dextrose PN",
+    "Lipids (additive)",
+    "TPN w/ Lipids"
+   ],
+   "doctor_rows": 4,
+   "covered": true,
+   "by_atoms": [
+    "M31921355A1::01"
+   ]
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 8,
+ "observation_window_hours": 1.2,
+ "scoresheet": {
+  "n": 4,
+  "supported": 4,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 1.0,
+  "recall_all_at3": 1.0
+ }
+}

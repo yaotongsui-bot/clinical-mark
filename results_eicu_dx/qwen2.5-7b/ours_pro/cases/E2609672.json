@@ -1,0 +1,297 @@
+{
+ "case_id": "E2609672",
+ "decision_point": "2100-01-02 15:13:00",
+ "claims": [
+  "Monitor blood glucose levels closely due to hyperglycemia.",
+  "Continue stress ulcer prophylaxis with pantoprazole.",
+  "Assess for signs of sepsis and adjust antibiotic therapy if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2609672A1::01",
+   "claim_id": "E2609672A1",
+   "claim_text": "Monitor blood glucose levels closely due to hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2609672A1::02",
+   "claim_id": "E2609672A1",
+   "claim_text": "Monitor blood glucose levels closely due to hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E2609672A2::03",
+   "claim_id": "E2609672A2",
+   "claim_text": "Continue stress ulcer prophylaxis with pantoprazole.",
+   "kind": "action",
+   "text": "Continue stress ulcer prophylaxis with pantoprazole.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pantoprazole",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2609672A2::04",
+   "claim_id": "E2609672A2",
+   "claim_text": "Continue stress ulcer prophylaxis with pantoprazole.",
+   "kind": "fact",
+   "text": "Pantoprazole is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2609672A3::05",
+   "claim_id": "E2609672A3",
+   "claim_text": "Assess for signs of sepsis and adjust antibiotic therapy if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of sepsis",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2609672A3::06",
+   "claim_id": "E2609672A3",
+   "claim_text": "Assess for signs of sepsis and adjust antibiotic therapy if necessary.",
+   "kind": "action",
+   "text": "Adjust antibiotic therapy if necessary.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2609672A1::02",
+   "claim_id": "E2609672A1",
+   "claim_text": "Monitor blood glucose levels closely due to hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:601424292",
+     "time": "2100-01-01 09:16:00",
+     "item": "Glucose",
+     "value": 22.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:603716555",
+     "time": "2100-01-01 17:10:00",
+     "item": "Glucose",
+     "value": 70.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:604441381",
+     "time": "2100-01-02 11:50:00",
+     "item": "Glucose",
+     "value": 119.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 119 mg/dL at 2100-01-02 11:50:00 (reference 70 to 100) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E2609672A2::04",
+   "claim_id": "E2609672A2",
+   "claim_text": "Continue stress ulcer prophylaxis with pantoprazole.",
+   "kind": "fact",
+   "text": "Pantoprazole is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R25 shows a pantoprazole order running at decision time, and R36 documents pantoprazole as a treatment for stress ulcer prophylaxis, supporting that it is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:91019477",
+     "time": "2100-01-01 13:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication PANTOPRAZOLE 40 MG TABLET,DELAYED RELEASE Oral Every morning before breakfast"
+    },
+    {
+     "rid": "treat:58694879",
+     "time": "2100-01-01 18:09:00",
+     "item": "Treatment documented: medications | stress ulcer prophylaxis | pantoprazole"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2609672A1::01",
+   "claim_id": "E2609672A1",
+   "claim_text": "Monitor blood glucose levels closely due to hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:610458477",
+     "time": "2100-01-02 15:42:00",
+     "item": "glucose",
+     "value": "151.0 mg/dL"
+    },
+    {
+     "rid": "nurse:1773551827",
+     "time": "2100-01-02 15:42:00",
+     "item": "glucose",
+     "value": "151.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 8.0 h observation window after the decision (24 h or until ICU discharge): glucose x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2609672A2::03",
+   "claim_id": "E2609672A2",
+   "claim_text": "Continue stress ulcer prophylaxis with pantoprazole.",
+   "kind": "action",
+   "text": "Continue stress ulcer prophylaxis with pantoprazole.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pantoprazole",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No stress ulcer prophylaxis action recorded in the 8.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2609672A3::05",
+   "claim_id": "E2609672A3",
+   "claim_text": "Assess for signs of sepsis and adjust antibiotic therapy if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of sepsis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of sepsis",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2609672A3::06",
+   "claim_id": "E2609672A3",
+   "claim_text": "Assess for signs of sepsis and adjust antibiotic therapy if necessary.",
+   "kind": "action",
+   "text": "Adjust antibiotic therapy if necessary.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antibiotic therapy",
+   "conditional": true,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 8.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 8.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

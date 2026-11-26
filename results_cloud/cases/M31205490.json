@@ -1,0 +1,479 @@
+{
+ "case_id": "M31205490",
+ "decision_point": "2110-04-12 15:52:22",
+ "claims": [
+  "Monitor electrolyte levels, particularly potassium and magnesium.",
+  "Assess and manage pain, considering the patient's moderate pain level.",
+  "Continue monitoring vital signs and respiratory status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M31205490A1::01",
+   "claim_id": "M31205490A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31205490A1::02",
+   "claim_id": "M31205490A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31205490A1::03",
+   "claim_id": "M31205490A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31205490A2::04",
+   "claim_id": "M31205490A2",
+   "claim_text": "Assess and manage pain, considering the patient's moderate pain level.",
+   "kind": "action",
+   "text": "Assess pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31205490A2::05",
+   "claim_id": "M31205490A2",
+   "claim_text": "Assess and manage pain, considering the patient's moderate pain level.",
+   "kind": "action",
+   "text": "Manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "other",
+   "target": "pain",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "M31205490A2::06",
+   "claim_id": "M31205490A2",
+   "claim_text": "Assess and manage pain, considering the patient's moderate pain level.",
+   "kind": "fact",
+   "text": "The patient has a moderate pain level.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M31205490A3::07",
+   "claim_id": "M31205490A3",
+   "claim_text": "Continue monitoring vital signs and respiratory status.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "M31205490A3::08",
+   "claim_id": "M31205490A3",
+   "claim_text": "Continue monitoring vital signs and respiratory status.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M31205490A2::06",
+   "claim_id": "M31205490A2",
+   "claim_text": "Assess and manage pain, considering the patient's moderate pain level.",
+   "kind": "fact",
+   "text": "The patient has a moderate pain level.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The most recent pain assessment before the decision time (2110-04-12 09:53) records Pain Level: Moderate (5), which explicitly supports the statement that the patient has a moderate pain level.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "supported",
+     "glm-5.3-flash:cloud": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:31205490:223791:2110-04-12 09:53:00",
+     "time": "2110-04-12 09:53:00",
+     "item": "Pain Level: Moderate (5)"
+    },
+    {
+     "rid": "chart:31205490:223791:2110-04-12 08:00:00",
+     "time": "2110-04-12 08:00:00",
+     "item": "Pain Level: Moderate (5)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M31205490A1::01",
+   "claim_id": "M31205490A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 8.1 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31205490A1::02",
+   "claim_id": "M31205490A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor potassium.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 8.1 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31205490A1::03",
+   "claim_id": "M31205490A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium and magnesium.",
+   "kind": "action",
+   "text": "Monitor magnesium.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "magnesium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No magnesium measurement in the 8.1 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31205490A2::04",
+   "claim_id": "M31205490A2",
+   "claim_text": "Assess and manage pain, considering the patient's moderate pain level.",
+   "kind": "action",
+   "text": "Assess pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223791:2110-04-12 20:00:00:320083",
+     "time": "2110-04-12 20:00:00",
+     "item": "pain score",
+     "value": "Moderate to Severe."
+    },
+    {
+     "rid": "chart:224409:2110-04-12 17:06:00:320215",
+     "time": "2110-04-12 17:06:00",
+     "item": "pain score",
+     "value": "Mild to Moderate"
+    }
+   ],
+   "reason": "Measured in the 8.1 h observation window after the decision (24 h or until ICU discharge): pain score x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31205490A2::05",
+   "claim_id": "M31205490A2",
+   "claim_text": "Assess and manage pain, considering the patient's moderate pain level.",
+   "kind": "action",
+   "text": "Manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "other",
+   "target": "pain",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN229072",
+     "time": "2110-04-12 16:00:00",
+     "item": "Ketorolac (Toradol) infusion started at",
+     "class": "non_opioid_analgesia"
+    },
+    {
+     "rid": "RX30538834",
+     "time": "2110-04-12 20:00:00",
+     "item": "Ordered: Ketorolac 15 mg IV",
+     "class": "non_opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia / non-opioid analgesia after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M31205490A3::07",
+   "claim_id": "M31205490A3",
+   "claim_text": "Continue monitoring vital signs and respiratory status.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2110-04-12 16:00:00:319981",
+     "time": "2110-04-12 16:00:00",
+     "item": "heart rate",
+     "value": "83 bpm"
+    },
+    {
+     "rid": "chart:220045:2110-04-12 17:00:00:319987",
+     "time": "2110-04-12 17:00:00",
+     "item": "heart rate",
+     "value": "78 bpm"
+    },
+    {
+     "rid": "chart:220179:2110-04-12 16:00:00:319977",
+     "time": "2110-04-12 16:00:00",
+     "item": "systolic BP",
+     "value": "109 mmHg"
+    },
+    {
+     "rid": "chart:220179:2110-04-12 17:00:00:319989",
+     "time": "2110-04-12 17:00:00",
+     "item": "systolic BP",
+     "value": "112 mmHg"
+    },
+    {
+     "rid": "chart:220181:2110-04-12 16:00:00:319969",
+     "time": "2110-04-12 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "71 mmHg"
+    },
+    {
+     "rid": "chart:220181:2110-04-12 17:00:00:319985",
+     "time": "2110-04-12 17:00:00",
+     "item": "mean arterial pressure",
+     "value": "81 mmHg"
+    },
+    {
+     "rid": "chart:220210:2110-04-12 16:00:00:319975",
+     "time": "2110-04-12 16:00:00",
+     "item": "respiratory rate",
+     "value": "13 insp/min"
+    },
+    {
+     "rid": "chart:220210:2110-04-12 17:00:00:319986",
+     "time": "2110-04-12 17:00:00",
+     "item": "respiratory rate",
+     "value": "14 insp/min"
+    },
+    {
+     "rid": "chart:220277:2110-04-12 16:00:00:319978",
+     "time": "2110-04-12 16:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:220277:2110-04-12 17:00:00:319990",
+     "time": "2110-04-12 17:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:223761:2110-04-12 20:00:00:320042",
+     "time": "2110-04-12 20:00:00",
+     "item": "temperature",
+     "value": "98.4 °F"
+    }
+   ],
+   "reason": "Measured in the 8.1 h observation window after the decision (24 h or until ICU discharge): heart rate x7, systolic BP x7, mean arterial pressure x7, respiratory rate x7, SpO2 x7, temperature x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M31205490A3::08",
+   "claim_id": "M31205490A3",
+   "claim_text": "Continue monitoring vital signs and respiratory status.",
+   "kind": "action",
+   "text": "Continue monitoring respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2110-04-12 16:00:00:319975",
+     "time": "2110-04-12 16:00:00",
+     "item": "respiratory rate",
+     "value": "13 insp/min"
+    },
+    {
+     "rid": "chart:220210:2110-04-12 17:00:00:319986",
+     "time": "2110-04-12 17:00:00",
+     "item": "respiratory rate",
+     "value": "14 insp/min"
+    },
+    {
+     "rid": "chart:220277:2110-04-12 16:00:00:319978",
+     "time": "2110-04-12 16:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:220277:2110-04-12 17:00:00:319990",
+     "time": "2110-04-12 17:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    }
+   ],
+   "reason": "Measured in the 8.1 h observation window after the decision (24 h or until ICU discharge): respiratory rate x7, SpO2 x7.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Ketorolac",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M31205490A2::05"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Ketorolac",
+    "Ketorolac (Toradol)"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M31205490A2::05"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 10,
+ "observation_window_hours": 8.1,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": null,
+  "recall_okay": 0.5,
+  "recall_all": 0.5,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.5,
+  "recall_all_at3": 0.5
+ }
+}

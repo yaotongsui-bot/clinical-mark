@@ -1,0 +1,350 @@
+{
+ "case_id": "E1071450",
+ "decision_point": "2100-01-02 02:03:00",
+ "claims": [
+  "Continue monitoring blood glucose levels and adjust insulin dosing as needed.",
+  "Administer intravenous potassium chloride to correct hypokalemia.",
+  "Continue inotropic support with milrinone."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1071450A1::01",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring blood glucose levels and adjust insulin dosing as needed.",
+   "kind": "action",
+   "text": "Continue monitoring blood glucose levels.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1071450A1::02",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring blood glucose levels and adjust insulin dosing as needed.",
+   "kind": "action",
+   "text": "Adjust insulin dosing as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1071450A2::03",
+   "claim_id": "E1071450A2",
+   "claim_text": "Administer intravenous potassium chloride to correct hypokalemia.",
+   "kind": "action",
+   "text": "Administer intravenous potassium chloride.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1071450A2::04",
+   "claim_id": "E1071450A2",
+   "claim_text": "Administer intravenous potassium chloride to correct hypokalemia.",
+   "kind": "fact",
+   "text": "Hypokalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1071450A3::05",
+   "claim_id": "E1071450A3",
+   "claim_text": "Continue inotropic support with milrinone.",
+   "kind": "action",
+   "text": "Continue inotropic support with milrinone.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "continue",
+   "target": "milrinone",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1071450A3::06",
+   "claim_id": "E1071450A3",
+   "claim_text": "Continue inotropic support with milrinone.",
+   "kind": "fact",
+   "text": "Milrinone is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1071450A3::P01",
+   "claim_id": "E1071450A3",
+   "claim_text": "Continue inotropic support with milrinone.",
+   "kind": "fact",
+   "text": "The patient is currently receiving milrinone.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1071450A2::04",
+   "claim_id": "E1071450A2",
+   "claim_text": "Administer intravenous potassium chloride to correct hypokalemia.",
+   "kind": "fact",
+   "text": "Hypokalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:251989980",
+     "time": "2099-12-31 18:15:00",
+     "item": "Potassium",
+     "value": 4.2,
+     "unit": "mmol/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:252431159",
+     "time": "2100-01-01 08:01:00",
+     "item": "Potassium",
+     "value": 2.8,
+     "unit": "mmol/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:251836202",
+     "time": "2100-01-01 13:50:00",
+     "item": "Potassium",
+     "value": 4.1,
+     "unit": "mmol/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest potassium 4.1 mmol/L at 2100-01-01 13:50:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1071450A3::06",
+   "claim_id": "E1071450A3",
+   "claim_text": "Continue inotropic support with milrinone.",
+   "kind": "fact",
+   "text": "Milrinone is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records mention milrinone only as a treatment documented for shock/inotropic agent (R29), but there is no medication order or administration record showing milrinone was given within 24 hours before the decision time. Therefore, the statement that it is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:30735876",
+     "time": "2100-01-01 03:34:00",
+     "item": "Treatment documented: shock | inotropic agent | milrinone"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1071450A3::P01",
+   "claim_id": "E1071450A3",
+   "claim_text": "Continue inotropic support with milrinone.",
+   "kind": "fact",
+   "text": "The patient is currently receiving milrinone.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "not_supported",
+   "reason": "The records mention milrinone only as a documented treatment for shock (R28), but there is no medication order or administration record showing that milrinone was being given at or near the decision time. Therefore, the statement that the patient is currently receiving milrinone is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:30735876",
+     "time": "2100-01-01 03:34:00",
+     "item": "Treatment documented: shock | inotropic agent | milrinone"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1071450A1::01",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring blood glucose levels and adjust insulin dosing as needed.",
+   "kind": "action",
+   "text": "Continue monitoring blood glucose levels.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:255854677",
+     "time": "2100-01-02 03:52:00",
+     "item": "glucose",
+     "value": "198.0 mg/dL"
+    },
+    {
+     "rid": "nurse:656147351",
+     "time": "2100-01-02 03:52:00",
+     "item": "glucose",
+     "value": "198.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x14.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1071450A1::02",
+   "claim_id": "E1071450A1",
+   "claim_text": "Continue monitoring blood glucose levels and adjust insulin dosing as needed.",
+   "kind": "action",
+   "text": "Adjust insulin dosing as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1071450A2::03",
+   "claim_id": "E1071450A2",
+   "claim_text": "Administer intravenous potassium chloride to correct hypokalemia.",
+   "kind": "action",
+   "text": "Administer intravenous potassium chloride.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "potassium chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No potassium replacement action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1071450A3::05",
+   "claim_id": "E1071450A3",
+   "claim_text": "Continue inotropic support with milrinone.",
+   "kind": "action",
+   "text": "Continue inotropic support with milrinone.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "continue",
+   "target": "milrinone",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No vasopressors action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hypokalemia is present. -- Latest potassium 4.1 mmol/L at 2100-01-01 13:50:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'.",
+    "Milrinone is currently being given. -- The records mention milrinone only as a treatment documented for shock/inotropic agent (R29), but there is no medication order or administration record showing milrinone was given within 24 hours before the decision time. Therefore, the statement that it is currently being given is not supported.",
+    "The patient is currently receiving milrinone. -- The records mention milrinone only as a documented treatment for shock (R28), but there is no medication order or administration record showing that milrinone was being given at or near the decision time. Therefore, the statement that the patient is currently receiving milrinone is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

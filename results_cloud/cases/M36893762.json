@@ -1,0 +1,345 @@
+{
+ "case_id": "M36893762",
+ "decision_point": "2134-09-08 18:03:58",
+ "claims": [
+  "Monitor blood pressure closely due to recent high readings.",
+  "Assess for potential causes of elevated liver enzymes (ALT, AST).",
+  "Continue IV fluid administration to maintain adequate hydration."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M36893762A1::01",
+   "claim_id": "M36893762A1",
+   "claim_text": "Monitor blood pressure closely due to recent high readings.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36893762A1::02",
+   "claim_id": "M36893762A1",
+   "claim_text": "Monitor blood pressure closely due to recent high readings.",
+   "kind": "fact",
+   "text": "Blood pressure readings are recently high.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M36893762A2::03",
+   "claim_id": "M36893762A2",
+   "claim_text": "Assess for potential causes of elevated liver enzymes (ALT, AST).",
+   "kind": "action",
+   "text": "Assess for potential causes of elevated liver enzymes.",
+   "concept": "liver_function",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of elevated liver enzymes",
+   "conditional": false
+  },
+  {
+   "atom_id": "M36893762A2::04",
+   "claim_id": "M36893762A2",
+   "claim_text": "Assess for potential causes of elevated liver enzymes (ALT, AST).",
+   "kind": "fact",
+   "text": "ALT is elevated.",
+   "concept": "alt",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M36893762A2::05",
+   "claim_id": "M36893762A2",
+   "claim_text": "Assess for potential causes of elevated liver enzymes (ALT, AST).",
+   "kind": "fact",
+   "text": "AST is elevated.",
+   "concept": "ast",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M36893762A3::06",
+   "claim_id": "M36893762A3",
+   "claim_text": "Continue IV fluid administration to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Continue IV fluid administration.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M36893762A3::07",
+   "claim_id": "M36893762A3",
+   "claim_text": "Continue IV fluid administration to maintain adequate hydration.",
+   "kind": "fact",
+   "text": "IV fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M36893762A1::02",
+   "claim_id": "M36893762A1",
+   "claim_text": "Monitor blood pressure closely due to recent high readings.",
+   "kind": "fact",
+   "text": "Blood pressure readings are recently high.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "chart:36893762:220179:2134-09-08 17:01:00",
+     "time": "2134-09-08 17:01:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 156.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "'blood pressure high' holds when any component is high. systolic BP: yes; mean arterial pressure: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M36893762A2::04",
+   "claim_id": "M36893762A2",
+   "claim_text": "Assess for potential causes of elevated liver enzymes (ALT, AST).",
+   "kind": "fact",
+   "text": "ALT is elevated.",
+   "concept": "alt",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:471641",
+     "time": "2134-09-08 02:16:00",
+     "item": "Alanine Aminotransferase (ALT)",
+     "value": 16.0,
+     "unit": "IU/L",
+     "bounds": "0.0 to 40.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest ALT 16 IU/L at 2134-09-08 02:16:00 (reference 0.0 to 40.0) is normal, not consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M36893762A2::05",
+   "claim_id": "M36893762A2",
+   "claim_text": "Assess for potential causes of elevated liver enzymes (ALT, AST).",
+   "kind": "fact",
+   "text": "AST is elevated.",
+   "concept": "ast",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:471644",
+     "time": "2134-09-08 02:16:00",
+     "item": "Asparate Aminotransferase (AST)",
+     "value": 15.0,
+     "unit": "IU/L",
+     "bounds": "0.0 to 40.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest AST 15 IU/L at 2134-09-08 02:16:00 (reference 0.0 to 40.0) is normal, not consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M36893762A3::07",
+   "claim_id": "M36893762A3",
+   "claim_text": "Continue IV fluid administration to maintain adequate hydration.",
+   "kind": "fact",
+   "text": "IV fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "An administration record shows Infusion/input Crystalloid Intake 2400 ml at 2134-09-07 18:10, within the 24 hours before the decision time, supporting that IV fluids were being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "not_addressed",
+     "glm-5.3-flash:cloud": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:9667478:226364:2134-09-07 18:10:00",
+     "time": "2134-09-07 18:10:00",
+     "item": "Infusion/input OR Crystalloid Intake 2400 ml (2134-09-07 18:10:00 to 2134-09-07 18:11:00)"
+    },
+    {
+     "rid": "rx:33609623:2134-09-07 19:00:00",
+     "time": "2134-09-07 19:00:00",
+     "item": "Order: 0.83% Sodium Chloride 200 mL IV DRIP (active at decision time)"
+    },
+    {
+     "rid": "rx:36520624:2134-09-08 00:00:00",
+     "time": "2134-09-08 00:00:00",
+     "item": "Order: Sodium Chloride 0.9% 1000 mL IV (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M36893762A1::01",
+   "claim_id": "M36893762A1",
+   "claim_text": "Monitor blood pressure closely due to recent high readings.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220179:2134-09-08 19:01:00:165348",
+     "time": "2134-09-08 19:01:00",
+     "item": "systolic BP",
+     "value": "151 mmHg"
+    },
+    {
+     "rid": "chart:220179:2134-09-08 20:01:00:165353",
+     "time": "2134-09-08 20:01:00",
+     "item": "systolic BP",
+     "value": "153 mmHg"
+    },
+    {
+     "rid": "chart:220181:2134-09-08 19:01:00:165350",
+     "time": "2134-09-08 19:01:00",
+     "item": "mean arterial pressure",
+     "value": "92 mmHg"
+    },
+    {
+     "rid": "chart:220181:2134-09-08 20:01:00:165352",
+     "time": "2134-09-08 20:01:00",
+     "item": "mean arterial pressure",
+     "value": "108 mmHg"
+    }
+   ],
+   "reason": "Measured in the 4.1 h observation window after the decision (24 h or until ICU discharge): systolic BP x4, mean arterial pressure x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36893762A2::03",
+   "claim_id": "M36893762A2",
+   "claim_text": "Assess for potential causes of elevated liver enzymes (ALT, AST).",
+   "kind": "action",
+   "text": "Assess for potential causes of elevated liver enzymes.",
+   "concept": "liver_function",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of elevated liver enzymes",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M36893762A3::06",
+   "claim_id": "M36893762A3",
+   "claim_text": "Continue IV fluid administration to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Continue IV fluid administration.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 4.1 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "doctor_actions_in_window": 2,
+ "observation_window_hours": 4.1,
+ "scoresheet": {
+  "n": 4,
+  "supported": 2,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "ALT is elevated. -- Latest ALT 16 IU/L at 2134-09-08 02:16:00 (reference 0.0 to 40.0) is normal, not consistent with 'high'.",
+    "AST is elevated. -- Latest AST 15 IU/L at 2134-09-08 02:16:00 (reference 0.0 to 40.0) is normal, not consistent with 'high'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

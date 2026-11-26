@@ -1,0 +1,354 @@
+{
+ "case_id": "E1823356",
+ "decision_point": "2100-01-02 03:18:00",
+ "claims": [
+  "Continue insulin lispro sliding scale as ordered for glycemic control.",
+  "Monitor blood glucose closely to assess response to subcutaneous insulin regimen.",
+  "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1823356A1::01",
+   "claim_id": "E1823356A1",
+   "claim_text": "Continue insulin lispro sliding scale as ordered for glycemic control.",
+   "kind": "action",
+   "text": "Continue insulin lispro sliding scale as ordered.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin lispro sliding scale",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1823356A1::02",
+   "claim_id": "E1823356A1",
+   "claim_text": "Continue insulin lispro sliding scale as ordered for glycemic control.",
+   "kind": "fact",
+   "text": "Insulin lispro sliding scale is currently ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1823356A2::03",
+   "claim_id": "E1823356A2",
+   "claim_text": "Monitor blood glucose closely to assess response to subcutaneous insulin regimen.",
+   "kind": "action",
+   "text": "Monitor blood glucose closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823356A3::04",
+   "claim_id": "E1823356A3",
+   "claim_text": "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs.",
+   "kind": "action",
+   "text": "Assess readiness for ICU discharge.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "ICU discharge readiness",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1823356A3::05",
+   "claim_id": "E1823356A3",
+   "claim_text": "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs.",
+   "kind": "fact",
+   "text": "Anion gap acidosis is resolved.",
+   "concept": "ph",
+   "notes": [
+    "concept set by the rule files: anion_gap -> ph"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1823356A3::06",
+   "claim_id": "E1823356A3",
+   "claim_text": "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs.",
+   "kind": "fact",
+   "text": "Vital signs are stable.",
+   "concept": "vital_signs",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1823356A1::02",
+   "claim_id": "E1823356A1",
+   "claim_text": "Continue insulin lispro sliding scale as ordered for glycemic control.",
+   "kind": "fact",
+   "text": "Insulin lispro sliding scale is currently ordered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R47 shows a scheduled insulin lispro order running at the decision time, supporting that insulin lispro sliding scale is currently ordered.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:65306875",
+     "time": "2100-01-01 22:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 22:30:00): Medication 3 ML VIAL : INSULIN LISPRO (HUMAN) 100 UNIT/ML SC SOLN SC TID WC"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1823356A3::05",
+   "claim_id": "E1823356A3",
+   "claim_text": "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs.",
+   "kind": "fact",
+   "text": "Anion gap acidosis is resolved.",
+   "concept": "ph",
+   "notes": [
+    "concept set by the rule files: anion_gap -> ph"
+   ],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:459843459",
+     "time": "2100-01-01 00:00:00",
+     "item": "pH",
+     "value": 7.25,
+     "unit": "",
+     "bounds": "7.35 to 7.45",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:458589744",
+     "time": "2100-01-01 03:35:00",
+     "item": "pH",
+     "value": 7.26,
+     "unit": "",
+     "bounds": "7.35 to 7.45",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:460682793",
+     "time": "2100-01-01 14:51:00",
+     "item": "pH",
+     "value": 7.3,
+     "unit": "",
+     "bounds": "7.35 to 7.45",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest pH 7.3  at 2100-01-01 14:51:00 (reference 7.35 to 7.45) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1823356A3::06",
+   "claim_id": "E1823356A3",
+   "claim_text": "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs.",
+   "kind": "fact",
+   "text": "Vital signs are stable.",
+   "concept": "vital_signs",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "normal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1297603630",
+     "time": "2100-01-02 00:49:00",
+     "item": "Heart Rate",
+     "value": 97.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "nurse:1273084591",
+     "time": "2100-01-02 00:49:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 106.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "nurse:1273084593",
+     "time": "2100-01-02 00:49:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 80.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "nurse:1300047282",
+     "time": "2100-01-02 00:49:00",
+     "item": "Respiratory Rate",
+     "value": 18.0,
+     "unit": "insp/min",
+     "bounds": "12 to 20",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "nurse:1289806051",
+     "time": "2100-01-02 00:49:00",
+     "item": "O2 saturation pulseoxymetry",
+     "value": 100.0,
+     "unit": "%",
+     "bounds": "90 to -",
+     "bounds_basis": "rule",
+     "status": "normal"
+    },
+    {
+     "rid": "nurse:1311492709",
+     "time": "2100-01-01 13:00:00",
+     "item": "Temperature Fahrenheit",
+     "value": 97.7,
+     "unit": "F",
+     "bounds": "96.8 to 100.4",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "'vital signs normal' holds when any component is normal. heart rate: yes; systolic BP: yes; mean arterial pressure: yes; respiratory rate: yes; SpO2: yes; temperature: yes.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1823356A1::01",
+   "claim_id": "E1823356A1",
+   "claim_text": "Continue insulin lispro sliding scale as ordered for glycemic control.",
+   "kind": "action",
+   "text": "Continue insulin lispro sliding scale as ordered.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin lispro sliding scale",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 14.8 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1823356A2::03",
+   "claim_id": "E1823356A2",
+   "claim_text": "Monitor blood glucose closely to assess response to subcutaneous insulin regimen.",
+   "kind": "action",
+   "text": "Monitor blood glucose closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:443007004",
+     "time": "2100-01-02 04:41:00",
+     "item": "glucose",
+     "value": "239.0 mg/dL"
+    },
+    {
+     "rid": "lab:424798036",
+     "time": "2100-01-02 10:05:00",
+     "item": "glucose",
+     "value": "149.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 14.8 h observation window after the decision (24 h or until ICU discharge): glucose x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1823356A3::04",
+   "claim_id": "E1823356A3",
+   "claim_text": "Assess readiness for ICU discharge given resolved anion gap acidosis and stable vital signs.",
+   "kind": "action",
+   "text": "Assess readiness for ICU discharge.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "ICU discharge readiness",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 14.8,
+ "scoresheet": {
+  "n": 3,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

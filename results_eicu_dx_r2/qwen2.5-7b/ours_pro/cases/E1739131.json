@@ -1,0 +1,288 @@
+{
+ "case_id": "E1739131",
+ "decision_point": "2100-01-02 09:51:00",
+ "claims": [
+  "Monitor blood pressure and adjust fluid administration as needed.",
+  "Continue pain management with hydromorphone as needed.",
+  "Assess for signs of hypovolemia and consider fluid resuscitation if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1739131A1::01",
+   "claim_id": "E1739131A1",
+   "claim_text": "Monitor blood pressure and adjust fluid administration as needed.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1739131A1::02",
+   "claim_id": "E1739131A1",
+   "claim_text": "Monitor blood pressure and adjust fluid administration as needed.",
+   "kind": "action",
+   "text": "Adjust fluid administration as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "fluid administration",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1739131A2::03",
+   "claim_id": "E1739131A2",
+   "claim_text": "Continue pain management with hydromorphone as needed.",
+   "kind": "action",
+   "text": "Continue pain management with hydromorphone as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "hydromorphone",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1739131A2::04",
+   "claim_id": "E1739131A2",
+   "claim_text": "Continue pain management with hydromorphone as needed.",
+   "kind": "fact",
+   "text": "Hydromorphone is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1739131A3::05",
+   "claim_id": "E1739131A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypovolemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1739131A3::06",
+   "claim_id": "E1739131A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation if necessary.",
+   "kind": "action",
+   "text": "Consider fluid resuscitation if necessary.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1739131A2::04",
+   "claim_id": "E1739131A2",
+   "claim_text": "Continue pain management with hydromorphone as needed.",
+   "kind": "fact",
+   "text": "Hydromorphone is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show hydromorphone was administered at 06:59, 07:58, and 10:28 on 2100-01-01, but the decision time is 2100-01-02 09:51. There is no administration record within 24 hours before the decision time, so the statement that it is currently being given is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:62832692",
+     "time": "2100-01-01 06:59:00",
+     "item": "Medication HYDROMORPHONE HCL .ROUTE .STK-MED (2100-01-01 06:59:00 to 2100-01-01 07:00:00)"
+    },
+    {
+     "rid": "med:66738341",
+     "time": "2100-01-01 07:58:00",
+     "item": "Medication HYDROMORPHONE HCL .ROUTE .STK-MED (2100-01-01 07:58:00 to 2100-01-01 07:59:00)"
+    },
+    {
+     "rid": "med:65640459",
+     "time": "2100-01-01 10:28:00",
+     "item": "Medication HYDROMORPHONE HCL .ROUTE .STK-MED (2100-01-01 10:28:00 to 2100-01-01 10:29:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1739131A1::01",
+   "claim_id": "E1739131A1",
+   "claim_text": "Monitor blood pressure and adjust fluid administration as needed.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1273285819",
+     "time": "2100-01-02 21:30:00",
+     "item": "systolic BP",
+     "value": "140.0 mmHg"
+    },
+    {
+     "rid": "nurse:1307124307",
+     "time": "2100-01-03 06:46:00",
+     "item": "systolic BP",
+     "value": "139.0 mmHg"
+    },
+    {
+     "rid": "nurse:1273285821",
+     "time": "2100-01-02 21:30:00",
+     "item": "mean arterial pressure",
+     "value": "86.0 mmHg"
+    },
+    {
+     "rid": "nurse:1307124309",
+     "time": "2100-01-03 06:46:00",
+     "item": "mean arterial pressure",
+     "value": "101.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x2, mean arterial pressure x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1739131A1::02",
+   "claim_id": "E1739131A1",
+   "claim_text": "Monitor blood pressure and adjust fluid administration as needed.",
+   "kind": "action",
+   "text": "Adjust fluid administration as needed.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "fluid administration",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1739131A2::03",
+   "claim_id": "E1739131A2",
+   "claim_text": "Continue pain management with hydromorphone as needed.",
+   "kind": "action",
+   "text": "Continue pain management with hydromorphone as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "hydromorphone",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1739131A3::05",
+   "claim_id": "E1739131A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypovolemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1739131A3::06",
+   "claim_id": "E1739131A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation if necessary.",
+   "kind": "action",
+   "text": "Consider fluid resuscitation if necessary.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hydromorphone is currently being given. -- The records show hydromorphone was administered at 06:59, 07:58, and 10:28 on 2100-01-01, but the decision time is 2100-01-02 09:51. There is no administration record within 24 hours before the decision time, so the statement that it is currently being given is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

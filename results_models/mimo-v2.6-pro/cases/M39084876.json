@@ -1,0 +1,478 @@
+{
+ "case_id": "M39084876",
+ "decision_point": "2120-05-14 14:27:34",
+ "claims": [
+  "Continue mechanical ventilation with the current settings (APV/CMV, PEEP 5 cmH2O, FiO2 50%, set rate 14-16/min).",
+  "Monitor arterial blood gases and lactate to assess oxygenation, ventilation, and acid-base status.",
+  "Monitor blood glucose and administer insulin per active orders for glycemic control."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39084876A1::01",
+   "claim_id": "M39084876A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (APV/CMV, PEEP 5 cmH2O, FiO2 50%, set rate 14-16/min).",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings (APV/CMV, PEEP 5 cmH2O, FiO2 50%, set rate 14-16/min).",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39084876A1::02",
+   "claim_id": "M39084876A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (APV/CMV, PEEP 5 cmH2O, FiO2 50%, set rate 14-16/min).",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M39084876A2::03",
+   "claim_id": "M39084876A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation, ventilation, and acid-base status.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39084876A2::04",
+   "claim_id": "M39084876A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation, ventilation, and acid-base status.",
+   "kind": "action",
+   "text": "Monitor lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39084876A3::05",
+   "claim_id": "M39084876A3",
+   "claim_text": "Monitor blood glucose and administer insulin per active orders for glycemic control.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39084876A3::06",
+   "claim_id": "M39084876A3",
+   "claim_text": "Monitor blood glucose and administer insulin per active orders for glycemic control.",
+   "kind": "action",
+   "text": "Administer insulin per active orders.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39084876A1::02",
+   "claim_id": "M39084876A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (APV/CMV, PEEP 5 cmH2O, FiO2 50%, set rate 14-16/min).",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:407953",
+     "time": "2120-05-13 19:45:00",
+     "item": "Intubated: INTUBATED."
+    }
+   ],
+   "reason": "The last ventilator/intubation record ('Intubated: INTUBATED.') was 18.7 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39084876A1::01",
+   "claim_id": "M39084876A1",
+   "claim_text": "Continue mechanical ventilation with the current settings (APV/CMV, PEEP 5 cmH2O, FiO2 50%, set rate 14-16/min).",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings (APV/CMV, PEEP 5 cmH2O, FiO2 50%, set rate 14-16/min).",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 2.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39084876A2::03",
+   "claim_id": "M39084876A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation, ventilation, and acid-base status.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 2.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39084876A2::04",
+   "claim_id": "M39084876A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess oxygenation, ventilation, and acid-base status.",
+   "kind": "action",
+   "text": "Monitor lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No lactate measurement in the 2.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39084876A3::05",
+   "claim_id": "M39084876A3",
+   "claim_text": "Monitor blood glucose and administer insulin per active orders for glycemic control.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:50931:2120-05-14 15:50:00:96384",
+     "time": "2120-05-14 15:50:00",
+     "item": "glucose",
+     "value": "___ mg/dL"
+    }
+   ],
+   "reason": "Measured in the 2.0 h observation window after the decision (24 h or until ICU discharge): glucose x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39084876A3::06",
+   "claim_id": "M39084876A3",
+   "claim_text": "Monitor blood glucose and administer insulin per active orders for glycemic control.",
+   "kind": "action",
+   "text": "Administer insulin per active orders.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN223258",
+     "time": "2120-05-14 15:00:00",
+     "item": "Insulin - Regular infusion started at",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 10.6 K/uL at 2120-05-14 03:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 10.6 K/uL at 2120-05-14 03:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.2 mmol/L at 2120-05-13 19:45:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.2 mmol/L at 2120-05-13 19:45:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "OxycoDONE (Immediate Release)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39084876A3::06"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 10.6 K/uL at 2120-05-14 03:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 10.6 K/uL at 2120-05-14 03:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Cefazolin"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.2 mmol/L at 2120-05-13 19:45:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.2 mmol/L at 2120-05-13 19:45:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "OxycoDONE (Immediate Release)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39084876A3::06"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 2.2 mmol/L at 2120-05-13 19:45:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 10.6 K/uL at 2120-05-14 03:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 8,
+ "observation_window_hours": 2.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The last ventilator/intubation record ('Intubated: INTUBATED.') was 18.7 h before the decision, with none after it. Ventilator settings are charted every 1-4 h while ventilated, so by the rule (> 6 h without a record) the patient was not ventilated at T."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.5,
+  "facts_omitted": 2,
+  "treatments_omitted": 5,
+  "recall_vital": 0.0,
+  "recall_okay": 0.25,
+  "recall_all": 0.167,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.25,
+  "recall_all_at3": 0.167
+ }
+}

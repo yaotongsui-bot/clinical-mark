@@ -1,0 +1,129 @@
+# E284265   T = 2100-01-02 18:11:00   records before T: 204
+ICU stay 284265 (Med-Surg ICU; Male, age 66; admission diagnosis: Rhythm disturbance (atrial, supraventricular)).
+
+## Atoms
+deepseek-v4.1-flash|E284265A1::02 [presupposition] Diltiazem infusion is currently being given.   <- Continue diltiazem infusion for rate control of atrial arrhythmia.
+deepseek-v4.1-flash|E284265A1::03 [presupposition] Atrial arrhythmia is present.   <- Continue diltiazem infusion for rate control of atrial arrhythmia.
+deepseek-v4.1-flash|E284265A2::05 [presupposition] Enoxaparin is currently being given.   <- Continue enoxaparin for anticoagulation/VTE prophylaxis.
+gpt-oss-120b|E284265A1::04 [presupposition] Ibutilide was administered.   <- Obtain a repeat 12-lead electrocardiogram to assess rhythm control and QT interval after ibutilide administration.
+gpt-oss-120b|E284265A2::06 [presupposition] Intravenous diltiazem infusion is currently being given.   <- Continue intravenous diltiazem infusion at the current rate and monitor blood pressure and heart rate q1h.
+gpt-oss-120b|E284265A3::12 [presupposition] Supraventricular tachyarrhythmia is present.   <- Order a transthoracic echocardiogram to evaluate cardiac function and rule out structural contributors to supraventricular tachyarrhythmia.
+qwen2.5-7b|E284265A2::03 [presupposition] Enoxaparin is currently being given.   <- Continue anticoagulant therapy with enoxaparin.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 14:00:00): Medication AZITHROMYCIN PO DAILY
+  Running at decision time (scheduled order started 2100-01-01 17:40:00): Medication ENOXAPARIN INJ SUB-Q Q12H
+  Running at decision time (scheduled order started 2100-01-01 17:44:00): Medication SODIUM CHLORIDE 0.9% 1,000 ML BAG .ROUTE .STK-MED 1
+  Running at decision time (scheduled order started 2100-01-01 18:00:00): Medication ENOXAPARIN INJ SUB-Q Q12H
+  Running at decision time (scheduled order started 2100-01-01 20:05:00): Medication SODIUM CHLORIDE 0.9% 1,000 ML BAG IV PRN
+  Running at decision time (scheduled order started 2100-01-01 21:36:00): Medication ACETAMINOPHEN .ROUTE .STK-MED 1
+
+## PRN orders
+  01-01 18:25 Order: METOPROLOL INJ IVP Q15M PRN (stopped 2100-01-02 01:05:00)
+  01-01 21:40 Order: ACETAMINOPHEN PO Q6H PRN (active at decision time)
+  01-01 21:55 Order: IBUPROFEN PO Q8H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Diltiazem at 10 mg/hour (2100-01-01 21:00:00 to 2100-01-02 05:00:00)
+
+## Medications given once or ended before T
+  Medication ALBUTEROL NEB 2.5 MG/3 ML NEB (2099-12-31 20:50:00 to 2100-01-01 22:10:00)
+  Medication ENOXAPARIN INJ SUB-Q Q24H (2099-12-31 21:00:00 to 2100-01-01 17:23:00)
+  Medication METHYLPREDNISOLONE SOD SUCC IVP Q8H (2099-12-31 21:00:00 to 2100-01-01 12:17:00)
+  Medication METHYLPREDNISOLONE SOD SUCC IVP Q8H (2100-01-01 13:00:00 to 2100-01-02 16:29:00)
+  Given once: SODIUM CHLORIDE 0.9% 1,000 ML BAG IV ONE 1 (2100-01-01 19:25:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-02 10:10 0.1 %; 12-31 22:04 0.8 %
+  -eos: 01-02 10:10 0 %; 12-31 22:04 11 %
+  -lymphs: 01-02 10:10 6.5 %; 12-31 22:04 24.7 %
+  -monos: 01-02 10:10 2.6 %; 12-31 22:04 6.7 %
+  -polys: 01-02 10:10 90.8 %; 12-31 22:04 56.8 %
+  Alanine Aminotransferase (ALT): 12-31 22:04 35 U/L
+  Albumin: 12-31 22:04 4 g/dL
+  Alkaline Phosphatase: 12-31 22:04 69 U/L
+  Anion Gap: 01-02 10:10 12 mmol/L; 01-01 17:31 13 mmol/L; 12-31 22:04 13 mmol/L
+  Asparate Aminotransferase (AST): 12-31 22:04 23 U/L
+  BNP: 01-01 17:31 129 pg/mL
+  Bicarbonate: 01-02 10:10 25 mmol/L; 01-01 17:31 25 mmol/L; 12-31 22:04 27 mmol/L
+  Bilirubin, Total: 12-31 22:04 0.4 mg/dL
+  Calcium, Total: 01-02 10:10 8.7 mg/dL; 01-01 17:31 9.4 mg/dL; 12-31 22:04 9.2 mg/dL
+  Chloride: 01-02 10:10 102 mmol/L; 01-01 17:31 98 mmol/L; 12-31 22:04 101 mmol/L
+  Creatinine: 01-02 10:10 0.95 mg/dL; 01-01 17:31 0.92 mg/dL; 12-31 22:04 0.95 mg/dL
+  FiO2: 01-02 03:17 28 %
+  Glucose: 01-02 10:10 137 mg/dL; 01-01 17:31 195 mg/dL; 12-31 22:04 106 mg/dL
+  Glucose finger stick: 01-02 16:11 139 mg/dL; 01-02 13:32 162 mg/dL; 01-01 22:12 120 mg/dL; 01-01 15:35 135 mg/dL
+  Hematocrit: 01-02 10:10 41 %; 01-01 17:31 44.3 %; 12-31 22:04 45.6 %
+  Hemoglobin: 01-02 10:10 14.3 g/dL; 01-01 17:31 15.9 g/dL; 12-31 22:04 15.8 g/dL
+  INR(PT): 01-01 17:31 1
+  LPM O2: 01-02 03:17 2 L/min
+  MCH: 01-02 10:10 30.2 pg; 01-01 17:31 30.6 pg; 12-31 22:04 30.2 pg
+  MCHC: 01-02 10:10 34.9 g/dL; 01-01 17:31 35.9 g/dL; 12-31 22:04 34.6 g/dL
+  MCV: 01-02 10:10 86.5 fl; 01-01 17:31 85.4 fl; 12-31 22:04 87 fl
+  MPV: 01-02 10:10 10.2 fl; 01-01 17:31 9.9 fl; 12-31 22:04 9.9 fl
+  Magnesium: 01-01 17:31 1.5 mg/dL
+  PT: 01-01 17:31 13 Sec
+  PTT: 01-01 17:31 26.9 Sec
+  Platelet Count: 01-02 10:10 196 K/uL; 01-01 17:31 208 K/uL; 12-31 22:04 188 K/uL
+  Potassium: 01-02 10:10 4.5 mmol/L; 01-01 17:31 4.4 mmol/L; 12-31 22:04 4.4 mmol/L
+  RBC: 01-02 10:10 4.74 M/uL; 01-01 17:31 5.19 M/uL; 12-31 22:04 5.24 M/uL
+  RDW: 01-02 10:10 12.8 %; 01-01 17:31 12.6 %; 12-31 22:04 12.9 %
+  Sodium: 01-02 10:10 139 mmol/L; 01-01 17:31 136 mmol/L; 12-31 22:04 141 mmol/L
+  TSH: 01-01 17:31 0.01 uIU/mL
+  Urea Nitrogen: 01-02 10:10 25 mg/dL; 01-01 17:31 21 mg/dL; 12-31 22:04 18 mg/dL
+  White Blood Cells: 01-02 10:10 14.34 K/uL; 01-01 17:31 16.78 K/uL; 12-31 22:04 8.61 K/uL
+  free T4: 01-01 17:31 1.29 ng/dL
+  total protein: 12-31 22:04 7.4 g/dL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-02 13:00   24h 4-4 (n=3)
+  Glasgow coma score GCS Total: 15 @01-02 13:00   24h 15-15 (n=3)
+  Glasgow coma score Motor: 6 @01-02 13:00   24h 6-6 (n=3)
+  Glasgow coma score Verbal: 5 @01-02 13:00   24h 5-5 (n=3)
+  Heart Rate: 81 bpm @01-02 17:30   24h 65-127 (n=8)
+  Non Invasive Blood Pressure diastolic: 54 mmHg @01-02 17:30   24h 50-74 (n=8)
+  Non Invasive Blood Pressure mean: 75 mmHg @01-02 17:30   24h 70-93 (n=8)
+  Non Invasive Blood Pressure systolic: 153 mmHg @01-02 17:30   24h 112-167 (n=8)
+  O2 Delivery Device(s): None (charted: RA) @01-02 13:00   earlier: Nasal cannula (charted: NC) @01-01 21:00
+  O2 L/%: 21 @01-02 13:00   24h 21-28 (n=2)
+  O2 saturation pulseoxymetry: 95 % @01-02 17:30   24h 94-99 (n=8)
+  Respiratory Rate: 19 insp/min @01-02 17:30   24h 19-23 (n=8)
+  Temperature Fahrenheit: 97.9 F @01-02 17:30   24h 97.3-98 (n=5)
+
+## Treatments documented
+  01-01 19:45 antiarrhythmics | class IV antiarrhythmic | diltiazem
+  01-01 19:45 anticoagulant administration | low molecular weight heparin | enoxaparin
+  01-01 19:45 arrhythmias | beta blocker | atenolol
+  01-01 19:45 antiarrhythmics | class II antiarrhythmic | metoprolol
+  01-02 02:34 anticoagulant administration | low molecular weight heparin | enoxaparin
+  01-02 02:34 antiarrhythmics | class II antiarrhythmic | metoprolol
+  01-02 02:34 antiarrhythmics | class IV antiarrhythmic | diltiazem
+  01-02 02:34 arrhythmias | beta blocker | atenolol
+  01-02 06:29 antiarrhythmics | class III antiarrhythmic | ibutilide
+  01-02 06:29 antiarrhythmics | class IV antiarrhythmic | diltiazem
+  01-02 06:29 arrhythmias | beta blocker | metoprolol
+  01-02 06:29 arrhythmias | beta blocker | atenolol
+  01-02 06:29 VTE prophylaxis | low molecular weight heparin | enoxaparin
+  01-02 06:29 antiarrhythmics | class II antiarrhythmic | metoprolol
+  01-02 06:29 arrhythmias | calcium channel blocker | diltiazem
+  01-02 06:29 analgesics | non-narcotic analgesic | acetaminophen
+  01-02 06:29 medications | bronchodilator | beta-agonist
+  01-02 06:29 analgesics | non-narcotic analgesic | ibuprofen
+  01-02 06:29 medications | bronchodilator | nebulized
+  01-02 06:29 anticoagulant administration | low molecular weight heparin | enoxaparin
+  01-02 06:29 cardiovascular | non-operative procedures | diagnostic ultrasound of heart
+  01-02 06:33 analgesics | non-narcotic analgesic | ibuprofen
+  01-02 06:33 arrhythmias | beta blocker | atenolol
+  01-02 06:33 antiarrhythmics | class III antiarrhythmic | ibutilide
+  01-02 06:33 anticoagulant administration | low molecular weight heparin | enoxaparin
+  01-02 06:33 arrhythmias | calcium channel blocker | diltiazem
+  01-02 06:33 VTE prophylaxis | low molecular weight heparin | enoxaparin
+  01-02 06:33 medications | bronchodilator | beta-agonist
+  01-02 06:33 antiarrhythmics | class IV antiarrhythmic | diltiazem
+  01-02 06:33 arrhythmias | beta blocker | metoprolol
+  01-02 06:33 analgesics | non-narcotic analgesic | acetaminophen
+  01-02 06:33 antiarrhythmics | class II antiarrhythmic | metoprolol
+  01-02 06:33 medications | bronchodilator | nebulized
+  01-02 06:33 cardiovascular | non-operative procedures | diagnostic ultrasound of heart
+
+## Microbiology

@@ -1,0 +1,329 @@
+{
+ "case_id": "E1739131",
+ "decision_point": "2100-01-02 09:51:00",
+ "claims": [
+  "Continue Lactated Ringer's IV infusion at 100 mL/hour.",
+  "Monitor vital signs (blood pressure, heart rate, respiratory rate, SpO₂) at least every 2 hours.",
+  "Obtain repeat CT scan of the abdomen and pelvis to reassess for evolving intra‑abdominal injury."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1739131A1::01",
+   "claim_id": "E1739131A1",
+   "claim_text": "Continue Lactated Ringer's IV infusion at 100 mL/hour.",
+   "kind": "action",
+   "text": "Continue Lactated Ringer's IV infusion at 100 mL/hour.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Lactated Ringer's IV infusion",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1739131A1::02",
+   "claim_id": "E1739131A1",
+   "claim_text": "Continue Lactated Ringer's IV infusion at 100 mL/hour.",
+   "kind": "fact",
+   "text": "Lactated Ringer's IV infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1739131A2::03",
+   "claim_id": "E1739131A2",
+   "claim_text": "Monitor vital signs (blood pressure, heart rate, respiratory rate, SpO₂) at least every 2 hours.",
+   "kind": "action",
+   "text": "Monitor blood pressure at least every 2 hours.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1739131A2::04",
+   "claim_id": "E1739131A2",
+   "claim_text": "Monitor vital signs (blood pressure, heart rate, respiratory rate, SpO₂) at least every 2 hours.",
+   "kind": "action",
+   "text": "Monitor heart rate at least every 2 hours.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1739131A2::05",
+   "claim_id": "E1739131A2",
+   "claim_text": "Monitor vital signs (blood pressure, heart rate, respiratory rate, SpO₂) at least every 2 hours.",
+   "kind": "action",
+   "text": "Monitor respiratory rate at least every 2 hours.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1739131A2::06",
+   "claim_id": "E1739131A2",
+   "claim_text": "Monitor vital signs (blood pressure, heart rate, respiratory rate, SpO₂) at least every 2 hours.",
+   "kind": "action",
+   "text": "Monitor SpO₂ at least every 2 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "SpO₂",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1739131A3::07",
+   "claim_id": "E1739131A3",
+   "claim_text": "Obtain repeat CT scan of the abdomen and pelvis to reassess for evolving intra‑abdominal injury.",
+   "kind": "action",
+   "text": "Obtain repeat CT scan of the abdomen and pelvis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "CT scan of the abdomen and pelvis",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1739131A1::02",
+   "claim_id": "E1739131A1",
+   "claim_text": "Continue Lactated Ringer's IV infusion at 100 mL/hour.",
+   "kind": "fact",
+   "text": "Lactated Ringer's IV infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R9 is a 'Running at decision time' record for Lactated Ringer's IV, which directly supports the statement that the infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:67896074",
+     "time": "2100-01-01 07:55:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 07:55:00): Medication LACTATED RINGER'S 1,000 ML BAG IV CONT"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1739131A1::01",
+   "claim_id": "E1739131A1",
+   "claim_text": "Continue Lactated Ringer's IV infusion at 100 mL/hour.",
+   "kind": "action",
+   "text": "Continue Lactated Ringer's IV infusion at 100 mL/hour.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Lactated Ringer's IV infusion",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1739131A2::03",
+   "claim_id": "E1739131A2",
+   "claim_text": "Monitor vital signs (blood pressure, heart rate, respiratory rate, SpO₂) at least every 2 hours.",
+   "kind": "action",
+   "text": "Monitor blood pressure at least every 2 hours.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1273285819",
+     "time": "2100-01-02 21:30:00",
+     "item": "systolic BP",
+     "value": "140.0 mmHg"
+    },
+    {
+     "rid": "nurse:1307124307",
+     "time": "2100-01-03 06:46:00",
+     "item": "systolic BP",
+     "value": "139.0 mmHg"
+    },
+    {
+     "rid": "nurse:1273285821",
+     "time": "2100-01-02 21:30:00",
+     "item": "mean arterial pressure",
+     "value": "86.0 mmHg"
+    },
+    {
+     "rid": "nurse:1307124309",
+     "time": "2100-01-03 06:46:00",
+     "item": "mean arterial pressure",
+     "value": "101.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x2, mean arterial pressure x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1739131A2::04",
+   "claim_id": "E1739131A2",
+   "claim_text": "Monitor vital signs (blood pressure, heart rate, respiratory rate, SpO₂) at least every 2 hours.",
+   "kind": "action",
+   "text": "Monitor heart rate at least every 2 hours.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1273430046",
+     "time": "2100-01-02 21:30:00",
+     "item": "heart rate",
+     "value": "88.0 bpm"
+    },
+    {
+     "rid": "nurse:1274723179",
+     "time": "2100-01-03 06:46:00",
+     "item": "heart rate",
+     "value": "92.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1739131A2::05",
+   "claim_id": "E1739131A2",
+   "claim_text": "Monitor vital signs (blood pressure, heart rate, respiratory rate, SpO₂) at least every 2 hours.",
+   "kind": "action",
+   "text": "Monitor respiratory rate at least every 2 hours.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1274681211",
+     "time": "2100-01-02 21:30:00",
+     "item": "respiratory rate",
+     "value": "16.0 insp/min"
+    },
+    {
+     "rid": "nurse:1309416694",
+     "time": "2100-01-03 06:46:00",
+     "item": "respiratory rate",
+     "value": "25.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1739131A2::06",
+   "claim_id": "E1739131A2",
+   "claim_text": "Monitor vital signs (blood pressure, heart rate, respiratory rate, SpO₂) at least every 2 hours.",
+   "kind": "action",
+   "text": "Monitor SpO₂ at least every 2 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "SpO₂",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1739131A3::07",
+   "claim_id": "E1739131A3",
+   "claim_text": "Obtain repeat CT scan of the abdomen and pelvis to reassess for evolving intra‑abdominal injury.",
+   "kind": "action",
+   "text": "Obtain repeat CT scan of the abdomen and pelvis.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "CT scan of the abdomen and pelvis",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

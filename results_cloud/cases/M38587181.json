@@ -1,0 +1,539 @@
+{
+ "case_id": "M38587181",
+ "decision_point": "2157-07-02 04:52:37",
+ "claims": [
+  "Monitor hemoglobin and hematocrit levels closely.",
+  "Continue monitoring vital signs, especially heart rate and blood pressure.",
+  "Assess for potential causes of hypokalemia and consider electrolyte panel."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M38587181A1::01",
+   "claim_id": "M38587181A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hemoglobin levels closely.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38587181A1::02",
+   "claim_id": "M38587181A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hematocrit levels closely.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38587181A2::03",
+   "claim_id": "M38587181A2",
+   "claim_text": "Continue monitoring vital signs, especially heart rate and blood pressure.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38587181A2::04",
+   "claim_id": "M38587181A2",
+   "claim_text": "Continue monitoring vital signs, especially heart rate and blood pressure.",
+   "kind": "action",
+   "text": "Continue monitoring heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38587181A2::05",
+   "claim_id": "M38587181A2",
+   "claim_text": "Continue monitoring vital signs, especially heart rate and blood pressure.",
+   "kind": "action",
+   "text": "Continue monitoring blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38587181A3::06",
+   "claim_id": "M38587181A3",
+   "claim_text": "Assess for potential causes of hypokalemia and consider electrolyte panel.",
+   "kind": "action",
+   "text": "Assess for potential causes of hypokalemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hypokalemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38587181A3::07",
+   "claim_id": "M38587181A3",
+   "claim_text": "Assess for potential causes of hypokalemia and consider electrolyte panel.",
+   "kind": "fact",
+   "text": "Hypokalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M38587181A3::08",
+   "claim_id": "M38587181A3",
+   "claim_text": "Assess for potential causes of hypokalemia and consider electrolyte panel.",
+   "kind": "action",
+   "text": "Consider an electrolyte panel.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "electrolyte panel",
+   "conditional": true,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M38587181A3::07",
+   "claim_id": "M38587181A3",
+   "claim_text": "Assess for potential causes of hypokalemia and consider electrolyte panel.",
+   "kind": "fact",
+   "text": "Hypokalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:428540",
+     "time": "2157-07-01 04:55:00",
+     "item": "Potassium",
+     "value": 4.0,
+     "unit": "mEq/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    }
+   ],
+   "reason": "Latest potassium 4 mEq/L at 2157-07-01 04:55:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M38587181A1::01",
+   "claim_id": "M38587181A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hemoglobin levels closely.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemoglobin",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No hemoglobin measurement in the 9.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38587181A1::02",
+   "claim_id": "M38587181A1",
+   "claim_text": "Monitor hemoglobin and hematocrit levels closely.",
+   "kind": "action",
+   "text": "Monitor hematocrit levels closely.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hematocrit",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220545:2157-07-02 12:03:00:89054",
+     "time": "2157-07-02 12:03:00",
+     "item": "hematocrit",
+     "value": "31.9 %"
+    },
+    {
+     "rid": "lab:51221:2157-07-02 12:03:00:15959",
+     "time": "2157-07-02 12:03:00",
+     "item": "hematocrit",
+     "value": "31.9 %"
+    }
+   ],
+   "reason": "Measured in the 9.4 h observation window after the decision (24 h or until ICU discharge): hematocrit x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38587181A2::03",
+   "claim_id": "M38587181A2",
+   "claim_text": "Continue monitoring vital signs, especially heart rate and blood pressure.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2157-07-02 05:00:00:88858",
+     "time": "2157-07-02 05:00:00",
+     "item": "heart rate",
+     "value": "68 bpm"
+    },
+    {
+     "rid": "chart:220045:2157-07-02 06:00:00:88871",
+     "time": "2157-07-02 06:00:00",
+     "item": "heart rate",
+     "value": "67 bpm"
+    },
+    {
+     "rid": "chart:220179:2157-07-02 05:00:00:88853",
+     "time": "2157-07-02 05:00:00",
+     "item": "systolic BP",
+     "value": "136 mmHg"
+    },
+    {
+     "rid": "chart:220179:2157-07-02 06:00:00:88870",
+     "time": "2157-07-02 06:00:00",
+     "item": "systolic BP",
+     "value": "151 mmHg"
+    },
+    {
+     "rid": "chart:220181:2157-07-02 05:00:00:88861",
+     "time": "2157-07-02 05:00:00",
+     "item": "mean arterial pressure",
+     "value": "72 mmHg"
+    },
+    {
+     "rid": "chart:220181:2157-07-02 06:00:00:88864",
+     "time": "2157-07-02 06:00:00",
+     "item": "mean arterial pressure",
+     "value": "88 mmHg"
+    },
+    {
+     "rid": "chart:220210:2157-07-02 06:00:00:88865",
+     "time": "2157-07-02 06:00:00",
+     "item": "respiratory rate",
+     "value": "18 insp/min"
+    },
+    {
+     "rid": "chart:220210:2157-07-02 07:00:00:88877",
+     "time": "2157-07-02 07:00:00",
+     "item": "respiratory rate",
+     "value": "18 insp/min"
+    },
+    {
+     "rid": "chart:220277:2157-07-02 05:00:00:88857",
+     "time": "2157-07-02 05:00:00",
+     "item": "SpO2",
+     "value": "96 %"
+    },
+    {
+     "rid": "chart:220277:2157-07-02 06:00:00:88866",
+     "time": "2157-07-02 06:00:00",
+     "item": "SpO2",
+     "value": "95 %"
+    },
+    {
+     "rid": "chart:223761:2157-07-02 09:00:00:89007",
+     "time": "2157-07-02 09:00:00",
+     "item": "temperature",
+     "value": "98.2 °F"
+    },
+    {
+     "rid": "chart:223761:2157-07-02 12:00:00:89038",
+     "time": "2157-07-02 12:00:00",
+     "item": "temperature",
+     "value": "98.4 °F"
+    }
+   ],
+   "reason": "Measured in the 9.4 h observation window after the decision (24 h or until ICU discharge): heart rate x9, systolic BP x9, mean arterial pressure x9, respiratory rate x9, SpO2 x9, temperature x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38587181A2::04",
+   "claim_id": "M38587181A2",
+   "claim_text": "Continue monitoring vital signs, especially heart rate and blood pressure.",
+   "kind": "action",
+   "text": "Continue monitoring heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2157-07-02 05:00:00:88858",
+     "time": "2157-07-02 05:00:00",
+     "item": "heart rate",
+     "value": "68 bpm"
+    },
+    {
+     "rid": "chart:220045:2157-07-02 06:00:00:88871",
+     "time": "2157-07-02 06:00:00",
+     "item": "heart rate",
+     "value": "67 bpm"
+    }
+   ],
+   "reason": "Measured in the 9.4 h observation window after the decision (24 h or until ICU discharge): heart rate x9.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38587181A2::05",
+   "claim_id": "M38587181A2",
+   "claim_text": "Continue monitoring vital signs, especially heart rate and blood pressure.",
+   "kind": "action",
+   "text": "Continue monitoring blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220179:2157-07-02 05:00:00:88853",
+     "time": "2157-07-02 05:00:00",
+     "item": "systolic BP",
+     "value": "136 mmHg"
+    },
+    {
+     "rid": "chart:220179:2157-07-02 06:00:00:88870",
+     "time": "2157-07-02 06:00:00",
+     "item": "systolic BP",
+     "value": "151 mmHg"
+    },
+    {
+     "rid": "chart:220181:2157-07-02 05:00:00:88861",
+     "time": "2157-07-02 05:00:00",
+     "item": "mean arterial pressure",
+     "value": "72 mmHg"
+    },
+    {
+     "rid": "chart:220181:2157-07-02 06:00:00:88864",
+     "time": "2157-07-02 06:00:00",
+     "item": "mean arterial pressure",
+     "value": "88 mmHg"
+    }
+   ],
+   "reason": "Measured in the 9.4 h observation window after the decision (24 h or until ICU discharge): systolic BP x9, mean arterial pressure x9.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38587181A3::06",
+   "claim_id": "M38587181A3",
+   "claim_text": "Assess for potential causes of hypokalemia and consider electrolyte panel.",
+   "kind": "action",
+   "text": "Assess for potential causes of hypokalemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "causes of hypokalemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38587181A3::08",
+   "claim_id": "M38587181A3",
+   "claim_text": "Assess for potential causes of hypokalemia and consider electrolyte panel.",
+   "kind": "action",
+   "text": "Consider an electrolyte panel.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "electrolyte panel",
+   "conditional": true,
+   "treatment_class": "electrolyte_replacement",
+   "class_level": "group",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 9.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest magnesium 1.5 mg/dL at 2157-07-01 04:55:00 (reference 1.6 to 2.6) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M38587181A3::08"
+   ]
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 2.2 mg/dL at 2157-07-01 04:55:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38587181A3::08"
+   ]
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M38587181A3::08"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest magnesium 1.5 mg/dL at 2157-07-01 04:55:00 (reference 1.6 to 2.6) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M38587181A3::08"
+   ]
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 2.2 mg/dL at 2157-07-01 04:55:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38587181A3::08"
+   ]
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M38587181A3::08"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 12,
+ "observation_window_hours": 9.4,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hypokalemia is present. -- Latest potassium 4 mEq/L at 2157-07-01 04:55:00 (reference 3.3 to 5.1) is normal, not consistent with 'low'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "recall_vital": 1.0,
+  "recall_okay": 0.5,
+  "recall_all": 0.75,
+  "recall_vital_at3": 1.0,
+  "recall_okay_at3": 0.5,
+  "recall_all_at3": 0.75
+ }
+}

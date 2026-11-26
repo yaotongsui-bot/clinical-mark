@@ -1,0 +1,257 @@
+{
+ "case_id": "E2725629",
+ "decision_point": "2100-01-02 20:35:00",
+ "claims": [
+  "Monitor patient's hemodynamic stability closely.",
+  "Continue Amiodarone infusion at 68 mL/hr.",
+  "Assess for signs of hypovolemia and consider fluid resuscitation if necessary."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2725629A1::01",
+   "claim_id": "E2725629A1",
+   "claim_text": "Monitor patient's hemodynamic stability closely.",
+   "kind": "action",
+   "text": "Monitor hemodynamic stability closely.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamic stability",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2725629A2::02",
+   "claim_id": "E2725629A2",
+   "claim_text": "Continue Amiodarone infusion at 68 mL/hr.",
+   "kind": "action",
+   "text": "Continue Amiodarone infusion at 68 mL/hr.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "amiodarone infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2725629A2::03",
+   "claim_id": "E2725629A2",
+   "claim_text": "Continue Amiodarone infusion at 68 mL/hr.",
+   "kind": "fact",
+   "text": "Amiodarone infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2725629A3::04",
+   "claim_id": "E2725629A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypovolemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2725629A3::05",
+   "claim_id": "E2725629A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation if necessary.",
+   "kind": "action",
+   "text": "Consider fluid resuscitation if necessary.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2725629A2::03",
+   "claim_id": "E2725629A2",
+   "claim_text": "Continue Amiodarone infusion at 68 mL/hr.",
+   "kind": "fact",
+   "text": "Amiodarone infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R50 shows an Amiodarone infusion running at the decision time, started at 17:52 on 2100-01-02 at a rate of 68 mL/hr.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Amiodarone ():1277",
+     "time": "2100-01-02 17:52:00",
+     "item": "Running at decision time (started 2100-01-02 17:52:00): Infusion/input Amiodarone at 68"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2725629A1::01",
+   "claim_id": "E2725629A1",
+   "claim_text": "Monitor patient's hemodynamic stability closely.",
+   "kind": "action",
+   "text": "Monitor hemodynamic stability closely.",
+   "concept": "cardiac",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "hemodynamic stability",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1860831099",
+     "time": "2100-01-02 20:45:00",
+     "item": "heart rate",
+     "value": "74.0 bpm"
+    },
+    {
+     "rid": "nurse:1778313104",
+     "time": "2100-01-02 21:00:00",
+     "item": "heart rate",
+     "value": "75.0 bpm"
+    },
+    {
+     "rid": "nurse:1818325889",
+     "time": "2100-01-02 20:45:00",
+     "item": "systolic BP",
+     "value": "123.0 mmHg"
+    },
+    {
+     "rid": "nurse:1883368095",
+     "time": "2100-01-02 21:00:00",
+     "item": "systolic BP",
+     "value": "126.0 mmHg"
+    },
+    {
+     "rid": "nurse:1883368097",
+     "time": "2100-01-02 21:00:00",
+     "item": "mean arterial pressure",
+     "value": "69.0 mmHg"
+    },
+    {
+     "rid": "nurse:1873774287",
+     "time": "2100-01-02 21:30:00",
+     "item": "mean arterial pressure",
+     "value": "78.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 23.9 h observation window after the decision (24 h or until ICU discharge): heart rate x67, systolic BP x28, mean arterial pressure x25.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2725629A2::02",
+   "claim_id": "E2725629A2",
+   "claim_text": "Continue Amiodarone infusion at 68 mL/hr.",
+   "kind": "action",
+   "text": "Continue Amiodarone infusion at 68 mL/hr.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "amiodarone infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 23.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2725629A3::04",
+   "claim_id": "E2725629A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation if necessary.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypovolemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2725629A3::05",
+   "claim_id": "E2725629A3",
+   "claim_text": "Assess for signs of hypovolemia and consider fluid resuscitation if necessary.",
+   "kind": "action",
+   "text": "Consider fluid resuscitation if necessary.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 23.9 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 23.9,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

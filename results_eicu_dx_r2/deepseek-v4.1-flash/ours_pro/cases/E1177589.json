@@ -1,0 +1,509 @@
+{
+ "case_id": "E1177589",
+ "decision_point": "2100-01-02 10:15:00",
+ "claims": [
+  "Continue monitoring blood glucose with fingerstick checks given history of hypoglycemia and recent glucose values.",
+  "Continue supplemental oxygen via nasal cannula as needed to maintain oxygen saturation, with weaning as tolerated.",
+  "Assess and manage elevated blood pressure, noting recent hypertensive readings and BNP elevation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1177589A1::01",
+   "claim_id": "E1177589A1",
+   "claim_text": "Continue monitoring blood glucose with fingerstick checks given history of hypoglycemia and recent glucose values.",
+   "kind": "action",
+   "text": "Continue monitoring blood glucose with fingerstick checks.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1177589A1::02",
+   "claim_id": "E1177589A1",
+   "claim_text": "Continue monitoring blood glucose with fingerstick checks given history of hypoglycemia and recent glucose values.",
+   "kind": "fact",
+   "text": "There is a history of hypoglycemia.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1177589A1::03",
+   "claim_id": "E1177589A1",
+   "claim_text": "Continue monitoring blood glucose with fingerstick checks given history of hypoglycemia and recent glucose values.",
+   "kind": "fact",
+   "text": "Recent glucose values are present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1177589A2::04",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue supplemental oxygen via nasal cannula as needed to maintain oxygen saturation, with weaning as tolerated.",
+   "kind": "action",
+   "text": "Continue supplemental oxygen via nasal cannula as needed to maintain oxygen saturation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1177589A2::05",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue supplemental oxygen via nasal cannula as needed to maintain oxygen saturation, with weaning as tolerated.",
+   "kind": "action",
+   "text": "Wean supplemental oxygen as tolerated.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "supplemental oxygen",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1177589A2::06",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue supplemental oxygen via nasal cannula as needed to maintain oxygen saturation, with weaning as tolerated.",
+   "kind": "fact",
+   "text": "Supplemental oxygen via nasal cannula is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1177589A3::07",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess and manage elevated blood pressure, noting recent hypertensive readings and BNP elevation.",
+   "kind": "action",
+   "text": "Assess elevated blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "assess",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1177589A3::08",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess and manage elevated blood pressure, noting recent hypertensive readings and BNP elevation.",
+   "kind": "action",
+   "text": "Manage elevated blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "other",
+   "target": "blood pressure",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1177589A3::09",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess and manage elevated blood pressure, noting recent hypertensive readings and BNP elevation.",
+   "kind": "fact",
+   "text": "Blood pressure is elevated.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1177589A3::10",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess and manage elevated blood pressure, noting recent hypertensive readings and BNP elevation.",
+   "kind": "fact",
+   "text": "Recent hypertensive readings are present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1177589A3::11",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess and manage elevated blood pressure, noting recent hypertensive readings and BNP elevation.",
+   "kind": "fact",
+   "text": "BNP is elevated.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1177589A1::02",
+   "claim_id": "E1177589A1",
+   "claim_text": "Continue monitoring blood glucose with fingerstick checks given history of hypoglycemia and recent glucose values.",
+   "kind": "fact",
+   "text": "There is a history of hypoglycemia.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The admission diagnosis explicitly lists hypoglycemia, and a glucose finger stick of 42 mg/dL confirms a hypoglycemic episode, supporting a history of hypoglycemia.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:289215980",
+     "time": "2100-01-01 05:31:00",
+     "item": "Glucose finger stick: 42 mg/dL"
+    },
+    {
+     "rid": "pat:1177589:dx",
+     "time": "2100-01-01 10:15:00",
+     "item": "Admission diagnosis (APACHE): Hypoglycemia"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1177589A1::03",
+   "claim_id": "E1177589A1",
+   "claim_text": "Continue monitoring blood glucose with fingerstick checks given history of hypoglycemia and recent glucose values.",
+   "kind": "fact",
+   "text": "Recent glucose values are present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The records contain multiple glucose measurements, including a finger stick glucose of 147 mg/dL at 01:21 on 2100-01-02, which is within the 24 hours before the decision time of 10:15 on 2100-01-02.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:289732074",
+     "time": "2100-01-02 01:21:00",
+     "item": "Glucose finger stick: 147 mg/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1177589A2::06",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue supplemental oxygen via nasal cannula as needed to maintain oxygen saturation, with weaning as tolerated.",
+   "kind": "fact",
+   "text": "Supplemental oxygen via nasal cannula is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The most recent O2 delivery device record (R13) at 10:15 on 2100-01-01 shows nasal cannula, but there is no record of oxygen administration or device use within 24 hours before the decision time on 2100-01-02. The latest oxygen flow record is from 2100-01-01 15:00, and the latest saturation record at 2100-01-02 06:00 shows 98% on 21% O2, suggesting no supplemental oxygen is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:731418725",
+     "time": "2100-01-01 09:00:00",
+     "item": "O2 Delivery Device(s): Nasal cannula (charted: Nasal cannula (NC))"
+    },
+    {
+     "rid": "nurse:723840803",
+     "time": "2100-01-01 10:15:00",
+     "item": "O2 Delivery Device(s): Nasal cannula (charted: N/C)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1177589A3::09",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess and manage elevated blood pressure, noting recent hypertensive readings and BNP elevation.",
+   "kind": "fact",
+   "text": "Blood pressure is elevated.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:728677907",
+     "time": "2100-01-02 10:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 149.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "'blood pressure high' holds when any component is high. systolic BP: yes; mean arterial pressure: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1177589A3::10",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess and manage elevated blood pressure, noting recent hypertensive readings and BNP elevation.",
+   "kind": "fact",
+   "text": "Recent hypertensive readings are present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:728677907",
+     "time": "2100-01-02 10:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 149.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "'blood pressure high' holds when any component is high. systolic BP: yes; mean arterial pressure: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1177589A3::11",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess and manage elevated blood pressure, noting recent hypertensive readings and BNP elevation.",
+   "kind": "fact",
+   "text": "BNP is elevated.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The laboratory record R48 shows a BNP value of 4079 pg/mL, which is markedly above the normal range, directly supporting the statement that BNP is elevated.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:290050239",
+     "time": "2100-01-02 08:30:00",
+     "item": "BNP: 4079 pg/mL"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1177589A1::01",
+   "claim_id": "E1177589A1",
+   "claim_text": "Continue monitoring blood glucose with fingerstick checks given history of hypoglycemia and recent glucose values.",
+   "kind": "action",
+   "text": "Continue monitoring blood glucose with fingerstick checks.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:289125249",
+     "time": "2100-01-02 10:47:00",
+     "item": "glucose",
+     "value": "131.0 mg/dL"
+    },
+    {
+     "rid": "lab:281610958",
+     "time": "2100-01-02 15:10:00",
+     "item": "glucose",
+     "value": "269.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1177589A2::04",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue supplemental oxygen via nasal cannula as needed to maintain oxygen saturation, with weaning as tolerated.",
+   "kind": "action",
+   "text": "Continue supplemental oxygen via nasal cannula as needed to maintain oxygen saturation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "supplemental oxygen",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1177589A2::05",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue supplemental oxygen via nasal cannula as needed to maintain oxygen saturation, with weaning as tolerated.",
+   "kind": "action",
+   "text": "Wean supplemental oxygen as tolerated.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "supplemental oxygen",
+   "conditional": true,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1177589A3::07",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess and manage elevated blood pressure, noting recent hypertensive readings and BNP elevation.",
+   "kind": "action",
+   "text": "Assess elevated blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "assess",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:721324619",
+     "time": "2100-01-02 11:00:00",
+     "item": "systolic BP",
+     "value": "186.0 mmHg"
+    },
+    {
+     "rid": "nurse:731882364",
+     "time": "2100-01-02 11:30:00",
+     "item": "systolic BP",
+     "value": "165.0 mmHg"
+    },
+    {
+     "rid": "nurse:721324621",
+     "time": "2100-01-02 11:00:00",
+     "item": "mean arterial pressure",
+     "value": "117.0 mmHg"
+    },
+    {
+     "rid": "nurse:731882366",
+     "time": "2100-01-02 11:30:00",
+     "item": "mean arterial pressure",
+     "value": "98.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x24, mean arterial pressure x25.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1177589A3::08",
+   "claim_id": "E1177589A3",
+   "claim_text": "Assess and manage elevated blood pressure, noting recent hypertensive readings and BNP elevation.",
+   "kind": "action",
+   "text": "Manage elevated blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "other",
+   "target": "blood pressure",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 6,
+  "supported": 5,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.833,
+  "not_supported_share": 0.167,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Supplemental oxygen via nasal cannula is currently being given. -- The most recent O2 delivery device record (R13) at 10:15 on 2100-01-01 shows nasal cannula, but there is no record of oxygen administration or device use within 24 hours before the decision time on 2100-01-02. The latest oxygen flow record is from 2100-01-01 15:00, and the latest saturation record at 2100-01-02 06:00 shows 98% on 21% O2, suggesting no supplemental oxygen is currently being given."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.833,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

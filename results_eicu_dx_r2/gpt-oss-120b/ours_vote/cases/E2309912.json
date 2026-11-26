@@ -1,0 +1,514 @@
+{
+ "case_id": "E2309912",
+ "decision_point": "2100-01-02 11:55:00",
+ "claims": [
+  "Continue PRN lorazepam for agitation and tremor as needed.",
+  "Monitor blood pressure and heart rate every 30 minutes and titrate antihypertensive infusion as needed.",
+  "Obtain arterial blood gas to assess for hypercapnia given persistent tachypnea."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2309912A1::01",
+   "claim_id": "E2309912A1",
+   "claim_text": "Continue PRN lorazepam for agitation and tremor as needed.",
+   "kind": "action",
+   "text": "Continue PRN lorazepam for agitation and tremor as needed.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2309912A1::02",
+   "claim_id": "E2309912A1",
+   "claim_text": "Continue PRN lorazepam for agitation and tremor as needed.",
+   "kind": "fact",
+   "text": "Lorazepam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2309912A1::03",
+   "claim_id": "E2309912A1",
+   "claim_text": "Continue PRN lorazepam for agitation and tremor as needed.",
+   "kind": "fact",
+   "text": "Agitation is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2309912A1::04",
+   "claim_id": "E2309912A1",
+   "claim_text": "Continue PRN lorazepam for agitation and tremor as needed.",
+   "kind": "fact",
+   "text": "Tremor is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2309912A2::05",
+   "claim_id": "E2309912A2",
+   "claim_text": "Monitor blood pressure and heart rate every 30 minutes and titrate antihypertensive infusion as needed.",
+   "kind": "action",
+   "text": "Monitor blood pressure every 30 minutes.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2309912A2::06",
+   "claim_id": "E2309912A2",
+   "claim_text": "Monitor blood pressure and heart rate every 30 minutes and titrate antihypertensive infusion as needed.",
+   "kind": "action",
+   "text": "Monitor heart rate every 30 minutes.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2309912A2::07",
+   "claim_id": "E2309912A2",
+   "claim_text": "Monitor blood pressure and heart rate every 30 minutes and titrate antihypertensive infusion as needed.",
+   "kind": "action",
+   "text": "Titrate antihypertensive infusion as needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antihypertensive infusion",
+   "conditional": true,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2309912A2::08",
+   "claim_id": "E2309912A2",
+   "claim_text": "Monitor blood pressure and heart rate every 30 minutes and titrate antihypertensive infusion as needed.",
+   "kind": "fact",
+   "text": "Antihypertensive infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2309912A3::09",
+   "claim_id": "E2309912A3",
+   "claim_text": "Obtain arterial blood gas to assess for hypercapnia given persistent tachypnea.",
+   "kind": "action",
+   "text": "Obtain arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E2309912A3::10",
+   "claim_id": "E2309912A3",
+   "claim_text": "Obtain arterial blood gas to assess for hypercapnia given persistent tachypnea.",
+   "kind": "fact",
+   "text": "Persistent tachypnea is present.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2309912A1::02",
+   "claim_id": "E2309912A1",
+   "claim_text": "Continue PRN lorazepam for agitation and tremor as needed.",
+   "kind": "fact",
+   "text": "Lorazepam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "No record of this treatment. (Panel verdict: supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    },
+    "panel_label": "supported"
+   },
+   "evidence": [
+    {
+     "rid": "med:86578700",
+     "time": "2099-12-31 15:06:00",
+     "item": "Order: ATIVAN IV q 4 hour PRN (active at decision time)"
+    },
+    {
+     "rid": "med:83058567",
+     "time": "2100-01-01 12:41:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 12:41:00): Medication ATIVAN IV See Admin Notes"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2309912A1::03",
+   "claim_id": "E2309912A1",
+   "claim_text": "Continue PRN lorazepam for agitation and tremor as needed.",
+   "kind": "fact",
+   "text": "Agitation is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The treatment documentation record R40 explicitly lists 'agitation' as a condition being treated with lorazepam, directly supporting the statement that agitation is present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:57111588",
+     "time": "2100-01-01 14:07:00",
+     "item": "Treatment documented: pain / agitation / altered mentation | sedative agent | lorazepam"
+    },
+    {
+     "rid": "med:83058567",
+     "time": "2100-01-01 12:41:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 12:41:00): Medication ATIVAN IV See Admin Notes"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2309912A1::04",
+   "claim_id": "E2309912A1",
+   "claim_text": "Continue PRN lorazepam for agitation and tremor as needed.",
+   "kind": "fact",
+   "text": "Tremor is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "The supplied records contain measurements of temperature, heart rate, and pain, along with a treatment note for lorazepam, but none of them mention tremor or any related symptom.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "E2309912A2::08",
+   "claim_id": "E2309912A2",
+   "claim_text": "Monitor blood pressure and heart rate every 30 minutes and titrate antihypertensive infusion as needed.",
+   "kind": "fact",
+   "text": "Antihypertensive infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "The records contain only blood pressure measurements and administrations of Norco and Zofran. There is no mention of any antihypertensive medication, infusion, or order.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_addressed",
+     "minimax-m3.1-flash:cloud": "not_addressed",
+     "glm-5.3:cloud": "not_addressed"
+    }
+   },
+   "evidence": []
+  },
+  {
+   "atom_id": "E2309912A3::10",
+   "claim_id": "E2309912A3",
+   "claim_text": "Obtain arterial blood gas to assess for hypercapnia given persistent tachypnea.",
+   "kind": "fact",
+   "text": "Persistent tachypnea is present.",
+   "concept": "resp_rate",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1557906355",
+     "time": "2100-01-02 09:30:00",
+     "item": "Respiratory Rate",
+     "value": 35.0,
+     "unit": "insp/min",
+     "bounds": "12 to 20",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "nurse:1563783907",
+     "time": "2100-01-02 10:00:00",
+     "item": "Respiratory Rate",
+     "value": 33.0,
+     "unit": "insp/min",
+     "bounds": "12 to 20",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "nurse:1687325199",
+     "time": "2100-01-02 10:30:00",
+     "item": "Respiratory Rate",
+     "value": 26.0,
+     "unit": "insp/min",
+     "bounds": "12 to 20",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "nurse:1530922760",
+     "time": "2100-01-02 11:00:00",
+     "item": "Respiratory Rate",
+     "value": 31.0,
+     "unit": "insp/min",
+     "bounds": "12 to 20",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "Median respiratory rate over the 6 h before the decision: 33 insp/min (12 readings), high by the rule 'tachypnea RR > 20; bradypnea RR < 12'.",
+   "computed": {
+    "median": 33.0,
+    "status": "high",
+    "n": 12
+   },
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2309912A1::01",
+   "claim_id": "E2309912A1",
+   "claim_text": "Continue PRN lorazepam for agitation and tremor as needed.",
+   "kind": "action",
+   "text": "Continue PRN lorazepam for agitation and tremor as needed.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2309912A2::05",
+   "claim_id": "E2309912A2",
+   "claim_text": "Monitor blood pressure and heart rate every 30 minutes and titrate antihypertensive infusion as needed.",
+   "kind": "action",
+   "text": "Monitor blood pressure every 30 minutes.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1601892985",
+     "time": "2100-01-02 12:00:00",
+     "item": "systolic BP",
+     "value": "161.0 mmHg"
+    },
+    {
+     "rid": "nurse:1677434632",
+     "time": "2100-01-02 13:00:00",
+     "item": "systolic BP",
+     "value": "158.0 mmHg"
+    },
+    {
+     "rid": "nurse:1601892984",
+     "time": "2100-01-02 12:00:00",
+     "item": "mean arterial pressure",
+     "value": "90.0 mmHg"
+    },
+    {
+     "rid": "nurse:1677434631",
+     "time": "2100-01-02 13:00:00",
+     "item": "mean arterial pressure",
+     "value": "92.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x44, mean arterial pressure x40.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2309912A2::06",
+   "claim_id": "E2309912A2",
+   "claim_text": "Monitor blood pressure and heart rate every 30 minutes and titrate antihypertensive infusion as needed.",
+   "kind": "action",
+   "text": "Monitor heart rate every 30 minutes.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1696872666",
+     "time": "2100-01-02 12:00:00",
+     "item": "heart rate",
+     "value": "103.0 bpm"
+    },
+    {
+     "rid": "nurse:1685879200",
+     "time": "2100-01-02 13:00:00",
+     "item": "heart rate",
+     "value": "102.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x49.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2309912A2::07",
+   "claim_id": "E2309912A2",
+   "claim_text": "Monitor blood pressure and heart rate every 30 minutes and titrate antihypertensive infusion as needed.",
+   "kind": "action",
+   "text": "Titrate antihypertensive infusion as needed.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "antihypertensive infusion",
+   "conditional": true,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2309912A3::09",
+   "claim_id": "E2309912A3",
+   "claim_text": "Obtain arterial blood gas to assess for hypercapnia given persistent tachypnea.",
+   "kind": "action",
+   "text": "Obtain arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 5,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 3,
+  "unverifiable": 0,
+  "supported_share": 0.4,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.6,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Lorazepam is currently being given. -- No record of this treatment. (Panel verdict: supported.)",
+    "Tremor is present. -- The supplied records contain measurements of temperature, heart rate, and pain, along with a treatment note for lorazepam, but none of them mention tremor or any related symptom.",
+    "Antihypertensive infusion is currently being given. -- The records contain only blood pressure measurements and administrations of Norco and Zofran. There is no mention of any antihypertensive medication, infusion, or order."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

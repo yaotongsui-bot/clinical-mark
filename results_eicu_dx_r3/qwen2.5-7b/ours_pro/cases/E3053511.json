@@ -1,0 +1,245 @@
+{
+ "case_id": "E3053511",
+ "decision_point": "2100-01-02 20:31:00",
+ "claims": [
+  "Monitor patient's respiratory rate and oxygen saturation closely.",
+  "Continue midazolam for sedation.",
+  "Assess for signs of delirium using CAM-ICU scale."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3053511A1::01",
+   "claim_id": "E3053511A1",
+   "claim_text": "Monitor patient's respiratory rate and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3053511A1::02",
+   "claim_id": "E3053511A1",
+   "claim_text": "Monitor patient's respiratory rate and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3053511A2::03",
+   "claim_id": "E3053511A2",
+   "claim_text": "Continue midazolam for sedation.",
+   "kind": "action",
+   "text": "Continue midazolam for sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "midazolam",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3053511A2::04",
+   "claim_id": "E3053511A2",
+   "claim_text": "Continue midazolam for sedation.",
+   "kind": "fact",
+   "text": "Midazolam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3053511A3::05",
+   "claim_id": "E3053511A3",
+   "claim_text": "Assess for signs of delirium using CAM-ICU scale.",
+   "kind": "action",
+   "text": "Assess for signs of delirium using CAM-ICU scale.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "delirium",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3053511A2::04",
+   "claim_id": "E3053511A2",
+   "claim_text": "Continue midazolam for sedation.",
+   "kind": "fact",
+   "text": "Midazolam is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show Midazolam was administered at 16:00 and again from 17:22 to 17:25 on 2100-01-02, which is within the 24 hours before the decision time of 20:31. This supports the statement that Midazolam is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:102915819",
+     "time": "2100-01-02 16:00:00",
+     "item": "Given once: Midazolam IVP ONE (2100-01-02 16:00:00)"
+    },
+    {
+     "rid": "med:102915922",
+     "time": "2100-01-02 17:22:00",
+     "item": "Medication Midazolam .ROUTE .STK-MED (2100-01-02 17:22:00 to 2100-01-02 17:25:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3053511A1::01",
+   "claim_id": "E3053511A1",
+   "claim_text": "Monitor patient's respiratory rate and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor respiratory rate.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2083965399",
+     "time": "2100-01-02 21:00:00",
+     "item": "respiratory rate",
+     "value": "30.0 insp/min"
+    },
+    {
+     "rid": "nurse:2120530793",
+     "time": "2100-01-02 22:00:00",
+     "item": "respiratory rate",
+     "value": "42.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x48.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3053511A1::02",
+   "claim_id": "E3053511A1",
+   "claim_text": "Monitor patient's respiratory rate and oxygen saturation closely.",
+   "kind": "action",
+   "text": "Monitor oxygen saturation.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1987068639",
+     "time": "2100-01-02 21:00:00",
+     "item": "SpO2",
+     "value": "99.0 %"
+    },
+    {
+     "rid": "nurse:1984348390",
+     "time": "2100-01-02 22:00:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x49.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3053511A2::03",
+   "claim_id": "E3053511A2",
+   "claim_text": "Continue midazolam for sedation.",
+   "kind": "action",
+   "text": "Continue midazolam for sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "midazolam",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3053511A3::05",
+   "claim_id": "E3053511A3",
+   "claim_text": "Assess for signs of delirium using CAM-ICU scale.",
+   "kind": "action",
+   "text": "Assess for signs of delirium using CAM-ICU scale.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "assess",
+   "target": "delirium",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,277 @@
+{
+ "case_id": "M35679826",
+ "decision_point": "2114-06-21 09:32:58",
+ "claims": [
+  "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP, as documented at the decision point.",
+  "Monitor arterial blood gases and ventilator parameters to assess oxygenation and ventilation status.",
+  "Perform tracheal suctioning via the subglottal suctioning route as documented."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35679826A1::01",
+   "claim_id": "M35679826A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP, as documented at the decision point.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35679826A1::02",
+   "claim_id": "M35679826A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP, as documented at the decision point.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M35679826A1::03",
+   "claim_id": "M35679826A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP, as documented at the decision point.",
+   "kind": "fact",
+   "text": "The ventilator is in a controlled mode with PEEP.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M35679826A2::04",
+   "claim_id": "M35679826A2",
+   "claim_text": "Monitor arterial blood gases and ventilator parameters to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35679826A2::05",
+   "claim_id": "M35679826A2",
+   "claim_text": "Monitor arterial blood gases and ventilator parameters to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor ventilator parameters.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilator parameters",
+   "conditional": false
+  },
+  {
+   "atom_id": "M35679826A3::06",
+   "claim_id": "M35679826A3",
+   "claim_text": "Perform tracheal suctioning via the subglottal suctioning route as documented.",
+   "kind": "action",
+   "text": "Perform subglottic tracheal suctioning as documented.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "tracheal suctioning",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M35679826A1::02",
+   "claim_id": "M35679826A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP, as documented at the decision point.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "The patient is currently on mechanical ventilation, but the records show that the ventilator mode was changed to CPAP at 12:00, and then to spontaneous ventilation at 12:57. The current ventilator setting is spontaneous ventilation, not mechanical ventilation.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "procedureevents:4311585:225792:2114-06-20 10:55:00",
+     "time": "2114-06-20 10:55:00",
+     "item": "Procedure Invasive Ventilation (2114-06-20 10:55:00 to 2114-06-20 13:15:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M35679826A1::03",
+   "claim_id": "M35679826A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP, as documented at the decision point.",
+   "kind": "fact",
+   "text": "The ventilator is in a controlled mode with PEEP.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the ventilator was in controlled mode with PEEP at 07:41 and 09:59, but at 10:52, the mode was changed to CMV/ASSIST/AutoFlow and PEEP was set to 5 cmH2O. Later, at 12:00, the mode was changed to CPAP and PEEP was set to 0 cmH2O. Therefore, the statement that the ventilator is in a controlled mode with PEEP is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:153231",
+     "time": "2114-06-20 07:41:00",
+     "item": "Ventilator: CONTROLLED."
+    },
+    {
+     "rid": "lab:153271",
+     "time": "2114-06-20 09:59:00",
+     "item": "Ventilator: CONTROLLED."
+    },
+    {
+     "rid": "chart:35679826:220339:2114-06-20 10:52:00",
+     "time": "2114-06-20 10:52:00",
+     "item": "PEEP set: 5 cmH2O"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M35679826A1::01",
+   "claim_id": "M35679826A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including controlled mode and PEEP, as documented at the decision point.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No invasive mechanical ventilation action recorded in the 4.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35679826A2::04",
+   "claim_id": "M35679826A2",
+   "claim_text": "Monitor arterial blood gases and ventilator parameters to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 4.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35679826A2::05",
+   "claim_id": "M35679826A2",
+   "claim_text": "Monitor arterial blood gases and ventilator parameters to assess oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor ventilator parameters.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilator parameters",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No ventilator settings measurement in the 4.2 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M35679826A3::06",
+   "claim_id": "M35679826A3",
+   "claim_text": "Perform tracheal suctioning via the subglottal suctioning route as documented.",
+   "kind": "action",
+   "text": "Perform subglottic tracheal suctioning as documented.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "tracheal suctioning",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 6,
+ "observation_window_hours": 4.2,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The patient is currently on mechanical ventilation, but the records show that the ventilator mode was changed to CPAP at 12:00, and then to spontaneous ventilation at 12:57. The current ventilator setting is spontaneous ventilation, not mechanical ventilation.",
+    "The ventilator is in a controlled mode with PEEP. -- The records show that the ventilator was in controlled mode with PEEP at 07:41 and 09:59, but at 10:52, the mode was changed to CMV/ASSIST/AutoFlow and PEEP was set to 5 cmH2O. Later, at 12:00, the mode was changed to CPAP and PEEP was set to 0 cmH2O. Therefore, the statement that the ventilator is in a controlled mode with PEEP is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,592 @@
+{
+ "case_id": "E3237226",
+ "decision_point": "2100-01-02 02:57:00",
+ "claims": [
+  "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+  "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+  "Consider prone positioning for ARDS to improve oxygenation."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3237226A1::01",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3237226A1::02",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3237226A1::03",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+   "kind": "action",
+   "text": "Reassess need for escalation of respiratory support.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "need for escalation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3237226A2::04",
+   "claim_id": "E3237226A2",
+   "claim_text": "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Obtain arterial blood gas analysis.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3237226A2::05",
+   "claim_id": "E3237226A2",
+   "claim_text": "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygenation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3237226A2::06",
+   "claim_id": "E3237226A2",
+   "claim_text": "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor ventilation status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilation status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3237226A3::07",
+   "claim_id": "E3237226A3",
+   "claim_text": "Consider prone positioning for ARDS to improve oxygenation.",
+   "kind": "action",
+   "text": "Consider prone positioning.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "prone positioning",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3237226A3::08",
+   "claim_id": "E3237226A3",
+   "claim_text": "Consider prone positioning for ARDS to improve oxygenation.",
+   "kind": "fact",
+   "text": "ARDS is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3237226A1::02",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient is on non-invasive ventilation, but the most recent relevant rows (R46, R47, R48) contradict the statement. The earlier rows (R37, R40) agree with the statement, but the later rows contradict it, so the statement is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:79471997",
+     "time": "2100-01-01 03:41:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    },
+    {
+     "rid": "treat:78657626",
+     "time": "2100-01-01 04:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | non-invasive ventilation"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3237226A3::08",
+   "claim_id": "E3237226A3",
+   "claim_text": "Consider prone positioning for ARDS to improve oxygenation.",
+   "kind": "fact",
+   "text": "ARDS is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: respiratory -> other"
+   ],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient's pain status has fluctuated over time, with periods of pain present and periods of pain absent. The statement 'ARDS is present' is not supported by the records, as ARDS is not mentioned at all.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2250417514",
+     "time": "2099-12-22 02:05:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2231582821",
+     "time": "2099-12-22 03:02:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2229205710",
+     "time": "2099-12-22 04:00:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2222204249",
+     "time": "2099-12-22 06:00:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2217960263",
+     "time": "2099-12-22 08:30:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2242773480",
+     "time": "2099-12-22 10:30:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2273547177",
+     "time": "2099-12-22 11:13:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2262470945",
+     "time": "2099-12-22 13:30:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2224030902",
+     "time": "2099-12-22 17:00:00",
+     "item": "Pain Present: No"
+    },
+    {
+     "rid": "nurse:2263032096",
+     "time": "2099-12-22 19:15:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2238250887",
+     "time": "2099-12-22 20:00:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2262403784",
+     "time": "2099-12-22 23:32:00",
+     "item": "Pain Present: No"
+    },
+    {
+     "rid": "nurse:2230384039",
+     "time": "2099-12-23 00:58:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2216943149",
+     "time": "2099-12-23 01:45:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2221134271",
+     "time": "2099-12-23 03:15:00",
+     "item": "Pain Present: No"
+    },
+    {
+     "rid": "nurse:2209492070",
+     "time": "2099-12-23 05:10:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2232278302",
+     "time": "2099-12-23 05:38:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2258222129",
+     "time": "2099-12-23 06:30:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2247851516",
+     "time": "2099-12-23 08:30:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2234441487",
+     "time": "2099-12-23 10:30:00",
+     "item": "Pain Present: No"
+    },
+    {
+     "rid": "nurse:2218720626",
+     "time": "2099-12-23 11:04:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2274686645",
+     "time": "2099-12-23 13:30:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2253407888",
+     "time": "2099-12-23 15:55:00",
+     "item": "Pain Present: No"
+    },
+    {
+     "rid": "nurse:2225209450",
+     "time": "2099-12-23 17:55:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2231924932",
+     "time": "2099-12-23 18:50:00",
+     "item": "Pain Present: No"
+    },
+    {
+     "rid": "nurse:2223532316",
+     "time": "2099-12-23 19:00:00",
+     "item": "Pain Present: No"
+    },
+    {
+     "rid": "nurse:2235890692",
+     "time": "2099-12-23 19:04:00",
+     "item": "Pain Present: No"
+    },
+    {
+     "rid": "nurse:2268797469",
+     "time": "2099-12-23 21:55:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2213308477",
+     "time": "2099-12-23 22:50:00",
+     "item": "Pain Present: No"
+    },
+    {
+     "rid": "nurse:2215079490",
+     "time": "2099-12-24 01:00:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2223540359",
+     "time": "2099-12-24 03:25:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2273449245",
+     "time": "2099-12-24 04:25:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2249361861",
+     "time": "2099-12-24 05:00:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2277033414",
+     "time": "2099-12-24 08:47:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2237864143",
+     "time": "2099-12-24 12:30:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2276875967",
+     "time": "2099-12-24 13:34:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2243842191",
+     "time": "2099-12-24 14:20:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2260081332",
+     "time": "2099-12-24 17:45:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2275625711",
+     "time": "2099-12-24 18:30:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2226281308",
+     "time": "2099-12-24 19:00:00",
+     "item": "Pain Present: No"
+    },
+    {
+     "rid": "nurse:2230619751",
+     "time": "2099-12-24 22:19:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2259789872",
+     "time": "2099-12-24 23:00:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2217726297",
+     "time": "2099-12-25 01:00:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2236192350",
+     "time": "2099-12-25 02:00:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2215538214",
+     "time": "2099-12-25 05:00:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2269278705",
+     "time": "2099-12-25 05:35:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2263446210",
+     "time": "2099-12-25 06:30:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2235165946",
+     "time": "2099-12-25 09:00:00",
+     "item": "Pain Present: Asleep"
+    },
+    {
+     "rid": "nurse:2271593460",
+     "time": "2099-12-25 13:00:00",
+     "item": "Pain Present: Yes"
+    },
+    {
+     "rid": "nurse:2262226966",
+     "time": "2099-12-25 14:26:00",
+     "item": "Pain Present: No"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3237226A1::01",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-invasive ventilation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3237226A1::03",
+   "claim_id": "E3237226A1",
+   "claim_text": "Continue non‑invasive ventilation with current settings and reassess need for escalation.",
+   "kind": "action",
+   "text": "Reassess need for escalation of respiratory support.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "need for escalation",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3237226A2::04",
+   "claim_id": "E3237226A2",
+   "claim_text": "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Obtain arterial blood gas analysis.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3237226A2::05",
+   "claim_id": "E3237226A2",
+   "claim_text": "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor oxygenation.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygenation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2255806432",
+     "time": "2100-01-02 07:52:00",
+     "item": "SpO2",
+     "value": "99.0 %"
+    },
+    {
+     "rid": "nurse:2253370550",
+     "time": "2100-01-02 09:00:00",
+     "item": "SpO2",
+     "value": "100.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x8.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3237226A2::06",
+   "claim_id": "E3237226A2",
+   "claim_text": "Obtain arterial blood gas analysis to monitor oxygenation and ventilation status.",
+   "kind": "action",
+   "text": "Monitor ventilation status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "ventilation status",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3237226A3::07",
+   "claim_id": "E3237226A3",
+   "claim_text": "Consider prone positioning for ARDS to improve oxygenation.",
+   "kind": "action",
+   "text": "Consider prone positioning.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "procedure",
+   "target": "prone positioning",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on non-invasive ventilation. -- The records show that the patient is on non-invasive ventilation, but the most recent relevant rows (R46, R47, R48) contradict the statement. The earlier rows (R37, R40) agree with the statement, but the later rows contradict it, so the statement is not supported.",
+    "ARDS is present. -- The records show that the patient's pain status has fluctuated over time, with periods of pain present and periods of pain absent. The statement 'ARDS is present' is not supported by the records, as ARDS is not mentioned at all."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

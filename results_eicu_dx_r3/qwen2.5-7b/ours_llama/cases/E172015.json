@@ -1,0 +1,242 @@
+{
+ "case_id": "E172015",
+ "decision_point": "2100-01-02 23:52:00",
+ "claims": [
+  "Monitor patient's blood pressure and respiratory rate closely.",
+  "Continue administration of intravenous fluids.",
+  "Assess patient's neurological status regularly."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E172015A1::01",
+   "claim_id": "E172015A1",
+   "claim_text": "Monitor patient's blood pressure and respiratory rate closely.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E172015A1::02",
+   "claim_id": "E172015A1",
+   "claim_text": "Monitor patient's blood pressure and respiratory rate closely.",
+   "kind": "action",
+   "text": "Monitor respiratory rate closely.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E172015A2::03",
+   "claim_id": "E172015A2",
+   "claim_text": "Continue administration of intravenous fluids.",
+   "kind": "action",
+   "text": "Continue administration of intravenous fluids.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E172015A2::04",
+   "claim_id": "E172015A2",
+   "claim_text": "Continue administration of intravenous fluids.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E172015A3::05",
+   "claim_id": "E172015A3",
+   "claim_text": "Assess patient's neurological status regularly.",
+   "kind": "action",
+   "text": "Assess neurological status regularly.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "neurological status",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E172015A2::04",
+   "claim_id": "E172015A2",
+   "claim_text": "Continue administration of intravenous fluids.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The statement 'Intravenous fluids are currently being given' is not supported by the records. Although there is an administration record of '1000 ML  -  KCL IN DEXTROSE-NACL 20-5-0.45 MEQ/L-%-% IV SOLN IV Continuous' (R26), which shows that intravenous fluids were administered continuously from 05:30 on 2099-12-31 to 13:47 on 2100-01-02, this record does not indicate that fluids are currently (at ",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:10580624",
+     "time": "2099-12-31 05:30:00",
+     "item": "Medication 1000 ML  -  KCL IN DEXTROSE-NACL 20-5-0.45 MEQ/L-%-% IV SOLN IV Continuous (2099-12-31 05:30:00 to 2100-01-02 13:47:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E172015A1::01",
+   "claim_id": "E172015A1",
+   "claim_text": "Monitor patient's blood pressure and respiratory rate closely.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:181370378",
+     "time": "2100-01-03 01:00:00",
+     "item": "systolic BP",
+     "value": "90.0 mmHg"
+    },
+    {
+     "rid": "nurse:235081057",
+     "time": "2100-01-03 03:00:00",
+     "item": "systolic BP",
+     "value": "106.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 20.3 h observation window after the decision (24 h or until ICU discharge): systolic BP x11.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E172015A1::02",
+   "claim_id": "E172015A1",
+   "claim_text": "Monitor patient's blood pressure and respiratory rate closely.",
+   "kind": "action",
+   "text": "Monitor respiratory rate closely.",
+   "concept": "resp_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "respiratory rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:139159469",
+     "time": "2100-01-03 01:00:00",
+     "item": "respiratory rate",
+     "value": "26.0 insp/min"
+    },
+    {
+     "rid": "nurse:211129519",
+     "time": "2100-01-03 03:00:00",
+     "item": "respiratory rate",
+     "value": "17.0 insp/min"
+    }
+   ],
+   "reason": "Measured in the 20.3 h observation window after the decision (24 h or until ICU discharge): respiratory rate x12.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E172015A2::03",
+   "claim_id": "E172015A2",
+   "claim_text": "Continue administration of intravenous fluids.",
+   "kind": "action",
+   "text": "Continue administration of intravenous fluids.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 20.3 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E172015A3::05",
+   "claim_id": "E172015A3",
+   "claim_text": "Assess patient's neurological status regularly.",
+   "kind": "action",
+   "text": "Assess neurological status regularly.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "assess",
+   "target": "neurological status",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No GCS / mental status measurement in the 20.3 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 20.3,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous fluids are currently being given. -- The statement 'Intravenous fluids are currently being given' is not supported by the records. Although there is an administration record of '1000 ML  -  KCL IN DEXTROSE-NACL 20-5-0.45 MEQ/L-%-% IV SOLN IV Continuous' (R26), which shows that intravenous fluids were administered continuously from 05:30 on 2099-12-31 to 13:47 on 2100-01-02, this record does not indicate that fluids are currently (at "
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

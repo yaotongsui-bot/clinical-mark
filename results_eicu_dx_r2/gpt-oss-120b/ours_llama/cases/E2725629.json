@@ -1,0 +1,418 @@
+{
+ "case_id": "E2725629",
+ "decision_point": "2100-01-02 20:35:00",
+ "claims": [
+  "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+  "Obtain a repeat troponin level in 6 hours to assess trend of myocardial injury.",
+  "Schedule a transthoracic echocardiogram to evaluate cardiac function and rule out new wall motion abnormalities."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2725629A1::01",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+   "kind": "action",
+   "text": "Continue the amiodarone infusion.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "amiodarone infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2725629A1::02",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+   "kind": "fact",
+   "text": "Amiodarone infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E2725629A1::03",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+   "kind": "fact",
+   "text": "Supraventricular tachyarrhythmia is present.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E2725629A2::04",
+   "claim_id": "E2725629A2",
+   "claim_text": "Obtain a repeat troponin level in 6 hours to assess trend of myocardial injury.",
+   "kind": "action",
+   "text": "Obtain a repeat troponin level in 6 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "troponin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E2725629A2::05",
+   "claim_id": "E2725629A2",
+   "claim_text": "Obtain a repeat troponin level in 6 hours to assess trend of myocardial injury.",
+   "kind": "fact",
+   "text": "Myocardial injury is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E2725629A3::06",
+   "claim_id": "E2725629A3",
+   "claim_text": "Schedule a transthoracic echocardiogram to evaluate cardiac function and rule out new wall motion abnormalities.",
+   "kind": "action",
+   "text": "Schedule a transthoracic echocardiogram.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "transthoracic echocardiogram",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2725629A1::02",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+   "kind": "fact",
+   "text": "Amiodarone infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rhythm -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The records show that the amiodarone infusion was running at decision time, which supports the statement that it is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Amiodarone ():1277",
+     "time": "2100-01-02 17:52:00",
+     "item": "Running at decision time (started 2100-01-02 17:52:00): Infusion/input Amiodarone at 68"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2725629A1::03",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+   "kind": "fact",
+   "text": "Supraventricular tachyarrhythmia is present.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The patient's admission diagnosis is a rhythm disturbance (atrial, supraventricular), and there is an ongoing amiodarone infusion at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:2725629:dx",
+     "time": "2100-01-01 20:35:00",
+     "item": "Admission diagnosis (APACHE): Rhythm disturbance (atrial, supraventricular)"
+    },
+    {
+     "rid": "inf:Amiodarone ():1277",
+     "time": "2100-01-02 17:52:00",
+     "item": "Running at decision time (started 2100-01-02 17:52:00): Infusion/input Amiodarone at 68"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2725629A2::05",
+   "claim_id": "E2725629A2",
+   "claim_text": "Obtain a repeat troponin level in 6 hours to assess trend of myocardial injury.",
+   "kind": "fact",
+   "text": "Myocardial injury is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: cardiac -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_supported",
+   "reason": "The patient's heart rate has been elevated for some time, but the records do not show any evidence of myocardial injury. The recent troponin levels are not available in the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1849587372",
+     "time": "2100-01-01 20:45:00",
+     "item": "Heart Rate: 126 bpm"
+    },
+    {
+     "rid": "nurse:1836761663",
+     "time": "2100-01-01 21:00:00",
+     "item": "Heart Rate: 125 bpm"
+    },
+    {
+     "rid": "nurse:1848282510",
+     "time": "2100-01-01 21:15:00",
+     "item": "Heart Rate: 131 bpm"
+    },
+    {
+     "rid": "nurse:1783395872",
+     "time": "2100-01-01 21:45:00",
+     "item": "Heart Rate: 128 bpm"
+    },
+    {
+     "rid": "nurse:1840073448",
+     "time": "2100-01-01 22:00:00",
+     "item": "Heart Rate: 127 bpm"
+    },
+    {
+     "rid": "nurse:1849129329",
+     "time": "2100-01-01 22:15:00",
+     "item": "Heart Rate: 128 bpm"
+    },
+    {
+     "rid": "nurse:1789469699",
+     "time": "2100-01-01 22:30:00",
+     "item": "Heart Rate: 122 bpm"
+    },
+    {
+     "rid": "nurse:1818757129",
+     "time": "2100-01-01 22:45:00",
+     "item": "Heart Rate: 125 bpm"
+    },
+    {
+     "rid": "nurse:1827479213",
+     "time": "2100-01-01 23:00:00",
+     "item": "Heart Rate: 123 bpm"
+    },
+    {
+     "rid": "nurse:1779590936",
+     "time": "2100-01-01 23:15:00",
+     "item": "Heart Rate: 120 bpm"
+    },
+    {
+     "rid": "nurse:1827040133",
+     "time": "2100-01-01 23:30:00",
+     "item": "Heart Rate: 113 bpm"
+    },
+    {
+     "rid": "nurse:1837378140",
+     "time": "2100-01-01 23:45:00",
+     "item": "Heart Rate: 119 bpm"
+    },
+    {
+     "rid": "nurse:1811555633",
+     "time": "2100-01-02 00:00:00",
+     "item": "Heart Rate: 113 bpm"
+    },
+    {
+     "rid": "nurse:1804172617",
+     "time": "2100-01-02 00:15:00",
+     "item": "Heart Rate: 112 bpm"
+    },
+    {
+     "rid": "nurse:1860539477",
+     "time": "2100-01-02 00:30:00",
+     "item": "Heart Rate: 116 bpm"
+    },
+    {
+     "rid": "nurse:1832808358",
+     "time": "2100-01-02 00:45:00",
+     "item": "Heart Rate: 105 bpm"
+    },
+    {
+     "rid": "nurse:1875575785",
+     "time": "2100-01-02 01:00:00",
+     "item": "Heart Rate: 113 bpm"
+    },
+    {
+     "rid": "nurse:1775588334",
+     "time": "2100-01-02 01:15:00",
+     "item": "Heart Rate: 119 bpm"
+    },
+    {
+     "rid": "nurse:1867827143",
+     "time": "2100-01-02 01:30:00",
+     "item": "Heart Rate: 126 bpm"
+    },
+    {
+     "rid": "nurse:1818195950",
+     "time": "2100-01-02 01:45:00",
+     "item": "Heart Rate: 134 bpm"
+    },
+    {
+     "rid": "nurse:1832827608",
+     "time": "2100-01-02 02:00:00",
+     "item": "Heart Rate: 118 bpm"
+    },
+    {
+     "rid": "nurse:1886077203",
+     "time": "2100-01-02 02:15:00",
+     "item": "Heart Rate: 116 bpm"
+    },
+    {
+     "rid": "nurse:1858684551",
+     "time": "2100-01-02 02:30:00",
+     "item": "Heart Rate: 109 bpm"
+    },
+    {
+     "rid": "nurse:1862765083",
+     "time": "2100-01-02 02:45:00",
+     "item": "Heart Rate: 109 bpm"
+    },
+    {
+     "rid": "nurse:1859385593",
+     "time": "2100-01-02 03:00:00",
+     "item": "Heart Rate: 105 bpm"
+    },
+    {
+     "rid": "nurse:1870288380",
+     "time": "2100-01-02 03:15:00",
+     "item": "Heart Rate: 104 bpm"
+    },
+    {
+     "rid": "nurse:1818472269",
+     "time": "2100-01-02 03:30:00",
+     "item": "Heart Rate: 84 bpm"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2725629A1::01",
+   "claim_id": "E2725629A1",
+   "claim_text": "Continue the amiodarone infusion to maintain rate control for supraventricular tachyarrhythmia.",
+   "kind": "action",
+   "text": "Continue the amiodarone infusion.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "continue",
+   "target": "amiodarone infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 23.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2725629A2::04",
+   "claim_id": "E2725629A2",
+   "claim_text": "Obtain a repeat troponin level in 6 hours to assess trend of myocardial injury.",
+   "kind": "action",
+   "text": "Obtain a repeat troponin level in 6 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "troponin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2725629A3::06",
+   "claim_id": "E2725629A3",
+   "claim_text": "Schedule a transthoracic echocardiogram to evaluate cardiac function and rule out new wall motion abnormalities.",
+   "kind": "action",
+   "text": "Schedule a transthoracic echocardiogram.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "transthoracic echocardiogram",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 23.9 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 23.9,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Myocardial injury is present. -- The patient's heart rate has been elevated for some time, but the records do not show any evidence of myocardial injury. The recent troponin levels are not available in the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

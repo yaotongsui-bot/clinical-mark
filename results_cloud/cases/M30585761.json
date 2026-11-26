@@ -1,0 +1,358 @@
+{
+ "case_id": "M30585761",
+ "decision_point": "2125-06-18 04:12:54",
+ "claims": [
+  "Monitor electrolyte levels, particularly potassium, closely.",
+  "Administer intravenous fluids to maintain adequate hydration.",
+  "Continue pain management with oxycodone-acetaminophen as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M30585761A1::01",
+   "claim_id": "M30585761A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30585761A1::02",
+   "claim_id": "M30585761A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M30585761A2::03",
+   "claim_id": "M30585761A2",
+   "claim_text": "Administer intravenous fluids to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30585761A2::04",
+   "claim_id": "M30585761A2",
+   "claim_text": "Administer intravenous fluids to maintain adequate hydration.",
+   "kind": "goal",
+   "text": "Maintain adequate hydration.",
+   "concept": "fluid_balance",
+   "notes": []
+  },
+  {
+   "atom_id": "M30585761A3::05",
+   "claim_id": "M30585761A3",
+   "claim_text": "Continue pain management with oxycodone-acetaminophen as needed.",
+   "kind": "action",
+   "text": "Continue pain management with oxycodone-acetaminophen as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oxycodone-acetaminophen",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M30585761A3::06",
+   "claim_id": "M30585761A3",
+   "claim_text": "Continue pain management with oxycodone-acetaminophen as needed.",
+   "kind": "fact",
+   "text": "Pain management with oxycodone-acetaminophen is currently in place.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M30585761A3::06",
+   "claim_id": "M30585761A3",
+   "claim_text": "Continue pain management with oxycodone-acetaminophen as needed.",
+   "kind": "fact",
+   "text": "Pain management with oxycodone-acetaminophen is currently in place.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "not_addressed",
+   "reason": "Oxycodone-acetaminophen has active orders (R12, R17), but an order alone does not show the drug is being given; no administration record in the 24 hours before the decision time is supplied.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "not_addressed",
+     "glm-5.3-flash:cloud": "not_addressed",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "rx:90738736:2125-06-17 06:00:00",
+     "time": "2125-06-17 06:00:00",
+     "item": "Order: Oxycodone-Acetaminophen (5mg-325mg) 1 TAB PO/NG (active at decision time)"
+    },
+    {
+     "rid": "rx:18481248:2125-06-17 07:00:00",
+     "time": "2125-06-17 07:00:00",
+     "item": "Order: Oxycodone-Acetaminophen 1-2 TAB PO (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M30585761A1::01",
+   "claim_id": "M30585761A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No electrolytes measurement in the 10.7 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30585761A1::02",
+   "claim_id": "M30585761A1",
+   "claim_text": "Monitor electrolyte levels, particularly potassium, closely.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No potassium measurement in the 10.7 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M30585761A2::03",
+   "claim_id": "M30585761A2",
+   "claim_text": "Administer intravenous fluids to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Administer intravenous fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2125-06-17 22:06:00",
+     "item": "NaCl 0.9% infusion continuing at 9.8039216995239258 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN225158#2",
+     "time": "2125-06-18 04:34:00",
+     "item": "NaCl 0.9% infusion started at 7.3511943817138672 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M30585761A3::05",
+   "claim_id": "M30585761A3",
+   "claim_text": "Continue pain management with oxycodone-acetaminophen as needed.",
+   "kind": "action",
+   "text": "Continue pain management with oxycodone-acetaminophen as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oxycodone-acetaminophen",
+   "conditional": true,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia action recorded in the 10.7 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Amlodipine",
+    "HydrALAzine",
+    "Hydralazine",
+    "Nicardipine"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Succinate XL"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M30585761A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Amlodipine",
+    "HydrALAzine",
+    "Hydralazine",
+    "Nicardipine"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Metoprolol Succinate XL"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 6,
+   "covered": true,
+   "by_atoms": [
+    "M30585761A2::03"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 26,
+ "observation_window_hours": 10.7,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 1.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Pain management with oxycodone-acetaminophen is currently in place. -- Oxycodone-acetaminophen has active orders (R12, R17), but an order alone does not show the drug is being given; no administration record in the 24 hours before the decision time is supplied."
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": null,
+  "recall_okay": 0.25,
+  "recall_all": 0.25,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.25,
+  "recall_all_at3": 0.25
+ }
+}

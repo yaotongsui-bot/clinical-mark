@@ -1,0 +1,404 @@
+{
+ "case_id": "M38507547",
+ "decision_point": "2161-04-28 10:38:12",
+ "claims": [
+  "Continue Dextrose 5%.",
+  "Continue Potassium Chloride.",
+  "Administer HYDROmorphone (Dilaudid)."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M38507547A1::01",
+   "claim_id": "M38507547A1",
+   "claim_text": "Continue Dextrose 5%.",
+   "kind": "action",
+   "text": "Continue Dextrose 5%.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Dextrose 5%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38507547A1::02",
+   "claim_id": "M38507547A1",
+   "claim_text": "Continue Dextrose 5%.",
+   "kind": "fact",
+   "text": "Dextrose 5% is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M38507547A2::03",
+   "claim_id": "M38507547A2",
+   "claim_text": "Continue Potassium Chloride.",
+   "kind": "action",
+   "text": "Continue Potassium Chloride.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Potassium Chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38507547A2::04",
+   "claim_id": "M38507547A2",
+   "claim_text": "Continue Potassium Chloride.",
+   "kind": "fact",
+   "text": "Potassium Chloride is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: potassium -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M38507547A3::05",
+   "claim_id": "M38507547A3",
+   "claim_text": "Administer HYDROmorphone (Dilaudid).",
+   "kind": "action",
+   "text": "Administer HYDROmorphone (Dilaudid).",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "HYDROmorphone",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M38507547A1::02",
+   "claim_id": "M38507547A1",
+   "claim_text": "Continue Dextrose 5%.",
+   "kind": "fact",
+   "text": "Dextrose 5% is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R16 shows an infusion of Dextrose 5% running at decision time, which directly supports the statement that Dextrose 5% is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:5109638:220949:2161-04-27 12:00:00",
+     "time": "2161-04-27 12:00:00",
+     "item": "Running at decision time (started 2161-04-27 12:00:00): Infusion/input Dextrose 5% at 10 mL/hour"
+    },
+    {
+     "rid": "inputevents:4320309:220949:2161-04-28 08:00:00",
+     "time": "2161-04-28 08:00:00",
+     "item": "Infusion/input Dextrose 5% 100 ml (2161-04-28 08:00:00 to 2161-04-28 08:01:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M38507547A2::04",
+   "claim_id": "M38507547A2",
+   "claim_text": "Continue Potassium Chloride.",
+   "kind": "fact",
+   "text": "Potassium Chloride is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: potassium -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show a 'Running at decision time' infusion of Potassium Chloride (R49) and a KCL bolus running at 50 mL/hour (R50), indicating the drug is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:2495492:225166:2161-04-28 10:30:00",
+     "time": "2161-04-28 10:30:00",
+     "item": "Running at decision time (started 2161-04-28 10:30:00): Infusion/input Potassium Chloride"
+    },
+    {
+     "rid": "inputevents:2495492:227522:2161-04-28 10:30:00",
+     "time": "2161-04-28 10:30:00",
+     "item": "Running at decision time (started 2161-04-28 10:30:00): Infusion/input KCL (Bolus) at 50 mL/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M38507547A1::01",
+   "claim_id": "M38507547A1",
+   "claim_text": "Continue Dextrose 5%.",
+   "kind": "action",
+   "text": "Continue Dextrose 5%.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Dextrose 5%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN220949",
+     "time": "2161-04-27 12:00:00",
+     "item": "Dextrose 5% infusion continuing at 10 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38507547A2::03",
+   "claim_id": "M38507547A2",
+   "claim_text": "Continue Potassium Chloride.",
+   "kind": "action",
+   "text": "Continue Potassium Chloride.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "continue",
+   "target": "Potassium Chloride",
+   "conditional": false,
+   "treatment_class": "potassium_replacement",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225166",
+     "time": "2161-04-28 10:30:00",
+     "item": "Potassium Chloride infusion continuing at",
+     "class": "potassium_replacement"
+    },
+    {
+     "rid": "IN227522",
+     "time": "2161-04-28 10:30:00",
+     "item": "KCL (Bolus) infusion continuing at 50 mL/hour",
+     "class": "potassium_replacement"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded potassium replacement after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38507547A3::05",
+   "claim_id": "M38507547A3",
+   "claim_text": "Administer HYDROmorphone (Dilaudid).",
+   "kind": "action",
+   "text": "Administer HYDROmorphone (Dilaudid).",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "HYDROmorphone",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX52340519",
+     "time": "2161-04-28 11:00:00",
+     "item": "Ordered: HYDROmorphone (Dilaudid) 2-4 mg PO/NG",
+     "class": "opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.1 mmol/L at 2161-04-27 10:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.1 mmol/L at 2161-04-27 10:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38507547A1::01"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38507547A3::05"
+   ]
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M38507547A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 2.1 mmol/L at 2161-04-27 10:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 2.1 mmol/L at 2161-04-27 10:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38507547A1::01"
+   ]
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M38507547A3::05"
+   ]
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M38507547A2::03"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 2.1 mmol/L at 2161-04-27 10:40:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 8,
+ "observation_window_hours": 4.5,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 1,
+  "treatments_omitted": 0,
+  "recall_vital": 1.0,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": 1.0,
+  "recall_okay_at3": 1.0,
+  "recall_all_at3": 1.0
+ }
+}

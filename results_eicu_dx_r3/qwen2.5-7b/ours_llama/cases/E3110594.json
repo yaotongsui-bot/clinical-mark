@@ -1,0 +1,293 @@
+{
+ "case_id": "E3110594",
+ "decision_point": "2100-01-02 01:02:00",
+ "claims": [
+  "Monitor patient's blood pressure closely, as it has fluctuated significantly.",
+  "Continue administration of furosemide to manage fluid status.",
+  "Assess patient's pain level and adjust analgesic therapy as needed."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3110594A1::01",
+   "claim_id": "E3110594A1",
+   "claim_text": "Monitor patient's blood pressure closely, as it has fluctuated significantly.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3110594A1::02",
+   "claim_id": "E3110594A1",
+   "claim_text": "Monitor patient's blood pressure closely, as it has fluctuated significantly.",
+   "kind": "fact",
+   "text": "Blood pressure has fluctuated significantly.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3110594A2::03",
+   "claim_id": "E3110594A2",
+   "claim_text": "Continue administration of furosemide to manage fluid status.",
+   "kind": "action",
+   "text": "Continue administration of furosemide.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3110594A2::04",
+   "claim_id": "E3110594A2",
+   "claim_text": "Continue administration of furosemide to manage fluid status.",
+   "kind": "fact",
+   "text": "Furosemide is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3110594A3::05",
+   "claim_id": "E3110594A3",
+   "claim_text": "Assess patient's pain level and adjust analgesic therapy as needed.",
+   "kind": "action",
+   "text": "Assess pain level.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain level",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3110594A3::06",
+   "claim_id": "E3110594A3",
+   "claim_text": "Assess patient's pain level and adjust analgesic therapy as needed.",
+   "kind": "action",
+   "text": "Adjust analgesic therapy as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "analgesic therapy",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3110594A1::02",
+   "claim_id": "E3110594A1",
+   "claim_text": "Monitor patient's blood pressure closely, as it has fluctuated significantly.",
+   "kind": "fact",
+   "text": "Blood pressure has fluctuated significantly.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient's blood pressure has fluctuated, but the statement says it has fluctuated significantly. The records do not show a significant fluctuation.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2024770707",
+     "time": "2100-01-01 21:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 125 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3110594A2::04",
+   "claim_id": "E3110594A2",
+   "claim_text": "Continue administration of furosemide to manage fluid status.",
+   "kind": "fact",
+   "text": "Furosemide is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that furosemide was ordered and scheduled to be administered at 13:30, but there is no record of it being administered at that time. The statement that it is currently being given is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:103128921",
+     "time": "2100-01-01 13:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication FUROSEMIDE PO"
+    },
+    {
+     "rid": "med:103128920",
+     "time": "2100-01-01 13:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 13:30:00): Medication FUROSEMIDE PO DAILY"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3110594A1::01",
+   "claim_id": "E3110594A1",
+   "claim_text": "Monitor patient's blood pressure closely, as it has fluctuated significantly.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2027506291",
+     "time": "2100-01-02 02:00:00",
+     "item": "systolic BP",
+     "value": "107.0 mmHg"
+    },
+    {
+     "rid": "nurse:2063848226",
+     "time": "2100-01-02 03:00:00",
+     "item": "systolic BP",
+     "value": "118.0 mmHg"
+    },
+    {
+     "rid": "nurse:2027506293",
+     "time": "2100-01-02 02:00:00",
+     "item": "mean arterial pressure",
+     "value": "80.0 mmHg"
+    },
+    {
+     "rid": "nurse:2063848228",
+     "time": "2100-01-02 03:00:00",
+     "item": "mean arterial pressure",
+     "value": "65.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x11, mean arterial pressure x11.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3110594A2::03",
+   "claim_id": "E3110594A2",
+   "claim_text": "Continue administration of furosemide to manage fluid status.",
+   "kind": "action",
+   "text": "Continue administration of furosemide.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "furosemide",
+   "conditional": false,
+   "treatment_class": "diuretic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No diuretics action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3110594A3::05",
+   "claim_id": "E3110594A3",
+   "claim_text": "Assess patient's pain level and adjust analgesic therapy as needed.",
+   "kind": "action",
+   "text": "Assess pain level.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain level",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No pain score measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3110594A3::06",
+   "claim_id": "E3110594A3",
+   "claim_text": "Assess patient's pain level and adjust analgesic therapy as needed.",
+   "kind": "action",
+   "text": "Adjust analgesic therapy as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "analgesic therapy",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Blood pressure has fluctuated significantly. -- The records show that the patient's blood pressure has fluctuated, but the statement says it has fluctuated significantly. The records do not show a significant fluctuation.",
+    "Furosemide is currently being given. -- The records show that furosemide was ordered and scheduled to be administered at 13:30, but there is no record of it being administered at that time. The statement that it is currently being given is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,293 @@
+{
+ "case_id": "E3124669",
+ "decision_point": "2100-01-02 03:21:00",
+ "claims": [
+  "Continue intravenous sodium bicarbonate infusion to enhance salicylate alkalinization.",
+  "Obtain a repeat serum salicylate level in 4–6 hours to assess trend and guide therapy.",
+  "Monitor serum electrolytes (especially potassium, calcium, and bicarbonate) q4h while on bicarbonate therapy."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3124669A1::01",
+   "claim_id": "E3124669A1",
+   "claim_text": "Continue intravenous sodium bicarbonate infusion to enhance salicylate alkalinization.",
+   "kind": "action",
+   "text": "Continue intravenous sodium bicarbonate infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous sodium bicarbonate infusion",
+   "conditional": false,
+   "treatment_class": "bicarbonate",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3124669A1::02",
+   "claim_id": "E3124669A1",
+   "claim_text": "Continue intravenous sodium bicarbonate infusion to enhance salicylate alkalinization.",
+   "kind": "fact",
+   "text": "Intravenous sodium bicarbonate infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3124669A2::03",
+   "claim_id": "E3124669A2",
+   "claim_text": "Obtain a repeat serum salicylate level in 4–6 hours to assess trend and guide therapy.",
+   "kind": "action",
+   "text": "Obtain a repeat serum salicylate level in 4-6 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum salicylate level",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3124669A3::04",
+   "claim_id": "E3124669A3",
+   "claim_text": "Monitor serum electrolytes (especially potassium, calcium, and bicarbonate) q4h while on bicarbonate therapy.",
+   "kind": "action",
+   "text": "Monitor serum potassium q4h.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3124669A3::05",
+   "claim_id": "E3124669A3",
+   "claim_text": "Monitor serum electrolytes (especially potassium, calcium, and bicarbonate) q4h while on bicarbonate therapy.",
+   "kind": "action",
+   "text": "Monitor serum calcium q4h.",
+   "concept": "calcium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "calcium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3124669A3::06",
+   "claim_id": "E3124669A3",
+   "claim_text": "Monitor serum electrolytes (especially potassium, calcium, and bicarbonate) q4h while on bicarbonate therapy.",
+   "kind": "action",
+   "text": "Monitor serum bicarbonate q4h.",
+   "concept": "bicarbonate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "bicarbonate",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3124669A1::02",
+   "claim_id": "E3124669A1",
+   "claim_text": "Continue intravenous sodium bicarbonate infusion to enhance salicylate alkalinization.",
+   "kind": "fact",
+   "text": "Intravenous sodium bicarbonate infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records document sodium bicarbonate as a treatment for salicylate toxicity, but there is no medication order or administration record showing an intravenous sodium bicarbonate infusion was being given at the decision time. The treatment documentation alone does not confirm active administration.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:71929676",
+     "time": "2100-01-01 08:35:00",
+     "item": "Treatment documented: agent specific therapy | salicylate overdose/toxicity | sodium bicarbonate"
+    },
+    {
+     "rid": "treat:71712190",
+     "time": "2100-01-01 21:56:00",
+     "item": "Treatment documented: agent specific therapy | salicylate overdose/toxicity | sodium bicarbonate"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3124669A1::01",
+   "claim_id": "E3124669A1",
+   "claim_text": "Continue intravenous sodium bicarbonate infusion to enhance salicylate alkalinization.",
+   "kind": "action",
+   "text": "Continue intravenous sodium bicarbonate infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous sodium bicarbonate infusion",
+   "conditional": false,
+   "treatment_class": "bicarbonate",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sodium bicarbonate action recorded in the 10.1 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3124669A2::03",
+   "claim_id": "E3124669A2",
+   "claim_text": "Obtain a repeat serum salicylate level in 4–6 hours to assess trend and guide therapy.",
+   "kind": "action",
+   "text": "Obtain a repeat serum salicylate level in 4-6 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "serum salicylate level",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3124669A3::04",
+   "claim_id": "E3124669A3",
+   "claim_text": "Monitor serum electrolytes (especially potassium, calcium, and bicarbonate) q4h while on bicarbonate therapy.",
+   "kind": "action",
+   "text": "Monitor serum potassium q4h.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:746968156",
+     "time": "2100-01-02 04:00:00",
+     "item": "potassium",
+     "value": "3.1 mmol/L"
+    },
+    {
+     "rid": "lab:746988745",
+     "time": "2100-01-02 10:00:00",
+     "item": "potassium",
+     "value": "3.7 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 10.1 h observation window after the decision (24 h or until ICU discharge): potassium x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3124669A3::05",
+   "claim_id": "E3124669A3",
+   "claim_text": "Monitor serum electrolytes (especially potassium, calcium, and bicarbonate) q4h while on bicarbonate therapy.",
+   "kind": "action",
+   "text": "Monitor serum calcium q4h.",
+   "concept": "calcium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "calcium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:746968165",
+     "time": "2100-01-02 04:00:00",
+     "item": "calcium",
+     "value": "7.9 mg/dL"
+    },
+    {
+     "rid": "lab:738362774",
+     "time": "2100-01-02 10:00:00",
+     "item": "calcium",
+     "value": "4.8 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 10.1 h observation window after the decision (24 h or until ICU discharge): calcium x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3124669A3::06",
+   "claim_id": "E3124669A3",
+   "claim_text": "Monitor serum electrolytes (especially potassium, calcium, and bicarbonate) q4h while on bicarbonate therapy.",
+   "kind": "action",
+   "text": "Monitor serum bicarbonate q4h.",
+   "concept": "bicarbonate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "bicarbonate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:746968163",
+     "time": "2100-01-02 04:00:00",
+     "item": "bicarbonate",
+     "value": "31.0 mmol/L"
+    },
+    {
+     "rid": "lab:746988762",
+     "time": "2100-01-02 10:00:00",
+     "item": "bicarbonate",
+     "value": "28.0 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 10.1 h observation window after the decision (24 h or until ICU discharge): bicarbonate x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 10.1,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous sodium bicarbonate infusion is currently being given. -- The records document sodium bicarbonate as a treatment for salicylate toxicity, but there is no medication order or administration record showing an intravenous sodium bicarbonate infusion was being given at the decision time. The treatment documentation alone does not confirm active administration."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

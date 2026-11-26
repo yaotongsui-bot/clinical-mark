@@ -1,0 +1,117 @@
+# E3130379   T = 2100-01-02 14:26:00   records before T: 485
+ICU stay 3130379 (Med-Surg ICU; Female, age 41; admission diagnosis: Respiratory - medical, other).
+
+## Atoms
+deepseek-v4.1-flash|E3130379A1::02 [presupposition] The patient is currently on BiPAP support.   <- Continue BiPAP support with current settings (FiO2 30%, PEEP 8 cmH2O) and monitor oxygenation and ventilation, given persistent hypercapnia (pCO2 61 mmHg) and borderline oxygen saturation.
+deepseek-v4.1-flash|E3130379A1::03 [observed] FiO2 is 30%.   <- Continue BiPAP support with current settings (FiO2 30%, PEEP 8 cmH2O) and monitor oxygenation and ventilation, given persistent hypercapnia (pCO2 61 mmHg) and borderline oxygen saturation.
+deepseek-v4.1-flash|E3130379A1::04 [observed] PEEP is 8 cmH2O.   <- Continue BiPAP support with current settings (FiO2 30%, PEEP 8 cmH2O) and monitor oxygenation and ventilation, given persistent hypercapnia (pCO2 61 mmHg) and borderline oxygen saturation.
+deepseek-v4.1-flash|E3130379A1::07 [observed] Hypercapnia is present.   <- Continue BiPAP support with current settings (FiO2 30%, PEEP 8 cmH2O) and monitor oxygenation and ventilation, given persistent hypercapnia (pCO2 61 mmHg) and borderline oxygen saturation.
+deepseek-v4.1-flash|E3130379A1::08 [observed] pCO2 is 61 mmHg.   <- Continue BiPAP support with current settings (FiO2 30%, PEEP 8 cmH2O) and monitor oxygenation and ventilation, given persistent hypercapnia (pCO2 61 mmHg) and borderline oxygen saturation.
+deepseek-v4.1-flash|E3130379A1::09 [observed] Oxygen saturation is borderline.   <- Continue BiPAP support with current settings (FiO2 30%, PEEP 8 cmH2O) and monitor oxygenation and ventilation, given persistent hypercapnia (pCO2 61 mmHg) and borderline oxygen saturation.
+deepseek-v4.1-flash|E3130379A2::11 [presupposition] Hypercapnia is present.   <- Obtain repeat arterial blood gas to reassess hypercapnia and acid-base status.
+deepseek-v4.1-flash|E3130379A2::12 [presupposition] Acid-base status is abnormal.   <- Obtain repeat arterial blood gas to reassess hypercapnia and acid-base status.
+deepseek-v4.1-flash|E3130379A3::15 [observed] Fingerstick glucose is 219 mg/dL.   <- Monitor blood glucose and administer insulin per sliding scale, as fingerstick glucose remains elevated (219 mg/dL).
+gpt-oss-120b|E3130379A1::02 [presupposition] The patient is currently on BiPAP ventilation.   <- Continue BiPAP ventilation with current settings and reassess respiratory status in 2 hours.
+gpt-oss-120b|E3130379A2::05 [observed] pCO₂ is rising.   <- Obtain arterial blood gas to evaluate ventilation and acid‑base status given rising pCO₂.
+qwen2.5-7b|E3130379A2::03 [presupposition] The patient is currently on non-invasive ventilation with BiPAP.   <- Continue non-invasive ventilation with BiPAP settings.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2099-12-31 19:22:00): Medication LORazepam ZPYXVEND ZPYXISVEND
+  Running at decision time (scheduled order started 2099-12-31 19:22:00): Medication ASPIRIN, CHILDREN'S ZPYXVEND ZPYXISVEND
+  Running at decision time (scheduled order started 2099-12-31 19:22:00): Medication PANTOPRAZOLE ZPYXVEND ZPYXISVEND
+  Running at decision time (scheduled order started 2099-12-31 19:23:00): Medication ALBUTEROL/IPRATROPIUM ZPYXVEND ZPYXISVEND
+  Running at decision time (scheduled order started 2100-01-01 00:08:00): Medication ASPIRIN, CHILDREN'S ORAL DAILY (0900)
+  Running at decision time (scheduled order started 2100-01-01 00:13:00): Medication ENOXAPARIN SUBCUTAN DAILY (1700)
+  Running at decision time (scheduled order started 2100-01-01 00:13:00): Medication INSULIN ASPART SUBCUTAN ACHS
+  Running at decision time (scheduled order started 2100-01-01 01:50:00): Medication PANTOPRAZOLE DR ORAL DAILY (0900)
+  Running at decision time (scheduled order started 2100-01-01 12:38:00): Medication CITALOPRAM ORAL DAILY (0900)
+
+## PRN orders
+  12-31 23:32 Order: ALBUTEROL 0.083% INHALATION Q2HPRN PRN (stopped 2100-01-01 00:07:00)
+  01-01 00:07 Order: diphenhydrAMINE HCl ORAL QHSPRN PRN (active at decision time)
+  01-01 00:08 Order: ACETAMINOPHEN ORAL Q4HPRN PRN (active at decision time)
+  01-01 00:08 Order: ALBUTEROL 0.083% INHALATION Q2HPRN PRN (active at decision time)
+  01-01 01:00 Order: LORazepam ORAL Q6HPRN PRN (active at decision time)
+  01-02 01:56 Order: LORazepam INTRAVENOU ONETIMEPRN PRN (stopped 2100-01-02 03:47:00)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication PANTOPRAZOLE DR ORAL DAILY (0900) (2099-12-31 23:31:00 to 2100-01-01 00:07:00)
+  Medication ASPIRIN, CHILDREN'S ORAL DAILY (0900) (2099-12-31 23:32:00 to 2100-01-01 00:07:00)
+  Medication CITALOPRAM ORAL DAILY (0900) (2100-01-01 00:59:00 to 2100-01-01 12:38:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 11:28 0.7 %; 12-31 19:03 0.7 %
+  -eos: 01-01 11:28 1.2 %; 12-31 19:03 1 %
+  -lymphs: 01-01 11:28 17.1 %; 12-31 19:03 19.6 %
+  -monos: 01-01 11:28 4.8 %; 12-31 19:03 4.5 %
+  -polys: 01-01 11:28 76.2 %; 12-31 19:03 74.2 %
+  Anion Gap: 01-02 11:03 7; 01-01 11:28 9; 12-31 19:03 10
+  Base Excess: 01-02 10:30 8; 01-01 13:50 5
+  Bicarbonate: 01-02 11:03 33 mmol/L; 01-01 11:28 30 mmol/L; 12-31 19:03 30 mmol/L
+  Bicarbonate (blood gas HCO3): 01-02 10:30 33.5 mmol/L; 01-01 13:50 30.5 mmol/L
+  Calcium, Total: 01-02 11:03 9.2 mg/dL; 01-01 11:28 9.3 mg/dL; 12-31 19:03 9.3 mg/dL
+  Chloride: 01-02 11:03 97 mmol/L; 01-01 11:28 99 mmol/L; 12-31 19:03 96 mmol/L
+  Creatinine: 01-02 11:03 0.51 mg/dL; 01-01 11:28 0.56 mg/dL; 12-31 19:03 0.49 mg/dL
+  FiO2: 01-02 10:30 0 %; 01-01 13:50 24 %
+  Glucose: 01-02 11:03 215 mg/dL; 01-01 11:28 209 mg/dL; 12-31 19:03 165 mg/dL
+  Glucose finger stick: 01-02 12:53 219 mg/dL; 01-02 02:25 257 mg/dL; 01-01 21:39 151 mg/dL; 01-01 16:52 204 mg/dL; 01-01 16:30 136 mg/dL   [+3 earlier]
+  Hematocrit: 01-02 11:03 36.5 %; 01-01 11:28 38 %; 12-31 19:03 36.9 %
+  Hemoglobin: 01-02 11:03 11.9 g/dL; 01-01 11:28 12.6 g/dL; 12-31 19:03 12.1 g/dL
+  MCH: 01-02 11:03 29.1 pg; 01-01 11:28 29.5 pg; 12-31 19:03 28.7 pg
+  MCHC: 01-02 11:03 32.7 g/dL; 01-01 11:28 33.1 g/dL; 12-31 19:03 32.7 g/dL
+  MCV: 01-02 11:03 89 fl; 01-01 11:28 88.9 fl; 12-31 19:03 87.9 fl
+  MPV: 01-02 11:03 8.9 fl; 01-01 11:28 8.9 fl; 12-31 19:03 8.7 fl
+  Magnesium: 01-02 11:03 2.1 mg/dL
+  Oxygen Saturation: 01-02 10:30 94 %; 01-01 13:50 94 %
+  PEEP: 01-02 10:30 8
+  Phosphate: 01-02 11:03 4.4 mg/dL
+  Platelet Count: 01-02 11:03 202 th/mm3; 01-01 11:28 215 th/mm3; 12-31 19:03 220 th/mm3
+  Potassium: 01-02 11:03 4.3 mmol/L; 01-01 11:28 4.1 mmol/L; 12-31 19:03 3.8 mmol/L
+  RBC: 01-02 11:03 4.1 mil/mm3; 01-01 11:28 4.27 mil/mm3; 12-31 19:03 4.2 mil/mm3
+  RDW: 01-02 11:03 14.3 %; 01-01 11:28 14.2 %; 12-31 19:03 14.4 %
+  Sodium: 01-02 11:03 137 mmol/L; 01-01 11:28 138 mmol/L; 12-31 19:03 136 mmol/L
+  Temperature: 01-02 10:30 37 DEGREES; 01-01 13:50 37 DEGREES
+  Total CO2: 01-02 10:30 35 mmol/L; 01-01 13:50 32 mmol/L
+  Urea Nitrogen: 01-02 11:03 13 mg/dL; 01-01 11:28 14 mg/dL; 12-31 19:03 17 mg/dL
+  White Blood Cells: 01-02 11:03 5.9 th/mm3; 01-01 11:28 6.9 th/mm3; 12-31 19:03 7.6 th/mm3
+  pCO2: 01-02 10:30 61 mm/Hg; 01-01 13:50 54 mm/Hg
+  pH: 01-02 10:30 7.35; 01-01 13:50 7.36
+  pO2: 01-02 10:30 79 mm/Hg; 01-01 13:50 76 mm/Hg
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  End Tidal CO2: 58 @01-02 13:00   24h 38-58 (n=9)
+  Glasgow coma score Eyes: 4 @01-02 13:00   24h 4-4 (n=19)
+  Glasgow coma score GCS Total: 15 @01-02 13:00   24h 15-15 (n=19)
+  Glasgow coma score Motor: 6 @01-02 13:00   24h 6-6 (n=19)
+  Glasgow coma score Verbal: 5 @01-02 13:00   24h 5-5 (n=19)
+  Glucose finger stick: 219 mg/dL @01-02 13:00   24h 136-257 (n=5)
+  Head of Bed Elevation: Yes @01-02 10:30
+  Heart Rate: 81 bpm @01-02 13:00   24h 73-100 (n=19)
+  Inspired O2 Fraction: 30 % @01-02 10:30   24h 25-30 (n=4)
+  Non Invasive Blood Pressure diastolic: 91 mmHg @01-02 13:00   24h 64-91 (n=14)
+  Non Invasive Blood Pressure mean: 135 mmHg @01-02 13:00   24h 82-135 (n=14)
+  Non Invasive Blood Pressure systolic: 170 mmHg @01-02 13:00   24h 110-170 (n=14)
+  O2 Delivery Device(s): Nasal cannula (charted: nasal cannula) @01-02 13:00   earlier: Bipap mask (charted: BiPAP 12/8) @01-02 11:00
+  O2 L/%: 30 @01-02 11:00   24h 1-40 (n=18)
+  O2 saturation pulseoxymetry: 93 % @01-02 13:00   24h 88-97 (n=19)
+  PEEP set: 8 cmH2O @01-02 10:30   24h 8-8 (n=8)
+  Pain Level: 2 @01-02 13:00   24h 0-10 (n=19)
+  Pain Score/Goal Pain Goal: 0 @01-02 13:00   24h 0-0 (n=19)
+  Peak Insp. Pressure: 12 cmH2O @01-02 10:30   24h 12-12 (n=4)
+  Respiratory Rate: 14 insp/min @01-02 13:00   24h 0-24 (n=19)
+  Respiratory Rate (Set): 20 insp/min @01-02 10:30   24h 20-20 (n=4)
+  Respiratory Rate (Total): 23 insp/min @01-02 10:30   24h 23-24 (n=3)
+  Respiratory Rate (spontaneous): 24 insp/min @01-02 03:55
+  SaO2: 96 @01-02 10:30   24h 94-97 (n=4)
+  Sedation Scale/Score/Goal Sedation Goal: 0 @01-02 13:00   24h 0-0 (n=19)
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-02 13:00
+  Sedation Scale/Score/Goal Sedation Score: -1 @01-02 13:00   24h -1-0 (n=19)
+  Temperature Fahrenheit: 98.4 F @01-02 13:00   24h 98-98.8 (n=7)
+  Temperature Location: oral @01-02 13:00
+  Tidal Volume (observed): 225 mL @01-02 10:30   24h 225-500 (n=4)
+
+## Treatments documented
+
+## Microbiology

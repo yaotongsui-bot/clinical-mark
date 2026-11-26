@@ -1,0 +1,100 @@
+# E1117947   T = 2100-01-02 06:58:00   records before T: 569
+ICU stay 1117947 (Med-Surg ICU; Male, age 79; admission diagnosis: Pneumonia, other).
+
+## Atoms
+deepseek-v4.1-flash|E1117947A1::02 [presupposition] The patient is currently on non-invasive ventilation.   <- Continue non-invasive ventilation with close monitoring of oxygenation and respiratory status.
+deepseek-v4.1-flash|E1117947A2::07 [observed] Hypotension is present.   <- Monitor blood pressure and heart rate closely due to hypotension and tachycardia.
+deepseek-v4.1-flash|E1117947A2::08 [observed] Tachycardia is present.   <- Monitor blood pressure and heart rate closely due to hypotension and tachycardia.
+deepseek-v4.1-flash|E1117947A3::11 [presupposition] Hyperglycemia is present.   <- Assess and manage hyperglycemia with glucose monitoring and potential insulin therapy.
+gpt-oss-120b|E1117947A1::02 [observed] Hemoglobin is ~8.5 g/dL.   <- Order packed red blood cell transfusion to address hemoglobin ~8.5 g/dL with ongoing respiratory distress.
+gpt-oss-120b|E1117947A1::03 [observed] Respiratory distress is ongoing.   <- Order packed red blood cell transfusion to address hemoglobin ~8.5 g/dL with ongoing respiratory distress.
+gpt-oss-120b|E1117947A2::05 [presupposition] The patient is currently on non-invasive ventilation.   <- Continue non‑invasive ventilation with close monitoring of respiratory rate and oxygen saturation.
+qwen2.5-7b|E1117947A2::04 [presupposition] The patient is currently on non-invasive ventilation.   <- Continue non-invasive ventilation to support respiratory function.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2099-12-30 02:30:00): Medication omeprazole (PriLOSEC) cap 20 mg PO QHS
+
+## PRN orders
+  12-30 02:12 Order: oxyCODONE (OXY IR) cap-tab 5 mg PO Q4H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Given once: NSS 0.9% 1,000 mL bolus infusion IVPB ONCE X1 (2099-12-29 20:30:00)
+  Given once: CEFEPIME HCL 2 G IJ SOLR IVPB ONCE X1 (2099-12-29 23:00:00)
+  Medication NSS infusion IV CONTINUOUS (2099-12-30 02:30:00 to 2100-01-01 13:56:00)
+  Given once: magnesium sulfate 1 g in d5w 100mL **LOCKED DOSE IVPB ONCE X1 (2099-12-30 02:45:00)
+  Medication potassium chloride 10 mEq in 100 mL ivpb **LOCKED DOSE PERIPH IV Q1H X3 (2099-12-30 03:00:00 to 2099-12-30 07:24:00)
+  Medication albuterol-ipratropium (DUONEB) inhalation solution 3 mL NEBULIZER RESPQID (2099-12-30 11:00:00 to 2100-01-01 15:45:00)
+  Medication potassium chloride 20 mEq in 50 mL ivpb **LOCKED DOSE CENTRAL IV (2099-12-30 14:00:00 to 2099-12-30 19:56:00)
+  Given once: alteplase (CATHFLO ACTIVASE) inj 2 mg IV PUSH ONCE X1 (2099-12-31 14:15:00)
+  Given once: alteplase (CATHFLO ACTIVASE) inj 2 mg IV PUSH ONCE X1 (2099-12-31 18:00:00)
+  Given once: MAGNESIUM SULFATE 50 % IJ SOLN 2ML IVPB ONCE X1 (2099-12-31 22:15:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 10:04 1 %; 12-31 13:45 0 %; 12-30 10:45 1 %; 12-29 20:23 1 %
+  -eos: 01-01 10:04 1 %; 12-31 13:45 0 %; 12-30 10:45 3 %; 12-29 20:23 1 %
+  -lymphs: 01-01 10:04 32 %; 12-31 13:45 42 %; 12-30 10:45 40 %; 12-29 20:23 46 %
+  -monos: 01-01 10:04 13 %; 12-31 13:45 13 %; 12-30 10:45 19 %; 12-29 20:23 16 %
+  -polys: 01-01 10:04 28 %; 12-31 13:45 22 %; 12-30 10:45 21 %; 12-29 20:23 26 %
+  Alanine Aminotransferase (ALT): 12-29 20:23 20 U/L
+  Albumin: 12-29 20:23 2.7 g/dL
+  Alkaline Phosphatase: 12-29 20:23 67 U/L
+  Asparate Aminotransferase (AST): 12-29 20:23 30 U/L
+  Bicarbonate: 01-01 10:04 20 mmol/L; 12-31 13:45 16 mmol/L; 12-30 10:45 18 mmol/L; 12-29 20:23 22 mmol/L
+  Bicarbonate (blood gas HCO3): 01-01 16:00 18.6 mmol/L; 01-01 10:20 19.5 mmol/L; 01-01 00:00 18.3 mmol/L; 12-31 13:28 16.4 mmol/L
+  Bilirubin, Total: 12-29 20:23 0.5 mg/dL
+  CPK: 12-29 20:23 93 U/L
+  Calcium, Total: 01-01 10:04 8.9 mg/dL; 12-31 13:45 8.9 mg/dL; 12-30 10:45 8.6 mg/dL; 12-29 20:23 9.9 mg/dL
+  Carboxyhemoglobin: 01-01 16:00 1.1 % total Hgb; 01-01 10:20 1.1 % total Hgb; 01-01 00:00 1 % total Hgb; 12-31 13:28 1.2 % total Hgb
+  Chloride: 01-01 10:04 111 mmol/L; 12-31 13:45 112 mmol/L; 12-30 10:45 109 mmol/L; 12-29 20:23 108 mmol/L
+  Creatinine: 01-01 10:04 1.1 mg/dL; 12-31 13:45 1.3 mg/dL; 12-30 10:45 1.2 mg/dL; 12-29 20:23 1.5 mg/dL
+  FiO2: 01-01 16:00 70 %; 01-01 10:20 70 %; 12-31 13:28 40 %
+  Glucose: 01-01 10:04 143 mg/dL; 12-31 13:45 218 mg/dL; 12-30 10:45 115 mg/dL; 12-29 20:23 113 mg/dL
+  Glucose finger stick: 01-02 01:43 318 mg/dl; 01-01 20:06 189 mg/dl; 01-01 15:35 189 mg/dl; 01-01 02:56 142 mg/dl; 12-31 15:16 242 mg/dl
+  Hematocrit: 01-01 10:04 24.3 %; 12-31 13:45 26.7 %; 12-30 10:45 24.1 %; 12-29 20:23 29 %
+  Hemoglobin: 01-01 16:00 8.6 g/dL; 01-01 10:20 8.5 g/dL; 01-01 10:04 8.2 g/dL; 01-01 00:00 8.7 g/dL; 12-31 13:45 9.2 g/dL   [+3 earlier]
+  INR(PT): 12-29 20:23 1.66
+  LPM O2: 01-01 00:00 12 L/min
+  Lactate: 12-29 20:23 1 mmol/L
+  MCH: 01-01 10:04 28.9 pg; 12-31 13:45 29.1 pg; 12-30 10:45 28.7 pg; 12-29 20:23 29.4 pg
+  MCHC: 01-01 10:04 33.7 g/dL; 12-31 13:45 34.5 g/dL; 12-30 10:45 33.6 g/dL; 12-29 20:23 34.5 g/dL
+  MCV: 01-01 10:04 85.6 fL; 12-31 13:45 84.5 fL; 12-30 10:45 85.5 fL; 12-29 20:23 85.3 fL
+  MPV: 01-01 10:04 8.9 fL; 12-31 13:45 9 fL; 12-30 10:45 8.7 fL; 12-29 20:23 9.1 fL
+  Magnesium: 01-01 10:04 1.8 mg/dL; 12-31 13:45 1.4 mg/dL; 12-30 10:45 1.7 mg/dL
+  Methemoglobin: 01-01 16:00 0.7 % total Hgb; 01-01 10:20 0.7 % total Hgb; 01-01 00:00 1.3 % total Hgb; 12-31 13:28 0.7 % total Hgb
+  PT: 12-29 20:23 19.1 seconds
+  Platelet Count: 01-01 10:04 257 K/uL; 12-31 13:45 282 K/uL; 12-30 10:45 266 K/uL; 12-29 20:23 318 K/uL
+  Potassium: 01-01 10:04 4 mmol/L; 12-31 13:45 4.2 mmol/L; 12-30 10:45 3.4 mmol/L; 12-29 20:23 3.4 mmol/L
+  RBC: 01-01 10:04 2.84 M/uL; 12-31 13:45 3.16 M/uL; 12-30 10:45 2.82 M/uL; 12-29 20:23 3.4 M/uL
+  RDW: 01-01 10:04 15.6 %; 12-31 13:45 15.4 %; 12-30 10:45 15 %; 12-29 20:23 15 %
+  Sodium: 01-01 10:04 138 mmol/L; 12-31 13:45 137 mmol/L; 12-30 10:45 136 mmol/L; 12-29 20:23 142 mmol/L
+  Temperature: 01-01 16:00 37 degree C; 01-01 10:20 37 degree C; 01-01 00:00 37 degree C; 12-31 13:28 37 degree C
+  Urea Nitrogen: 01-01 10:04 21 mg/dL; 12-31 13:45 20 mg/dL; 12-30 10:45 25 mg/dL; 12-29 20:23 30 mg/dL
+  White Blood Cells: 01-01 10:04 1.87 K/uL; 12-31 13:45 2.4 K/uL; 12-30 10:45 1.9 K/uL; 12-29 20:23 2.43 K/uL
+  direct bilirubin: 12-29 20:23 0.3 mg/dL
+  pCO2: 01-01 16:00 28.8 mm Hg; 01-01 10:20 30.2 mm Hg; 01-01 00:00 27.1 mm Hg; 12-31 13:28 24.5 mm Hg
+  pH: 01-01 16:00 7.425 units; 01-01 10:20 7.427 units; 01-01 00:00 7.445 units; 12-31 13:28 7.44 units
+  pO2: 01-01 16:00 81 mm Hg; 01-01 10:20 71.4 mm Hg; 01-01 00:00 112 mm Hg; 12-31 13:28 58.4 mm Hg
+  total protein: 12-29 20:23 6.2 g/dL
+  urinary specific gravity: 12-29 20:38 1.025
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-02 04:00   24h 4-4 (n=5)
+  Glasgow coma score GCS Total: 15 @01-02 04:00   24h 15-15 (n=5)
+  Glasgow coma score Motor: 6 @01-02 04:00   24h 6-6 (n=5)
+  Glasgow coma score Verbal: 5 @01-02 04:00   24h 5-5 (n=5)
+  Glucose finger stick: 318 mg/dL @01-02 01:45   24h 141-318 (n=4)
+  Heart Rate: 75 bpm @01-02 05:30   24h 73-125 (n=27)
+  Inspired O2 Fraction: 80 % @01-02 05:30   24h 70-80 (n=26)
+  Non Invasive Blood Pressure diastolic: 49 mmHg @01-02 05:30   24h 49-92 (n=27)
+  Non Invasive Blood Pressure systolic: 92 mmHg @01-02 05:30   24h 92-149 (n=27)
+  O2 Flow: 12 L/min @01-01 07:00   earlier: 40 L/min @12-31 17:00; 2 L/min @12-31 02:00
+  O2 saturation pulseoxymetry: 94 % @01-02 05:30   24h 88-97 (n=29)
+  Respiratory Rate: 30 insp/min @01-02 05:30   24h 29-49 (n=26)
+  Temperature Fahrenheit: 97.3 F @01-02 04:00   24h 97.2-100.9 (n=7)
+
+## Treatments documented
+  01-01 07:31 pulmonary | ventilation and oxygenation | non-invasive ventilation
+
+## Microbiology

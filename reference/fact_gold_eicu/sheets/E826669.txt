@@ -1,0 +1,113 @@
+# E826669   T = 2100-01-02 00:46:00   records before T: 628
+ICU stay 826669 (Med-Surg ICU; Male, age 74; admission diagnosis: Sepsis, cutaneous/soft tissue).
+
+## Atoms
+deepseek-v4.1-flash|E826669A1::02 [presupposition] Norepinephrine infusion is currently being given.   <- Continue norepinephrine infusion for hemodynamic support, titrating to maintain adequate mean arterial pressure.
+deepseek-v4.1-flash|E826669A3::07 [presupposition] Metabolic acidosis is present.   <- Assess and manage metabolic acidosis, including consideration of sodium bicarbonate therapy based on blood gas results.
+gpt-oss-120b|E826669A1::02 [presupposition] Amiodarone infusion is currently being given.   <- Continue intravenous amiodarone infusion and monitor serum electrolytes (especially potassium and magnesium) q4h.
+gpt-oss-120b|E826669A2::R01 [presupposition] Metabolic acidosis is present.   <- Obtain repeat arterial blood gas and lactate measurement in 2 hours to assess metabolic acidosis and tissue perfusion.
+gpt-oss-120b|E826669A3::08 [presupposition] Norepinephrine infusion is currently being given.   <- Gradually wean norepinephrine infusion as blood pressure stabilizes, targeting MAP ≥65 mmHg.
+qwen2.5-7b|E826669A3::06 [presupposition] Electrolyte imbalances are present.   <- Evaluate and manage electrolyte imbalances, particularly sodium and potassium.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2099-12-31 21:53:00): Medication AMIODARONE 900 MG in 500 mL D5W IV
+  Running at decision time (scheduled order started 2099-12-31 22:17:00): Medication HEPARIN 25,000 unit(s) in D5W 25 IV
+  Running at decision time (scheduled order started 2099-12-31 23:21:00): Medication SODIUM CHLORIDE 0.9% 1000 ML LVP IV
+  Running at decision time (scheduled order started 2100-01-01 00:00:00): Medication FAMOTIDINE 20 MG TAB PO DAILY
+  Running at decision time (scheduled order started 2100-01-01 04:00:00): Medication METOPROLOL TARTRATE 25 MG TAB PO BID
+  Running at decision time (scheduled order started 2100-01-01 05:00:00): Medication metroNIDAZOLE 500 MG in 100ML RTU-PB IVPB Q8H
+  Running at decision time (started 2100-01-01 06:00:00): Infusion/input Amiodarone at 16.7 ml/hour
+  Running at decision time (scheduled order started 2100-01-01 16:00:00): Medication ASPIRIN (BABY ASA) 81 MG TAB PO DAILY
+  Running at decision time (scheduled order started 2100-01-01 17:48:00): Medication NOREPINEPHRINE 8 MG in 250mL NS IVPB
+  Running at decision time (scheduled order started 2100-01-01 18:00:00): Medication VANCOmycin 1.5 GM in NS 500ML IVPB IVPB Q24H
+  Running at decision time (scheduled order started 2100-01-01 19:28:00): Medication SODIUM BICARBONATE 8.4% 50 ML INJ IV
+
+## PRN orders
+  12-31 22:17 Order: HEPARIN 25,000 unit(s) in D5W 25 IV ONCALL PRN (active at decision time)
+  12-31 23:22 Order: acetaMINOPHEN 325 MG TAB PO Q4H PRN (active at decision time)
+  12-31 23:22 Order: acetaMINOPHEN 650MG RECT SUPP PR Q4H PRN (active at decision time)
+  12-31 23:22 Order: ONDANSETRON 2 MG/1 ML 2ML SDV INJ IV Push Q6H PRN (active at decision time)
+  12-31 23:22 Order: MORPHINE 2 MG/1 ML 1 ML SYR IV Push Q2H PRN (active at decision time)
+  12-31 23:31 Order: LORazepam 1 MG TAB PO QHS PRN (active at decision time)
+  01-01 02:19 Order: oxyCODONE 5 MG TAB PO Q4H PRN (active at decision time)
+  01-01 02:19 Order: oxyCODONE 5 MG TAB PO Q4H PRN (active at decision time)
+  01-01 22:28 Order: ALBUTEROL 2.5 MG/3 ML UD INH SOLN SVN RSPQ4H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+  Infusion/input Amiodarone at 33.3 ml/hour (2100-01-01 02:00:00 to 2100-01-01 06:00:00)
+  Infusion/input Heparin at 19.6 ml/hour (2100-01-01 02:00:00 to 2100-01-01 13:00:00)
+
+## Medications given once or ended before T
+  Medication SODIUM CHLORIDE 0.9% 1000 ML LVP IV (2099-12-31 19:00:00 to 2100-01-01 14:24:00)
+  Medication AMIODARONE 150 MG in 100 mL D5W IVPB ONCALL X1 (2099-12-31 21:53:00 to 2099-12-31 22:36:00)
+  Medication HEPARIN 25,000 unit(s) in D5W 25 IV 1XONLY (2099-12-31 22:17:00 to 2100-01-01 01:32:00)
+  Medication ZOSYN 3.375 GRAM in NS 100 mL IVPB IVPB Q8H (2100-01-01 05:00:00 to 2100-01-01 16:10:00)
+
+## Laboratory (newest first, up to 5)
+  Alanine Aminotransferase (ALT): 01-01 15:51 282 IU/L; 12-31 17:13 359 IU/L
+  Albumin: 01-01 15:51 1.9 g/dL; 12-31 17:13 3 g/dL
+  Alkaline Phosphatase: 01-01 15:51 62 IU/L; 12-31 17:13 82 IU/L
+  Anion Gap: 01-01 15:51 17; 12-31 17:13 14
+  Asparate Aminotransferase (AST): 01-01 15:51 694 IU/L; 12-31 17:13 1399 IU/L
+  Base Excess: 01-01 19:01 -12.6; 01-01 01:52 -8.4 mmol/L
+  Bicarbonate: 01-01 15:51 16 mmol/L; 12-31 17:13 22 mmol/L
+  Bicarbonate (blood gas HCO3): 01-01 19:01 11.8 mmol/L; 01-01 01:52 14.3 mmol/L
+  Bilirubin, Total: 01-01 15:51 2.9 mg/dL; 12-31 17:13 1.3 mg/dL
+  CPK: 01-01 15:51 28934 IU/L; 01-01 00:27 47331 IU/L
+  Calcium, Total: 01-01 15:51 6.9 mg/dL; 12-31 17:13 9.2 mg/dL
+  Chloride: 01-01 15:51 97 mmol/L; 12-31 17:13 102 mmol/L
+  Creatinine: 01-01 15:51 4.36 mg/dL; 12-31 17:13 2.58 mg/dL
+  FiO2: 01-01 00:57 21 %
+  Glucose: 01-01 15:51 333 mg/dL; 12-31 17:13 82 mg/dL
+  Glucose finger stick: 01-01 22:32 123 mg/dL; 01-01 18:20 132 mg/dL; 01-01 14:37 92 mg/dL; 01-01 11:51 94 mg/dL; 01-01 07:41 96 mg/dL   [+2 earlier]
+  Hematocrit: 01-01 15:51 40 %; 12-31 17:13 46.5 %
+  Hemoglobin: 01-01 15:51 14.2 g/dL; 12-31 17:13 16.3 g/dL
+  INR(PT): 12-31 22:35 1.4
+  Lactate: 01-01 19:01 1.6 mmol/L; 01-01 01:54 1.8 mmol/L; 01-01 00:27 2.6 mmol/L; 12-31 17:13 2.8 mmol/L
+  MCH: 01-01 15:51 30.7 pg; 12-31 17:13 30.5 pg
+  MCHC: 01-01 15:51 35.5 g/dL; 12-31 17:13 35.1 g/dL
+  MCV: 01-01 15:51 87 fL; 12-31 17:13 87 fL
+  Magnesium: 12-31 17:13 2.1 mg/dL
+  Oxygen Saturation: 01-01 19:01 97.5; 01-01 01:52 95.7 %
+  PT: 12-31 22:35 16.9 second(s)
+  PTT: 01-01 15:51 72 second(s); 01-01 06:48 72 second(s); 12-31 22:35 35 second(s)
+  Platelet Count: 01-01 15:51 115 K/MM3; 12-31 17:13 147 K/MM3
+  Potassium: 01-01 15:51 3.9 mmol/L; 12-31 17:13 4.1 mmol/L
+  RBC: 01-01 15:51 4.62 M/MM3; 12-31 17:13 5.34 M/MM3
+  RDW: 01-01 15:51 15.5 %; 12-31 17:13 15.2 %
+  Sodium: 01-01 15:51 130 mmol/L; 12-31 17:13 138 mmol/L
+  Urea Nitrogen: 01-01 15:51 68 mg/dL; 12-31 17:13 53 mg/dL
+  White Blood Cells: 01-01 15:51 14.2 K/MM3; 12-31 17:13 11.8 K/MM3
+  pCO2: 01-01 19:01 22.3 mmHg; 01-01 01:52 21.3 mmHg
+  pH: 01-01 19:01 7.331 unit(s); 01-01 01:52 7.435 unit(s)
+  pO2: 01-01 19:01 94.2 mmHg; 01-01 01:52 71.2 mmHg
+  total protein: 01-01 15:51 5.6 g/dL; 12-31 17:13 7.2 g/dL
+  troponin - I: 01-01 07:28 1.8 ng/mL; 01-01 00:27 1.8 ng/mL; 12-31 17:13 1.2 ng/mL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Arterial Blood Pressure diastolic: 73 mmHg @01-01 21:56   24h 57-75 (n=13)
+  Arterial Blood Pressure mean: 86 mmHg @01-01 21:56   24h 71-88 (n=13)
+  Arterial Blood Pressure systolic: 111 mmHg @01-01 21:56   24h 99-118 (n=13)
+  Fall Risk: High @01-01 14:42   earlier: Medium @01-01 11:00
+  Glasgow coma score Eyes: 4 @01-01 23:00   24h 4-4 (n=7)
+  Glasgow coma score GCS Total: 15 @01-01 23:00   24h 15-15 (n=7)
+  Glasgow coma score Motor: 6 @01-01 23:00   24h 6-6 (n=7)
+  Glasgow coma score Verbal: 5 @01-01 23:00   24h 5-5 (n=7)
+  Glucose finger stick: 123 mg/dL @01-01 22:32   24h 83-132 (n=6)
+  Heart Rate: 87 bpm @01-02 00:30   24h 77-154 (n=67)
+  Non Invasive Blood Pressure diastolic: 72 mmHg @01-02 00:30   24h 53-97 (n=50)
+  Non Invasive Blood Pressure mean: 79 mmHg @01-01 19:15   24h 56-102 (n=49)
+  Non Invasive Blood Pressure systolic: 118 mmHg @01-02 00:30   24h 66-144 (n=50)
+  O2 Flow: 1 L/min @01-01 23:01
+  O2 saturation pulseoxymetry: 97 % @01-01 23:01   24h 93-98 (n=66)
+  Respiratory Rate: 24 insp/min @01-02 00:30   24h 17-34 (n=67)
+  Respiratory Rate (spontaneous): 24 insp/min @01-02 00:30   24h 17-34 (n=67)
+  Temperature Fahrenheit: 97 F @01-02 00:30   24h 97-98.2 (n=7)
+  Temperature Location: Temporal @01-02 00:30   earlier: undocumented @01-01 11:00
+
+## Treatments documented
+  01-01 00:57 antiarrhythmics | class III antiarrhythmic | amiodarone
+  01-01 14:31 antiarrhythmics | class III antiarrhythmic | amiodarone
+  01-01 14:31 intravenous fluid | normal saline administration | fluid bolus (250-1000mls)
+
+## Microbiology

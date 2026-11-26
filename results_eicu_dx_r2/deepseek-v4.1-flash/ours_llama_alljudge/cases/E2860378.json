@@ -1,0 +1,670 @@
+{
+ "case_id": "E2860378",
+ "decision_point": "2100-01-02 14:07:00",
+ "claims": [
+  "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+  "Assess volume status and consider fluid resuscitation for hypotension.",
+  "Monitor blood glucose to guide insulin therapy, as last recorded glucose was 176 mg/dL at 02:34."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2860378A1::01",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "action",
+   "text": "Continue monitoring blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2860378A1::02",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "fact",
+   "text": "Hypotension is persistent.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "persistent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2860378A1::03",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "fact",
+   "text": "Systolic blood pressure is 88-99 mmHg.",
+   "concept": "sbp",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2860378A1::04",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "fact",
+   "text": "MAP is 59-78 mmHg.",
+   "concept": "map",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2860378A2::05",
+   "claim_id": "E2860378A2",
+   "claim_text": "Assess volume status and consider fluid resuscitation for hypotension.",
+   "kind": "action",
+   "text": "Assess volume status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "volume status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2860378A2::06",
+   "claim_id": "E2860378A2",
+   "claim_text": "Assess volume status and consider fluid resuscitation for hypotension.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2860378A2::07",
+   "claim_id": "E2860378A2",
+   "claim_text": "Assess volume status and consider fluid resuscitation for hypotension.",
+   "kind": "action",
+   "text": "Consider fluid resuscitation for hypotension.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2860378A3::08",
+   "claim_id": "E2860378A3",
+   "claim_text": "Monitor blood glucose to guide insulin therapy, as last recorded glucose was 176 mg/dL at 02:34.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2860378A3::09",
+   "claim_id": "E2860378A3",
+   "claim_text": "Monitor blood glucose to guide insulin therapy, as last recorded glucose was 176 mg/dL at 02:34.",
+   "kind": "fact",
+   "text": "Last recorded glucose was 176 mg/dL at 02:34.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2860378A1::02",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "fact",
+   "text": "Hypotension is persistent.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "persistent",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient's respiratory rate has fluctuated over the past 24 hours, but there is no evidence of persistent hypotension. The patient's blood pressure is not mentioned in the records at all.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:2860378:patient",
+     "time": "2100-01-01 14:07:00",
+     "item": "Patient: Female, age 36"
+    },
+    {
+     "rid": "nurse:1828067934",
+     "time": "2100-01-01 14:15:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "nurse:1864018137",
+     "time": "2100-01-01 14:30:00",
+     "item": "Temperature Fahrenheit: 97 F"
+    },
+    {
+     "rid": "nurse:1775198316",
+     "time": "2100-01-01 15:00:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "nurse:1785584432",
+     "time": "2100-01-01 15:15:00",
+     "item": "Respiratory Rate: 19 insp/min"
+    },
+    {
+     "rid": "nurse:1791647736",
+     "time": "2100-01-01 15:30:00",
+     "item": "Respiratory Rate: 9 insp/min"
+    },
+    {
+     "rid": "nurse:1832306389",
+     "time": "2100-01-01 15:58:00",
+     "item": "Temperature Fahrenheit: 98.2 F"
+    },
+    {
+     "rid": "nurse:1859485372",
+     "time": "2100-01-01 16:13:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:1780601119",
+     "time": "2100-01-01 16:15:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "nurse:1785371909",
+     "time": "2100-01-01 16:30:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:1787870841",
+     "time": "2100-01-01 16:45:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "inf:Insulin ():173",
+     "time": "2100-01-01 17:00:00",
+     "item": "Infusion/input Insulin at 3.57 (2100-01-01 17:00:00 to 2100-01-01 18:00:00)"
+    },
+    {
+     "rid": "nurse:1883541929",
+     "time": "2100-01-01 17:00:00",
+     "item": "Respiratory Rate: 9 insp/min"
+    },
+    {
+     "rid": "nurse:1799362684",
+     "time": "2100-01-01 17:15:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:1824463144",
+     "time": "2100-01-01 17:30:00",
+     "item": "Respiratory Rate: 12 insp/min"
+    },
+    {
+     "rid": "nurse:1794636233",
+     "time": "2100-01-01 18:05:00",
+     "item": "Respiratory Rate: 14 insp/min"
+    },
+    {
+     "rid": "nurse:1871697306",
+     "time": "2100-01-01 18:15:00",
+     "item": "Respiratory Rate: 20 insp/min"
+    },
+    {
+     "rid": "nurse:1881799916",
+     "time": "2100-01-01 18:45:00",
+     "item": "Respiratory Rate: 11 insp/min"
+    },
+    {
+     "rid": "nurse:1860278985",
+     "time": "2100-01-01 19:33:00",
+     "item": "Temperature Fahrenheit: 98.2 F"
+    },
+    {
+     "rid": "nurse:1795051755",
+     "time": "2100-01-01 20:30:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "nurse:1848742817",
+     "time": "2100-01-01 21:00:00",
+     "item": "Respiratory Rate: 17 insp/min"
+    },
+    {
+     "rid": "nurse:1835759330",
+     "time": "2100-01-01 21:15:00",
+     "item": "Respiratory Rate: 11 insp/min"
+    },
+    {
+     "rid": "nurse:1886991403",
+     "time": "2100-01-01 21:30:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "nurse:1871858186",
+     "time": "2100-01-01 21:45:00",
+     "item": "Respiratory Rate: 12 insp/min"
+    },
+    {
+     "rid": "nurse:1794830026",
+     "time": "2100-01-01 22:15:00",
+     "item": "Respiratory Rate: 15 insp/min"
+    },
+    {
+     "rid": "nurse:1878749850",
+     "time": "2100-01-01 22:30:00",
+     "item": "Respiratory Rate: 14 insp/min"
+    },
+    {
+     "rid": "nurse:1819387846",
+     "time": "2100-01-01 23:00:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "nurse:1840598178",
+     "time": "2100-01-01 23:15:00",
+     "item": "Respiratory Rate: 11 insp/min"
+    },
+    {
+     "rid": "nurse:1820870151",
+     "time": "2100-01-01 23:30:00",
+     "item": "Respiratory Rate: 10 insp/min"
+    },
+    {
+     "rid": "nurse:1791898681",
+     "time": "2100-01-01 23:45:00",
+     "item": "Respiratory Rate: 10 insp/min"
+    },
+    {
+     "rid": "nurse:1806753386",
+     "time": "2100-01-02 00:00:00",
+     "item": "Temperature Fahrenheit: 98.4 F"
+    },
+    {
+     "rid": "nurse:1844398393",
+     "time": "2100-01-02 00:00:00",
+     "item": "Respiratory Rate: 12 insp/min"
+    },
+    {
+     "rid": "nurse:1787750403",
+     "time": "2100-01-02 00:15:00",
+     "item": "Respiratory Rate: 14 insp/min"
+    },
+    {
+     "rid": "nurse:1853102427",
+     "time": "2100-01-02 00:30:00",
+     "item": "Respiratory Rate: 12 insp/min"
+    },
+    {
+     "rid": "nurse:1864572280",
+     "time": "2100-01-02 00:45:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "nurse:1784815762",
+     "time": "2100-01-02 01:00:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "nurse:1790837733",
+     "time": "2100-01-02 01:15:00",
+     "item": "Respiratory Rate: 11 insp/min"
+    },
+    {
+     "rid": "nurse:1856486572",
+     "time": "2100-01-02 01:30:00",
+     "item": "Respiratory Rate: 9 insp/min"
+    },
+    {
+     "rid": "nurse:1788032120",
+     "time": "2100-01-02 01:45:00",
+     "item": "Respiratory Rate: 14 insp/min"
+    },
+    {
+     "rid": "nurse:1819992031",
+     "time": "2100-01-02 02:00:00",
+     "item": "Respiratory Rate: 13 insp/min"
+    },
+    {
+     "rid": "nurse:1804261599",
+     "time": "2100-01-02 02:15:00",
+     "item": "Respiratory Rate: 18 insp/min"
+    },
+    {
+     "rid": "inf:Insulin ():743",
+     "time": "2100-01-02 02:30:00",
+     "item": "Infusion/input Insulin at 4.5 (2100-01-02 02:30:00 to 2100-01-02 02:30:00)"
+    },
+    {
+     "rid": "nurse:1881662122",
+     "time": "2100-01-02 02:30:00",
+     "item": "Respiratory Rate: 16 insp/min"
+    },
+    {
+     "rid": "nurse:1822280386",
+     "time": "2100-01-02 04:08:00",
+     "item": "Temperature Fahrenheit: 97.9 F"
+    },
+    {
+     "rid": "nurse:1790505439",
+     "time": "2100-01-02 08:00:00",
+     "item": "Temperature Fahrenheit: 96.4 F"
+    },
+    {
+     "rid": "nurse:1821873607",
+     "time": "2100-01-02 12:00:00",
+     "item": "Temperature Fahrenheit: 96.6 F"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2860378A1::03",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "fact",
+   "text": "Systolic blood pressure is 88-99 mmHg.",
+   "concept": "sbp",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that the patient's systolic blood pressure was 88-99 mmHg at 07:00, 10:00, and 11:00 on 2100-01-02, which supports the AI statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1836337907",
+     "time": "2100-01-02 07:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 88 mmHg"
+    },
+    {
+     "rid": "nurse:1824366625",
+     "time": "2100-01-02 10:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 99 mmHg"
+    },
+    {
+     "rid": "nurse:1847578520",
+     "time": "2100-01-02 11:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 88 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2860378A1::04",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "fact",
+   "text": "MAP is 59-78 mmHg.",
+   "concept": "map",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient's mean arterial pressure (MAP) has been fluctuating between 59 and 78 mmHg, but the statement says it is 59-78 mmHg. The records do not support the statement, but they do address it.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1822759963",
+     "time": "2100-01-02 00:30:00",
+     "item": "Non Invasive Blood Pressure diastolic: 59 mmHg"
+    },
+    {
+     "rid": "nurse:1842895160",
+     "time": "2100-01-02 03:45:00",
+     "item": "Non Invasive Blood Pressure diastolic: 59 mmHg"
+    },
+    {
+     "rid": "nurse:1813630864",
+     "time": "2100-01-02 05:45:00",
+     "item": "Non Invasive Blood Pressure mean: 78 mmHg"
+    },
+    {
+     "rid": "nurse:1840794665",
+     "time": "2100-01-02 06:00:00",
+     "item": "Non Invasive Blood Pressure mean: 78 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2860378A2::06",
+   "claim_id": "E2860378A2",
+   "claim_text": "Assess volume status and consider fluid resuscitation for hypotension.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement 'Hypotension is present' is not supported by the records. The most recent respiratory rate measurement is 14 inspirations per minute, which is not indicative of hypotension. However, the records do not show any administration of fluids or medications that would indicate hypotension is being treated.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1822345152",
+     "time": "2100-01-02 14:00:00",
+     "item": "Respiratory Rate: 14 insp/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2860378A3::09",
+   "claim_id": "E2860378A3",
+   "claim_text": "Monitor blood glucose to guide insulin therapy, as last recorded glucose was 176 mg/dL at 02:34.",
+   "kind": "fact",
+   "text": "Last recorded glucose was 176 mg/dL at 02:34.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The statement that the last recorded glucose was 176 mg/dL at 02:34 is supported by record R43, which shows a glucose finger stick measurement of 176 mg/dL at 02:34.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:672113075",
+     "time": "2100-01-02 02:34:00",
+     "item": "Glucose finger stick: 176 mg/dL"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2860378A1::01",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "action",
+   "text": "Continue monitoring blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1872031514",
+     "time": "2100-01-02 15:00:00",
+     "item": "systolic BP",
+     "value": "94.0 mmHg"
+    },
+    {
+     "rid": "nurse:1815389811",
+     "time": "2100-01-02 16:00:00",
+     "item": "systolic BP",
+     "value": "94.0 mmHg"
+    },
+    {
+     "rid": "nurse:1872031516",
+     "time": "2100-01-02 15:00:00",
+     "item": "mean arterial pressure",
+     "value": "62.0 mmHg"
+    },
+    {
+     "rid": "nurse:1815389813",
+     "time": "2100-01-02 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "66.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 7.8 h observation window after the decision (24 h or until ICU discharge): systolic BP x5, mean arterial pressure x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2860378A2::05",
+   "claim_id": "E2860378A2",
+   "claim_text": "Assess volume status and consider fluid resuscitation for hypotension.",
+   "kind": "action",
+   "text": "Assess volume status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "volume status",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2860378A2::07",
+   "claim_id": "E2860378A2",
+   "claim_text": "Assess volume status and consider fluid resuscitation for hypotension.",
+   "kind": "action",
+   "text": "Consider fluid resuscitation for hypotension.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 7.8 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2860378A3::08",
+   "claim_id": "E2860378A3",
+   "claim_text": "Monitor blood glucose to guide insulin therapy, as last recorded glucose was 176 mg/dL at 02:34.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:670831609",
+     "time": "2100-01-02 17:33:00",
+     "item": "glucose",
+     "value": "161.0 mg/dL"
+    },
+    {
+     "rid": "lab:674504494",
+     "time": "2100-01-02 20:36:00",
+     "item": "glucose",
+     "value": "250.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 7.8 h observation window after the decision (24 h or until ICU discharge): glucose x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 7.8,
+ "scoresheet": {
+  "n": 5,
+  "supported": 2,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.4,
+  "not_supported_share": 0.6,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hypotension is persistent. -- The records show that the patient's respiratory rate has fluctuated over the past 24 hours, but there is no evidence of persistent hypotension. The patient's blood pressure is not mentioned in the records at all.",
+    "MAP is 59-78 mmHg. -- The records show that the patient's mean arterial pressure (MAP) has been fluctuating between 59 and 78 mmHg, but the statement says it is 59-78 mmHg. The records do not support the statement, but they do address it.",
+    "Hypotension is present. -- The statement 'Hypotension is present' is not supported by the records. The most recent respiratory rate measurement is 14 inspirations per minute, which is not indicative of hypotension. However, the records do not show any administration of fluids or medications that would indicate hypotension is being treated."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.4,
+  "not_supported": 3,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

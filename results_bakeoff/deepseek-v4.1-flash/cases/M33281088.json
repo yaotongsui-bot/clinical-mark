@@ -1,0 +1,1021 @@
+{
+ "case_id": "M33281088",
+ "decision_point": "2140-01-24 18:08:00",
+ "claims": [
+  "Continue norepinephrine infusion for hemodynamic support.",
+  "Monitor arterial blood gases and lactate to assess metabolic acidosis and perfusion.",
+  "Continue insulin therapy for hyperglycemia management."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M33281088A1::01",
+   "claim_id": "M33281088A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M33281088A1::02",
+   "claim_id": "M33281088A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M33281088A2::03",
+   "claim_id": "M33281088A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess metabolic acidosis and perfusion.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33281088A2::04",
+   "claim_id": "M33281088A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess metabolic acidosis and perfusion.",
+   "kind": "action",
+   "text": "Monitor lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M33281088A2::05",
+   "claim_id": "M33281088A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess metabolic acidosis and perfusion.",
+   "kind": "fact",
+   "text": "Metabolic acidosis is present.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "M33281088A2::06",
+   "claim_id": "M33281088A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess metabolic acidosis and perfusion.",
+   "kind": "fact",
+   "text": "Perfusion is impaired.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M33281088A3::07",
+   "claim_id": "M33281088A3",
+   "claim_text": "Continue insulin therapy for hyperglycemia management.",
+   "kind": "action",
+   "text": "Continue insulin therapy.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M33281088A3::08",
+   "claim_id": "M33281088A3",
+   "claim_text": "Continue insulin therapy for hyperglycemia management.",
+   "kind": "fact",
+   "text": "Insulin therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "M33281088A3::09",
+   "claim_id": "M33281088A3",
+   "claim_text": "Continue insulin therapy for hyperglycemia management.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M33281088A1::02",
+   "claim_id": "M33281088A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R48 documents a norepinephrine infusion running at the decision time (started 2140-01-24 15:10), confirming the patient is currently receiving norepinephrine.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:5654982:221906:2140-01-24 15:10:00",
+     "time": "2140-01-24 15:10:00",
+     "item": "Running at decision time (started 2140-01-24 15:10:00): Infusion/input Norepinephrine at 0.21842820569872856 mcg/kg/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "M33281088A2::05",
+   "claim_id": "M33281088A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess metabolic acidosis and perfusion.",
+   "kind": "fact",
+   "text": "Metabolic acidosis is present.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:463565",
+     "time": "2140-01-24 17:30:00",
+     "item": "pH",
+     "value": 7.35,
+     "unit": "units",
+     "bounds": "7.35 to 7.45",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:463526",
+     "time": "2140-01-24 11:56:00",
+     "item": "Bicarbonate",
+     "value": 9.0,
+     "unit": "mEq/L",
+     "bounds": "22.0 to 32.0",
+     "bounds_basis": "lab_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "metabolic acidosis: pH 7.35 (low required: no); bicarbonate 9 (low required: yes).",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M33281088A2::06",
+   "claim_id": "M33281088A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess metabolic acidosis and perfusion.",
+   "kind": "fact",
+   "text": "Perfusion is impaired.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records document an active Impaired Tissue Perfusion nursing care plan with the problem unresolved (R6, R29), which explicitly indicates impaired perfusion.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "chart:33281088:229101:2140-01-24 16:22:00",
+     "time": "2140-01-24 16:22:00",
+     "item": "Impaired Tissue Perfusion NCP - Problem resolved: No"
+    },
+    {
+     "rid": "chart:33281088:229101:2140-01-23 22:58:00",
+     "time": "2140-01-23 22:58:00",
+     "item": "Impaired Tissue Perfusion NCP - Problem resolved: No"
+    }
+   ]
+  },
+  {
+   "atom_id": "M33281088A3::08",
+   "claim_id": "M33281088A3",
+   "claim_text": "Continue insulin therapy for hyperglycemia management.",
+   "kind": "fact",
+   "text": "Insulin therapy is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Insulin was administered within the 24 hours before the decision time: MAR Administered Insulin at 12:42 and an Insulin - Humalog infusion at 12:30 on 2140-01-24.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "emar:10039708-240",
+     "time": "2140-01-24 12:42:00",
+     "item": "MAR Administered: Insulin"
+    },
+    {
+     "rid": "inputevents:1058109:223262:2140-01-24 12:30:00",
+     "time": "2140-01-24 12:30:00",
+     "item": "Infusion/input Insulin - Humalog 8 units (2140-01-24 12:30:00 to 2140-01-24 12:31:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "M33281088A3::09",
+   "claim_id": "M33281088A3",
+   "claim_text": "Continue insulin therapy for hyperglycemia management.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:463427",
+     "time": "2140-01-23 23:51:00",
+     "item": "Glucose",
+     "value": 172.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:463488",
+     "time": "2140-01-24 05:51:00",
+     "item": "Glucose",
+     "value": 315.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:463529",
+     "time": "2140-01-24 11:56:00",
+     "item": "Glucose",
+     "value": 311.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 311 mg/dL at 2140-01-24 11:56:00 (reference 70.0 to 100.0) is high, consistent with 'high'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M33281088A1::01",
+   "claim_id": "M33281088A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN221906",
+     "time": "2140-01-24 15:10:00",
+     "item": "Norepinephrine infusion continuing at 0.21842820569872856 mcg/kg/min",
+     "class": "vasopressor"
+    },
+    {
+     "rid": "IN221906#2",
+     "time": "2140-01-24 18:19:00",
+     "item": "Norepinephrine infusion started at 0.16382115427404642 mcg/kg/min",
+     "class": "vasopressor"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded vasopressors after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M33281088A2::03",
+   "claim_id": "M33281088A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess metabolic acidosis and perfusion.",
+   "kind": "action",
+   "text": "Monitor arterial blood gases.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gases",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223830:2140-01-24 21:55:00:139963",
+     "time": "2140-01-24 21:55:00",
+     "item": "pH",
+     "value": "7.4 units"
+    },
+    {
+     "rid": "lab:50820:2140-01-25 11:40:00:77199",
+     "time": "2140-01-25 11:40:00",
+     "item": "pH",
+     "value": "7.39 units"
+    },
+    {
+     "rid": "chart:220235:2140-01-24 21:55:00:139962",
+     "time": "2140-01-24 21:55:00",
+     "item": "PaCO2",
+     "value": "24 mmHg"
+    },
+    {
+     "rid": "lab:50818:2140-01-25 11:40:00:77202",
+     "time": "2140-01-25 11:40:00",
+     "item": "PaCO2",
+     "value": "32 mm Hg"
+    },
+    {
+     "rid": "chart:220224:2140-01-24 21:55:00:139964",
+     "time": "2140-01-24 21:55:00",
+     "item": "PaO2",
+     "value": "62 mmHg"
+    },
+    {
+     "rid": "lab:50821:2140-01-25 11:40:00:77201",
+     "time": "2140-01-25 11:40:00",
+     "item": "PaO2",
+     "value": "___ mm Hg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pH x5, PaCO2 x5, PaO2 x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33281088A2::04",
+   "claim_id": "M33281088A2",
+   "claim_text": "Monitor arterial blood gases and lactate to assess metabolic acidosis and perfusion.",
+   "kind": "action",
+   "text": "Monitor lactate.",
+   "concept": "lactate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "lactate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:225668:2140-01-25 11:40:00:137743",
+     "time": "2140-01-25 11:40:00",
+     "item": "lactate",
+     "value": "4.9 mmol/L"
+    },
+    {
+     "rid": "chart:225668:2140-01-25 01:49:00:139167",
+     "time": "2140-01-25 01:49:00",
+     "item": "lactate",
+     "value": "4.9 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): lactate x8.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M33281088A3::07",
+   "claim_id": "M33281088A3",
+   "claim_text": "Continue insulin therapy for hyperglycemia management.",
+   "kind": "action",
+   "text": "Continue insulin therapy.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "E10039708-253",
+     "time": "2140-01-24 18:10:00",
+     "item": "Given: Insulin",
+     "class": "insulin"
+    },
+    {
+     "rid": "E10039708-263",
+     "time": "2140-01-24 22:17:00",
+     "item": "Given: Insulin",
+     "class": "insulin"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded insulin after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13.2 K/uL at 2140-01-24 11:52:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 13.2 K/uL at 2140-01-24 11:52:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "MetRONIDAZOLE (FLagyl)",
+    "Metronidazole",
+    "Vancomycin"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "bicarbonate",
+   "name": "sodium bicarbonate",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest bicarbonate 9 mEq/L at 2140-01-24 11:56:00 (reference 22.0 to 32.0) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "bicarbonate",
+     "direction": "low",
+     "reason": "Latest bicarbonate 9 mEq/L at 2140-01-24 11:56:00 (reference 22.0 to 32.0) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Sodium Bicarbonate 8.4%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.1 mmol/L at 2140-01-24 12:15:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 1.1 mmol/L at 2140-01-24 12:15:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate",
+    "Calcium Gluconate sliding scale (Critical Care-Ionized calcium)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 7.2 mmol/L at 2140-01-24 17:30:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 7.2 mmol/L at 2140-01-24 17:30:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 23,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2140-01-24 11:56:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "potassium",
+     "direction": "low",
+     "reason": "Latest potassium 3 mEq/L at 2140-01-24 11:56:00 (reference 3.3 to 5.1) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 311 mg/dL (treatment threshold > 180).",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "high",
+     "reason": "Latest glucose 311 mg/dL (treatment threshold > 180)."
+    }
+   ],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 8,
+   "covered": true,
+   "by_atoms": [
+    "M33281088A3::07"
+   ]
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 10,
+   "covered": true,
+   "by_atoms": [
+    "M33281088A1::01"
+   ]
+  },
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Albumin 25%",
+    "Albumin 25% (12.5g / 50mL)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Phosphorus"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13.2 K/uL at 2140-01-24 11:52:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 13.2 K/uL at 2140-01-24 11:52:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "MetRONIDAZOLE (FLagyl)",
+    "Metronidazole",
+    "Vancomycin"
+   ],
+   "doctor_rows": 14,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "bicarbonate",
+   "name": "sodium bicarbonate",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest bicarbonate 9 mEq/L at 2140-01-24 11:56:00 (reference 22.0 to 32.0) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "bicarbonate",
+     "direction": "low",
+     "reason": "Latest bicarbonate 9 mEq/L at 2140-01-24 11:56:00 (reference 22.0 to 32.0) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Sodium Bicarbonate 8.4%"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.1 mmol/L at 2140-01-24 12:15:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 1.1 mmol/L at 2140-01-24 12:15:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate",
+    "Calcium Gluconate sliding scale (Critical Care-Ionized calcium)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 7.2 mmol/L at 2140-01-24 17:30:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "lactate",
+     "direction": "high",
+     "reason": "Latest lactate 7.2 mmol/L at 2140-01-24 17:30:00 (reference 0.5 to 2.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 23,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2140-01-24 11:56:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "potassium",
+     "direction": "low",
+     "reason": "Latest potassium 3 mEq/L at 2140-01-24 11:56:00 (reference 3.3 to 5.1) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 311 mg/dL (treatment threshold > 180).",
+   "indications": [
+    {
+     "concept": "glucose",
+     "direction": "high",
+     "reason": "Latest glucose 311 mg/dL (treatment threshold > 180)."
+    }
+   ],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Humalog"
+   ],
+   "doctor_rows": 8,
+   "covered": true,
+   "by_atoms": [
+    "M33281088A3::07"
+   ]
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 10,
+   "covered": true,
+   "by_atoms": [
+    "M33281088A1::01"
+   ]
+  },
+  {
+   "class": "albumin",
+   "name": "albumin / colloid",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Albumin 25%",
+    "Albumin 25% (12.5g / 50mL)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate Replacement (Critical Care and Oncology)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "HYDROmorphone (Dilaudid)",
+    "Hydromorphone (Dilaudid)"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Phosphorus"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "calcium",
+   "direction": "low",
+   "reason": "Latest calcium 1.1 mmol/L at 2140-01-24 12:15:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "name": "calcium",
+   "treated_by": [
+    "calcium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "lactate",
+   "direction": "high",
+   "reason": "Latest lactate 7.2 mmol/L at 2140-01-24 17:30:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "name": "lactate",
+   "treated_by": [
+    "IV fluids"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "potassium",
+   "direction": "low",
+   "reason": "Latest potassium 3 mEq/L at 2140-01-24 11:56:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "name": "potassium",
+   "treated_by": [
+    "potassium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 13.2 K/uL at 2140-01-24 11:52:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "bicarbonate",
+   "direction": "low",
+   "reason": "Latest bicarbonate 9 mEq/L at 2140-01-24 11:56:00 (reference 22.0 to 32.0) is low, consistent with 'low'.",
+   "name": "bicarbonate",
+   "treated_by": [
+    "sodium bicarbonate"
+   ],
+   "mentioned": true,
+   "by_atoms": [
+    "M33281088A2::05"
+   ]
+  },
+  {
+   "concept": "glucose",
+   "direction": "high",
+   "reason": "Latest glucose 311 mg/dL (treatment threshold > 180).",
+   "name": "glucose",
+   "treated_by": [
+    "insulin"
+   ],
+   "mentioned": true,
+   "by_atoms": [
+    "M33281088A3::09"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 110,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 5,
+  "supported": 4,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.8,
+  "not_supported_share": 0.2,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Metabolic acidosis is present. -- metabolic acidosis: pH 7.35 (low required: no); bicarbonate 9 (low required: yes)."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.8,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "facts_omitted": 4,
+  "treatments_omitted": 10,
+  "recall_vital": 0.286,
+  "recall_okay": 0.0,
+  "recall_all": 0.167,
+  "recall_vital_at3": 0.286,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.167
+ }
+}

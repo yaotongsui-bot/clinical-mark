@@ -1,0 +1,352 @@
+{
+ "case_id": "E3170528",
+ "decision_point": "2100-01-02 03:39:00",
+ "claims": [
+  "Continue intermittent pneumatic compression for VTE prophylaxis.",
+  "Monitor blood pressure closely and titrate nicardipine infusion to maintain mean arterial pressure between 80-100 mmHg.",
+  "Obtain a repeat head CT to assess for progression of intracerebral hemorrhage."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3170528A1::01",
+   "claim_id": "E3170528A1",
+   "claim_text": "Continue intermittent pneumatic compression for VTE prophylaxis.",
+   "kind": "action",
+   "text": "Continue intermittent pneumatic compression.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intermittent pneumatic compression",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3170528A1::02",
+   "claim_id": "E3170528A1",
+   "claim_text": "Continue intermittent pneumatic compression for VTE prophylaxis.",
+   "kind": "fact",
+   "text": "Intermittent pneumatic compression is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3170528A2::03",
+   "claim_id": "E3170528A2",
+   "claim_text": "Monitor blood pressure closely and titrate nicardipine infusion to maintain mean arterial pressure between 80-100 mmHg.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3170528A2::04",
+   "claim_id": "E3170528A2",
+   "claim_text": "Monitor blood pressure closely and titrate nicardipine infusion to maintain mean arterial pressure between 80-100 mmHg.",
+   "kind": "action",
+   "text": "Titrate nicardipine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "nicardipine infusion",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3170528A2::05",
+   "claim_id": "E3170528A2",
+   "claim_text": "Monitor blood pressure closely and titrate nicardipine infusion to maintain mean arterial pressure between 80-100 mmHg.",
+   "kind": "fact",
+   "text": "Nicardipine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3170528A2::06",
+   "claim_id": "E3170528A2",
+   "claim_text": "Monitor blood pressure closely and titrate nicardipine infusion to maintain mean arterial pressure between 80-100 mmHg.",
+   "kind": "goal",
+   "text": "Maintain mean arterial pressure between 80-100 mmHg.",
+   "concept": "map",
+   "notes": []
+  },
+  {
+   "atom_id": "E3170528A3::07",
+   "claim_id": "E3170528A3",
+   "claim_text": "Obtain a repeat head CT to assess for progression of intracerebral hemorrhage.",
+   "kind": "action",
+   "text": "Obtain a repeat head CT.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "head CT",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3170528A3::08",
+   "claim_id": "E3170528A3",
+   "claim_text": "Obtain a repeat head CT to assess for progression of intracerebral hemorrhage.",
+   "kind": "fact",
+   "text": "Intracerebral hemorrhage is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3170528A1::02",
+   "claim_id": "E3170528A1",
+   "claim_text": "Continue intermittent pneumatic compression for VTE prophylaxis.",
+   "kind": "fact",
+   "text": "Intermittent pneumatic compression is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement says intermittent pneumatic compression is currently being given, but the records show that it was ordered (R19) but there is no record of it being administered in the 24 hours before the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:77963940",
+     "time": "2100-01-01 03:53:00",
+     "item": "Treatment documented: vascular disorders | VTE prophylaxis | compression boots"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3170528A2::05",
+   "claim_id": "E3170528A2",
+   "claim_text": "Monitor blood pressure closely and titrate nicardipine infusion to maintain mean arterial pressure between 80-100 mmHg.",
+   "kind": "fact",
+   "text": "Nicardipine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that nicardipine infusion was ordered (R7), but there is no record of it being administered in the 24 hours before the decision time. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:105608451",
+     "time": "2100-01-01 03:27:00",
+     "item": "Order: HYDRALAZINE HCL 20 MG/ML IJ SOLN IV Q2H PRN (active at decision time)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3170528A3::08",
+   "claim_id": "E3170528A3",
+   "claim_text": "Obtain a repeat head CT to assess for progression of intracerebral hemorrhage.",
+   "kind": "fact",
+   "text": "Intracerebral hemorrhage is present.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: neuro -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records state that the patient has an intracranial hemorrhage, but the blood pressure readings do not indicate any immediate concern. The patient's blood pressure is elevated, but it has been fluctuating throughout the day, and there is no indication of any acute change that would suggest the presence of an intracerebral hemorrhage.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:3170528:dx",
+     "time": "2100-01-01 03:39:00",
+     "item": "Admission diagnosis (APACHE): Hemorrhage/hematoma, intracranial"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3170528A1::01",
+   "claim_id": "E3170528A1",
+   "claim_text": "Continue intermittent pneumatic compression for VTE prophylaxis.",
+   "kind": "action",
+   "text": "Continue intermittent pneumatic compression.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intermittent pneumatic compression",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3170528A2::03",
+   "claim_id": "E3170528A2",
+   "claim_text": "Monitor blood pressure closely and titrate nicardipine infusion to maintain mean arterial pressure between 80-100 mmHg.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2206252703",
+     "time": "2100-01-02 04:00:00",
+     "item": "systolic BP",
+     "value": "133.0 mmHg"
+    },
+    {
+     "rid": "nurse:2199211918",
+     "time": "2100-01-02 04:00:00",
+     "item": "systolic BP",
+     "value": "148.0 mmHg"
+    },
+    {
+     "rid": "nurse:2206252702",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "88.0 mmHg"
+    },
+    {
+     "rid": "nurse:2199211919",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "93.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 7.5 h observation window after the decision (24 h or until ICU discharge): systolic BP x11, mean arterial pressure x11.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3170528A2::04",
+   "claim_id": "E3170528A2",
+   "claim_text": "Monitor blood pressure closely and titrate nicardipine infusion to maintain mean arterial pressure between 80-100 mmHg.",
+   "kind": "action",
+   "text": "Titrate nicardipine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "nicardipine infusion",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 7.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3170528A3::07",
+   "claim_id": "E3170528A3",
+   "claim_text": "Obtain a repeat head CT to assess for progression of intracerebral hemorrhage.",
+   "kind": "action",
+   "text": "Obtain a repeat head CT.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "head CT",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 7.5 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 7.5,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intermittent pneumatic compression is currently being given. -- The statement says intermittent pneumatic compression is currently being given, but the records show that it was ordered (R19) but there is no record of it being administered in the 24 hours before the decision time.",
+    "Nicardipine infusion is currently being given. -- The records show that nicardipine infusion was ordered (R7), but there is no record of it being administered in the 24 hours before the decision time. The statement is not supported by the records.",
+    "Intracerebral hemorrhage is present. -- The records state that the patient has an intracranial hemorrhage, but the blood pressure readings do not indicate any immediate concern. The patient's blood pressure is elevated, but it has been fluctuating throughout the day, and there is no indication of any acute change that would suggest the presence of an intracerebral hemorrhage."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 3,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

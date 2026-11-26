@@ -1,0 +1,234 @@
+{
+ "case_id": "E3233620",
+ "decision_point": "2100-01-02 13:57:00",
+ "claims": [
+  "Monitor pain levels and adjust analgesic therapy as needed.",
+  "Continue low molecular weight heparin for VTE prophylaxis.",
+  "Assess patient for signs of respiratory distress."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3233620A1::01",
+   "claim_id": "E3233620A1",
+   "claim_text": "Monitor pain levels and adjust analgesic therapy as needed.",
+   "kind": "action",
+   "text": "Monitor pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3233620A1::02",
+   "claim_id": "E3233620A1",
+   "claim_text": "Monitor pain levels and adjust analgesic therapy as needed.",
+   "kind": "action",
+   "text": "Adjust analgesic therapy as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "analgesic therapy",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E3233620A2::03",
+   "claim_id": "E3233620A2",
+   "claim_text": "Continue low molecular weight heparin for VTE prophylaxis.",
+   "kind": "action",
+   "text": "Continue low molecular weight heparin.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "low molecular weight heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3233620A2::04",
+   "claim_id": "E3233620A2",
+   "claim_text": "Continue low molecular weight heparin for VTE prophylaxis.",
+   "kind": "fact",
+   "text": "Low molecular weight heparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3233620A3::05",
+   "claim_id": "E3233620A3",
+   "claim_text": "Assess patient for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Assess patient for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3233620A2::04",
+   "claim_id": "E3233620A2",
+   "claim_text": "Continue low molecular weight heparin for VTE prophylaxis.",
+   "kind": "fact",
+   "text": "Low molecular weight heparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "No record of this treatment. (Panel verdict: supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    },
+    "panel_label": "supported"
+   },
+   "evidence": [
+    {
+     "rid": "treat:79045511",
+     "time": "2100-01-02 13:10:00",
+     "item": "Treatment documented: vascular disorders | VTE prophylaxis | low molecular weight heparin"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3233620A1::01",
+   "claim_id": "E3233620A1",
+   "claim_text": "Monitor pain levels and adjust analgesic therapy as needed.",
+   "kind": "action",
+   "text": "Monitor pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2238976153",
+     "time": "2100-01-02 15:00:00",
+     "item": "pain score",
+     "value": "1.0"
+    },
+    {
+     "rid": "nurse:2231418441",
+     "time": "2100-01-02 17:00:00",
+     "item": "pain score",
+     "value": "1.0"
+    }
+   ],
+   "reason": "Measured in the 10.2 h observation window after the decision (24 h or until ICU discharge): pain score x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3233620A1::02",
+   "claim_id": "E3233620A1",
+   "claim_text": "Monitor pain levels and adjust analgesic therapy as needed.",
+   "kind": "action",
+   "text": "Adjust analgesic therapy as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "analgesic therapy",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 10.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3233620A2::03",
+   "claim_id": "E3233620A2",
+   "claim_text": "Continue low molecular weight heparin for VTE prophylaxis.",
+   "kind": "action",
+   "text": "Continue low molecular weight heparin.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "low molecular weight heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (therapeutic) action recorded in the 10.2 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3233620A3::05",
+   "claim_id": "E3233620A3",
+   "claim_text": "Assess patient for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Assess patient for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 10.2,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 1.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": [
+    "Low molecular weight heparin is currently being given. -- No record of this treatment. (Panel verdict: supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

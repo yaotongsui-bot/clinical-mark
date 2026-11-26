@@ -1,0 +1,189 @@
+{
+ "case_id": "E1790816",
+ "decision_point": "2100-01-02 20:23:00",
+ "claims": [
+  "Monitor blood glucose levels closely.",
+  "Continue nitroglycerin infusion.",
+  "Administer alprazolam as needed for anxiety."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1790816A1::01",
+   "claim_id": "E1790816A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1790816A2::02",
+   "claim_id": "E1790816A2",
+   "claim_text": "Continue nitroglycerin infusion.",
+   "kind": "action",
+   "text": "Continue nitroglycerin infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nitroglycerin infusion",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1790816A2::03",
+   "claim_id": "E1790816A2",
+   "claim_text": "Continue nitroglycerin infusion.",
+   "kind": "fact",
+   "text": "Nitroglycerin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1790816A3::04",
+   "claim_id": "E1790816A3",
+   "claim_text": "Administer alprazolam as needed for anxiety.",
+   "kind": "action",
+   "text": "Administer alprazolam as needed for anxiety.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "alprazolam",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1790816A2::03",
+   "claim_id": "E1790816A2",
+   "claim_text": "Continue nitroglycerin infusion.",
+   "kind": "fact",
+   "text": "Nitroglycerin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R10 documents a Nitroglycerin infusion running from 2100-01-01 20:53 to 2100-01-02 15:12, which covers the decision time of 2100-01-02 20:23, indicating the infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Nitroglycerin (mcg/min):30",
+     "time": "2100-01-01 20:53:00",
+     "item": "Infusion/input Nitroglycerin at 20 mcg/min (2100-01-01 20:53:00 to 2100-01-02 15:12:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1790816A1::01",
+   "claim_id": "E1790816A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No glucose measurement in the 1.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1790816A2::02",
+   "claim_id": "E1790816A2",
+   "claim_text": "Continue nitroglycerin infusion.",
+   "kind": "action",
+   "text": "Continue nitroglycerin infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nitroglycerin infusion",
+   "conditional": false,
+   "treatment_class": "antihypertensive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antihypertensives action recorded in the 1.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1790816A3::04",
+   "claim_id": "E1790816A3",
+   "claim_text": "Administer alprazolam as needed for anxiety.",
+   "kind": "action",
+   "text": "Administer alprazolam as needed for anxiety.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "administer",
+   "target": "alprazolam",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 1.4,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

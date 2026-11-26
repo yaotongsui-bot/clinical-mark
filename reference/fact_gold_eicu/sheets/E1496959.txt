@@ -1,0 +1,122 @@
+# E1496959   T = 2100-01-02 23:23:00   records before T: 311
+ICU stay 1496959 (Med-Surg ICU; Female, age 57; admission diagnosis: Encephalopathy, hepatic).
+
+## Atoms
+deepseek-v4.1-flash|E1496959A1::03 [observed] Tachypnea is persistent.   <- Continue monitoring respiratory status and oxygenation given persistent tachypnea and oxygen saturation of 90-96% on low-flow oxygen.
+deepseek-v4.1-flash|E1496959A1::04 [observed] Oxygen saturation is 90-96%.   <- Continue monitoring respiratory status and oxygenation given persistent tachypnea and oxygen saturation of 90-96% on low-flow oxygen.
+deepseek-v4.1-flash|E1496959A1::05 [observed] The patient is on low-flow oxygen.   <- Continue monitoring respiratory status and oxygenation given persistent tachypnea and oxygen saturation of 90-96% on low-flow oxygen.
+deepseek-v4.1-flash|E1496959A2::07 [observed] Hepatic encephalopathy is present.   <- Continue lactulose therapy for hepatic encephalopathy as documented in treatment records.
+deepseek-v4.1-flash|E1496959A2::08 [observed] Lactulose therapy is documented in treatment records.   <- Continue lactulose therapy for hepatic encephalopathy as documented in treatment records.
+deepseek-v4.1-flash|E1496959A3::11 [observed] Blood pressure is elevated.   <- Assess and manage elevated blood pressure, including episodes of severe hypertension, with appropriate monitoring and intervention.
+deepseek-v4.1-flash|E1496959A3::12 [observed] Episodes of severe hypertension are present.   <- Assess and manage elevated blood pressure, including episodes of severe hypertension, with appropriate monitoring and intervention.
+gpt-oss-120b|E1496959A1::02 [observed] Potassium is 3.1 mEq/L.   <- Administer intravenous potassium chloride to correct hypokalemia (K+ 3.1 mEq/L).
+gpt-oss-120b|E1496959A2::04 [presupposition] Hepatic encephalopathy is present.   <- Order repeat serum ammonia level to assess trend of hepatic encephalopathy.
+gpt-oss-120b|E1496959A3::06 [observed] Systolic blood pressure is up to 232 mmHg.   <- Initiate intravenous antihypertensive therapy (e.g., nicardipine infusion) to control severe hypertension (SBP up to 232 mmHg).
+gpt-oss-120b|E1496959A3::R01 [presupposition] Hypertension is present.   <- Initiate intravenous antihypertensive therapy (e.g., nicardipine infusion) to control severe hypertension (SBP up to 232 mmHg).
+qwen2.5-7b|E1496959A1::02 [observed] Blood pressure has significant fluctuations.   <- Monitor blood pressure closely due to significant fluctuations.
+qwen2.5-7b|E1496959A2::04 [presupposition] Anticonvulsant therapy is currently being given.   <- Continue anticonvulsant therapy for seizure prevention.
+qwen2.5-7b|E1496959A3::06 [observed] Potassium levels are low.   <- Administer intravenous potassium to address low levels.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 23:30:00): Medication 1000 ML FLEX CONT : SODIUM CHLORIDE 0.9 % IV SOLN IV Continuous
+  Running at decision time (scheduled order started 2100-01-02 00:00:00): Medication 4 ML : FUROSEMIDE 10 MG/ML IJ SOLN IV Q12H
+  Running at decision time (scheduled order started 2100-01-02 02:00:00): Medication ENOXAPARIN SODIUM 40 MG/0.4ML SC SOLN SC Q24H
+  Running at decision time (scheduled order started 2100-01-02 02:00:00): Medication PANTOPRAZOLE SODIUM 40 MG IV SOLR IV Q24H
+  Running at decision time (scheduled order started 2100-01-02 12:00:00): Medication 15 ML CUP : CHLORHEXIDINE GLUCONATE 0.12 % MT SOLN Mouth Rinse BID
+  Running at decision time (scheduled order started 2100-01-02 16:00:00): Medication BIOTENE DRY MOUTH MT LIQD Mouth Rinse
+  Running at decision time (scheduled order started 2100-01-02 16:00:00): Medication INSULIN ASPART 100 UNIT/ML SC SOLN SC Q4H
+
+## PRN orders
+  01-01 23:23 Order: ONDANSETRON HCL 4 MG PO TABS PO Q6H PRN (active at decision time)
+  01-01 23:23 Order: ONDANSETRON HCL 4 MG/2ML IJ SOLN IV Q6H PRN (active at decision time)
+  01-01 23:23 Order: ACETAMINOPHEN 325 MG PO TABS PO Q6H PRN (active at decision time)
+  01-01 23:23 Order: ACETAMINOPHEN 650 MG RE SUPP RE Q6H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Given once: VANCOMYCIN HCL IN DEXTROSE 1 GM/200ML IV SOLN IV Once (2100-01-01 20:30:00)
+  Given once: PIPERACILLIN-TAZOBACTAM 3.375 G IVPB IV Once (2100-01-01 20:30:00)
+  Given once: 1000 ML FLEX CONT : DEXTROSE-NACL 5-0.45 % IV SOLN IV STAT (2100-01-01 23:30:00)
+  Medication POTASSIUM CHLORIDE 10 MEQ/100ML IV SOLN IV (2100-01-02 15:00:00 to 2100-01-02 20:59:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 18:38 0 %
+  -eos: 01-01 18:38 0 %
+  -lymphs: 01-01 18:38 16 %
+  -monos: 01-01 18:38 13 %
+  -polys: 01-01 18:38 71 %
+  Alanine Aminotransferase (ALT): 01-02 08:29 19 U/L; 01-01 18:38 19 U/L
+  Albumin: 01-02 08:29 2.5 g/dL; 01-01 18:38 2.5 g/dL
+  Alkaline Phosphatase: 01-02 08:29 117 U/L; 01-01 18:38 112 U/L
+  Asparate Aminotransferase (AST): 01-02 08:29 24 U/L; 01-01 18:38 24 U/L
+  Base Excess: 01-02 00:08 1.8 mmol/L
+  Bicarbonate: 01-02 08:29 24 mEq/L; 01-01 18:38 25 mEq/L
+  Bicarbonate (blood gas HCO3): 01-02 00:08 25 mEq/L
+  Bilirubin, Total: 01-02 08:29 1.2 mg/dL; 01-01 18:38 1.6 mg/dL
+  Calcium, Total: 01-02 08:29 8.6 mg/dL; 01-01 18:38 8.8 mg/dL
+  Chloride: 01-02 08:29 100 mEq/L; 01-01 18:38 99 mEq/L
+  Creatinine: 01-02 08:29 0.55 mg/dL; 01-01 18:38 0.57 mg/dL
+  Glucose: 01-02 08:29 192 mg/dL; 01-01 18:38 203 mg/dL
+  Hematocrit: 01-02 08:29 41.5 %; 01-01 18:38 42 %
+  Hemoglobin: 01-02 08:29 13.9 g/dL; 01-01 18:38 14.1 g/dL
+  INR(PT): 01-02 19:54 1.28; 01-01 18:38 1.37
+  LPM O2: 01-02 00:08 1.5 L/min
+  MCHC: 01-02 08:29 33.5 g/dL; 01-01 18:38 33.6 g/dL
+  MCV: 01-02 08:29 83.3 fL; 01-01 18:38 83.3 fL
+  Magnesium: 01-02 10:00 2.1 mg/dL
+  Oxygen Saturation: 01-02 00:08 93.3 %
+  PT: 01-02 19:54 15.7 seconds; 01-01 18:38 16.5 seconds
+  Phenytoin: 01-01 18:38 9.6 ug/mL
+  Platelet Count: 01-02 08:29 164 K/uL; 01-01 18:38 161 K/uL
+  Potassium: 01-02 08:29 3.1 mEq/L; 01-01 18:38 3.5 mEq/L
+  RBC: 01-02 08:29 4.98 MIL/uL; 01-01 18:38 5.04 MIL/uL
+  RDW: 01-02 08:29 17.7 %; 01-01 18:38 17.6 %
+  Sodium: 01-02 08:29 136 mEq/L; 01-01 18:38 135 mEq/L
+  Temperature: 01-02 00:08 37
+  Total CO2: 01-02 00:08 22.3 mmol/L
+  Urea Nitrogen: 01-02 08:29 19 mg/dL; 01-01 18:38 17 mg/dL
+  White Blood Cells: 01-02 08:29 10.4 K/uL; 01-01 18:38 11.4 K/uL
+  ammonia: 01-02 08:29 193 umol/L; 01-01 18:40 188 umol/L
+  pCO2: 01-02 00:08 33.7 mmHg
+  pH: 01-02 00:08 7.484
+  pO2: 01-02 00:08 67.3 mmHg
+  total protein: 01-02 08:29 7.4 g/dL; 01-01 18:38 7.4 g/dL
+  urinary specific gravity: 01-01 19:30 1.015
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 2 @01-02 12:00   24h 2-2 (n=3)
+  Glasgow coma score GCS Total: 7 @01-02 12:00   24h 7-7 (n=3)
+  Glasgow coma score Motor: 4 @01-02 12:00   24h 3-4 (n=3)
+  Glasgow coma score Verbal: 1 @01-02 12:00   24h 1-2 (n=3)
+  Heart Rate: 102 bpm @01-02 17:00   24h 92-109 (n=21)
+  Non Invasive Blood Pressure diastolic: 78 mmHg @01-02 17:00   24h 65-210 (n=26)
+  Non Invasive Blood Pressure mean: 97 mmHg @01-02 17:00   24h 83-120 (n=23)
+  Non Invasive Blood Pressure systolic: 163 mmHg @01-02 17:00   24h 131-232 (n=26)
+  O2 L/%: 1.5 @01-02 00:12   earlier: 2 @01-01 18:55
+  O2 saturation pulseoxymetry: 94 % @01-02 17:00   24h 90-96 (n=22)
+  Respiratory Rate: 21 insp/min @01-02 21:00   24h 19-34 (n=31)
+  Sedation Scale/Score/Goal Sedation Goal: 0 @01-01 23:29
+  Sedation Scale/Score/Goal Sedation Scale: RASS @01-01 23:29
+  Sedation Scale/Score/Goal Sedation Score: -1 @01-01 23:29
+  Temperature Fahrenheit: 98.2 F @01-02 20:30   24h 97.9-98.8 (n=6)
+  Temperature Location: Axillary @01-02 20:30   earlier: Oral @01-02 08:00; Rectal @01-01 19:32
+
+## Treatments documented
+  01-02 03:46 neurologic | seizure therapy | anticonvulsant
+  01-02 03:46 cardiovascular | ventricular dysfunction | intravenous diuretic
+  01-02 03:46 gastrointestinal | medications | stress ulcer prophylaxis
+  01-02 03:46 infectious diseases | medications | therapeutic antibacterials
+  01-02 03:46 gastrointestinal | medications | lactulose
+  01-02 13:29 cardiovascular | ventricular dysfunction | intravenous diuretic
+  01-02 13:29 neurologic | seizure therapy | anticonvulsant
+  01-02 13:29 gastrointestinal | medications | stress ulcer prophylaxis
+  01-02 13:29 gastrointestinal | medications | lactulose
+  01-02 13:29 infectious diseases | medications | therapeutic antibacterials
+  01-02 13:32 gastrointestinal | medications | stress ulcer prophylaxis
+  01-02 13:32 infectious diseases | medications | therapeutic antibacterials
+  01-02 13:32 gastrointestinal | medications | lactulose
+  01-02 13:32 cardiovascular | ventricular dysfunction | intravenous diuretic
+  01-02 13:32 neurologic | seizure therapy | anticonvulsant
+
+## Microbiology

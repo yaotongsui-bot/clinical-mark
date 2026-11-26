@@ -1,0 +1,328 @@
+{
+ "case_id": "E211144",
+ "decision_point": "2100-01-02 23:26:00",
+ "claims": [
+  "Continue insulin infusion and monitor blood glucose.",
+  "Monitor arterial blood pressure and heart rate.",
+  "Assess and manage pain with prescribed analgesics."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E211144A1::01",
+   "claim_id": "E211144A1",
+   "claim_text": "Continue insulin infusion and monitor blood glucose.",
+   "kind": "action",
+   "text": "Continue insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E211144A1::02",
+   "claim_id": "E211144A1",
+   "claim_text": "Continue insulin infusion and monitor blood glucose.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "E211144A1::03",
+   "claim_id": "E211144A1",
+   "claim_text": "Continue insulin infusion and monitor blood glucose.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E211144A2::04",
+   "claim_id": "E211144A2",
+   "claim_text": "Monitor arterial blood pressure and heart rate.",
+   "kind": "action",
+   "text": "Monitor arterial blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E211144A2::05",
+   "claim_id": "E211144A2",
+   "claim_text": "Monitor arterial blood pressure and heart rate.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E211144A3::06",
+   "claim_id": "E211144A3",
+   "claim_text": "Assess and manage pain with prescribed analgesics.",
+   "kind": "action",
+   "text": "Assess pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "E211144A3::07",
+   "claim_id": "E211144A3",
+   "claim_text": "Assess and manage pain with prescribed analgesics.",
+   "kind": "action",
+   "text": "Manage pain with prescribed analgesics.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "prescribed analgesics",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E211144A1::02",
+   "claim_id": "E211144A1",
+   "claim_text": "Continue insulin infusion and monitor blood glucose.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "The records show that an insulin infusion is currently being given, as indicated by the 'Running at decision time' record for 'Medication 100 ML BAG CUSTOM NDC : INSULIN INFUSION IV Continuous' in R12.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:8521377",
+     "time": "2100-01-01 22:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 22:30:00): Medication 100 ML BAG CUSTOM NDC : INSULIN INFUSION IV Continuous"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E211144A1::01",
+   "claim_id": "E211144A1",
+   "claim_text": "Continue insulin infusion and monitor blood glucose.",
+   "kind": "action",
+   "text": "Continue insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E211144A1::03",
+   "claim_id": "E211144A1",
+   "claim_text": "Continue insulin infusion and monitor blood glucose.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:57385069",
+     "time": "2100-01-03 02:33:00",
+     "item": "glucose",
+     "value": "138.0 mg/dL"
+    },
+    {
+     "rid": "nurse:244198049",
+     "time": "2100-01-03 02:33:00",
+     "item": "glucose",
+     "value": "138.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x21.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E211144A2::04",
+   "claim_id": "E211144A2",
+   "claim_text": "Monitor arterial blood pressure and heart rate.",
+   "kind": "action",
+   "text": "Monitor arterial blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:172903489",
+     "time": "2100-01-03 00:00:00",
+     "item": "systolic BP",
+     "value": "162.0 mmHg"
+    },
+    {
+     "rid": "nurse:245121901",
+     "time": "2100-01-03 00:30:00",
+     "item": "systolic BP",
+     "value": "120.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x26.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E211144A2::05",
+   "claim_id": "E211144A2",
+   "claim_text": "Monitor arterial blood pressure and heart rate.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:273381834",
+     "time": "2100-01-03 00:00:00",
+     "item": "heart rate",
+     "value": "88.0 bpm"
+    },
+    {
+     "rid": "nurse:273150550",
+     "time": "2100-01-03 00:30:00",
+     "item": "heart rate",
+     "value": "91.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x24.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E211144A3::06",
+   "claim_id": "E211144A3",
+   "claim_text": "Assess and manage pain with prescribed analgesics.",
+   "kind": "action",
+   "text": "Assess pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:202828959",
+     "time": "2100-01-03 00:44:00",
+     "item": "pain score",
+     "value": "9.0"
+    },
+    {
+     "rid": "nurse:148810536",
+     "time": "2100-01-03 01:00:00",
+     "item": "pain score",
+     "value": "2.0"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x14.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E211144A3::07",
+   "claim_id": "E211144A3",
+   "claim_text": "Assess and manage pain with prescribed analgesics.",
+   "kind": "action",
+   "text": "Manage pain with prescribed analgesics.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "prescribed analgesics",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

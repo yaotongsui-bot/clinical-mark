@@ -1,0 +1,310 @@
+{
+ "case_id": "E3027283",
+ "decision_point": "2100-01-02 05:43:00",
+ "claims": [
+  "Continue non-invasive ventilation with face mask.",
+  "Monitor pain levels and adjust ondansetron as needed.",
+  "Administer 0.9% NaCl infusion IV Continuous."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3027283A1::01",
+   "claim_id": "E3027283A1",
+   "claim_text": "Continue non-invasive ventilation with face mask.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation with face mask.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3027283A1::02",
+   "claim_id": "E3027283A1",
+   "claim_text": "Continue non-invasive ventilation with face mask.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation with face mask.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3027283A2::03",
+   "claim_id": "E3027283A2",
+   "claim_text": "Monitor pain levels and adjust ondansetron as needed.",
+   "kind": "action",
+   "text": "Monitor pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3027283A2::04",
+   "claim_id": "E3027283A2",
+   "claim_text": "Monitor pain levels and adjust ondansetron as needed.",
+   "kind": "action",
+   "text": "Adjust ondansetron as needed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ondansetron",
+   "conditional": true,
+   "treatment_class": "antiemetic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3027283A2::05",
+   "claim_id": "E3027283A2",
+   "claim_text": "Monitor pain levels and adjust ondansetron as needed.",
+   "kind": "fact",
+   "text": "Ondansetron is currently being given.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E3027283A3::06",
+   "claim_id": "E3027283A3",
+   "claim_text": "Administer 0.9% NaCl infusion IV Continuous.",
+   "kind": "action",
+   "text": "Administer 0.9% NaCl infusion IV continuous.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "0.9% NaCl",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3027283A1::02",
+   "claim_id": "E3027283A1",
+   "claim_text": "Continue non-invasive ventilation with face mask.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation with face mask.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient is on non-invasive ventilation with a face mask, but there is no record of administration of the ventilation within the last 24 hours. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:69707218",
+     "time": "2100-01-02 04:01:00",
+     "item": "Treatment documented: ventilation and oxygenation | non-invasive ventilation | face mask"
+    },
+    {
+     "rid": "treat:68884180",
+     "time": "2100-01-02 04:19:00",
+     "item": "Treatment documented: ventilation and oxygenation | non-invasive ventilation | face mask"
+    },
+    {
+     "rid": "treat:69022021",
+     "time": "2100-01-02 04:20:00",
+     "item": "Treatment documented: ventilation and oxygenation | non-invasive ventilation | face mask"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3027283A2::05",
+   "claim_id": "E3027283A2",
+   "claim_text": "Monitor pain levels and adjust ondansetron as needed.",
+   "kind": "fact",
+   "text": "Ondansetron is currently being given.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The statement says Ondansetron is currently being given, but the records show that it was ordered (R7) and there is an administration record of it in the 24 hours before the decision time (R37). However, there is no record of Ondansetron being administered at the decision time, so the statement is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:96566942",
+     "time": "2100-01-01 05:53:00",
+     "item": "Order: ondansetron HCl (PF) (ZOFRAN) injection 4 mg IV Every 6 Hours PRN (active at decision time)"
+    },
+    {
+     "rid": "nurse:1927953432",
+     "time": "2100-01-02 00:00:00",
+     "item": "O2 saturation pulseoxymetry: 99 %"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3027283A1::01",
+   "claim_id": "E3027283A1",
+   "claim_text": "Continue non-invasive ventilation with face mask.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation with face mask.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (2 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:201396365",
+     "time": "2100-01-02 09:24:00",
+     "item": "ventilator setting",
+     "value": "27.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:200691509",
+     "time": "2100-01-02 11:45:00",
+     "item": "ventilator setting",
+     "value": "27.0 %",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3027283A2::03",
+   "claim_id": "E3027283A2",
+   "claim_text": "Monitor pain levels and adjust ondansetron as needed.",
+   "kind": "action",
+   "text": "Monitor pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1937105475",
+     "time": "2100-01-02 07:00:00",
+     "item": "pain score",
+     "value": "0.0"
+    },
+    {
+     "rid": "nurse:1925420285",
+     "time": "2100-01-02 09:00:00",
+     "item": "pain score",
+     "value": "5.0"
+    }
+   ],
+   "reason": "Measured in the 13.4 h observation window after the decision (24 h or until ICU discharge): pain score x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3027283A2::04",
+   "claim_id": "E3027283A2",
+   "claim_text": "Monitor pain levels and adjust ondansetron as needed.",
+   "kind": "action",
+   "text": "Adjust ondansetron as needed.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ondansetron",
+   "conditional": true,
+   "treatment_class": "antiemetic",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antiemetics action recorded in the 13.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3027283A3::06",
+   "claim_id": "E3027283A3",
+   "claim_text": "Administer 0.9% NaCl infusion IV Continuous.",
+   "kind": "action",
+   "text": "Administer 0.9% NaCl infusion IV continuous.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "0.9% NaCl",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 13.4 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 13.4,
+ "scoresheet": {
+  "n": 2,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on non-invasive ventilation with face mask. -- The records show that the patient is on non-invasive ventilation with a face mask, but there is no record of administration of the ventilation within the last 24 hours. The statement is not supported by the records.",
+    "Ondansetron is currently being given. -- The statement says Ondansetron is currently being given, but the records show that it was ordered (R7) and there is an administration record of it in the 24 hours before the decision time (R37). However, there is no record of Ondansetron being administered at the decision time, so the statement is not supported."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

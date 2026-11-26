@@ -1,0 +1,298 @@
+{
+ "case_id": "E3220742",
+ "decision_point": "2100-01-02 02:33:00",
+ "claims": [
+  "Continue monitoring vital signs and neurological status.",
+  "Administer levetiracetam for seizure prophylaxis.",
+  "Continue intravenous sodium chloride for fluid management."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3220742A1::01",
+   "claim_id": "E3220742A1",
+   "claim_text": "Continue monitoring vital signs and neurological status.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3220742A1::02",
+   "claim_id": "E3220742A1",
+   "claim_text": "Continue monitoring vital signs and neurological status.",
+   "kind": "action",
+   "text": "Continue monitoring neurological status.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "neurological status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3220742A2::03",
+   "claim_id": "E3220742A2",
+   "claim_text": "Administer levetiracetam for seizure prophylaxis.",
+   "kind": "action",
+   "text": "Administer levetiracetam for seizure prophylaxis.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "administer",
+   "target": "levetiracetam",
+   "conditional": false,
+   "treatment_class": "antiepileptic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3220742A3::04",
+   "claim_id": "E3220742A3",
+   "claim_text": "Continue intravenous sodium chloride for fluid management.",
+   "kind": "action",
+   "text": "Continue intravenous sodium chloride for fluid management.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous sodium chloride",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3220742A3::05",
+   "claim_id": "E3220742A3",
+   "claim_text": "Continue intravenous sodium chloride for fluid management.",
+   "kind": "fact",
+   "text": "Intravenous sodium chloride is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3220742A3::05",
+   "claim_id": "E3220742A3",
+   "claim_text": "Continue intravenous sodium chloride for fluid management.",
+   "kind": "fact",
+   "text": "Intravenous sodium chloride is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The statement says that intravenous sodium chloride is currently being given, but the records show that it was administered continuously from 03:00 on 2100-01-01, which is after the decision time. However, there is also a record of a bolus administration of sodium chloride at 22:00 on 2099-12-31, which is within the 24 hours before the decision time. Therefore, the statement is not fully supported",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:106687059",
+     "time": "2099-12-31 22:00:00",
+     "item": "Medication SODIUM CHLORIDE 0.9 % IV SOLN BOLUS Intravenous (2099-12-31 22:00:00 to 2099-12-31 23:10:00)"
+    },
+    {
+     "rid": "med:106318426",
+     "time": "2100-01-01 03:00:00",
+     "item": "Medication SODIUM CHLORIDE 0.9 % IV SOLN Intravenous continuous INDEF (2100-01-01 03:00:00 to 2100-01-01 15:53:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3220742A1::01",
+   "claim_id": "E3220742A1",
+   "claim_text": "Continue monitoring vital signs and neurological status.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2260891758",
+     "time": "2100-01-02 04:45:00",
+     "item": "heart rate",
+     "value": "89.0 bpm"
+    },
+    {
+     "rid": "nurse:2209824938",
+     "time": "2100-01-02 06:00:00",
+     "item": "heart rate",
+     "value": "95.0 bpm"
+    },
+    {
+     "rid": "nurse:2235743207",
+     "time": "2100-01-02 04:45:00",
+     "item": "systolic BP",
+     "value": "133.0 mmHg"
+    },
+    {
+     "rid": "nurse:2209142786",
+     "time": "2100-01-02 06:00:00",
+     "item": "systolic BP",
+     "value": "125.0 mmHg"
+    },
+    {
+     "rid": "nurse:2235743209",
+     "time": "2100-01-02 04:45:00",
+     "item": "mean arterial pressure",
+     "value": "92.0 mmHg"
+    },
+    {
+     "rid": "nurse:2209142788",
+     "time": "2100-01-02 06:00:00",
+     "item": "mean arterial pressure",
+     "value": "84.0 mmHg"
+    },
+    {
+     "rid": "nurse:2226769323",
+     "time": "2100-01-02 04:45:00",
+     "item": "respiratory rate",
+     "value": "23.0 insp/min"
+    },
+    {
+     "rid": "nurse:2263500249",
+     "time": "2100-01-02 06:00:00",
+     "item": "respiratory rate",
+     "value": "26.0 insp/min"
+    },
+    {
+     "rid": "nurse:2276083400",
+     "time": "2100-01-02 09:00:00",
+     "item": "SpO2",
+     "value": "95.0 %"
+    },
+    {
+     "rid": "nurse:2247407525",
+     "time": "2100-01-02 12:55:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    },
+    {
+     "rid": "nurse:2220793726",
+     "time": "2100-01-02 04:45:00",
+     "item": "temperature",
+     "value": "97.5 F"
+    },
+    {
+     "rid": "nurse:2275834068",
+     "time": "2100-01-02 09:00:00",
+     "item": "temperature",
+     "value": "97.7 F"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x14, systolic BP x12, mean arterial pressure x12, respiratory rate x14, SpO2 x6, temperature x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3220742A1::02",
+   "claim_id": "E3220742A1",
+   "claim_text": "Continue monitoring vital signs and neurological status.",
+   "kind": "action",
+   "text": "Continue monitoring neurological status.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "neurological status",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No GCS / mental status measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3220742A2::03",
+   "claim_id": "E3220742A2",
+   "claim_text": "Administer levetiracetam for seizure prophylaxis.",
+   "kind": "action",
+   "text": "Administer levetiracetam for seizure prophylaxis.",
+   "concept": "neuro",
+   "notes": [],
+   "action_class": "administer",
+   "target": "levetiracetam",
+   "conditional": false,
+   "treatment_class": "antiepileptic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antiepileptics action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3220742A3::04",
+   "claim_id": "E3220742A3",
+   "claim_text": "Continue intravenous sodium chloride for fluid management.",
+   "kind": "action",
+   "text": "Continue intravenous sodium chloride for fluid management.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "intravenous sodium chloride",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Intravenous sodium chloride is currently being given. -- The statement says that intravenous sodium chloride is currently being given, but the records show that it was administered continuously from 03:00 on 2100-01-01, which is after the decision time. However, there is also a record of a bolus administration of sodium chloride at 22:00 on 2099-12-31, which is within the 24 hours before the decision time. Therefore, the statement is not fully supported"
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

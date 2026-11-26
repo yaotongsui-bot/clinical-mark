@@ -1,0 +1,265 @@
+{
+ "case_id": "E184757",
+ "decision_point": "2100-01-02 23:48:00",
+ "claims": [
+  "Monitor blood pressure closely due to fluctuations.",
+  "Administer IV fluids to maintain hydration.",
+  "Assess and manage pain levels."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E184757A1::01",
+   "claim_id": "E184757A1",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E184757A1::02",
+   "claim_id": "E184757A1",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E184757A2::03",
+   "claim_id": "E184757A2",
+   "claim_text": "Administer IV fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer IV fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E184757A3::04",
+   "claim_id": "E184757A3",
+   "claim_text": "Assess and manage pain levels.",
+   "kind": "action",
+   "text": "Assess pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "E184757A3::05",
+   "claim_id": "E184757A3",
+   "claim_text": "Assess and manage pain levels.",
+   "kind": "action",
+   "text": "Manage pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E184757A1::02",
+   "claim_id": "E184757A1",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The blood pressure records show wide swings in systolic values (e.g., 192 to 102 mmHg within an hour, and later 162 to 120 mmHg), supporting the statement that blood pressure is fluctuating.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:226923289",
+     "time": "2100-01-01 19:45:00",
+     "item": "Arterial Blood Pressure systolic: 192 mmHg"
+    },
+    {
+     "rid": "nurse:136497594",
+     "time": "2100-01-01 20:00:00",
+     "item": "Arterial Blood Pressure systolic: 102 mmHg"
+    },
+    {
+     "rid": "nurse:118460554",
+     "time": "2100-01-02 00:00:00",
+     "item": "Arterial Blood Pressure diastolic: 126 mmHg"
+    },
+    {
+     "rid": "nurse:208979853",
+     "time": "2100-01-02 00:15:00",
+     "item": "Arterial Blood Pressure diastolic: 72 mmHg"
+    },
+    {
+     "rid": "nurse:281076894",
+     "time": "2100-01-02 01:00:00",
+     "item": "Arterial Blood Pressure systolic: 158 mmHg"
+    },
+    {
+     "rid": "nurse:263143542",
+     "time": "2100-01-02 02:00:00",
+     "item": "Arterial Blood Pressure diastolic: 64 mmHg"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E184757A1::01",
+   "claim_id": "E184757A1",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:216788483",
+     "time": "2100-01-03 00:00:00",
+     "item": "systolic BP",
+     "value": "149.0 mmHg"
+    },
+    {
+     "rid": "nurse:198521523",
+     "time": "2100-01-03 00:30:00",
+     "item": "systolic BP",
+     "value": "154.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x27.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E184757A2::03",
+   "claim_id": "E184757A2",
+   "claim_text": "Administer IV fluids to maintain hydration.",
+   "kind": "action",
+   "text": "Administer IV fluids.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E184757A3::04",
+   "claim_id": "E184757A3",
+   "claim_text": "Assess and manage pain levels.",
+   "kind": "action",
+   "text": "Assess pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:76463507",
+     "time": "2100-01-03 01:20:00",
+     "item": "pain score",
+     "value": "4.0"
+    },
+    {
+     "rid": "nurse:166895889",
+     "time": "2100-01-03 03:11:00",
+     "item": "pain score",
+     "value": "4.0"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E184757A3::05",
+   "claim_id": "E184757A3",
+   "claim_text": "Assess and manage pain levels.",
+   "kind": "action",
+   "text": "Manage pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

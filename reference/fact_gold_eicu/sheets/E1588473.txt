@@ -1,0 +1,90 @@
+# E1588473   T = 2100-01-02 15:40:00   records before T: 355
+ICU stay 1588473 (Med-Surg ICU; Male, age 66; admission diagnosis: Endarterectomy, carotid).
+
+## Atoms
+deepseek-v4.1-flash|E1588473A1::02 [presupposition] Supplemental oxygen via nasal cannula is currently being given.   <- Continue supplemental oxygen via nasal cannula and monitor oxygen saturation, given recurrent desaturations to 88-91% on room air.
+deepseek-v4.1-flash|E1588473A1::04 [observed] Recurrent desaturations to 88-91% on room air occurred.   <- Continue supplemental oxygen via nasal cannula and monitor oxygen saturation, given recurrent desaturations to 88-91% on room air.
+deepseek-v4.1-flash|E1588473A2::07 [observed] Prior relative hypotension has improved.   <- Monitor blood pressure and heart rate closely, as prior relative hypotension and bradycardia have improved but require ongoing surveillance.
+deepseek-v4.1-flash|E1588473A2::08 [observed] Prior bradycardia has improved.   <- Monitor blood pressure and heart rate closely, as prior relative hypotension and bradycardia have improved but require ongoing surveillance.
+deepseek-v4.1-flash|E1588473A3::11 [observed] Pain level was documented at 6/10 earlier in the ICU stay.   <- Assess and manage pain, as pain level was documented at 6/10 earlier in the ICU stay.
+gpt-oss-120b|E1588473A1::02 [presupposition] IV crystalloid resuscitation is currently being given.   <- Continue aggressive intravenous crystalloid resuscitation (≥250 mL/hr) to maintain adequate blood pressure and urine output.
+gpt-oss-120b|E1588473A2::06 [observed] Platelet count is 109 ×10³/µL.   <- Obtain a platelet transfusion given platelet count of 109 ×10³/µL and ongoing hypotension.
+gpt-oss-120b|E1588473A2::07 [observed] Hypotension is ongoing.   <- Obtain a platelet transfusion given platelet count of 109 ×10³/µL and ongoing hypotension.
+qwen2.5-7b|E1588473A3::05 [presupposition] Intravenous fluids are currently being administered.   <- Continue intravenous fluid administration to maintain adequate volume status.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 12:30:00): Medication 1000 ML : LACTATED RINGERS IV SOLN Intravenous Continuous
+  Running at decision time (scheduled order started 2100-01-01 16:00:00): Medication CLOPIDOGREL BISULFATE 75 MG PO TABS Oral Daily
+  Running at decision time (scheduled order started 2100-01-01 16:00:00): Medication 1000 ML FLEX CONT : SODIUM CHLORIDE 0.9 % IV SOLN Intravenous Continuous
+  Running at decision time (scheduled order started 2100-01-01 20:00:00): Medication 1000 ML : LACTATED RINGERS IV SOLN Intravenous Continuous
+
+## PRN orders
+  01-01 12:50 Order: 2 ML : ONDANSETRON HCL 4 MG/2ML IV SOLN Intravenous Q12H PRN (stopped 2100-01-01 19:18:00)
+  01-01 12:50 Order: 1 ML  : HYDROMORPHONE HCL PF 2 MG/ML IJ SOLN Intravenous Q5 Min PRN (stopped 2100-01-01 19:14:00)
+  01-01 12:50 Order: 1 ML VIAL : DEXAMETHASONE SODIUM PHOSPHATE 4 MG/ML IJ SOLN Intravenous Once PRN X1 (active at decision time)
+  01-01 12:50 Order: 1 ML CRTRDG-NDL : MORPHINE SULFATE 2 MG/ML IJ SOLN Intravenous Q10 Min PRN (stopped 2100-01-01 19:18:00)
+  01-01 15:16 Order: 2 ML : ONDANSETRON HCL 4 MG/2ML IV SOLN Intravenous Q12H PRN (active at decision time)
+  01-01 15:16 Order: LORAZEPAM 0.5 MG PO TABS Oral Q6H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Given once: CLOPIDOGREL BISULFATE 75 MG PO TABS Oral Once X1 (2100-01-01 13:00:00)
+  Given once: ASPIRIN 325 MG PO TABS Oral Once X1 (2100-01-01 13:00:00)
+  Given once: 1000 ML FLEX CONT : SODIUM CHLORIDE 0.9 % IV SOLN Intravenous Once X1 (2100-01-01 17:30:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 12:12 0.2 %
+  -eos: 01-01 12:12 1.9 %
+  -lymphs: 01-01 12:12 32.5 %
+  -monos: 01-01 12:12 9 %
+  -polys: 01-01 12:12 56.4 %
+  Anion Gap: 01-02 09:58 9 mmol/L; 01-01 12:12 11 mmol/L
+  Bicarbonate: 01-02 09:58 24 mmol/L; 01-01 12:12 26 mmol/L
+  Calcium, Total: 01-02 09:58 8.2 mg/dL; 01-01 12:12 9.3 mg/dL
+  Chloride: 01-02 09:58 101 mmol/L; 01-01 12:12 103 mmol/L
+  Creatinine: 01-02 09:58 1.15 mg/dL; 01-01 12:12 1.08 mg/dL
+  Glucose: 01-02 09:58 94 mg/dL; 01-01 12:12 109 mg/dL
+  Glucose finger stick: 01-01 16:20 98 mg/dL
+  Hematocrit: 01-02 09:58 36.6 %; 01-01 12:12 45.2 %
+  Hemoglobin: 01-02 09:58 12.7 g/dL; 01-01 12:12 16.2 g/dL
+  INR(PT): 01-01 12:12 1
+  MCH: 01-02 09:58 30.9 pg; 01-01 12:12 31.7 pg
+  MCHC: 01-02 09:58 34.7 g/dL; 01-01 12:12 35.8 g/dL
+  MCV: 01-02 09:58 89.1 fL; 01-01 12:12 88.5 fL
+  MPV: 01-02 09:58 9.8 fL; 01-01 12:12 10.2 fL
+  Magnesium: 01-01 12:12 2 mg/dL
+  PT: 01-01 12:12 10.4 sec
+  PTT: 01-01 12:12 26 sec
+  Phosphate: 01-01 12:12 4.1 mg/dL
+  Platelet Count: 01-02 09:58 109 10(3)mcL; 01-01 12:12 142 10(3)mcL
+  Potassium: 01-02 09:58 3.9 mmol/L; 01-01 12:12 4.4 mmol/L
+  RBC: 01-02 09:58 4.11 10(6)/mcL; 01-01 12:12 5.11 10(6)/mcL
+  RDW: 01-02 09:58 12.4 %; 01-01 12:12 12.5 %
+  Sodium: 01-02 09:58 134 mmol/L; 01-01 12:12 140 mmol/L
+  Urea Nitrogen: 01-02 09:58 17 mg/dL; 01-01 12:12 18 mg/dL
+  White Blood Cells: 01-02 09:58 5.81 10(3)/mcL; 01-01 12:12 6.25 10(3)/mcL
+  urinary specific gravity: 01-01 16:14 1.015
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes:  @01-02 13:00
+  Glasgow coma score Motor:  @01-02 13:00
+  Glasgow coma score Verbal:  @01-02 13:00
+  Heart Rate: 59 bpm @01-02 14:00   24h 50-64 (n=32)
+  Non Invasive Blood Pressure diastolic: 77 mmHg @01-02 14:00   24h 52-86 (n=29)
+  Non Invasive Blood Pressure mean: 88 mmHg @01-02 14:00   24h 63-88 (n=25)
+  Non Invasive Blood Pressure systolic: 122 mmHg @01-02 14:00   24h 87-123 (n=29)
+  O2 Delivery Device(s): None (charted: None (Room air)) @01-02 12:29   earlier: Nasal cannula (charted: Nasal cannula) @01-02 07:00
+  O2 L/%: 3 @01-02 07:00   24h 3-3 (n=14)
+  O2 saturation pulseoxymetry: 93 % @01-02 14:00   24h 88-99 (n=31)
+  Pain Level: 6 @01-02 02:00   24h 0-6 (n=2)
+  Pulse: 53 @01-02 14:00   24h 49-74 (n=29)
+  RASS: 0 @01-02 13:00   24h -1-0 (n=8)
+  Respiratory Rate: 24 insp/min @01-02 14:00   24h 9-25 (n=28)
+  Temperature Fahrenheit: 97.9 F @01-02 12:29   24h 95.7-97.9 (n=6)
+  Temperature Location: Oral @01-02 12:29   earlier: Axillary @01-01 20:07
+
+## Treatments documented
+  01-02 04:35 intravenous fluid | normal saline administration | aggressive volume resuscitation (>250 mls/hr)
+
+## Microbiology

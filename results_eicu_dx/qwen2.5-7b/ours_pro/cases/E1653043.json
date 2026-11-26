@@ -1,0 +1,229 @@
+{
+ "case_id": "E1653043",
+ "decision_point": "2100-01-02 21:32:00",
+ "claims": [
+  "Monitor the patient's pain level and adjust analgesics as needed.",
+  "Continue anticoagulant therapy with warfarin.",
+  "Administer intravenous sodium chloride 0.9% to maintain fluid balance."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1653043A1::01",
+   "claim_id": "E1653043A1",
+   "claim_text": "Monitor the patient's pain level and adjust analgesics as needed.",
+   "kind": "action",
+   "text": "Monitor the patient's pain level.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pain level",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1653043A1::02",
+   "claim_id": "E1653043A1",
+   "claim_text": "Monitor the patient's pain level and adjust analgesics as needed.",
+   "kind": "action",
+   "text": "Adjust analgesics as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "analgesics",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E1653043A2::03",
+   "claim_id": "E1653043A2",
+   "claim_text": "Continue anticoagulant therapy with warfarin.",
+   "kind": "action",
+   "text": "Continue anticoagulant therapy with warfarin.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "warfarin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1653043A2::04",
+   "claim_id": "E1653043A2",
+   "claim_text": "Continue anticoagulant therapy with warfarin.",
+   "kind": "fact",
+   "text": "Warfarin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1653043A3::05",
+   "claim_id": "E1653043A3",
+   "claim_text": "Administer intravenous sodium chloride 0.9% to maintain fluid balance.",
+   "kind": "action",
+   "text": "Administer intravenous sodium chloride 0.9%.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "sodium chloride 0.9%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1653043A2::04",
+   "claim_id": "E1653043A2",
+   "claim_text": "Continue anticoagulant therapy with warfarin.",
+   "kind": "fact",
+   "text": "Warfarin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show a warfarin administration at 22:00 on 2100-01-01, which is over 24 hours before the decision time of 2100-01-02 21:00. A later treatment documentation note mentions coumadin (warfarin), but there is no administration record within the 24 hours prior to the decision time to support the statement that warfarin is 'currently being given'.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:61274646",
+     "time": "2100-01-01 22:00:00",
+     "item": "Medication WARFARIN ORAL (2100-01-01 22:00:00 to 2100-01-02 03:59:00)"
+    },
+    {
+     "rid": "treat:44482460",
+     "time": "2100-01-02 07:45:00",
+     "item": "Treatment documented: vascular disorders | anticoagulant administration | coumadin"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1653043A1::01",
+   "claim_id": "E1653043A1",
+   "claim_text": "Monitor the patient's pain level and adjust analgesics as needed.",
+   "kind": "action",
+   "text": "Monitor the patient's pain level.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pain level",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No pain score measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1653043A1::02",
+   "claim_id": "E1653043A1",
+   "claim_text": "Monitor the patient's pain level and adjust analgesics as needed.",
+   "kind": "action",
+   "text": "Adjust analgesics as needed.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "analgesics",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1653043A2::03",
+   "claim_id": "E1653043A2",
+   "claim_text": "Continue anticoagulant therapy with warfarin.",
+   "kind": "action",
+   "text": "Continue anticoagulant therapy with warfarin.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "warfarin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (therapeutic) action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1653043A3::05",
+   "claim_id": "E1653043A3",
+   "claim_text": "Administer intravenous sodium chloride 0.9% to maintain fluid balance.",
+   "kind": "action",
+   "text": "Administer intravenous sodium chloride 0.9%.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "administer",
+   "target": "sodium chloride 0.9%",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Warfarin is currently being given. -- The records show a warfarin administration at 22:00 on 2100-01-01, which is over 24 hours before the decision time of 2100-01-02 21:00. A later treatment documentation note mentions coumadin (warfarin), but there is no administration record within the 24 hours prior to the decision time to support the statement that warfarin is 'currently being given'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

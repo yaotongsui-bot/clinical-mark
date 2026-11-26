@@ -1,0 +1,556 @@
+{
+ "case_id": "E3067309",
+ "decision_point": "2100-01-02 17:00:00",
+ "claims": [
+  "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+  "Obtain arterial blood gas to reassess acid‑base status and oxygenation after recent FiO₂ increase.",
+  "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3067309A1::01",
+   "claim_id": "E3067309A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3067309A1::02",
+   "claim_id": "E3067309A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3067309A1::03",
+   "claim_id": "E3067309A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+   "kind": "action",
+   "text": "Monitor for readiness to wean as sedation level improves.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "readiness to wean",
+   "conditional": true
+  },
+  {
+   "atom_id": "E3067309A2::04",
+   "claim_id": "E3067309A2",
+   "claim_text": "Obtain arterial blood gas to reassess acid‑base status and oxygenation after recent FiO₂ increase.",
+   "kind": "action",
+   "text": "Obtain arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3067309A2::05",
+   "claim_id": "E3067309A2",
+   "claim_text": "Obtain arterial blood gas to reassess acid‑base status and oxygenation after recent FiO₂ increase.",
+   "kind": "fact",
+   "text": "FiO2 was recently increased.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3067309A3::06",
+   "claim_id": "E3067309A3",
+   "claim_text": "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia.",
+   "kind": "action",
+   "text": "Monitor serum sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum sodium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3067309A3::07",
+   "claim_id": "E3067309A3",
+   "claim_text": "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia.",
+   "kind": "action",
+   "text": "Consider adjusting intravenous fluids.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "intravenous fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3067309A3::08",
+   "claim_id": "E3067309A3",
+   "claim_text": "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia.",
+   "kind": "fact",
+   "text": "Hyponatremia is present.",
+   "concept": "sodium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3067309A1::02",
+   "claim_id": "E3067309A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The patient is currently on mechanical ventilation because the records show that an endotracheal tube (charted: ventilator) has been used for oxygen delivery for the past several hours.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2007277061",
+     "time": "2100-01-02 00:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2120143355",
+     "time": "2100-01-02 01:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2072701194",
+     "time": "2100-01-02 02:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2086839520",
+     "time": "2100-01-02 03:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2087574351",
+     "time": "2100-01-02 04:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2079545223",
+     "time": "2100-01-02 05:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2091659778",
+     "time": "2100-01-02 06:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2006764045",
+     "time": "2100-01-02 07:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2066807839",
+     "time": "2100-01-02 08:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2080687736",
+     "time": "2100-01-02 09:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:1996850175",
+     "time": "2100-01-02 10:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2083310603",
+     "time": "2100-01-02 11:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:1979090897",
+     "time": "2100-01-02 12:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2060531091",
+     "time": "2100-01-02 13:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:1970252882",
+     "time": "2100-01-02 14:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3067309A2::05",
+   "claim_id": "E3067309A2",
+   "claim_text": "Obtain arterial blood gas to reassess acid‑base status and oxygenation after recent FiO₂ increase.",
+   "kind": "fact",
+   "text": "FiO2 was recently increased.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the patient has been receiving 60% FiO2 for a long time, but there is no record of a recent increase. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:2007277061",
+     "time": "2100-01-02 00:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2063306337",
+     "time": "2100-01-02 00:00:00",
+     "item": "O2 saturation pulseoxymetry: 100 %"
+    },
+    {
+     "rid": "resp:220312212",
+     "time": "2100-01-02 00:41:00",
+     "item": "Inspired O2 Fraction: 60 %"
+    },
+    {
+     "rid": "nurse:2120143355",
+     "time": "2100-01-02 01:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2019824416",
+     "time": "2100-01-02 01:00:00",
+     "item": "O2 saturation pulseoxymetry: 100 %"
+    },
+    {
+     "rid": "nurse:2072701194",
+     "time": "2100-01-02 02:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2086839520",
+     "time": "2100-01-02 03:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2087574351",
+     "time": "2100-01-02 04:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "resp:204138188",
+     "time": "2100-01-02 04:51:00",
+     "item": "Inspired O2 Fraction: 60 %"
+    },
+    {
+     "rid": "nurse:2079545223",
+     "time": "2100-01-02 05:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2091659778",
+     "time": "2100-01-02 06:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2006764045",
+     "time": "2100-01-02 07:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2066807839",
+     "time": "2100-01-02 08:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "resp:202944912",
+     "time": "2100-01-02 08:10:00",
+     "item": "Inspired O2 Fraction: 60 %"
+    },
+    {
+     "rid": "nurse:2080687736",
+     "time": "2100-01-02 09:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:1996850175",
+     "time": "2100-01-02 10:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "resp:207611099",
+     "time": "2100-01-02 10:44:00",
+     "item": "Inspired O2 Fraction: 60 %"
+    },
+    {
+     "rid": "nurse:2083310603",
+     "time": "2100-01-02 11:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "resp:205370613",
+     "time": "2100-01-02 11:30:00",
+     "item": "Inspired O2 Fraction: 50 %"
+    },
+    {
+     "rid": "nurse:1979090897",
+     "time": "2100-01-02 12:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:2060531091",
+     "time": "2100-01-02 13:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:1970252882",
+     "time": "2100-01-02 14:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    },
+    {
+     "rid": "nurse:1980885678",
+     "time": "2100-01-02 15:00:00",
+     "item": "O2 Delivery Device(s): Endotracheal tube (charted: ventilator)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3067309A3::08",
+   "claim_id": "E3067309A3",
+   "claim_text": "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia.",
+   "kind": "fact",
+   "text": "Hyponatremia is present.",
+   "concept": "sodium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that the patient is receiving DEXTROSE 5%-NACL 0.9% INTRAVENOU CONTINUOUS, but the latest administration record is from 18:04, which is more than 24 hours before the decision time. The current administration record is for MAGNESIUM SULF 2 G/50 ML NS INTRAVENOU, which does not support the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:102729140",
+     "time": "2100-01-01 18:04:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 18:04:00): Medication DEXTROSE 5%-NACL 0.9% INTRAVENOU CONTINUOUS"
+    },
+    {
+     "rid": "resp:217689353",
+     "time": "2100-01-01 23:38:00",
+     "item": "Respiratory Rate (Set): 16 insp/min"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3067309A1::01",
+   "claim_id": "E3067309A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (35 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:217663429",
+     "time": "2100-01-02 19:45:00",
+     "item": "ventilator setting",
+     "value": "50.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:217663432",
+     "time": "2100-01-02 19:45:00",
+     "item": "ventilator setting",
+     "value": "5.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:217663433",
+     "time": "2100-01-02 19:45:00",
+     "item": "ventilator setting",
+     "value": "450.0 mL",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3067309A1::03",
+   "claim_id": "E3067309A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+   "kind": "action",
+   "text": "Monitor for readiness to wean as sedation level improves.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "readiness to wean",
+   "conditional": true,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No sedation score (RASS) measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3067309A2::04",
+   "claim_id": "E3067309A2",
+   "claim_text": "Obtain arterial blood gas to reassess acid‑base status and oxygenation after recent FiO₂ increase.",
+   "kind": "action",
+   "text": "Obtain arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3067309A3::06",
+   "claim_id": "E3067309A3",
+   "claim_text": "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia.",
+   "kind": "action",
+   "text": "Monitor serum sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum sodium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:739444127",
+     "time": "2100-01-03 07:29:00",
+     "item": "sodium",
+     "value": "131.0 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3067309A3::07",
+   "claim_id": "E3067309A3",
+   "claim_text": "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia.",
+   "kind": "action",
+   "text": "Consider adjusting intravenous fluids.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "intravenous fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "FiO2 was recently increased. -- The records show that the patient has been receiving 60% FiO2 for a long time, but there is no record of a recent increase. The statement is not supported by the records.",
+    "Hyponatremia is present. -- The records show that the patient is receiving DEXTROSE 5%-NACL 0.9% INTRAVENOU CONTINUOUS, but the latest administration record is from 18:04, which is more than 24 hours before the decision time. The current administration record is for MAGNESIUM SULF 2 G/50 ML NS INTRAVENOU, which does not support the statement."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

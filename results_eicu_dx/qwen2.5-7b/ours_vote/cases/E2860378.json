@@ -1,0 +1,393 @@
+{
+ "case_id": "E2860378",
+ "decision_point": "2100-01-02 14:07:00",
+ "claims": [
+  "Continue insulin infusion to manage hyperglycemia.",
+  "Monitor blood pressure closely due to fluctuations.",
+  "Assess for signs of hypovolemia given low blood pressure readings."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2860378A1::01",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue insulin infusion to manage hyperglycemia.",
+   "kind": "action",
+   "text": "Continue insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2860378A1::02",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue insulin infusion to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2860378A1::03",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue insulin infusion to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E2860378A2::04",
+   "claim_id": "E2860378A2",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2860378A2::05",
+   "claim_id": "E2860378A2",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2860378A3::06",
+   "claim_id": "E2860378A3",
+   "claim_text": "Assess for signs of hypovolemia given low blood pressure readings.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypovolemia",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2860378A3::07",
+   "claim_id": "E2860378A3",
+   "claim_text": "Assess for signs of hypovolemia given low blood pressure readings.",
+   "kind": "fact",
+   "text": "Blood pressure is low.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2860378A1::02",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue insulin infusion to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "R28 shows an insulin infusion running from 18:00 on 2100-01-01 to 02:30 on 2100-01-02, which covers the decision time of 21:00 on 2100-01-01.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Insulin ():233",
+     "time": "2100-01-01 18:00:00",
+     "item": "Infusion/input Insulin at 1.8 (2100-01-01 18:00:00 to 2100-01-02 02:30:00)"
+    },
+    {
+     "rid": "inf:Insulin ():743",
+     "time": "2100-01-02 02:30:00",
+     "item": "Infusion/input Insulin at 4.5 (2100-01-02 02:30:00 to 2100-01-02 02:30:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2860378A1::03",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue insulin infusion to manage hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:639347697",
+     "time": "2100-01-01 16:25:00",
+     "item": "Glucose",
+     "value": 254.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:637279586",
+     "time": "2100-01-01 20:25:00",
+     "item": "Glucose",
+     "value": 255.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:634889927",
+     "time": "2100-01-01 23:55:00",
+     "item": "Glucose",
+     "value": 267.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 267 mg/dL at 2100-01-01 23:55:00 (reference 70 to 100) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E2860378A2::05",
+   "claim_id": "E2860378A2",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "fact",
+   "text": "Blood pressure is fluctuating.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The systolic blood pressure values vary widely over the recorded period, from 185 mmHg down to 80 mmHg and back up to 135 mmHg, demonstrating fluctuation.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1874263690",
+     "time": "2100-01-01 12:20:00",
+     "item": "Non Invasive Blood Pressure systolic: 185 mmHg"
+    },
+    {
+     "rid": "nurse:1861053563",
+     "time": "2100-01-01 18:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 85 mmHg"
+    },
+    {
+     "rid": "nurse:1858259949",
+     "time": "2100-01-02 04:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 126 mmHg"
+    },
+    {
+     "rid": "nurse:1832782633",
+     "time": "2100-01-01 21:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 96 mmHg"
+    },
+    {
+     "rid": "nurse:1792037302",
+     "time": "2100-01-02 00:00:00",
+     "item": "Non Invasive Blood Pressure systolic: 102 mmHg"
+    },
+    {
+     "rid": "nurse:1797274069",
+     "time": "2100-01-02 01:45:00",
+     "item": "Non Invasive Blood Pressure systolic: 132 mmHg"
+    },
+    {
+     "rid": "nurse:1848560772",
+     "time": "2100-01-02 04:30:00",
+     "item": "Non Invasive Blood Pressure systolic: 135 mmHg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2860378A3::07",
+   "claim_id": "E2860378A3",
+   "claim_text": "Assess for signs of hypovolemia given low blood pressure readings.",
+   "kind": "fact",
+   "text": "Blood pressure is low.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1875437309",
+     "time": "2100-01-02 14:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 64.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2860378A1::01",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue insulin infusion to manage hyperglycemia.",
+   "kind": "action",
+   "text": "Continue insulin infusion.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin infusion",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 7.8 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2860378A2::04",
+   "claim_id": "E2860378A2",
+   "claim_text": "Monitor blood pressure closely due to fluctuations.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1872031514",
+     "time": "2100-01-02 15:00:00",
+     "item": "systolic BP",
+     "value": "94.0 mmHg"
+    },
+    {
+     "rid": "nurse:1815389811",
+     "time": "2100-01-02 16:00:00",
+     "item": "systolic BP",
+     "value": "94.0 mmHg"
+    },
+    {
+     "rid": "nurse:1872031516",
+     "time": "2100-01-02 15:00:00",
+     "item": "mean arterial pressure",
+     "value": "62.0 mmHg"
+    },
+    {
+     "rid": "nurse:1815389813",
+     "time": "2100-01-02 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "66.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 7.8 h observation window after the decision (24 h or until ICU discharge): systolic BP x5, mean arterial pressure x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2860378A3::06",
+   "claim_id": "E2860378A3",
+   "claim_text": "Assess for signs of hypovolemia given low blood pressure readings.",
+   "kind": "action",
+   "text": "Assess for signs of hypovolemia.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of hypovolemia",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 7.8,
+ "scoresheet": {
+  "n": 4,
+  "supported": 4,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

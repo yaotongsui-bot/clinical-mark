@@ -1,0 +1,490 @@
+{
+ "case_id": "E1177589",
+ "decision_point": "2100-01-02 10:15:00",
+ "claims": [
+  "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given elevated BNP and persistent hypertension.",
+  "Continue hourly point‑of‑care glucose monitoring to detect recurrent hypoglycemia.",
+  "Maintain nasal cannula oxygen at 2 L/min and reassess FiO₂ and saturation q2h."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1177589A1::01",
+   "claim_id": "E1177589A1",
+   "claim_text": "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given elevated BNP and persistent hypertension.",
+   "kind": "action",
+   "text": "Obtain a bedside transthoracic echocardiogram.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "bedside transthoracic echocardiogram",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1177589A1::02",
+   "claim_id": "E1177589A1",
+   "claim_text": "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given elevated BNP and persistent hypertension.",
+   "kind": "fact",
+   "text": "BNP is elevated.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1177589A1::03",
+   "claim_id": "E1177589A1",
+   "claim_text": "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given elevated BNP and persistent hypertension.",
+   "kind": "fact",
+   "text": "Hypertension is persistent.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1177589A2::04",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue hourly point‑of‑care glucose monitoring to detect recurrent hypoglycemia.",
+   "kind": "action",
+   "text": "Continue hourly point-of-care glucose monitoring.",
+   "concept": "glucose",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "point-of-care glucose monitoring",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1177589A2::05",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue hourly point‑of‑care glucose monitoring to detect recurrent hypoglycemia.",
+   "kind": "fact",
+   "text": "Hourly point-of-care glucose monitoring is currently being performed.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1177589A2::06",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue hourly point‑of‑care glucose monitoring to detect recurrent hypoglycemia.",
+   "kind": "fact",
+   "text": "Recurrent hypoglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1177589A3::07",
+   "claim_id": "E1177589A3",
+   "claim_text": "Maintain nasal cannula oxygen at 2 L/min and reassess FiO₂ and saturation q2h.",
+   "kind": "action",
+   "text": "Maintain nasal cannula oxygen at 2 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nasal cannula oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1177589A3::08",
+   "claim_id": "E1177589A3",
+   "claim_text": "Maintain nasal cannula oxygen at 2 L/min and reassess FiO₂ and saturation q2h.",
+   "kind": "fact",
+   "text": "Nasal cannula oxygen is currently being given at 2 L/min.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1177589A3::09",
+   "claim_id": "E1177589A3",
+   "claim_text": "Maintain nasal cannula oxygen at 2 L/min and reassess FiO₂ and saturation q2h.",
+   "kind": "action",
+   "text": "Reassess FiO2 every 2 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "FiO2",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1177589A3::10",
+   "claim_id": "E1177589A3",
+   "claim_text": "Maintain nasal cannula oxygen at 2 L/min and reassess FiO₂ and saturation q2h.",
+   "kind": "action",
+   "text": "Reassess oxygen saturation every 2 hours.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1177589A1::02",
+   "claim_id": "E1177589A1",
+   "claim_text": "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given elevated BNP and persistent hypertension.",
+   "kind": "fact",
+   "text": "BNP is elevated.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "reason": "The laboratory record R48 shows a BNP of 4079 pg/mL, which is markedly above the normal range, directly supporting the statement that BNP is elevated.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:290050239",
+     "time": "2100-01-02 08:30:00",
+     "item": "BNP: 4079 pg/mL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1177589A1::03",
+   "claim_id": "E1177589A1",
+   "claim_text": "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given elevated BNP and persistent hypertension.",
+   "kind": "fact",
+   "text": "Hypertension is persistent.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:728677907",
+     "time": "2100-01-02 10:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 149.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "'blood pressure high' holds when any component is high. systolic BP: yes; mean arterial pressure: no.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1177589A2::05",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue hourly point‑of‑care glucose monitoring to detect recurrent hypoglycemia.",
+   "kind": "fact",
+   "text": "Hourly point-of-care glucose monitoring is currently being performed.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show multiple glucose finger stick measurements, but the intervals between them are often longer than one hour (e.g., 05:31 to 06:44, 10:54 to 12:07, 20:59 to 01:21). No order or documentation for hourly monitoring is present, so the statement that hourly monitoring is currently being performed is not supported.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:289215980",
+     "time": "2100-01-01 05:31:00",
+     "item": "Glucose finger stick: 42 mg/dL"
+    },
+    {
+     "rid": "lab:289448269",
+     "time": "2100-01-01 06:44:00",
+     "item": "Glucose finger stick: 88 mg/dL"
+    },
+    {
+     "rid": "lab:289958583",
+     "time": "2100-01-01 07:55:00",
+     "item": "Glucose finger stick: 77 mg/dL"
+    },
+    {
+     "rid": "lab:289585393",
+     "time": "2100-01-01 09:24:00",
+     "item": "Glucose finger stick: 92 mg/dL"
+    },
+    {
+     "rid": "lab:290085758",
+     "time": "2100-01-01 12:07:00",
+     "item": "Glucose finger stick: 66 mg/dL"
+    },
+    {
+     "rid": "lab:289805313",
+     "time": "2100-01-01 12:53:00",
+     "item": "Glucose finger stick: 63 mg/dL"
+    },
+    {
+     "rid": "lab:289945092",
+     "time": "2100-01-01 15:09:00",
+     "item": "Glucose finger stick: 117 mg/dL"
+    },
+    {
+     "rid": "lab:289879845",
+     "time": "2100-01-01 16:56:00",
+     "item": "Glucose finger stick: 142 mg/dL"
+    },
+    {
+     "rid": "lab:289190774",
+     "time": "2100-01-01 19:04:00",
+     "item": "Glucose finger stick: 183 mg/dL"
+    },
+    {
+     "rid": "lab:289545988",
+     "time": "2100-01-01 20:59:00",
+     "item": "Glucose finger stick: 150 mg/dL"
+    },
+    {
+     "rid": "lab:289732074",
+     "time": "2100-01-02 01:21:00",
+     "item": "Glucose finger stick: 147 mg/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1177589A2::06",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue hourly point‑of‑care glucose monitoring to detect recurrent hypoglycemia.",
+   "kind": "fact",
+   "text": "Recurrent hypoglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:279562242",
+     "time": "2100-01-01 10:54:00",
+     "item": "Glucose",
+     "value": 69.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "1 of 1 glucose values in the 24 h before the decision were low.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1177589A3::08",
+   "claim_id": "E1177589A3",
+   "claim_text": "Maintain nasal cannula oxygen at 2 L/min and reassess FiO₂ and saturation q2h.",
+   "kind": "fact",
+   "text": "Nasal cannula oxygen is currently being given at 2 L/min.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The most recent oxygen delivery record before the decision time (R48 at 06:00 on 2100-01-02) shows an O2 L/% of 21, indicating room air, not 2 L/min via nasal cannula. Earlier records from the previous day show 2 L/min, but the latest data contradicts the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:727185073",
+     "time": "2100-01-02 06:00:00",
+     "item": "O2 L/%: 21"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1177589A1::01",
+   "claim_id": "E1177589A1",
+   "claim_text": "Obtain a bedside transthoracic echocardiogram to evaluate cardiac function given elevated BNP and persistent hypertension.",
+   "kind": "action",
+   "text": "Obtain a bedside transthoracic echocardiogram.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "bedside transthoracic echocardiogram",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1177589A2::04",
+   "claim_id": "E1177589A2",
+   "claim_text": "Continue hourly point‑of‑care glucose monitoring to detect recurrent hypoglycemia.",
+   "kind": "action",
+   "text": "Continue hourly point-of-care glucose monitoring.",
+   "concept": "glucose",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "point-of-care glucose monitoring",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:289125249",
+     "time": "2100-01-02 10:47:00",
+     "item": "glucose",
+     "value": "131.0 mg/dL"
+    },
+    {
+     "rid": "lab:281610958",
+     "time": "2100-01-02 15:10:00",
+     "item": "glucose",
+     "value": "269.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1177589A3::07",
+   "claim_id": "E1177589A3",
+   "claim_text": "Maintain nasal cannula oxygen at 2 L/min and reassess FiO₂ and saturation q2h.",
+   "kind": "action",
+   "text": "Maintain nasal cannula oxygen at 2 L/min.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "nasal cannula oxygen",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1177589A3::09",
+   "claim_id": "E1177589A3",
+   "claim_text": "Maintain nasal cannula oxygen at 2 L/min and reassess FiO₂ and saturation q2h.",
+   "kind": "action",
+   "text": "Reassess FiO2 every 2 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "FiO2",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1177589A3::10",
+   "claim_id": "E1177589A3",
+   "claim_text": "Maintain nasal cannula oxygen at 2 L/min and reassess FiO₂ and saturation q2h.",
+   "kind": "action",
+   "text": "Reassess oxygen saturation every 2 hours.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:728154552",
+     "time": "2100-01-03 00:00:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x1.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 5,
+  "supported": 3,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.6,
+  "not_supported_share": 0.4,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hourly point-of-care glucose monitoring is currently being performed. -- The records show multiple glucose finger stick measurements, but the intervals between them are often longer than one hour (e.g., 05:31 to 06:44, 10:54 to 12:07, 20:59 to 01:21). No order or documentation for hourly monitoring is present, so the statement that hourly monitoring is currently being performed is not supported.",
+    "Nasal cannula oxygen is currently being given at 2 L/min. -- The most recent oxygen delivery record before the decision time (R48 at 06:00 on 2100-01-02) shows an O2 L/% of 21, indicating room air, not 2 L/min via nasal cannula. Earlier records from the previous day show 2 L/min, but the latest data contradicts the statement."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.6,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

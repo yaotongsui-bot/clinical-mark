@@ -1,0 +1,376 @@
+{
+ "case_id": "E1653043",
+ "decision_point": "2100-01-02 21:32:00",
+ "claims": [
+  "Continue therapeutic anticoagulation with intravenous heparin and monitor PTT q6h.",
+  "Order repeat lower extremity duplex ultrasound to assess for DVT progression.",
+  "Maintain current oxygen supplementation at 2 L/min via nasal cannula and reassess SpO₂ q4h."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1653043A1::01",
+   "claim_id": "E1653043A1",
+   "claim_text": "Continue therapeutic anticoagulation with intravenous heparin and monitor PTT q6h.",
+   "kind": "action",
+   "text": "Continue therapeutic anticoagulation with intravenous heparin.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1653043A1::02",
+   "claim_id": "E1653043A1",
+   "claim_text": "Continue therapeutic anticoagulation with intravenous heparin and monitor PTT q6h.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous heparin.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1653043A1::03",
+   "claim_id": "E1653043A1",
+   "claim_text": "Continue therapeutic anticoagulation with intravenous heparin and monitor PTT q6h.",
+   "kind": "action",
+   "text": "Monitor PTT q6h.",
+   "concept": "ptt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PTT",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1653043A2::04",
+   "claim_id": "E1653043A2",
+   "claim_text": "Order repeat lower extremity duplex ultrasound to assess for DVT progression.",
+   "kind": "action",
+   "text": "Order repeat lower extremity duplex ultrasound.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "lower extremity duplex ultrasound",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1653043A2::05",
+   "claim_id": "E1653043A2",
+   "claim_text": "Order repeat lower extremity duplex ultrasound to assess for DVT progression.",
+   "kind": "fact",
+   "text": "DVT is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1653043A3::06",
+   "claim_id": "E1653043A3",
+   "claim_text": "Maintain current oxygen supplementation at 2 L/min via nasal cannula and reassess SpO₂ q4h.",
+   "kind": "action",
+   "text": "Maintain oxygen supplementation at 2 L/min via nasal cannula.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oxygen supplementation",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1653043A3::07",
+   "claim_id": "E1653043A3",
+   "claim_text": "Maintain current oxygen supplementation at 2 L/min via nasal cannula and reassess SpO₂ q4h.",
+   "kind": "fact",
+   "text": "The patient is currently receiving oxygen supplementation at 2 L/min via nasal cannula.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1653043A3::08",
+   "claim_id": "E1653043A3",
+   "claim_text": "Maintain current oxygen supplementation at 2 L/min via nasal cannula and reassess SpO₂ q4h.",
+   "kind": "action",
+   "text": "Reassess SpO2 q4h.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "SpO2",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1653043A1::02",
+   "claim_id": "E1653043A1",
+   "claim_text": "Continue therapeutic anticoagulation with intravenous heparin and monitor PTT q6h.",
+   "kind": "fact",
+   "text": "The patient is currently receiving intravenous heparin.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient is receiving intravenous heparin, but the most recent administration record is from 01:30 on 2100-01-02, which is 2 hours before the decision time. The statement is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:44596502",
+     "time": "2100-01-02 07:45:00",
+     "item": "Treatment documented: anticoagulant administration | conventional heparin therapy | intravenous"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1653043A2::05",
+   "claim_id": "E1653043A2",
+   "claim_text": "Order repeat lower extremity duplex ultrasound to assess for DVT progression.",
+   "kind": "fact",
+   "text": "DVT is present.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records state that a non-invasive test for DVT was ordered, but there is no evidence that the test has been administered or that DVT is present. The most recent relevant row is R50, which shows a heart rate of 79 bpm, but this does not support the statement that DVT is present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:45410368",
+     "time": "2100-01-02 07:45:00",
+     "item": "Treatment documented: cardiovascular | vascular disorders | non-invasive testing for DVT"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1653043A3::07",
+   "claim_id": "E1653043A3",
+   "claim_text": "Maintain current oxygen supplementation at 2 L/min via nasal cannula and reassess SpO₂ q4h.",
+   "kind": "fact",
+   "text": "The patient is currently receiving oxygen supplementation at 2 L/min via nasal cannula.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_addressed",
+   "reason": "No record of this treatment. (Panel verdict: supported.)",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    },
+    "panel_label": "supported"
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1212008486",
+     "time": "2100-01-02 11:38:00",
+     "item": "O2 L/%: 2"
+    },
+    {
+     "rid": "nurse:1192909430",
+     "time": "2100-01-02 12:00:00",
+     "item": "O2 L/%: 2"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1653043A1::01",
+   "claim_id": "E1653043A1",
+   "claim_text": "Continue therapeutic anticoagulation with intravenous heparin and monitor PTT q6h.",
+   "kind": "action",
+   "text": "Continue therapeutic anticoagulation with intravenous heparin.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "heparin",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (therapeutic) action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1653043A1::03",
+   "claim_id": "E1653043A1",
+   "claim_text": "Continue therapeutic anticoagulation with intravenous heparin and monitor PTT q6h.",
+   "kind": "action",
+   "text": "Monitor PTT q6h.",
+   "concept": "ptt",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "PTT",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:404546181",
+     "time": "2100-01-03 08:39:00",
+     "item": "PTT",
+     "value": "121.3 seconds"
+    },
+    {
+     "rid": "lab:398407877",
+     "time": "2100-01-03 15:34:00",
+     "item": "PTT",
+     "value": "63.6 seconds"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): PTT x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1653043A2::04",
+   "claim_id": "E1653043A2",
+   "claim_text": "Order repeat lower extremity duplex ultrasound to assess for DVT progression.",
+   "kind": "action",
+   "text": "Order repeat lower extremity duplex ultrasound.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "lower extremity duplex ultrasound",
+   "conditional": false,
+   "treatment_class": "imaging",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No imaging / ECG action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1653043A3::06",
+   "claim_id": "E1653043A3",
+   "claim_text": "Maintain current oxygen supplementation at 2 L/min via nasal cannula and reassess SpO₂ q4h.",
+   "kind": "action",
+   "text": "Maintain oxygen supplementation at 2 L/min via nasal cannula.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "oxygen supplementation",
+   "conditional": false,
+   "treatment_class": "oxygen_therapy",
+   "class_level": "class",
+   "label": "unobservable",
+   "evidence": [],
+   "method": "rule",
+   "reason": "oxygen therapy is not captured by the source action tables.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1653043A3::08",
+   "claim_id": "E1653043A3",
+   "claim_text": "Maintain current oxygen supplementation at 2 L/min via nasal cannula and reassess SpO₂ q4h.",
+   "kind": "action",
+   "text": "Reassess SpO2 q4h.",
+   "concept": "spo2",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "SpO2",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1216921590",
+     "time": "2100-01-02 22:00:00",
+     "item": "SpO2",
+     "value": "97.0 %"
+    },
+    {
+     "rid": "nurse:1201449163",
+     "time": "2100-01-02 23:00:00",
+     "item": "SpO2",
+     "value": "96.0 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): SpO2 x13.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 0,
+  "not_supported": 2,
+  "not_addressed": 1,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.333,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently receiving intravenous heparin. -- The records show that the patient is receiving intravenous heparin, but the most recent administration record is from 01:30 on 2100-01-02, which is 2 hours before the decision time. The statement is not supported by the records.",
+    "DVT is present. -- The records state that a non-invasive test for DVT was ordered, but there is no evidence that the test has been administered or that DVT is present. The most recent relevant row is R50, which shows a heart rate of 79 bpm, but this does not support the statement that DVT is present."
+   ],
+   "not_addressed": [
+    "The patient is currently receiving oxygen supplementation at 2 L/min via nasal cannula. -- No record of this treatment. (Panel verdict: supported.)"
+   ]
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 2,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

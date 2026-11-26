@@ -1,0 +1,134 @@
+# E1837964   T = 2100-01-02 16:59:00   records before T: 153
+ICU stay 1837964 (Med-Surg ICU; Male, age 87; admission diagnosis: CHF, congestive heart failure).
+
+## Atoms
+deepseek-v4.1-flash|E1837964A1::01 [observed] The patient is currently on BiPAP/CPAP.   <- Continue BiPAP/CPAP with PEEP 5 cmH2O and FiO2 60% for respiratory support.
+deepseek-v4.1-flash|E1837964A1::02 [observed] PEEP is 5 cmH2O.   <- Continue BiPAP/CPAP with PEEP 5 cmH2O and FiO2 60% for respiratory support.
+deepseek-v4.1-flash|E1837964A1::03 [observed] FiO2 is 60%.   <- Continue BiPAP/CPAP with PEEP 5 cmH2O and FiO2 60% for respiratory support.
+deepseek-v4.1-flash|E1837964A3::P01 [presupposition] The patient is currently receiving furosemide.   <- Continue scheduled medications including furosemide, metoprolol, aspirin, levothyroxine, pantoprazole, prednisone, atorvastatin, heparin, clonidine, and insulin regimens.
+deepseek-v4.1-flash|E1837964A3::P02 [presupposition] The patient is currently receiving metoprolol.   <- Continue scheduled medications including furosemide, metoprolol, aspirin, levothyroxine, pantoprazole, prednisone, atorvastatin, heparin, clonidine, and insulin regimens.
+deepseek-v4.1-flash|E1837964A3::P03 [presupposition] The patient is currently receiving aspirin.   <- Continue scheduled medications including furosemide, metoprolol, aspirin, levothyroxine, pantoprazole, prednisone, atorvastatin, heparin, clonidine, and insulin regimens.
+deepseek-v4.1-flash|E1837964A3::P04 [presupposition] The patient is currently receiving levothyroxine.   <- Continue scheduled medications including furosemide, metoprolol, aspirin, levothyroxine, pantoprazole, prednisone, atorvastatin, heparin, clonidine, and insulin regimens.
+deepseek-v4.1-flash|E1837964A3::P05 [presupposition] The patient is currently receiving pantoprazole.   <- Continue scheduled medications including furosemide, metoprolol, aspirin, levothyroxine, pantoprazole, prednisone, atorvastatin, heparin, clonidine, and insulin regimens.
+deepseek-v4.1-flash|E1837964A3::P06 [presupposition] The patient is currently receiving prednisone.   <- Continue scheduled medications including furosemide, metoprolol, aspirin, levothyroxine, pantoprazole, prednisone, atorvastatin, heparin, clonidine, and insulin regimens.
+deepseek-v4.1-flash|E1837964A3::P07 [presupposition] The patient is currently receiving heparin.   <- Continue scheduled medications including furosemide, metoprolol, aspirin, levothyroxine, pantoprazole, prednisone, atorvastatin, heparin, clonidine, and insulin regimens.
+deepseek-v4.1-flash|E1837964A3::P08 [presupposition] The patient is currently receiving insulin.   <- Continue scheduled medications including furosemide, metoprolol, aspirin, levothyroxine, pantoprazole, prednisone, atorvastatin, heparin, clonidine, and insulin regimens.
+gpt-oss-120b|E1837964A1::02 [presupposition] Intravenous diuretic therapy is currently being given.   <- Continue intravenous diuretic therapy and monitor daily weight and electrolytes.
+qwen2.5-7b|E1837964A2::04 [presupposition] Insulin detemir is ordered.   <- Administer insulin detemir subcutaneously as ordered.
+qwen2.5-7b|E1837964A3::06 [presupposition] Metoprolol is currently being given.   <- Continue antihypertensive therapy with metoprolol.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 17:10:00): Medication PANTOPRAZOLE SOD IV DAILY
+  Running at decision time (scheduled order started 2100-01-01 18:02:00): Medication PREDNISONE PO DAILY
+  Running at decision time (scheduled order started 2100-01-01 20:30:00): Medication ALBUTEROL/IPRATROPIUM NEB RT Q6H
+  Running at decision time (scheduled order started 2100-01-01 21:30:00): Medication Insulin Aspart SUBCUT TID AC
+  Running at decision time (scheduled order started 2100-01-01 21:30:00): Medication Insulin Aspart SUBCUT QID AC
+  Running at decision time (scheduled order started 2100-01-01 23:00:00): Medication CLONIDINE HCL PO BID
+  Running at decision time (scheduled order started 2100-01-02 02:00:00): Medication ATORVASTATIN PO NIGHTLY
+  Running at decision time (scheduled order started 2100-01-02 02:00:00): Medication HEPARIN SOD (PORCINE) SUBCUT Q12HR
+  Running at decision time (scheduled order started 2100-01-02 11:00:00): Medication LEVOTHYROXINE SODIUM PO
+  Running at decision time (scheduled order started 2100-01-02 14:00:00): Medication FUROSEMIDE PO DAILY
+  Running at decision time (scheduled order started 2100-01-02 14:00:00): Medication METOPROLOL SUCCINATE PO DAILY
+  Running at decision time (scheduled order started 2100-01-02 14:00:00): Medication ASPIRIN PO DAILY
+  Running at decision time (scheduled order started 2100-01-02 16:20:00): Medication INSULIN DETEMIR SUBCUT BID
+  Running at decision time (scheduled order started 2100-01-02 16:30:00): Medication Insulin Aspart SUBCUT TID AC
+
+## PRN orders
+  01-01 16:45 Order: ALBUTEROL/IPRATROPIUM NEB RT Q6H PRN (active at decision time)
+  01-01 17:00 Order: GLUCAGON IM PRN (active at decision time)
+  01-01 17:00 Order: GLUCAGON IM PRN (active at decision time)
+  01-01 17:00 Order: DEXTROSE 50% IV PRN (active at decision time)
+  01-01 17:00 Order: DEXTROSE 50% IV PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Given once: FUROSEMIDE IV ONE (2100-01-01 14:15:00)
+  Given once: SODIUM CHLORIDE IV ONE (2100-01-01 14:15:00)
+  Given once: MORPHINE SULFATE IV ONE (2100-01-01 14:15:00)
+  Medication ASPIRIN .ROUTE .STK-MED (2100-01-01 14:32:00 to 2100-01-01 14:33:00)
+  Medication NITROGLYCERIN SL .STK-MED (2100-01-01 14:32:00 to 2100-01-01 14:33:00)
+  Medication Sodium Chloride 0.9% 1,000 ML BAG .ROUTE .STK-MED (2100-01-01 14:32:00 to 2100-01-01 17:04:00)
+  Given once: SODIUM CHLORIDE IV ONE (2100-01-01 15:25:00)
+  Given once: ASPIRIN PO ONE (2100-01-01 18:30:00)
+  Given once: FUROSEMIDE PO ONE (2100-01-01 18:30:00)
+  Given once: LEVOTHYROXINE SODIUM PO ONE (2100-01-01 18:30:00)
+  Given once: METOPROLOL SUCCINATE PO ONE (2100-01-01 18:35:00)
+  Given once: PNEUMOCOCCAL POLYSACCHARIDES IMV ONE (2100-01-02 16:00:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 14:15 0 %
+  -eos: 01-01 14:15 0 %
+  -lymphs: 01-01 14:15 9 %
+  -monos: 01-01 14:15 7 %
+  -polys: 01-01 14:15 83 %
+  Alanine Aminotransferase (ALT): 01-01 14:15 11 U/L
+  Albumin: 01-01 14:15 4.1 G/DL
+  Alkaline Phosphatase: 01-01 14:15 77 U/L
+  Asparate Aminotransferase (AST): 01-01 14:15 16 U/L
+  BNP: 01-01 14:15 1370 PG/ML
+  Base Excess: 01-01 18:07 0.9
+  Bicarbonate: 01-02 09:44 24 MEQ/ML; 01-01 14:15 26 MEQ/ML
+  Bicarbonate (blood gas HCO3): 01-01 18:07 25 MMOL/L
+  Bilirubin, Total: 01-01 14:15 0.5 MG/DL
+  CPK: 01-01 14:15 79 U/L
+  Calcium, Total: 01-02 09:44 9.2 MG/DL; 01-01 14:15 9.7 MG/DL
+  Chloride: 01-02 09:44 103 MEQ/L; 01-01 14:15 104 MEQ/L
+  Creatinine: 01-02 09:44 1.3 MG/DL; 01-01 14:15 1.31 MG/DL
+  FiO2: 01-01 18:07 60 %
+  Glucose: 01-02 09:44 187 MG/DL; 01-01 14:15 134 MG/DL
+  Glucose finger stick: 01-02 02:12 134 MG/DL; 01-01 21:50 192 MG/DL
+  Hematocrit: 01-02 09:44 30.9 %; 01-01 14:15 35.8 %
+  Hemoglobin: 01-02 09:44 9.9 g/dL; 01-01 14:15 11.7 g/dL
+  INR(PT): 01-01 14:15 1.1
+  MCH: 01-02 09:44 27.4 pg; 01-01 14:15 27.5 pg
+  MCHC: 01-02 09:44 32 g/dL; 01-01 14:15 32.6 g/dL
+  MCV: 01-02 09:44 86 fL; 01-01 14:15 84 fL
+  MPV: 01-02 09:44 9.8 fL; 01-01 14:15 9.2 fL
+  Magnesium: 01-01 14:15 2.2 MG/DL
+  Oxyhemoglobin: 01-01 18:07 95 %
+  PEEP: 01-01 18:07 5 CWP
+  PTT: 01-01 14:15 24.7 SECONDS
+  Peak Airway/Pressure: 01-01 18:07 12 CWP
+  Platelet Count: 01-02 09:44 229 *10^3/uL; 01-01 14:15 350 *10^3/uL
+  Potassium: 01-02 09:44 4 MEQ/L; 01-01 14:15 3.8 MEQ/L
+  RBC: 01-02 09:44 3.6 *10^6/uL; 01-01 14:15 4.24 *10^6/uL
+  RDW: 01-02 09:44 15.9 %; 01-01 14:15 15.4 %
+  Respiratory Rate: 01-01 18:07 26
+  Sodium: 01-02 09:44 140 MEQ/L; 01-01 14:15 143 MEQ/L
+  Temperature: 01-01 18:07 37 DEGREES
+  Urea Nitrogen: 01-02 09:44 54 MG/DL; 01-01 14:15 54 MG/DL
+  White Blood Cells: 01-02 09:44 12.4 *10^3/uL; 01-01 14:15 20.2 *10^3/uL
+  pCO2: 01-01 18:07 39 MM HG
+  pH: 01-01 18:07 7.43
+  pO2: 01-01 18:07 82 MM HG
+  total protein: 01-01 14:15 8 G/DL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-02 09:39   24h 4-4 (n=3)
+  Glasgow coma score GCS Total: 15 @01-02 09:39   24h 15-15 (n=3)
+  Glasgow coma score Motor: 6 @01-02 09:39   24h 6-6 (n=3)
+  Glasgow coma score Verbal: 5 @01-02 09:39   24h 5-5 (n=3)
+  Heart Rate: 58 bpm @01-02 09:39   24h 58-68 (n=3)
+  Inspired O2 Fraction: 60 % @01-02 09:41   24h 60-60 (n=3)
+  Non Invasive Blood Pressure diastolic: 59 mmHg @01-02 09:39   24h 59-67 (n=3)
+  Non Invasive Blood Pressure mean: 91 mmHg @01-02 09:39   24h 91-129 (n=3)
+  Non Invasive Blood Pressure systolic: 124 mmHg @01-02 09:39   24h 124-163 (n=3)
+  O2 Delivery Device(s): Bipap mask (charted: BiPAP/CPAP) @01-02 09:39
+  O2 L/%: 60 @01-02 00:06
+  O2 saturation pulseoxymetry: 96 % @01-02 09:39   24h 96-99 (n=3)
+  PEEP set: 5 cmH2O @01-02 09:41   24h 5-5 (n=3)
+  Respiratory Rate: 25 insp/min @01-02 09:39   24h 19-30 (n=3)
+  Respiratory Rate (spontaneous): 28 insp/min @01-02 09:41   24h 19-30 (n=3)
+  SaO2: 97 @01-02 09:41   24h 96-99 (n=3)
+  Temperature Fahrenheit: 97.8 F @01-02 01:00   24h 96.6-97.8 (n=2)
+  Temperature Location: tympanic @01-02 01:00
+
+## Treatments documented
+  01-01 17:14 pulmonary | ventilation and oxygenation | CPAP/PEEP therapy
+  01-01 17:14 pulmonary | ventilation and oxygenation | oxygen therapy (40% to 60%)
+  01-01 17:14 cardiovascular | ventricular dysfunction | intravenous diuretic
+  01-01 17:14 pulmonary | radiologic procedures / bronchoscopy | chest x-ray
+  01-01 17:14 cardiovascular | consultations | Cardiology consultation
+
+## Microbiology

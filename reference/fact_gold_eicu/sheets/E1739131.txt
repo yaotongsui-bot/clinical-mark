@@ -1,0 +1,93 @@
+# E1739131   T = 2100-01-02 09:51:00   records before T: 111
+ICU stay 1739131 (SICU; Male, age 31; admission diagnosis: Abdomen/extremity trauma).
+
+## Atoms
+deepseek-v4.1-flash|E1739131A1::03 [observed] GCS is stable.   <- Continue monitoring vital signs and oxygen saturation on room air, given stable GCS and hemodynamics.
+deepseek-v4.1-flash|E1739131A1::04 [observed] Hemodynamics are stable.   <- Continue monitoring vital signs and oxygen saturation on room air, given stable GCS and hemodynamics.
+deepseek-v4.1-flash|E1739131A2::06 [presupposition] Hydromorphone IV is currently ordered.   <- Continue hydromorphone IV PRN for pain management as ordered.
+deepseek-v4.1-flash|E1739131A3::08 [presupposition] IV fluid infusion is currently running at 100 mL/hour.   <- Maintain current IV fluid infusion at 100 mL/hour.
+gpt-oss-120b|E1739131A1::02 [presupposition] Lactated Ringer's IV infusion is currently being given.   <- Continue Lactated Ringer's IV infusion at 100 mL/hour.
+qwen2.5-7b|E1739131A2::04 [presupposition] Hydromorphone is currently being given.   <- Continue pain management with hydromorphone as needed.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 07:55:00): Medication LACTATED RINGER'S 1,000 ML BAG IV CONT
+  Running at decision time (started 2100-01-01 10:06:00): Infusion/input IVF at 100 ml/hour
+
+## PRN orders
+  01-01 07:55 Order: HYDROMORPHONE HCL IV Q2H PRN (active at decision time)
+  01-01 07:55 Order: HYDROMORPHONE HCL IV Q2H PRN (active at decision time)
+  01-01 14:15 Order: Ondansetron IVP Q8H PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication HYDROMORPHONE HCL .ROUTE .STK-MED (2100-01-01 06:59:00 to 2100-01-01 07:00:00)
+  Medication Ondansetron .ROUTE .STK-MED (2100-01-01 06:59:00 to 2100-01-01 07:00:00)
+  Medication FAMOTIDINE .ROUTE .STK-MED (2100-01-01 07:10:00 to 2100-01-01 07:11:00)
+  Medication METHYLPREDNISOLONE SOD SUCC .ROUTE .STK-MED (2100-01-01 07:10:00 to 2100-01-01 07:11:00)
+  Medication DIPHENHYDRAMINE HCL .ROUTE .STK-MED (2100-01-01 07:10:00 to 2100-01-01 07:11:00)
+  Medication HYDROMORPHONE HCL .ROUTE .STK-MED (2100-01-01 07:58:00 to 2100-01-01 07:59:00)
+  Medication Sodium Chloride 0.9% 1,000 ML BAG IV .STK-MED (2100-01-01 08:01:00 to 2100-01-01 10:33:00)
+  Medication HYDROMORPHONE HCL .ROUTE .STK-MED (2100-01-01 10:28:00 to 2100-01-01 10:29:00)
+  Given once: PNEUMOCOCCAL POLYSACCHARIDES IMV ONE (2100-01-01 11:00:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 06:55 1.4 %
+  -eos: 01-01 06:55 4.3 %
+  -lymphs: 01-01 06:55 43.8 %
+  -monos: 01-01 06:55 7.5 %
+  -polys: 01-01 06:55 43 %
+  Alanine Aminotransferase (ALT): 01-01 06:55 45 U/L
+  Albumin: 01-01 06:55 4.2 G/DL
+  Alkaline Phosphatase: 01-01 06:55 57 U/L
+  Asparate Aminotransferase (AST): 01-01 06:55 43 U/L
+  Bicarbonate: 01-01 09:40 25 MMOL/L; 01-01 06:55 26 MMOL/L
+  Bilirubin, Total: 01-01 06:55 0.5 MG/DL
+  Calcium, Total: 01-01 09:40 8.6 MG/DL; 01-01 06:55 9 MG/DL
+  Chloride: 01-01 09:40 102 mEq/L; 01-01 06:55 100 mEq/L
+  Creatinine: 01-01 09:40 1.02 MG/DL; 01-01 06:55 1.02 MG/DL
+  Glucose: 01-01 09:40 186 MG/DL; 01-01 06:55 138 MG/DL
+  Hematocrit: 01-01 09:40 43.3 %; 01-01 06:55 45.8 %
+  Hemoglobin: 01-01 09:40 14.3 G/DL; 01-01 06:55 15 G/DL
+  INR(PT): 01-01 06:55 1
+  MCH: 01-01 09:40 29.9 PG; 01-01 06:55 28.8 PG
+  MCHC: 01-01 09:40 32.9 G/DL; 01-01 06:55 32.7 G/DL
+  MCV: 01-01 09:40 90.9 FL; 01-01 06:55 88.1 FL
+  MPV: 01-01 09:40 9.2 FL; 01-01 06:55 8.4 FL
+  PT: 01-01 06:55 10.3 SECONDS
+  Platelet Count: 01-01 09:40 261 10X3; 01-01 06:55 335 10X3
+  Potassium: 01-01 09:40 4.2 mEq/L; 01-01 06:55 3.8 mEq/L
+  RBC: 01-01 09:40 4.76 10X6/MM; 01-01 06:55 5.2 10X6/MM
+  RDW: 01-01 09:40 14.4 %; 01-01 06:55 13.7 %
+  Sodium: 01-01 09:40 134 mEq/L; 01-01 06:55 137 mEq/L
+  Urea Nitrogen: 01-01 09:40 15 MG/DL; 01-01 06:55 13 MG/DL
+  White Blood Cells: 01-01 09:40 20.9 10X3/MM; 01-01 06:55 19.6 10X3/MM
+  lipase: 01-01 06:55 17 U/L
+  total protein: 01-01 06:55 7.7 G/DL
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-02 08:50   24h 4-4 (n=3)
+  Glasgow coma score GCS Total: 15 @01-02 08:50   24h 15-15 (n=3)
+  Glasgow coma score Motor: 6 @01-02 08:50   24h 6-6 (n=3)
+  Glasgow coma score Verbal: 5 @01-02 08:50   24h 5-5 (n=3)
+  Heart Rate: 90 bpm @01-02 08:50   24h 88-98 (n=3)
+  Inspired O2 Fraction: 21 % @01-02 08:52   24h 21-21 (n=2)
+  Non Invasive Blood Pressure diastolic: 71 mmHg @01-02 08:50   24h 42-110 (n=3)
+  Non Invasive Blood Pressure mean: 90 mmHg @01-02 08:50   24h 61-127 (n=3)
+  Non Invasive Blood Pressure systolic: 153 mmHg @01-02 08:50   24h 110-159 (n=3)
+  O2 Delivery Device(s): None (charted: RA) @01-02 08:50   earlier: Nasal cannula (charted: nasal cannula) @01-01 10:06
+  O2 saturation pulseoxymetry: 96 % @01-02 08:50   24h 92-98 (n=3)
+  Respiratory Rate: 19 insp/min @01-02 08:50   24h 19-20 (n=3)
+  Respiratory Rate (spontaneous): 19 insp/min @01-02 08:52   24h 19-20 (n=2)
+  SaO2: 96 @01-02 08:52   24h 92-96 (n=2)
+  Temperature Fahrenheit: 99.5 F @01-01 23:00   24h 97.2-99.5 (n=2)
+  Temperature Location: temporal @01-01 11:00
+
+## Treatments documented
+  01-01 10:14 trauma | CT scan | pelvis
+  01-01 10:14 ventilation and oxygenation | oxygen therapy (< 40%) | nasal cannula
+  01-01 10:14 trauma | CT scan | chest
+  01-01 10:14 neurologic | pain / agitation / altered mentation | analgesics
+  01-01 10:14 trauma | CT scan | abdomen
+
+## Microbiology

@@ -1,0 +1,276 @@
+{
+ "case_id": "E3178242",
+ "decision_point": "2100-01-02 07:26:00",
+ "claims": [
+  "Monitor patient for signs of delirium and adjust sedation as needed.",
+  "Continue intravenous fluid administration to maintain adequate hydration.",
+  "Assess and manage pain using the CPOT scale."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3178242A1::01",
+   "claim_id": "E3178242A1",
+   "claim_text": "Monitor patient for signs of delirium and adjust sedation as needed.",
+   "kind": "action",
+   "text": "Monitor patient for signs of delirium.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "delirium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3178242A1::02",
+   "claim_id": "E3178242A1",
+   "claim_text": "Monitor patient for signs of delirium and adjust sedation as needed.",
+   "kind": "action",
+   "text": "Adjust sedation as needed.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3178242A2::03",
+   "claim_id": "E3178242A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3178242A2::04",
+   "claim_id": "E3178242A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3178242A3::05",
+   "claim_id": "E3178242A3",
+   "claim_text": "Assess and manage pain using the CPOT scale.",
+   "kind": "action",
+   "text": "Assess pain using the CPOT scale.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3178242A3::06",
+   "claim_id": "E3178242A3",
+   "claim_text": "Assess and manage pain using the CPOT scale.",
+   "kind": "action",
+   "text": "Manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3178242A2::04",
+   "claim_id": "E3178242A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate hydration.",
+   "kind": "fact",
+   "text": "Intravenous fluids are currently being administered.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R1 documents continuous IV administration of DEXTROSE-NACL 5-0.45% from 2099-12-31 19:15 to 2100-01-01 07:23, which overlaps the decision time of 2100-01-01 07:26, indicating IV fluids were being administered.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:105505309",
+     "time": "2099-12-31 19:15:00",
+     "item": "Medication DEXTROSE-NACL 5-0.45 % IV SOLN IV Continuous (2099-12-31 19:15:00 to 2100-01-01 07:23:00)"
+    },
+    {
+     "rid": "med:105164730",
+     "time": "2100-01-01 15:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 15:00:00): Medication LACTATED RINGERS IV SOLN IV Continuous"
+    },
+    {
+     "rid": "med:105256649",
+     "time": "2100-01-01 08:30:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 08:30:00): Medication LACTATED RINGERS IV SOLN IV Continuous"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3178242A1::01",
+   "claim_id": "E3178242A1",
+   "claim_text": "Monitor patient for signs of delirium and adjust sedation as needed.",
+   "kind": "action",
+   "text": "Monitor patient for signs of delirium.",
+   "concept": "delirium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "delirium",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3178242A1::02",
+   "claim_id": "E3178242A1",
+   "claim_text": "Monitor patient for signs of delirium and adjust sedation as needed.",
+   "kind": "action",
+   "text": "Adjust sedation as needed.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "sedation",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3178242A2::03",
+   "claim_id": "E3178242A2",
+   "claim_text": "Continue intravenous fluid administration to maintain adequate hydration.",
+   "kind": "action",
+   "text": "Continue intravenous fluid administration.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3178242A3::05",
+   "claim_id": "E3178242A3",
+   "claim_text": "Assess and manage pain using the CPOT scale.",
+   "kind": "action",
+   "text": "Assess pain using the CPOT scale.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2202129834",
+     "time": "2100-01-02 09:00:00",
+     "item": "pain score",
+     "value": "5.0"
+    },
+    {
+     "rid": "nurse:2169412122",
+     "time": "2100-01-02 09:30:00",
+     "item": "pain score",
+     "value": "5.0"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pain score x18.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3178242A3::06",
+   "claim_id": "E3178242A3",
+   "claim_text": "Assess and manage pain using the CPOT scale.",
+   "kind": "action",
+   "text": "Manage pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "pain management",
+   "conditional": false,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

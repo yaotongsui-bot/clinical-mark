@@ -1,0 +1,193 @@
+{
+ "case_id": "M35446858",
+ "decision_point": "2141-08-01 00:01:00",
+ "claims": [
+  "Administer Haloperidol (Haldol).",
+  "Administer PHENObarbital Alcohol Withdrawal Dose Taper (Days 2-7)."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M35446858A1::01",
+   "claim_id": "M35446858A1",
+   "claim_text": "Administer Haloperidol (Haldol).",
+   "kind": "action",
+   "text": "Administer haloperidol (Haldol).",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "haloperidol",
+   "conditional": false,
+   "treatment_class": "antipsychotic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M35446858A2::02",
+   "claim_id": "M35446858A2",
+   "claim_text": "Administer PHENObarbital Alcohol Withdrawal Dose Taper (Days 2-7).",
+   "kind": "action",
+   "text": "Administer phenobarbital alcohol withdrawal dose taper for days 2-7.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "phenobarbital",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "M35446858A1::01",
+   "claim_id": "M35446858A1",
+   "claim_text": "Administer Haloperidol (Haldol).",
+   "kind": "action",
+   "text": "Administer haloperidol (Haldol).",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "haloperidol",
+   "conditional": false,
+   "treatment_class": "antipsychotic",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN221824",
+     "time": "2141-08-01 01:25:00",
+     "item": "Haloperidol (Haldol) infusion started at",
+     "class": "antipsychotic"
+    },
+    {
+     "rid": "RX11861818",
+     "time": "2141-08-01 02:00:00",
+     "item": "Ordered: Haloperidol 5 mg IV",
+     "class": "antipsychotic"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded antipsychotics after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M35446858A2::02",
+   "claim_id": "M35446858A2",
+   "claim_text": "Administer PHENObarbital Alcohol Withdrawal Dose Taper (Days 2-7).",
+   "kind": "action",
+   "text": "Administer phenobarbital alcohol withdrawal dose taper for days 2-7.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "administer",
+   "target": "phenobarbital",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "RX68404097",
+     "time": "2141-08-01 08:00:00",
+     "item": "Ordered: PHENObarbital Alcohol Withdrawal Dose Taper (Days 2-7) 40 mg PO/NG",
+     "class": "sedation"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded sedation after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Haloperidol",
+    "Haloperidol (Haldol)"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M35446858A1::01"
+   ]
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "PHENObarbital Alcohol Withdrawal Dose Taper (Days 2-7)"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M35446858A2::02"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antipsychotic",
+   "name": "antipsychotics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Haloperidol",
+    "Haloperidol (Haldol)"
+   ],
+   "doctor_rows": 2,
+   "covered": true,
+   "by_atoms": [
+    "M35446858A1::01"
+   ]
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "PHENObarbital Alcohol Withdrawal Dose Taper (Days 2-7)"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M35446858A2::02"
+   ]
+  }
+ ],
+ "doctor_actions_in_window": 11,
+ "observation_window_hours": 22.6,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": null,
+  "recall_okay": 1.0,
+  "recall_all": 1.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 1.0,
+  "recall_all_at3": 1.0
+ }
+}

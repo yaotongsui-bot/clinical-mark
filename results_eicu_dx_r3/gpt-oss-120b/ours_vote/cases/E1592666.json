@@ -1,0 +1,337 @@
+{
+ "case_id": "E1592666",
+ "decision_point": "2100-01-02 23:07:00",
+ "claims": [
+  "Obtain a repeat complete blood count with differential to assess ongoing anemia and evaluate need for red blood cell transfusion.",
+  "Continue monitoring blood glucose hourly and adjust insulin therapy as needed to maintain target range.",
+  "Maintain current vancomycin therapy and obtain a trough level in 24 hours to ensure therapeutic dosing."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1592666A1::01",
+   "claim_id": "E1592666A1",
+   "claim_text": "Obtain a repeat complete blood count with differential to assess ongoing anemia and evaluate need for red blood cell transfusion.",
+   "kind": "action",
+   "text": "Obtain a repeat complete blood count with differential.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "complete blood count with differential",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1592666A1::02",
+   "claim_id": "E1592666A1",
+   "claim_text": "Obtain a repeat complete blood count with differential to assess ongoing anemia and evaluate need for red blood cell transfusion.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1592666A1::03",
+   "claim_id": "E1592666A1",
+   "claim_text": "Obtain a repeat complete blood count with differential to assess ongoing anemia and evaluate need for red blood cell transfusion.",
+   "kind": "action",
+   "text": "Evaluate need for red blood cell transfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "red blood cell transfusion",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1592666A2::04",
+   "claim_id": "E1592666A2",
+   "claim_text": "Continue monitoring blood glucose hourly and adjust insulin therapy as needed to maintain target range.",
+   "kind": "action",
+   "text": "Continue monitoring blood glucose hourly.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1592666A2::05",
+   "claim_id": "E1592666A2",
+   "claim_text": "Continue monitoring blood glucose hourly and adjust insulin therapy as needed to maintain target range.",
+   "kind": "action",
+   "text": "Adjust insulin therapy as needed to maintain target range.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1592666A3::06",
+   "claim_id": "E1592666A3",
+   "claim_text": "Maintain current vancomycin therapy and obtain a trough level in 24 hours to ensure therapeutic dosing.",
+   "kind": "action",
+   "text": "Maintain current vancomycin therapy.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1592666A3::07",
+   "claim_id": "E1592666A3",
+   "claim_text": "Maintain current vancomycin therapy and obtain a trough level in 24 hours to ensure therapeutic dosing.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E1592666A3::08",
+   "claim_id": "E1592666A3",
+   "claim_text": "Maintain current vancomycin therapy and obtain a trough level in 24 hours to ensure therapeutic dosing.",
+   "kind": "action",
+   "text": "Obtain a vancomycin trough level in 24 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "vancomycin trough level",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1592666A1::02",
+   "claim_id": "E1592666A1",
+   "claim_text": "Obtain a repeat complete blood count with differential to assess ongoing anemia and evaluate need for red blood cell transfusion.",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:379140850",
+     "time": "2100-01-01 22:30:00",
+     "item": "Hemoglobin",
+     "value": 9.3,
+     "unit": "g/dL",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:379491264",
+     "time": "2100-01-02 11:57:00",
+     "item": "Hemoglobin",
+     "value": 8.3,
+     "unit": "g/dL",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 8.3 g/dL at 2100-01-02 11:57:00 (reference 12 to 16) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1592666A3::07",
+   "claim_id": "E1592666A3",
+   "claim_text": "Maintain current vancomycin therapy and obtain a trough level in 24 hours to ensure therapeutic dosing.",
+   "kind": "fact",
+   "text": "Vancomycin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Vancomycin was administered at 17:00 on 2100-01-02, which is within 24 hours of the decision time of 23:07 on 2100-01-02, supporting the statement that it is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "2/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:55834132",
+     "time": "2100-01-02 17:00:00",
+     "item": "Given once: VANCOMYCIN HCL 1000 MG IV SOLR Intravenous Once X1 (2100-01-02 17:00:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1592666A1::01",
+   "claim_id": "E1592666A1",
+   "claim_text": "Obtain a repeat complete blood count with differential to assess ongoing anemia and evaluate need for red blood cell transfusion.",
+   "kind": "action",
+   "text": "Obtain a repeat complete blood count with differential.",
+   "concept": "cbc",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "complete blood count with differential",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No CBC measurement in the 2.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1592666A1::03",
+   "claim_id": "E1592666A1",
+   "claim_text": "Obtain a repeat complete blood count with differential to assess ongoing anemia and evaluate need for red blood cell transfusion.",
+   "kind": "action",
+   "text": "Evaluate need for red blood cell transfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "red blood cell transfusion",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1592666A2::04",
+   "claim_id": "E1592666A2",
+   "claim_text": "Continue monitoring blood glucose hourly and adjust insulin therapy as needed to maintain target range.",
+   "kind": "action",
+   "text": "Continue monitoring blood glucose hourly.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No glucose measurement in the 2.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1592666A2::05",
+   "claim_id": "E1592666A2",
+   "claim_text": "Continue monitoring blood glucose hourly and adjust insulin therapy as needed to maintain target range.",
+   "kind": "action",
+   "text": "Adjust insulin therapy as needed to maintain target range.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 2.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1592666A3::06",
+   "claim_id": "E1592666A3",
+   "claim_text": "Maintain current vancomycin therapy and obtain a trough level in 24 hours to ensure therapeutic dosing.",
+   "kind": "action",
+   "text": "Maintain current vancomycin therapy.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "vancomycin",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 2.4 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1592666A3::08",
+   "claim_id": "E1592666A3",
+   "claim_text": "Maintain current vancomycin therapy and obtain a trough level in 24 hours to ensure therapeutic dosing.",
+   "kind": "action",
+   "text": "Obtain a vancomycin trough level in 24 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "vancomycin trough level",
+   "conditional": false,
+   "treatment_class": "antimicrobial",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No antimicrobials action recorded in the 2.4 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 2.4,
+ "scoresheet": {
+  "n": 2,
+  "supported": 2,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

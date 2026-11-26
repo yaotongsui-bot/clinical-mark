@@ -54,6 +54,16 @@ def leaf_members(concept: str) -> list[str]:
     return [concept] if concept in CONCEPTS else []
 
 
+def same_finding(fact_concept: str, finding: str) -> bool:
+    """Whether a fact about fact_concept speaks about the finding: the same measure, one of its
+    components (SpO2 for oxygenation), or a narrow parent such as a syndrome (metabolic acidosis for
+    low bicarbonate). Panels ('electrolytes', 'CBC') are too broad to name a finding."""
+    if fact_concept == finding or fact_concept in leaf_members(finding):
+        return True
+    members = leaf_members(fact_concept)
+    return len(members) <= 2 and any(m in members for m in leaf_members(finding) or [finding])
+
+
 def diagnosis_override(text: str) -> tuple[str, str] | None:
     for pattern, concept, direction in DIAGNOSIS_TERMS:
         if pattern.search(text):
@@ -78,6 +88,11 @@ def classify_target(target: str, text: str = "") -> str | None:
         if any(p.search(target) for p in patterns):
             return spec["id"]
     return None
+
+
+def also_classes(name: str) -> set[str]:
+    """Other classes a product also delivers, whatever class it is filed under."""
+    return {cls for spec in CLASSES for pattern, cls in spec.get("also_counts_as", []) if re.search(pattern, name or "", re.I)}
 
 
 def classify_doctor(row: dict) -> str:

@@ -1,0 +1,237 @@
+{
+ "case_id": "M39492446-R10",
+ "decision_point": "2181-10-14 02:52:00",
+ "claims": [
+  "Monitor blood glucose levels closely due to hypoglycemia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39492446-R10A1::01",
+   "claim_id": "M39492446-R10A1",
+   "claim_text": "Monitor blood glucose levels closely due to hypoglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39492446-R10A1::02",
+   "claim_id": "M39492446-R10A1",
+   "claim_text": "Monitor blood glucose levels closely due to hypoglycemia.",
+   "kind": "fact",
+   "text": "Hypoglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39492446-R10A1::02",
+   "claim_id": "M39492446-R10A1",
+   "claim_text": "Monitor blood glucose levels closely due to hypoglycemia.",
+   "kind": "fact",
+   "text": "Hypoglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:263548",
+     "time": "2181-10-12 22:40:00",
+     "item": "Glucose",
+     "value": 122.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:263586",
+     "time": "2181-10-13 04:04:00",
+     "item": "Glucose",
+     "value": 85.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "normal"
+    },
+    {
+     "rid": "lab:263607",
+     "time": "2181-10-13 12:00:00",
+     "item": "Glucose",
+     "value": 208.0,
+     "unit": "mg/dL",
+     "bounds": "70.0 to 100.0",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 208 mg/dL at 2181-10-13 12:00:00 (reference 70.0 to 100.0) is high, not consistent with 'low'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39492446-R10A1::01",
+   "claim_id": "M39492446-R10A1",
+   "claim_text": "Monitor blood glucose levels closely due to hypoglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220621:2181-10-14 05:40:00:236065",
+     "time": "2181-10-14 05:40:00",
+     "item": "glucose",
+     "value": "91 mg/dL"
+    },
+    {
+     "rid": "lab:50931:2181-10-14 05:40:00:79408",
+     "time": "2181-10-14 05:40:00",
+     "item": "glucose",
+     "value": "___ mg/dL"
+    }
+   ],
+   "reason": "Measured in the 15.2 h observation window after the decision (24 h or until ICU discharge): glucose x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "NIFEdipine CR"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Torsemide"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Metoprolol Succinate XL"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antihypertensive",
+   "name": "antihypertensives",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "NIFEdipine CR"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "diuretic",
+   "name": "diuretics",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Torsemide"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Metoprolol Succinate XL"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 11,
+ "observation_window_hours": 15.2,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hypoglycemia is present. -- Latest glucose 208 mg/dL at 2181-10-13 12:00:00 (reference 70.0 to 100.0) is high, not consistent with 'low'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 3,
+  "recall_vital": null,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": null,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

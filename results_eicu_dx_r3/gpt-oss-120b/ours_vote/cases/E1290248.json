@@ -1,0 +1,346 @@
+{
+ "case_id": "E1290248",
+ "decision_point": "2100-01-02 14:06:00",
+ "claims": [
+  "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+  "Continue intravenous pantoprazole infusion for ulcer prophylaxis and bleeding control.",
+  "Schedule repeat hemoglobin and hematocrit measurement in 6 hours to monitor response to therapy."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1290248A1::01",
+   "claim_id": "E1290248A1",
+   "claim_text": "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1290248A1::02",
+   "claim_id": "E1290248A1",
+   "claim_text": "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1290248A1::03",
+   "claim_id": "E1290248A1",
+   "claim_text": "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+   "kind": "fact",
+   "text": "Hemoglobin is 7.1 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1290248A2::04",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous pantoprazole infusion for ulcer prophylaxis and bleeding control.",
+   "kind": "action",
+   "text": "Continue intravenous pantoprazole infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pantoprazole",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E1290248A2::05",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous pantoprazole infusion for ulcer prophylaxis and bleeding control.",
+   "kind": "fact",
+   "text": "Intravenous pantoprazole infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E1290248A3::06",
+   "claim_id": "E1290248A3",
+   "claim_text": "Schedule repeat hemoglobin and hematocrit measurement in 6 hours to monitor response to therapy.",
+   "kind": "action",
+   "text": "Schedule repeat hemoglobin measurement in 6 hours.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "hemoglobin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E1290248A3::07",
+   "claim_id": "E1290248A3",
+   "claim_text": "Schedule repeat hemoglobin and hematocrit measurement in 6 hours to monitor response to therapy.",
+   "kind": "action",
+   "text": "Schedule repeat hematocrit measurement in 6 hours.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "hematocrit",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1290248A1::02",
+   "claim_id": "E1290248A1",
+   "claim_text": "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+   "kind": "fact",
+   "text": "Anemia is present.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:305759884",
+     "time": "2100-01-01 22:09:00",
+     "item": "Hemoglobin",
+     "value": 7.9,
+     "unit": "g/dL",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:309263315",
+     "time": "2100-01-02 09:04:00",
+     "item": "Hemoglobin",
+     "value": 7.1,
+     "unit": "g/dL",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest hemoglobin 7.1 g/dL at 2100-01-02 09:04:00 (reference 12 to 16) is low, consistent with 'low'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1290248A1::03",
+   "claim_id": "E1290248A1",
+   "claim_text": "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+   "kind": "fact",
+   "text": "Hemoglobin is 7.1 g/dL.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:309263315",
+     "time": "2100-01-02 09:04:00",
+     "item": "Hemoglobin",
+     "value": 7.1,
+     "unit": "g/dL",
+     "bounds": "12 to 16",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "The stated hemoglobin (7.1) matches recorded values before the decision (7.1 at 2100-01-02 09:04:00).",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E1290248A2::05",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous pantoprazole infusion for ulcer prophylaxis and bleeding control.",
+   "kind": "fact",
+   "text": "Intravenous pantoprazole infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: none -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R1 shows a continuous IV pantoprazole infusion running at the decision time, which directly supports the statement that it is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:44578624",
+     "time": "2100-01-01 12:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 12:00:00): Medication pantoprazole sodium 40 mg iv solr IV Continuous"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1290248A1::01",
+   "claim_id": "E1290248A1",
+   "claim_text": "Order packed red blood cell transfusion to address ongoing anemia (Hb 7.1 g/dL).",
+   "kind": "action",
+   "text": "Order packed red blood cell transfusion.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "packed red blood cell transfusion",
+   "conditional": false,
+   "treatment_class": "transfusion_rbc",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No red cell transfusion action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1290248A2::04",
+   "claim_id": "E1290248A2",
+   "claim_text": "Continue intravenous pantoprazole infusion for ulcer prophylaxis and bleeding control.",
+   "kind": "action",
+   "text": "Continue intravenous pantoprazole infusion.",
+   "concept": "none",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pantoprazole",
+   "conditional": false,
+   "treatment_class": "gi_prophylaxis",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No stress ulcer prophylaxis action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E1290248A3::06",
+   "claim_id": "E1290248A3",
+   "claim_text": "Schedule repeat hemoglobin and hematocrit measurement in 6 hours to monitor response to therapy.",
+   "kind": "action",
+   "text": "Schedule repeat hemoglobin measurement in 6 hours.",
+   "concept": "hemoglobin",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "hemoglobin",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:304933917",
+     "time": "2100-01-02 22:04:00",
+     "item": "hemoglobin",
+     "value": "9.5 g/dL"
+    },
+    {
+     "rid": "lab:308138356",
+     "time": "2100-01-03 08:31:00",
+     "item": "hemoglobin",
+     "value": "10.5 g/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): hemoglobin x2.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1290248A3::07",
+   "claim_id": "E1290248A3",
+   "claim_text": "Schedule repeat hemoglobin and hematocrit measurement in 6 hours to monitor response to therapy.",
+   "kind": "action",
+   "text": "Schedule repeat hematocrit measurement in 6 hours.",
+   "concept": "hematocrit",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "hematocrit",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:304933915",
+     "time": "2100-01-02 22:04:00",
+     "item": "hematocrit",
+     "value": "28.9 %"
+    },
+    {
+     "rid": "lab:308138354",
+     "time": "2100-01-03 08:31:00",
+     "item": "hematocrit",
+     "value": "32.1 %"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): hematocrit x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,464 @@
+{
+ "case_id": "E521456",
+ "decision_point": "2100-01-02 18:57:00",
+ "claims": [
+  "Continue mechanical ventilation with tidal volume 300 mL and PEEP 5 cmH2O.",
+  "Monitor blood glucose levels and adjust insulin therapy as needed.",
+  "Administer 10 mL of magnesium sulfate intravenously for potential delirium."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E521456A1::01",
+   "claim_id": "E521456A1",
+   "claim_text": "Continue mechanical ventilation with tidal volume 300 mL and PEEP 5 cmH2O.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E521456A1::02",
+   "claim_id": "E521456A1",
+   "claim_text": "Continue mechanical ventilation with tidal volume 300 mL and PEEP 5 cmH2O.",
+   "kind": "fact",
+   "text": "Tidal volume is 300 mL.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E521456A1::03",
+   "claim_id": "E521456A1",
+   "claim_text": "Continue mechanical ventilation with tidal volume 300 mL and PEEP 5 cmH2O.",
+   "kind": "fact",
+   "text": "PEEP is 5 cmH2O.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E521456A1::04",
+   "claim_id": "E521456A1",
+   "claim_text": "Continue mechanical ventilation with tidal volume 300 mL and PEEP 5 cmH2O.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E521456A2::05",
+   "claim_id": "E521456A2",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E521456A2::06",
+   "claim_id": "E521456A2",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Adjust insulin therapy as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E521456A3::07",
+   "claim_id": "E521456A3",
+   "claim_text": "Administer 10 mL of magnesium sulfate intravenously for potential delirium.",
+   "kind": "action",
+   "text": "Administer 10 mL of magnesium sulfate intravenously.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "magnesium sulfate",
+   "conditional": false,
+   "treatment_class": "magnesium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E521456A3::08",
+   "claim_id": "E521456A3",
+   "claim_text": "Administer 10 mL of magnesium sulfate intravenously for potential delirium.",
+   "kind": "fact",
+   "text": "Delirium is potentially present.",
+   "concept": "delirium",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "unspecified",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E521456A1::01",
+   "claim_id": "E521456A1",
+   "claim_text": "Continue mechanical ventilation with tidal volume 300 mL and PEEP 5 cmH2O.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The patient is currently on mechanical ventilation, but the records show that the tidal volume was set to 6-10 ml/kg, which is different from the statement. Additionally, the records show that the patient was receiving oxygen therapy (> 60%), which is not mentioned in the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:18640975",
+     "time": "2100-01-01 20:30:00",
+     "item": "Treatment documented: ventilation and oxygenation | mechanical ventilation | tidal volume 6-10 ml/kg"
+    }
+   ]
+  },
+  {
+   "atom_id": "E521456A1::02",
+   "claim_id": "E521456A1",
+   "claim_text": "Continue mechanical ventilation with tidal volume 300 mL and PEEP 5 cmH2O.",
+   "kind": "fact",
+   "text": "Tidal volume is 300 mL.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show that the tidal volume was set to 300 mL at various times, including at the decision time. This supports the statement that the tidal volume is 300 mL.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:138623447",
+     "time": "2100-01-01 18:58:00",
+     "item": "TV: 300 mL"
+    },
+    {
+     "rid": "lab:137612137",
+     "time": "2100-01-01 19:36:00",
+     "item": "TV: 300 mL"
+    },
+    {
+     "rid": "lab:137465898",
+     "time": "2100-01-01 21:12:00",
+     "item": "TV: 300 mL"
+    },
+    {
+     "rid": "resp:13499729",
+     "time": "2100-01-01 22:31:00",
+     "item": "Tidal Volume (set): 300 mL"
+    },
+    {
+     "rid": "resp:11915852",
+     "time": "2100-01-01 23:51:00",
+     "item": "Tidal Volume (set): 300 mL"
+    },
+    {
+     "rid": "resp:12666695",
+     "time": "2100-01-02 06:53:00",
+     "item": "Tidal Volume (set): 300 mL"
+    },
+    {
+     "rid": "resp:11291635",
+     "time": "2100-01-02 10:07:00",
+     "item": "Tidal Volume (set): 300 mL"
+    },
+    {
+     "rid": "resp:12867994",
+     "time": "2100-01-02 11:13:00",
+     "item": "Tidal Volume (set): 300 mL"
+    },
+    {
+     "rid": "resp:10734489",
+     "time": "2100-01-02 13:22:00",
+     "item": "Tidal Volume (set): 300 mL"
+    },
+    {
+     "rid": "lab:136308238",
+     "time": "2100-01-02 13:46:00",
+     "item": "TV: 300 mL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E521456A1::03",
+   "claim_id": "E521456A1",
+   "claim_text": "Continue mechanical ventilation with tidal volume 300 mL and PEEP 5 cmH2O.",
+   "kind": "fact",
+   "text": "PEEP is 5 cmH2O.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "other",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show that PEEP was set to 5 cmH2O at 21:12, 22:31, 23:51, 03:23, and 06:53. This supports the statement that PEEP is 5 cmH2O.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:137465895",
+     "time": "2100-01-01 21:12:00",
+     "item": "PEEP: 5 cmH?O"
+    },
+    {
+     "rid": "resp:13499731",
+     "time": "2100-01-01 22:31:00",
+     "item": "PEEP set: 5 cmH2O"
+    },
+    {
+     "rid": "resp:11915851",
+     "time": "2100-01-01 23:51:00",
+     "item": "PEEP set: 5 cmH2O"
+    },
+    {
+     "rid": "resp:12949616",
+     "time": "2100-01-02 03:23:00",
+     "item": "PEEP set: 5 cmH2O"
+    },
+    {
+     "rid": "resp:12666694",
+     "time": "2100-01-02 06:53:00",
+     "item": "PEEP set: 5 cmH2O"
+    }
+   ]
+  },
+  {
+   "atom_id": "E521456A3::08",
+   "claim_id": "E521456A3",
+   "claim_text": "Administer 10 mL of magnesium sulfate intravenously for potential delirium.",
+   "kind": "fact",
+   "text": "Delirium is potentially present.",
+   "concept": "delirium",
+   "notes": [],
+   "fact_kind": "judgment",
+   "direction": "present",
+   "time": "unspecified",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient's delirium score was No at 21:00 on 2100-01-01, but the statement is about the decision time, which is 2100-01-02 18:57:00. The records do not show any administration of magnesium sulfate intravenously for potential delirium at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:409237190",
+     "time": "2100-01-01 21:00:00",
+     "item": "Delirium Scale/Score Delirium Scale: CAM-ICU"
+    },
+    {
+     "rid": "nurse:409237191",
+     "time": "2100-01-01 21:00:00",
+     "item": "Delirium Scale/Score Delirium Score: No"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E521456A1::04",
+   "claim_id": "E521456A1",
+   "claim_text": "Continue mechanical ventilation with tidal volume 300 mL and PEEP 5 cmH2O.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (24 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:10290869",
+     "time": "2100-01-03 00:08:00",
+     "item": "ventilator setting",
+     "value": "34.0 insp/min",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:10290870",
+     "time": "2100-01-03 00:08:00",
+     "item": "ventilator setting",
+     "value": "300.0 mL",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:10290872",
+     "time": "2100-01-03 00:08:00",
+     "item": "ventilator setting",
+     "value": "7.0 cmH2O",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E521456A2::05",
+   "claim_id": "E521456A2",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:126818410",
+     "time": "2100-01-02 21:23:00",
+     "item": "glucose",
+     "value": "178.0 mg/dL"
+    },
+    {
+     "rid": "lab:125641874",
+     "time": "2100-01-03 01:26:00",
+     "item": "glucose",
+     "value": "206.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E521456A2::06",
+   "claim_id": "E521456A2",
+   "claim_text": "Monitor blood glucose levels and adjust insulin therapy as needed.",
+   "kind": "action",
+   "text": "Adjust insulin therapy as needed.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "insulin therapy",
+   "conditional": true,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E521456A3::07",
+   "claim_id": "E521456A3",
+   "claim_text": "Administer 10 mL of magnesium sulfate intravenously for potential delirium.",
+   "kind": "action",
+   "text": "Administer 10 mL of magnesium sulfate intravenously.",
+   "concept": "magnesium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "magnesium sulfate",
+   "conditional": false,
+   "treatment_class": "magnesium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No magnesium replacement action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 2,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.5,
+  "not_supported_share": 0.5,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The patient is currently on mechanical ventilation, but the records show that the tidal volume was set to 6-10 ml/kg, which is different from the statement. Additionally, the records show that the patient was receiving oxygen therapy (> 60%), which is not mentioned in the statement.",
+    "Delirium is potentially present. -- The records show that the patient's delirium score was No at 21:00 on 2100-01-01, but the statement is about the decision time, which is 2100-01-02 18:57:00. The records do not show any administration of magnesium sulfate intravenously for potential delirium at the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.5,
+  "not_supported": 2,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

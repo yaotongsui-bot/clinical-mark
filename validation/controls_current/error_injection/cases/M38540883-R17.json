@@ -1,0 +1,505 @@
+{
+ "case_id": "M38540883-R17",
+ "decision_point": "2135-01-22 17:01:57",
+ "claims": [
+  "Evaluate and manage renal function, considering the low creatinine levels."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M38540883-R17A1::01",
+   "claim_id": "M38540883-R17A1",
+   "claim_text": "Evaluate and manage renal function, considering the low creatinine levels.",
+   "kind": "action",
+   "text": "Evaluate renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "assess",
+   "target": "renal function",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38540883-R17A1::02",
+   "claim_id": "M38540883-R17A1",
+   "claim_text": "Evaluate and manage renal function, considering the low creatinine levels.",
+   "kind": "action",
+   "text": "Manage renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "other",
+   "target": "renal function",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "M38540883-R17A1::03",
+   "claim_id": "M38540883-R17A1",
+   "claim_text": "Evaluate and manage renal function, considering the low creatinine levels.",
+   "kind": "fact",
+   "text": "Creatinine is low.",
+   "concept": "creatinine",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M38540883-R17A1::03",
+   "claim_id": "M38540883-R17A1",
+   "claim_text": "Evaluate and manage renal function, considering the low creatinine levels.",
+   "kind": "fact",
+   "text": "Creatinine is low.",
+   "concept": "creatinine",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "evidence": [
+    {
+     "rid": "lab:242531",
+     "time": "2135-01-21 13:46:00",
+     "item": "Creatinine",
+     "value": 1.8,
+     "unit": "mg/dL",
+     "bounds": "0.4 to 1.1",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:242660",
+     "time": "2135-01-22 02:27:00",
+     "item": "Creatinine",
+     "value": 2.2,
+     "unit": "mg/dL",
+     "bounds": "0.4 to 1.1",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:242721",
+     "time": "2135-01-22 14:46:00",
+     "item": "Creatinine",
+     "value": 2.0,
+     "unit": "mg/dL",
+     "bounds": "0.4 to 1.1",
+     "bounds_basis": "lab_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest creatinine 2 mg/dL at 2135-01-22 14:46:00 (reference 0.4 to 1.1) is high, not consistent with 'low'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M38540883-R17A1::01",
+   "claim_id": "M38540883-R17A1",
+   "claim_text": "Evaluate and manage renal function, considering the low creatinine levels.",
+   "kind": "action",
+   "text": "Evaluate renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "assess",
+   "target": "renal function",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220615:2135-01-23 01:08:00:191378",
+     "time": "2135-01-23 01:08:00",
+     "item": "creatinine",
+     "value": "2.4 mg/dL"
+    },
+    {
+     "rid": "chart:220615:2135-01-23 14:21:00:191703",
+     "time": "2135-01-23 14:21:00",
+     "item": "creatinine",
+     "value": "2.7 mg/dL"
+    },
+    {
+     "rid": "chart:225624:2135-01-23 01:08:00:191384",
+     "time": "2135-01-23 01:08:00",
+     "item": "BUN",
+     "value": "34 mg/dL"
+    },
+    {
+     "rid": "chart:225624:2135-01-23 14:21:00:191699",
+     "time": "2135-01-23 14:21:00",
+     "item": "BUN",
+     "value": "38 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): creatinine x4, BUN x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38540883-R17A1::02",
+   "claim_id": "M38540883-R17A1",
+   "claim_text": "Evaluate and manage renal function, considering the low creatinine levels.",
+   "kind": "action",
+   "text": "Manage renal function.",
+   "concept": "renal_function",
+   "notes": [],
+   "action_class": "other",
+   "target": "renal function",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CefePIME"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "indications": [
+    {
+     "concept": "heart_rate",
+     "direction": "high",
+     "reason": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'."
+    }
+   ],
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vitamin_k",
+   "name": "vitamin K",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest INR 2  (treatment threshold > 1.5).",
+   "indications": [
+    {
+     "concept": "inr",
+     "direction": "high",
+     "reason": "Latest INR 2  (treatment threshold > 1.5)."
+    }
+   ],
+   "doctor_targets": [
+    "Vitamin K (Phytonadione)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Jevity 1.5 (Full)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CefePIME"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "indications": [
+    {
+     "concept": "heart_rate",
+     "direction": "high",
+     "reason": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'."
+    }
+   ],
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vitamin_k",
+   "name": "vitamin K",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest INR 2  (treatment threshold > 1.5).",
+   "indications": [
+    {
+     "concept": "inr",
+     "direction": "high",
+     "reason": "Latest INR 2  (treatment threshold > 1.5)."
+    }
+   ],
+   "doctor_targets": [
+    "Vitamin K (Phytonadione)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Jevity 1.5 (Full)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "heart_rate",
+   "direction": "high",
+   "reason": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "name": "heart rate",
+   "treated_by": [
+    "rate / rhythm control"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "inr",
+   "direction": "high",
+   "reason": "Latest INR 2  (treatment threshold > 1.5).",
+   "name": "INR",
+   "treated_by": [
+    "vitamin K"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 65,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 0,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.0,
+  "not_supported_share": 1.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Creatinine is low. -- Latest creatinine 2 mg/dL at 2135-01-22 14:46:00 (reference 0.4 to 1.1) is high, not consistent with 'low'."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.0,
+  "not_supported": 1,
+  "treatment_precision": null,
+  "facts_omitted": 2,
+  "treatments_omitted": 9,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

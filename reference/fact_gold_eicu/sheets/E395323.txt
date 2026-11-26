@@ -1,0 +1,86 @@
+# E395323   T = 2100-01-02 19:04:00   records before T: 179
+ICU stay 395323 (Med-Surg ICU; Male, age 43; admission diagnosis: Sepsis, renal/UTI (including bladder)).
+
+## Atoms
+deepseek-v4.1-flash|E395323A1::05 [observed] Blood pressure is 89/50 mmHg.   <- Assess and manage hypotension with possible fluid resuscitation or vasopressor support, given blood pressure of 89/50 mmHg and tachycardia.
+deepseek-v4.1-flash|E395323A1::06 [observed] Tachycardia is present.   <- Assess and manage hypotension with possible fluid resuscitation or vasopressor support, given blood pressure of 89/50 mmHg and tachycardia.
+deepseek-v4.1-flash|E395323A2::11 [observed] Respiratory rate is 18.   <- Evaluate and manage respiratory status, including consideration of oxygen therapy or ventilatory support, given respiratory rate 18, SpO2 98%, and recent blood gas showing pCO2 52.7 mmHg and pH 7.3.
+deepseek-v4.1-flash|E395323A2::12 [observed] SpO2 is 98%.   <- Evaluate and manage respiratory status, including consideration of oxygen therapy or ventilatory support, given respiratory rate 18, SpO2 98%, and recent blood gas showing pCO2 52.7 mmHg and pH 7.3.
+deepseek-v4.1-flash|E395323A2::13 [observed] pCO2 is 52.7 mmHg.   <- Evaluate and manage respiratory status, including consideration of oxygen therapy or ventilatory support, given respiratory rate 18, SpO2 98%, and recent blood gas showing pCO2 52.7 mmHg and pH 7.3.
+deepseek-v4.1-flash|E395323A2::14 [observed] pH is 7.3.   <- Evaluate and manage respiratory status, including consideration of oxygen therapy or ventilatory support, given respiratory rate 18, SpO2 98%, and recent blood gas showing pCO2 52.7 mmHg and pH 7.3.
+gpt-oss-120b|E395323A2::05 [observed] Hypotension is persistent despite fluid bolus.   <- Start norepinephrine infusion to maintain MAP ≥65 mmHg given persistent hypotension despite fluid bolus.
+gpt-oss-120b|E395323A3::07 [observed] Hemoglobin is 8 g/dL.   <- Transfuse packed red blood cells to address hemoglobin of 8 g/dL in the setting of sepsis.
+gpt-oss-120b|E395323A3::08 [judgment] Sepsis is present.   <- Transfuse packed red blood cells to address hemoglobin of 8 g/dL in the setting of sepsis.
+qwen2.5-7b|E395323A2::04 [presupposition] Vancomycin is currently being given.   <- Continue vancomycin and piperacillin/tazobactam for suspected sepsis.
+qwen2.5-7b|E395323A2::06 [presupposition] Piperacillin/tazobactam is currently being given.   <- Continue vancomycin and piperacillin/tazobactam for suspected sepsis.
+qwen2.5-7b|E395323A2::07 [judgment] Sepsis is suspected.   <- Continue vancomycin and piperacillin/tazobactam for suspected sepsis.
+
+## Running at T (infusions, scheduled medications)
+  Running at decision time (scheduled order started 2100-01-01 21:00:00): Medication SODIUM CHLORIDE 0.9 % IV 250 ML BAG IV
+
+## PRN orders
+  01-01 19:11 Order: ONDANSETRON HCL (PF) 4 MG/2 ML INJECTION 2 ML VIAL IV PRN (active at decision time)
+  01-02 18:32 Order: ONDANSETRON HCL (PF) 4 MG/2 ML INJECTION 2 ML VIAL IV PRN (active at decision time)
+
+## Infusions ended before T (oldest first)
+
+## Medications given once or ended before T
+  Medication ONDANSETRON HCL (PF) 4 MG/2 ML INJECTION 2 ML VIAL IV (2100-01-01 15:31:00 to 2100-01-01 18:29:00)
+
+## Laboratory (newest first, up to 5)
+  -basos: 01-01 17:07 1
+  -eos: 01-01 17:07 0 %
+  -lymphs: 01-01 17:07 7 %
+  -monos: 01-01 17:07 8 %
+  -polys: 01-01 17:07 85 %
+  Bicarbonate: 01-01 17:07 26 meq/L
+  Calcium, Total: 01-01 17:07 8.1 mg/dl
+  Chloride: 01-01 17:07 96 meq/L
+  Creatinine: 01-01 17:07 0.62 mg/dl
+  FiO2: 01-01 20:56 21 %
+  Glucose: 01-01 17:07 111 mg/dl
+  Hematocrit: 01-02 13:10 24.9 %; 01-01 17:07 20.7 %
+  Hemoglobin: 01-02 13:10 8 g/dl; 01-01 17:07 6.6 g/dl
+  Lactate: 01-01 17:07 0.8 mmol/L
+  MCH: 01-01 17:07 23 uug
+  MCHC: 01-01 17:07 32 g/dl
+  MCV: 01-01 17:07 72 fl
+  Platelet Count: 01-01 17:07 790 K/cmm
+  Potassium: 01-01 17:07 4.4 meq/L
+  RBC: 01-01 17:07 2.86 M/cmm
+  RDW: 01-01 17:07 19.1 %
+  Sodium: 01-01 17:07 134 meq/L
+  Urea Nitrogen: 01-01 17:07 13 mg/dl
+  White Blood Cells: 01-01 17:07 14.5 K/cmm
+  pCO2: 01-02 18:49 52.7 mmHG
+  pH: 01-02 18:49 7.3
+  pO2: 01-02 18:49 76.2 mmHG
+  urinary specific gravity: 01-01 16:39 1.025
+
+## Charted items (latest; last 24 h range, or recent distinct values)
+  Glasgow coma score Eyes: 4 @01-02 12:00   24h 4-4 (n=3)
+  Glasgow coma score GCS Total: 15 @01-02 12:00   24h 15-15 (n=3)
+  Glasgow coma score Motor: 6 @01-02 12:00   24h 6-6 (n=3)
+  Glasgow coma score Verbal: 5 @01-02 12:00   24h 5-5 (n=3)
+  Heart Rate: 96 bpm @01-02 19:00   24h 81-109 (n=17)
+  Inspired O2 Fraction: 40 % @01-02 18:46
+  Non Invasive Blood Pressure diastolic: 50 mmHg @01-02 19:00   24h 49-90 (n=17)
+  Non Invasive Blood Pressure mean: 73 mmHg @01-02 13:00   24h 68-112 (n=7)
+  Non Invasive Blood Pressure systolic: 89 mmHg @01-02 19:00   24h 89-145 (n=17)
+  O2 saturation pulseoxymetry: 98 % @01-02 19:00   24h 94-100 (n=14)
+  P.O.: 240 @01-02 07:00   24h 0-300 (n=4)
+  Respiratory Rate: 18 insp/min @01-02 19:00   24h 16-20 (n=13)
+  Temperature Fahrenheit: 98.1 F @01-02 18:46   24h 98-100.3 (n=12)
+  Temperature Location: Tympanic @01-02 18:46   earlier: Oral @01-02 13:00; Skin Sensor @01-02 07:40
+
+## Treatments documented
+  01-01 20:47 burns/trauma | trauma | dressing change
+  01-01 20:47 cardiovascular | intravenous fluid | blood product administration
+  01-01 20:47 medications | antibacterials | vancomycin
+  01-01 20:47 vascular disorders | VTE prophylaxis | compression boots
+  01-01 20:47 burns/trauma | trauma | special care bed
+  01-01 20:47 infectious diseases | procedures | MRI
+  01-01 20:47 antibacterials | penicillins | piperacillin/tazobactam
+  01-01 20:47 intravenous fluid | normal saline administration | fluid bolus (250-1000mls)
+
+## Microbiology

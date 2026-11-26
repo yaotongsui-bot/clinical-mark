@@ -1,0 +1,250 @@
+{
+ "case_id": "E3130379",
+ "decision_point": "2100-01-02 14:26:00",
+ "claims": [
+  "Monitor blood glucose levels closely.",
+  "Continue non-invasive ventilation with BiPAP settings.",
+  "Assess for signs of respiratory distress."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3130379A1::01",
+   "claim_id": "E3130379A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3130379A2::02",
+   "claim_id": "E3130379A2",
+   "claim_text": "Continue non-invasive ventilation with BiPAP settings.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation with BiPAP settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3130379A2::03",
+   "claim_id": "E3130379A2",
+   "claim_text": "Continue non-invasive ventilation with BiPAP settings.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation with BiPAP.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3130379A3::04",
+   "claim_id": "E3130379A3",
+   "claim_text": "Assess for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3130379A2::03",
+   "claim_id": "E3130379A2",
+   "claim_text": "Continue non-invasive ventilation with BiPAP settings.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive ventilation with BiPAP.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "Multiple O2 Delivery Device records from 04:00 to 07:30 on 2100-01-02 document a Bipap mask with settings BiPAP 12/8, indicating the patient is on non-invasive ventilation with BiPAP.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:1976982387",
+     "time": "2100-01-02 04:00:00",
+     "item": "O2 Delivery Device(s): Bipap mask (charted: BiPAP 12/8)"
+    },
+    {
+     "rid": "nurse:1958133402",
+     "time": "2100-01-02 05:00:00",
+     "item": "O2 Delivery Device(s): Bipap mask (charted: BiPAP 12/8)"
+    },
+    {
+     "rid": "nurse:1972245963",
+     "time": "2100-01-02 06:00:00",
+     "item": "O2 Delivery Device(s): Bipap mask (charted: BiPAP 12/8)"
+    },
+    {
+     "rid": "nurse:2018079164",
+     "time": "2100-01-02 06:05:00",
+     "item": "O2 Delivery Device(s): Bipap mask (charted: BiPAP 12/8)"
+    },
+    {
+     "rid": "nurse:1972183689",
+     "time": "2100-01-02 06:30:00",
+     "item": "O2 Delivery Device(s): Bipap mask (charted: BiPAP 12/8)"
+    },
+    {
+     "rid": "nurse:2011471737",
+     "time": "2100-01-02 07:00:00",
+     "item": "O2 Delivery Device(s): Bipap mask (charted: BiPAP 12/8)"
+    },
+    {
+     "rid": "nurse:2039289482",
+     "time": "2100-01-02 07:30:00",
+     "item": "O2 Delivery Device(s): Bipap mask (charted: BiPAP 12/8)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3130379A1::01",
+   "claim_id": "E3130379A1",
+   "claim_text": "Monitor blood glucose levels closely.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels closely.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:761901365",
+     "time": "2100-01-02 16:35:00",
+     "item": "glucose",
+     "value": "252.0 mg/dL"
+    },
+    {
+     "rid": "nurse:2025691246",
+     "time": "2100-01-02 17:00:00",
+     "item": "glucose",
+     "value": "252.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x8.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3130379A2::02",
+   "claim_id": "E3130379A2",
+   "claim_text": "Continue non-invasive ventilation with BiPAP settings.",
+   "kind": "action",
+   "text": "Continue non-invasive ventilation with BiPAP settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (9 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:215906514",
+     "time": "2100-01-03 05:15:00",
+     "item": "ventilator setting",
+     "value": "30.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:215906517",
+     "time": "2100-01-03 05:15:00",
+     "item": "ventilator setting",
+     "value": "20.0 insp/min",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:215906520",
+     "time": "2100-01-03 05:15:00",
+     "item": "ventilator setting",
+     "value": "456.0 mL",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3130379A3::04",
+   "claim_id": "E3130379A3",
+   "claim_text": "Assess for signs of respiratory distress.",
+   "kind": "action",
+   "text": "Assess for signs of respiratory distress.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of respiratory distress",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

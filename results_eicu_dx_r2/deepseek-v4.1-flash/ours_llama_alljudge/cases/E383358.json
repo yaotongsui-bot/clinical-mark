@@ -1,0 +1,534 @@
+{
+ "case_id": "E383358",
+ "decision_point": "2100-01-02 00:50:00",
+ "claims": [
+  "Continue mechanical ventilation with pressure support and PEEP, targeting FiO2 reduction as tolerated for ventilator weaning.",
+  "Monitor blood glucose via fingerstick checks to guide insulin therapy.",
+  "Continue subcutaneous insulin detemir for glycemic control."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E383358A1::01",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue mechanical ventilation with pressure support and PEEP, targeting FiO2 reduction as tolerated for ventilator weaning.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E383358A1::02",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue mechanical ventilation with pressure support and PEEP, targeting FiO2 reduction as tolerated for ventilator weaning.",
+   "kind": "fact",
+   "text": "The ventilator mode is pressure support.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E383358A1::03",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue mechanical ventilation with pressure support and PEEP, targeting FiO2 reduction as tolerated for ventilator weaning.",
+   "kind": "fact",
+   "text": "PEEP is set.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E383358A1::04",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue mechanical ventilation with pressure support and PEEP, targeting FiO2 reduction as tolerated for ventilator weaning.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E383358A1::05",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue mechanical ventilation with pressure support and PEEP, targeting FiO2 reduction as tolerated for ventilator weaning.",
+   "kind": "action",
+   "text": "Reduce FiO2 as tolerated.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "FiO2",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E383358A2::06",
+   "claim_id": "E383358A2",
+   "claim_text": "Monitor blood glucose via fingerstick checks to guide insulin therapy.",
+   "kind": "action",
+   "text": "Monitor blood glucose via fingerstick checks.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E383358A3::07",
+   "claim_id": "E383358A3",
+   "claim_text": "Continue subcutaneous insulin detemir for glycemic control.",
+   "kind": "fact",
+   "text": "Subcutaneous insulin detemir is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E383358A3::08",
+   "claim_id": "E383358A3",
+   "claim_text": "Continue subcutaneous insulin detemir for glycemic control.",
+   "kind": "action",
+   "text": "Continue subcutaneous insulin detemir.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin detemir",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E383358A1::01",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue mechanical ventilation with pressure support and PEEP, targeting FiO2 reduction as tolerated for ventilator weaning.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The patient is currently on mechanical ventilation. The records show that the patient is weaning from mechanical ventilation (R5), and there are multiple treatment documents indicating ventilation and oxygenation, including CPAP/PEEP therapy (R7, R8, R40, R41, R42, R43, R44). However, the records also show that the patient is currently set to receive mechanical ventilation (R16, R17, R47), which, ",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:383358:dx",
+     "time": "2100-01-01 00:50:00",
+     "item": "Admission diagnosis (APACHE): Weaning from mechanical ventilation (transfer from other unit or hospital only)"
+    },
+    {
+     "rid": "treat:15053604",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | ventilator weaning"
+    },
+    {
+     "rid": "treat:12658220",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | CPAP/PEEP therapy"
+    },
+    {
+     "rid": "treat:15812220",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: pulmonary | ventilation and oxygenation | tracheal suctioning"
+    },
+    {
+     "rid": "treat:14311802",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (40% to 60%) | 40-50%"
+    },
+    {
+     "rid": "treat:14574946",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (40% to 60%) | reduce FIO2 as tolerated"
+    },
+    {
+     "rid": "treat:16218293",
+     "time": "2100-01-01 02:13:00",
+     "item": "Treatment documented: bronchodilator | beta-agonist | albuterol (Proventil, Ventolin)"
+    },
+    {
+     "rid": "resp:8826306",
+     "time": "2100-01-01 02:20:00",
+     "item": "Respiratory Rate (Set): 10 insp/min"
+    },
+    {
+     "rid": "resp:8826310",
+     "time": "2100-01-01 02:20:00",
+     "item": "PEEP set: 7 cmH2O"
+    },
+    {
+     "rid": "resp:7968373",
+     "time": "2100-01-01 21:44:00",
+     "item": "PEEP set: 5 cmH2O"
+    }
+   ]
+  },
+  {
+   "atom_id": "E383358A1::02",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue mechanical ventilation with pressure support and PEEP, targeting FiO2 reduction as tolerated for ventilator weaning.",
+   "kind": "fact",
+   "text": "The ventilator mode is pressure support.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that the ventilator mode is set to pressure support, but there is no record of the ventilator mode being changed to pressure support at the decision time. The records also show that the plateau pressure is 17, which is within the normal range, and the tidal volume is set to 500 mL, which is also within the normal range. However, the respiratory rate is set to 10 inspirations per 1",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "resp:8826306",
+     "time": "2100-01-01 02:20:00",
+     "item": "Respiratory Rate (Set): 10 insp/min"
+    },
+    {
+     "rid": "resp:8826307",
+     "time": "2100-01-01 02:20:00",
+     "item": "Tidal Volume (set): 500 mL"
+    },
+    {
+     "rid": "resp:9355046",
+     "time": "2100-01-01 04:35:00",
+     "item": "Respiratory Rate (Set): 10 insp/min"
+    },
+    {
+     "rid": "resp:8057182",
+     "time": "2100-01-01 08:41:00",
+     "item": "Respiratory Rate (Set): 10 insp/min"
+    },
+    {
+     "rid": "resp:8789582",
+     "time": "2100-01-01 12:49:00",
+     "item": "Respiratory Rate (Set): 10 insp/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "E383358A1::03",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue mechanical ventilation with pressure support and PEEP, targeting FiO2 reduction as tolerated for ventilator weaning.",
+   "kind": "fact",
+   "text": "PEEP is set.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The records show that PEEP is set to 7 cmH2O at 02:20, and this setting is consistent with the other records. The statement is supported by multiple records showing the same setting.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "resp:8826310",
+     "time": "2100-01-01 02:20:00",
+     "item": "PEEP set: 7 cmH2O"
+    },
+    {
+     "rid": "resp:8826307",
+     "time": "2100-01-01 02:20:00",
+     "item": "Tidal Volume (set): 500 mL"
+    },
+    {
+     "rid": "resp:8826309",
+     "time": "2100-01-01 02:20:00",
+     "item": "PSV Level: 20 cmH2O"
+    },
+    {
+     "rid": "resp:9355049",
+     "time": "2100-01-01 04:35:00",
+     "item": "PSV Level: 16 cmH2O"
+    },
+    {
+     "rid": "resp:8057186",
+     "time": "2100-01-01 08:41:00",
+     "item": "PEEP set: 7 cmH2O"
+    },
+    {
+     "rid": "resp:8057183",
+     "time": "2100-01-01 08:41:00",
+     "item": "Tidal Volume (set): 500 mL"
+    },
+    {
+     "rid": "resp:8057185",
+     "time": "2100-01-01 08:41:00",
+     "item": "PSV Level: 16 cmH2O"
+    },
+    {
+     "rid": "resp:8789586",
+     "time": "2100-01-01 12:49:00",
+     "item": "PEEP set: 7 cmH2O"
+    },
+    {
+     "rid": "resp:8789583",
+     "time": "2100-01-01 12:49:00",
+     "item": "Tidal Volume (set): 500 mL"
+    },
+    {
+     "rid": "resp:8789585",
+     "time": "2100-01-01 12:49:00",
+     "item": "PSV Level: 16 cmH2O"
+    },
+    {
+     "rid": "resp:8250910",
+     "time": "2100-01-01 16:35:00",
+     "item": "PEEP set: 7 cmH2O"
+    },
+    {
+     "rid": "resp:8250907",
+     "time": "2100-01-01 16:35:00",
+     "item": "Tidal Volume (set): 500 mL"
+    },
+    {
+     "rid": "resp:8250909",
+     "time": "2100-01-01 16:35:00",
+     "item": "PSV Level: 16 cmH2O"
+    },
+    {
+     "rid": "resp:7968373",
+     "time": "2100-01-01 21:44:00",
+     "item": "PEEP set: 5 cmH2O"
+    },
+    {
+     "rid": "resp:7968372",
+     "time": "2100-01-01 21:44:00",
+     "item": "PSV Level: 15 cmH2O"
+    }
+   ]
+  },
+  {
+   "atom_id": "E383358A3::07",
+   "claim_id": "E383358A3",
+   "claim_text": "Continue subcutaneous insulin detemir for glycemic control.",
+   "kind": "fact",
+   "text": "Subcutaneous insulin detemir is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show that insulin detemir was ordered and scheduled to be administered at 03:00, but there is no record of it being administered at the decision time of 00:50. The statement that it is currently being given is not supported by the records.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:16309467",
+     "time": "2100-01-01 03:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 03:00:00): Medication INSULIN DETEMIR 100 UNIT/ML SUB-Q 10 ML VIAL SubQ 2100"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E383358A1::04",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue mechanical ventilation with pressure support and PEEP, targeting FiO2 reduction as tolerated for ventilator weaning.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (15 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:9517736",
+     "time": "2100-01-02 01:19:00",
+     "item": "ventilator setting",
+     "value": "45.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:9517738",
+     "time": "2100-01-02 01:19:00",
+     "item": "ventilator setting",
+     "value": "5.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:8491038",
+     "time": "2100-01-02 05:13:00",
+     "item": "ventilator setting",
+     "value": "45.0 %",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E383358A1::05",
+   "claim_id": "E383358A1",
+   "claim_text": "Continue mechanical ventilation with pressure support and PEEP, targeting FiO2 reduction as tolerated for ventilator weaning.",
+   "kind": "action",
+   "text": "Reduce FiO2 as tolerated.",
+   "concept": "oxygenation",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "FiO2",
+   "conditional": true,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E383358A2::06",
+   "claim_id": "E383358A2",
+   "claim_text": "Monitor blood glucose via fingerstick checks to guide insulin therapy.",
+   "kind": "action",
+   "text": "Monitor blood glucose via fingerstick checks.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:96734282",
+     "time": "2100-01-02 13:27:00",
+     "item": "glucose",
+     "value": "79.0 mg/dl"
+    },
+    {
+     "rid": "nurse:341987544",
+     "time": "2100-01-02 13:27:00",
+     "item": "glucose",
+     "value": "79.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): glucose x3.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E383358A3::08",
+   "claim_id": "E383358A3",
+   "claim_text": "Continue subcutaneous insulin detemir for glycemic control.",
+   "kind": "action",
+   "text": "Continue subcutaneous insulin detemir.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "continue",
+   "target": "insulin detemir",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 4,
+  "supported": 1,
+  "not_supported": 3,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.25,
+  "not_supported_share": 0.75,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on mechanical ventilation. -- The patient is currently on mechanical ventilation. The records show that the patient is weaning from mechanical ventilation (R5), and there are multiple treatment documents indicating ventilation and oxygenation, including CPAP/PEEP therapy (R7, R8, R40, R41, R42, R43, R44). However, the records also show that the patient is currently set to receive mechanical ventilation (R16, R17, R47), which, ",
+    "The ventilator mode is pressure support. -- The records show that the ventilator mode is set to pressure support, but there is no record of the ventilator mode being changed to pressure support at the decision time. The records also show that the plateau pressure is 17, which is within the normal range, and the tidal volume is set to 500 mL, which is also within the normal range. However, the respiratory rate is set to 10 inspirations per 1",
+    "Subcutaneous insulin detemir is currently being given. -- The records show that insulin detemir was ordered and scheduled to be administered at 03:00, but there is no record of it being administered at the decision time of 00:50. The statement that it is currently being given is not supported by the records."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.25,
+  "not_supported": 3,
+  "treatment_precision": 0.5,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,403 @@
+{
+ "case_id": "E3067309",
+ "decision_point": "2100-01-02 17:00:00",
+ "claims": [
+  "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+  "Obtain arterial blood gas to reassess acid‑base status and oxygenation after recent FiO₂ increase.",
+  "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3067309A1::01",
+   "claim_id": "E3067309A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3067309A1::02",
+   "claim_id": "E3067309A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3067309A1::03",
+   "claim_id": "E3067309A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+   "kind": "action",
+   "text": "Monitor for readiness to wean as sedation level improves.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "readiness to wean",
+   "conditional": true
+  },
+  {
+   "atom_id": "E3067309A2::04",
+   "claim_id": "E3067309A2",
+   "claim_text": "Obtain arterial blood gas to reassess acid‑base status and oxygenation after recent FiO₂ increase.",
+   "kind": "action",
+   "text": "Obtain arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E3067309A2::05",
+   "claim_id": "E3067309A2",
+   "claim_text": "Obtain arterial blood gas to reassess acid‑base status and oxygenation after recent FiO₂ increase.",
+   "kind": "fact",
+   "text": "FiO2 was recently increased.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E3067309A3::06",
+   "claim_id": "E3067309A3",
+   "claim_text": "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia.",
+   "kind": "action",
+   "text": "Monitor serum sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum sodium",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3067309A3::07",
+   "claim_id": "E3067309A3",
+   "claim_text": "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia.",
+   "kind": "action",
+   "text": "Consider adjusting intravenous fluids.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "intravenous fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3067309A3::08",
+   "claim_id": "E3067309A3",
+   "claim_text": "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia.",
+   "kind": "fact",
+   "text": "Hyponatremia is present.",
+   "concept": "sodium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E3067309A1::02",
+   "claim_id": "E3067309A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "resp:205370616",
+     "time": "2100-01-02 11:30:00",
+     "item": "PEEP set: 5 cmH2O"
+    }
+   ],
+   "reason": "Ventilator charting 5.5 h before the decision ('PEEP set: 5 cmH2O').",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E3067309A2::05",
+   "claim_id": "E3067309A2",
+   "claim_text": "Obtain arterial blood gas to reassess acid‑base status and oxygenation after recent FiO₂ increase.",
+   "kind": "fact",
+   "text": "FiO2 was recently increased.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: oxygenation -> other"
+   ],
+   "fact_kind": "observed",
+   "direction": "changed",
+   "time": "recent",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The records show FiO2 was 100% at 10:34, then decreased to 50% by 16:55 and 40% by 18:20, with a later increase to 60% at 23:38. The statement that FiO2 was recently increased is not supported because the most recent change before the decision time was a decrease from 100% to 40%, and the increase to 60% occurred after the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:771890038",
+     "time": "2100-01-01 10:34:00",
+     "item": "FiO2: 100 %"
+    },
+    {
+     "rid": "resp:203267857",
+     "time": "2100-01-01 16:55:00",
+     "item": "Inspired O2 Fraction: 50 %"
+    },
+    {
+     "rid": "resp:205721796",
+     "time": "2100-01-01 18:20:00",
+     "item": "Inspired O2 Fraction: 40 %"
+    },
+    {
+     "rid": "nurse:1973153517",
+     "time": "2100-01-01 22:50:00",
+     "item": "O2 saturation pulseoxymetry: 48 %"
+    },
+    {
+     "rid": "resp:217689347",
+     "time": "2100-01-01 23:38:00",
+     "item": "Inspired O2 Fraction: 60 %"
+    }
+   ]
+  },
+  {
+   "atom_id": "E3067309A3::08",
+   "claim_id": "E3067309A3",
+   "claim_text": "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia.",
+   "kind": "fact",
+   "text": "Hyponatremia is present.",
+   "concept": "sodium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:740852019",
+     "time": "2100-01-01 18:54:00",
+     "item": "Sodium",
+     "value": 130.0,
+     "unit": "mmol/L",
+     "bounds": "133 to 145",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:738607420",
+     "time": "2100-01-02 00:36:00",
+     "item": "Sodium",
+     "value": 131.0,
+     "unit": "mmol/L",
+     "bounds": "133 to 145",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    },
+    {
+     "rid": "lab:738455891",
+     "time": "2100-01-02 08:16:00",
+     "item": "Sodium",
+     "value": 129.0,
+     "unit": "mmol/L",
+     "bounds": "133 to 145",
+     "bounds_basis": "fallback_reference",
+     "status": "low"
+    }
+   ],
+   "reason": "Latest sodium 129 mmol/L at 2100-01-02 08:16:00 (reference 133 to 145) is low, consistent with 'low'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E3067309A1::01",
+   "claim_id": "E3067309A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "method": "rule",
+   "reason": "Ventilator settings were still charted after the decision (35 records), so ventilation continued.",
+   "evidence": [
+    {
+     "rid": "resp:217663429",
+     "time": "2100-01-02 19:45:00",
+     "item": "ventilator setting",
+     "value": "50.0 %",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:217663432",
+     "time": "2100-01-02 19:45:00",
+     "item": "ventilator setting",
+     "value": "5.0 cmH2O",
+     "class": "ventilation_invasive"
+    },
+    {
+     "rid": "resp:217663433",
+     "time": "2100-01-02 19:45:00",
+     "item": "ventilator setting",
+     "value": "450.0 mL",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3067309A1::03",
+   "claim_id": "E3067309A1",
+   "claim_text": "Continue mechanical ventilation with current settings and monitor for readiness to wean as sedation level improves.",
+   "kind": "action",
+   "text": "Monitor for readiness to wean as sedation level improves.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "readiness to wean",
+   "conditional": true,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No sedation score (RASS) measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3067309A2::04",
+   "claim_id": "E3067309A2",
+   "claim_text": "Obtain arterial blood gas to reassess acid‑base status and oxygenation after recent FiO₂ increase.",
+   "kind": "action",
+   "text": "Obtain arterial blood gas.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3067309A3::06",
+   "claim_id": "E3067309A3",
+   "claim_text": "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia.",
+   "kind": "action",
+   "text": "Monitor serum sodium.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "serum sodium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:739444127",
+     "time": "2100-01-03 07:29:00",
+     "item": "sodium",
+     "value": "131.0 mmol/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3067309A3::07",
+   "claim_id": "E3067309A3",
+   "claim_text": "Monitor serum sodium and consider adjusting intravenous fluids to address hyponatremia.",
+   "kind": "action",
+   "text": "Consider adjusting intravenous fluids.",
+   "concept": "sodium",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "intravenous fluids",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "FiO2 was recently increased. -- The records show FiO2 was 100% at 10:34, then decreased to 50% by 16:55 and 40% by 18:20, with a later increase to 60% at 23:38. The statement that FiO2 was recently increased is not supported because the most recent change before the decision time was a decrease from 100% to 40%, and the increase to 60% occurred after the decision time."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 1.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

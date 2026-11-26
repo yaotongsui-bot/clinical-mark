@@ -1,0 +1,649 @@
+{
+ "case_id": "M38540883",
+ "decision_point": "2135-01-22 17:01:57",
+ "claims": [
+  "Continue norepinephrine infusion for hemodynamic support.",
+  "Monitor blood pressure and heart rate via continuous bedside monitoring.",
+  "Monitor arterial blood gas results including lactate and acid-base status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M38540883A1::01",
+   "claim_id": "M38540883A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M38540883A1::02",
+   "claim_id": "M38540883A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M38540883A2::03",
+   "claim_id": "M38540883A2",
+   "claim_text": "Monitor blood pressure and heart rate via continuous bedside monitoring.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38540883A2::04",
+   "claim_id": "M38540883A2",
+   "claim_text": "Monitor blood pressure and heart rate via continuous bedside monitoring.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38540883A3::05",
+   "claim_id": "M38540883A3",
+   "claim_text": "Monitor arterial blood gas results including lactate and acid-base status.",
+   "kind": "action",
+   "text": "Monitor arterial blood gas results including lactate.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gas lactate",
+   "conditional": false
+  },
+  {
+   "atom_id": "M38540883A3::06",
+   "claim_id": "M38540883A3",
+   "claim_text": "Monitor arterial blood gas results including lactate and acid-base status.",
+   "kind": "action",
+   "text": "Monitor acid-base status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "acid-base status",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M38540883A1::02",
+   "claim_id": "M38540883A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support.",
+   "kind": "fact",
+   "text": "Norepinephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Norepinephrine was administered through 09:44 on 2135-01-22, within 24 hours of the 17:01 decision time, and the IV drip order remained active at decision time with no record of it being stopped.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "kimi-k3.1-pro:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:5593765:221906:2135-01-22 08:31:00",
+     "time": "2135-01-22 08:31:00",
+     "item": "Infusion/input Norepinephrine at 0.010000944712373894 mcg/kg/min (2135-01-22 08:31:00 to 2135-01-22 09:44:00)"
+    },
+    {
+     "rid": "rx:96309675:2135-01-21 18:00:00",
+     "time": "2135-01-21 18:00:00",
+     "item": "Order: NORepinephrine 8 mg IV DRIP (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M38540883A1::01",
+   "claim_id": "M38540883A1",
+   "claim_text": "Continue norepinephrine infusion for hemodynamic support.",
+   "kind": "action",
+   "text": "Continue norepinephrine infusion.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "continue",
+   "target": "norepinephrine",
+   "conditional": false,
+   "treatment_class": "vasopressor",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN221906",
+     "time": "2135-01-23 11:08:00",
+     "item": "Norepinephrine infusion started at 0.030007662644493394 mcg/kg/min",
+     "class": "vasopressor"
+    },
+    {
+     "rid": "IN221906#2",
+     "time": "2135-01-23 11:10:00",
+     "item": "Norepinephrine infusion started at 0.050017144531011581 mcg/kg/min",
+     "class": "vasopressor"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded vasopressors after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M38540883A2::03",
+   "claim_id": "M38540883A2",
+   "claim_text": "Monitor blood pressure and heart rate via continuous bedside monitoring.",
+   "kind": "action",
+   "text": "Monitor blood pressure.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220050:2135-01-22 18:00:00:189956",
+     "time": "2135-01-22 18:00:00",
+     "item": "systolic BP",
+     "value": "100 mmHg"
+    },
+    {
+     "rid": "chart:220050:2135-01-22 19:00:00:189984",
+     "time": "2135-01-22 19:00:00",
+     "item": "systolic BP",
+     "value": "97 mmHg"
+    },
+    {
+     "rid": "chart:220052:2135-01-22 18:00:00:189962",
+     "time": "2135-01-22 18:00:00",
+     "item": "mean arterial pressure",
+     "value": "78 mmHg"
+    },
+    {
+     "rid": "chart:220052:2135-01-22 19:00:00:189990",
+     "time": "2135-01-22 19:00:00",
+     "item": "mean arterial pressure",
+     "value": "75 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): systolic BP x26, mean arterial pressure x26.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38540883A2::04",
+   "claim_id": "M38540883A2",
+   "claim_text": "Monitor blood pressure and heart rate via continuous bedside monitoring.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220045:2135-01-22 18:00:00:189970",
+     "time": "2135-01-22 18:00:00",
+     "item": "heart rate",
+     "value": "115 bpm"
+    },
+    {
+     "rid": "chart:220045:2135-01-22 19:00:00:189987",
+     "time": "2135-01-22 19:00:00",
+     "item": "heart rate",
+     "value": "113 bpm"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): heart rate x24.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38540883A3::05",
+   "claim_id": "M38540883A3",
+   "claim_text": "Monitor arterial blood gas results including lactate and acid-base status.",
+   "kind": "action",
+   "text": "Monitor arterial blood gas results including lactate.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "arterial blood gas lactate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:223830:2135-01-23 10:19:00:191674",
+     "time": "2135-01-23 10:19:00",
+     "item": "pH",
+     "value": "7.39 units"
+    },
+    {
+     "rid": "chart:223830:2135-01-23 01:40:00:192222",
+     "time": "2135-01-23 01:40:00",
+     "item": "pH",
+     "value": "7.38 units"
+    },
+    {
+     "rid": "chart:220235:2135-01-23 10:19:00:191670",
+     "time": "2135-01-23 10:19:00",
+     "item": "PaCO2",
+     "value": "39 mmHg"
+    },
+    {
+     "rid": "chart:220235:2135-01-23 01:40:00:192219",
+     "time": "2135-01-23 01:40:00",
+     "item": "PaCO2",
+     "value": "40 mmHg"
+    },
+    {
+     "rid": "chart:220224:2135-01-23 10:19:00:191671",
+     "time": "2135-01-23 10:19:00",
+     "item": "PaO2",
+     "value": "89 mmHg"
+    },
+    {
+     "rid": "chart:220224:2135-01-23 01:40:00:192218",
+     "time": "2135-01-23 01:40:00",
+     "item": "PaO2",
+     "value": "142 mmHg"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): pH x6, PaCO2 x6, PaO2 x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M38540883A3::06",
+   "claim_id": "M38540883A3",
+   "claim_text": "Monitor arterial blood gas results including lactate and acid-base status.",
+   "kind": "action",
+   "text": "Monitor acid-base status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "acid-base status",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CefePIME"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "indications": [
+    {
+     "concept": "heart_rate",
+     "direction": "high",
+     "reason": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'."
+    }
+   ],
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vitamin_k",
+   "name": "vitamin K",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest INR 2  (treatment threshold > 1.5).",
+   "indications": [
+    {
+     "concept": "inr",
+     "direction": "high",
+     "reason": "Latest INR 2  (treatment threshold > 1.5)."
+    }
+   ],
+   "doctor_targets": [
+    "Vitamin K (Phytonadione)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M38540883A1::01"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Jevity 1.5 (Full)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "CefePIME"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "indications": [
+    {
+     "concept": "heart_rate",
+     "direction": "high",
+     "reason": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'."
+    }
+   ],
+   "doctor_targets": [
+    "Metoprolol Tartrate"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vitamin_k",
+   "name": "vitamin K",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest INR 2  (treatment threshold > 1.5).",
+   "indications": [
+    {
+     "concept": "inr",
+     "direction": "high",
+     "reason": "Latest INR 2  (treatment threshold > 1.5)."
+    }
+   ],
+   "doctor_targets": [
+    "Vitamin K (Phytonadione)"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Norepinephrine"
+   ],
+   "doctor_rows": 3,
+   "covered": true,
+   "by_atoms": [
+    "M38540883A1::01"
+   ]
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "nutrition",
+   "name": "nutrition support",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Jevity 1.5 (Full)"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "heart_rate",
+   "direction": "high",
+   "reason": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "name": "heart rate",
+   "treated_by": [
+    "rate / rhythm control"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "inr",
+   "direction": "high",
+   "reason": "Latest INR 2  (treatment threshold > 1.5).",
+   "name": "INR",
+   "treated_by": [
+    "vitamin K"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 65,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 2,
+  "treatments_omitted": 8,
+  "recall_vital": 0.25,
+  "recall_okay": 0.0,
+  "recall_all": 0.111,
+  "recall_vital_at3": 0.25,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.111
+ }
+}

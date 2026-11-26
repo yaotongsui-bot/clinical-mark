@@ -1,0 +1,956 @@
+{
+ "case_id": "M34100191",
+ "decision_point": "2196-02-25 17:07:00",
+ "claims": [
+  "Monitor electrolyte levels closely, especially potassium.",
+  "Continue intravenous fluid support.",
+  "Assess and manage respiratory status."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34100191A1::01",
+   "claim_id": "M34100191A1",
+   "claim_text": "Monitor electrolyte levels closely, especially potassium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34100191A1::02",
+   "claim_id": "M34100191A1",
+   "claim_text": "Monitor electrolyte levels closely, especially potassium.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34100191A2::03",
+   "claim_id": "M34100191A2",
+   "claim_text": "Continue intravenous fluid support.",
+   "kind": "action",
+   "text": "Continue intravenous fluid support.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34100191A2::04",
+   "claim_id": "M34100191A2",
+   "claim_text": "Continue intravenous fluid support.",
+   "kind": "fact",
+   "text": "Intravenous fluid support is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M34100191A3::05",
+   "claim_id": "M34100191A3",
+   "claim_text": "Assess and manage respiratory status.",
+   "kind": "action",
+   "text": "Assess respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory status",
+   "conditional": false
+  },
+  {
+   "atom_id": "M34100191A3::06",
+   "claim_id": "M34100191A3",
+   "claim_text": "Assess and manage respiratory status.",
+   "kind": "action",
+   "text": "Manage respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "other",
+   "target": "respiratory status",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M34100191A2::04",
+   "claim_id": "M34100191A2",
+   "claim_text": "Continue intravenous fluid support.",
+   "kind": "fact",
+   "text": "Intravenous fluid support is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: fluid_balance -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Records show intravenous Dextrose 5% infusions running at the decision time (started 16:48 and 15:02 on 2196-02-25), confirming IV fluid support is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4.1-flash:cloud": "supported",
+     "glm-5.3-flash:cloud": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:581034:220949:2196-02-25 16:48:00",
+     "time": "2196-02-25 16:48:00",
+     "item": "Running at decision time (started 2196-02-25 16:48:00): Infusion/input Dextrose 5% at 23.909946441650391 mL/hour"
+    },
+    {
+     "rid": "inputevents:3820255:220949:2196-02-25 15:02:00",
+     "time": "2196-02-25 15:02:00",
+     "item": "Running at decision time (started 2196-02-25 15:02:00): Infusion/input Dextrose 5% at 40.2786865234375 mL/hour"
+    },
+    {
+     "rid": "inputevents:7482026:220949:2196-02-25 10:01:00",
+     "time": "2196-02-25 10:01:00",
+     "item": "Running at decision time (started 2196-02-25 10:01:00): Infusion/input Dextrose 5% at 6 mL/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M34100191A1::01",
+   "claim_id": "M34100191A1",
+   "claim_text": "Monitor electrolyte levels closely, especially potassium.",
+   "kind": "action",
+   "text": "Monitor electrolyte levels closely.",
+   "concept": "electrolytes",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "electrolyte levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220645:2196-02-26 14:21:00:564847",
+     "time": "2196-02-26 14:21:00",
+     "item": "sodium",
+     "value": "133 mEq/L"
+    },
+    {
+     "rid": "chart:220645:2196-02-26 10:25:00:565048",
+     "time": "2196-02-26 10:25:00",
+     "item": "sodium",
+     "value": "134 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2196-02-26 14:21:00:564856",
+     "time": "2196-02-26 14:21:00",
+     "item": "potassium",
+     "value": "3.2 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2196-02-26 10:25:00:565050",
+     "time": "2196-02-26 10:25:00",
+     "item": "potassium",
+     "value": "2.8 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2196-02-26 14:21:00:564849",
+     "time": "2196-02-26 14:21:00",
+     "item": "chloride",
+     "value": "102 mEq/L"
+    },
+    {
+     "rid": "chart:220602:2196-02-26 10:25:00:565056",
+     "time": "2196-02-26 10:25:00",
+     "item": "chloride",
+     "value": "99 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2196-02-26 14:21:00:564859",
+     "time": "2196-02-26 14:21:00",
+     "item": "bicarbonate",
+     "value": "18 mEq/L"
+    },
+    {
+     "rid": "chart:227443:2196-02-26 10:25:00:565049",
+     "time": "2196-02-26 10:25:00",
+     "item": "bicarbonate",
+     "value": "17 mEq/L"
+    },
+    {
+     "rid": "chart:220635:2196-02-26 14:21:00:564860",
+     "time": "2196-02-26 14:21:00",
+     "item": "magnesium",
+     "value": "2.3 mg/dL"
+    },
+    {
+     "rid": "chart:220635:2196-02-26 10:25:00:565054",
+     "time": "2196-02-26 10:25:00",
+     "item": "magnesium",
+     "value": "1.2 mg/dL"
+    },
+    {
+     "rid": "chart:225667:2196-02-26 14:17:00:564579",
+     "time": "2196-02-26 14:17:00",
+     "item": "calcium",
+     "value": "1.14 mmol/L"
+    },
+    {
+     "rid": "chart:225625:2196-02-26 14:21:00:564857",
+     "time": "2196-02-26 14:21:00",
+     "item": "calcium",
+     "value": "7 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2196-02-26 14:21:00:564850",
+     "time": "2196-02-26 14:21:00",
+     "item": "phosphate",
+     "value": "2.3 mg/dL"
+    },
+    {
+     "rid": "chart:225677:2196-02-26 10:25:00:565057",
+     "time": "2196-02-26 10:25:00",
+     "item": "phosphate",
+     "value": "2.3 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): sodium x12, potassium x12, chloride x12, bicarbonate x12, magnesium x12, calcium x24, phosphate x12.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34100191A1::02",
+   "claim_id": "M34100191A1",
+   "claim_text": "Monitor electrolyte levels closely, especially potassium.",
+   "kind": "action",
+   "text": "Monitor potassium closely.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "potassium",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:227442:2196-02-26 14:21:00:564856",
+     "time": "2196-02-26 14:21:00",
+     "item": "potassium",
+     "value": "3.2 mEq/L"
+    },
+    {
+     "rid": "chart:227442:2196-02-26 10:25:00:565050",
+     "time": "2196-02-26 10:25:00",
+     "item": "potassium",
+     "value": "2.8 mEq/L"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): potassium x12.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34100191A2::03",
+   "claim_id": "M34100191A2",
+   "claim_text": "Continue intravenous fluid support.",
+   "kind": "action",
+   "text": "Continue intravenous fluid support.",
+   "concept": "fluid_balance",
+   "notes": [],
+   "action_class": "continue",
+   "target": "IV fluids",
+   "conditional": false,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225158",
+     "time": "2196-02-25 08:14:00",
+     "item": "NaCl 0.9% infusion continuing at 5 mL/hour",
+     "class": "iv_fluid"
+    },
+    {
+     "rid": "IN220949",
+     "time": "2196-02-25 10:01:00",
+     "item": "Dextrose 5% infusion continuing at 6 mL/hour",
+     "class": "iv_fluid"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded IV fluids after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34100191A3::05",
+   "claim_id": "M34100191A3",
+   "claim_text": "Assess and manage respiratory status.",
+   "kind": "action",
+   "text": "Assess respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "assess",
+   "target": "respiratory status",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220210:2196-02-25 18:00:00:559478",
+     "time": "2196-02-25 18:00:00",
+     "item": "respiratory rate",
+     "value": "15 insp/min"
+    },
+    {
+     "rid": "chart:220210:2196-02-25 19:00:00:559492",
+     "time": "2196-02-25 19:00:00",
+     "item": "respiratory rate",
+     "value": "15 insp/min"
+    },
+    {
+     "rid": "chart:220277:2196-02-25 18:00:00:559473",
+     "time": "2196-02-25 18:00:00",
+     "item": "SpO2",
+     "value": "98 %"
+    },
+    {
+     "rid": "chart:220277:2196-02-25 21:00:00:559661",
+     "time": "2196-02-25 21:00:00",
+     "item": "SpO2",
+     "value": "96 %"
+    },
+    {
+     "rid": "chart:223849:2196-02-25 20:00:00:559524",
+     "time": "2196-02-25 20:00:00",
+     "item": "ventilator settings",
+     "value": "CPAP/PSV"
+    },
+    {
+     "rid": "chart:220339:2196-02-25 20:00:00:559574",
+     "time": "2196-02-25 20:00:00",
+     "item": "ventilator settings",
+     "value": "10 cmH2O"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): respiratory rate x30, SpO2 x28, ventilator settings x34.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M34100191A3::06",
+   "claim_id": "M34100191A3",
+   "claim_text": "Assess and manage respiratory status.",
+   "kind": "action",
+   "text": "Manage respiratory status.",
+   "concept": "respiratory",
+   "notes": [],
+   "action_class": "other",
+   "target": "respiratory status",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 21.6 K/uL at 2196-02-25 14:54:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "Ciprofloxacin",
+    "Ciprofloxacin IV",
+    "Doxycycline",
+    "Metronidazole"
+   ],
+   "doctor_rows": 17,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "bicarbonate",
+   "name": "sodium bicarbonate",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest pH 7.24 units at 2196-02-25 15:10:00 (reference 7.35 to 7.45) is low, consistent with 'low'. Latest bicarbonate 14 mEq/L at 2196-02-25 14:54:00 (reference 22.0 to 32.0) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Sodium Bicarbonate",
+    "Sodium Bicarbonate 8.4%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.6 mg/dL at 2196-02-25 14:54:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 21.6 K/uL at 2196-02-25 14:54:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Blood Cultured",
+    "Sputum Culture"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 195 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2196-02-25 14:54:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "doctor_targets": [
+    "Amiodarone",
+    "Amiodarone 600/500"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "renal_replacement",
+   "name": "renal replacement therapy",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "ACD-A Citrate (1000ml)",
+    "Calcium Gluconate (CRRT)",
+    "Citrate",
+    "Dialysis - CRRT",
+    "KCl (CRRT)",
+    "Prismasate (B22 K4)"
+   ],
+   "doctor_rows": 25,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest platelets 29 K/uL (treatment threshold < 50).",
+   "doctor_targets": [
+    "Platelets"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine",
+    "Phenylephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 33,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 4.8 mmol/L at 2196-02-25 15:10:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 71,
+   "covered": true,
+   "by_atoms": [
+    "M34100191A2::03"
+   ]
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray",
+    "ERCP (Travel to)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Na Phos",
+    "Sodium Phosphate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Hydrocortisone Na Succ."
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 21.6 K/uL at 2196-02-25 14:54:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "Ciprofloxacin",
+    "Ciprofloxacin IV",
+    "Doxycycline",
+    "Metronidazole"
+   ],
+   "doctor_rows": 17,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "bicarbonate",
+   "name": "sodium bicarbonate",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest pH 7.24 units at 2196-02-25 15:10:00 (reference 7.35 to 7.45) is low, consistent with 'low'. Latest bicarbonate 14 mEq/L at 2196-02-25 14:54:00 (reference 22.0 to 32.0) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Sodium Bicarbonate",
+    "Sodium Bicarbonate 8.4%"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 7.6 mg/dL at 2196-02-25 14:54:00 (reference 8.4 to 10.3) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "cultures",
+   "name": "cultures",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 21.6 K/uL at 2196-02-25 14:54:00 (reference 4.0 to 11.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Blood Cultured",
+    "Sputum Culture"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "insulin",
+   "name": "insulin",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest glucose 195 mg/dL (treatment threshold > 180).",
+   "doctor_targets": [
+    "Insulin",
+    "Insulin - Regular"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest potassium 3 mEq/L at 2196-02-25 14:54:00 (reference 3.3 to 5.1) is low, consistent with 'low'.",
+   "doctor_targets": [
+    "KCL (Bolus)",
+    "Potassium Chloride"
+   ],
+   "doctor_rows": 21,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "rate_rhythm",
+   "name": "rate / rhythm control",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median heart rate over the 6 h before the decision: 109 bpm (5 readings), high by the rule 'tachycardia HR > 100; bradycardia HR < 60'.",
+   "doctor_targets": [
+    "Amiodarone",
+    "Amiodarone 600/500"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "renal_replacement",
+   "name": "renal replacement therapy",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "ACD-A Citrate (1000ml)",
+    "Calcium Gluconate (CRRT)",
+    "Citrate",
+    "Dialysis - CRRT",
+    "KCl (CRRT)",
+    "Prismasate (B22 K4)"
+   ],
+   "doctor_rows": 25,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest platelets 29 K/uL (treatment threshold < 50).",
+   "doctor_targets": [
+    "Platelets"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Norepinephrine",
+    "Phenylephrine",
+    "Vasopressin"
+   ],
+   "doctor_rows": 33,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest lactate 4.8 mmol/L at 2196-02-25 15:10:00 (reference 0.5 to 2.0) is high, consistent with 'high'.",
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 71,
+   "covered": true,
+   "by_atoms": [
+    "M34100191A2::03"
+   ]
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Chest X-Ray",
+    "ERCP (Travel to)"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "magnesium_replacement",
+   "name": "magnesium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Magnesium Sulfate",
+    "Magnesium Sulfate (Bolus)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Na Phos",
+    "Sodium Phosphate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Midazolam",
+    "Midazolam (Versed)"
+   ],
+   "doctor_rows": 10,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "steroid",
+   "name": "corticosteroids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "doctor_targets": [
+    "Hydrocortisone Na Succ."
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 258,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "recall_vital": 0.083,
+  "recall_okay": 0.0,
+  "recall_all": 0.053,
+  "recall_vital_at3": 0.083,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.053
+ }
+}

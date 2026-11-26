@@ -1,0 +1,331 @@
+{
+ "case_id": "E1592666",
+ "decision_point": "2100-01-02 23:07:00",
+ "claims": [
+  "Continue monitoring vital signs and oxygen saturation in the ICU.",
+  "Monitor blood glucose levels given persistent hyperglycemia.",
+  "Assess for signs of infection given leukocytosis and recent vancomycin administration."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E1592666A1::01",
+   "claim_id": "E1592666A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation in the ICU.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1592666A1::02",
+   "claim_id": "E1592666A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation in the ICU.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1592666A2::03",
+   "claim_id": "E1592666A2",
+   "claim_text": "Monitor blood glucose levels given persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1592666A2::04",
+   "claim_id": "E1592666A2",
+   "claim_text": "Monitor blood glucose levels given persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1592666A3::05",
+   "claim_id": "E1592666A3",
+   "claim_text": "Assess for signs of infection given leukocytosis and recent vancomycin administration.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false
+  },
+  {
+   "atom_id": "E1592666A3::06",
+   "claim_id": "E1592666A3",
+   "claim_text": "Assess for signs of infection given leukocytosis and recent vancomycin administration.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E1592666A3::07",
+   "claim_id": "E1592666A3",
+   "claim_text": "Assess for signs of infection given leukocytosis and recent vancomycin administration.",
+   "kind": "fact",
+   "text": "Vancomycin was recently administered.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "unspecified"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E1592666A2::04",
+   "claim_id": "E1592666A2",
+   "claim_text": "Monitor blood glucose levels given persistent hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "persistent",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that the patient's blood glucose levels have been elevated, but the statement 'Hyperglycemia is present' is not supported by the records. The records show that the patient's blood glucose levels have been elevated, but the statement 'Hyperglycemia is present' is not supported by the records. The records show that the patient's blood glucose levels have been elevated, but the only ",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:382339894",
+     "time": "2100-01-01 23:30:00",
+     "item": "Glucose finger stick: 188 mg/dL"
+    },
+    {
+     "rid": "lab:382364792",
+     "time": "2100-01-02 02:34:00",
+     "item": "Glucose finger stick: 230 mg/dL"
+    },
+    {
+     "rid": "lab:381796730",
+     "time": "2100-01-02 04:57:00",
+     "item": "Glucose finger stick: 256 mg/dL"
+    },
+    {
+     "rid": "lab:376542470",
+     "time": "2100-01-02 10:26:00",
+     "item": "Glucose: 206 mg/dL"
+    },
+    {
+     "rid": "lab:381925110",
+     "time": "2100-01-02 13:44:00",
+     "item": "Glucose finger stick: 211 mg/dL"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1592666A3::06",
+   "claim_id": "E1592666A3",
+   "claim_text": "Assess for signs of infection given leukocytosis and recent vancomycin administration.",
+   "kind": "fact",
+   "text": "Leukocytosis is present.",
+   "concept": "wbc",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "not_supported",
+   "reason": "The records show that vancomycin was administered at 15:00 on 2100-01-01, again at 19:00 on 2100-01-01, and once more at 17:00 on 2100-01-02. However, the statement that leukocytosis is present is not supported by these records, as they only show administration of vancomycin, not its effect on the patient's white blood cell count.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:56945189",
+     "time": "2100-01-01 15:00:00",
+     "item": "Given once: VANCOMYCIN HCL 1000 MG IV SOLR Intravenous Once X1 (2100-01-01 15:00:00)"
+    },
+    {
+     "rid": "med:56451778",
+     "time": "2100-01-01 19:00:00",
+     "item": "Given once: 100 ML GLASS CONT : IOPAMIDOL 61 % IV SOLN Intraductal Once X1 (2100-01-01 19:00:00)"
+    },
+    {
+     "rid": "med:55834132",
+     "time": "2100-01-02 17:00:00",
+     "item": "Given once: VANCOMYCIN HCL 1000 MG IV SOLR Intravenous Once X1 (2100-01-02 17:00:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E1592666A3::07",
+   "claim_id": "E1592666A3",
+   "claim_text": "Assess for signs of infection given leukocytosis and recent vancomycin administration.",
+   "kind": "fact",
+   "text": "Vancomycin was recently administered.",
+   "concept": "other",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "present",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "Vancomycin was administered at 15:00 on 2100-01-01.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:56945189",
+     "time": "2100-01-01 15:00:00",
+     "item": "Given once: VANCOMYCIN HCL 1000 MG IV SOLR Intravenous Once X1 (2100-01-01 15:00:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E1592666A1::01",
+   "claim_id": "E1592666A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation in the ICU.",
+   "kind": "action",
+   "text": "Continue monitoring vital signs.",
+   "concept": "vital_signs",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No vital signs measurement in the 2.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1592666A1::02",
+   "claim_id": "E1592666A1",
+   "claim_text": "Continue monitoring vital signs and oxygen saturation in the ICU.",
+   "kind": "action",
+   "text": "Continue monitoring oxygen saturation.",
+   "concept": "spo2",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "oxygen saturation",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No SpO2 measurement in the 2.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1592666A2::03",
+   "claim_id": "E1592666A2",
+   "claim_text": "Monitor blood glucose levels given persistent hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose levels.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No glucose measurement in the 2.4 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E1592666A3::05",
+   "claim_id": "E1592666A3",
+   "claim_text": "Assess for signs of infection given leukocytosis and recent vancomycin administration.",
+   "kind": "action",
+   "text": "Assess for signs of infection.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "signs of infection",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "Assessing causes or signs is clinical reasoning that structured records cannot show.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 2.4,
+ "scoresheet": {
+  "n": 3,
+  "supported": 1,
+  "not_supported": 2,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.333,
+  "not_supported_share": 0.667,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Hyperglycemia is present. -- The records show that the patient's blood glucose levels have been elevated, but the statement 'Hyperglycemia is present' is not supported by the records. The records show that the patient's blood glucose levels have been elevated, but the statement 'Hyperglycemia is present' is not supported by the records. The records show that the patient's blood glucose levels have been elevated, but the only ",
+    "Leukocytosis is present. -- The records show that vancomycin was administered at 15:00 on 2100-01-01, again at 19:00 on 2100-01-01, and once more at 17:00 on 2100-01-02. However, the statement that leukocytosis is present is not supported by these records, as they only show administration of vancomycin, not its effect on the patient's white blood cell count."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.333,
+  "not_supported": 2,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

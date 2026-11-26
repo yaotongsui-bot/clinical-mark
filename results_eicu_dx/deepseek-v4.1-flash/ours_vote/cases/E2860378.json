@@ -1,0 +1,411 @@
+{
+ "case_id": "E2860378",
+ "decision_point": "2100-01-02 14:07:00",
+ "claims": [
+  "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+  "Assess volume status and consider fluid resuscitation for hypotension.",
+  "Monitor blood glucose to guide insulin therapy, as last recorded glucose was 176 mg/dL at 02:34."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2860378A1::01",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "action",
+   "text": "Continue monitoring blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2860378A1::02",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "fact",
+   "text": "Hypotension is persistent.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "persistent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2860378A1::03",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "fact",
+   "text": "Systolic blood pressure is 88-99 mmHg.",
+   "concept": "sbp",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2860378A1::04",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "fact",
+   "text": "MAP is 59-78 mmHg.",
+   "concept": "map",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2860378A2::05",
+   "claim_id": "E2860378A2",
+   "claim_text": "Assess volume status and consider fluid resuscitation for hypotension.",
+   "kind": "action",
+   "text": "Assess volume status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "volume status",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2860378A2::06",
+   "claim_id": "E2860378A2",
+   "claim_text": "Assess volume status and consider fluid resuscitation for hypotension.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E2860378A2::07",
+   "claim_id": "E2860378A2",
+   "claim_text": "Assess volume status and consider fluid resuscitation for hypotension.",
+   "kind": "action",
+   "text": "Consider fluid resuscitation for hypotension.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2860378A3::08",
+   "claim_id": "E2860378A3",
+   "claim_text": "Monitor blood glucose to guide insulin therapy, as last recorded glucose was 176 mg/dL at 02:34.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2860378A3::09",
+   "claim_id": "E2860378A3",
+   "claim_text": "Monitor blood glucose to guide insulin therapy, as last recorded glucose was 176 mg/dL at 02:34.",
+   "kind": "fact",
+   "text": "Last recorded glucose was 176 mg/dL at 02:34.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2860378A1::02",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "fact",
+   "text": "Hypotension is persistent.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "persistent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1875437309",
+     "time": "2100-01-02 14:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 64.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E2860378A1::03",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "fact",
+   "text": "Systolic blood pressure is 88-99 mmHg.",
+   "concept": "sbp",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1875437307",
+     "time": "2100-01-02 14:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 94.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "normal"
+    }
+   ],
+   "reason": "The stated systolic BP (88-99) matches recorded values before the decision (94 at 2100-01-02 14:00:00).",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E2860378A1::04",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "fact",
+   "text": "MAP is 59-78 mmHg.",
+   "concept": "map",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1875437309",
+     "time": "2100-01-02 14:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 64.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "The stated mean arterial pressure (59-78) matches recorded values before the decision (64 at 2100-01-02 14:00:00).",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E2860378A2::06",
+   "claim_id": "E2860378A2",
+   "claim_text": "Assess volume status and consider fluid resuscitation for hypotension.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "low",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:1875437309",
+     "time": "2100-01-02 14:00:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 64.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: no; mean arterial pressure: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E2860378A3::09",
+   "claim_id": "E2860378A3",
+   "claim_text": "Monitor blood glucose to guide insulin therapy, as last recorded glucose was 176 mg/dL at 02:34.",
+   "kind": "fact",
+   "text": "Last recorded glucose was 176 mg/dL at 02:34.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:672113075",
+     "time": "2100-01-02 02:34:00",
+     "item": "Glucose finger stick",
+     "value": 176.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "The stated glucose (176) matches recorded values before the decision (176 at 2100-01-02 02:34:00).",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2860378A1::01",
+   "claim_id": "E2860378A1",
+   "claim_text": "Continue monitoring blood pressure closely given persistent hypotension (systolic 88-99 mmHg, MAP 59-78 mmHg) over the past 12 hours.",
+   "kind": "action",
+   "text": "Continue monitoring blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1872031514",
+     "time": "2100-01-02 15:00:00",
+     "item": "systolic BP",
+     "value": "94.0 mmHg"
+    },
+    {
+     "rid": "nurse:1815389811",
+     "time": "2100-01-02 16:00:00",
+     "item": "systolic BP",
+     "value": "94.0 mmHg"
+    },
+    {
+     "rid": "nurse:1872031516",
+     "time": "2100-01-02 15:00:00",
+     "item": "mean arterial pressure",
+     "value": "62.0 mmHg"
+    },
+    {
+     "rid": "nurse:1815389813",
+     "time": "2100-01-02 16:00:00",
+     "item": "mean arterial pressure",
+     "value": "66.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 7.8 h observation window after the decision (24 h or until ICU discharge): systolic BP x5, mean arterial pressure x5.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2860378A2::05",
+   "claim_id": "E2860378A2",
+   "claim_text": "Assess volume status and consider fluid resuscitation for hypotension.",
+   "kind": "action",
+   "text": "Assess volume status.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "assess",
+   "target": "volume status",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2860378A2::07",
+   "claim_id": "E2860378A2",
+   "claim_text": "Assess volume status and consider fluid resuscitation for hypotension.",
+   "kind": "action",
+   "text": "Consider fluid resuscitation for hypotension.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "administer",
+   "target": "fluid resuscitation",
+   "conditional": true,
+   "treatment_class": "iv_fluid",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No IV fluids action recorded in the 7.8 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2860378A3::08",
+   "claim_id": "E2860378A3",
+   "claim_text": "Monitor blood glucose to guide insulin therapy, as last recorded glucose was 176 mg/dL at 02:34.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:670831609",
+     "time": "2100-01-02 17:33:00",
+     "item": "glucose",
+     "value": "161.0 mg/dL"
+    },
+    {
+     "rid": "lab:674504494",
+     "time": "2100-01-02 20:36:00",
+     "item": "glucose",
+     "value": "250.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 7.8 h observation window after the decision (24 h or until ICU discharge): glucose x2.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 7.8,
+ "scoresheet": {
+  "n": 5,
+  "supported": 5,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

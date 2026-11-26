@@ -1,0 +1,700 @@
+{
+ "case_id": "M39635619",
+ "decision_point": "2174-12-05 11:28:24",
+ "claims": [
+  "Continue mechanical ventilation with CPAP/PSV, PEEP 5 cmH2O, and FiO2 50%.",
+  "Continue propofol and fentanyl infusions for sedation and analgesia.",
+  "Monitor renal function with serial creatinine and urine output."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39635619A1::01",
+   "claim_id": "M39635619A1",
+   "claim_text": "Continue mechanical ventilation with CPAP/PSV, PEEP 5 cmH2O, and FiO2 50%.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with CPAP/PSV, PEEP 5 cmH2O, and FiO2 50%.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39635619A1::02",
+   "claim_id": "M39635619A1",
+   "claim_text": "Continue mechanical ventilation with CPAP/PSV, PEEP 5 cmH2O, and FiO2 50%.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M39635619A2::03",
+   "claim_id": "M39635619A2",
+   "claim_text": "Continue propofol and fentanyl infusions for sedation and analgesia.",
+   "kind": "action",
+   "text": "Continue propofol infusion for sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "propofol",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39635619A2::04",
+   "claim_id": "M39635619A2",
+   "claim_text": "Continue propofol and fentanyl infusions for sedation and analgesia.",
+   "kind": "action",
+   "text": "Continue fentanyl infusion for analgesia.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "fentanyl",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39635619A2::05",
+   "claim_id": "M39635619A2",
+   "claim_text": "Continue propofol and fentanyl infusions for sedation and analgesia.",
+   "kind": "fact",
+   "text": "Propofol infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M39635619A2::06",
+   "claim_id": "M39635619A2",
+   "claim_text": "Continue propofol and fentanyl infusions for sedation and analgesia.",
+   "kind": "fact",
+   "text": "Fentanyl infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  },
+  {
+   "atom_id": "M39635619A3::07",
+   "claim_id": "M39635619A3",
+   "claim_text": "Monitor renal function with serial creatinine and urine output.",
+   "kind": "action",
+   "text": "Monitor creatinine serially.",
+   "concept": "creatinine",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "creatinine",
+   "conditional": false
+  },
+  {
+   "atom_id": "M39635619A3::08",
+   "claim_id": "M39635619A3",
+   "claim_text": "Monitor renal function with serial creatinine and urine output.",
+   "kind": "action",
+   "text": "Monitor urine output.",
+   "concept": "urine_output",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "urine output",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39635619A1::02",
+   "claim_id": "M39635619A1",
+   "claim_text": "Continue mechanical ventilation with CPAP/PSV, PEEP 5 cmH2O, and FiO2 50%.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:9268318:225792:2174-12-04 12:25:00",
+     "time": "2174-12-04 12:25:00",
+     "item": "Running at decision time (started 2174-12-04 12:25:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M39635619A2::05",
+   "claim_id": "M39635619A2",
+   "claim_text": "Continue propofol and fentanyl infusions for sedation and analgesia.",
+   "kind": "fact",
+   "text": "Propofol infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: sedation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R49 shows a propofol infusion running at decision time (started 11:27, before the 11:28:24 decision time), confirming propofol is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "mimo-v2.6-pro:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:4635476:222168:2174-12-05 11:27:00",
+     "time": "2174-12-05 11:27:00",
+     "item": "Running at decision time (started 2174-12-05 11:27:00): Infusion/input Propofol at 38.977418094873428 mcg/kg/min"
+    }
+   ]
+  },
+  {
+   "atom_id": "M39635619A2::06",
+   "claim_id": "M39635619A2",
+   "claim_text": "Continue propofol and fentanyl infusions for sedation and analgesia.",
+   "kind": "fact",
+   "text": "Fentanyl infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: pain -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R47 shows a Fentanyl (Concentrate) infusion running at 25 mcg/hour started at 11:03 and ongoing at the decision time, confirming the fentanyl infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "mimo-v2.6-pro:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:2595836:225942:2174-12-05 11:03:00",
+     "time": "2174-12-05 11:03:00",
+     "item": "Running at decision time (started 2174-12-05 11:03:00): Infusion/input Fentanyl (Concentrate) at 25.000001907348633 mcg/hour"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39635619A1::01",
+   "claim_id": "M39635619A1",
+   "claim_text": "Continue mechanical ventilation with CPAP/PSV, PEEP 5 cmH2O, and FiO2 50%.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with CPAP/PSV, PEEP 5 cmH2O, and FiO2 50%.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2174-12-04 12:25:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39635619A2::03",
+   "claim_id": "M39635619A2",
+   "claim_text": "Continue propofol and fentanyl infusions for sedation and analgesia.",
+   "kind": "action",
+   "text": "Continue propofol infusion for sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "propofol",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN222168",
+     "time": "2174-12-05 11:27:00",
+     "item": "Propofol infusion continuing at 38.977418094873428 mcg/kg/min",
+     "class": "sedation"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded sedation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39635619A2::04",
+   "claim_id": "M39635619A2",
+   "claim_text": "Continue propofol and fentanyl infusions for sedation and analgesia.",
+   "kind": "action",
+   "text": "Continue fentanyl infusion for analgesia.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "fentanyl",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225942",
+     "time": "2174-12-05 11:03:00",
+     "item": "Fentanyl (Concentrate) infusion continuing at 25.000001907348633 mcg/hour",
+     "class": "opioid_analgesia"
+    },
+    {
+     "rid": "IN221744",
+     "time": "2174-12-05 15:00:00",
+     "item": "Fentanyl infusion started at",
+     "class": "opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M39635619A3::07",
+   "claim_id": "M39635619A3",
+   "claim_text": "Monitor renal function with serial creatinine and urine output.",
+   "kind": "action",
+   "text": "Monitor creatinine serially.",
+   "concept": "creatinine",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "creatinine",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "chart:220615:2174-12-06 04:00:00:439779",
+     "time": "2174-12-06 04:00:00",
+     "item": "creatinine",
+     "value": "3.8 mg/dL"
+    },
+    {
+     "rid": "chart:220615:2174-12-05 14:15:00:442023",
+     "time": "2174-12-05 14:15:00",
+     "item": "creatinine",
+     "value": "3.6 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): creatinine x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "M39635619A3::08",
+   "claim_id": "M39635619A3",
+   "claim_text": "Monitor renal function with serial creatinine and urine output.",
+   "kind": "action",
+   "text": "Monitor urine output.",
+   "concept": "urine_output",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "urine output",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "output:226559:2174-12-06 00:00:00:314",
+     "time": "2174-12-06 00:00:00",
+     "item": "urine output",
+     "value": "75 ml"
+    },
+    {
+     "rid": "output:226559:2174-12-06 01:00:00:315",
+     "time": "2174-12-06 01:00:00",
+     "item": "urine output",
+     "value": "125 ml"
+    }
+   ],
+   "reason": "Measured in the 24.0 h observation window after the decision (24 h or until ICU discharge): urine output x15.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median temperature over the 6 h before the decision: 100.5 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "indications": [
+    {
+     "concept": "temperature",
+     "direction": "high",
+     "reason": "Median temperature over the 6 h before the decision: 100.5 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'."
+    }
+   ],
+   "doctor_targets": [
+    "Piperacillin-Tazobactam",
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "NORepinephrine",
+    "Norepinephrine"
+   ],
+   "doctor_rows": 15,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39635619A1::01"
+   ]
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray",
+    "EKG",
+    "Magnetic Resonance Imaging"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 23,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 9,
+   "covered": true,
+   "by_atoms": [
+    "M39635619A2::04"
+   ]
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39635619A2::03"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Median temperature over the 6 h before the decision: 100.5 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "indications": [
+    {
+     "concept": "temperature",
+     "direction": "high",
+     "reason": "Median temperature over the 6 h before the decision: 100.5 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'."
+    }
+   ],
+   "doctor_targets": [
+    "Piperacillin-Tazobactam",
+    "Piperacillin/Tazobactam (Zosyn)",
+    "Vancomycin"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "NORepinephrine",
+    "Norepinephrine"
+   ],
+   "doctor_rows": 15,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39635619A1::01"
+   ]
+  },
+  {
+   "class": "dvt_prophylaxis",
+   "name": "anticoagulation (prophylactic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin Sodium (Prophylaxis)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "imaging",
+   "name": "imaging / ECG",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Chest X-Ray",
+    "EKG",
+    "Magnetic Resonance Imaging"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "LR",
+    "Lactated Ringers",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 23,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "non_opioid_analgesia",
+   "name": "non-opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Acetaminophen IV",
+    "Acetaminophen-IV"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 9,
+   "covered": true,
+   "by_atoms": [
+    "M39635619A2::04"
+   ]
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M39635619A2::03"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "temperature",
+   "direction": "high",
+   "reason": "Median temperature over the 6 h before the decision: 100.5 °F (2 readings), high by the rule 'fever > 38.0 C (100.4 F); hypothermia < 36.0 C (96.8 F); Celsius rows are converted to F'.",
+   "name": "temperature",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 78,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 1,
+  "treatments_omitted": 6,
+  "recall_vital": 0.333,
+  "recall_okay": 0.333,
+  "recall_all": 0.333,
+  "recall_vital_at3": 0.333,
+  "recall_okay_at3": 0.333,
+  "recall_all_at3": 0.333
+ }
+}

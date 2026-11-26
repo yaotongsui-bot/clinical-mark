@@ -1,0 +1,324 @@
+{
+ "case_id": "M39142259-S23",
+ "decision_point": "2115-12-29 19:36:43",
+ "claims": [
+  "Discontinue anticoagulation therapy with Heparin Sodium."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M39142259-S23A1::01",
+   "claim_id": "M39142259-S23A1",
+   "claim_text": "Discontinue anticoagulation therapy with Heparin Sodium.",
+   "kind": "action",
+   "text": "Discontinue anticoagulation therapy with Heparin Sodium.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "stop",
+   "target": "Heparin Sodium",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M39142259-S23A1::02",
+   "claim_id": "M39142259-S23A1",
+   "claim_text": "Discontinue anticoagulation therapy with Heparin Sodium.",
+   "kind": "fact",
+   "text": "Heparin Sodium is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M39142259-S23A1::02",
+   "claim_id": "M39142259-S23A1",
+   "claim_text": "Discontinue anticoagulation therapy with Heparin Sodium.",
+   "kind": "fact",
+   "text": "Heparin Sodium is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "label": "supported",
+   "reason": "R41 shows a Heparin Sodium infusion running at the decision time, confirming the statement that Heparin Sodium is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:3968963:225152:2115-12-29 07:35:00",
+     "time": "2115-12-29 07:35:00",
+     "item": "Running at decision time (started 2115-12-29 07:35:00): Infusion/input Heparin Sodium at 450.0576171875 units/hour"
+    },
+    {
+     "rid": "rx:30090466:2115-12-29 08:00:00",
+     "time": "2115-12-29 08:00:00",
+     "item": "Order: Heparin Sodium 25,000 UNIT IV (active at decision time)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M39142259-S23A1::01",
+   "claim_id": "M39142259-S23A1",
+   "claim_text": "Discontinue anticoagulation therapy with Heparin Sodium.",
+   "kind": "action",
+   "text": "Discontinue anticoagulation therapy with Heparin Sodium.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "stop",
+   "target": "Heparin Sodium",
+   "conditional": false,
+   "treatment_class": "anticoagulant_therapeutic",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [
+    {
+     "rid": "IN225152",
+     "time": "2115-12-29 07:35:00",
+     "item": "Heparin Sodium infusion continuing at 450.0576171875 units/hour",
+     "class": "anticoagulant_therapeutic"
+    },
+    {
+     "rid": "IN225152#2",
+     "time": "2115-12-30 04:03:00",
+     "item": "Heparin Sodium infusion started at 500.26617431640625 units/hour",
+     "class": "anticoagulant_therapeutic"
+    }
+   ],
+   "method": "rule",
+   "direction_mismatch": true,
+   "reason": "Opposite direction: the AI suggested stopping, but anticoagulation (therapeutic) is still recorded after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "K Phos",
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "0.9% Sodium Chloride",
+    "D5 1/2NS",
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride (Powder)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "phosphate_replacement",
+   "name": "phosphate replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "phosphate",
+     "direction": "low",
+     "reason": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "K Phos",
+    "Neutra-Phos"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "anticoagulant_therapeutic",
+   "name": "anticoagulation (therapeutic)",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Heparin",
+    "Heparin Sodium"
+   ],
+   "doctor_rows": 9,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "0.9% Sodium Chloride",
+    "D5 1/2NS",
+    "Dextrose 5%",
+    "NaCl 0.9%"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Morphine Sulfate"
+   ],
+   "doctor_rows": 5,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "potassium_replacement",
+   "name": "potassium replacement",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Potassium Chloride",
+    "Potassium Chloride (Powder)"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "phosphate",
+   "direction": "low",
+   "reason": "Latest phosphate 1.7 mg/dL at 2115-12-29 12:29:00 (reference 2.7 to 4.5) is low, consistent with 'low'.",
+   "name": "phosphate",
+   "treated_by": [
+    "phosphate replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 34,
+ "observation_window_hours": 20.9,
+ "scoresheet": {
+  "n": 1,
+  "supported": 1,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 1,
+  "treatments_omitted": 5,
+  "recall_vital": 0.0,
+  "recall_okay": 0.0,
+  "recall_all": 0.0,
+  "recall_vital_at3": 0.0,
+  "recall_okay_at3": 0.0,
+  "recall_all_at3": 0.0
+ }
+}

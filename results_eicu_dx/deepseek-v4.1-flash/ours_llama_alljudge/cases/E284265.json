@@ -1,0 +1,323 @@
+{
+ "case_id": "E284265",
+ "decision_point": "2100-01-02 18:11:00",
+ "claims": [
+  "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+  "Continue enoxaparin for anticoagulation/VTE prophylaxis.",
+  "Monitor heart rate and rhythm."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E284265A1::01",
+   "claim_id": "E284265A1",
+   "claim_text": "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+   "kind": "action",
+   "text": "Continue diltiazem infusion.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "continue",
+   "target": "diltiazem infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E284265A1::02",
+   "claim_id": "E284265A1",
+   "claim_text": "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+   "kind": "fact",
+   "text": "Diltiazem infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rate -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E284265A1::03",
+   "claim_id": "E284265A1",
+   "claim_text": "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+   "kind": "fact",
+   "text": "Atrial arrhythmia is present.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E284265A2::04",
+   "claim_id": "E284265A2",
+   "claim_text": "Continue enoxaparin for anticoagulation/VTE prophylaxis.",
+   "kind": "action",
+   "text": "Continue enoxaparin.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "enoxaparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E284265A2::05",
+   "claim_id": "E284265A2",
+   "claim_text": "Continue enoxaparin for anticoagulation/VTE prophylaxis.",
+   "kind": "fact",
+   "text": "Enoxaparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified"
+  },
+  {
+   "atom_id": "E284265A3::06",
+   "claim_id": "E284265A3",
+   "claim_text": "Monitor heart rate and rhythm.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E284265A3::07",
+   "claim_id": "E284265A3",
+   "claim_text": "Monitor heart rate and rhythm.",
+   "kind": "action",
+   "text": "Monitor heart rhythm.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rhythm",
+   "conditional": false
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E284265A1::02",
+   "claim_id": "E284265A1",
+   "claim_text": "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+   "kind": "fact",
+   "text": "Diltiazem infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: heart_rate -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that diltiazem infusion was started at 21:00 on 2100-01-01 and was scheduled to run until 05:00 on 2100-01-02. This supports the statement that diltiazem infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Diltiazem (mg/hr):169",
+     "time": "2100-01-01 21:00:00",
+     "item": "Infusion/input Diltiazem at 10 mg/hour (2100-01-01 21:00:00 to 2100-01-02 05:00:00)"
+    }
+   ]
+  },
+  {
+   "atom_id": "E284265A1::03",
+   "claim_id": "E284265A1",
+   "claim_text": "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+   "kind": "fact",
+   "text": "Atrial arrhythmia is present.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "not_supported",
+   "reason": "The records show that the patient has a rhythm disturbance (atrial, supraventricular) and a heart rate of 127 bpm, but there is no evidence that the patient is currently receiving diltiazem infusion. The records do mention diltiazem as a treatment documented, but this is not sufficient to support the statement that the patient is currently receiving it.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "pat:284265:dx",
+     "time": "2100-01-01 18:11:00",
+     "item": "Admission diagnosis (APACHE): Rhythm disturbance (atrial, supraventricular)"
+    },
+    {
+     "rid": "nurse:308160838",
+     "time": "2100-01-01 18:30:00",
+     "item": "Heart Rate: 127 bpm"
+    },
+    {
+     "rid": "nurse:308640750",
+     "time": "2100-01-01 21:00:00",
+     "item": "Heart Rate: 112 bpm"
+    }
+   ]
+  },
+  {
+   "atom_id": "E284265A2::05",
+   "claim_id": "E284265A2",
+   "claim_text": "Continue enoxaparin for anticoagulation/VTE prophylaxis.",
+   "kind": "fact",
+   "text": "Enoxaparin is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: coagulation -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "unspecified",
+   "label": "supported",
+   "reason": "The records show that enoxaparin was being administered at the decision time, as indicated by the 'Running at decision time' records for enoxaparin (R3 and R5).",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "llama3.1:8b-instruct-q4_K_M": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "med:12461989",
+     "time": "2100-01-01 17:40:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 17:40:00): Medication ENOXAPARIN INJ SUB-Q Q12H"
+    },
+    {
+     "rid": "med:13236327",
+     "time": "2100-01-01 18:00:00",
+     "item": "Running at decision time (scheduled order started 2100-01-01 18:00:00): Medication ENOXAPARIN INJ SUB-Q Q12H"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E284265A1::01",
+   "claim_id": "E284265A1",
+   "claim_text": "Continue diltiazem infusion for rate control of atrial arrhythmia.",
+   "kind": "action",
+   "text": "Continue diltiazem infusion.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "continue",
+   "target": "diltiazem infusion",
+   "conditional": false,
+   "treatment_class": "rate_rhythm",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No rate / rhythm control action recorded in the 0.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E284265A2::04",
+   "claim_id": "E284265A2",
+   "claim_text": "Continue enoxaparin for anticoagulation/VTE prophylaxis.",
+   "kind": "action",
+   "text": "Continue enoxaparin.",
+   "concept": "coagulation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "enoxaparin",
+   "conditional": false,
+   "treatment_class": "dvt_prophylaxis",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No anticoagulation (prophylactic) action recorded in the 0.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E284265A3::06",
+   "claim_id": "E284265A3",
+   "claim_text": "Monitor heart rate and rhythm.",
+   "kind": "action",
+   "text": "Monitor heart rate.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No heart rate measurement in the 0.6 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E284265A3::07",
+   "claim_id": "E284265A3",
+   "claim_text": "Monitor heart rate and rhythm.",
+   "kind": "action",
+   "text": "Monitor heart rhythm.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rhythm",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No heart rhythm measurement in the 0.6 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 0.6,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "Atrial arrhythmia is present. -- The records show that the patient has a rhythm disturbance (atrial, supraventricular) and a heart rate of 127 bpm, but there is no evidence that the patient is currently receiving diltiazem infusion. The records do mention diltiazem as a treatment documented, but this is not sufficient to support the statement that the patient is currently receiving it."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

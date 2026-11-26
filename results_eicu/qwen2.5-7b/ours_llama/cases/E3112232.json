@@ -1,0 +1,276 @@
+{
+ "case_id": "E3112232",
+ "decision_point": "2100-01-02 02:39:00",
+ "claims": [
+  "Continue monitoring vital signs and pain levels.",
+  "Administer LORAZEPAM PO as needed for pain management.",
+  "Continue non-invasive blood pressure monitoring."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E3112232A1::01",
+   "claim_id": "E3112232A1",
+   "claim_text": "Continue monitoring vital signs and pain levels.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3112232A1::02",
+   "claim_id": "E3112232A1",
+   "claim_text": "Continue monitoring vital signs and pain levels.",
+   "kind": "action",
+   "text": "Monitor pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pain levels",
+   "conditional": false
+  },
+  {
+   "atom_id": "E3112232A2::03",
+   "claim_id": "E3112232A2",
+   "claim_text": "Administer LORAZEPAM PO as needed for pain management.",
+   "kind": "action",
+   "text": "Administer lorazepam PO as needed for pain management.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E3112232A3::04",
+   "claim_id": "E3112232A3",
+   "claim_text": "Continue non-invasive blood pressure monitoring.",
+   "kind": "action",
+   "text": "Continue non-invasive blood pressure monitoring.",
+   "concept": "blood_pressure",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "non-invasive blood pressure monitoring",
+   "conditional": false
+  }
+ ],
+ "facts": [],
+ "actions": [
+  {
+   "atom_id": "E3112232A1::01",
+   "claim_id": "E3112232A1",
+   "claim_text": "Continue monitoring vital signs and pain levels.",
+   "kind": "action",
+   "text": "Monitor vital signs.",
+   "concept": "vital_signs",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "vital signs",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2035856041",
+     "time": "2100-01-02 03:00:00",
+     "item": "heart rate",
+     "value": "53.0 bpm"
+    },
+    {
+     "rid": "nurse:2040427718",
+     "time": "2100-01-02 04:00:00",
+     "item": "heart rate",
+     "value": "56.0 bpm"
+    },
+    {
+     "rid": "nurse:2108633098",
+     "time": "2100-01-02 03:00:00",
+     "item": "systolic BP",
+     "value": "116.0 mmHg"
+    },
+    {
+     "rid": "nurse:1965881860",
+     "time": "2100-01-02 04:00:00",
+     "item": "systolic BP",
+     "value": "119.0 mmHg"
+    },
+    {
+     "rid": "nurse:2108633100",
+     "time": "2100-01-02 03:00:00",
+     "item": "mean arterial pressure",
+     "value": "96.0 mmHg"
+    },
+    {
+     "rid": "nurse:1965881862",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "95.0 mmHg"
+    },
+    {
+     "rid": "nurse:1971108105",
+     "time": "2100-01-02 03:00:00",
+     "item": "respiratory rate",
+     "value": "17.0 insp/min"
+    },
+    {
+     "rid": "nurse:1989167472",
+     "time": "2100-01-02 04:00:00",
+     "item": "respiratory rate",
+     "value": "16.0 insp/min"
+    },
+    {
+     "rid": "nurse:2093509006",
+     "time": "2100-01-02 03:00:00",
+     "item": "SpO2",
+     "value": "96.0 %"
+    },
+    {
+     "rid": "nurse:2083894104",
+     "time": "2100-01-02 05:00:00",
+     "item": "SpO2",
+     "value": "96.0 %"
+    },
+    {
+     "rid": "nurse:2069621825",
+     "time": "2100-01-02 05:00:00",
+     "item": "temperature",
+     "value": "97.4 F"
+    }
+   ],
+   "reason": "Measured in the 6.5 h observation window after the decision (24 h or until ICU discharge): heart rate x7, systolic BP x7, mean arterial pressure x7, respiratory rate x7, SpO2 x3, temperature x1.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3112232A1::02",
+   "claim_id": "E3112232A1",
+   "claim_text": "Continue monitoring vital signs and pain levels.",
+   "kind": "action",
+   "text": "Monitor pain levels.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "pain levels",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2018417362",
+     "time": "2100-01-02 03:00:00",
+     "item": "pain score",
+     "value": "0.0"
+    },
+    {
+     "rid": "nurse:2101188263",
+     "time": "2100-01-02 04:00:00",
+     "item": "pain score",
+     "value": "0.0"
+    }
+   ],
+   "reason": "Measured in the 6.5 h observation window after the decision (24 h or until ICU discharge): pain score x7.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E3112232A2::03",
+   "claim_id": "E3112232A2",
+   "claim_text": "Administer LORAZEPAM PO as needed for pain management.",
+   "kind": "action",
+   "text": "Administer lorazepam PO as needed for pain management.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "lorazepam",
+   "conditional": true,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No sedation action recorded in the 6.5 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E3112232A3::04",
+   "claim_id": "E3112232A3",
+   "claim_text": "Continue non-invasive blood pressure monitoring.",
+   "kind": "action",
+   "text": "Continue non-invasive blood pressure monitoring.",
+   "concept": "blood_pressure",
+   "notes": [
+    "action class corrected by rule: continue -> monitor"
+   ],
+   "action_class": "monitor",
+   "target": "non-invasive blood pressure monitoring",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:2108633098",
+     "time": "2100-01-02 03:00:00",
+     "item": "systolic BP",
+     "value": "116.0 mmHg"
+    },
+    {
+     "rid": "nurse:1965881860",
+     "time": "2100-01-02 04:00:00",
+     "item": "systolic BP",
+     "value": "119.0 mmHg"
+    },
+    {
+     "rid": "nurse:2108633100",
+     "time": "2100-01-02 03:00:00",
+     "item": "mean arterial pressure",
+     "value": "96.0 mmHg"
+    },
+    {
+     "rid": "nurse:1965881862",
+     "time": "2100-01-02 04:00:00",
+     "item": "mean arterial pressure",
+     "value": "95.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 6.5 h observation window after the decision (24 h or until ICU discharge): systolic BP x7, mean arterial pressure x7.",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 6.5,
+ "scoresheet": {
+  "n": 0,
+  "supported": 0,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": null,
+  "not_supported_share": null,
+  "not_addressed_share": null,
+  "unverifiable_share": null,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": null,
+  "not_supported": 0,
+  "treatment_precision": null,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

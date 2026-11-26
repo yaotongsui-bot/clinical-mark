@@ -1,0 +1,842 @@
+{
+ "case_id": "M34578020",
+ "decision_point": "2187-02-11 20:34:00",
+ "claims": [
+  "Continue mechanical ventilation with the current ventilator settings, including PEEP 5 cmH2O and FiO2 40%.",
+  "Continue the propofol infusion for sedation.",
+  "Continue the fentanyl infusion for analgesia."
+ ],
+ "atoms": [
+  {
+   "atom_id": "M34578020A1::01",
+   "claim_id": "M34578020A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including PEEP 5 cmH2O and FiO2 40%.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with the current ventilator settings, including PEEP 5 cmH2O and FiO2 40%.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34578020A2::02",
+   "claim_id": "M34578020A2",
+   "claim_text": "Continue the propofol infusion for sedation.",
+   "kind": "action",
+   "text": "Continue the propofol infusion for sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "propofol infusion",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34578020A3::03",
+   "claim_id": "M34578020A3",
+   "claim_text": "Continue the fentanyl infusion for analgesia.",
+   "kind": "action",
+   "text": "Continue the fentanyl infusion for analgesia.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "fentanyl infusion",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "M34578020A1::P01",
+   "claim_id": "M34578020A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including PEEP 5 cmH2O and FiO2 40%.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M34578020A2::P02",
+   "claim_id": "M34578020A2",
+   "claim_text": "Continue the propofol infusion for sedation.",
+   "kind": "fact",
+   "text": "The patient is currently receiving propofol infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  },
+  {
+   "atom_id": "M34578020A3::P03",
+   "claim_id": "M34578020A3",
+   "claim_text": "Continue the fentanyl infusion for analgesia.",
+   "kind": "fact",
+   "text": "The patient is currently receiving fentanyl infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "M34578020A1::P01",
+   "claim_id": "M34578020A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including PEEP 5 cmH2O and FiO2 40%.",
+   "kind": "fact",
+   "text": "The patient is currently on mechanical ventilation.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Invasive ventilation was running at the decision time.",
+   "evidence": [
+    {
+     "rid": "procedureevents:7342471:225792:2187-02-10 23:00:00",
+     "time": "2187-02-10 23:00:00",
+     "item": "Running at decision time (started 2187-02-10 23:00:00): Procedure Invasive Ventilation"
+    }
+   ],
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "M34578020A2::P02",
+   "claim_id": "M34578020A2",
+   "claim_text": "Continue the propofol infusion for sedation.",
+   "kind": "fact",
+   "text": "The patient is currently receiving propofol infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R48 explicitly states that a propofol infusion was running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:8594965:222168:2187-02-11 20:00:00",
+     "time": "2187-02-11 20:00:00",
+     "item": "Running at decision time (started 2187-02-11 20:00:00): Infusion/input Propofol at 40.440447628498077 mcg/kg/min"
+    },
+    {
+     "rid": "inputevents:1500017:222168:2187-02-10 23:30:00",
+     "time": "2187-02-10 23:30:00",
+     "item": "Infusion/input Propofol at 10.000799782574177 mcg/kg/min (2187-02-10 23:30:00 to 2187-02-11 15:00:00)"
+    },
+    {
+     "rid": "inputevents:9284210:222168:2187-02-11 15:00:00",
+     "time": "2187-02-11 15:00:00",
+     "item": "Infusion/input Propofol at 39.902687072753906 mcg/kg/min (2187-02-11 15:00:00 to 2187-02-11 15:17:00)"
+    },
+    {
+     "rid": "inputevents:4020037:222168:2187-02-11 15:17:00",
+     "time": "2187-02-11 15:17:00",
+     "item": "Infusion/input Propofol at 49.7417114675045 mcg/kg/min (2187-02-11 15:17:00 to 2187-02-11 16:00:00)"
+    },
+    {
+     "rid": "inputevents:2952470:222168:2187-02-11 15:20:00",
+     "time": "2187-02-11 15:20:00",
+     "item": "Infusion/input Propofol 20.000001415610313 mg (2187-02-11 15:20:00 to 2187-02-11 15:21:00)"
+    },
+    {
+     "rid": "inputevents:2663080:222168:2187-02-11 16:00:00",
+     "time": "2187-02-11 16:00:00",
+     "item": "Infusion/input Propofol at 69.235078990459442 mcg/kg/min (2187-02-11 16:00:00 to 2187-02-11 16:23:00)"
+    },
+    {
+     "rid": "inputevents:3751860:222168:2187-02-11 16:23:00",
+     "time": "2187-02-11 16:23:00",
+     "item": "Infusion/input Propofol at 58.849815279245377 mcg/kg/min (2187-02-11 16:23:00 to 2187-02-11 16:49:00)"
+    },
+    {
+     "rid": "inputevents:9395977:222168:2187-02-11 16:49:00",
+     "time": "2187-02-11 16:49:00",
+     "item": "Infusion/input Propofol at 90.949855744838715 mcg/kg/min (2187-02-11 16:49:00 to 2187-02-11 16:52:00)"
+    },
+    {
+     "rid": "inputevents:3139875:222168:2187-02-11 16:52:00",
+     "time": "2187-02-11 16:52:00",
+     "item": "Infusion/input Propofol at 75.132697820663452 mcg/kg/min (2187-02-11 16:52:00 to 2187-02-11 17:15:00)"
+    },
+    {
+     "rid": "inputevents:8201503:222168:2187-02-11 17:15:00",
+     "time": "2187-02-11 17:15:00",
+     "item": "Infusion/input Propofol at 69.121897220611572 mcg/kg/min (2187-02-11 17:15:00 to 2187-02-11 17:30:00)"
+    },
+    {
+     "rid": "inputevents:6454168:222168:2187-02-11 17:30:00",
+     "time": "2187-02-11 17:30:00",
+     "item": "Infusion/input Propofol at 59.149261564016342 mcg/kg/min (2187-02-11 17:30:00 to 2187-02-11 19:00:00)"
+    },
+    {
+     "rid": "inputevents:6704454:222168:2187-02-11 15:15:00",
+     "time": "2187-02-11 15:15:00",
+     "item": "Infusion/input Propofol 20.000001415610313 mg (2187-02-11 15:15:00 to 2187-02-11 15:16:00)"
+    },
+    {
+     "rid": "inputevents:1843706:222168:2187-02-11 15:15:00",
+     "time": "2187-02-11 15:15:00",
+     "item": "Infusion/input Propofol 20.000001415610313 mg (2187-02-11 15:15:00 to 2187-02-11 15:16:00)"
+    },
+    {
+     "rid": "chart:34578020:227960:2187-02-11 16:00:00",
+     "time": "2187-02-11 16:00:00",
+     "item": "Patient/Family Informed: Yes"
+    },
+    {
+     "rid": "inputevents:476711:222168:2187-02-11 16:50:00",
+     "time": "2187-02-11 16:50:00",
+     "item": "Infusion/input Propofol 10.000000707805157 mg (2187-02-11 16:50:00 to 2187-02-11 16:51:00)"
+    },
+    {
+     "rid": "inputevents:503702:225168:2187-02-11 17:00:00",
+     "time": "2187-02-11 17:00:00",
+     "item": "Infusion/input Packed Red Blood Cells at 350 mL/hour (2187-02-11 17:00:00 to 2187-02-11 18:00:00)"
+    },
+    {
+     "rid": "inputevents:7691844:225866:2187-02-11 17:42:00",
+     "time": "2187-02-11 17:42:00",
+     "item": "Infusion/input Erythromycin 1 dose (2187-02-11 17:42:00 to 2187-02-11 17:43:00)"
+    },
+    {
+     "rid": "inputevents:7691844:220949:2187-02-11 17:42:00",
+     "time": "2187-02-11 17:42:00",
+     "item": "Infusion/input Dextrose 5% 100 ml (2187-02-11 17:42:00 to 2187-02-11 17:43:00)"
+    },
+    {
+     "rid": "inputevents:4797392:225158:2187-02-11 17:43:00",
+     "time": "2187-02-11 17:43:00",
+     "item": "Running at decision time (started 2187-02-11 17:43:00): Infusion/input NaCl 0.9% at 5 mL/hour"
+    },
+    {
+     "rid": "inputevents:9028818:225942:2187-02-11 17:52:00",
+     "time": "2187-02-11 17:52:00",
+     "item": "Infusion/input Fentanyl (Concentrate) at 60.07745361328125 mcg/hour (2187-02-11 17:52:00 to 2187-02-11 17:54:00)"
+    },
+    {
+     "rid": "inputevents:8282805:222168:2187-02-11 19:00:00",
+     "time": "2187-02-11 19:00:00",
+     "item": "Infusion/input Propofol at 49.246452748775482 mcg/kg/min (2187-02-11 19:00:00 to 2187-02-11 20:00:00)"
+    },
+    {
+     "rid": "chart:34578020:227960:2187-02-11 19:00:00",
+     "time": "2187-02-11 19:00:00",
+     "item": "Patient/Family Informed: Yes"
+    },
+    {
+     "rid": "inputevents:2351834:225943:2187-02-11 19:00:00",
+     "time": "2187-02-11 19:00:00",
+     "item": "Running at decision time (started 2187-02-11 19:00:00): Infusion/input Solution at 1.4028007984161377 mL/hour"
+    },
+    {
+     "rid": "inputevents:2351834:225942:2187-02-11 19:00:00",
+     "time": "2187-02-11 19:00:00",
+     "item": "Running at decision time (started 2187-02-11 19:00:00): Infusion/input Fentanyl (Concentrate) at 70.1400375366211 mcg/hour"
+    },
+    {
+     "rid": "inputevents:8282805:225943:2187-02-11 19:00:00",
+     "time": "2187-02-11 19:00:00",
+     "item": "Infusion/input Solution at 17.137765884399414 mL/hour (2187-02-11 19:00:00 to 2187-02-11 20:00:00)"
+    },
+    {
+     "rid": "inputevents:4575082:225910:2187-02-11 19:25:00",
+     "time": "2187-02-11 19:25:00",
+     "item": "Running at decision time (started 2187-02-11 19:25:00): Infusion/input Pantoprazole (Protonix) at 8.20512866973877 mg/hour"
+    }
+   ]
+  },
+  {
+   "atom_id": "M34578020A3::P03",
+   "claim_id": "M34578020A3",
+   "claim_text": "Continue the fentanyl infusion for analgesia.",
+   "kind": "fact",
+   "text": "The patient is currently receiving fentanyl infusion.",
+   "concept": "other",
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "none",
+   "notes": [
+    "premise implied by a 'continue X' action"
+   ],
+   "label": "supported",
+   "reason": "Record R44 confirms that a Fentanyl (Concentrate) infusion was running at the decision time.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "gemma4:12b": "supported",
+     "llama3.1:8b-instruct-q4_K_M": "supported",
+     "qwen2.5:14b": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inputevents:2351834:225942:2187-02-11 19:00:00",
+     "time": "2187-02-11 19:00:00",
+     "item": "Running at decision time (started 2187-02-11 19:00:00): Infusion/input Fentanyl (Concentrate) at 70.1400375366211 mcg/hour"
+    },
+    {
+     "rid": "rx:11804097:2187-02-10 22:00:00",
+     "time": "2187-02-10 22:00:00",
+     "item": "Order: Fentanyl Citrate 2.5 mg IV DRIP (active at decision time)"
+    },
+    {
+     "rid": "inputevents:1432723:221744:2187-02-10 22:40:00",
+     "time": "2187-02-10 22:40:00",
+     "item": "Infusion/input Fentanyl 24.999999368446879 mcg (2187-02-10 22:40:00 to 2187-02-10 22:41:00)"
+    },
+    {
+     "rid": "inputevents:7079896:225942:2187-02-10 23:30:00",
+     "time": "2187-02-10 23:30:00",
+     "item": "Infusion/input Fentanyl (Concentrate) at 75.000007629394531 mcg/hour (2187-02-10 23:30:00 to 2187-02-11 07:01:00)"
+    },
+    {
+     "rid": "inputevents:5274564:225942:2187-02-11 07:01:00",
+     "time": "2187-02-11 07:01:00",
+     "item": "Infusion/input Fentanyl (Concentrate) at 50.010765075683594 mcg/hour (2187-02-11 07:01:00 to 2187-02-11 11:18:00)"
+    },
+    {
+     "rid": "inputevents:694517:225910:2187-02-11 09:29:00",
+     "time": "2187-02-11 09:29:00",
+     "item": "Infusion/input Pantoprazole (Protonix) at 8.0536909103393555 mg/hour (2187-02-11 09:29:00 to 2187-02-11 19:25:00)"
+    },
+    {
+     "rid": "inputevents:2380613:225942:2187-02-11 11:18:00",
+     "time": "2187-02-11 11:18:00",
+     "item": "Infusion/input Fentanyl (Concentrate) at 30.009363174438477 mcg/hour (2187-02-11 11:18:00 to 2187-02-11 11:32:00)"
+    },
+    {
+     "rid": "inputevents:969819:225942:2187-02-11 11:32:00",
+     "time": "2187-02-11 11:32:00",
+     "item": "Infusion/input Fentanyl (Concentrate) at 50.025333404541016 mcg/hour (2187-02-11 11:32:00 to 2187-02-11 13:53:00)"
+    },
+    {
+     "rid": "inputevents:3591795:225942:2187-02-11 13:53:00",
+     "time": "2187-02-11 13:53:00",
+     "item": "Infusion/input Fentanyl (Concentrate) at 75.0575942993164 mcg/hour (2187-02-11 13:53:00 to 2187-02-11 15:01:00)"
+    },
+    {
+     "rid": "inputevents:3634582:225942:2187-02-11 15:01:00",
+     "time": "2187-02-11 15:01:00",
+     "item": "Infusion/input Fentanyl (Concentrate) at 100.04920196533203 mcg/hour (2187-02-11 15:01:00 to 2187-02-11 17:30:00)"
+    },
+    {
+     "rid": "inputevents:4073134:221744:2187-02-11 15:29:00",
+     "time": "2187-02-11 15:29:00",
+     "item": "Infusion/input Fentanyl 49.999998736893758 mcg (2187-02-11 15:29:00 to 2187-02-11 15:30:00)"
+    },
+    {
+     "rid": "inputevents:5822457:221744:2187-02-11 15:49:00",
+     "time": "2187-02-11 15:49:00",
+     "item": "Infusion/input Fentanyl 24.999999368446879 mcg (2187-02-11 15:49:00 to 2187-02-11 15:50:00)"
+    },
+    {
+     "rid": "inputevents:2031695:221744:2187-02-11 16:52:00",
+     "time": "2187-02-11 16:52:00",
+     "item": "Infusion/input Fentanyl 24.999999368446879 mcg (2187-02-11 16:52:00 to 2187-02-11 16:53:00)"
+    },
+    {
+     "rid": "inputevents:268288:225942:2187-02-11 17:30:00",
+     "time": "2187-02-11 17:30:00",
+     "item": "Infusion/input Fentanyl (Concentrate) at 80.081626892089844 mcg/hour (2187-02-11 17:30:00 to 2187-02-11 17:52:00)"
+    },
+    {
+     "rid": "inputevents:9028818:225942:2187-02-11 17:52:00",
+     "time": "2187-02-11 17:52:00",
+     "item": "Infusion/input Fentanyl (Concentrate) at 60.07745361328125 mcg/hour (2187-02-11 17:52:00 to 2187-02-11 17:54:00)"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "M34578020A1::01",
+   "claim_id": "M34578020A1",
+   "claim_text": "Continue mechanical ventilation with the current ventilator settings, including PEEP 5 cmH2O and FiO2 40%.",
+   "kind": "action",
+   "text": "Continue mechanical ventilation with the current ventilator settings, including PEEP 5 cmH2O and FiO2 40%.",
+   "concept": "metabolic_acidosis",
+   "notes": [],
+   "action_class": "continue",
+   "target": "mechanical ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation_invasive",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "PR225792",
+     "time": "2187-02-10 23:00:00",
+     "item": "Invasive Ventilation continuing",
+     "class": "ventilation_invasive"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded invasive mechanical ventilation after the decision (already running before the decision and continued).",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34578020A2::02",
+   "claim_id": "M34578020A2",
+   "claim_text": "Continue the propofol infusion for sedation.",
+   "kind": "action",
+   "text": "Continue the propofol infusion for sedation.",
+   "concept": "sedation",
+   "notes": [],
+   "action_class": "continue",
+   "target": "propofol infusion",
+   "conditional": false,
+   "treatment_class": "sedation",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN222168",
+     "time": "2187-02-11 20:00:00",
+     "item": "Propofol infusion continuing at 40.440447628498077 mcg/kg/min",
+     "class": "sedation"
+    },
+    {
+     "rid": "IN222168#2",
+     "time": "2187-02-11 23:16:00",
+     "item": "Propofol infusion started at 39.544455707073212 mcg/kg/min",
+     "class": "sedation"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded sedation after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "M34578020A3::03",
+   "claim_id": "M34578020A3",
+   "claim_text": "Continue the fentanyl infusion for analgesia.",
+   "kind": "action",
+   "text": "Continue the fentanyl infusion for analgesia.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "continue",
+   "target": "fentanyl infusion",
+   "conditional": false,
+   "treatment_class": "opioid_analgesia",
+   "class_level": "class",
+   "label": "match",
+   "evidence": [
+    {
+     "rid": "IN225942",
+     "time": "2187-02-11 19:00:00",
+     "item": "Fentanyl (Concentrate) infusion continuing at 70.1400375366211 mcg/hour",
+     "class": "opioid_analgesia"
+    },
+    {
+     "rid": "IN225942#2",
+     "time": "2187-02-12 10:33:00",
+     "item": "Fentanyl (Concentrate) infusion started at 108.00000762939453 mcg/hour",
+     "class": "opioid_analgesia"
+    }
+   ],
+   "method": "rule",
+   "reason": "Clinicians recorded opioid analgesia after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13.1 K/uL at 2187-02-11 20:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 13.1 K/uL at 2187-02-11 20:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "MetRONIDAZOLE (FLagyl)",
+    "Piperacillin-Tazobactam",
+    "Vancomycin"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.09 mmol/L at 2187-02-11 06:41:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 1.09 mmol/L at 2187-02-11 06:41:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fresh Frozen Plasma",
+    "Platelets"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "PHENYLEPHrine"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M34578020A1::01"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "Lactated Ringers",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 13,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 7,
+   "covered": true,
+   "by_atoms": [
+    "M34578020A3::03"
+   ]
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 11,
+   "covered": true,
+   "by_atoms": [
+    "M34578020A2::02"
+   ]
+  }
+ ],
+ "coverage_at3": [
+  {
+   "class": "antimicrobial",
+   "name": "antimicrobials",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest WBC 13.1 K/uL at 2187-02-11 20:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "indications": [
+    {
+     "concept": "wbc",
+     "direction": "high",
+     "reason": "Latest WBC 13.1 K/uL at 2187-02-11 20:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'."
+    }
+   ],
+   "doctor_targets": [
+    "CefePIME",
+    "Cefepime",
+    "MetRONIDAZOLE (FLagyl)",
+    "Piperacillin-Tazobactam",
+    "Vancomycin"
+   ],
+   "doctor_rows": 8,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "calcium_replacement",
+   "name": "calcium replacement",
+   "importance": "vital",
+   "problem_linked": true,
+   "indication": "Latest calcium 1.09 mmol/L at 2187-02-11 06:41:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "indications": [
+    {
+     "concept": "calcium",
+     "direction": "low",
+     "reason": "Latest calcium 1.09 mmol/L at 2187-02-11 06:41:00 (reference 1.12 to 1.32) is low, consistent with 'low'."
+    }
+   ],
+   "doctor_targets": [
+    "Calcium Gluconate"
+   ],
+   "doctor_rows": 2,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_other",
+   "name": "platelet / plasma transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fresh Frozen Plasma",
+    "Platelets"
+   ],
+   "doctor_rows": 3,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "transfusion_rbc",
+   "name": "red cell transfusion",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Packed Red Blood Cells"
+   ],
+   "doctor_rows": 6,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "vasopressor",
+   "name": "vasopressors",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "PHENYLEPHrine"
+   ],
+   "doctor_rows": 1,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "ventilation_invasive",
+   "name": "invasive mechanical ventilation",
+   "importance": "vital",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Invasive Ventilation"
+   ],
+   "doctor_rows": 1,
+   "covered": true,
+   "by_atoms": [
+    "M34578020A1::01"
+   ]
+  },
+  {
+   "class": "iv_fluid",
+   "name": "IV fluids",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Dextrose 5%",
+    "Lactated Ringers",
+    "NaCl 0.9%",
+    "Sodium Chloride 0.9%"
+   ],
+   "doctor_rows": 13,
+   "covered": false,
+   "by_atoms": []
+  },
+  {
+   "class": "opioid_analgesia",
+   "name": "opioid analgesia",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Fentanyl",
+    "Fentanyl (Concentrate)"
+   ],
+   "doctor_rows": 7,
+   "covered": true,
+   "by_atoms": [
+    "M34578020A3::03"
+   ]
+  },
+  {
+   "class": "sedation",
+   "name": "sedation",
+   "importance": "okay",
+   "problem_linked": false,
+   "indication": "",
+   "indications": [],
+   "doctor_targets": [
+    "Propofol"
+   ],
+   "doctor_rows": 11,
+   "covered": true,
+   "by_atoms": [
+    "M34578020A2::02"
+   ]
+  }
+ ],
+ "fact_omissions": [
+  {
+   "concept": "calcium",
+   "direction": "low",
+   "reason": "Latest calcium 1.09 mmol/L at 2187-02-11 06:41:00 (reference 1.12 to 1.32) is low, consistent with 'low'.",
+   "name": "calcium",
+   "treated_by": [
+    "calcium replacement"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  },
+  {
+   "concept": "wbc",
+   "direction": "high",
+   "reason": "Latest WBC 13.1 K/uL at 2187-02-11 20:00:00 (reference 4.0 to 10.0) is high, consistent with 'high'.",
+   "name": "WBC",
+   "treated_by": [
+    "antimicrobials"
+   ],
+   "mentioned": false,
+   "by_atoms": []
+  }
+ ],
+ "doctor_actions_in_window": 84,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 3,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 1.0,
+  "facts_omitted": 2,
+  "treatments_omitted": 6,
+  "recall_vital": 0.167,
+  "recall_okay": 0.667,
+  "recall_all": 0.333,
+  "recall_vital_at3": 0.167,
+  "recall_okay_at3": 0.667,
+  "recall_all_at3": 0.333
+ }
+}

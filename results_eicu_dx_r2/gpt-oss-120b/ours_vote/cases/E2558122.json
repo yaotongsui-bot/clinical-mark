@@ -1,0 +1,315 @@
+{
+ "case_id": "E2558122",
+ "decision_point": "2100-01-02 15:39:00",
+ "claims": [
+  "Administer intravenous calcium gluconate for hyperkalemia.",
+  "Continue non‑invasive positive pressure ventilation (BiPAP) to support oxygenation.",
+  "Monitor cardiac rhythm continuously for arrhythmias associated with elevated potassium."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2558122A1::01",
+   "claim_id": "E2558122A1",
+   "claim_text": "Administer intravenous calcium gluconate for hyperkalemia.",
+   "kind": "action",
+   "text": "Administer intravenous calcium gluconate.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "calcium gluconate",
+   "conditional": false,
+   "treatment_class": "calcium_replacement",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2558122A1::02",
+   "claim_id": "E2558122A1",
+   "claim_text": "Administer intravenous calcium gluconate for hyperkalemia.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E2558122A2::03",
+   "claim_id": "E2558122A2",
+   "claim_text": "Continue non‑invasive positive pressure ventilation (BiPAP) to support oxygenation.",
+   "kind": "action",
+   "text": "Continue non-invasive positive pressure ventilation (BiPAP).",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive positive pressure ventilation (BiPAP)",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E2558122A2::04",
+   "claim_id": "E2558122A2",
+   "claim_text": "Continue non‑invasive positive pressure ventilation (BiPAP) to support oxygenation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive positive pressure ventilation (BiPAP).",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E2558122A3::05",
+   "claim_id": "E2558122A3",
+   "claim_text": "Monitor cardiac rhythm continuously for arrhythmias associated with elevated potassium.",
+   "kind": "action",
+   "text": "Monitor cardiac rhythm continuously.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "cardiac rhythm",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2558122A3::06",
+   "claim_id": "E2558122A3",
+   "claim_text": "Monitor cardiac rhythm continuously for arrhythmias associated with elevated potassium.",
+   "kind": "fact",
+   "text": "Potassium is elevated.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2558122A1::02",
+   "claim_id": "E2558122A1",
+   "claim_text": "Administer intravenous calcium gluconate for hyperkalemia.",
+   "kind": "fact",
+   "text": "Hyperkalemia is present.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:592937735",
+     "time": "2100-01-02 06:00:00",
+     "item": "Potassium",
+     "value": 7.2,
+     "unit": "MMOL/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:592946580",
+     "time": "2100-01-02 10:00:00",
+     "item": "Potassium",
+     "value": 5.7,
+     "unit": "MMOL/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:591608953",
+     "time": "2100-01-02 14:15:00",
+     "item": "Potassium",
+     "value": 6.1,
+     "unit": "MMOL/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest potassium 6.1 MMOL/L at 2100-01-02 14:15:00 (reference 3.3 to 5.1) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E2558122A2::04",
+   "claim_id": "E2558122A2",
+   "claim_text": "Continue non‑invasive positive pressure ventilation (BiPAP) to support oxygenation.",
+   "kind": "fact",
+   "text": "The patient is currently on non-invasive positive pressure ventilation (BiPAP).",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The most recent respiratory support record (R33) documents oxygen therapy via nasal cannula, not BiPAP. No record of non-invasive positive pressure ventilation is present.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported",
+     "minimax-m3.1-flash:cloud": "not_supported",
+     "glm-5.3:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "treat:58346182",
+     "time": "2100-01-01 22:54:00",
+     "item": "Treatment documented: ventilation and oxygenation | oxygen therapy (< 40%) | nasal cannula"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2558122A3::06",
+   "claim_id": "E2558122A3",
+   "claim_text": "Monitor cardiac rhythm continuously for arrhythmias associated with elevated potassium.",
+   "kind": "fact",
+   "text": "Potassium is elevated.",
+   "concept": "potassium",
+   "notes": [],
+   "fact_kind": "presupposition",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:592937735",
+     "time": "2100-01-02 06:00:00",
+     "item": "Potassium",
+     "value": 7.2,
+     "unit": "MMOL/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:592946580",
+     "time": "2100-01-02 10:00:00",
+     "item": "Potassium",
+     "value": 5.7,
+     "unit": "MMOL/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:591608953",
+     "time": "2100-01-02 14:15:00",
+     "item": "Potassium",
+     "value": 6.1,
+     "unit": "MMOL/L",
+     "bounds": "3.3 to 5.1",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest potassium 6.1 MMOL/L at 2100-01-02 14:15:00 (reference 3.3 to 5.1) is high, consistent with 'high'.",
+   "method": "deterministic"
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2558122A1::01",
+   "claim_id": "E2558122A1",
+   "claim_text": "Administer intravenous calcium gluconate for hyperkalemia.",
+   "kind": "action",
+   "text": "Administer intravenous calcium gluconate.",
+   "concept": "potassium",
+   "notes": [],
+   "action_class": "administer",
+   "target": "calcium gluconate",
+   "conditional": false,
+   "treatment_class": "calcium_replacement",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No calcium replacement action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2558122A2::03",
+   "claim_id": "E2558122A2",
+   "claim_text": "Continue non‑invasive positive pressure ventilation (BiPAP) to support oxygenation.",
+   "kind": "action",
+   "text": "Continue non-invasive positive pressure ventilation (BiPAP).",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "non-invasive positive pressure ventilation (BiPAP)",
+   "conditional": false,
+   "treatment_class": "ventilation_noninvasive",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-invasive ventilation action recorded in the 24.0 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2558122A3::05",
+   "claim_id": "E2558122A3",
+   "claim_text": "Monitor cardiac rhythm continuously for arrhythmias associated with elevated potassium.",
+   "kind": "action",
+   "text": "Monitor cardiac rhythm continuously.",
+   "concept": "heart_rhythm",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "cardiac rhythm",
+   "conditional": false,
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No heart rhythm measurement in the 24.0 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 24.0,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on non-invasive positive pressure ventilation (BiPAP). -- The most recent respiratory support record (R33) documents oxygen therapy via nasal cannula, not BiPAP. No record of non-invasive positive pressure ventilation is present."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

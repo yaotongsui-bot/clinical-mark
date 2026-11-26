@@ -1,0 +1,501 @@
+{
+ "case_id": "E978037",
+ "decision_point": "2100-01-02 04:37:00",
+ "claims": [
+  "Continue monitoring blood pressure and heart rate closely given recent hypotension and tachycardia.",
+  "Monitor blood glucose and administer insulin per sliding scale or scheduled orders for hyperglycemia.",
+  "Assess and manage pain with PRN analgesics as ordered, given reported pain score of 6."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E978037A1::01",
+   "claim_id": "E978037A1",
+   "claim_text": "Continue monitoring blood pressure and heart rate closely given recent hypotension and tachycardia.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E978037A1::02",
+   "claim_id": "E978037A1",
+   "claim_text": "Continue monitoring blood pressure and heart rate closely given recent hypotension and tachycardia.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false
+  },
+  {
+   "atom_id": "E978037A1::03",
+   "claim_id": "E978037A1",
+   "claim_text": "Continue monitoring blood pressure and heart rate closely given recent hypotension and tachycardia.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E978037A1::04",
+   "claim_id": "E978037A1",
+   "claim_text": "Continue monitoring blood pressure and heart rate closely given recent hypotension and tachycardia.",
+   "kind": "fact",
+   "text": "Tachycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E978037A2::05",
+   "claim_id": "E978037A2",
+   "claim_text": "Monitor blood glucose and administer insulin per sliding scale or scheduled orders for hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false
+  },
+  {
+   "atom_id": "E978037A2::06",
+   "claim_id": "E978037A2",
+   "claim_text": "Monitor blood glucose and administer insulin per sliding scale or scheduled orders for hyperglycemia.",
+   "kind": "action",
+   "text": "Administer insulin per sliding scale or scheduled orders.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class"
+  },
+  {
+   "atom_id": "E978037A2::07",
+   "claim_id": "E978037A2",
+   "claim_text": "Monitor blood glucose and administer insulin per sliding scale or scheduled orders for hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood"
+  },
+  {
+   "atom_id": "E978037A3::08",
+   "claim_id": "E978037A3",
+   "claim_text": "Assess and manage pain with PRN analgesics as ordered, given reported pain score of 6.",
+   "kind": "action",
+   "text": "Assess pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false
+  },
+  {
+   "atom_id": "E978037A3::09",
+   "claim_id": "E978037A3",
+   "claim_text": "Assess and manage pain with PRN analgesics as ordered, given reported pain score of 6.",
+   "kind": "action",
+   "text": "Manage pain with PRN analgesics as ordered.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "PRN analgesics",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E978037A3::10",
+   "claim_id": "E978037A3",
+   "claim_text": "Assess and manage pain with PRN analgesics as ordered, given reported pain score of 6.",
+   "kind": "fact",
+   "text": "Pain score is 6.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E978037A1::03",
+   "claim_id": "E978037A1",
+   "claim_text": "Continue monitoring blood pressure and heart rate closely given recent hypotension and tachycardia.",
+   "kind": "fact",
+   "text": "Hypotension is present.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "low",
+   "time": "recent",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:576404842",
+     "time": "2100-01-01 22:00:00",
+     "item": "Non Invasive Blood Pressure systolic",
+     "value": 89.0,
+     "unit": "mmHg",
+     "bounds": "90 to 140",
+     "bounds_basis": "rule",
+     "status": "low"
+    },
+    {
+     "rid": "nurse:570097656",
+     "time": "2100-01-01 18:45:00",
+     "item": "Non Invasive Blood Pressure mean",
+     "value": 64.0,
+     "unit": "mmHg",
+     "bounds": "65 to -",
+     "bounds_basis": "rule",
+     "status": "low"
+    }
+   ],
+   "reason": "'blood pressure low' holds when any component is low. systolic BP: yes; mean arterial pressure: yes.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E978037A1::04",
+   "claim_id": "E978037A1",
+   "claim_text": "Continue monitoring blood pressure and heart rate closely given recent hypotension and tachycardia.",
+   "kind": "fact",
+   "text": "Tachycardia is present.",
+   "concept": "heart_rate",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "recent",
+   "specimen": "other",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "nurse:577809725",
+     "time": "2100-01-01 23:00:00",
+     "item": "Heart Rate",
+     "value": 104.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "nurse:579478805",
+     "time": "2100-01-02 00:00:00",
+     "item": "Heart Rate",
+     "value": 110.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    },
+    {
+     "rid": "nurse:579634652",
+     "time": "2100-01-02 03:00:00",
+     "item": "Heart Rate",
+     "value": 101.0,
+     "unit": "bpm",
+     "bounds": "60 to 100",
+     "bounds_basis": "rule",
+     "status": "high"
+    }
+   ],
+   "reason": "36 of 56 heart rate values in the 24 h before the decision were high.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E978037A2::07",
+   "claim_id": "E978037A2",
+   "claim_text": "Monitor blood glucose and administer insulin per sliding scale or scheduled orders for hyperglycemia.",
+   "kind": "fact",
+   "text": "Hyperglycemia is present.",
+   "concept": "glucose",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "high",
+   "time": "current",
+   "specimen": "blood",
+   "label": "supported",
+   "evidence": [
+    {
+     "rid": "lab:228957940",
+     "time": "2100-01-01 02:20:00",
+     "item": "Glucose",
+     "value": 190.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    },
+    {
+     "rid": "lab:227710256",
+     "time": "2100-01-01 22:05:00",
+     "item": "Glucose",
+     "value": 224.0,
+     "unit": "mg/dL",
+     "bounds": "70 to 100",
+     "bounds_basis": "fallback_reference",
+     "status": "high"
+    }
+   ],
+   "reason": "Latest glucose 224 mg/dL at 2100-01-01 22:05:00 (reference 70 to 100) is high, consistent with 'high'.",
+   "method": "deterministic"
+  },
+  {
+   "atom_id": "E978037A3::10",
+   "claim_id": "E978037A3",
+   "claim_text": "Assess and manage pain with PRN analgesics as ordered, given reported pain score of 6.",
+   "kind": "fact",
+   "text": "Pain score is 6.",
+   "concept": "pain",
+   "notes": [],
+   "fact_kind": "observed",
+   "direction": "abnormal",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "The most recent pain level record before the decision time shows a pain score of 6, which directly supports the statement.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "3/3",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported",
+     "minimax-m3.1-flash:cloud": "supported",
+     "glm-5.3:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "nurse:578913429",
+     "time": "2100-01-02 02:16:00",
+     "item": "Pain Level: 6"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E978037A1::01",
+   "claim_id": "E978037A1",
+   "claim_text": "Continue monitoring blood pressure and heart rate closely given recent hypotension and tachycardia.",
+   "kind": "action",
+   "text": "Monitor blood pressure closely.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:576077405",
+     "time": "2100-01-02 05:00:00",
+     "item": "systolic BP",
+     "value": "92.0 mmHg"
+    },
+    {
+     "rid": "nurse:568113758",
+     "time": "2100-01-02 06:00:00",
+     "item": "systolic BP",
+     "value": "105.0 mmHg"
+    },
+    {
+     "rid": "nurse:576077404",
+     "time": "2100-01-02 05:00:00",
+     "item": "mean arterial pressure",
+     "value": "75.0 mmHg"
+    },
+    {
+     "rid": "nurse:568113757",
+     "time": "2100-01-02 06:00:00",
+     "item": "mean arterial pressure",
+     "value": "87.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 17.9 h observation window after the decision (24 h or until ICU discharge): systolic BP x29, mean arterial pressure x28.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E978037A1::02",
+   "claim_id": "E978037A1",
+   "claim_text": "Continue monitoring blood pressure and heart rate closely given recent hypotension and tachycardia.",
+   "kind": "action",
+   "text": "Monitor heart rate closely.",
+   "concept": "heart_rate",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "heart rate",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:580214479",
+     "time": "2100-01-02 05:00:00",
+     "item": "heart rate",
+     "value": "98.0 bpm"
+    },
+    {
+     "rid": "nurse:569108372",
+     "time": "2100-01-02 06:00:00",
+     "item": "heart rate",
+     "value": "99.0 bpm"
+    }
+   ],
+   "reason": "Measured in the 17.9 h observation window after the decision (24 h or until ICU discharge): heart rate x28.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E978037A2::05",
+   "claim_id": "E978037A2",
+   "claim_text": "Monitor blood glucose and administer insulin per sliding scale or scheduled orders for hyperglycemia.",
+   "kind": "action",
+   "text": "Monitor blood glucose.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "blood glucose",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "lab:227887808",
+     "time": "2100-01-02 10:00:00",
+     "item": "glucose",
+     "value": "181.0 mg/dL"
+    },
+    {
+     "rid": "lab:231434102",
+     "time": "2100-01-02 12:28:00",
+     "item": "glucose",
+     "value": "206.0 mg/dL"
+    }
+   ],
+   "reason": "Measured in the 17.9 h observation window after the decision (24 h or until ICU discharge): glucose x4.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E978037A2::06",
+   "claim_id": "E978037A2",
+   "claim_text": "Monitor blood glucose and administer insulin per sliding scale or scheduled orders for hyperglycemia.",
+   "kind": "action",
+   "text": "Administer insulin per sliding scale or scheduled orders.",
+   "concept": "glucose",
+   "notes": [],
+   "action_class": "administer",
+   "target": "insulin",
+   "conditional": false,
+   "treatment_class": "insulin",
+   "class_level": "class",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No insulin action recorded in the 17.9 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E978037A3::08",
+   "claim_id": "E978037A3",
+   "claim_text": "Assess and manage pain with PRN analgesics as ordered, given reported pain score of 6.",
+   "kind": "action",
+   "text": "Assess pain.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "assess",
+   "target": "pain",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:579602863",
+     "time": "2100-01-02 06:00:00",
+     "item": "pain score",
+     "value": "0.0"
+    },
+    {
+     "rid": "nurse:576734806",
+     "time": "2100-01-02 08:00:00",
+     "item": "pain score",
+     "value": "0.0"
+    }
+   ],
+   "reason": "Measured in the 17.9 h observation window after the decision (24 h or until ICU discharge): pain score x6.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E978037A3::09",
+   "claim_id": "E978037A3",
+   "claim_text": "Assess and manage pain with PRN analgesics as ordered, given reported pain score of 6.",
+   "kind": "action",
+   "text": "Manage pain with PRN analgesics as ordered.",
+   "concept": "pain",
+   "notes": [],
+   "action_class": "administer",
+   "target": "PRN analgesics",
+   "conditional": true,
+   "treatment_class": "analgesia",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No opioid analgesia / non-opioid analgesia action recorded in the 17.9 h observation window after the decision.",
+   "track": "treatment"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 17.9,
+ "scoresheet": {
+  "n": 4,
+  "supported": 4,
+  "not_supported": 0,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 1.0,
+  "not_supported_share": 0.0,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 1.0,
+  "not_supported": 0,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}

@@ -1,0 +1,38 @@
+You check one statement from a patient's hospital course summary against that patient's own
+clinical notes. The notes are the gold standard. "reference" holds the note excerpts most relevant
+to the statement: either a block of text, or a list of records in time order, each with an id, date,
+time and note type.
+
+Return JSON only: {"label":"supported|not_supported|not_addressed","evidence":["..."],"reason":"one or two sentences in English"}
+
+- supported: the reference explicitly shows that the whole statement is true.
+- not_supported: the reference addresses the statement but contradicts it, or supports only part of
+  it (a different value, drug, dose, site, side, time or outcome; one of several claims is wrong).
+- not_addressed: the reference says nothing about the subject of the statement. Missing information
+  is not_addressed, never not_supported.
+
+Evidence:
+- When the reference is a list of records, cite their ids ("R3"); supported and not_supported need
+  at least one. When it is a block of text, quote the deciding words (at most 20 words each).
+  not_addressed may cite nothing.
+
+Rules:
+- A plan is not an event. "Plan to start heparin", "consider CT", "will order" or "recommend" shows
+  intent; the statement that it happened is supported only by a note that it was done, given,
+  started or resulted. An order alone does not show that a drug was given.
+- Read negation and uncertainty. "No evidence of pneumonia", "denies chest pain", "r/o MI" or
+  "rule out PE", "?pneumonia", "possible", "cannot exclude" do not establish the finding. A statement
+  that the finding was present is not_supported when the notes rule it out, and not_addressed when
+  they only raise it as a question.
+- Respect time. Notes often copy older text forward. A statement about the patient's state at a
+  given time uses the notes nearest that time; a statement about the final state or outcome uses the
+  latest notes. A later note that a problem resolved, a drug was stopped or a plan changed overrides
+  an earlier one.
+- History versus this admission: a past diagnosis or home medication supports a statement about
+  history, not a statement that it happened or was started during this admission, unless the notes
+  say so.
+- Numbers must match within the precision stated; units must be compatible.
+- De-identified names, dates and places appear as placeholders (for example "Hospital1 18",
+  "Known lastname"). Do not call a statement not_supported only because such a detail is masked.
+- Standard clinical abbreviations may be read in full (HTN, CHF, AFib, s/p). Do not add medical
+  knowledge the notes do not contain, and do not infer a diagnosis from a drug or a test result alone.

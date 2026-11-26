@@ -1,0 +1,403 @@
+{
+ "case_id": "E2757707",
+ "decision_point": "2100-01-02 23:07:00",
+ "claims": [
+  "Continue pressure support ventilation with current settings and begin gradual weaning as tolerated.",
+  "Monitor invasive arterial blood pressure and central venous pressure every hour to assess hemodynamic stability while on phenylephrine infusion.",
+  "Obtain a repeat basic metabolic panel and arterial blood gas in 2 hours to evaluate electrolytes, glucose, and acid‑base status while on insulin infusion."
+ ],
+ "atoms": [
+  {
+   "atom_id": "E2757707A1::01",
+   "claim_id": "E2757707A1",
+   "claim_text": "Continue pressure support ventilation with current settings and begin gradual weaning as tolerated.",
+   "kind": "action",
+   "text": "Continue pressure support ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pressure support ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E2757707A1::02",
+   "claim_id": "E2757707A1",
+   "claim_text": "Continue pressure support ventilation with current settings and begin gradual weaning as tolerated.",
+   "kind": "fact",
+   "text": "The patient is currently on pressure support ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E2757707A1::03",
+   "claim_id": "E2757707A1",
+   "claim_text": "Continue pressure support ventilation with current settings and begin gradual weaning as tolerated.",
+   "kind": "action",
+   "text": "Begin gradual weaning as tolerated.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator weaning",
+   "conditional": true,
+   "treatment_class": "ventilation",
+   "class_level": "group"
+  },
+  {
+   "atom_id": "E2757707A2::04",
+   "claim_id": "E2757707A2",
+   "claim_text": "Monitor invasive arterial blood pressure and central venous pressure every hour to assess hemodynamic stability while on phenylephrine infusion.",
+   "kind": "action",
+   "text": "Monitor invasive arterial blood pressure every hour.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "invasive arterial blood pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2757707A2::05",
+   "claim_id": "E2757707A2",
+   "claim_text": "Monitor invasive arterial blood pressure and central venous pressure every hour to assess hemodynamic stability while on phenylephrine infusion.",
+   "kind": "action",
+   "text": "Monitor central venous pressure every hour.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "central venous pressure",
+   "conditional": false
+  },
+  {
+   "atom_id": "E2757707A2::06",
+   "claim_id": "E2757707A2",
+   "claim_text": "Monitor invasive arterial blood pressure and central venous pressure every hour to assess hemodynamic stability while on phenylephrine infusion.",
+   "kind": "fact",
+   "text": "Phenylephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  },
+  {
+   "atom_id": "E2757707A3::07",
+   "claim_id": "E2757707A3",
+   "claim_text": "Obtain a repeat basic metabolic panel and arterial blood gas in 2 hours to evaluate electrolytes, glucose, and acid‑base status while on insulin infusion.",
+   "kind": "action",
+   "text": "Obtain a repeat basic metabolic panel in 2 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "basic metabolic panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E2757707A3::08",
+   "claim_id": "E2757707A3",
+   "claim_text": "Obtain a repeat basic metabolic panel and arterial blood gas in 2 hours to evaluate electrolytes, glucose, and acid‑base status while on insulin infusion.",
+   "kind": "action",
+   "text": "Obtain an arterial blood gas in 2 hours.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none"
+  },
+  {
+   "atom_id": "E2757707A3::09",
+   "claim_id": "E2757707A3",
+   "claim_text": "Obtain a repeat basic metabolic panel and arterial blood gas in 2 hours to evaluate electrolytes, glucose, and acid‑base status while on insulin infusion.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other"
+  }
+ ],
+ "facts": [
+  {
+   "atom_id": "E2757707A1::02",
+   "claim_id": "E2757707A1",
+   "claim_text": "Continue pressure support ventilation with current settings and begin gradual weaning as tolerated.",
+   "kind": "fact",
+   "text": "The patient is currently on pressure support ventilation.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: ventilator -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "not_supported",
+   "reason": "The only record mentioning pressure support is R18, which shows a Pressure Support setting of 10 at 02:25 on 2100-01-02. There is no record of pressure support ventilation at the decision time of 2100-01-02 23:07, and no later ventilator settings or device rows confirm ongoing pressure support ventilation.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "not_supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "lab:714634866",
+     "time": "2100-01-02 02:25:00",
+     "item": "Pressure Support: 10"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2757707A2::06",
+   "claim_id": "E2757707A2",
+   "claim_text": "Monitor invasive arterial blood pressure and central venous pressure every hour to assess hemodynamic stability while on phenylephrine infusion.",
+   "kind": "fact",
+   "text": "Phenylephrine infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: blood_pressure -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R50 shows a phenylephrine infusion running at the decision time, which directly supports the statement that the patient is currently receiving phenylephrine.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Volume (ml) Phenylephrine ():1328",
+     "time": "2100-01-02 21:15:00",
+     "item": "Running at decision time (started 2100-01-02 21:15:00): Infusion/input Volume (ml) Phenylephrine at 42"
+    }
+   ]
+  },
+  {
+   "atom_id": "E2757707A3::09",
+   "claim_id": "E2757707A3",
+   "claim_text": "Obtain a repeat basic metabolic panel and arterial blood gas in 2 hours to evaluate electrolytes, glucose, and acid‑base status while on insulin infusion.",
+   "kind": "fact",
+   "text": "Insulin infusion is currently being given.",
+   "concept": "other",
+   "notes": [
+    "concept set by the rule files: glucose -> other"
+   ],
+   "fact_kind": "presupposition",
+   "direction": "present",
+   "time": "current",
+   "specimen": "other",
+   "label": "supported",
+   "reason": "R48 shows an insulin infusion running at the decision time, which directly supports the statement that an insulin infusion is currently being given.",
+   "method": "llm_panel",
+   "panel": {
+    "agreement": "1/1",
+    "votes": {
+     "deepseek-v4-pro:0813:cloud": "supported"
+    }
+   },
+   "evidence": [
+    {
+     "rid": "inf:Insulin ():1328",
+     "time": "2100-01-02 21:15:00",
+     "item": "Running at decision time (started 2100-01-02 21:15:00): Infusion/input Insulin at 9.6"
+    }
+   ]
+  }
+ ],
+ "actions": [
+  {
+   "atom_id": "E2757707A1::01",
+   "claim_id": "E2757707A1",
+   "claim_text": "Continue pressure support ventilation with current settings and begin gradual weaning as tolerated.",
+   "kind": "action",
+   "text": "Continue pressure support ventilation with current settings.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "continue",
+   "target": "pressure support ventilation",
+   "conditional": false,
+   "treatment_class": "ventilation",
+   "class_level": "group",
+   "label": "not_done",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-invasive ventilation / invasive mechanical ventilation / extubation / weaning action recorded in the 21.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2757707A1::03",
+   "claim_id": "E2757707A1",
+   "claim_text": "Continue pressure support ventilation with current settings and begin gradual weaning as tolerated.",
+   "kind": "action",
+   "text": "Begin gradual weaning as tolerated.",
+   "concept": "ventilator",
+   "notes": [],
+   "action_class": "adjust",
+   "target": "ventilator weaning",
+   "conditional": true,
+   "treatment_class": "ventilation",
+   "class_level": "group",
+   "label": "condition_not_met",
+   "evidence": [],
+   "method": "rule",
+   "reason": "No non-invasive ventilation / invasive mechanical ventilation / extubation / weaning action recorded in the 21.6 h observation window after the decision.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2757707A2::04",
+   "claim_id": "E2757707A2",
+   "claim_text": "Monitor invasive arterial blood pressure and central venous pressure every hour to assess hemodynamic stability while on phenylephrine infusion.",
+   "kind": "action",
+   "text": "Monitor invasive arterial blood pressure every hour.",
+   "concept": "blood_pressure",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "invasive arterial blood pressure",
+   "conditional": false,
+   "label": "performed",
+   "evidence": [
+    {
+     "rid": "nurse:1800086769",
+     "time": "2100-01-02 23:30:00",
+     "item": "systolic BP",
+     "value": "106.0 mmHg"
+    },
+    {
+     "rid": "nurse:1795634795",
+     "time": "2100-01-03 00:00:00",
+     "item": "systolic BP",
+     "value": "101.0 mmHg"
+    },
+    {
+     "rid": "nurse:1800086771",
+     "time": "2100-01-02 23:30:00",
+     "item": "mean arterial pressure",
+     "value": "98.0 mmHg"
+    },
+    {
+     "rid": "nurse:1795634797",
+     "time": "2100-01-03 00:00:00",
+     "item": "mean arterial pressure",
+     "value": "94.0 mmHg"
+    }
+   ],
+   "reason": "Measured in the 21.6 h observation window after the decision (24 h or until ICU discharge): systolic BP x29, mean arterial pressure x28.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2757707A2::05",
+   "claim_id": "E2757707A2",
+   "claim_text": "Monitor invasive arterial blood pressure and central venous pressure every hour to assess hemodynamic stability while on phenylephrine infusion.",
+   "kind": "action",
+   "text": "Monitor central venous pressure every hour.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "monitor",
+   "target": "central venous pressure",
+   "conditional": false,
+   "label": "unobservable",
+   "evidence": [],
+   "reason": "No structured record item corresponds to this monitoring/assessment target.",
+   "method": "rule",
+   "track": "monitoring"
+  },
+  {
+   "atom_id": "E2757707A3::07",
+   "claim_id": "E2757707A3",
+   "claim_text": "Obtain a repeat basic metabolic panel and arterial blood gas in 2 hours to evaluate electrolytes, glucose, and acid‑base status while on insulin infusion.",
+   "kind": "action",
+   "text": "Obtain a repeat basic metabolic panel in 2 hours.",
+   "concept": "other",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "basic metabolic panel",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "vague_target",
+   "evidence": [],
+   "method": "rule",
+   "reason": "The suggestion names no specific drug or treatment that the rule file can classify, and no corresponding clinician action was found.",
+   "track": "treatment"
+  },
+  {
+   "atom_id": "E2757707A3::08",
+   "claim_id": "E2757707A3",
+   "claim_text": "Obtain a repeat basic metabolic panel and arterial blood gas in 2 hours to evaluate electrolytes, glucose, and acid‑base status while on insulin infusion.",
+   "kind": "action",
+   "text": "Obtain an arterial blood gas in 2 hours.",
+   "concept": "blood_gas",
+   "notes": [],
+   "action_class": "order_test",
+   "target": "arterial blood gas",
+   "conditional": false,
+   "treatment_class": null,
+   "class_level": "none",
+   "label": "not_performed",
+   "evidence": [],
+   "reason": "No blood gas measurement in the 21.6 h observation window after the decision (24 h or until ICU discharge).",
+   "method": "rule",
+   "track": "monitoring"
+  }
+ ],
+ "coverage": [],
+ "coverage_at3": [],
+ "fact_omissions": [],
+ "doctor_actions_in_window": 0,
+ "observation_window_hours": 21.6,
+ "scoresheet": {
+  "n": 3,
+  "supported": 2,
+  "not_supported": 1,
+  "not_addressed": 0,
+  "unverifiable": 0,
+  "supported_share": 0.667,
+  "not_supported_share": 0.333,
+  "not_addressed_share": 0.0,
+  "unverifiable_share": 0.0,
+  "reasons": {
+   "not_supported": [
+    "The patient is currently on pressure support ventilation. -- The only record mentioning pressure support is R18, which shows a Pressure Support setting of 10 at 02:25 on 2100-01-02. There is no record of pressure support ventilation at the decision time of 2100-01-02 23:07, and no later ventilator settings or device rows confirm ongoing pressure support ventilation."
+   ],
+   "not_addressed": []
+  }
+ },
+ "metrics": {
+  "fact_accuracy": 0.667,
+  "not_supported": 1,
+  "treatment_precision": 0.0,
+  "facts_omitted": 0,
+  "treatments_omitted": 0,
+  "recall_vital": null,
+  "recall_okay": null,
+  "recall_all": null,
+  "recall_vital_at3": null,
+  "recall_okay_at3": null,
+  "recall_all_at3": null
+ }
+}
